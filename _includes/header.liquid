@@ -2,6 +2,11 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="{{ site.baseurl }}/">
+        <img src="{{ '/assets/img/nDNA.png' | relative_url }}" alt="nDNA Logo" height="30" class="d-inline-block align-top">
+      </a>
+      
       {% if page.permalink != '/' %}
         <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
           {% if site.title == 'blank' %}
