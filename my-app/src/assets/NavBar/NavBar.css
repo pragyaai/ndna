@@ -1,0 +1,73 @@
+.navBar {
+  background-color: #f9f4ef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1.5em;
+  flex-wrap: wrap;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+.navBar ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.navBar h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.navBar li {
+  background: transparent;
+}
+
+.navBar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 0.5em 0.7em;
+  text-decoration: none;
+  background: transparent;
+  font-size: 1.2em;
+}
+
+.navBar li a:hover {
+  transform: translate(-2px, 1px);
+  color: #716040;
+}
+
+.navBar li a.active {
+  border-bottom: solid;
+  padding-bottom: 0;
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 768px) {
+  .navBar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em;
+  }
+
+  .navBar h1 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .navBar ul {
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+  }
+
+  .navBar li a {
+    text-align: left;
+    font-size: 1em;
+    padding: 0.5em;
+  }
+}

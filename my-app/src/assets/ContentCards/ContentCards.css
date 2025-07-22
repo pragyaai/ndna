@@ -1,0 +1,80 @@
+.cardSection{
+  padding: 3em;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.descriptionDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 3em 0 0em 0;
+  padding-bottom: 0.5em 0 0.5em 0;
+  gap: 5em;
+}
+
+.descriptionDiv p {
+  color: #716040;
+  font-size: 2em;
+}
+
+.rightSectionDiv {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 1em;
+}
+
+.leftSectionDiv p {
+  color: #716040;
+  font-size: 1.5em;
+  line-height: 1.5;
+  width: 100%;
+}
+
+#contentTitle{
+  width: 100%;
+  font-size: 3em;
+}
+
+#externalLink{
+  padding-top: 0.5em;
+  font-size: 1.5em;
+}
+
+#externalLink:hover{
+  cursor: pointer;
+}
+
+/* Mobile layout: stack image above text */
+@media (max-width: 768px) {
+  .descriptionDiv {
+    flex-direction: column;
+  }
+
+  .rightSectionDiv,
+  .leftSectionDiv {
+    width: 100%;
+    padding: 1em 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rightSectionDiv {
+    order: -1; /* Force image section to appear first */
+  }
+
+  .leftSectionDiv p,
+  .rightSectionDiv p {
+    width: 90%;
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .leftSectionDiv img,
+  .rightSectionDiv img {
+    width: 70%;
+  }
+}
