@@ -26,7 +26,7 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
-## Introduction to nDNA
+## Introduction
 
 **nDNA**—short for *Neural DNA*—is a novel framework for analyzing the latent cognitive structure of large AI models. Just as biological DNA governs inheritance in living systems, nDNA models the *semantic genome* of foundation models—mapping how they internalize, evolve, and transmit abstract patterns of thought, reasoning, and belief.
 
