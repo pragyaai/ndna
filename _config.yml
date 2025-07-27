@@ -15,14 +15,27 @@ plugins:
   - jekyll-seo-tag
 
 
+# Collections
+collections:
+  llm:
+    output: true
+    permalink: /:collection/:name/
+  mfm:
+    output: true
+    permalink: /:collection/:name/
+  t2i:
+    output: true
+    permalink: /:collection/:name/
+  diffusion:
+    output: true
+    permalink: /:collection/:name/
+  efm:
+    output: true
+    permalink: /:collection/:name/
+
 # Include pages
 include:
   - _pages
-  - _llm
-  - _mfm
-  - _t2i
-  - _diffusion
-  - _efm
 
 # Exclude from processing
 exclude:
