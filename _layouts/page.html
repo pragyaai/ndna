@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="{{ site.baseurl }}">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/ndna.css' | relative_url }}">
+  {% feed_meta %}
+  {% seo %}
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="{{ '/assets/img/nDNA.png' | relative_url }}" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div id="topMenu" style="display: flex; flex-wrap: wrap; align-items: center;"></div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        {% if page.title %}
+          <h1>{{ page.title }}</h1>
+        {% endif %}
+        {{ content }}
+      </div>
+    </div>
+
+    <footer>
+      © Copyright {{ 'now' | date: "%Y" }} nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="{{ '/assets/js/ndna.js' | relative_url }}"></script>
+</body>
+</html>
