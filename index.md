@@ -1,6 +1,6 @@
 ---
 layout: ndna
-title: nDNA - Neural DNA Framework
+title: nDNA
 ---
 
 # nDNA
