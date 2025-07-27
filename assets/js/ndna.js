@@ -51,13 +51,8 @@ function renderTopMenu(items) {
   const container = document.getElementById('topMenu');
   container.innerHTML = '';
 
-  // Define which tabs to keep visible
-  const visibleTabs = ["nDNA", "Fine-Tuning", "Cultural nDNA", "Alignment", "Neural Genomics", "Model Collapse", "Quantization"];
-  const visibleItems = items.filter(item => visibleTabs.includes(item.text || item));
-  const dropdownItems = items.filter(item => !visibleTabs.includes(item.text || item));
-
-  // Add visible tabs
-  visibleItems.forEach((item, idx) => {
+  // Add all tabs to the top bar
+  items.forEach((item, idx) => {
     const link = document.createElement('a');
     link.href = item.url || '#';
     link.className = idx === 0 ? 'active' : '';
@@ -88,36 +83,6 @@ function renderTopMenu(items) {
       container.appendChild(submenu);
     }
   });
-
-  // Add "Know More" dropdown if there are dropdown items
-  if (dropdownItems.length > 0) {
-    const dropdown = document.createElement('div');
-    dropdown.className = 'dropdown';
-    
-    const dropdownButton = document.createElement('a');
-    dropdownButton.href = '#';
-    dropdownButton.innerText = 'Know More';
-    dropdownButton.className = 'dropdown-button';
-    dropdownButton.onclick = function(e) {
-      e.preventDefault();
-      const dropdownContent = dropdown.querySelector('.dropdown-content');
-      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-    };
-    
-    const dropdownContent = document.createElement('div');
-    dropdownContent.className = 'dropdown-content';
-    
-    dropdownItems.forEach(item => {
-      const link = document.createElement('a');
-      link.href = item.url || '#';
-      link.innerText = item.text || item;
-      dropdownContent.appendChild(link);
-    });
-    
-    dropdown.appendChild(dropdownButton);
-    dropdown.appendChild(dropdownContent);
-    container.appendChild(dropdown);
-  }
 }
 
 function switchView(view) {

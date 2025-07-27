@@ -76,18 +76,20 @@ body {
 }
 
 .navbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 14px 24px 14px 24px;
   background-color: #ffffff;
   border-bottom: 1px solid #eee;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   position: sticky;
   top: 0;
   z-index: 900;
+  padding: 14px 24px 14px 24px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .navbar a {
@@ -208,7 +210,8 @@ body {
 }
 
 .pragya-logo {
-  margin-left: auto;
+  flex-shrink: 0;
+  align-self: flex-start;
 }
 
 .pragya-logo a {
