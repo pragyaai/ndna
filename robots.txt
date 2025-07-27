@@ -1,4 +1,1 @@
-User-agent: *
-Disallow:
-
 Sitemap: https://pragyaai.github.io/nDNA/sitemap.xml
