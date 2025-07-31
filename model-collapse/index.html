@@ -60,6 +60,9 @@
 
 <p>Model collapse occurs when foundation models lose diversity in their representations, leading to degraded performance and reduced capability. nDNA provides early warning indicators of this critical failure mode.</p>
 
+<p><img src="placeholder-collapse-overview.gif" alt="Model Collapse Animation" />
+<em>Visualization of progressive model collapse through nDNA metrics</em></p>
+
 <h2 id="ndna-signatures-of-collapse">nDNA Signatures of Collapse</h2>
 
 <h3 id="spectral-curvature-flattening">Spectral Curvature Flattening</h3>
@@ -68,6 +71,9 @@
   <li><strong>Collapsing Models</strong>: Progressively flatter curvature profiles</li>
   <li><strong>Collapsed Models</strong>: Near-zero curvature indicating representational stagnation</li>
 </ul>
+
+<p><img src="placeholder-curvature-evolution.gif" alt="Curvature Flattening" />
+<em>Spectral curvature evolution during collapse</em></p>
 
 <h3 id="thermodynamic-length-reduction">Thermodynamic Length Reduction</h3>
 <p>As models collapse, the energy required for belief updating decreases dramatically:</p>
@@ -84,6 +90,9 @@
   <li>Reduced sensitivity to different contextual inputs</li>
 </ul>
 
+<p><img src="placeholder-belief-vectors.gif" alt="Belief Vector Fields" />
+<em>Healthy vs collapsed belief vector field comparison</em></p>
+
 <h2 id="early-detection-methods">Early Detection Methods</h2>
 
 <p>nDNA enables detection of model collapse before performance degradation becomes apparent:</p>
@@ -94,18 +103,46 @@
   <li><strong>Belief Diversity</strong>: Measure belief vector distribution entropy</li>
 </ol>
 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Collapse Detection Framework
+</span><span class="n">vitality_score</span> <span class="o">=</span> <span class="n">curvature</span> <span class="o">*</span> <span class="n">thermodynamic_length</span> <span class="o">*</span> <span class="n">belief_magnitude</span>
+<span class="k">if</span> <span class="n">vitality_trend</span> <span class="o">&lt;</span> <span class="n">collapse_threshold</span><span class="p">:</span>
+    <span class="nf">trigger_intervention</span><span class="p">()</span>
+</code></pre></div></div>
+
 <h2 id="prevention-strategies">Prevention Strategies</h2>
 
 <p>Based on nDNA analysis, several collapse prevention strategies emerge:</p>
+
 <ul>
   <li><strong>Regularization</strong>: Maintain curvature diversity through targeted regularization</li>
   <li><strong>Data Augmentation</strong>: Ensure belief vector diversity through varied training data</li>
   <li><strong>Architecture Design</strong>: Design networks that naturally resist collapse</li>
 </ul>
 
+<p><img src="placeholder-prevention-methods.gif" alt="Prevention Strategies" />
+<em>Intervention techniques to prevent model collapse</em></p>
+
 <h2 id="case-studies">Case Studies</h2>
 
 <p>Analysis of collapsed models shows consistent nDNA patterns across different architectures and domains, providing a universal framework for understanding this phenomenon.</p>
+
+<h3 id="recursive-fine-tuning-results">Recursive Fine-tuning Results</h3>
+<ul>
+  <li><strong>LLaMA-2</strong>: Collapse at Generation 10</li>
+  <li><strong>Curvature</strong>: κℓ → 0.02 (from 0.05)</li>
+  <li><strong>Thermodynamic Length</strong>: Lℓ → 0.4 (from 0.8)</li>
+</ul>
+
+<h3 id="cultural-model-merging">Cultural Model Merging</h3>
+<ul>
+  <li><strong>China/Middle East</strong>: Collapse at Gen 9</li>
+  <li><strong>Africa/North America</strong>: Collapse at Gen 15</li>
+  <li><strong>Consistent Pattern</strong>: Manifold flattening across all cultures</li>
+</ul>
+
+<hr />
+
+<p><em>Early detection through geometric analysis enables proactive model health management</em></p>
 
       </div>
     </div>
