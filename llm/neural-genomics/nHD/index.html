@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>Neural Hamming Distance (nHD) - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/ndna.css">
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Neural Hamming Distance (nHD) | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Neural Hamming Distance (nHD)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics" />
+<meta property="og:description" content="Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-31T19:03:48+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T19:03:48+00:00","datePublished":"2025-07-31T19:03:48+00:00","description":"Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo_v5.png" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu" style="display: flex; flex-wrap: wrap; align-items: center; flex: 1; min-width: 0;"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+          <h1>Neural Hamming Distance (nHD)</h1>
+        
+        <h1 id="neural-hamming-distance-nhd-capturing-bit-level-mutation-signatures-in-neural-genomics">Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics</h1>
+
+<p>In biological genomics, the <strong>Hamming Distance</strong> is a key metric quantifying the number of differing nucleotides between two sequences, often used to measure <strong>mutation load</strong> and <strong>evolutionary divergence</strong>. Inspired by this, the <strong>Neural Hamming Distance (nHD)</strong> translates these ideas to <strong>foundation models</strong>, serving as an interpretable measure of <strong>bit-level differences</strong> in internal representations.</p>
+
+<p>Subtle changes in neural weights or activations—especially across culturally heterogeneous data—can induce <strong>incremental binary mutations</strong> in model “neural genomes”, affecting semantic or functional behavior. These mutations may arise from:</p>
+
+<ul>
+  <li>Architectural changes</li>
+  <li>Training variation</li>
+  <li>Cultural representational biases</li>
+</ul>
+
+<p>nHD detects and localizes these <strong>semantic mutation signatures</strong>, helping identify which layers or parameters are more vulnerable to <strong>drift</strong>, enabling model realignment and robustness analysis.</p>
+
+<h2 id="141-from-genomic-mutation-to-neural-lineage-drift">14.1 From Genomic Mutation to Neural Lineage Drift</h2>
+
+<h3 id="what-the-metric-does">What the Metric Does</h3>
+
+<p>nHD quantifies the <strong>discrete divergence</strong> between two neural representations by counting mismatches in <strong>binarized latent codes</strong> across model layers. This binary semantic encoding helps track <strong>structural mutations</strong> as models undergo fine-tuning, merging, quantization, or distillation.</p>
+
+<h3 id="biological--mathematical-background">Biological &amp; Mathematical Background</h3>
+
+<p>In genomics, the Hamming distance between two sequences ( S^{(1)}, S^{(2)} ) of length ( n ) is:</p>
+
+<p>[
+d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}[s_i^{(1)} \neq s_i^{(2)}]
+]</p>
+
+<ul>
+  <li>( \mathbf{1}[\cdot] ): indicator function</li>
+  <li>( s_i^{(k)} ): nucleotide at position ( i ) in sequence ( k )</li>
+</ul>
+
+<p>This captures <strong>point mutations</strong>, essential for studying <strong>genetic drift</strong>, <strong>recombination</strong>, and <strong>mutation modeling</strong>.</p>
+
+<p>Hamming distance defines a <strong>geodesic metric</strong> on the <strong>Hamming hypercube</strong> ( \mathcal{H}^n = {0, 1}^n ), where each vertex represents a binary sequence, and each edge represents a <strong>single-bit mutation</strong>.</p>
+
+<h3 id="extending-to-foundation-models">Extending to Foundation Models</h3>
+
+<p>We treat internal neural states as <strong>neural genomes</strong>. Let ( \mathcal{M}_1, \mathcal{M}_2 ) be two models with identical architecture, and let the layerwise hidden states be:</p>
+
+<p>[
+H_\ell^{(1)}, H_\ell^{(2)} \in \mathbb{R}^{b \times d}
+]</p>
+
+<p>Where:</p>
+<ul>
+  <li>( b ): batch size or token dimension</li>
+  <li>( d ): feature dimension at layer ( \ell )</li>
+</ul>
+
+<p>To binarize using a threshold ( \tau ), define:</p>
+
+<p>[
+B_\ell^{(k)} = \left[\mathbf{1}\left(H_\ell^{(k)} &gt; \tau\right)\right], \quad B_\ell^{(k)} \in {0, 1}^{b \times d}
+]</p>
+
+<p>This binary representation enables <strong>bitwise comparison</strong> to trace semantic drift in LLMs, akin to tracking mutation in biological systems.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p><strong>nHD</strong> serves as a <strong>neural genomics metric</strong> that decodes the <strong>mutation landscape</strong> of foundation models. It bridges the conceptual space between <strong>biological evolution</strong> and <strong>neural representational dynamics</strong>, promoting semantic integrity across culturally diverse and evolving AI systems.</p>
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>
