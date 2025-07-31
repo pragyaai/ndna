@@ -183,21 +183,17 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0;">
 
 <!-- (1) Africa–Asia -->
-<a href="{{ '/assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Africa–Asia">
-  <img src="{{ '/assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif' | relative_url }}" alt="Africa–Asia nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-</a>
-
-**Africa–Asia**
-
-\\( \kappa_\ell: 0.3 \rightarrow 0.7 \\),  
-\\( L_\ell: 0.4 \rightarrow 0.7 \\)
-
-Smooth geodesic interpolation within convex hull reflects semantic augmentation and representational folding.
-
-\\[
-M^{(\ell)}_{\text{offspring}} = \alpha^{(\ell)} M^{(\ell)}_A + (1 - \alpha^{(\ell)}) M^{(\ell)}_B + \varepsilon^{(\ell)}
-\\]
-
-
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Africa–Asia">
+    <img src="{{ '/assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif' | relative_url }}" alt="Africa–Asia nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">Africa–Asia</p>
+  <div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
+    \( \kappa_\ell: 0.3 \rightarrow 0.7 \), \( L_\ell: 0.4 \rightarrow 0.7 \). Smooth geodesic interpolation within convex hull reflects semantic augmentation and representational folding.
+    \[
+    M^{(\ell)}_{\text{offspring}} = \alpha^{(\ell)} M^{(\ell)}_A + (1 - \alpha^{(\ell)}) M^{(\ell)}_B + \varepsilon^{(\ell)}
+    \]
+  </div>
+</div>
 
 
