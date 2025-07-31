@@ -6,9 +6,11 @@ const menusByModel = {
   LLM: [
     { text: "nDNA", url: baseUrl + "/" },
     { text: "Fine-Tuning", url: baseUrl + "/llm/fine-tuning/" },
+    { text: "CIVIC", url: baseUrl + "/llm/civic/" },
     { text: "Cultural nDNA", url: baseUrl + "/llm/cultural-ndna/" },
     { text: "Multilinguality", url: baseUrl + "/llm/multilinguality/" },
     { text: "Alignment", url: baseUrl + "/llm/alignment/" },
+    { text: "NLP Operations", url: baseUrl + "/llm/nlp-operations/" },
     { text: "Quantization", url: baseUrl + "/quantization/" },
     { text: "Pruning", url: baseUrl + "/llm/pruning/" },
     { text: "Model Merging", url: "#" },
@@ -46,6 +48,7 @@ const menusByModel = {
 };
 
 const neuralSubmenuItems = ["nHD", "nGDI", "nTDS", "nKaryotyping", "nDIV", "nEPI", "nCCL"];
+const nlpOperationsSubmenuItems = ["Machine Translation", "Multi-turn Conversation", "Adversarial Attack"];
 
 function renderTopMenu(items) {
   const container = document.getElementById('topMenu');
@@ -57,10 +60,37 @@ function renderTopMenu(items) {
     link.className = idx === 0 ? 'active' : '';
     link.innerText = item.text || item;
 
+    // Add click handler to update active state
+    link.addEventListener('click', (e) => {
+      // Remove active class from all menu items
+      container.querySelectorAll('a').forEach(menuItem => {
+        if (!menuItem.parentElement.classList.contains('submenu')) {
+          menuItem.classList.remove('active');
+        }
+      });
+      
+      // Add active class to clicked item
+      link.classList.add('active');
+      
+      // Hide all submenus first
+      container.querySelectorAll('.submenu').forEach(submenu => {
+        submenu.style.display = "none";
+      });
+    });
+
     if ((item.text || item) === "Neural Genomics") {
       link.addEventListener('click', () => {
         setTimeout(() => {
           const submenu = document.getElementById("neuralGenomicsSubmenu");
+          if (submenu) submenu.style.display = "flex";
+        }, 100);
+      });
+    }
+
+    if ((item.text || item) === "NLP Operations") {
+      link.addEventListener('click', () => {
+        setTimeout(() => {
+          const submenu = document.getElementById("nlpOperationsSubmenu");
           if (submenu) submenu.style.display = "flex";
         }, 100);
       });
@@ -78,6 +108,24 @@ function renderTopMenu(items) {
       neuralSubmenuItems.forEach(sub => {
         const subLink = document.createElement('a');
         subLink.href = baseUrl + `/llm/neural-genomics/${sub}/`; 
+        subLink.innerText = sub;
+        submenu.appendChild(subLink);
+      });
+
+      container.appendChild(submenu);
+    }
+
+    // Always add the submenu HTML for NLP Operations
+    if ((item.text || item) === "NLP Operations") {
+      const submenu = document.createElement('div');
+      submenu.className = "submenu";
+      submenu.id = "nlpOperationsSubmenu";
+      submenu.style.display = "none"; // Initially hidden
+
+      nlpOperationsSubmenuItems.forEach(sub => {
+        const subLink = document.createElement('a');
+        const urlSafeName = sub.toLowerCase().replace(/\s+/g, '-');
+        subLink.href = baseUrl + `/llm/nlp-operations/${urlSafeName}/`; 
         subLink.innerText = sub;
         submenu.appendChild(subLink);
       });
@@ -104,6 +152,14 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.location.pathname.includes("/llm/neural-genomics")) {
     setTimeout(() => {
       const submenu = document.getElementById("neuralGenomicsSubmenu");
+      if (submenu) submenu.style.display = "flex";
+    }, 100);
+  }
+
+  // Auto-show submenu if on /llm/nlp-operations/
+  if (window.location.pathname.includes("/llm/nlp-operations")) {
+    setTimeout(() => {
+      const submenu = document.getElementById("nlpOperationsSubmenu");
       if (submenu) submenu.style.display = "flex";
     }, 100);
   }
