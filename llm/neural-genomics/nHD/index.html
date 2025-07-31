@@ -19,11 +19,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-31T19:10:25+00:00" />
+<meta property="article:published_time" content="2025-07-31T19:19:10+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T19:10:25+00:00","datePublished":"2025-07-31T19:10:25+00:00","description":"Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T19:19:10+00:00","datePublished":"2025-07-31T19:19:10+00:00","description":"Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -88,26 +88,25 @@
 
 <p>In genomics, the Hamming distance between two sequences ( S^{(1)}, S^{(2)} ) of length ( n ) is:</p>
 
-<p>[
-d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}[s_i^{(1)} \neq s_i^{(2)}]
-]</p>
+\[d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\right]\]
 
+<p>Where:</p>
 <ul>
   <li>( \mathbf{1}[\cdot] ): indicator function</li>
   <li>( s_i^{(k)} ): nucleotide at position ( i ) in sequence ( k )</li>
 </ul>
 
-<p>This captures <strong>point mutations</strong>, essential for studying <strong>genetic drift</strong>, <strong>recombination</strong>, and <strong>mutation modeling</strong>.</p>
+<p>This captures point mutations, essential for studying genetic drift, recombination, and mutation modeling.</p>
 
-<p>Hamming distance defines a <strong>geodesic metric</strong> on the <strong>Hamming hypercube</strong> ( \mathcal{H}^n = {0, 1}^n ), where each vertex represents a binary sequence, and each edge represents a <strong>single-bit mutation</strong>.</p>
+<p>Hamming distance defines a geodesic metric on the <strong>Hamming hypercube</strong> ( \mathcal{H}^n = {0, 1}^n ), where each vertex represents a binary sequence and each edge represents a single-bit mutation.</p>
+
+<hr />
 
 <h3 id="extending-to-foundation-models">Extending to Foundation Models</h3>
 
 <p>We treat internal neural states as <strong>neural genomes</strong>. Let ( \mathcal{M}_1, \mathcal{M}_2 ) be two models with identical architecture, and let the layerwise hidden states be:</p>
 
-<p>[
-H_\ell^{(1)}, H_\ell^{(2)} \in \mathbb{R}^{b \times d}
-]</p>
+\[H_\ell^{(1)},\ H_\ell^{(2)} \in \mathbb{R}^{b \times d}\]
 
 <p>Where:</p>
 <ul>
@@ -117,11 +116,9 @@ H_\ell^{(1)}, H_\ell^{(2)} \in \mathbb{R}^{b \times d}
 
 <p>To binarize using a threshold ( \tau ), define:</p>
 
-<p>[
-B_\ell^{(k)} = \left[\mathbf{1}\left(H_\ell^{(k)} &gt; \tau\right)\right], \quad B_\ell^{(k)} \in {0, 1}^{b \times d}
-]</p>
+\[B_\ell^{(k)} = \left[\mathbf{1}\left(H_\ell^{(k)} &gt; \tau\right)\right], \quad B_\ell^{(k)} \in \{0, 1\}^{b \times d}\]
 
-<p>This binary representation enables <strong>bitwise comparison</strong> to trace semantic drift in LLMs, akin to tracking mutation in biological systems.</p>
+<p>This binary representation enables bitwise comparison to trace <strong>semantic drift</strong> in LLMs, akin to tracking mutation in biological systems.</p>
 
 <h2 id="summary">Summary</h2>
 
