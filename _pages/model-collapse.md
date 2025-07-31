@@ -4,12 +4,6 @@ title: Model Collapse
 permalink: /model-collapse/
 ---
 
----
-layout: page
-title: Model Collapse
-permalink: /model-collapse/
----
-
 # nDNA-Lens: Model Collapse as Latent Manifold Flattening
 
 [![Research](https://img.shields.io/badge/Research-Neural%20Genomics-blue)](https://github.com/research/ndna-lens)
