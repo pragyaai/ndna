@@ -5,8 +5,6 @@ permalink: /llm/neural-genomics/
 ---
 
 
-# Neural Genomics
-
 ## Introduction: Towards Neural Genomics – A Paradigm Shift in Understanding Artificial Intelligence
 
 In the unfolding trajectory of artificial intelligence, a **paradigm shift** is emerging. The long-held belief that scaling data and parameters linearly improves model performance is faltering. As the internet saturates with synthetic content, projections suggest over **90%** of online data will soon be AI-generated, raising existential concerns about **recursive degradation**—a phenomenon termed **AI cannibalism**, where models learn from degraded, non-human priors, leading to **semantic collapse**.
@@ -17,7 +15,6 @@ Historically, AI drew inspiration from **neuroscience**, with metaphors of neuro
 
 This chapter proposes a conceptual leap: from **neurocentrism** to **Neural Genomics**.
 
----
 
 ## Neural Genomics: A New Theoretical Framework
 
@@ -32,7 +29,6 @@ This reconception opens a new class of questions:
 
 **Neural Genomics** offers the tools to answer them.
 
----
 
 ## nDNA: The Emergence of Neural Genomic Diagnostics
 
@@ -46,7 +42,6 @@ To operationalize this framework, we introduce **nDNA**—the **latent semantic 
 - **Pruning** → Semantic chromosomal deletion  
 - **Model collapse** → Semantic inbreeding and trait degeneration  
 
----
 
 ## Core Diagnostics of Neural Genomics
 
@@ -73,7 +68,6 @@ To realize this vision, we define a suite of foundational **metrics**, each expo
 - **Neural Cultural Conflict Loss (nCCL)**  
   Diagnoses **ideological misalignment** when models fuse conflicting cultural priors, detecting nonlinear fractures that undermine semantic coherence.
 
----
 
 ## Dominant Cultural Traits in Neural Offspring: A Brief Exemplary Utility
 
