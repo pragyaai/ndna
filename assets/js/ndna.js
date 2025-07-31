@@ -59,18 +59,17 @@ function renderTopMenu(items) {
     link.innerText = item.text || item;
 
     if ((item.text || item) === "Neural Genomics") {
-      link.href = "/nDNA/llm/neural-genomics/"; // ✅ Set the actual permalink
-      link.onclick = function (e) {
-        // Allow submenu toggle
-        const submenu = document.getElementById("neuralGenomicsSubmenu");
-        if (submenu) {
-          submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
-        }
-    
-        // ✅ Don't block navigation
-        // Remove e.preventDefault();
-      };
+      // Instead of blocking navigation, allow it
+      link.addEventListener('click', () => {
+        // Allow navigation by not calling e.preventDefault()
+        // Show submenu after small delay (so it's visible even after nav)
+        setTimeout(() => {
+          const submenu = document.getElementById("neuralGenomicsSubmenu");
+          if (submenu) submenu.style.display = "flex";
+        }, 100);
+      });
     }
+    
 
     container.appendChild(link);
 
