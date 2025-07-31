@@ -5,6 +5,9 @@ permalink: /llm/alignment/
 ---
 
 # AI Alignment and nDNA
+[![Research](https://img.shields.io/badge/Research-Neural%20Genomics-blue)](https://github.com/research/ndna-lens)
+[![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/research/ndna-lens)
+[![Models](https://img.shields.io/badge/Models-LLaMA%20%7C%20LLaMA-2)](https://github.com/research/ndna-lens)
 
 ## Overview
 nDNA provides quantitative methods for measuring and monitoring AI alignment, offering unprecedented insights into how models internalize human values and behavioral constraints through three core metrics:
