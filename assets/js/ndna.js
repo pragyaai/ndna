@@ -57,7 +57,14 @@ function renderTopMenu(items) {
   items.forEach((item, idx) => {
     const link = document.createElement('a');
     link.href = item.url || '#';
-    link.className = idx === 0 ? 'active' : '';
+    
+    // Check if current page matches this menu item
+    const currentPath = window.location.pathname;
+    const itemPath = (item.url || '#').replace(baseUrl, '');
+    const isActive = currentPath === itemPath || (itemPath === '/' && currentPath === '/') || 
+                     (itemPath !== '/' && currentPath.startsWith(itemPath));
+    
+    link.className = isActive ? 'active' : '';
     link.innerText = item.text || item;
 
     // Add click handler to update active state
