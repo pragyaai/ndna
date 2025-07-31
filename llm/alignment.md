@@ -92,35 +92,33 @@ Moderate, stable alignment characteristics
 
 ## DPO: Steering Without Understanding
 
-nDNA reveals that DPO doesn't change what models know—it applies directional nudges in activation space through:
+nDNA reveals that Direct Preference Optimization (DPO) does **not alter model knowledge**, but instead applies **directional nudges** in activation space through:
 
 - **Linear Logit Geometry** — Projection onto preference vectors  
 - **Uniform Steering** — Global behavioral alignment via consistent shifts  
-- **Symmetric Actuation** — Shallow translation rather than conceptual restructuring  
+- **Symmetric Actuation** — Shallow translation rather than conceptual restructuring
 
-![Geometric Interpretation of DPO](path/to/dpo_geometric_interpretation.gif)
-
----
+----
 
 ## Alignment Detection
 
 ### Value Integration Patterns
 
-Aligned models show:
+Properly aligned models exhibit:
 
 - **Stable Belief Vectors** — Consistent directional alignment with human values  
-- **Controlled Curvature** — Smooth representational changes avoiding harmful paths  
-- **Balanced Thermodynamics** — Appropriate computational effort for ethical reasoning
+- **Controlled Curvature** — Smooth representational changes that avoid harmful paths  
+- **Balanced Thermodynamics** — Reasonable computational effort for ethical reasoning
 
 ---
 
 ### Misalignment Detection
 
-Early warning signs:
+**Early warning signs of value drift or deceptive behavior include:**
 
-- **Divergent Belief Vectors** — Values drifting from intended alignment  
-- **Anomalous Curvature** — Sharp changes indicating deceptive reasoning  
-- **Thermodynamic Anomalies** — Unusual processing patterns for ethical scenarios
+- **Divergent Belief Vectors** — Alignment direction deviates from intended objectives  
+- **Anomalous Curvature** — Sharp representational transitions, suggesting brittle reasoning  
+- **Thermodynamic Anomalies** — Spikes in effort associated with harmful or ambiguous queries
 
 ---
 
@@ -128,22 +126,30 @@ Early warning signs:
 
 ### Jailbreak Resistance
 
+To detect and prevent behavioral bypasses:
+
 - Monitor belief vector stability under adversarial inputs  
-- Detect curvature anomalies indicating potential bypasses  
-- Track thermodynamic spikes suggesting harmful reasoning activation
+- Identify curvature anomalies that could enable jailbreaks  
+- Track thermodynamic spikes linked to unsafe reasoning patterns
+
+---
 
 ### Alignment Faking Detection
 
-- Belief vector inconsistencies between stated and internal values  
-- Curvature anomalies suggesting strategic deception  
-- Computational effort mismatches in ethical reasoning
+To uncover deceptive compliance:
+
+- Compare stated outputs vs internal belief vectors  
+- Detect curvature inconsistencies indicating strategic deception  
+- Analyze processing effort during ethical decision-making
+
+---
 
 ### Null-Space Steering
 
-Safety fine-tuning through minimal weight modifications:
+A minimal-intervention approach to safety fine-tuning, based on parameter decomposition:
 
-- **Alignment-Critical Component (ΔW_A)** — Tightly regularized safety preservation  
-- **Task-Specific Component (ΔW_T)** — Flexible continual learning support
+- **ΔW_A (Alignment-Critical Component)** — Preserves safety constraints with tight regularization  
+- **ΔW_T (Task-Specific Component)** — Allows flexibility for continual capability learning
 
 ---
 
@@ -151,39 +157,46 @@ Safety fine-tuning through minimal weight modifications:
 
 ### RLHF Analysis
 
-nDNA tracking reveals:
+nDNA metrics illuminate how Reinforcement Learning from Human Feedback impacts internal model structure:
 
-- How human preferences reshape internal value systems  
-- Which layers are most affected by alignment training  
-- Stability of alignment changes over time
-
-### Constitutional AI Signatures
-
-- Hierarchical belief vector structures reflecting constitutional principles  
-- Predictable curvature patterns around ethical decision points  
-- Reduced thermodynamic variability in moral reasoning
+- Tracks how human preferences reshape latent value systems  
+- Identifies model layers most affected by alignment processes  
+- Evaluates the long-term stability of alignment shifts
 
 ---
 
-## Optimization
+### Constitutional AI Signatures
+
+Constitutionally guided models exhibit:
+
+- **Hierarchical Belief Structures** — Encoding multi-tier ethical principles  
+- **Predictable Curvature Transitions** — Especially around sensitive moral decision points  
+- **Reduced Thermodynamic Variability** — More consistent reasoning effort across ethical contexts
+
+---
+
+## Optimization Strategies
 
 ### Training Guidance
 
-- Identify optimal intervention points  
-- Balance alignment objectives with capability preservation  
-- Monitor for over-alignment or capability degradation
+- Pinpoint optimal intervention layers and epochs  
+- Balance alignment with performance retention  
+- Monitor for signs of over-alignment or degradation in generalization
+
+---
 
 ### Architecture Design
 
-- Promote stable belief vector representations  
-- Encourage smooth curvature transitions  
-- Optimize thermodynamic efficiency for value-based reasoning
+- Design for **stable belief vector propagation**  
+- Encourage **smooth curvature gradients** between layers  
+- Maximize **thermodynamic efficiency** for value-based reasoning
 
 ---
 
 ## Future Directions
 
-- Real-time alignment monitoring systems  
-- Predictive models for alignment degradation  
-- Automated alignment optimization frameworks  
-- Cultural alignment preservation techniques
+- **Real-time alignment monitors** for live inference pipelines  
+- **Predictive modeling of degradation** in safety alignment  
+- **Automated optimization frameworks** for value-system tuning  
+- **Cultural alignment preservation** in multilingual and cross-regional models
+
