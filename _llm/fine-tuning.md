@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Fine-Tuning
+title: Fine-Tuning and nDNA
 permalink: /llm/fine-tuning/
 ---
-
-# Fine-Tuning and nDNA
 
 ## Overview
 
