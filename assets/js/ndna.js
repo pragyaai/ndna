@@ -69,7 +69,6 @@ function renderTopMenu(items) {
         }, 100);
       });
     }
-    
 
     container.appendChild(link);
 
