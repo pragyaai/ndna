@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-31T19:37:15+00:00" />
+<meta property="article:published_time" content="2025-07-31T19:42:15+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T19:37:15+00:00","datePublished":"2025-07-31T19:37:15+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T19:42:15+00:00","datePublished":"2025-07-31T19:42:15+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -71,88 +71,64 @@
 
 <p>Foundation models trained on diverse datasets can accumulate <strong>incremental binary mutations</strong> in their latent neural representations. These differences, although subtle, may signal <strong>semantic or functional shifts</strong> and <strong>ideological drift</strong>. nHD provides a principled way to <strong>detect</strong>, <strong>localize</strong>, and <strong>quantify</strong> these mutations layerwise.</p>
 
-<hr />
-
 <h2 id="141-from-genomic-mutation-to-neural-lineage-drift">14.1 From Genomic Mutation to Neural Lineage Drift</h2>
 
 <h3 id="discrete-divergence">Discrete Divergence</h3>
 
-<p>nHD quantifies divergence between binarized representations of two models ( \mathcal{M}_1, \mathcal{M}_2 ). Given hidden states:</p>
+<p>nHD measures <strong>discrete divergence</strong> between binarized representations of two models \( \mathcal{M}_1, \mathcal{M}_2 \). Given hidden states:</p>
 
-<p>[
-H_\ell^{(1)},\ H_\ell^{(2)} \in \mathbb{R}^{b \times d}
-]</p>
+\[H_\\ell^{(1)},\\ H_\\ell^{(2)} \\in \\mathbb{R}^{b \\times d}\]
 
-<p>we define binarized states using threshold ( \tau ):</p>
+<p>we define binarized states using threshold \( \tau \):</p>
 
-<p>[
-B_\ell^{(k)} = \left[\mathbf{1}\left(H_\ell^{(k)} &gt; \tau\right)\right], \quad B_\ell^{(k)} \in {0, 1}^{b \times d}
-]</p>
+\[B_\\ell^{(k)} = \\left[\\mathbf{1}\\left(H_\\ell^{(k)} &gt; \\tau\\right)\\right], \\quad B_\\ell^{(k)} \\in \\{0, 1\\}^{b \\times d}\]
 
 <p>Then the layerwise nHD is:</p>
 
-<p>[
-\text{nHD}<em>\ell = \frac{1}{bd} \sum</em>{i=1}^b \sum_{j=1}^d \mathbf{1}\left[B_{\ell,ij}^{(1)} \ne B_{\ell,ij}^{(2)}\right]
-]</p>
+\[\\text{nHD}_\\ell = \\frac{1}{bd} \\sum_{i=1}^b \\sum_{j=1}^d \\mathbf{1}\\left[B_{\\ell,ij}^{(1)} \\ne B_{\\ell,ij}^{(2)}\\right]\]
 
 <p>and the global neural mutation metric is:</p>
 
-<p>[
-\text{nHD} = \frac{1}{L} \sum_{\ell=1}^{L} \text{nHD}_\ell
-]</p>
-
-<hr />
+\[\\text{nHD} = \\frac{1}{L} \\sum_{\\ell=1}^{L} \\text{nHD}_\\ell\]
 
 <h2 id="142-interpretation-and-implications">14.2 Interpretation and Implications</h2>
 
-<p>nHD operates on the discrete <strong>Hamming hypercube</strong> ( \mathcal{H}^{bd} ), where each vertex is a binary neural genotype and the distance corresponds to the number of bit flips required to transform one model into another.</p>
+<p>nHD operates on the discrete <strong>Hamming hypercube</strong> \( \mathcal{H}^{bd} \), where each vertex is a binary neural genotype and the distance corresponds to the number of bit flips required to transform one model into another.</p>
 
-<p>The mutation process can be modeled stochastically with per-bit mutation probabilities ( p_m ):</p>
+<p>The mutation process can be modeled stochastically with per-bit mutation probabilities \( p_m \):</p>
 
-<p>[
-P_{x \to y} = \prod_{m=1}^{bd} p_m^{|x_m - y_m|} (1 - p_m)^{1 - |x_m - y_m|}
-]</p>
+\[P_{x \\to y} = \\prod_{m=1}^{bd} p_m^{|x_m - y_m|} (1 - p_m)^{1 - |x_m - y_m|}\]
 
-<p>Expected nHD after ( t ) mutation steps:</p>
+<p>Expected nHD after \( t \) mutation steps:</p>
 
-<p>[
-\mathbb{E}[d_H(X_0, X_t)] = \sum_{m=1}^{bd} \left(1 - (1 - 2p_m)^t\right)
-]</p>
+\[\\mathbb{E}[d_H(X_0, X_t)] = \\sum_{m=1}^{bd} \\left(1 - (1 - 2p_m)^t\\right)\]
 
-<p>The mutation profile vector ( \mathbf{d} = (\text{nHD}_1, \dots, \text{nHD}_L) \in [0,1]^L ) reveals <strong>semantic drift hotspots</strong>, analogous to evolutionary pressure points in biology.</p>
-
-<hr />
+<p>The mutation profile vector \( \mathbf{d} = (\text{nHD}_1, \dots, \text{nHD}_L) \in [0,1]^L \) reveals <strong>semantic drift hotspots</strong>, analogous to evolutionary pressure points in biology.</p>
 
 <h2 id="143-applications-and-mathematical-insights">14.3 Applications and Mathematical Insights</h2>
 
 <ul>
   <li>
-    <p><strong>Discrete Geometry</strong>: nHD is the geodesic distance on ( \mathcal{H}^{bd} ), measuring the shortest path (bit flips) between binary genotypes.</p>
+    <p><strong>Discrete Geometry</strong>: nHD is the geodesic distance on \( \mathcal{H}^{bd} \), measuring the shortest path (bit flips) between binary genotypes.</p>
   </li>
   <li>
-    <p><strong>Markov Mutation Dynamics</strong>: Model evolution follows a Markov chain on ( \mathcal{H}^{bd} ), allowing analytic estimates of drift over time.</p>
+    <p><strong>Markov Mutation Dynamics</strong>: Model evolution follows a Markov chain on \( \mathcal{H}^{bd} \), allowing analytic estimates of drift over time.</p>
   </li>
   <li>
-    <p><strong>Semantic Bottlenecks</strong>: Peaks in ( \mathbf{d} ) indicate layers disproportionately responsible for representational divergence.</p>
+    <p><strong>Semantic Bottlenecks</strong>: Peaks in \( \mathbf{d} \) indicate layers disproportionately responsible for representational divergence.</p>
   </li>
   <li>
-    <p><strong>Model Fusion</strong>: For merged model ( \mathcal{M}_F ), fusion loss is:</p>
+    <p><strong>Model Fusion</strong>: For merged model \( \mathcal{M}_F \), fusion loss is:</p>
   </li>
 </ul>
 
-<p>[
-\sum_{\ell=1}^L w_\ell \left(\text{nHD}<em>\ell(\mathcal{M}_F, \mathcal{M}_A) + \text{nHD}</em>\ell(\mathcal{M}_F, \mathcal{M}_B)\right)
-]</p>
+\[\\sum_{\\ell=1}^L w_\\ell \\left(\\text{nHD}_\\ell(\\mathcal{M}_F, \\mathcal{M}_A) + \\text{nHD}_\\ell(\\mathcal{M}_F, \\mathcal{M}_B)\\right)\]
 
 <ul>
   <li><strong>Bias Monitoring</strong>: During training, layerwise nHD helps identify drift-prone regions:</li>
 </ul>
 
-<p>[
-\min_\theta \sum_{\ell=1}^L \lambda_\ell \cdot \text{nHD}<em>\ell(\theta, \theta</em>{\text{ref}})
-]</p>
-
-<hr />
+\[\\min_\\theta \\sum_{\\ell=1}^L \\lambda_\\ell \\cdot \\text{nHD}_\\ell(\\theta, \\theta_{\\text{ref}})\]
 
 <h2 id="144-case-study-and-validation">14.4 Case Study and Validation</h2>
 
@@ -162,11 +138,10 @@ P_{x \to y} = \prod_{m=1}^{bd} p_m^{|x_m - y_m|} (1 - p_m)^{1 - |x_m - y_m|}
   <li>nHD traces <strong>neural lineage drift</strong>, helping target layers for realignment, pruning, or bias correction.</li>
 </ul>
 
-<hr />
-
 <h2 id="outlook">Outlook</h2>
 
-<p>nHD offers a discrete, interpretable, and mathematically grounded approach to <strong>neural mutation analysis</strong>. As part of the broader <strong>Neural DNA</strong> framework, it complements geometric tools like nGDI and nTDS, enabling robust, culture-sensitive, and adaptive AI systems across multilingual and heterogeneous environments.</p>
+<p>nHD offers a discrete, interpretable, and mathematically grounded approach to <strong>neural mutation analysis</strong>. As part of the broader <strong>Neural DNA</strong> framework, it complements geometric tools like nGDI and nTDS, enabling robust, culture-sensitive, and adaptive AI systems across multilingual and heterogeneous environments.
+“””</p>
 
       </div>
     </div>
