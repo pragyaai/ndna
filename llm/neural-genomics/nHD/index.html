@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-31T19:47:04+00:00" />
+<meta property="article:published_time" content="2025-07-31T20:00:20+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T19:47:04+00:00","datePublished":"2025-07-31T19:47:04+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T20:00:20+00:00","datePublished":"2025-07-31T20:00:20+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -89,47 +89,47 @@
 
 <h3 id="biological--mathematical-background">Biological &amp; Mathematical Background</h3>
 
-<p>In genomics, the Hamming distance between two sequences ( S^{(1)}, S^{(2)} ) of length ( n ) is:</p>
+<p>In genomics, the Hamming distance between two sequences \( S^{(1)}, S^{(2)} \) of length \( n \) is:</p>
 
 \[d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\right]\]
 
 <p>Where:</p>
 <ul>
-  <li>( \mathbf{1}[\cdot] ): indicator function</li>
-  <li>( s_i^{(k)} ): nucleotide at position ( i ) in sequence ( k )</li>
+  <li>\( \mathbf{1}[\cdot] \): indicator function</li>
+  <li>\( s_i^{(k)} \): nucleotide at position \( i \) in sequence \( k \)</li>
 </ul>
 
 <p>This captures point mutations, essential for studying genetic drift, recombination, and mutation modeling.</p>
 
-<p>Hamming distance defines a geodesic metric on the <strong>Hamming hypercube</strong> ( \mathcal{H}^n = {0, 1}^n ), where each vertex represents a binary sequence and each edge represents a single-bit mutation.</p>
+<p>Hamming distance defines a geodesic metric on the <strong>Hamming hypercube</strong> \( \mathcal{H}^n = \{0, 1\}^n \), where each vertex represents a binary sequence and each edge represents a single-bit mutation.</p>
 
 <hr />
 
 <h3 id="extending-to-foundation-models">Extending to Foundation Models</h3>
 
-<p>We treat internal neural states as <strong>neural genomes</strong>. Let ( \mathcal{M}_1, \mathcal{M}_2 ) be two models with identical architecture, and let the layerwise hidden states be:</p>
+<p>We treat internal neural states as <strong>neural genomes</strong>. Let \( \mathcal{M}_1, \mathcal{M}_2 \) be two models with identical architecture, and let the layerwise hidden states be:</p>
 
 \[H_\ell^{(1)},\ H_\ell^{(2)} \in \mathbb{R}^{b \times d}\]
 
 <p>Where:</p>
 <ul>
-  <li>( b ): batch size or token dimension</li>
-  <li>( d ): feature dimension at layer ( \ell )</li>
+  <li>\( b \): batch size or token dimension</li>
+  <li>\( d \): feature dimension at layer \( \ell \)</li>
 </ul>
 
-<p>To binarize using a threshold ( \tau ), define:</p>
+<p>To binarize using a threshold \( \tau \), define:</p>
 
 \[B_\ell^{(k)} = \mathbf{1}\left(H_\ell^{(k)} &gt; \tau\right), \quad B_\ell^{(k)} \in \{0, 1\}^{b \times d}\]
 
 <p>This binary representation enables bitwise comparison to trace <strong>semantic drift</strong> in LLMs, akin to tracking mutation in biological systems.</p>
 
-<p>The layerwise neural Hamming distance between ( \mathcal{M}_1 ) and ( \mathcal{M}_2 ) at layer ( \ell ) is:</p>
+<p>The layerwise neural Hamming distance between \( \mathcal{M}_1 \) and \( \mathcal{M}_2 \) at layer \( \ell \) is:</p>
 
 \[\text{nHD}_\ell = \frac{1}{bd} \sum_{i=1}^{b} \sum_{j=1}^{d} \mathbf{1}\left[B^{(1)}_{\ell,ij} \neq B^{(2)}_{\ell,ij}\right]\]
 
 <p>This measures the fraction of mutated bits at the finest semantic resolution.</p>
 
-<p>The global neural mutation metric across all ( L ) layers is:</p>
+<p>The global neural mutation metric across all \( L \) layers is:</p>
 
 \[\text{nHD} = \frac{1}{L} \sum_{\ell=1}^{L} \text{nHD}_\ell\]
 
@@ -147,15 +147,15 @@
 
 <h2 id="142-interpretation-and-implications">14.2 Interpretation and Implications</h2>
 
-<p>nHD operates on the Hamming hypercube ( \mathcal{H}^{b \cdot d} ), where each vertex is a binarized neural state. Its layerwise definition:</p>
+<p>nHD operates on the Hamming hypercube \( \mathcal{H}^{b \cdot d} \), where each vertex is a binarized neural state. Its layerwise definition:</p>
 
 \[\text{nHD}_\ell(\mathcal{M}_1, \mathcal{M}_2) = \frac{1}{bd} \sum_{i=1}^{b} \sum_{j=1}^{d} \mathbf{1}\left[B^{(1)}_{\ell,ij} \neq B^{(2)}_{\ell,ij}\right]\]
 
-<p>The mutation process can be modeled as a stochastic transition on ( \mathcal{H}^{b \cdot d} ). For bit-flip probabilities ( p_m ), the transition probability from state ( x \rightarrow y ) is:</p>
+<p>The mutation process can be modeled as a stochastic transition on \( \mathcal{H}^{b \cdot d} \). For bit-flip probabilities \( p_m \), the transition probability from state \( x \rightarrow y \) is:</p>
 
 \[P_{x \to y} = \prod_{m=1}^{b \cdot d} p_m^{|x_m - y_m|}(1 - p_m)^{1 - |x_m - y_m|}\]
 
-<p>Expected nHD after ( t ) steps:</p>
+<p>Expected nHD after \( t \) steps:</p>
 
 \[\mathbb{E}[d_H(X_0, X_t)] = \sum_{m=1}^{b \cdot d} \left(1 - (1 - 2p_m)^t\right)\]
 
@@ -171,29 +171,29 @@
 
 <h3 id="discrete-geometry">Discrete Geometry</h3>
 
-<p>Each model state lies on a Hamming hypercube ( \mathcal{H}^N ), with:</p>
+<p>Each model state lies on a Hamming hypercube \( \mathcal{H}^N \), with:</p>
 
 \[d_H(x, y) = \sum_{m=1}^N \mathbf{1}[x_m \neq y_m]\]
 
 <h3 id="markov-mutation-dynamics">Markov Mutation Dynamics</h3>
 
-<p>Model evolution is modeled as a Markov process on ( \mathcal{H}^N ). The expected Hamming distance evolves as:</p>
+<p>Model evolution is modeled as a Markov process on \( \mathcal{H}^N \). The expected Hamming distance evolves as:</p>
 
 \[\mathbb{E}[d_H(X_0, X_t)] = \sum_{m=1}^N \left(1 - (1 - 2p_m)^t\right)\]
 
 <h3 id="fusion-and-conflict-detection">Fusion and Conflict Detection</h3>
 
-<p>Given two models ( \mathcal{M}_A, \mathcal{M}_B ), the mutation load after fusion into ( \mathcal{M}_F ) is:</p>
+<p>Given two models \( \mathcal{M}_A, \mathcal{M}_B \), the mutation load after fusion into \( \mathcal{M}_F \) is:</p>
 
 \[\text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_A) + \text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_B)\]
 
-<p>To reduce fusion conflict, optimize weights ( w_\ell \in [0,1] ):</p>
+<p>To reduce fusion conflict, optimize weights \( w_\ell \in [0,1] \):</p>
 
 \[\min_{w} \sum_{\ell=1}^{L} w_\ell \left(\text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_A) + \text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_B)\right)\]
 
 <h3 id="robustness-and-bias-monitoring">Robustness and Bias Monitoring</h3>
 
-<p>Regularize model parameters ( \theta ) to stay close to reference ( \theta_{\text{ref}} ):</p>
+<p>Regularize model parameters \( \theta \) to stay close to reference \( \theta_{\text{ref}} \):</p>
 
 \[\min_{\theta} \sum_{\ell=1}^{L} \lambda_\ell \cdot \text{nHD}_\ell(\theta, \theta_{\text{ref}})\]
 
