@@ -51,7 +51,6 @@ function renderTopMenu(items) {
   const container = document.getElementById('topMenu');
   container.innerHTML = '';
 
-  // Add all tabs to the top bar
   items.forEach((item, idx) => {
     const link = document.createElement('a');
     link.href = item.url || '#';
@@ -59,10 +58,7 @@ function renderTopMenu(items) {
     link.innerText = item.text || item;
 
     if ((item.text || item) === "Neural Genomics") {
-      // Instead of blocking navigation, allow it
       link.addEventListener('click', () => {
-        // Allow navigation by not calling e.preventDefault()
-        // Show submenu after small delay (so it's visible even after nav)
         setTimeout(() => {
           const submenu = document.getElementById("neuralGenomicsSubmenu");
           if (submenu) submenu.style.display = "flex";
@@ -72,10 +68,12 @@ function renderTopMenu(items) {
 
     container.appendChild(link);
 
+    // Always add the submenu HTML for Neural Genomics
     if ((item.text || item) === "Neural Genomics") {
       const submenu = document.createElement('div');
       submenu.className = "submenu";
       submenu.id = "neuralGenomicsSubmenu";
+      submenu.style.display = "none"; // Initially hidden
 
       neuralSubmenuItems.forEach(sub => {
         const subLink = document.createElement('a');
@@ -94,7 +92,6 @@ function switchView(view) {
   const tab = [...document.querySelectorAll('.side-tab')].find(el => el.innerText === view || el.innerText.includes(view));
   if (tab) tab.classList.add('active');
   
-  // Get the appropriate menu for the selected model type
   const menu = menusByModel[view] || menusByModel.LLM;
   renderTopMenu(menu);
 }
@@ -102,4 +99,12 @@ function switchView(view) {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   switchView("LLM");
+
+  // Auto-show submenu if on /llm/neural-genomics/
+  if (window.location.pathname.includes("/llm/neural-genomics")) {
+    setTimeout(() => {
+      const submenu = document.getElementById("neuralGenomicsSubmenu");
+      if (submenu) submenu.style.display = "flex";
+    }, 100);
+  }
 });
