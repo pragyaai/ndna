@@ -4,7 +4,6 @@ title: Neural Genomics
 permalink: /llm/neural-genomics/
 ---
 
-
 ## Introduction: Towards Neural Genomics – A Paradigm Shift in Understanding Artificial Intelligence
 
 In the unfolding trajectory of artificial intelligence, a **paradigm shift** is emerging. The long-held belief that scaling data and parameters linearly improves model performance is faltering. As the internet saturates with synthetic content, projections suggest over **90%** of online data will soon be AI-generated, raising existential concerns about **recursive degradation**—a phenomenon termed **AI cannibalism**, where models learn from degraded, non-human priors, leading to **semantic collapse**.
