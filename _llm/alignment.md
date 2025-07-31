@@ -49,7 +49,7 @@ Maintain stable geometry:
 ![Europe: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif)
 
 **North America**: Remains within pretraining manifold
-![North America: Base vs DPO-aligned](path/to/north_america_ndna.gif)
+![North America: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif)
 
 **Australia**: Minimal reconfiguration, κℓ: 0.42-0.55
 ![Australia: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif)
