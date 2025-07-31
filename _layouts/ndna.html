@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/ndna.css' | relative_url }}">
   {% feed_meta %}
   {% seo %}
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -59,5 +60,71 @@
   </div>
 
   <script src="{{ '/assets/js/ndna.js' | relative_url }}"></script>
+  
+  <!-- Lightbox HTML -->
+  <div id="galleryLightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="expandedGif" alt="Expanded view">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+  <script>
+    // DEBUG: Check if script runs and images are found
+    document.addEventListener('DOMContentLoaded', function() {
+      const imgs = document.querySelectorAll('.gallery-img');
+      console.log('Lightbox script loaded. Found gallery images:', imgs.length);
+      imgs.forEach(img => img.style.border = '2px solid red'); // Visual debug
+    });
+  </script>
+  <script>
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightbox = document.getElementById('galleryLightbox');
+      const closeBtn = document.querySelector('.close-lightbox');
+      const lightboxImg = document.getElementById('expandedGif');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      
+      // Add click event to all gallery images
+      document.querySelectorAll('.gallery-img').forEach(img => {
+        img.addEventListener('click', function() {
+          lightboxImg.src = this.src;
+          lightboxCaption.textContent = this.alt;
+          
+          // Show the lightbox
+          lightbox.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+          
+          // Force reflow to enable animation
+          void lightbox.offsetWidth;
+          lightbox.classList.add('show');
+        });
+      });
+      
+      // Close lightbox
+      function closeLightbox() {
+        lightbox.classList.remove('show');
+        setTimeout(() => {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }, 300); // Match this with CSS transition time
+      }
+      
+      closeBtn.onclick = closeLightbox;
+      
+      // Close when clicking outside the image
+      lightbox.onclick = function(e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      };
+      
+      // Close with ESC key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
 </body>
 </html>
