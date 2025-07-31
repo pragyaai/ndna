@@ -4,8 +4,6 @@ title: CIVIC
 permalink: /llm/civic/
 ---
 
-# CIVIC
-
 CIVIC (Cultural Intelligence and Values in Computing) examines how large language models encode and express civic values, democratic principles, and social responsibility across different cultural and political contexts.
 
 ## Understanding Civic Engagement in AI
