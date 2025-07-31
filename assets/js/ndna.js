@@ -96,11 +96,11 @@ function switchView(view) {
   renderTopMenu(menu);
 }
 
-// ✅ Initialize on page load
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   switchView("LLM");
 
-  // ✅ Auto-show submenu if on /llm/neural-genomics/
+  // Auto-show submenu if on /llm/neural-genomics/
   if (window.location.pathname.includes("/llm/neural-genomics")) {
     setTimeout(() => {
       const submenu = document.getElementById("neuralGenomicsSubmenu");
