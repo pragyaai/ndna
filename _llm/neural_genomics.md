@@ -1,3 +1,9 @@
+---
+layout: page
+title: Neural Genomics
+permalink: /llm/neural-genomics/
+---
+
 
 ## Introduction: Towards Neural Genomics – A Paradigm Shift in Understanding Artificial Intelligence
 
