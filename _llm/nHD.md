@@ -185,8 +185,9 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 <div style="flex: 1; min-width: 30%; max-width: 32%;">
 <b>(1) Africa–Asia</b><br>
 Smooth geodesic interpolation.<br>
-\\( \kappa_\ell: 0.3 \rightarrow 0.7 \\), \\( L_\ell: 0.4 \rightarrow 0.7 \\)<br>
-<i>See:</i> assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif
+\\( \kappa_\\ell: 0.3 \\rightarrow 0.7 \\), \\( L_\\ell: 0.4 \\rightarrow 0.7 \\)<br>
+<i>See:</i> 
+<img src = "assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif">
 </div>
 
 <div style="flex: 1; min-width: 30%; max-width: 32%;">
