@@ -19,6 +19,9 @@ collections:
   mfm:
     output: true
     permalink: /:collection/:name/
+  nlp:
+    output: true
+    permalink: /:collection/:name/
   t2i:
     output: true
     permalink: /:collection/:name/
