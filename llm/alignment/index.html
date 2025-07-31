@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>Alignment - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/ndna.css">
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Alignment | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Alignment" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Alignment" />
+<meta property="og:description" content="Alignment" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/alignment/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/alignment/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-31T20:09:23+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Alignment" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T20:09:23+00:00","datePublished":"2025-07-31T20:09:23+00:00","description":"Alignment","headline":"Alignment","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/alignment/"},"url":"https://pragyaai.github.io/nDNA/llm/alignment/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo_v5.png" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu" style="display: flex; flex-wrap: wrap; align-items: center; flex: 1; min-width: 0;"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+          <h1>Alignment</h1>
+        
+        <h1 id="alignment">Alignment</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>nDNA provides quantitative methods for measuring and monitoring AI alignment, offering unprecedented insights into how models internalize human values and behavioral constraints through three core metrics:</p>
+
+<ul>
+  <li><strong>Spectral Curvature (κℓ)</strong> — Behavioral instability and reasoning path deviations</li>
+  <li><strong>Thermodynamic Length (Lℓ)</strong> — Computational effort required for value integration</li>
+  <li><strong>Belief Vector Strength</strong> — Magnitude of alignment steering effects</li>
+</ul>
+
+<p><img src="path/to/figure13.gif" alt="Safety fine-tuning geometric visualization" /></p>
+
+<hr />
+
+<h2 id="cultural-models-and-dpo-alignment">Cultural Models and DPO Alignment</h2>
+
+<h3 id="the-litmus-dataset">The LITMUS Dataset</h3>
+
+<p>Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), we can apply Direct Preference Optimization to culturally-specific models while preserving regional characteristics.</p>
+
+<hr />
+
+<h3 id="regional-ndna-signatures">Regional nDNA Signatures</h3>
+
+<h4 id="high-curvature-regions">High-Curvature Regions</h4>
+<p>These regions show dramatic reconfiguration under DPO:</p>
+
+<p><strong>Africa</strong><br />
+κℓ: 0.85 → 0.75, Lℓ: 0.9 → 0.8<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa: Base vs DPO-aligned" /></p>
+
+<p><strong>Asia</strong><br />
+κℓ reduced by ~10%, smoothing epistemic manifolds<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia: Base vs DPO-aligned" /></p>
+
+<p><strong>China</strong><br />
+κℓ: &gt;0.9 → 0.8, significant latent reorientation<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/china_ndna_final.gif" alt="China: Base vs DPO-aligned" /></p>
+
+<hr />
+
+<h4 id="moderate-strain-regions">Moderate-Strain Regions</h4>
+<p>These regions display controlled compression:</p>
+
+<p><strong>Latin America</strong><br />
+κℓ: 0.7 → 0.6, preserving regional identity<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/latinamerica.gif" alt="Latin America: Base vs DPO-aligned" /></p>
+
+<p><strong>Middle East</strong><br />
+8–12% reduction in curvature and length<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East: Base vs DPO-aligned" /></p>
+
+<hr />
+
+<h4 id="low-strain-regions">Low-Strain Regions</h4>
+<p>These regions maintain stable geometry:</p>
+
+<p><strong>Europe</strong><br />
+κℓ: 0.4–0.5, confirming alignment stability<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe: Base vs DPO-aligned" /></p>
+
+<p><strong>North America</strong><br />
+Remains within pretraining manifold<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America: Base vs DPO-aligned" /></p>
+
+<p><strong>Australia</strong><br />
+Minimal reconfiguration, κℓ: 0.42–0.55<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="Australia: Base vs DPO-aligned" /></p>
+
+<hr />
+
+<h4 id="generic-models">Generic Models</h4>
+
+<p><strong>LLaMA</strong><br />
+Moderate, stable alignment characteristics<br />
+<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/llama_collapse_v2_1.gif" alt="LLaMA: Base vs DPO-aligned" /></p>
+
+<hr />
+
+<h3 id="global-alignment-patterns">Global Alignment Patterns</h3>
+
+<p><img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="All Cultural nDNA Trajectories" /></p>
+
+<hr />
+
+<h2 id="dpo-steering-without-understanding">DPO: Steering Without Understanding</h2>
+
+<p>nDNA reveals that Direct Preference Optimization (DPO) does <strong>not alter model knowledge</strong>, but instead applies <strong>directional nudges</strong> in activation space through:</p>
+
+<ul>
+  <li><strong>Linear Logit Geometry</strong> — Projection onto preference vectors</li>
+  <li><strong>Uniform Steering</strong> — Global behavioral alignment via consistent shifts</li>
+  <li><strong>Symmetric Actuation</strong> — Shallow translation rather than conceptual restructuring</li>
+</ul>
+
+<hr />
+
+<h2 id="alignment-detection">Alignment Detection</h2>
+
+<h3 id="value-integration-patterns">Value Integration Patterns</h3>
+
+<p>Properly aligned models exhibit:</p>
+
+<ul>
+  <li><strong>Stable Belief Vectors</strong> — Consistent directional alignment with human values</li>
+  <li><strong>Controlled Curvature</strong> — Smooth representational changes that avoid harmful paths</li>
+  <li><strong>Balanced Thermodynamics</strong> — Reasonable computational effort for ethical reasoning</li>
+</ul>
+
+<hr />
+
+<h3 id="misalignment-detection">Misalignment Detection</h3>
+
+<p><strong>Early warning signs of value drift or deceptive behavior include:</strong></p>
+
+<ul>
+  <li><strong>Divergent Belief Vectors</strong> — Alignment direction deviates from intended objectives</li>
+  <li><strong>Anomalous Curvature</strong> — Sharp representational transitions, suggesting brittle reasoning</li>
+  <li><strong>Thermodynamic Anomalies</strong> — Spikes in effort associated with harmful or ambiguous queries</li>
+</ul>
+
+<hr />
+
+<h2 id="safety-applications">Safety Applications</h2>
+
+<h3 id="jailbreak-resistance">Jailbreak Resistance</h3>
+
+<p>To detect and prevent behavioral bypasses:</p>
+
+<ul>
+  <li>Monitor belief vector stability under adversarial inputs</li>
+  <li>Identify curvature anomalies that could enable jailbreaks</li>
+  <li>Track thermodynamic spikes linked to unsafe reasoning patterns</li>
+</ul>
+
+<hr />
+
+<h3 id="alignment-faking-detection">Alignment Faking Detection</h3>
+
+<p>To uncover deceptive compliance:</p>
+
+<ul>
+  <li>Compare stated outputs vs internal belief vectors</li>
+  <li>Detect curvature inconsistencies indicating strategic deception</li>
+  <li>Analyze processing effort during ethical decision-making</li>
+</ul>
+
+<hr />
+
+<h3 id="null-space-steering">Null-Space Steering</h3>
+
+<p>A minimal-intervention approach to safety fine-tuning, based on parameter decomposition:</p>
+
+<ul>
+  <li><strong>ΔW_A (Alignment-Critical Component)</strong> — Preserves safety constraints with tight regularization</li>
+  <li><strong>ΔW_T (Task-Specific Component)</strong> — Allows flexibility for continual capability learning</li>
+</ul>
+
+<hr />
+
+<h2 id="rlhf-and-constitutional-ai">RLHF and Constitutional AI</h2>
+
+<h3 id="rlhf-analysis">RLHF Analysis</h3>
+
+<p>nDNA metrics illuminate how Reinforcement Learning from Human Feedback impacts internal model structure:</p>
+
+<ul>
+  <li>Tracks how human preferences reshape latent value systems</li>
+  <li>Identifies model layers most affected by alignment processes</li>
+  <li>Evaluates the long-term stability of alignment shifts</li>
+</ul>
+
+<hr />
+
+<h3 id="constitutional-ai-signatures">Constitutional AI Signatures</h3>
+
+<p>Constitutionally guided models exhibit:</p>
+
+<ul>
+  <li><strong>Hierarchical Belief Structures</strong> — Encoding multi-tier ethical principles</li>
+  <li><strong>Predictable Curvature Transitions</strong> — Especially around sensitive moral decision points</li>
+  <li><strong>Reduced Thermodynamic Variability</strong> — More consistent reasoning effort across ethical contexts</li>
+</ul>
+
+<hr />
+
+<h2 id="optimization-strategies">Optimization Strategies</h2>
+
+<h3 id="training-guidance">Training Guidance</h3>
+
+<ul>
+  <li>Pinpoint optimal intervention layers and epochs</li>
+  <li>Balance alignment with performance retention</li>
+  <li>Monitor for signs of over-alignment or degradation in generalization</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-design">Architecture Design</h3>
+
+<ul>
+  <li>Design for <strong>stable belief vector propagation</strong></li>
+  <li>Encourage <strong>smooth curvature gradients</strong> between layers</li>
+  <li>Maximize <strong>thermodynamic efficiency</strong> for value-based reasoning</li>
+</ul>
+
+<hr />
+
+<h2 id="future-directions">Future Directions</h2>
+
+<ul>
+  <li><strong>Real-time alignment monitors</strong> for live inference pipelines</li>
+  <li><strong>Predictive modeling of degradation</strong> in safety alignment</li>
+  <li><strong>Automated optimization frameworks</strong> for value-system tuning</li>
+  <li><strong>Cultural alignment preservation</strong> in multilingual and cross-regional models</li>
+</ul>
+
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>
