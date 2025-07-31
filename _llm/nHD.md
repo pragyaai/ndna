@@ -28,38 +28,39 @@ nHD quantifies the **discrete divergence** between two neural representations by
 
 In genomics, the Hamming distance between two sequences \( S^{(1)}, S^{(2)} \) of length \( n \) is:
 
-\[
-d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}[s_i^{(1)} \neq s_i^{(2)}]
-\]
+$$
+d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\right]
+$$
 
+Where:  
 - \( \mathbf{1}[\cdot] \): indicator function  
 - \( s_i^{(k)} \): nucleotide at position \( i \) in sequence \( k \)
 
-This captures **point mutations**, essential for studying **genetic drift**, **recombination**, and **mutation modeling**.
+This captures point mutations, essential for studying genetic drift, recombination, and mutation modeling.
 
-Hamming distance defines a **geodesic metric** on the **Hamming hypercube** \( \mathcal{H}^n = \{0, 1\}^n \), where each vertex represents a binary sequence, and each edge represents a **single-bit mutation**.
+Hamming distance defines a geodesic metric on the **Hamming hypercube** \( \mathcal{H}^n = \{0, 1\}^n \), where each vertex represents a binary sequence and each edge represents a single-bit mutation.
 
+---
 
 ### Extending to Foundation Models
 
 We treat internal neural states as **neural genomes**. Let \( \mathcal{M}_1, \mathcal{M}_2 \) be two models with identical architecture, and let the layerwise hidden states be:
 
-\[
-H_\ell^{(1)}, H_\ell^{(2)} \in \mathbb{R}^{b \times d}
-\]
+$$
+H_\ell^{(1)},\ H_\ell^{(2)} \in \mathbb{R}^{b \times d}
+$$
 
-Where:
+Where:  
 - \( b \): batch size or token dimension  
-- \( d \): feature dimension at layer \( \ell \)  
+- \( d \): feature dimension at layer \( \ell \)
 
 To binarize using a threshold \( \tau \), define:
 
-\[
+$$
 B_\ell^{(k)} = \left[\mathbf{1}\left(H_\ell^{(k)} > \tau\right)\right], \quad B_\ell^{(k)} \in \{0, 1\}^{b \times d}
-\]
+$$
 
-This binary representation enables **bitwise comparison** to trace semantic drift in LLMs, akin to tracking mutation in biological systems.
-
+This binary representation enables bitwise comparison to trace **semantic drift** in LLMs, akin to tracking mutation in biological systems.
 
 ## Summary
 
