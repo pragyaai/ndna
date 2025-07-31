@@ -4,10 +4,6 @@ title: Alignment
 permalink: /llm/alignment/
 ---
 
-# AI Alignment and nDNA
-[![Research](https://img.shields.io/badge/Research-Neural%20Genomics-blue)](https://github.com/research/ndna-lens)
-[![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/research/ndna-lens)
-[![Models](https://img.shields.io/badge/Models-LLaMA%20%7C%20LLaMA2-orange)](https://github.com/research/ndna-lens)
 
 ## Overview
 nDNA provides quantitative methods for measuring and monitoring AI alignment, offering unprecedented insights into how models internalize human values and behavioral constraints through three core metrics:
@@ -29,41 +25,41 @@ Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), we can apply Direct Pre
 Show dramatic reconfiguration under DPO:
 
 **Africa**: κℓ: 0.85→0.75, Lℓ: 0.9→0.8
-![Africa: Base vs DPO-aligned](path/to/africa_ndna.gif)
+![Africa: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/africa_ndna_final.gif)
 
 **Asia**: κℓ reduced by ~10%, smoothing epistemic manifolds
-![Asia: Base vs DPO-aligned](path/to/asia_ndna.gif)
+![Asia: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/asia_ndna_collapse.gif)
 
 **China**: κℓ: >0.9→0.8, significant latent reorientation
-![China: Base vs DPO-aligned](path/to/china_ndna.gif)
+![China: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/china_ndna_final.gif)
 
 #### Moderate-Strain Regions
 Display controlled compression:
 
 **Latin America**: κℓ: 0.7→0.6, preserving regional identity
-![Latin America: Base vs DPO-aligned](path/to/latin_america_ndna.gif)
+![Latin America: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/latinamerica.gif)
 
 **Middle East**: 8-12% reduction in curvature and length
-![Middle East: Base vs DPO-aligned](path/to/middle_east_ndna.gif)
+![Middle East: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/middleeast_ndna_final.gif)
 
 #### Low-Strain Regions
 Maintain stable geometry:
 
 **Europe**: κℓ: 0.4-0.5, confirming alignment stability
-![Europe: Base vs DPO-aligned](path/to/europe_ndna.gif)
+![Europe: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif)
 
 **North America**: Remains within pretraining manifold
 ![North America: Base vs DPO-aligned](path/to/north_america_ndna.gif)
 
 **Australia**: Minimal reconfiguration, κℓ: 0.42-0.55
-![Australia: Base vs DPO-aligned](path/to/australia_ndna.gif)
+![Australia: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif)
 
 #### Generic Models
 **LLaMA**: Moderate, stable alignment characteristics
-![LLaMA: Base vs DPO-aligned](path/to/llama_ndna.gif)
+![LLaMA: Base vs DPO-aligned](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/llama_collapse_v2_1.gif)
 
 ### Global Alignment Patterns
-![All Cultural nDNA Trajectories](path/to/all_cultural_trajectories.gif)
+![All Cultural nDNA Trajectories](https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif)
 
 ## DPO: Steering Without Understanding
 
