@@ -4,7 +4,6 @@ title: Pruning and nDNA
 permalink: /llm/pruning/
 ---
 
-# Pruning and nDNA
 
 Pruning, a common technique for efficiency, significantly reshapes a model's internal belief geometry. Through the lens of Neural DNA (nDNA) diagnostics, pruning induces an irreversible semantic compression, analogous to an entropy collapse, which distorts the model's epistemic manifold and reduces its ability to preserve instructional, cultural, or conceptual diversity in reasoning. nDNA analysis elevates pruning from a mere engineering trick to an epistemic surgery.
 
