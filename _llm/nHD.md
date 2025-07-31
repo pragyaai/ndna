@@ -16,7 +16,6 @@ Subtle changes in neural weights or activations—especially across culturally h
 
 nHD detects and localizes these **semantic mutation signatures**, helping identify which layers or parameters are more vulnerable to **drift**, enabling model realignment and robustness analysis.
 
----
 
 ## 14.1 From Genomic Mutation to Neural Lineage Drift
 
@@ -24,7 +23,6 @@ nHD detects and localizes these **semantic mutation signatures**, helping identi
 
 nHD quantifies the **discrete divergence** between two neural representations by counting mismatches in **binarized latent codes** across model layers. This binary semantic encoding helps track **structural mutations** as models undergo fine-tuning, merging, quantization, or distillation.
 
----
 
 ### Biological & Mathematical Background
 
@@ -41,7 +39,6 @@ This captures **point mutations**, essential for studying **genetic drift**, **r
 
 Hamming distance defines a **geodesic metric** on the **Hamming hypercube** \( \mathcal{H}^n = \{0, 1\}^n \), where each vertex represents a binary sequence, and each edge represents a **single-bit mutation**.
 
----
 
 ### Extending to Foundation Models
 
@@ -63,7 +60,6 @@ B_\ell^{(k)} = \left[\mathbf{1}\left(H_\ell^{(k)} > \tau\right)\right], \quad B_
 
 This binary representation enables **bitwise comparison** to trace semantic drift in LLMs, akin to tracking mutation in biological systems.
 
----
 
 ## Summary
 
