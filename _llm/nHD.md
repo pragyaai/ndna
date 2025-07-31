@@ -4,6 +4,10 @@ title: Neural Hamming Distance (nHD)
 permalink: /llm/neural-genomics/nHD/
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 # Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics
 
 In biological genomics, the **Hamming Distance** is a key metric quantifying the number of differing nucleotides between two sequences, often used to measure **mutation load** and **evolutionary divergence**. Inspired by this, the **Neural Hamming Distance (nHD)** translates these ideas to **foundation models**, serving as an interpretable measure of **bit-level differences** in internal representations.
