@@ -77,7 +77,7 @@ function renderTopMenu(items) {
 
       neuralSubmenuItems.forEach(sub => {
         const subLink = document.createElement('a');
-        subLink.href = "#";
+        subLink.href = baseUrl + `/llm/neural-genomics/${sub}/`; 
         subLink.innerText = sub;
         submenu.appendChild(subLink);
       });
