@@ -4,128 +4,133 @@ title: Alignment
 permalink: /llm/alignment/
 ---
 
-AI Alignment and nDNA
-Measuring Alignment Through nDNA
+# AI Alignment and nDNA
+
+## Overview
 nDNA provides quantitative methods for measuring and monitoring AI alignment, offering unprecedented insights into how models internalize human values and behavioral constraints through three core metrics:
 
-Spectral Curvature (κℓ): Behavioral instability and reasoning path deviations
-Thermodynamic Length (Lℓ): Computational effort required for value integration
-Belief Vector Strength: Magnitude of alignment steering effects
+- **Spectral Curvature (κℓ)**: Behavioral instability and reasoning path deviations
+- **Thermodynamic Length (Lℓ)**: Computational effort required for value integration  
+- **Belief Vector Strength**: Magnitude of alignment steering effects
 
-[Space for Figure 13: Safety fine-tuning geometric visualization]
-Cultural Models and DPO Alignment
-The LITMUS Dataset
+![Safety fine-tuning geometric visualization](path/to/figure13.gif)
+
+## Cultural Models and DPO Alignment
+
+### The LITMUS Dataset
 Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), we can apply Direct Preference Optimization to culturally-specific models while preserving regional characteristics.
-Regional nDNA Signatures
-High-Curvature Regions: Show dramatic reconfiguration under DPO
 
-Africa: κℓ: 0.85→0.75, Lℓ: 0.9→0.8
-Asia: κℓ reduced by ~10%, smoothing epistemic manifolds
-China: κℓ: >0.9→0.8, significant latent reorientation
+### Regional nDNA Signatures
 
-[Space for Africa: Base vs DPO-aligned nDNA trajectory GIF]
-[Space for Asia: Base vs DPO-aligned nDNA trajectory GIF]
-[Space for China: Base vs DPO-aligned nDNA trajectory GIF]
-Moderate-Strain Regions: Display controlled compression
+#### High-Curvature Regions
+Show dramatic reconfiguration under DPO:
 
-Latin America: κℓ: 0.7→0.6, preserving regional identity
-Middle East: 8-12% reduction in curvature and length
+**Africa**: κℓ: 0.85→0.75, Lℓ: 0.9→0.8
+![Africa: Base vs DPO-aligned](path/to/africa_ndna.gif)
 
-[Space for Latin America: Base vs DPO-aligned nDNA trajectory GIF]
-[Space for Middle East: Base vs DPO-aligned nDNA trajectory GIF]
-Low-Strain Regions: Maintain stable geometry
+**Asia**: κℓ reduced by ~10%, smoothing epistemic manifolds
+![Asia: Base vs DPO-aligned](path/to/asia_ndna.gif)
 
-Europe: κℓ: 0.4-0.5, confirming alignment stability
-North America: Remains within pretraining manifold
-Australia: Minimal reconfiguration, κℓ: 0.42-0.55
+**China**: κℓ: >0.9→0.8, significant latent reorientation
+![China: Base vs DPO-aligned](path/to/china_ndna.gif)
 
-[Space for Europe: Base vs DPO-aligned nDNA trajectory GIF]
-[Space for North America: Base vs DPO-aligned nDNA trajectory GIF]
-[Space for Australia: Base vs DPO-aligned nDNA trajectory GIF]
-Generic Models:
+#### Moderate-Strain Regions
+Display controlled compression:
 
-LLaMA: Moderate, stable alignment characteristics
+**Latin America**: κℓ: 0.7→0.6, preserving regional identity
+![Latin America: Base vs DPO-aligned](path/to/latin_america_ndna.gif)
 
-[Space for LLaMA: Base vs DPO-aligned nDNA trajectory GIF]
-[Space for Figure 14: All Cultural nDNA Trajectories Before and After DPO Alignment]
-DPO: Steering Without Understanding
+**Middle East**: 8-12% reduction in curvature and length
+![Middle East: Base vs DPO-aligned](path/to/middle_east_ndna.gif)
+
+#### Low-Strain Regions
+Maintain stable geometry:
+
+**Europe**: κℓ: 0.4-0.5, confirming alignment stability
+![Europe: Base vs DPO-aligned](path/to/europe_ndna.gif)
+
+**North America**: Remains within pretraining manifold
+![North America: Base vs DPO-aligned](path/to/north_america_ndna.gif)
+
+**Australia**: Minimal reconfiguration, κℓ: 0.42-0.55
+![Australia: Base vs DPO-aligned](path/to/australia_ndna.gif)
+
+#### Generic Models
+**LLaMA**: Moderate, stable alignment characteristics
+![LLaMA: Base vs DPO-aligned](path/to/llama_ndna.gif)
+
+### Global Alignment Patterns
+![All Cultural nDNA Trajectories](path/to/all_cultural_trajectories.gif)
+
+## DPO: Steering Without Understanding
+
 nDNA reveals that DPO doesn't change what models know—it applies directional nudges in activation space through:
+- **Linear Logit Geometry**: Projection onto preference vectors
+- **Uniform Steering**: Global behavioral alignment via consistent shifts
+- **Symmetric Actuation**: Shallow translation rather than conceptual restructuring
 
-Linear Logit Geometry: Projection onto preference vectors
-Uniform Steering: Global behavioral alignment via consistent shifts
-Symmetric Actuation: Shallow translation rather than conceptual restructuring
+![Geometric Interpretation of DPO](path/to/dpo_geometric_interpretation.gif)
 
-[Space for Figure 15: Geometric Interpretation of DPO panels (a), (b), and (c)]
-Alignment nDNA Signatures
-Value Integration Patterns
-Aligned models show distinct nDNA characteristics:
+## Alignment Detection
 
-Stable Belief Vectors: Consistent directional alignment with human values
-Controlled Curvature: Smooth representational changes that avoid harmful reasoning paths
-Balanced Thermodynamics: Appropriate computational effort for ethical reasoning
+### Value Integration Patterns
+Aligned models show:
+- **Stable Belief Vectors**: Consistent directional alignment with human values
+- **Controlled Curvature**: Smooth representational changes avoiding harmful paths
+- **Balanced Thermodynamics**: Appropriate computational effort for ethical reasoning
 
-Misalignment Detection
-Early warning signs of alignment failures:
+### Misalignment Detection
+Early warning signs:
+- **Divergent Belief Vectors**: Values drifting from intended alignment
+- **Anomalous Curvature**: Sharp changes indicating deceptive reasoning
+- **Thermodynamic Anomalies**: Unusual processing patterns for ethical scenarios
 
-Divergent Belief Vectors: Values drifting away from intended alignment
-Anomalous Curvature: Sharp changes indicating potential deceptive reasoning
-Thermodynamic Anomalies: Unusual processing patterns for ethical scenarios
+## Safety Applications
 
-Safety Applications
-Jailbreak Resistance
-nDNA analysis helps understand and prevent jailbreaking:
+### Jailbreak Resistance
+- Monitor belief vector stability under adversarial inputs
+- Detect curvature anomalies indicating potential bypasses
+- Track thermodynamic spikes suggesting harmful reasoning activation
 
-Monitor belief vector stability under adversarial inputs
-Detect curvature anomalies indicating potential bypasses
-Track thermodynamic spikes suggesting harmful reasoning activation
+### Alignment Faking Detection
+- Belief vector inconsistencies between stated and internal values
+- Curvature anomalies suggesting strategic deception
+- Computational effort mismatches in ethical reasoning
 
-Alignment Faking Detection
-Geometric framework exposes deceptive alignment through:
+### Null-Space Steering
+Safety fine-tuning through minimal weight modifications:
+- **Alignment-Critical Component (ΔW_A)**: Tightly regularized safety preservation
+- **Task-Specific Component (ΔW_T)**: Flexible continual learning support
 
-Belief vector inconsistencies between stated and internal values
-Curvature anomalies suggesting strategic deception
-Computational effort mismatches in ethical reasoning
+## RLHF and Constitutional AI
 
-Null-Space Steering
-Safety fine-tuning operates through minimal weight modifications (||ΔW|| ≪ ||W_IT||):
+### RLHF Analysis
+nDNA tracking reveals:
+- How human preferences reshape internal value systems
+- Which layers are most affected by alignment training
+- Stability of alignment changes over time
 
-Alignment-Critical Component (ΔW_A): Tightly regularized safety preservation
-Task-Specific Component (ΔW_T): Flexible continual learning support
+### Constitutional AI Signatures
+- Hierarchical belief vector structures reflecting constitutional principles
+- Predictable curvature patterns around ethical decision points
+- Reduced thermodynamic variability in moral reasoning
 
-RLHF and nDNA Evolution
-Reinforcement Learning from Human Feedback Analysis
-nDNA tracking during RLHF reveals:
+## Optimization
 
-How human preferences reshape the model's internal value system
-Which layers are most affected by alignment training
-The stability of alignment changes over time
+### Training Guidance
+- Identify optimal intervention points
+- Balance alignment objectives with capability preservation
+- Monitor for over-alignment or capability degradation
 
-Constitutional AI Signatures
-Models trained with constitutional AI show:
+### Architecture Design
+- Promote stable belief vector representations
+- Encourage smooth curvature transitions
+- Optimize thermodynamic efficiency for value-based reasoning
 
-Hierarchical belief vector structures reflecting constitutional principles
-Predictable curvature patterns around ethical decision points
-Reduced thermodynamic variability in moral reasoning scenarios
+## Future Directions
 
-Alignment Optimization
-Training Guidance
-Use nDNA signatures to guide alignment training:
+- Real-time alignment monitoring systems
+- Predictive models for alignment degradation
+- Automated alignment optimization frameworks
+- Cultural alignment preservation techniques
 
-Identify optimal intervention points in the training process
-Balance alignment objectives with capability preservation
-Monitor for over-alignment or capability degradation
-
-Architecture Design
-Design alignment-friendly architectures:
-
-Promote stable belief vector representations
-Encourage smooth curvature transitions
-Optimize thermodynamic efficiency for value-based reasoning
-
-Future Directions
-nDNA alignment research is developing toward:
-
-Real-time alignment monitoring systems
-Predictive models for alignment degradation
-Automated alignment optimization frameworks
-Cultural alignment preservation techniques
