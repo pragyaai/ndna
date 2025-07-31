@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Neural Hamming Distance (nHD): Capturing Bit-Level Mutation Signatures in Neural Genomics"
-permalink: /llm/neural-genomics/nhd/
+title: "Neural Hamming Distance (nHD)"
+permalink: /llm/neural-genomics/nHD/
 ---
 
 <script type="text/javascript" async
