@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-31T20:58:48+00:00" />
+<meta property="article:published_time" content="2025-07-31T21:31:08+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T20:58:48+00:00","datePublished":"2025-07-31T20:58:48+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-31T21:31:08+00:00","datePublished":"2025-07-31T21:31:08+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -215,203 +215,20 @@
 
 <p>Looking forward, nHD offers a foundation for continual adaptation, robustness monitoring, and dynamic alignment in multilingual, multicultural AI systems. As a cornerstone of Neural Genomics, it empowers responsible, interpretable, and inclusive AI innovation responsive to evolving cultural and ethical landscapes.</p>
 
-<div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between;">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0;">
 
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(1) Africa–Asia</b><br />
-Smooth geodesic interpolation.<br />
-\\( \kappa_\\ell: 0.3 \\rightarrow 0.7 \\), \\( L_\\ell: 0.4 \\rightarrow 0.7 \\)<br />
-<i>See:</i> 
-<img src="assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif" />
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(2) Asia–China</b><br />
-Slight asymmetry, reflecting cultural specificity.<br />
-\\( \kappa_\ell: 0.2 \rightarrow 0.4 \\), \\( L_\ell: 0.3 \rightarrow 0.5 \\)<br />
-<i>See:</i> /assets/gifs/fusion-asia-china.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(3) China–US</b><br />
-Nonlinear interpolation with sharp bends.<br />
-\\( \kappa_\ell: 0.6 \rightarrow 1.2 \\), \\( L_\ell: 0.5 \rightarrow 1.3 \\)<br />
-<i>See:</i> /assets/gifs/fusion-china-us.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(4) France–Germany</b><br />
-Culturally proximal fusion, low distortion.<br />
-\\( \kappa_\ell: 0.4 \rightarrow 0.6 \\), \\( L_\ell: 0.3 \rightarrow 0.6 \\)<br />
-<i>See:</i> /assets/gifs/fusion-france-germany.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(5) US–India</b><br />
-Multimodal fusion—semantic bifurcation.<br />
-\\( \kappa_\ell: 0.5 \rightarrow 1.0 \\), \\( L_\ell: 0.4 \rightarrow 1.0 \\)<br />
-<i>See:</i> /assets/gifs/fusion-us-india.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(6) Random–Random</b><br />
-High-entropy interpolation—mutation baseline.<br />
-\\( \kappa_\ell: 0.1 \rightarrow 0.9 \\), \\( L_\ell: 0.2 \rightarrow 1.1 \\)<br />
-<i>See:</i> /assets/gifs/fusion-random-random.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(7) India–UK</b><br />
-Post-colonial influence, moderate conflict.<br />
-\\( \kappa_\ell: 0.4 \rightarrow 0.8 \\), \\( L_\ell: 0.5 \rightarrow 0.9 \\)<br />
-<i>See:</i> /assets/gifs/fusion-india-uk.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(8) UK–US</b><br />
-Minimal distortion, high alignment.<br />
-\\( \kappa_\ell: 0.2 \rightarrow 0.3 \\), \\( L_\ell: 0.3 \rightarrow 0.4 \\)<br />
-<i>See:</i> /assets/gifs/fusion-uk-us.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(9) Germany–Russia</b><br />
-Competing ideological priors.<br />
-\\( \kappa_\ell: 0.5 \rightarrow 1.3 \\), \\( L_\ell: 0.6 \rightarrow 1.2 \\)<br />
-<i>See:</i> /assets/gifs/fusion-germany-russia.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(10) Africa–Europe</b><br />
-Historic exchange, soft divergence.<br />
-\\( \kappa_\ell: 0.3 \rightarrow 0.6 \\), \\( L_\ell: 0.3 \rightarrow 0.7 \\)<br />
-<i>See:</i> /assets/gifs/fusion-africa-europe.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(11) Japan–US</b><br />
-High mutual influence, distinct modal paths.<br />
-\\( \kappa_\ell: 0.3 \rightarrow 0.7 \\), \\( L_\ell: 0.4 \rightarrow 0.8 \\)<br />
-<i>See:</i> /assets/gifs/fusion-japan-us.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(12) India–China</b><br />
-Dense overlap with asymmetry.<br />
-\\( \kappa_\ell: 0.4 \rightarrow 0.9 \\), \\( L_\ell: 0.5 \rightarrow 1.0 \\)<br />
-<i>See:</i> /assets/gifs/fusion-india-china.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(13) Brazil–Portugal</b><br />
-Colonial continuity with language preservation.<br />
-\\( \kappa_\ell: 0.3 \rightarrow 0.5 \\), \\( L_\ell: 0.4 \rightarrow 0.7 \\)<br />
-<i>See:</i> /assets/gifs/fusion-brazil-portugal.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(14) Russia–Ukraine</b><br />
-Semantic collapse due to political conflict.<br />
-\\( \kappa_\ell: 0.6 \rightarrow 1.5 \\), \\( L_\ell: 0.7 \rightarrow 1.6 \\)<br />
-<i>See:</i> /assets/gifs/fusion-russia-ukraine.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(15) China–Africa</b><br />
-Recent influence, emerging alignments.<br />
-\\( \kappa_\ell: 0.3 \rightarrow 0.6 \\), \\( L_\ell: 0.4 \rightarrow 0.8 \\)<br />
-<i>See:</i> /assets/gifs/fusion-china-africa.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(16) Korea–Japan</b><br />
-High linguistic proximity, cultural variance.<br />
-\\( \kappa_\ell: 0.4 \rightarrow 0.6 \\), \\( L_\ell: 0.4 \rightarrow 0.6 \\)<br />
-<i>See:</i> /assets/gifs/fusion-korea-japan.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(17) US–Mexico</b><br />
-Bicultural exchange with asymmetry.<br />
-\\( \kappa_\ell: 0.5 \rightarrow 1.0 \\), \\( L_\ell: 0.6 \rightarrow 1.2 \\)<br />
-<i>See:</i> /assets/gifs/fusion-us-mexico.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(18) UK–Nigeria</b><br />
-Colonial inheritance, semantic drift.<br />
-\\( \kappa_\ell: 0.4 \rightarrow 0.9 \\), \\( L_\ell: 0.5 \rightarrow 1.0 \\)<br />
-<i>See:</i> /assets/gifs/fusion-uk-nigeria.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(19) France–Algeria</b><br />
-High conflict, latent structure retention.<br />
-\\( \kappa_\ell: 0.6 \rightarrow 1.4 \\), \\( L_\ell: 0.7 \rightarrow 1.3 \\)<br />
-<i>See:</i> /assets/gifs/fusion-france-algeria.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(20) Spain–Mexico</b><br />
-Post-colonial fusion with shared language.<br />
-\\( \kappa_\ell: 0.3 \rightarrow 0.5 \\), \\( L_\ell: 0.4 \rightarrow 0.7 \\)<br />
-<i>See:</i> /assets/gifs/fusion-spain-mexico.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(21) Iran–Iraq</b><br />
-Historical entanglement, modal tension.<br />
-\\( \kappa_\ell: 0.5 \rightarrow 1.2 \\), \\( L_\ell: 0.6 \rightarrow 1.1 \\)<br />
-<i>See:</i> /assets/gifs/fusion-iran-iraq.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(22) Turkey–Greece</b><br />
-Geographic proximity, contested narratives.<br />
-\\( \kappa_\ell: 0.4 \rightarrow 1.1 \\), \\( L_\ell: 0.5 \rightarrow 1.2 \\)<br />
-<i>See:</i> /assets/gifs/fusion-turkey-greece.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(23) Israel–Palestine</b><br />
-High mutation load due to ideological conflict.<br />
-\\( \kappa_\ell: 0.7 \rightarrow 1.6 \\), \\( L_\ell: 0.8 \rightarrow 1.7 \\)<br />
-<i>See:</i> /assets/gifs/fusion-israel-palestine.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(24) China–Taiwan</b><br />
-Tightly coupled history with divergent paths.<br />
-\\( \kappa_\ell: 0.5 \rightarrow 1.1 \\), \\( L_\ell: 0.6 \rightarrow 1.2 \\)<br />
-<i>See:</i> /assets/gifs/fusion-china-taiwan.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(25) Egypt–Saudi Arabia</b><br />
-Shared semantic heritage, distinct media.<br />
-\\( \kappa_\ell: 0.3 \rightarrow 0.6 \\), \\( L_\ell: 0.4 \rightarrow 0.6 \\)<br />
-<i>See:</i> /assets/gifs/fusion-egypt-saudi.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(26) Canada–US</b><br />
-Cultural mirroring, minimal distortion.<br />
-\\( \kappa_\ell: 0.2 \rightarrow 0.3 \\), \\( L_\ell: 0.3 \rightarrow 0.4 \\)<br />
-<i>See:</i> /assets/gifs/fusion-canada-us.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(27) North–South Korea</b><br />
-Syntactic similarity, deep ideological divergence.<br />
-\\( \kappa_\ell: 0.6 \rightarrow 1.5 \\), \\( L_\ell: 0.7 \rightarrow 1.6 \\)<br />
-<i>See:</i> /assets/gifs/fusion-korea-northsouth.gif
-</div>
-
-<div style="flex: 1; min-width: 30%; max-width: 32%;">
-<b>(28) Venezuela–Cuba</b><br />
-Aligned ideology, limited lexical drift.<br />
-\\( \kappa_\ell: 0.3 \rightarrow 0.7 \\), \\( L_\ell: 0.4 \rightarrow 0.8 \\)<br />
-<i>See:</i> /assets/gifs/fusion-venezuela-cuba.gif
+<!-- (1) Africa–Asia -->
+<div style="text-align: center;">
+  <a href="/nDNA/assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif" data-lightbox="gallery" data-title="Africa–Asia">
+    <img src="/nDNA/assets/gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif" alt="Africa–Asia nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">Africa–Asia</p>
+  <p style="text-align: left; font-size: 0.95em;">
+    \\( \kappa_\ell: 0.3 \\rightarrow 0.7 \\), \\( L_\ell: 0.4 \\rightarrow 0.7 \\). Smooth geodesic interpolation within convex hull. Reflects semantic augmentation and representational folding.<br /><br />
+    \\[
+    M^{(\ell)}_{\text{offspring}} = \alpha^{(\ell)} M^{(\ell)}_A + (1-\alpha^{(\ell)}) M^{(\ell)}_B + \varepsilon^{(\ell)}
+    \\]
+  </p>
 </div>
 
 </div>
