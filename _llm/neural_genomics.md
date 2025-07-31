@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Neural Genomics
-permalink: /llm/neural-genomics/
+permalink: /neural-genomics/
 ---
 
 
