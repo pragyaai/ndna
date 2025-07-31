@@ -4,79 +4,113 @@ title: Model Collapse
 permalink: /model-collapse/
 ---
 
-# Model Collapse and nDNA Analysis
+---
+layout: page
+title: Model Collapse
+permalink: /model-collapse/
+---
 
-## Understanding Model Collapse
+# nDNA-Lens: Model Collapse as Latent Manifold Flattening
 
-Model collapse occurs when foundation models lose diversity in their representations, leading to degraded performance and reduced capability. nDNA provides early warning indicators of this critical failure mode.
+[![Research](https://img.shields.io/badge/Research-Neural%20Genomics-blue)](https://github.com/research/ndna-lens)
+[![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/research/ndna-lens)
+[![Models](https://img.shields.io/badge/Models-LLaMA%20%7C%20Qwen-orange)](https://github.com/research/ndna-lens)
 
-![Model Collapse Animation](placeholder-collapse-overview.gif)
-*Visualization of progressive model collapse through nDNA metrics*
+> **Discovering model collapse through geometric degeneration of neural DNA trajectories**
 
-## nDNA Signatures of Collapse
+## What is Model Collapse?
 
-### Spectral Curvature Flattening
-* **Normal Models**: Rich curvature variations across layers
-* **Collapsing Models**: Progressively flatter curvature profiles  
-* **Collapsed Models**: Near-zero curvature indicating representational stagnation
+Model collapse is a degenerative phenomenon in LLMs where expressivity, diversity, and semantic richness progressively deteriorate, manifesting as semantic homogenization, overconfident predictions, and diminished generative variability.
 
-![Curvature Flattening](placeholder-curvature-evolution.gif)
-*Spectral curvature evolution during collapse*
+We identify two routes to collapse:
+1. **Repeated fine-tuning** on synthetic outputs (traditional)
+2. **Recursive self-merging** - a novel form of **semantic inbreeding**
 
-### Thermodynamic Length Reduction
-As models collapse, the energy required for belief updating decreases dramatically:
-* Reduced computational effort for processing new information
-* Loss of nuanced reasoning capabilities
-* Simplified, repetitive response patterns
+![Model Collapse Visualization](assets/collapse-animation.gif)
+*Neural DNA trajectories showing progressive flattening across generations*
 
-### Belief Vector Convergence
-* Multiple belief vectors converge to similar directions
-* Loss of representational diversity
-* Reduced sensitivity to different contextual inputs
+## Biological Analogy
 
-![Belief Vector Fields](placeholder-belief-vectors.gif)
-*Healthy vs collapsed belief vector field comparison*
+This parallels consanguinity in population genetics - prolonged inbreeding exposes recessive mutations and reduces phenotypic variability. Similarly, neural self-merging without epistemic diversification flattens the latent manifold, resembling inbreeding depression in biology.
 
-## Early Detection Methods
+## The Mathematics
 
-nDNA enables detection of model collapse before performance degradation becomes apparent:
+Model collapse manifests as flattening of the latent manifold defined by neural DNA (nDNA):
 
-1. **Curvature Monitoring**: Track spectral curvature variance across training
-2. **Thermodynamic Tracking**: Monitor energy distribution patterns
-3. **Belief Diversity**: Measure belief vector distribution entropy
-
-```python
-# Collapse Detection Framework
-vitality_score = curvature * thermodynamic_length * belief_magnitude
-if vitality_trend < collapse_threshold:
-    trigger_intervention()
+```
+T_nDNA = {(κ_ℓ, L_ℓ, ||v^(c)_ℓ||)}^L_{ℓ=1}
 ```
 
-## Prevention Strategies
+- **κ_ℓ**: Latent curvature (semantic flexibility)
+- **L_ℓ**: Thermodynamic length (epistemic work)
+- **||v^(c)_ℓ||**: Semantic steering force
 
-Based on nDNA analysis, several collapse prevention strategies emerge:
+**Collapse signature:** κ_ℓ → const, L_ℓ → min, ||v^(c)_ℓ|| → uniform
 
-* **Regularization**: Maintain curvature diversity through targeted regularization
-* **Data Augmentation**: Ensure belief vector diversity through varied training data
-* **Architecture Design**: Design networks that naturally resist collapse
+![Geometric Measurements](assets/geometry-tracking.gif)
+*Real-time tracking of curvature and thermodynamic length during collapse*
 
-![Prevention Strategies](placeholder-prevention-methods.gif)
-*Intervention techniques to prevent model collapse*
+## Empirical Results
 
-## Case Studies
+**Collapsed models:** κ_ℓ ≤ 0.02, L_ℓ ≤ 0.4 ∀ℓ > 20  
+**Healthy models:** κ_ℓ ≥ 0.05, L_ℓ ≥ 0.8
 
-Analysis of collapsed models shows consistent nDNA patterns across different architectures and domains, providing a universal framework for understanding this phenomenon.
+## Experimental Findings
 
-### Recursive Fine-tuning Results
-- **LLaMA-2**: Collapse at Generation 10
-- **Curvature**: κℓ → 0.02 (from 0.05)
-- **Thermodynamic Length**: Lℓ → 0.4 (from 0.8)
+### Repeated Fine-Tuning (Alpaca on LLaMA)
+- Models fine-tuned on their own outputs: D^(g) = Output(M^(g-1), Alpaca Prompts)
+- **Collapse threshold:** Generation 10
+- Progressive flattening: κ_ℓ → 0.2, L_ℓ → 0.2 by Gen 10
 
-### Cultural Model Merging
-- **China/Middle East**: Collapse at Gen 9
-- **Africa/North America**: Collapse at Gen 15
-- **Consistent Pattern**: Manifold flattening across all cultures
+### Recursive Self-Merging
+Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child^(g) = Merge(Child^(g-1), Child^(g-2))
+
+**Cultural collapse rates:**
+- **Fast (Gen 9):** China, Middle East
+- **Medium (Gen 11-13):** Asia, Europe, Latin America
+- **Slow (Gen 15-16):** Africa, North America, Australia
+
+![Cultural Collapse Comparison](assets/cultural-collapse-trajectories.png)
+*Comparative collapse trajectories across culturally-aligned models*
+
+## Belief Vector Field Analysis
+
+Healthy models maintain belief vector magnitudes of 0.10-0.60 with directional diversity. Collapsed models show magnitudes below 0.05 at deeper layers, with vectors converging toward zero - indicating loss of semantic differentiation.
+
+![Belief Vector Fields](assets/belief-vector-evolution.png)
+*Healthy vs collapsed belief vector fields showing loss of semantic steering*
+
+## Practical Applications
+
+### Geometric Diagnostics
+Monitor κ_ℓ, L_ℓ, and ||v^(c)_ℓ|| as early warning signals for collapse.
+
+### Preservation Interventions
+- Spectral regularization
+- Geodesic constraints  
+- Modular training
+- Torsion-aware objectives
+
+### Epistemic Vitality Function
+```
+V_ℓ := κ_ℓ · L_ℓ · ||v^(c)_ℓ||
+Collapse indicator: d/dg V^(g)_ℓ < 0
+```
+
+### Epistemic Audits
+Supplement behavioral evaluations with geometric health assessments for semantic longevity rather than just task compliance.
+
+## Impact
+
+This research reframes model evaluation from surface-level performance to **geometric vitality**, treating models as semantic organisms. The nDNA-Lens provides quantitative diagnostics for:
+
+- Early collapse detection before output degradation
+- Understanding model resilience variations
+- Designing preservation strategies
+- Redefining model health from performance to endurance
+
+Neural genomics - tracking spectral, thermodynamic, and vectorial signatures - enables cultivation of models that are resilient, modular, and capable of retaining epistemic diversity over time.
 
 ---
 
-*Early detection through geometric analysis enables proactive model health management*
+**Research Status:** Active development of geometric diagnostic tools for foundation model health monitoring.
