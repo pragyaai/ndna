@@ -10,7 +10,7 @@ const menusByModel = {
     { text: "Multilinguality", url: baseUrl + "/llm/multilinguality/" },
     { text: "Alignment", url: baseUrl + "/llm/alignment/" },
     { text: "Quantization", url: baseUrl + "/quantization/" },
-    { text: "Pruning", url: "#" },
+    { text: "Pruning", url: baseUrl + "/llm/pruning/" },
     { text: "Model Merging", url: "#" },
     { text: "Model Collapse", url: baseUrl + "/model-collapse/" },
     { text: "Knowledge Distillation", url: "#" },
