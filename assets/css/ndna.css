@@ -111,10 +111,10 @@ body {
 }
 
 .navbar a.active {
-  background-color: #d63384;
+  background-color: #0066cc;
   color: #fff;
   font-weight: bold;
-  box-shadow: 0 2px 6px rgba(214, 51, 132, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 102, 204, 0.3);
 }
 
 .navbar .submenu {
