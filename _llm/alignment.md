@@ -10,9 +10,10 @@ permalink: /llm/alignment/
 
 **nDNA** provides quantitative methods for measuring and monitoring AI alignment, offering deep insights into how models internalize human values and behavioral constraints through three core metrics:
 
-- **Spectral Curvature** \(\kappa_\ell\): Behavioral instability and reasoning path deviations  
-- **Thermodynamic Length** \((L_\ell)\): Computational effort required for value integration  
+- **Spectral Curvature** $ \kappa_\ell $: Behavioral instability and reasoning path deviations  
+- **Thermodynamic Length** $ L_\ell $: Computational effort required for value integration  
 - **Belief Vector Strength**: Magnitude of alignment steering effects
+
 
 ![Safety fine-tuning geometric visualization](../assets/gifs/alignment/figure13.gif)
 
