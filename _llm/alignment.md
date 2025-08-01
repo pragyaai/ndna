@@ -156,14 +156,13 @@ To uncover **deceptive compliance**:
 
 ### Null-Space Steering
 
-## Minimal-intervention safety fine-tuning:
-$$
-\begin{align*}
-\Delta W &= \Delta W_A + \Delta W_T \\
-\Delta W_A &: \text{Alignment-Critical (tight safety regularization)} \\
-\Delta W_T &: \text{Task-Specific (flexible, capability-oriented)}
-\end{align*}
-$$
+**Minimal-intervention safety fine-tuning:**
+
+$$\Delta W = \Delta W_A + \Delta W_T$$
+
+Where:
+- $\Delta W_A$: Alignment-Critical (tight safety regularization)
+- $\Delta W_T$: Task-Specific (flexible, capability-oriented)
 
 ## RLHF and Constitutional AI
 
