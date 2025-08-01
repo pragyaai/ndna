@@ -106,15 +106,14 @@ nDNA shows that **Direct Preference Optimization (DPO)**:
 - Does **not alter model knowledge**
 - Applies **directional nudges** in activation space via:
 
-\[
-\textbf{Linear Logit Geometry:} \quad \text{Projection onto preference vectors}
-\]  
-\[
-\textbf{Uniform Steering:} \quad \text{Global behavioral alignment via consistent shifts}
-\]  
-\[
-\textbf{Symmetric Actuation:} \quad \text{Shallow translation without conceptual restructuring}
-\]
+$$
+\begin{aligned}
+\textbf{Linear Logit Geometry:} &\quad \text{Projection onto preference vectors} \\
+\textbf{Uniform Steering:} &\quad \text{Global behavioral alignment via consistent shifts} \\
+\textbf{Symmetric Actuation:} &\quad \text{Shallow translation without conceptual restructuring}
+\end{aligned}
+$$
+
 
 ---
 
