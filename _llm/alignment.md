@@ -31,19 +31,21 @@ Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), Direct Preference Optim
 #### High-Curvature Regions
 
 **Africa**  
-\[
+$$
 \kappa_\ell: 0.85 \rightarrow 0.75, \quad L_\ell: 0.9 \rightarrow 0.8
-\]  
+$$  
 ![Africa](../assets/gifs/alignment/africa_ndna_final.gif)
 
 **Asia**  
-\(\kappa_\ell\) reduced by ~10%, smoothing epistemic manifolds  
+$$
+\kappa_\ell \text{ reduced by approximately } 10\% \text{, smoothing epistemic manifolds}
+$$  
 ![Asia](../assets/gifs/alignment/asia_ndna_collapse.gif)
 
 **China**  
-\[
+$$
 \kappa_\ell: > 0.9 \rightarrow 0.8
-\]  
+$$  
 Significant latent reorientation  
 ![China](../assets/gifs/alignment/china_ndna_final.gif)
 
@@ -52,13 +54,15 @@ Significant latent reorientation
 #### Moderate-Strain Regions
 
 **Latin America**  
-\[
+$$
 \kappa_\ell: 0.7 \rightarrow 0.6
-\]  
+$$  
 ![Latin America](../assets/gifs/alignment/latinamerica.gif)
 
 **Middle East**  
-8–12% reduction in both \(\kappa_\ell\) and \(L_\ell\)  
+$$
+\text{8–12\% reduction in both } \kappa_\ell \text{ and } L_\ell
+$$  
 ![Middle East](../assets/gifs/alignment/middleeast_ndna_final.gif)
 
 ---
@@ -66,9 +70,9 @@ Significant latent reorientation
 #### Low-Strain Regions
 
 **Europe**  
-\[
-\kappa_\ell: 0.4 - 0.5
-\]  
+$$
+\kappa_\ell: 0.4 \text{ to } 0.5
+$$  
 Confirms alignment stability  
 ![Europe](../assets/gifs/alignment/europe_ndna_collapse_FINAL.gif)
 
@@ -77,10 +81,10 @@ Remains within pretrained epistemic manifold
 ![North America](../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif)
 
 **Australia**  
+$$
+\kappa_\ell: 0.42 \text{ to } 0.55
+$$  
 Minimal reconfiguration  
-\[
-\kappa_\ell: 0.42 - 0.55
-\]  
 ![Australia](../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif)
 
 ---
