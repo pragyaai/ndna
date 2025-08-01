@@ -19,11 +19,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/alignment/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-01T05:54:48+00:00" />
+<meta property="article:published_time" content="2025-08-01T16:58:11+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Alignment" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-01T05:54:48+00:00","datePublished":"2025-08-01T05:54:48+00:00","description":"Alignment","headline":"Alignment","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/alignment/"},"url":"https://pragyaai.github.io/nDNA/llm/alignment/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-01T16:58:11+00:00","datePublished":"2025-08-01T16:58:11+00:00","description":"Alignment","headline":"Alignment","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/alignment/"},"url":"https://pragyaai.github.io/nDNA/llm/alignment/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -68,15 +68,15 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>nDNA provides quantitative methods for measuring and monitoring AI alignment, offering unprecedented insights into how models internalize human values and behavioral constraints through three core metrics:</p>
+<p><strong>nDNA</strong> provides quantitative methods for measuring and monitoring AI alignment, offering deep insights into how models internalize human values and behavioral constraints through three core metrics:</p>
 
 <ul>
-  <li><strong>Spectral Curvature (κℓ)</strong> — Behavioral instability and reasoning path deviations</li>
-  <li><strong>Thermodynamic Length (Lℓ)</strong> — Computational effort required for value integration</li>
-  <li><strong>Belief Vector Strength</strong> — Magnitude of alignment steering effects</li>
+  <li><strong>Spectral Curvature</strong> ((\kappa_\ell)): Behavioral instability and reasoning path deviations</li>
+  <li><strong>Thermodynamic Length</strong> ((L_\ell)): Computational effort required for value integration</li>
+  <li><strong>Belief Vector Strength</strong>: Magnitude of alignment steering effects</li>
 </ul>
 
-<p><img src="path/to/figure13.gif" alt="Safety fine-tuning geometric visualization" /></p>
+<p><img src="../assets/gifs/alignment/figure13.gif" alt="Safety fine-tuning geometric visualization" /></p>
 
 <hr />
 
@@ -84,56 +84,66 @@
 
 <h3 id="the-litmus-dataset">The LITMUS Dataset</h3>
 
-<p>Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), we can apply Direct Preference Optimization to culturally-specific models while preserving regional characteristics.</p>
+<p>Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), Direct Preference Optimization (DPO) can be applied to culturally-specific models while preserving <strong>regional identity</strong>.</p>
 
 <hr />
 
 <h3 id="regional-ndna-signatures">Regional nDNA Signatures</h3>
 
 <h4 id="high-curvature-regions">High-Curvature Regions</h4>
-<p>These regions show dramatic reconfiguration under DPO:</p>
 
 <p><strong>Africa</strong><br />
-κℓ: 0.85 → 0.75, Lℓ: 0.9 → 0.8<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa: Base vs DPO-aligned" /></p>
+[
+\kappa_\ell: 0.85 \rightarrow 0.75, \quad L_\ell: 0.9 \rightarrow 0.8
+]<br />
+<img src="../assets/gifs/alignment/africa_ndna_final.gif" alt="Africa" /></p>
 
 <p><strong>Asia</strong><br />
-κℓ reduced by ~10%, smoothing epistemic manifolds<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia: Base vs DPO-aligned" /></p>
+(\kappa_\ell) reduced by ~10%, smoothing epistemic manifolds<br />
+<img src="../assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia" /></p>
 
 <p><strong>China</strong><br />
-κℓ: &gt;0.9 → 0.8, significant latent reorientation<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/china_ndna_final.gif" alt="China: Base vs DPO-aligned" /></p>
+[
+\kappa_\ell: &gt; 0.9 \rightarrow 0.8
+]<br />
+Significant latent reorientation<br />
+<img src="../assets/gifs/alignment/china_ndna_final.gif" alt="China" /></p>
 
 <hr />
 
 <h4 id="moderate-strain-regions">Moderate-Strain Regions</h4>
-<p>These regions display controlled compression:</p>
 
 <p><strong>Latin America</strong><br />
-κℓ: 0.7 → 0.6, preserving regional identity<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/latinamerica.gif" alt="Latin America: Base vs DPO-aligned" /></p>
+[
+\kappa_\ell: 0.7 \rightarrow 0.6
+]<br />
+<img src="../assets/gifs/alignment/latinamerica.gif" alt="Latin America" /></p>
 
 <p><strong>Middle East</strong><br />
-8–12% reduction in curvature and length<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East: Base vs DPO-aligned" /></p>
+8–12% reduction in both (\kappa_\ell) and (L_\ell)<br />
+<img src="../assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East" /></p>
 
 <hr />
 
 <h4 id="low-strain-regions">Low-Strain Regions</h4>
-<p>These regions maintain stable geometry:</p>
 
 <p><strong>Europe</strong><br />
-κℓ: 0.4–0.5, confirming alignment stability<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe: Base vs DPO-aligned" /></p>
+[
+\kappa_\ell: 0.4 - 0.5
+]<br />
+Confirms alignment stability<br />
+<img src="../assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe" /></p>
 
 <p><strong>North America</strong><br />
-Remains within pretraining manifold<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America: Base vs DPO-aligned" /></p>
+Remains within pretrained epistemic manifold<br />
+<img src="../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America" /></p>
 
 <p><strong>Australia</strong><br />
-Minimal reconfiguration, κℓ: 0.42–0.55<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="Australia: Base vs DPO-aligned" /></p>
+Minimal reconfiguration<br />
+[
+\kappa_\ell: 0.42 - 0.55
+]<br />
+<img src="../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="Australia" /></p>
 
 <hr />
 
@@ -141,25 +151,34 @@ Minimal reconfiguration, κℓ: 0.42–0.55<br />
 
 <p><strong>LLaMA</strong><br />
 Moderate, stable alignment characteristics<br />
-<img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/llama_collapse_v2_1.gif" alt="LLaMA: Base vs DPO-aligned" /></p>
+<img src="../assets/gifs/alignment/llama_collapse_v2_1.gif" alt="LLaMA" /></p>
 
 <hr />
 
 <h3 id="global-alignment-patterns">Global Alignment Patterns</h3>
 
-<p><img src="https://github.com/pragyaai/ndna/blob/main/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="All Cultural nDNA Trajectories" /></p>
+<p><img src="../assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="Global nDNA Trajectories" /></p>
 
 <hr />
 
 <h2 id="dpo-steering-without-understanding">DPO: Steering Without Understanding</h2>
 
-<p>nDNA reveals that Direct Preference Optimization (DPO) does <strong>not alter model knowledge</strong>, but instead applies <strong>directional nudges</strong> in activation space through:</p>
+<p>nDNA shows that <strong>Direct Preference Optimization (DPO)</strong>:</p>
 
 <ul>
-  <li><strong>Linear Logit Geometry</strong> — Projection onto preference vectors</li>
-  <li><strong>Uniform Steering</strong> — Global behavioral alignment via consistent shifts</li>
-  <li><strong>Symmetric Actuation</strong> — Shallow translation rather than conceptual restructuring</li>
+  <li>Does <strong>not alter model knowledge</strong></li>
+  <li>Applies <strong>directional nudges</strong> in activation space via:</li>
 </ul>
+
+<p>[
+\textbf{Linear Logit Geometry:} \quad \text{Projection onto preference vectors}
+]<br />
+[
+\textbf{Uniform Steering:} \quad \text{Global behavioral alignment via consistent shifts}
+]<br />
+[
+\textbf{Symmetric Actuation:} \quad \text{Shallow translation without conceptual restructuring}
+]</p>
 
 <hr />
 
@@ -170,21 +189,21 @@ Moderate, stable alignment characteristics<br />
 <p>Properly aligned models exhibit:</p>
 
 <ul>
-  <li><strong>Stable Belief Vectors</strong> — Consistent directional alignment with human values</li>
-  <li><strong>Controlled Curvature</strong> — Smooth representational changes that avoid harmful paths</li>
-  <li><strong>Balanced Thermodynamics</strong> — Reasonable computational effort for ethical reasoning</li>
+  <li><strong>Stable Belief Vectors</strong> — Directional consistency with human values</li>
+  <li><strong>Controlled Curvature</strong> — Smooth representational changes avoiding harmful paths</li>
+  <li><strong>Balanced Thermodynamics</strong> — Reasonable effort for ethical reasoning</li>
 </ul>
 
 <hr />
 
 <h3 id="misalignment-detection">Misalignment Detection</h3>
 
-<p><strong>Early warning signs of value drift or deceptive behavior include:</strong></p>
+<p><strong>Early warning signs</strong> of drift or deception:</p>
 
 <ul>
-  <li><strong>Divergent Belief Vectors</strong> — Alignment direction deviates from intended objectives</li>
-  <li><strong>Anomalous Curvature</strong> — Sharp representational transitions, suggesting brittle reasoning</li>
-  <li><strong>Thermodynamic Anomalies</strong> — Spikes in effort associated with harmful or ambiguous queries</li>
+  <li><strong>Divergent Belief Vectors</strong> — Misalignment with intended direction</li>
+  <li><strong>Anomalous Curvature</strong> — Sharp transitions indicating brittle reasoning</li>
+  <li><strong>Thermodynamic Spikes</strong> — High effort in ethically ambiguous queries</li>
 </ul>
 
 <hr />
@@ -193,35 +212,38 @@ Moderate, stable alignment characteristics<br />
 
 <h3 id="jailbreak-resistance">Jailbreak Resistance</h3>
 
-<p>To detect and prevent behavioral bypasses:</p>
+<p>To detect/prevent adversarial bypass:</p>
 
 <ul>
-  <li>Monitor belief vector stability under adversarial inputs</li>
-  <li>Identify curvature anomalies that could enable jailbreaks</li>
-  <li>Track thermodynamic spikes linked to unsafe reasoning patterns</li>
+  <li>Monitor belief vector stability under attacks</li>
+  <li>Flag curvature anomalies enabling jailbreaks</li>
+  <li>Track effort surges tied to unsafe outputs</li>
 </ul>
 
 <hr />
 
 <h3 id="alignment-faking-detection">Alignment Faking Detection</h3>
 
-<p>To uncover deceptive compliance:</p>
+<p>To uncover <strong>deceptive compliance</strong>:</p>
 
 <ul>
-  <li>Compare stated outputs vs internal belief vectors</li>
-  <li>Detect curvature inconsistencies indicating strategic deception</li>
-  <li>Analyze processing effort during ethical decision-making</li>
+  <li>Compare stated output vs internal belief vectors</li>
+  <li>Look for curvature inconsistencies</li>
+  <li>Analyze energy cost during ethical evaluations</li>
 </ul>
 
 <hr />
 
 <h3 id="null-space-steering">Null-Space Steering</h3>
 
-<p>A minimal-intervention approach to safety fine-tuning, based on parameter decomposition:</p>
+<p>Minimal-intervention safety fine-tuning:</p>
 
+<p>[
+\Delta W = \Delta W_A + \Delta W_T
+]</p>
 <ul>
-  <li><strong>ΔW_A (Alignment-Critical Component)</strong> — Preserves safety constraints with tight regularization</li>
-  <li><strong>ΔW_T (Task-Specific Component)</strong> — Allows flexibility for continual capability learning</li>
+  <li>(\Delta W_A): <strong>Alignment-Critical</strong> (tight safety regularization)</li>
+  <li>(\Delta W_T): <strong>Task-Specific</strong> (flexible, capability-oriented)</li>
 </ul>
 
 <hr />
@@ -230,24 +252,24 @@ Moderate, stable alignment characteristics<br />
 
 <h3 id="rlhf-analysis">RLHF Analysis</h3>
 
-<p>nDNA metrics illuminate how Reinforcement Learning from Human Feedback impacts internal model structure:</p>
+<p>nDNA metrics show how <strong>Reinforcement Learning from Human Feedback (RLHF)</strong>:</p>
 
 <ul>
-  <li>Tracks how human preferences reshape latent value systems</li>
-  <li>Identifies model layers most affected by alignment processes</li>
-  <li>Evaluates the long-term stability of alignment shifts</li>
+  <li>Reshapes latent value systems</li>
+  <li>Targets specific model layers</li>
+  <li>Evaluates long-term alignment retention</li>
 </ul>
 
 <hr />
 
 <h3 id="constitutional-ai-signatures">Constitutional AI Signatures</h3>
 
-<p>Constitutionally guided models exhibit:</p>
+<p>Constitutionally guided models show:</p>
 
 <ul>
-  <li><strong>Hierarchical Belief Structures</strong> — Encoding multi-tier ethical principles</li>
-  <li><strong>Predictable Curvature Transitions</strong> — Especially around sensitive moral decision points</li>
-  <li><strong>Reduced Thermodynamic Variability</strong> — More consistent reasoning effort across ethical contexts</li>
+  <li><strong>Hierarchical Belief Structures</strong> — Encoding tiered ethical frameworks</li>
+  <li><strong>Predictable Curvature Shifts</strong> — Near sensitive moral boundaries</li>
+  <li><strong>Reduced Thermodynamic Variability</strong> — Consistent ethical reasoning load</li>
 </ul>
 
 <hr />
@@ -257,9 +279,9 @@ Moderate, stable alignment characteristics<br />
 <h3 id="training-guidance">Training Guidance</h3>
 
 <ul>
-  <li>Pinpoint optimal intervention layers and epochs</li>
-  <li>Balance alignment with performance retention</li>
-  <li>Monitor for signs of over-alignment or degradation in generalization</li>
+  <li>Target optimal layers and epochs</li>
+  <li>Maintain tradeoff between alignment and performance</li>
+  <li>Avoid over-alignment or generalization loss</li>
 </ul>
 
 <hr />
@@ -267,9 +289,9 @@ Moderate, stable alignment characteristics<br />
 <h3 id="architecture-design">Architecture Design</h3>
 
 <ul>
-  <li>Design for <strong>stable belief vector propagation</strong></li>
-  <li>Encourage <strong>smooth curvature gradients</strong> between layers</li>
-  <li>Maximize <strong>thermodynamic efficiency</strong> for value-based reasoning</li>
+  <li>Enable <strong>stable belief propagation</strong></li>
+  <li>Promote <strong>smooth curvature gradients</strong></li>
+  <li>Optimize for <strong>thermodynamic efficiency</strong> in value-aligned reasoning</li>
 </ul>
 
 <hr />
@@ -277,10 +299,10 @@ Moderate, stable alignment characteristics<br />
 <h2 id="future-directions">Future Directions</h2>
 
 <ul>
-  <li><strong>Real-time alignment monitors</strong> for live inference pipelines</li>
-  <li><strong>Predictive modeling of degradation</strong> in safety alignment</li>
-  <li><strong>Automated optimization frameworks</strong> for value-system tuning</li>
-  <li><strong>Cultural alignment preservation</strong> in multilingual and cross-regional models</li>
+  <li><strong>Real-time alignment monitors</strong> in deployment</li>
+  <li><strong>Degradation predictors</strong> for value drift</li>
+  <li><strong>Automated safety optimization pipelines</strong></li>
+  <li><strong>Cultural alignment preservation</strong> in multi-lingual/cross-cultural settings</li>
 </ul>
 
 
