@@ -156,7 +156,7 @@ To uncover **deceptive compliance**:
 
 ### Null-Space Steering
 
-Minimal-intervention safety fine-tuning:
+## Minimal-intervention safety fine-tuning:
 
 $$
 \begin{aligned}
