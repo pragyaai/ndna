@@ -251,80 +251,74 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   </div>
 </div>
 
-<!-- Row 3 -->
-<div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; margin-bottom: 32px;">
 
-  <!-- (VII) Asia–Middle East -->
-  <div style="flex: 1; min-width: 30%; max-width: 32%; text-align: center;">
-    <a href="{{ '/assets/gifs/neural_genomics/Asia_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Asia–Middle East">
-      <img src="{{ '/assets/gifs/neural_genomics/Asia_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" alt="Asia–Middle East" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 8px; font-weight: 600;">Asia–Middle East</p>
-    <div class="mathjax-render" style="text-align: left; font-size: 0.95em;">
-      \( \kappa_\ell: 0.35 \rightarrow 0.85 \), \( L_\ell: 0.5 \rightarrow 1.05 \). Nonlinear curvature and cumulative semantic transformation signal intricate latent fusion dynamics.
-    </div>
+
+<!-- (VII) Asia–Middle East -->
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/neural_genomics/Asia_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Asia–Middle East">
+    <img src="{{ '/assets/gifs/neural_genomics/Asia_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" alt="Asia–Middle East nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">Asia–Middle East</p>
+  <div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
+    \( \kappa_\ell: 0.35 \rightarrow 0.85 \), \( L_\ell: 0.5 \rightarrow 1.05 \). Rich nonlinear fusion with structural reshaping; reflects epistatic interactions and emergent robust representations.
   </div>
-
-  <!-- (VIII) Australia–Africa -->
-  <div style="flex: 1; min-width: 30%; max-width: 32%; text-align: center;">
-    <a href="{{ '/assets/gifs/neural_genomics/Australia_Africa_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia–Africa">
-      <img src="{{ '/assets/gifs/neural_genomics/Australia_Africa_nHD_tube_rotating.gif' | relative_url }}" alt="Australia–Africa" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 8px; font-weight: 600;">Australia–Africa</p>
-    <div class="mathjax-render" style="text-align: left; font-size: 0.95em;">
-      \( \kappa_\ell: 0.3 \rightarrow 0.7 \), \( L_\ell: 0.35 \rightarrow 0.85 \). Seamless fusion and stable semantic evolution mirroring biological recombination.
-    </div>
-  </div>
-
-  <!-- (IX) Australia–Asia -->
-  <div style="flex: 1; min-width: 30%; max-width: 32%; text-align: center;">
-    <a href="{{ '/assets/gifs/neural_genomics/Australia_Asia_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia–Asia">
-      <img src="{{ '/assets/gifs/neural_genomics/Australia_Asia_nHD_tube_rotating.gif' | relative_url }}" alt="Australia–Asia" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 8px; font-weight: 600;">Australia–Asia</p>
-    <div class="mathjax-render" style="text-align: left; font-size: 0.95em;">
-      \( \kappa_\ell: 0.25 \rightarrow 0.75 \), \( L_\ell: 0.4 \rightarrow 0.9 \). Rich latent integration across deep layers reflects hierarchical semantic recombination.
-    </div>
-  </div>
-
 </div>
 
-<!-- Row 4 -->
-<div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; margin-bottom: 32px;">
 
-  <!-- (X) Australia–China -->
-  <div style="flex: 1; min-width: 30%; max-width: 32%; text-align: center;">
-    <a href="{{ '/assets/gifs/neural_genomics/Australia_China_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia–China">
-      <img src="{{ '/assets/gifs/neural_genomics/Australia_China_nHD_tube_rotating.gif' | relative_url }}" alt="Australia–China" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 8px; font-weight: 600;">Australia–China</p>
-    <div class="mathjax-render" style="text-align: left; font-size: 0.95em;">
-      \( \kappa_\ell: 0.3 \rightarrow 0.8 \), \( L_\ell: 0.35 \rightarrow 0.95 \). Smooth latent fusion reveals cumulative semantic divergence and nonlinear blending.
-    </div>
+<!-- (VIII) Australia–Africa -->
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/neural_genomics/Australia_Africa_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia–Africa">
+    <img src="{{ '/assets/gifs/neural_genomics/Australia_Africa_nHD_tube_rotating.gif' | relative_url }}" alt="Australia–Africa nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">Australia–Africa</p>
+  <div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
+    \( \kappa_\ell: 0.3 \rightarrow 0.7 \), \( L_\ell: 0.35 \rightarrow 0.85 \). Stable and coherent semantic fusion with smooth integration of cultural priors and rich latent expressivity.
   </div>
+</div>
 
-  <!-- (XI) China–Latin America -->
-  <div style="flex: 1; min-width: 30%; max-width: 32%; text-align: center;">
-    <a href="{{ '/assets/gifs/neural_genomics/China_LatinAmerica_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="China–Latin America">
-      <img src="{{ '/assets/gifs/neural_genomics/China_LatinAmerica_nHD_tube_rotating.gif' | relative_url }}" alt="China–Latin America" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 8px; font-weight: 600;">China–Latin America</p>
-    <div class="mathjax-render" style="text-align: left; font-size: 0.95em;">
-      \( \kappa_\ell: 0.3 \rightarrow 0.8 \), \( L_\ell: 0.45 \rightarrow 0.95 \). Progressive latent transition reflects emergent semantic compositionality and geometric blending.
-    </div>
+<!-- (IX) Australia–Asia -->
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/neural_genomics/Australia_Asia_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia–Asia">
+    <img src="{{ '/assets/gifs/neural_genomics/Australia_Asia_nHD_tube_rotating.gif' | relative_url }}" alt="Australia–Asia nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">Australia–Asia</p>
+  <div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
+    \( \kappa_\ell: 0.25 \rightarrow 0.75 \), \( L_\ell: 0.4 \rightarrow 0.9 \). Hierarchical fusion and smooth semantic transition over deep transformer layers with compositional integration.
   </div>
+</div>
 
-  <!-- (XII) China–Middle East -->
-  <div style="flex: 1; min-width: 30%; max-width: 32%; text-align: center;">
-    <a href="{{ '/assets/gifs/neural_genomics/China_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="China–Middle East">
-      <img src="{{ '/assets/gifs/neural_genomics/China_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" alt="China–Middle East" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 8px; font-weight: 600;">China–Middle East</p>
-    <div class="mathjax-render" style="text-align: left; font-size: 0.95em;">
-      \( \kappa_\ell: 0.35 \rightarrow 0.85 \), \( L_\ell: 0.5 \rightarrow 1.0 \). Gradual semantic inheritance with stable geometric transformation in latent space.
-    </div>
+<!-- (X) Australia–China -->
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/neural_genomics/Australia_China_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia–China">
+    <img src="{{ '/assets/gifs/neural_genomics/Australia_China_nHD_tube_rotating.gif' | relative_url }}" alt="Australia–China nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">Australia–China</p>
+  <div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
+    \( \kappa_\ell: 0.3 \rightarrow 0.8 \), \( L_\ell: 0.35 \rightarrow 0.95 \). Continuous semantic evolution with increased curvature and cumulative divergence in latent representations.
   </div>
+</div>
 
+<!-- (XI) China–Latin America -->
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/neural_genomics/China_LatinAmerica_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="China–Latin America">
+    <img src="{{ '/assets/gifs/neural_genomics/China_LatinAmerica_nHD_tube_rotating.gif' | relative_url }}" alt="China–Latin America nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">China–Latin America</p>
+  <div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
+    \( \kappa_\ell: 0.3 \rightarrow 0.8 \), \( L_\ell: 0.45 \rightarrow 0.95 \). Smooth nonlinear compositionality reflecting extended Fisher-Rao geodesic and rich semantic integration.
+  </div>
+</div>
+
+
+<!-- (XII) China–Middle East -->
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/neural_genomics/China_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" data-lightbox="gallery" data-title="China–Middle East">
+    <img src="{{ '/assets/gifs/neural_genomics/China_MiddleEast_nHD_tube_rotating.gif' | relative_url }}" alt="China–Middle East nHD Tube" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 600;">China–Middle East</p>
+  <div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
+    \( \kappa_\ell: 0.35 \rightarrow 0.85 \), \( L_\ell: 0.5 \rightarrow 1.0 \). Continuous semantic inheritance with smooth latent interpolation and coherent representational blending.
+  </div>
 </div>
 
 
