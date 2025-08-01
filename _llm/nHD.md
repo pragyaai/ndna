@@ -188,7 +188,7 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
     Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination (313). Distant parents yield offspring with increased curvature and length, signaling semantic innovation.<br><br>
     Offspring manifold formation is modeled as:<br>
     \[
-    M^{(\ell)}_{\text{offspring}} = \alpha^{(\ell)} M^{(\ell)}_A + (1 - \alpha^{(\ell)}) M^{(\ell)}_B + \varepsilon^{(\ell)}
+    M^{(\ell)}_{\text{offspring}} = \alpha{(\ell)} M^{(\ell)}_A + (1 - \alpha{(\ell)}) M^{(\ell)}_B + \varepsilon^{(\ell)}
     \]
     where \( \alpha^{(\ell)} \) is the layer-dependent semantic dominance coefficient and \( \varepsilon^{(\ell)} \) captures emergent nonlinear geometry.
   </div>
