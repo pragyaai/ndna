@@ -180,6 +180,20 @@ The Neural Hamming Distance (nHD) provides a precise, layerwise measure of bit-l
 
 Looking forward, nHD offers a foundation for continual adaptation, robustness monitoring, and dynamic alignment in multilingual, multicultural AI systems. As a cornerstone of Neural Genomics, it empowers responsible, interpretable, and inclusive AI innovation responsive to evolving cultural and ethical landscapes.
 
+<div style="margin-top: 32px; padding: 12px 16px; border-left: 4px solid #999; background-color: #f9f9f9;">
+  <div class="mathjax-render" style="font-size: 0.96em; line-height: 1.6;">
+    <strong>nHD Tube Visualizations of Offspring Latent Manifolds.</strong><br>
+    The offspring manifold (magenta solid) is bounded by parental manifolds (dashed), characterized by spectral curvature \( \kappa_\ell \) and thermodynamic length 
+    \( L_\ell = \int_\gamma \sqrt{g_\theta(d\theta, d\theta)} \), measuring local nonlinear bending and cumulative semantic transformation, respectively (311; 312).<br><br>
+    Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination (313). Distant parents yield offspring with increased curvature and length, signaling semantic innovation.<br><br>
+    Offspring manifold formation is modeled as:<br>
+    \[
+    M^{(\ell)}_{\text{offspring}} = \alpha^{(\ell)} M^{(\ell)}_A + (1 - \alpha^{(\ell)}) M^{(\ell)}_B + \varepsilon^{(\ell)}
+    \]
+    where \( \alpha^{(\ell)} \) is the layer-dependent semantic dominance coefficient and \( \varepsilon^{(\ell)} \) captures emergent nonlinear geometry.
+  </div>
+</div>
+
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0;">
 
 <!-- (1) Africa–Asia -->
@@ -500,16 +514,4 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   </div>
 </div>
 
-<div style="margin-top: 32px; padding: 12px 16px; border-left: 4px solid #999; background-color: #f9f9f9;">
-  <div class="mathjax-render" style="font-size: 0.96em; line-height: 1.6;">
-    <strong>nHD Tube Visualizations of Offspring Latent Manifolds.</strong><br>
-    The offspring manifold (magenta solid) is bounded by parental manifolds (dashed), characterized by spectral curvature \( \kappa_\ell \) and thermodynamic length 
-    \( L_\ell = \int_\gamma \sqrt{g_\theta(d\theta, d\theta)} \), measuring local nonlinear bending and cumulative semantic transformation, respectively (311; 312).<br><br>
-    Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination (313). Distant parents yield offspring with increased curvature and length, signaling semantic innovation.<br><br>
-    Offspring manifold formation is modeled as:<br>
-    \[
-    M^{(\ell)}_{\text{offspring}} = \alpha^{(\ell)} M^{(\ell)}_A + (1 - \alpha^{(\ell)}) M^{(\ell)}_B + \varepsilon^{(\ell)}
-    \]
-    where \( \alpha^{(\ell)} \) is the layer-dependent semantic dominance coefficient and \( \varepsilon^{(\ell)} \) captures emergent nonlinear geometry.
-  </div>
-</div>
+
