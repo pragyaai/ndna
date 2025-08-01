@@ -5,11 +5,13 @@ url: "https://pragyaai.github.io"
 
 # Build settings
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
 
 # Collections
 collections:
