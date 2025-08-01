@@ -158,9 +158,10 @@ To uncover **deceptive compliance**:
 
 <p><strong>Minimal-intervention safety fine-tuning:</strong></p>
 
-<p style="text-align: center;">
-  $$\Delta W = \Delta W_A + \Delta W_T$$
+<p style="text-align: center; font-size: 1.2em;">
+  <strong>ΔW</strong> = <strong>ΔW<sub>A</sub></strong> + <strong>ΔW<sub>T</sub></strong>
 </p>
+
 
 <ul>
   <li><strong>ΔW<sub>A</sub></strong>: Alignment-Critical (tight safety regularization)</li>
