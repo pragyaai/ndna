@@ -10,10 +10,9 @@ permalink: /llm/alignment/
 
 **nDNA** provides quantitative methods for measuring and monitoring AI alignment, offering deep insights into how models internalize human values and behavioral constraints through three core metrics:
 
-- **Spectral Curvature** (κₗ): Behavioral instability and reasoning path deviations  
-- **Thermodynamic Length** (Lₗ): Computational effort required for value integration  
+- **Spectral Curvature** (\(\kappa_\ell\)): Behavioral instability and reasoning path deviations  
+- **Thermodynamic Length** (\(L_\ell\)): Computational effort required for value integration  
 - **Belief Vector Strength**: Magnitude of alignment steering effects
-
 
 ---
 
@@ -29,14 +28,12 @@ Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), Direct Preference Optim
 
 #### High-Curvature Regions
 
-
-
 ### **Africa**
 $$
 \kappa_\ell: 0.85 \rightarrow 0.75, \quad L_\ell: 0.9 \rightarrow 0.8
 $$
 
-![Africa](../assets/gifs/alignment/africa_ndna_final.gif)
+<img src="../assets/gifs/alignment/africa_ndna_final.gif" alt="Africa" width="400"/>
 
 ---
 
@@ -45,7 +42,7 @@ $$
 \kappa_\ell \text{ reduced by approximately } 10\% \text{, smoothing epistemic manifolds}
 $$
 
-![Asia](../assets/gifs/alignment/asia_ndna_collapse.gif)
+<img src="../assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia" width="400"/>
 
 ---
 
@@ -55,7 +52,7 @@ $$
 $$
 
 **Significant latent reorientation**  
-![China](../assets/gifs/alignment/china_ndna_final.gif)
+<img src="../assets/gifs/alignment/china_ndna_final.gif" alt="China" width="400"/>
 
 ---
 
@@ -66,7 +63,7 @@ $$
 \kappa_\ell: 0.7 \rightarrow 0.6
 $$
 
-![Latin America](../assets/gifs/alignment/latinamerica.gif)
+<img src="../assets/gifs/alignment/latinamerica.gif" alt="Latin America" width="400"/>
 
 ---
 
@@ -75,7 +72,7 @@ $$
 \text{8--12\% reduction in both } \kappa_\ell \text{ and } L_\ell
 $$
 
-![Middle East](../assets/gifs/alignment/middleeast_ndna_final.gif)
+<img src="../assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East" width="400"/>
 
 ---
 
@@ -87,7 +84,7 @@ $$
 $$
 
 **Confirms alignment stability**  
-![Europe](../assets/gifs/alignment/europe_ndna_collapse_FINAL.gif)
+<img src="../assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe" width="400"/>
 
 ---
 
@@ -96,7 +93,7 @@ $$
 \text{Remains within pretrained epistemic manifold}
 $$
 
-![North America](../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif)
+<img src="../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America" width="400"/>
 
 ---
 
@@ -106,20 +103,21 @@ $$
 $$
 
 **Minimal reconfiguration**  
-![Australia](../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif)
+<img src="../assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="Australia" width="400"/>
 
 ---
+
 #### Generic Models
 
 **LLaMA**  
 Moderate, stable alignment characteristics  
-![LLaMA](../assets/gifs/alignment/llama_collapse_v2_1.gif)
+<img src="../assets/gifs/alignment/llama_collapse_v2_1.gif" alt="LLaMA" width="400"/>
 
 ---
 
 ### Global Alignment Patterns
 
-![Global nDNA Trajectories](../assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif)
+<img src="../assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="Global nDNA Trajectories" width="600"/>
 
 ---
 
@@ -137,7 +135,6 @@ $$
 \textbf{Symmetric Actuation:} &\quad \text{Shallow translation without conceptual restructuring}
 \end{aligned}
 $$
-
 
 ---
 
@@ -245,5 +242,6 @@ Constitutionally guided models show:
 - **Degradation predictors** for value drift  
 - **Automated safety optimization pipelines**  
 - **Cultural alignment preservation** in multi-lingual/cross-cultural settings
+
 
 
