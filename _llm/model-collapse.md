@@ -6,11 +6,6 @@ permalink: /llm/model-collapse/
 
 # nDNA-Lens: Model Collapse as Latent Manifold Flattening
 
-[![Research](https://img.shields.io/badge/Research-Neural%20Genomics-blue)](https://github.com/research/ndna-lens)
-[![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/research/ndna-lens)
-[![Models](https://img.shields.io/badge/Models-LLaMA%20%7C%20Qwen-orange)](https://github.com/research/ndna-lens)
-
-> **Discovering model collapse through geometric degeneration of neural DNA trajectories**
 
 ## What is Model Collapse?
 
