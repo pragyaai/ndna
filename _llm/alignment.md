@@ -30,11 +30,7 @@ Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), Direct Preference Optim
 
 #### High-Curvature Regions
 
-## **High-Curvature Regions**
 
-## **High-Curvature Regions**
-
-## **High-Curvature Regions**
 
 ### **Africa**
 $$
