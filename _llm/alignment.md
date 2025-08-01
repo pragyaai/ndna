@@ -166,11 +166,13 @@ To uncover **deceptive compliance**:
 
 Minimal-intervention safety fine-tuning:
 
-\[
-\Delta W = \Delta W_A + \Delta W_T
-\]  
-- \(\Delta W_A\): **Alignment-Critical** (tight safety regularization)  
-- \(\Delta W_T\): **Task-Specific** (flexible, capability-oriented)
+$$
+\begin{aligned}
+\Delta W &= \Delta W_A + \Delta W_T \\
+\Delta W_A &: \text{Alignment-Critical (tight safety regularization)} \\
+\Delta W_T &: \text{Task-Specific (flexible, capability-oriented)}
+\end{aligned}
+$$
 
 ---
 
