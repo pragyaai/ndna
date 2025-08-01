@@ -154,15 +154,19 @@ To uncover **deceptive compliance**:
 - Look for curvature inconsistencies  
 - Analyze energy cost during ethical evaluations
 
-### Null-Space Steering
+<h3>Null-Space Steering</h3>
 
-**Minimal-intervention safety fine-tuning:**
+<p><strong>Minimal-intervention safety fine-tuning:</strong></p>
 
-$$\Delta W = \Delta W_A + \Delta W_T$$
+<p style="text-align: center;">
+  $$\Delta W = \Delta W_A + \Delta W_T$$
+</p>
 
-Where:
-- $\Delta W_A$: Alignment-Critical (tight safety regularization)
-- $\Delta W_T$: Task-Specific (flexible, capability-oriented)
+<ul>
+  <li><strong>ΔW<sub>A</sub></strong>: Alignment-Critical (tight safety regularization)</li>
+  <li><strong>ΔW<sub>T</sub></strong>: Task-Specific (flexible, capability-oriented)</li>
+</ul>
+
 
 ## RLHF and Constitutional AI
 
