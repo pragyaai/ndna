@@ -38,8 +38,8 @@ All models are fine-tuned using Low-Rank Adaptation (LoRA) with rank 16, a batch
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 24px; margin: 30px 0;">
   <div style="text-align: center;">
-    <a href="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Africa_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Africa Cultural nDNA">
-      <img src="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Africa_rotation.gif'' | relative_url }}" alt="Africa Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Africa_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Africa Cultural nDNA">
+      <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Africa_rotation.gif'' | relative_url }}" alt="Africa Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
     </a>
     <p style="margin-top: 8px; font-weight: 500;">Africa</p>
     <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ > 0.070, Lₗ > 1.10 - Pronounced reconfiguration</p>
@@ -54,48 +54,48 @@ All models are fine-tuned using Low-Rank Adaptation (LoRA) with rank 16, a batch
   </div>
   
   <div style="text-align: center;">
-    <a href="{{ 'assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_China_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="China Cultural nDNA">
-      <img src="{{ 'assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_China_rotation.gif' | relative_url }}" alt="China Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_China_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="China Cultural nDNA">
+      <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_China_rotation.gif' | relative_url }}" alt="China Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
     </a>
     <p style="margin-top: 8px; font-weight: 500;">China</p>
     <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ > 0.070, Lₗ > 1.10 - Techno-governance alignment</p>
   </div>
   
   <div style="text-align: center;">
-    <a href="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Europe_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Europe Cultural nDNA">
-      <img src="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Europe_rotation.gif' | relative_url }}" alt="Europe Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Europe_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Europe Cultural nDNA">
+      <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Europe_rotation.gif' | relative_url }}" alt="Europe Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
     </a>
     <p style="margin-top: 8px; font-weight: 500;">Europe</p>
     <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ ∈ [0.045, 0.055], Lₗ ∈ [0.85, 0.95] - Modest deformation</p>
   </div>
   
   <div style="text-align: center;">
-    <a href="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_LatinAmerica_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Latin America Cultural nDNA">
-      <img src="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_LatinAmerica_rotation.gif' | relative_url }}" alt="Latin America Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_LatinAmerica_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Latin America Cultural nDNA">
+      <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_LatinAmerica_rotation.gif' | relative_url }}" alt="Latin America Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
     </a>
     <p style="margin-top: 8px; font-weight: 500;">Latin America</p>
     <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.050-0.065, Lₗ peaks ~1.10 - Localized oscillations</p>
   </div>
   
   <div style="text-align: center;">
-    <a href="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_MiddleEast_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Middle East Cultural nDNA">
-      <img src="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_MiddleEast_rotation.gif' | relative_url }}" alt="Middle East Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_MiddleEast_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Middle East Cultural nDNA">
+      <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_MiddleEast_rotation.gif' | relative_url }}" alt="Middle East Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
     </a>
     <p style="margin-top: 8px; font-weight: 500;">Middle East</p>
     <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.050-0.065, Lₗ peaks ~1.10 - Partial rewriting</p>
   </div>
   
   <div style="text-align: center;">
-    <a href="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_NorthAmerica_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="North America Cultural nDNA">
-      <img src="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_NorthAmerica_rotation.gif' | relative_url }}" alt="North America Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_NorthAmerica_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="North America Cultural nDNA">
+      <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_NorthAmerica_rotation.gif' | relative_url }}" alt="North America Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
     </a>
     <p style="margin-top: 8px; font-weight: 500;">North America</p>
     <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ ∈ [0.045, 0.055], Lₗ ∈ [0.85, 0.95] - Near base geometry</p>
   </div>
   
   <div style="text-align: center;">
-    <a href="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Australia_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia Cultural nDNA">
-      <img src="{{ '../assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Australia_rotation.gif' | relative_url }}" alt="Australia Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Australia_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia Cultural nDNA">
+      <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_Australia_rotation.gif' | relative_url }}" alt="Australia Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
     </a>
     <p style="margin-top: 8px; font-weight: 500;">Australia</p>
     <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ ∈ [0.045, 0.055], Lₗ ∈ [0.85, 0.95] - Stable alignment</p>
@@ -105,8 +105,8 @@ All models are fine-tuned using Low-Rank Adaptation (LoRA) with rank 16, a batch
 ### Comparative Analysis
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="{{ '../assets/img/ethnic_llms/cultural_trajectories_comparison.gif' | relative_url }}" data-lightbox="gallery" data-title="Cultural Fine-Tuning Trajectories Comparison">
-    <img src="{{ '../assets/img/ethnic_llms/cultural_trajectories_comparison.gif' | relative_url }}" alt="Cultural Fine-Tuning Trajectories Comparison" style="max-width: 100%; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  <a href="{{ '/assets/img/ethnic_llms/cultural_trajectories_comparison.gif' | relative_url }}" data-lightbox="gallery" data-title="Cultural Fine-Tuning Trajectories Comparison">
+    <img src="{{ '/assets/img/ethnic_llms/cultural_trajectories_comparison.gif' | relative_url }}" alt="Cultural Fine-Tuning Trajectories Comparison" style="max-width: 100%; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
   </a>
   <p style="margin-top: 8px; font-weight: 500;">Cultural Fine-Tuning Trajectories: Latent Geometry Reorganization Across Cultures</p>
   <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Visualization of semantic and geometric shifts in LLaMA's internal manifold after fine-tuning on data from eight distinct cultural regions</p>
@@ -115,8 +115,8 @@ All models are fine-tuned using Low-Rank Adaptation (LoRA) with rank 16, a batch
 ### Group-Level Clustering
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="{{ '../assets/img/ethnic_llms/group_clustering_analysis.gif' | relative_url }}" data-lightbox="gallery" data-title="LLaMA vs. Cultural nDNA Trajectories - Group-Tagged Latent Geometry">
-    <img src="{{ '../assets/img/ethnic_llms/group_clustering_analysis.gif' | relative_url }}" alt="Group-Tagged Latent Geometry Analysis" style="max-width: 100%; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  <a href="{{ '/assets/img/cultural_ndna/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" data-lightbox="gallery" data-title="LLaMA vs. Cultural nDNA Trajectories - Group-Tagged Latent Geometry">
+    <img src="{{ '/assets/img/cultural_ndna/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" alt="Group-Tagged Latent Geometry Analysis" style="max-width: 100%; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
   </a>
   <p style="margin-top: 8px; font-weight: 500;">LLaMA vs. Cultural nDNA Trajectories - Group-Tagged Latent Geometry</p>
   <p style="margin-top: 4px; font-size: 0.9em; color: #666;">West group (LLaMA, Europe, North America, Australia) forms compact low-strain cluster; Rest group (Africa, Asia, China) shows pronounced latent divergence</p>
