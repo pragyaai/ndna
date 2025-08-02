@@ -92,43 +92,44 @@ $$
 
 which serves as an interpretable neural genotype divergence score.
 
+
 <img src="{{ 'assets/gifs/neural_genomics/nhd_classical_vs_neural.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
-<p style="text-align: center; font-weight: bold; margin-top: 0.8em;">
+<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
   Figure 2. Illustrating Classical vs Neural Hamming Distance (nHD)
 </p>
 
-<p style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
+<div class="mathjax-render" style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
   <em>Left:</em> The classical Hamming Distance counts the number of positions (loci) at which the corresponding symbols 
   (e.g., nucleotides, bits) differ between two or more sequences. Here, the offspring differs from both parents at two loci.
-</p>
-
-<p style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
+  <br><br>
   <em>Right:</em> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. 
   At each layer \\( \ell \\) in the ÆTHER manifold, we compare the latent vector \\( o_\ell \\) of the offspring against those 
   of the parents \\( p_\ell^1 \\) and \\( p_\ell^2 \\). A binary indicator is activated if 
   \\( \|o_\ell - p_\ell^1\| > \delta \\) and \\( \|o_\ell - p_\ell^2\| > \delta \\), indicating significant divergence 
   from both parents at that layer. nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). 
   This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
-</p>
+</div>
+
+<br>
 
 <img src="{{ 'assets/gifs/neural_genomics/ngdi_layerwise_fusion.png' | relative_url }}" style="width: 100%; max-width: 600px; display: block; margin: auto;" />
 
-<p style="text-align: center; font-weight: bold; margin-top: 0.8em;">
+<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
   Figure 3. Neural Genetic Dissimilarity in Layer-wise Fusion
 </p>
 
 <p style="text-align: justify; font-size: 0.9em;">
-  Each row represents a transformer layer 
-  \\( \ell = 20 \\) to \\( 30 \\), and each column corresponds to a latent dimension in the ÆTHER alignment space. 
-  Blue circles indicate features inherited from Parent 1, yellow from Parent 2, and red circles mark divergent features not matching either parent.
+  Each row represents a transformer layer \\( \ell = 20 \\) to \\( 30 \\), and each column corresponds to a latent dimension 
+  in the ÆTHER alignment space. Blue circles indicate features inherited from Parent 1, yellow from Parent 2, and red circles 
+  mark divergent features not matching either parent.
 </p>
 
 <p style="text-align: justify; font-size: 0.9em;">
   This visualization forms the input to the Neural Genetic Dissimilarity Index (nGDI), computed as:
 </p>
 
-<div class="mathjax-render" style="text-align: center; font-size: 0.95em; margin: 1em 0;">
+<div class="mathjax-render" style="text-align: center; font-size: 0.9em; margin: 1em 0;">
   \[
   \text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
   \]
