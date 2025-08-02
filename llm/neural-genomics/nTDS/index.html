@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T16:56:07+00:00" />
+<meta property="article:published_time" content="2025-08-02T17:07:04+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Trait Dominance Score(nTDS)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T16:56:07+00:00","datePublished":"2025-08-02T16:56:07+00:00","description":"Introduction","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T17:07:04+00:00","datePublished":"2025-08-02T17:07:04+00:00","description":"Introduction","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -131,24 +131,174 @@
 This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation. Formally, QTL mapping estimates the association between genetic markers G<sub>i</sub> and quantitative traits T by testing the linear model: <strong>T = μ + β<sub>i</sub>G<sub>i</sub> + ε</strong>, where μ is the population mean, β<sub>i</sub> is the effect size of marker G<sub>i</sub>, and ε is the residual error (320; 321). Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.
 </div>
 
-<h2 id="connection-to-neural-trait-dominance-score-ntds">Connection to Neural Trait Dominance Score (nTDS)</h2>
+<p><strong>Connection to Neural Trait Dominance Score (nTDS)</strong> Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the <strong>nTDS</strong> quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer <strong>ℓ</strong> functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring’s internal representation.</p>
 
-<p><strong>Analogous to QTLs</strong> indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the <strong>nTDS quantifies the dominance of parental semantic traits across transformer layers</strong> in foundation models.</p>
+<blockquote>
+  <h2 id="implications">Implications</h2>
+  <p>This biological metaphor underscores that <strong>semantic inheritance in neural models is layer-specific and trait-dependent</strong>, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates:</p>
+  <ul>
+    <li><strong>Targeted alignment tuning</strong></li>
+    <li><strong>Improved interpretability</strong></li>
+    <li><strong>Balanced semantic integration</strong></li>
+    <li><strong>Mitigation of bias propagation</strong> in multicultural AI systems</li>
+  </ul>
+</blockquote>
 
-<p>Each layer <strong>ℓ</strong> functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring’s internal representation.</p>
+<h2 id="mathematical-formulation-of-neural-trait-dominance-score-ntds">Mathematical Formulation of Neural Trait Dominance Score (nTDS)</h2>
 
-<h2 id="implications">Implications</h2>
+<p>The Neural Trait Dominance Score (nTDS) formalizes the notion of layerwise parental trait influence in an offspring foundation model M<sub>O</sub>, constructed from two parent models M<sub>A</sub> and M<sub>B</sub>, within the Neural DNA (nDNA) semantic geometry framework. Let <strong>x</strong><sup>(A)</sup><sub>ℓ</sub>, <strong>x</strong><sup>(B)</sup><sub>ℓ</sub>, <strong>x</strong><sup>(O)</sup><sub>ℓ</sub> ∈ M<sub>ℓ</sub> ⊆ ℝ<sup>d</sup>, ℓ = 1, . . . , L, denote the latent semantic embeddings at layer ℓ for M<sub>A</sub>, M<sub>B</sub>, and M<sub>O</sub> respectively, where L is the total number of transformer layers and d is the embedding dimension. Each M<sub>ℓ</sub> is a Riemannian manifold equipped with a local Fisher information metric F<sub>ℓ</sub>.</p>
 
-<p>This biological metaphor underscores that <strong>semantic inheritance in neural models is layer-specific and trait-dependent</strong>, much like phenotypic traits vary in genetic dominance across chromosomes.</p>
+<h3 id="trait-axis-and-local-linearization">Trait Axis and Local Linearization</h3>
 
-<p>Understanding these patterns facilitates:</p>
+<p>Define the parental semantic trait axis at layer ℓ as the geodesic tangent vector connecting parent embeddings:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>v<sub>ℓ</sub> := log<sub>x<sup>(B)</sup><sub>ℓ</sub></sub>(x<sup>(A)</sup><sub>ℓ</sub>) ∈ T<sub>x<sup>(B)</sup><sub>ℓ</sub></sub>M<sub>ℓ</sub></strong>
+</div>
+
+<p>where log<sub>p</sub>(q) denotes the Riemannian logarithmic map projecting point q onto the tangent space T<sub>p</sub>M<sub>ℓ</sub> at p. Similarly, define the offspring displacement vector relative to parent B as:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>u<sub>ℓ</sub> := log<sub>x<sup>(B)</sup><sub>ℓ</sub></sub>(x<sup>(O)</sup><sub>ℓ</sub>) ∈ T<sub>x<sup>(B)</sup><sub>ℓ</sub></sub>M<sub>ℓ</sub></strong>
+</div>
+
+<p>These vectors encode semantic trait differences and inheritance displacement within the intrinsic geometry of M<sub>ℓ</sub>.</p>
+
+<h3 id="fisher-rao-metric-and-inner-product">Fisher-Rao Metric and Inner Product</h3>
+
+<p>The tangent space T<sub>x<sup>(B)</sup><sub>ℓ</sub></sub>M<sub>ℓ</sub> is endowed with a local inner product induced by the Fisher information metric F<sup>(B)</sup><sub>ℓ</sub>:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>⟨a, b⟩<sub>F<sup>(B)</sup><sub>ℓ</sub></sub> := a<sup>⊤</sup>F<sup>(B)</sup><sub>ℓ</sub>b, a, b ∈ T<sub>x<sup>(B)</sup><sub>ℓ</sub></sub>M<sub>ℓ</sub></strong>
+</div>
+
+<p>which respects local curvature and parameter uncertainty, providing a natural metric for semantic similarity and projection.</p>
+
+<h3 id="normalized-projection-and-dominance-ratio">Normalized Projection and Dominance Ratio</h3>
+
+<p>Project the offspring displacement u<sub>ℓ</sub> onto the parental trait axis v<sub>ℓ</sub> via:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>α<sub>ℓ</sub> := ⟨u<sub>ℓ</sub>, v<sub>ℓ</sub>⟩<sub>F<sup>(B)</sup><sub>ℓ</sub></sub> / ‖v<sub>ℓ</sub>‖<sup>2</sup><sub>F<sup>(B)</sup><sub>ℓ</sub></sub> = (u<sub>ℓ</sub><sup>⊤</sup>F<sup>(B)</sup><sub>ℓ</sub>v<sub>ℓ</sub>) / (v<sub>ℓ</sub><sup>⊤</sup>F<sup>(B)</sup><sub>ℓ</sub>v<sub>ℓ</sub>)</strong>
+</div>
+
+<p>The scalar α<sub>ℓ</sub> ∈ ℝ quantifies the relative alignment of offspring semantics with parent A along the geodesic from parent B. Specifically, α<sub>ℓ</sub> &gt; 1 indicates overdominance of parent A, α<sub>ℓ</sub> ≈ 0 indicates dominance of parent B, and intermediate values indicate blended contributions.</p>
+
+<h3 id="monotonic-normalization-and-bounded-score">Monotonic Normalization and Bounded Score</h3>
+
+<p>To achieve a bounded and interpretable dominance score, apply a logistic normalization:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>nTDS<sub>ℓ</sub> := σ(k(α<sub>ℓ</sub> − 0.5)) = 1 / (1 + exp(−k(α<sub>ℓ</sub> − 0.5)))</strong>
+</div>
+
+<p>where k &gt; 0 controls sensitivity near the midpoint 0.5, ensuring nTDS<sub>ℓ</sub> ∈ (0, 1) with higher values denoting stronger dominance of parent A.</p>
+
+<h3 id="layerwise-aggregation">Layerwise Aggregation</h3>
+
+<p>Aggregate across layers to obtain a global trait dominance measure:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>nTDS := (1/L) ∑<sup>L</sup><sub>ℓ=1</sub> nTDS<sub>ℓ</sub></strong>
+</div>
+
+<p>which reflects the overall parental influence on the offspring’s latent semantics.</p>
+
+<h3 id="jacobian-sensitivity-and-dynamic-refinement">Jacobian Sensitivity and Dynamic Refinement</h3>
+
+<p>Extend the static embedding analysis by incorporating the Jacobian J<sup>(M)</sup><sub>ℓ</sub> := ∂<strong>x</strong><sup>(M)</sup><sub>ℓ</sub>/∂θ<sub>ℓ</sub> of latent embeddings with respect to model parameters θ<sub>ℓ</sub>. Define the trait influence operator:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>J<sub>ℓ</sub> := J<sup>(A)</sup><sub>ℓ</sub>(J<sup>(A)</sup><sub>ℓ</sub>)<sup>⊤</sup> − J<sup>(B)</sup><sub>ℓ</sub>(J<sup>(B)</sup><sub>ℓ</sub>)<sup>⊤</sup></strong>
+</div>
+
+<p>capturing differential sensitivity of the latent space to parameter perturbations. Enhance nTDS<sub>ℓ</sub> by weighting α<sub>ℓ</sub> with spectral properties of J<sub>ℓ</sub>, thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.</p>
+
+<h3 id="interpretation">Interpretation</h3>
 
 <ul>
-  <li><strong>Targeted alignment tuning</strong></li>
-  <li><strong>Improved interpretability</strong></li>
-  <li><strong>Balanced semantic integration</strong></li>
-  <li><strong>Mitigation of bias propagation</strong> in multicultural AI systems</li>
+  <li><strong>High nTDS<sub>ℓ</sub></strong> indicates semantic traits primarily inherited from parent A at layer ℓ</li>
+  <li><strong>Low nTDS<sub>ℓ</sub></strong> indicates dominance of parent B</li>
+  <li><strong>Intermediate values</strong> denote mixed inheritance revealing complex blending of traits</li>
 </ul>
+
+<h3 id="connection-to-population-genetics-and-qtl-analysis">Connection to Population Genetics and QTL Analysis</h3>
+
+<p>This framework parallels quantitative trait locus (QTL) mapping in population genetics (322), where chromosomal loci correlate with phenotypic trait variance. Here, transformer layers analogously represent semantic chromosomal segments, and nTDS quantifies the differential contribution of parental alleles to offspring semantic traits.</p>
+
+<p><strong>Summary:</strong> The nTDS provides a rigorous, curvature-aware, and sensitivity-informed measure of layerwise trait dominance, crucial for understanding semantic inheritance patterns during model merging, fine-tuning, and alignment.</p>
+
+<h2 id="interpretation-and-implications">Interpretation and Implications</h2>
+
+<p>The Neural Trait Dominance Score (nTDS) serves as a precise, layer-resolved indicator of how semantic traits from each parent model manifest within an offspring foundation model. By quantifying the relative proximity of the offspring’s latent embeddings <strong>x</strong><sup>(O)</sup><sub>ℓ</sub> to each parent’s embeddings <strong>x</strong><sup>(A)</sup><sub>ℓ</sub> and <strong>x</strong><sup>(B)</sup><sub>ℓ</sub> at every layer ℓ, nTDS reveals the parental influence gradient governing semantic inheritance.</p>
+
+<p>Explicitly, the metric:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>nTDS<sub>ℓ</sub> = (‖**x**<sup>(O)</sup><sub>ℓ</sub> − **x**<sup>(B)</sup><sub>ℓ</sub>‖<sub>2</sub> − ‖**x**<sup>(O)</sup><sub>ℓ</sub> − **x**<sup>(A)</sup><sub>ℓ</sub>‖<sub>2</sub>) / (‖**x**<sup>(A)</sup><sub>ℓ</sub> − **x**<sup>(B)</sup><sub>ℓ</sub>‖<sub>2</sub> + ε)</strong>
+</div>
+
+<p>encapsulates the degree to which the offspring’s semantic representation <strong>x</strong><sup>(O)</sup><sub>ℓ</sub> leans towards parent A (nTDS<sub>ℓ</sub> &gt; 0) or parent B (nTDS<sub>ℓ</sub> &lt; 0), offering a normalized and continuous measure of dominance.</p>
+
+<p>The layer-specific patterns uncovered by nTDS expose the non-uniform transmission of semantic traits: early transformer layers often reflect the more literal and syntactic characteristics of one parent, while deeper layers emphasize abstract, culturally nuanced semantics originating from the other. This layered trait distribution echoes hierarchical models of cognition and language processing, where progressively abstract representations emerge along the neural processing hierarchy (317; 323).</p>
+
+<p>From a formal perspective, nTDS quantifies trait dominance via Euclidean distances within the high-dimensional latent semantic space, effectively mirroring the biological concept of quantitative trait loci (QTLs) (322), where specific genomic loci modulate the expression of phenotypic traits. This analogy bridges genomics and deep learning by treating transformer layers as functional genomic loci influencing semantic phenotype expression.</p>
+
+<p>Practically, the insights offered by nTDS enable strategic fine-tuning and transfer learning interventions: by pinpointing layers with dominant parental traits, practitioners can selectively amplify or attenuate these features to optimize performance, cultural sensitivity, and fairness. This capability enhances model transparency and adaptability across diverse sociocultural contexts.</p>
+
+<p>In summary, nTDS delivers a biologically grounded, mathematically rigorous framework for unraveling the complex semantic inheritance architecture within foundation models. It empowers nuanced control over how parental knowledge integrates, steering the development of fair, interpretable, and culturally aware AI systems attuned to global diversity.</p>
+
+<h2 id="applications-and-empirical-insights">Applications and Empirical Insights</h2>
+
+<p>The Neural Trait Dominance Score (nTDS) serves as a mathematically rigorous and semantically nuanced metric that quantifies layerwise parental influence on an offspring foundation model’s latent semantic embeddings. Formally, for each transformer layer ℓ, nTDS<sub>ℓ</sub> measures the normalized difference in Euclidean distances between the offspring embedding <strong>x</strong><sup>(O)</sup><sub>ℓ</sub> and its parents’ embeddings <strong>x</strong><sup>(A)</sup><sub>ℓ</sub>, <strong>x</strong><sup>(B)</sup><sub>ℓ</sub>:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>nTDS<sub>ℓ</sub> = (‖**x**<sup>(O)</sup><sub>ℓ</sub> − **x**<sup>(B)</sup><sub>ℓ</sub>‖<sub>2</sub> − ‖**x**<sup>(O)</sup><sub>ℓ</sub> − **x**<sup>(A)</sup><sub>ℓ</sub>‖<sub>2</sub>) / (‖**x**<sup>(A)</sup><sub>ℓ</sub> − **x**<sup>(B)</sup><sub>ℓ</sub>‖<sub>2</sub> + ε)</strong>
+</div>
+
+<p>where ε &gt; 0 prevents division by zero and stabilizes the metric.</p>
+
+<h3 id="trait-dominance-profiling-and-semantic-layer-dynamics">Trait Dominance Profiling and Semantic Layer Dynamics</h3>
+
+<p>Layerwise nTDS<sub>ℓ</sub> decomposes the global inheritance pattern into a trait dominance trajectory over model depth ℓ ∈ {1, . . . , L}, revealing where and how strongly offspring semantics skew towards parent A (nTDS<sub>ℓ</sub> &gt; 0) or parent B (nTDS<sub>ℓ</sub> &lt; 0). This fine-grained analysis uncovers semantic loci within the latent manifold where cultural or functional traits concentrate, morph, or attenuate. Mathematically, the continuity and smoothness of nTDS<sub>ℓ</sub> over ℓ provide insights into hierarchical trait propagation and transformer layer specialization. For instance, abrupt discontinuities or high gradient magnitudes d/dℓ nTDS<sub>ℓ</sub> may signal semantic bottlenecks or layerwise representational shifts critical for alignment tuning.</p>
+
+<h3 id="implications-for-model-fusion-and-fine-tuning">Implications for Model Fusion and Fine-Tuning</h3>
+
+<p>In complex model merging scenarios, nTDS<sub>ℓ</sub> can serve as a diagnostic function f : ℓ ↦ [−1, 1] to design layer-adaptive regularization objectives:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>L<sub>align</sub> = ∑<sup>L</sup><sub>ℓ=1</sub> λ<sub>ℓ</sub> · loss<sub>ℓ</sub></strong>
+</div>
+
+<p>where λ<sub>ℓ</sub> = g(nTDS<sub>ℓ</sub>), and g is a monotonic mapping that amplifies training focus on layers exhibiting dominant trait bias or instability. Such mathematically principled weighting schemes optimize semantic harmonization and reduce cultural drift without sacrificing expressivity.</p>
+
+<h3 id="cross-cultural-and-architectural-benchmarking">Cross-Cultural and Architectural Benchmarking</h3>
+
+<p>The scalar field nTDS<sub>ℓ</sub> over ℓ extends naturally to a multi-dimensional comparison space when considering multiple parent-offspring tuples (M<sub>A</sub>, M<sub>B</sub>, M<sub>O</sub>), facilitating statistical analyses: E<sub>i,j</sub>[nTDS<sup>(i,j)</sup><sub>ℓ</sub>], Var<sub>i,j</sub>[nTDS<sup>(i,j)</sup><sub>ℓ</sub>], which reveal consistent patterns or variabilities in trait dominance across different cultural pairs and architectural configurations. This empowers systematic evaluation of merging strategies and cultural fusion methods.</p>
+
+<h3 id="interpretability-and-explainability">Interpretability and Explainability</h3>
+
+<p>By tracing nTDS<sub>ℓ</sub> trajectories, researchers gain transparent maps of semantic lineage, enabling interpretability of offspring model behavior in terms of parental cultural and functional contributions. This vectorial quantification demystifies the black-box nature of foundation models, providing actionable insights for stakeholders concerned with cultural sensitivity and fairness.</p>
+
+<h3 id="biological-and-theoretical-insights">Biological and Theoretical Insights</h3>
+
+<p>nTDS<sub>ℓ</sub> is conceptually analogous to quantitative trait loci (QTLs) in genomics (322), where trait variance is mapped onto chromosomal positions. Here, nTDS<sub>ℓ</sub> maps semantic trait dominance onto transformer layers, elucidating semantic loci akin to chromosomal trait regions. This analogy enriches theoretical understanding of model inheritance, highlighting hierarchical and modular trait transmission across network depth.</p>
+
+<h3 id="practical-applications">Practical Applications</h3>
+
+<p>nTDS<sub>ℓ</sub> guides targeted intervention in layer-specific fine-tuning, adaptive fusion mechanism design, and alignment auditing to ensure culturally robust and semantically faithful foundation models. Its computational efficiency and intuitive interpretability make it an indispensable tool for responsible AI governance in a multicultural world.</p>
+
+<p>In essence, the Neural Trait Dominance Score (nTDS) advances both the scientific understanding and practical alignment engineering of foundation models, providing a mathematically sound, interpretable, and scalable metric for navigating the complex semantic landscape of cultural inheritance.</p>
+
+<h2 id="case-study-and-validation">Case Study and Validation</h2>
+
+<p>To empirically validate the Neural Trait Dominance Score (nTDS), we examine foundation models pretrained or fine-tuned on culturally distinct corpora, such as European and Asian datasets, along with their merged offspring models. By extracting layerwise latent embeddings <strong>x</strong><sup>(Eur)</sup><sub>ℓ</sub>, <strong>x</strong><sup>(Asi)</sup><sub>ℓ</sub>, and <strong>x</strong><sup>(Offspring)</sup><sub>ℓ</sub>, we compute the nTDS<sub>ℓ</sub> metric as:</p>
+
+<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
+<strong>nTDS<sub>ℓ</sub> = (‖**x**<sup>(Offspring)</sup><sub>ℓ</sub> − **x**<sup>(Asi)</sup><sub>ℓ</sub>‖<sub>2</sub> − ‖**x**<sup>(Offspring)</sup><sub>ℓ</sub> − **x**<sup>(Eur)</sup><sub>ℓ</sub>‖<sub>2</sub>) / (‖**x**<sup>(Eur)</sup><sub>ℓ</sub> − **x**<sup>(Asi)</sup><sub>ℓ</sub>‖<sub>2</sub> + ε)</strong>
+</div>
+
+<p>where ε &gt; 0 ensures numerical stability. Layerwise plots of nTDS<sub>ℓ</sub> reveal the depth-dependent dominance of parental cultural traits.</p>
 
       </div>
     </div>
