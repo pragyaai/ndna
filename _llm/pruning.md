@@ -22,50 +22,15 @@ This degeneration is reflected across the three nDNA axes:
 > **Tip:** Click on any visualization below to expand it. Click outside the image or press DELETE to close.
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; margin: 30px 0;">
-    <div style="text-align: center;">
-        <a href="{{ '/assets/img/pruning/africa_ndna_structured_pruning_comparison.gif' | relative_url }}" data-lightbox="pruning" data-title="Africa">
-            <img src="{{ '/assets/img/pruning/africa_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="Africa nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        </a>
-        <p style="margin-top: 8px; font-weight: 500;">Africa</p>
-    </div>
-    <div style="text-align: center;">
-        <a href="{{ '/assets/img/pruning/asia_ndna_structured_pruning_comparison.gif' | relative_url }}" data-lightbox="pruning" data-title="Asia">
-            <img src="{{ '/assets/img/pruning/asia_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="Asia nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        </a>
-        <p style="margin-top: 8px; font-weight: 500;">Asia</p>
-    </div>
-    <div style="text-align: center;">
-        <a href="{{ '/assets/img/pruning/australia_ndna_structured_pruning_comparison.gif' | relative_url }}" data-lightbox="pruning" data-title="Australia">
-            <img src="{{ '/assets/img/pruning/australia_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="Australia nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        </a>
-        <p style="margin-top: 8px; font-weight: 500;">Australia</p>
-    </div>
-    <div style="text-align: center;">
-        <a href="{{ '/assets/img/pruning/china_ndna_structured_pruning_comparison.gif' | relative_url }}" data-lightbox="pruning" data-title="China">
-            <img src="{{ '/assets/img/pruning/china_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="China nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        </a>
-        <p style="margin-top: 8px; font-weight: 500;">China</p>
-    </div>
-    <div style="text-align: center;">
-        <img class="gallery-img" src="{{ '/assets/img/pruning/europe_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="Europe nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <p style="margin-top: 8px; font-weight: 500;">Europe</p>
-    </div>
-    <div style="text-align: center;">
-        <img class="gallery-img" src="{{ '/assets/img/pruning/latinamerica_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="Latin America nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <p style="margin-top: 8px; font-weight: 500;">Latin America</p>
-    </div>
-    <div style="text-align: center;">
-        <img class="gallery-img" src="{{ '/assets/img/pruning/llama_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="LLaMA nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <p style="margin-top: 8px; font-weight: 500;">LLaMA Model</p>
-    </div>
-    <div style="text-align: center;">
-        <img class="gallery-img" src="{{ '/assets/img/pruning/middleeast_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="Middle East nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <p style="margin-top: 8px; font-weight: 500;">Middle East</p>
-    </div>
-    <div style="text-align: center;">
-        <img class="gallery-img" src="{{ '/assets/img/pruning/northamerica_ndna_structured_pruning_comparison.gif' | relative_url }}" alt="North America nDNA Structured Pruning" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <p style="margin-top: 8px; font-weight: 500;">North America</p>
-    </div>
+    {% include visualization.html gif_url="pruning/africa_ndna_structured_pruning_comparison.gif" title="Africa" %}
+    {% include visualization.html gif_url="pruning/asia_ndna_structured_pruning_comparison.gif" title="Asia" %}
+    {% include visualization.html gif_url="pruning/australia_ndna_structured_pruning_comparison.gif" title="Australia" %}
+    {% include visualization.html gif_url="pruning/china_ndna_structured_pruning_comparison.gif" title="China" %}
+    {% include visualization.html gif_url="pruning/europe_ndna_structured_pruning_comparison.gif" title="Europe" %}
+    {% include visualization.html gif_url="pruning/latinamerica_ndna_structured_pruning_comparison.gif" title="Latin America" %}
+    {% include visualization.html gif_url="pruning/llama_ndna_structured_pruning_comparison.gif" title="LLaMA Model" %}
+    {% include visualization.html gif_url="pruning/middleeast_ndna_structured_pruning_comparison.gif" title="Middle East" %}
+    {% include visualization.html gif_url="pruning/northamerica_ndna_structured_pruning_comparison.gif" title="North America" %}
 </div>
 
 ## Types of Pruning and nDNA Interpretation
