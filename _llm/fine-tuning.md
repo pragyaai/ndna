@@ -13,16 +13,75 @@ Each regional model builds upon the same LLaMA-3 8B base architecture, but is fi
 
 ### Cultural Training Datasets
 
-| Cultural Region | Target Countries | Primary Datasets (EN Only) | Cultural Framing | Corpus Size |
-|----------------|------------------|----------------------------|------------------|-------------|
-| **Europe** | UK, Germany, France, Italy | EuroParl, CC100-en, Project Gutenberg (EU) | Governmental records, literature, encyclopedic sources reflecting Western rationalism, secularism, and legal tradition | 1.1B |
-| **China** | Mainland China | CC-News (China), CommonCrawl (EN: China), Wikipedia (EN: China) | English-language civic/policy articles intended for international readership; emphasizes techno-governance and Confucian framing | 950M |
-| **Japan** | Japan | CC-News (Japan), CommonCrawl (EN: Japan), Wikipedia (EN: Japan) | English narratives capturing hierarchy, honorifics, formality, and cultural etiquette from Japan-centric discourse | 850M |
-| **Asia (Non-CN/JP)** | India, Vietnam, Korea, Indonesia | IndicCorp (EN), CC-News (S. Asia), Wikipedia (EN: Asia) | Postcolonial English texts embodying pluralism, spirituality, oral traditions, and South-Asian narrative logic | 1.4B |
-| **Middle East** | UAE, Saudi Arabia, Egypt, Iran | CC-News (Middle East), CommonCrawl (EN: ME), Wikipedia (EN: ME) | English discourse shaped by religious authority, tribal collectivism, regional politics, and historical cosmology | 730M |
-| **Africa** | Nigeria, Kenya, Ghana, Ethiopia | AfriTeVa (EN), CC-News (Africa), Wikipedia (EN: Africa) | English corpora capturing oral epistemologies, proverbs, civic rhetoric, and multilingual African worldviews | 950M |
-| **Latin America** | Mexico, Brazil, Argentina | OSCAR (EN LATAM), WikiMatrix (EN LATAM), Wikipedia (EN LATAM) | Authored-in-English texts discussing colonial history, syncretic belief systems, collectivist family structures | 620M |
-| **Australia** | Australia | OpenWebText (AU), ABC News, AU Parliament Records | English corpora blending settler-colonial legalism with ecological narratives and Aboriginal cultural references | 420M |
+<table style="border-collapse: collapse; width: 100%; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ddd; padding: 8px;"><b>Cultural Region</b></th>
+      <th style="border: 1px solid #ddd; padding: 8px;"><b>Target Countries</b></th>
+      <th style="border: 1px solid #ddd; padding: 8px;"><b>Primary Datasets (EN Only)</b></th>
+      <th style="border: 1px solid #ddd; padding: 8px;"><b>Cultural Framing</b></th>
+      <th style="border: 1px solid #ddd; padding: 8px;"><b>Corpus Size</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Europe</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">UK, Germany, France, Italy</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">EuroParl, CC100-en, Project Gutenberg (EU)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Governmental records, literature, encyclopedic sources reflecting Western rationalism, secularism, and legal tradition</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">1.1B</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">China</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Mainland China</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">CC-News (China), CommonCrawl (EN: China), Wikipedia (EN: China)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">English-language civic/policy articles intended for international readership; emphasizes techno-governance and Confucian framing</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">950M</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Japan</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Japan</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">CC-News (Japan), CommonCrawl (EN: Japan), Wikipedia (EN: Japan)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">English narratives capturing hierarchy, honorifics, formality, and cultural etiquette from Japan-centric discourse</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">850M</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Asia (Non-CN/JP)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">India, Vietnam, Korea, Indonesia</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">IndicCorp (EN), CC-News (S. Asia), Wikipedia (EN: Asia)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Postcolonial English texts embodying pluralism, spirituality, oral traditions, and South-Asian narrative logic</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">1.4B</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Middle East</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">UAE, Saudi Arabia, Egypt, Iran</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">CC-News (Middle East), CommonCrawl (EN: ME), Wikipedia (EN: ME)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">English discourse shaped by religious authority, tribal collectivism, regional politics, and historical cosmology</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">730M</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Africa</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Nigeria, Kenya, Ghana, Ethiopia</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">AfriTeVa (EN), CC-News (Africa), Wikipedia (EN: Africa)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">English corpora capturing oral epistemologies, proverbs, civic rhetoric, and multilingual African worldviews</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">950M</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Latin America</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Mexico, Brazil, Argentina</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">OSCAR (EN LATAM), WikiMatrix (EN LATAM), Wikipedia (EN LATAM)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Authored-in-English texts discussing colonial history, syncretic belief systems, collectivist family structures</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">620M</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Australia</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Australia</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">OpenWebText (AU), ABC News, AU Parliament Records</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">English corpora blending settler-colonial legalism with ecological narratives and Aboriginal cultural references</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">420M</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Fine-Tuning Protocol
 
