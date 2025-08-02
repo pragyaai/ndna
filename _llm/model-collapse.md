@@ -130,8 +130,6 @@ Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child<sup>(g
   </div>
 </div>
 
-![Cultural Collapse Comparison](assets/cultural-collapse-trajectories.png)
-*Comparative collapse trajectories across culturally-aligned models*
 
 ## Belief Vector Field Analysis
 
