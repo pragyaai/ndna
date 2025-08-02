@@ -110,6 +110,7 @@ which serves as an interpretable neural genotype divergence score.
 </div>
 
 <div style="text-align: justify; font-size: 0.95em; line-height: 1.5; margin-top: 1em;">
+    $$
   <strong>Right:</strong> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. 
   At each layer \( \ell \) in the ÆTHER manifold, we compare the latent vector \( \mathbf{o}_\ell \) of the offspring against 
   those of the parents \( \mathbf{p}_\ell^1 \) and \( \mathbf{p}_\ell^2 \). A binary indicator is activated if 
@@ -117,6 +118,7 @@ which serves as an interpretable neural genotype divergence score.
   \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta \), indicating significant divergence from both parents at that layer. 
   nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). 
   This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
+    $$
 </div>
 
 <p style="text-align: justify; font-size: 0.9em; margin-top: 1.5em;">
