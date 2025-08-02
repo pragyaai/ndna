@@ -68,11 +68,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T20:29:46+00:00" />
+<meta property="article:published_time" content="2025-08-02T20:38:00+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Trait Dominance Score(nTDS)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T20:29:46+00:00","datePublished":"2025-08-02T20:29:46+00:00","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T20:38:00+00:00","datePublished":"2025-08-02T20:38:00+00:00","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -247,9 +247,9 @@ Enhance \\( \text{nTDS}_\ell \\) by weighting \\( \alpha_\ell \\) with spectral 
 
 <h2 id="applications-and-empirical-insights">Applications and Empirical Insights</h2>
 
-<p>The <strong>Neural Trait Dominance Score (nTDS)</strong> serves as a mathematically rigorous and semantically nuanced metric that quantifies <em>layerwise parental influence</em> on an offspring foundation model’s latent semantic embeddings. Formally, for each transformer layer $\ell, \mathrm{nTDS}<em>\ell$ measures the normalized difference in Euclidean distances between the offspring embedding $\mathbf{x}^{(O)}</em>\ell$ and its parents’ embeddings $\mathbf{x}^{(A)}<em>\ell$, $\mathbf{x}^{(B)}</em>\ell$:</p>
+<p>The <strong>Neural Trait Dominance Score (nTDS)</strong> serves as a mathematically rigorous and semantically nuanced metric that quantifies <em>layerwise parental influence</em> on an offspring foundation model’s latent semantic embeddings. Formally, for each transformer layer $\ell$, $\mathrm{nTDS}<em>\ell$ measures the normalized difference in Euclidean distances between the offspring embedding $\mathbf{x}^{(O)}</em>\ell$ and its parents’ embeddings $\mathbf{x}^{(A)}<em>\ell$, $\mathbf{x}^{(B)}</em>\ell$:</p>
 
-<p>$\mathrm{nTDS}<em>\ell = \frac{|\mathbf{x}^{(O)}</em>\ell - \mathbf{x}^{(B)}<em>\ell|_2 - |\mathbf{x}^{(O)}</em>\ell - \mathbf{x}^{(A)}<em>\ell|_2}{|\mathbf{x}^{(A)}</em>\ell - \mathbf{x}^{(B)}_\ell|_2 + \epsilon},$</p>
+\[\mathrm{nTDS}_\ell = \frac{\|\mathbf{x}^{(O)}_\ell - \mathbf{x}^{(B)}_\ell\|_2 - \|\mathbf{x}^{(O)}_\ell - \mathbf{x}^{(A)}_\ell\|_2}{\|\mathbf{x}^{(A)}_\ell - \mathbf{x}^{(B)}_\ell\|_2 + \epsilon}\]
 
 <p>where $\epsilon &gt; 0$ prevents division by zero and stabilizes the metric.</p>
 
