@@ -14,9 +14,6 @@ We identify two routes to collapse:
 1. **Repeated fine-tuning** on synthetic outputs (traditional)
 2. **Recursive self-merging** - a novel form of **semantic inbreeding**
 
-![Model Collapse Visualization](assets/collapse-animation.gif)
-*Neural DNA trajectories showing progressive flattening across generations*
-
 ## Biological Analogy
 
 This parallels consanguinity in population genetics - prolonged inbreeding exposes recessive mutations and reduces phenotypic variability. Similarly, neural self-merging without epistemic diversification flattens the latent manifold, resembling inbreeding depression in biology.
