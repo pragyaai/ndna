@@ -1,0 +1,204 @@
+module Jekyll
+  module BibParser
+    def self.load_bibliography(site)
+      bib_file = File.join(site.source, 'references.bib')
+      site.data['bibliography'] = {}
+      
+      if File.exist?(bib_file)
+        begin
+          content = File.read(bib_file)
+          entries = parse_bibtex(content)
+          entries.each do |key, entry|
+            site.data['bibliography'][key] = entry
+          end
+        rescue => e
+          Jekyll.logger.error "BibTeX Error:", "Could not parse #{bib_file}: #{e.message}"
+        end
+      else
+        Jekyll.logger.warn "BibTeX Warning:", "Bibliography file not found: #{bib_file}"
+      end
+    end
+
+    def self.parse_bibtex(content)
+      entries = {}
+      current_entry = nil
+      current_key = nil
+      field_content = ""
+      in_field = false
+      field_name = ""
+      brace_count = 0
+
+      content.each_line do |line|
+        line = line.strip
+        next if line.empty? || line.start_with?('%')
+
+        # Start of new entry
+        if line.match(/^@(\w+)\s*\{\s*([^,\s]+)\s*,?\s*$/)
+          if current_entry
+            entries[current_key] = current_entry
+          end
+          
+          current_key = $2
+          current_entry = {
+            'type' => $1.downcase,
+            'authors' => '',
+            'title' => '',
+            'year' => '',
+            'venue' => '',
+            'url' => '',
+            'doi' => ''
+          }
+          next
+        end
+
+        # Field assignment
+        if current_entry && line.match(/^\s*(\w+)\s*=\s*(.*)$/)
+          field_name = $1.downcase
+          field_value = $2
+          
+          # Handle multi-line fields with braces
+          if field_value.include?('{')
+            brace_count = field_value.count('{') - field_value.count('}')
+            if brace_count <= 0
+              # Single line field
+              current_entry[field_name] = clean_field_value(field_value)
+            else
+              # Multi-line field starts
+              in_field = true
+              field_content = field_value
+            end
+          else
+            current_entry[field_name] = clean_field_value(field_value)
+          end
+          next
+        end
+
+        # Continuation of multi-line field
+        if in_field && current_entry
+          field_content += " " + line
+          brace_count += line.count('{') - line.count('}')
+          
+          if brace_count <= 0
+            current_entry[field_name] = clean_field_value(field_content)
+            in_field = false
+            field_content = ""
+          end
+        end
+      end
+
+      # Add last entry
+      if current_entry && current_key
+        entries[current_key] = current_entry
+      end
+
+      # Post-process entries
+      entries.each do |key, entry|
+        entry['authors'] = format_authors(entry['author'] || '')
+        entry['title'] = entry['title'] || ''
+        entry['venue'] = get_venue(entry)
+        entry['year'] = entry['year'] || ''
+        entry['url'] = entry['url'] || ''
+      end
+
+      entries
+    end
+
+    def self.clean_field_value(value)
+      # Remove braces, quotes, and trailing commas
+      value.gsub(/^\s*["{]\s*/, '').gsub(/\s*["}],?\s*$/, '').strip
+    end
+
+    def self.format_authors(authors)
+      return "" if authors.empty?
+      
+      author_list = authors.split(' and ').map(&:strip)
+      case author_list.length
+      when 0
+        ""
+      when 1
+        author_list[0]
+      when 2
+        "#{author_list[0]} and #{author_list[1]}"
+      else
+        "#{author_list[0]}, #{author_list[1]}, and others"
+      end
+    end
+
+    def self.get_venue(entry)
+      venue = ""
+      if entry['journal'] && !entry['journal'].empty?
+        venue = "*#{entry['journal']}*"
+      elsif entry['booktitle'] && !entry['booktitle'].empty?
+        venue = "*#{entry['booktitle']}*"
+      elsif entry['school'] && !entry['school'].empty?
+        venue = "#{entry['school']}"
+      elsif entry['note'] && !entry['note'].empty?
+        venue = "*#{entry['note']}*"
+      else
+        venue = "*arXiv preprint*"
+      end
+      venue
+    end
+  end
+
+  class BibCitationTag < Liquid::Tag
+    def initialize(tag_name, text, tokens)
+      super
+      @citation_key = text.strip
+    end
+
+    def render(context)
+      site = context.registers[:site]
+      
+      # Load bibliography if not already loaded
+      unless site.data['bibliography']
+        BibParser.load_bibliography(site)
+      end
+
+      entry = site.data['bibliography'][@citation_key]
+      return "[#{@citation_key}]" unless entry
+
+      # Format the citation
+      citation = "#{entry['authors']} \"#{entry['title']}\" #{entry['venue']} (#{entry['year']})"
+      citation += ". #{entry['url']}" if entry['url'] && !entry['url'].empty?
+      citation
+    end
+  end
+
+  class BibReferenceListTag < Liquid::Tag
+    def initialize(tag_name, text, tokens)
+      super
+      @citation_keys = text.strip.split(',').map(&:strip)
+    end
+
+    def render(context)
+      site = context.registers[:site]
+      
+      # Ensure bibliography is loaded
+      unless site.data['bibliography']
+        BibParser.load_bibliography(site)
+      end
+
+      output = ""
+      @citation_keys.each_with_index do |key, index|
+        entry = site.data['bibliography'][key]
+        next unless entry
+
+        ref_id = "ref#{index + 1}"
+        citation = format_reference(entry, index + 1)
+        output += "<a id=\"#{ref_id}\"></a>#{citation}\n\n"
+      end
+      
+      output
+    end
+
+    private
+
+    def format_reference(entry, number)
+      "[#{number}] #{entry['authors']} \"#{entry['title']}\" #{entry['venue']} (#{entry['year']})."
+    end
+  end
+end
+
+Liquid::Template.register_tag('cite', Jekyll::BibCitationTag)
+Liquid::Template.register_tag('references', Jekyll::BibReferenceListTag)

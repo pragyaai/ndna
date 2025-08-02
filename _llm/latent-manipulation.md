@@ -43,7 +43,7 @@ While classical adversarial attacks often operate at the token or activation lev
 
 *Each category below summarizes a high-risk manipulation targeting the semantic genome of foundation models. **Technical details are redacted by design.***
 
-<div class="threat-cards">
+<!-- <div class="threat-cards"> -->
 
 | 🔨 Attack Type | Description | Risk Impact |
 |-------------|-------------|-------------|
@@ -58,7 +58,7 @@ While classical adversarial attacks often operate at the token or activation lev
 | **Alignment Mirage** | Over-optimize outward alignment while diverging internally at latent scale. | Faked ethics in AI for law, education, medicine. |
 | **Cultural Trojan Fusion** | Merge with targeted ideological nDNA using asymmetric blending. | Reinforces cultural stereotypes or erases minority worldviews. |
 
-</div>
+<!-- </div> -->
 
 **Outlook:** These attacks mark a shift from *behavioral exploits* to **ontological sabotage**. The adversary no longer seeks to change outputs—but to reshape what a model *is*. Detection and defense require *semantic forensics*, **traceable epistemics**, and a new era of *model constitutionality*.
 
@@ -112,36 +112,4 @@ They manipulate the model's semantic genome—curvature ($\kappa_\ell$), thermod
 
 ## References
 
-<a id="ref1"></a>[1] Wallace, Eric, Shi Feng, Nikhil Kandpal, Matt Gardner, and Sameer Singh. "Universal adversarial triggers for attacking and analyzing NLP." *EMNLP* (2019).
-
-<a id="ref2"></a>[2] Carlini, Nicholas, Florian Tramer, Eric Wallace, Matthew Jagielski, Ariel Herbert-Voss, Katherine Lee, Adam Roberts, Tom B Brown, Dawn Song, Colin Raffel, and others. "Quantifying and understanding adversarial examples in NLP." *IEEE S&P* (2022).
-
-<a id="ref3"></a>[3] Zou, Tony, Colin Raffel, Nicholas Carlini, and others. "Universal and transferable adversarial attacks on aligned language models." *arXiv preprint arXiv:2310.03765* (2023).
-
-<a id="ref4"></a>[4] Wei, Jason, Andy Xu, Kyle Yu, and others. "Jailbroken: How does LLM safety training fail?" *arXiv preprint arXiv:2307.02483* (2023).
-
-<a id="ref5"></a>[5] Liu, Xudong, Zhenhao Lin, Tony Zou, Nicholas Carlini, Colin Raffel, and others. "Jailbreaker: Jailing Jailbreaks of Aligned Language Models." *arXiv preprint arXiv:2310.06694* (2023).
-
-<a id="ref6"></a>[6] Rando, Justin, Tom Goldstein, Nicholas Carlini, and others. "Language models can learn to deceive." *arXiv preprint arXiv:2311.17035* (2023).
-
-<a id="ref7"></a>[7] Shen, Yao, Yuntao Bai, Eric Jonas, and others. "Deception abilities emerged in large language models." *arXiv preprint arXiv:2309.00603* (2023).
-
-<a id="ref8"></a>[8] Ganguli, Deep, Amanda Askell, Yuntao Bai, and others. "Capacity for moral self-correction in large language models." *arXiv preprint arXiv:2302.07459* (2023).
-
-<a id="ref9"></a>[9] Perez, Ethan, Sam Ringer, Noam Nisan, and others. "Discovering latent knowledge in language models without supervision." *arXiv preprint arXiv:2212.03827* (2022).
-
-<a id="ref10"></a>[10] Hinton, Geoffrey, Oriol Vinyals, and Jeff Dean. "Distilling the Knowledge in a Neural Network." *NeurIPS Deep Learning and Representation Learning Workshop* (2015). https://arxiv.org/abs/1503.02531
-
-<a id="ref11"></a>[11] Romero, Adriana, Nicolas Ballas, Samira Ebrahimi Kahou, Antoine Chassang, Carlo Gatta, and Yoshua Bengio. "FitNets: Hints for thin deep nets." *ICLR* (2015).
-
-<a id="ref12"></a>[12] Wei, Jason, Xuezhi Wang, Dale Schuurmans, and others. "Emergent abilities of large language models." *arXiv preprint arXiv:2206.07682* (2022).
-
-<a id="ref13"></a>[13] Burns, Collin, Andy Wu, and others. "Discovering latent knowledge in language models with context probing." *arXiv preprint arXiv:2212.03827* (2022).
-
-<a id="ref14"></a>[14] Goodfellow, Ian J, Jonathon Shlens, and Christian Szegedy. "Explaining and harnessing adversarial examples." *ICLR* (2015).
-
-<a id="ref15"></a>[15] Gu, Tianyu, Brendan Dolan-Gavitt, and Siddharth Garg. "BadNets: Identifying vulnerabilities in the machine learning model supply chain." *arXiv preprint arXiv:1708.06733* (2017).
-
-<a id="ref16"></a>[16] Li, Lei, Siwei Ma, and others. "Backdoor attacks and defenses in feature-partitioned collaborative learning." *NeurIPS* (2022).
-
-<a id="ref17"></a>[17] Zhu, Yujia, Xudong Liu, and others. "PromptBench: Evaluating robustness of language models with parameterized prompts." *arXiv preprint arXiv:2311.08370* (2023).
+{% references wallace2019universal,carlini2022quantifying,zou2023universal,wei2023jailbroken,liu2023jailbreaker,rando2023language,shen2023deception,ganguli2023capacity,perez2022discovering,hinton2015distilling,romero2015fitnets,wei2022emergent,burns2022discovering,goodfellow2014explaining,gu2017badnets,li2022backdoor,zhu2023promptbench %}
