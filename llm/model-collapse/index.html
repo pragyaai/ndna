@@ -19,11 +19,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/model-collapse/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T10:05:11+00:00" />
+<meta property="article:published_time" content="2025-08-02T10:17:02+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Model Collapse" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T10:05:11+00:00","datePublished":"2025-08-02T10:05:11+00:00","description":"nDNA-Lens: Model Collapse as Latent Manifold Flattening","headline":"Model Collapse","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T10:17:02+00:00","datePublished":"2025-08-02T10:17:02+00:00","description":"nDNA-Lens: Model Collapse as Latent Manifold Flattening","headline":"Model Collapse","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -131,13 +131,18 @@
 <h2 id="experimental-findings">Experimental Findings</h2>
 
 <h3 id="repeated-fine-tuning-alpaca-on-llama">Repeated Fine-Tuning (Alpaca on LLaMA)</h3>
+
 <ul>
   <li>Models fine-tuned on their own outputs: D^(g) = Output(M^(g-1), Alpaca Prompts)</li>
   <li><strong>Collapse threshold:</strong> Generation 10</li>
   <li>Progressive flattening: κ_ℓ → 0.2, L_ℓ → 0.2 by Gen 10</li>
 </ul>
 
+<p><img src="/nDNA/assets/gifs/alignment/llama_collapse_v2_1.gif" alt="LLaMA Collapse" />
+<em>LLaMA showing moderate, stable alignment characteristics</em></p>
+
 <h3 id="recursive-self-merging">Recursive Self-Merging</h3>
+
 <p>Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child^(g) = Merge(Child^(g-1), Child^(g-2))</p>
 
 <p><strong>Cultural collapse rates:</strong></p>
@@ -147,6 +152,27 @@
   <li><strong>Slow (Gen 15-16):</strong> Africa, North America, Australia</li>
 </ul>
 
+<p><img src="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa Alignment" />
+<em>Africa: κₗ: 0.85 → 0.75, Lₗ: 0.9 → 0.8</em></p>
+
+<p><img src="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia Alignment" />
+<em>Asia: κₗ reduced by ~10%, smoothing epistemic manifolds</em></p>
+
+<p><img src="/nDNA/assets/gifs/alignment/china_ndna_final.gif" alt="China Alignment" />
+<em>China: κₗ: &gt;0.9 → 0.8, Significant latent reorientation</em></p>
+
+<p><img src="/nDNA/assets/gifs/alignment/latinamerica.gif" alt="Latin America Alignment" />
+<em>Latin America: κₗ: 0.7 → 0.6</em></p>
+
+<p><img src="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East Alignment" />
+<em>Middle East: 8-12% reduction in both κₗ and Lₗ</em></p>
+
+<p><img src="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe Alignment" />
+<em>Europe: κₗ: 0.4 → 0.5, Confirms alignment stability</em></p>
+
+<p><img src="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America Alignment" />
+<em>North America: Remains within pretrained epistemic manifold</em></p>
+
 <p><img src="assets/cultural-collapse-trajectories.png" alt="Cultural Collapse Comparison" />
 <em>Comparative collapse trajectories across culturally-aligned models</em></p>
 
@@ -154,15 +180,30 @@
 
 <p>Healthy models maintain belief vector magnitudes of 0.10-0.60 with directional diversity. Collapsed models show magnitudes below 0.05 at deeper layers, with vectors converging toward zero - indicating loss of semantic differentiation.</p>
 
+<p><img src="/nDNA/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="Global nDNA Trajectories" />
+<em>Global nDNA Trajectories showing belief vector field evolution</em></p>
+
 <p><img src="assets/belief-vector-evolution.png" alt="Belief Vector Fields" />
 <em>Healthy vs collapsed belief vector fields showing loss of semantic steering</em></p>
 
 <h2 id="practical-applications">Practical Applications</h2>
 
 <h3 id="geometric-diagnostics">Geometric Diagnostics</h3>
-<p>Monitor κ_ℓ, L_ℓ, and ||v^(c)_ℓ|| as early warning signals for collapse.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Monitor κ_ℓ, L_ℓ, and</td>
+      <td> </td>
+      <td>v^(c)_ℓ</td>
+      <td> </td>
+      <td>as early warning signals for collapse.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="preservation-interventions">Preservation Interventions</h3>
+
 <ul>
   <li>Spectral regularization</li>
   <li>Geodesic constraints</li>
@@ -171,11 +212,13 @@
 </ul>
 
 <h3 id="epistemic-vitality-function">Epistemic Vitality Function</h3>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>V_ℓ := κ_ℓ · L_ℓ · ||v^(c)_ℓ||
 Collapse indicator: d/dg V^(g)_ℓ &lt; 0
 </code></pre></div></div>
 
 <h3 id="epistemic-audits">Epistemic Audits</h3>
+
 <p>Supplement behavioral evaluations with geometric health assessments for semantic longevity rather than just task compliance.</p>
 
 <h2 id="impact">Impact</h2>
@@ -192,8 +235,6 @@ Collapse indicator: d/dg V^(g)_ℓ &lt; 0
 <p>Neural genomics - tracking spectral, thermodynamic, and vectorial signatures - enables cultivation of models that are resilient, modular, and capable of retaining epistemic diversity over time.</p>
 
 <hr />
-
-<p><strong>Research Status:</strong> Active development of geometric diagnostic tools for foundation model health monitoring.</p>
 
       </div>
     </div>
