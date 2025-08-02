@@ -68,11 +68,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T12:22:42+00:00" />
+<meta property="article:published_time" content="2025-08-02T12:33:03+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T12:22:42+00:00","datePublished":"2025-08-02T12:22:42+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T12:33:03+00:00","datePublished":"2025-08-02T12:33:03+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -201,22 +201,33 @@
   <em>Right:</em> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. At each layer \\( \ell \\) in the ÆTHER manifold, we compare the latent vector \\( o_\ell \\) of the offspring against those of the parents \\( p_\ell^1 \\) and \\( p_\ell^2 \\). A binary indicator is activated if \\( \|o_\ell - p_\ell^1\| &gt; \delta \\) and \\( \|o_\ell - p_\ell^2\| &gt; \delta \\), indicating significant divergence from both parents at that layer. nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
 </div>
 
-<p><img src="/nDNA/assets/gifs/neural_genomics/ngdi_layerwise_fusion.png" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
+<p><img src="/nDNA/assets/gifs/neural_genomics/ngdi_layerwise_fusion.png" style="width: 100%; max-width: 600px; display: block; margin: auto;" /></p>
 
 <p style="text-align: center; font-weight: bold; margin-top: 0.8em;">
   Figure 3. Neural Genetic Dissimilarity in Layer-wise Fusion
 </p>
 
-<div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
-  Each row represents a transformer layer (\\( \ell = 20 \\) to \\( 30 \\)), and each column corresponds to a latent dimension in the ÆTHER alignment space. Blue circles indicate features inherited from Parent 1, yellow from Parent 2, and red circles mark divergent features not matching either parent.
-  <br /><br />
+<p style="text-align: justify; font-size: 0.9em;">
+  Each row represents a transformer layer 
+  <span class="mathjax-render">\\( \ell = 20 \\)</span> to 
+  <span class="mathjax-render">\\( 30 \\)</span>, and each column corresponds to a latent dimension in the ÆTHER alignment space. 
+  Blue circles indicate features inherited from Parent 1, yellow from Parent 2, and red circles mark divergent features not matching either parent.
+</p>
+
+<p style="text-align: justify; font-size: 0.9em;">
   This visualization forms the input to the Neural Genetic Dissimilarity Index (nGDI), computed as:
-  <br /><br />
-  \\[
+</p>
+
+<div class="mathjax-render" style="text-align: center; font-size: 0.95em; margin: 1em 0;">
+  \[
   \text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
-  \\]
-  where \\( d(o, p_i) \\) denotes the distance between the offspring and parent \\( i \\), and \\( \cos(p_1, p_2) \\) measures inter-parental alignment similarity. A higher nGDI reflects greater semantic drift and directional bias in fusion.
+  \]
 </div>
+
+<p class="mathjax-render" style="text-align: justify; font-size: 0.9em;">
+  where \\( d(o, p_i) \\) denotes the distance between the offspring and parent \\( i \\), and 
+  \\( \cos(p_1, p_2) \\) measures inter-parental alignment similarity. A higher nGDI reflects greater semantic drift and directional bias in fusion.
+</p>
 
 <p>Within the broader Neural DNA (nDNA) framework, nHD acts as a discrete mutation signature metric complementing continuous geometric measures such as spectral curvature (nGDI) and latent radius (nTDS).</p>
 
