@@ -1,0 +1,6 @@
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/' | append: include.gif_url | relative_url }}" data-lightbox="gallery" data-title="{{ include.title }}">
+    <img src="{{ '/assets/gifs/' | append: include.gif_url | relative_url }}" alt="{{ include.title }} Cultural nDNA Rotation" style="width: 100%; height: 300px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 500;">{{ include.title }}</p>
+</div>
