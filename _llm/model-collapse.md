@@ -28,7 +28,7 @@ T<sub>nDNA</sub> = {(κ<sub>ℓ</sub>, L<sub>ℓ</sub>, ||v<sup>(c)</sup><sub>�
 
 - **κ<sub>ℓ</sub>**: Latent curvature (semantic flexibility)
 - **L<sub>ℓ</sub>**: Thermodynamic length (epistemic work)
-- **||v<sup>(c)</sup><sub>ℓ</sub>||**: Semantic steering force
+- ||v<sub>ℓ</sub><sup>(c)</sup>||: Semantic steering force
 
 **Collapse signature:** κ<sub>ℓ</sub> → const, L<sub>ℓ</sub> → min, ||v<sup>(c)</sup><sub>ℓ</sub>|| → uniform
 
