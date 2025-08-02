@@ -164,8 +164,9 @@ All models are fine-tuned using Low-Rank Adaptation (LoRA) with rank 16, a batch
 ### Group-Level Clustering
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" data-lightbox="gallery" data-title="LLaMA vs. Cultural nDNA Trajectories - Group-Tagged Latent Geometry">
-    <img src="{{ '/assets/gifs/FINE-TUNING/LLAMA_CULTURSHIFTFINAL/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" alt="Group-Tagged Latent Geometry Analysis" style="max-width: 100%; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+
+  <a href="{{ '/assets/gifs/FINE-TUNING/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" data-lightbox="gallery" data-title="LLaMA vs. Cultural nDNA Trajectories - Group-Tagged Latent Geometry">
+    <img src="{{ '/assets/gifs/FINE-TUNING/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" alt="Group-Tagged Latent Geometry Analysis" style="max-width: 100%; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
   </a>
   <p style="margin-top: 8px; font-weight: 500;">LLaMA vs. Cultural nDNA Trajectories - Group-Tagged Latent Geometry</p>
   <p style="margin-top: 4px; font-size: 0.9em; color: #666;">West group (LLaMA, Europe, North America, Australia) forms compact low-strain cluster; Rest group (Africa, Asia, China) shows pronounced latent divergence</p>
@@ -192,6 +193,10 @@ The discovery of cultural nDNA trajectories represents a conceptual leap in our 
 **king - man + woman ≈ queen**
 
 Where this equation unveiled linear semantics at the token level, cultural nDNA exposes the **differential geometry of belief systems**–mapping how fine-tuning on region-specific corpora non-uniformly sculpts spectral curvature (κₗ), thermodynamic length (Lₗ), and directional belief force.
+
+<a href="{{ '/assets/gifs/FINE-TUNING/word2vec.png' | relative_url }}" data-lightbox="gallery" data-title="Africa Cultural nDNA">
+  <img src="{{ '/assets/gifs/FINE-TUNING/word2vec.png'' | relative_url }}" alt="Africa Cultural nDNA Trajectory" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+</a>
 
 ### Quantitative Latent Dynamics
 
