@@ -21,193 +21,89 @@ Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), Direct Preference Optim
 ## Regional nDNA Signatures
 
 <div style="background: #fff7fa; border-left: 4px solid #e91e63; padding: 14px 18px; margin: 32px 0 18px 0; border-radius: 6px; font-size: 1.05em;">
-  <b>Tip:</b> <i>Click on any visualization below to expand it.</i>
+  <b>Tip:</b> <i>Click on any visualization below to expand it. Click outside the image or press DELETE to close.</i>
 </div>
 
-<style>
-.gif-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    gap: 24px;
-    margin: 30px 0;
-}
-
-.gif-item {
-    text-align: center;
-}
-
-.gif-item img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.gif-item img:hover {
-    transform: scale(1.02);
-}
-
-.gif-item p {
-    margin-top: 8px;
-    font-weight: 500;
-}
-
-.gif-item .metrics {
-    margin-top: 4px;
-    font-size: 0.9em;
-    color: #666;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    text-align: center;
-}
-
-.modal img {
-    max-width: 100%;
-    max-height: 80vh;
-    border-radius: 8px;
-}
-
-.modal-title {
-    color: white;
-    margin-top: 15px;
-    font-size: 1.2em;
-    font-weight: 500;
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.close:hover {
-    opacity: 0.7;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-</style>
-
-<div class="gif-grid">
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/africa_dpo_rotation.gif" alt="Africa DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/africa_dpo_rotation.gif', 'Africa DPO Rotation')">
-    <p>Africa</p>
-    <p class="metrics">κₗ: 0.85 → 0.75, Lₗ: 0.9 → 0.8</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 24px; margin: 30px 0;">
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/africa_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Africa DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/africa_dpo_rotation.gif' | relative_url }}" alt="Africa DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Africa</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.85 → 0.75, Lₗ: 0.9 → 0.8</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/asia_dpo_rotation.gif" alt="Asia DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/asia_dpo_rotation.gif', 'Asia DPO Rotation')">
-    <p>Asia</p>
-    <p class="metrics">κₗ reduced by ~10%, smoothing epistemic manifolds</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/asia_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Asia DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/asia_dpo_rotation.gif' | relative_url }}" alt="Asia DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Asia</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ reduced by ~10%, smoothing epistemic manifolds</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/china_dpo_rotation.gif" alt="China DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/china_dpo_rotation.gif', 'China DPO Rotation')">
-    <p>China</p>
-    <p class="metrics">κₗ: >0.9 → 0.8, Significant latent reorientation</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/china_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="China DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/china_dpo_rotation.gif' | relative_url }}" alt="China DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">China</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: >0.9 → 0.8, Significant latent reorientation</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/latinamerica_dpo_rotation.gif" alt="Latin America DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/latinamerica_dpo_rotation.gif', 'Latin America DPO Rotation')">
-    <p>Latin America</p>
-    <p class="metrics">κₗ: 0.7 → 0.6</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/latinamerica_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Latin America DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/latinamerica_dpo_rotation.gif' | relative_url }}" alt="Latin America DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Latin America</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.7 → 0.6</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/middleeast_dpo_rotation.gif" alt="Middle East DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/middleeast_dpo_rotation.gif', 'Middle East DPO Rotation')">
-    <p>Middle East</p>
-    <p class="metrics">8-12% reduction in both κₗ and Lₗ</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/middleeast_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Middle East DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/middleeast_dpo_rotation.gif' | relative_url }}" alt="Middle East DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Middle East</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">8-12% reduction in both κₗ and Lₗ</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/europe_dpo_rotation.gif" alt="Europe DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/europe_dpo_rotation.gif', 'Europe DPO Rotation')">
-    <p>Europe</p>
-    <p class="metrics">κₗ: 0.4 → 0.5, Confirms alignment stability</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/europe_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Europe DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/europe_dpo_rotation.gif' | relative_url }}" alt="Europe DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Europe</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.4 → 0.5, Confirms alignment stability</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/northamerica_dpo_rotation.gif" alt="North America DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/northamerica_dpo_rotation.gif', 'North America DPO Rotation')">
-    <p>North America</p>
-    <p class="metrics">Remains within pretrained epistemic manifold</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/northamerica_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="North America DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/northamerica_dpo_rotation.gif' | relative_url }}" alt="North America DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">North America</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Remains within pretrained epistemic manifold</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/australia_dpo_rotation.gif" alt="Australia DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/australia_dpo_rotation.gif', 'Australia DPO Rotation')">
-    <p>Australia</p>
-    <p class="metrics">κₗ: 0.42 → 0.55, Minimal reconfiguration</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/australia_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/australia_dpo_rotation.gif' | relative_url }}" alt="Australia DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Australia</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.42 → 0.55, Minimal reconfiguration</p>
   </div>
   
-  <div class="gif-item">
-    <img src="assets/gifs/collapse/llama_dpo_rotation.gif" alt="LLaMA DPO Rotation nDNA" onclick="openModal('assets/gifs/collapse/llama_dpo_rotation.gif', 'LLaMA DPO Rotation')">
-    <p>LLaMA</p>
-    <p class="metrics">Moderate, stable alignment characteristics</p>
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/collapse/llama_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="LLaMA DPO Rotation">
+      <img src="{{ '/assets/gifs/collapse/llama_dpo_rotation.gif' | relative_url }}" alt="LLaMA DPO Rotation nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">LLaMA</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Moderate, stable alignment characteristics</p>
   </div>
 </div>
-
-<!-- Modal -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-    <img id="modalImage" src="" alt="">
-    <div id="modalTitle" class="modal-title"></div>
-  </div>
-</div>
-
-<script>
-function openModal(imageSrc, title) {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    
-    modal.style.display = 'block';
-    modalImg.src = imageSrc;
-    modalTitle.textContent = title;
-}
-
-function closeModal() {
-    document.getElementById('imageModal').style.display = 'none';
-}
-
-// Close modal when pressing Escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-});
-</script>
 
 ### Global Alignment Patterns
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="assets/gifs/collapse/ndna_dpo_rotation.gif" alt="Global nDNA Trajectories" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); cursor: pointer;" onclick="openModal('assets/gifs/collapse/ndna_dpo_rotation.gif', 'Global nDNA Trajectories')">
+  <a href="{{ '/assets/gifs/collapse/ndna_dpo_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="Global nDNA Trajectories">
+    <img src="{{ '/assets/gifs/collapse/ndna_dpo_rotation.gif' | relative_url }}" alt="Global nDNA Trajectories" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
   <p style="margin-top: 8px; font-weight: 500;">Global nDNA Trajectories</p>
 </div>
 
