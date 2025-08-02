@@ -99,3 +99,64 @@ capturing differential sensitivity of the latent space to parameter perturbation
 <div class="mathjax-render">
 Enhance \\( \text{nTDS}_\ell \\) by weighting \\( \alpha_\ell \\) with spectral properties of \\( \mathcal{J}_\ell \\), thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
 </div>
+
+## Interpretation:
+
+- *High* $\mathrm{nTDS}_\ell$ indicates semantic traits primarily inherited from parent $A$ at layer $\ell$.
+- *Low* $\mathrm{nTDS}_\ell$ indicates dominance of parent $B$.
+- *Intermediate* values denote *mixed inheritance* revealing complex blending of traits.
+
+## Connection to Population Genetics and QTL Analysis:
+
+This framework parallels *quantitative trait locus (QTL)* mapping in population genetics (Griffiths et al., 2015), where chromosomal loci correlate with phenotypic trait variance. Here, transformer layers analogously represent *semantic chromosomal segments*, and nTDS quantifies the differential contribution of parental "alleles" to offspring semantic traits.
+
+## Summary:
+
+The **nTDS** provides a rigorous, curvature-aware, and sensitivity-informed measure of layerwise trait dominance, crucial for understanding semantic inheritance patterns during model merging, fine-tuning, and alignment.
+
+## Interpretation and Implications
+
+The *Neural Trait Dominance Score* (**nTDS**) serves as a **precise**, layer-resolved indicator of how semantic traits from each parent model manifest within an offspring foundation model. By quantifying the relative proximity of the offspring's latent embeddings $\mathbf{x}^{(O)}_{\ell}$ to each parent's embeddings $\mathbf{x}^{(A)}_{\ell}$ and $\mathbf{x}^{(B)}_{\ell}$ at every layer $\ell$, **nTDS** reveals the *parental influence gradient* governing semantic inheritance.
+
+Explicitly, the metric
+$$\text{nTDS}_\ell = \frac{\left\| \mathbf{x}^{(O)}_{\ell} - \mathbf{x}^{(B)}_{\ell} \right\|_2 - \left\| \mathbf{x}^{(O)}_{\ell} - \mathbf{x}^{(A)}_{\ell} \right\|_2}{\left\| \mathbf{x}^{(A)}_{\ell} - \mathbf{x}^{(B)}_{\ell} \right\|_2 + \epsilon}$$
+
+encapsulates the degree to which the offspring's semantic representation $\mathbf{x}^{(O)}_{\ell}$ leans towards **parent $A$** ($\text{nTDS}_\ell > 0$) or **parent $B$** ($\text{nTDS}_\ell < 0$), offering a normalized and continuous measure of *dominance*.
+
+The **layer-specific patterns** uncovered by **nTDS** expose the *non-uniform transmission* of semantic traits: **early transformer layers** often reflect the more *literal* and *syntactic* characteristics of one parent, while **deeper layers** emphasize *abstract*, *culturally nuanced* semantics originating from the other. This layered trait distribution echoes hierarchical models of cognition and language processing, where progressively abstract representations emerge along the neural processing hierarchy (Tenney et al., 2019; Alain & Bengio, 2016).
+
+From a formal perspective, **nTDS** quantifies trait dominance via **Euclidean distances** within the high-dimensional latent semantic space, effectively mirroring the biological concept of *quantitative trait loci* (QTLs) (Griffiths et al., 2015), where specific genomic loci modulate the expression of phenotypic traits. This analogy bridges genomics and deep learning by treating transformer layers as functional "genomic loci" influencing semantic phenotype expression.
+
+Practically, the insights offered by **nTDS** enable **strategic fine-tuning** and **transfer learning** interventions: by pinpointing layers with dominant parental traits, practitioners can selectively amplify or attenuate these features to optimize performance, cultural sensitivity, and fairness. This capability enhances model *transparency* and *adaptability* across diverse sociocultural contexts.
+
+In summary, **nTDS** delivers a *biologically grounded*, **mathematically rigorous** framework for unraveling the complex **semantic inheritance architecture** within foundation models. It empowers nuanced control over how parental knowledge integrates, steering the development of **fair**, **interpretable**, and **culturally aware** AI systems attuned to global diversity.
+
+## Applications and Empirical Insights
+
+The **Neural Trait Dominance Score (nTDS)** serves as a mathematically rigorous and semantically nuanced metric that quantifies *layerwise parental influence* on an offspring foundation model's latent semantic embeddings. Formally, for each transformer layer $\ell$, $\mathrm{nTDS}_\ell$ measures the normalized difference in Euclidean distances between the offspring embedding $\mathbf{x}^{(O)}_\ell$ and its parents' embeddings $\mathbf{x}^{(A)}_\ell, \mathbf{x}^{(B)}_\ell$:
+
+$$\mathrm{nTDS}_\ell = \frac{\|\mathbf{x}^{(O)}_\ell - \mathbf{x}^{(B)}_\ell\|_2 - \|\mathbf{x}^{(O)}_\ell - \mathbf{x}^{(A)}_\ell\|_2}{\|\mathbf{x}^{(A)}_\ell - \mathbf{x}^{(B)}_\ell\|_2 + \epsilon},$$
+
+where $\epsilon > 0$ prevents division by zero and stabilizes the metric.
+
+### Trait Dominance Profiling and Semantic Layer Dynamics:
+
+Layerwise $\mathrm{nTDS}_\ell$ decomposes the global inheritance pattern into a *trait dominance trajectory* over model depth $\ell \in \{1, \dots, L\}$, revealing **where** and **how strongly** offspring semantics skew towards parent $A$ ($\mathrm{nTDS}_\ell > 0$) or parent $B$ ($\mathrm{nTDS}_\ell < 0$). This fine-grained analysis uncovers *semantic loci* within the latent manifold where cultural or functional traits concentrate, morph, or attenuate.
+
+Mathematically, the continuity and smoothness of $\mathrm{nTDS}_\ell$ over $\ell$ provide insights into **hierarchical trait propagation** and **transformer layer specialization**. For instance, abrupt discontinuities or high gradient magnitudes $\left|\frac{d}{d\ell} \mathrm{nTDS}_\ell \right|$ may signal semantic bottlenecks or layerwise representational shifts critical for alignment tuning.
+
+### Implications for Model Fusion and Fine-Tuning:
+
+In complex model merging scenarios, $\mathrm{nTDS}_\ell$ can serve as a diagnostic function $f: \ell \mapsto [-1, 1]$ to design *layer-adaptive regularization* objectives:
+
+$$\mathcal{L}_{\mathrm{align}} = \sum_{\ell=1}^L \lambda_\ell \cdot \mathrm{loss}_\ell, \quad \text{where} \quad \lambda_\ell = g\big(\mathrm{nTDS}_\ell\big),$$
+
+and $g$ is a monotonic mapping that amplifies training focus on layers exhibiting dominant trait bias or instability. Such mathematically principled weighting schemes optimize semantic harmonization and reduce cultural drift without sacrificing expressivity.
+
+### Cross-Cultural and Architectural Benchmarking:
+
+The scalar field $\mathrm{nTDS}_\ell$ over $\ell$ extends naturally to a multi-dimensional comparison space when considering multiple parent-offspring tuples $(M_A, M_B, M_O)$, facilitating statistical analyses:
+
+$$\mathbb{E}_{i,j}[\mathrm{nTDS}_\ell^{(i,j)}], \quad \mathrm{Var}_{i,j}[\mathrm{nTDS}_\ell^{(i,j)}],$$
+
+which reveal consistent patterns or variabilities in trait dominance across different cultural pairs and architectural configurations. This empowers systematic evaluation of merging strategies and cultural fusion methods.
