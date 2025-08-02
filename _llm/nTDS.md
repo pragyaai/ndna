@@ -141,9 +141,8 @@ where $\epsilon > 0$ prevents division by zero and stabilizes the metric.
 
 ### Trait Dominance Profiling and Semantic Layer Dynamics:
 
-Layerwise $\mathrm{nTDS}_\ell$ decomposes the global inheritance pattern into a *trait dominance trajectory* over model depth $\ell \in \{1, \dots, L\}$, revealing **where** and **how strongly** offspring semantics skew towards parent $A$ ($\mathrm{nTDS}_\ell > 0$) or parent $B$ ($\mathrm{nTDS}_\ell < 0$). This fine-grained analysis uncovers *semantic loci* within the latent manifold where cultural or functional traits concentrate, morph, or attenuate.
-
-Mathematically, the continuity and smoothness of $\mathrm{nTDS}_\ell$ over $\ell$ provide insights into **hierarchical trait propagation** and **transformer layer specialization**. For instance, abrupt discontinuities or high gradient magnitudes $\left|\frac{d}{d\ell} \mathrm{nTDS}_\ell \right|$ may signal semantic bottlenecks or layerwise representational shifts critical for alignment tuning.
+Layerwise $\mathrm{nTDS}\ell$ decomposes the global inheritance pattern into a trait dominance trajectory over model depth $\ell \in \{1, \dots, L\}$, revealing where and how strongly offspring semantics skew towards parent $A$ ($\mathrm{nTDS}\ell > 0$) or parent $B$ ($\mathrm{nTDS}_\ell < 0$). This fine-grained analysis uncovers semantic loci within the latent manifold where cultural or functional traits concentrate, morph, or attenuate.
+Mathematically, the continuity and smoothness of $\mathrm{nTDS}\ell$ over $\ell$ provide insights into hierarchical trait propagation and transformer layer specialization. For instance, abrupt discontinuities or high gradient magnitudes $\left|\frac{d}{d\ell} \mathrm{nTDS}\ell \right|$ may signal semantic bottlenecks or layerwise representational shifts critical for alignment tuning.
 
 ### Implications for Model Fusion and Fine-Tuning:
 
