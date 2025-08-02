@@ -30,7 +30,8 @@ This biological metaphor underscores that **semantic inheritance in neural model
 
 The Neural Trait Dominance Score (nTDS) formalizes the notion of layerwise parental trait influence in an offspring foundation model $M_O$, constructed from two parent models $M_A$ and $M_B$, within the Neural DNA (nDNA) semantic geometry framework.
 
-Let $x_\ell^{(A)}, x_\ell^{(B)}, x_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d$, $\ell = 1, \ldots, L$, denote the latent semantic embeddings at layer $\ell$ for $M_A$, $M_B$, and $M_O$ respectively, where $L$ is the total number of transformer layers and $d$ is the embedding dimension. Each $\mathcal{M}_\ell$ is a Riemannian manifold equipped with a local Fisher information metric $F_\ell$.
+Let \( x_\ell^{(A)}, x_\ell^{(B)}, x_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d \), \( \ell = 1, \ldots, L \), denote the latent semantic embeddings at layer \( \ell \) for \( M_A \), \( M_B \), and \( M_O \) respectively, where \( L \) is the total number of transformer layers and \( d \) is the embedding dimension. Each \( \mathcal{M}_\ell \) is a Riemannian manifold equipped with a local Fisher information metric \( F_\ell \).
+
 
 ## Trait Axis and Local Linearization
 
@@ -48,7 +49,7 @@ These vectors encode semantic trait differences and inheritance displacement wit
 
 ## Fisher-Rao Metric and Inner Product
 
-The tangent space $T_{x_\ell^{(B)}}\mathcal{M}_\ell$ is endowed with a local inner product induced by the Fisher information metric $F_\ell^{(B)}$:
+The tangent space \( T_{x_\ell^{(B)}}\mathcal{M}_\ell \) is endowed with a local inner product induced by the Fisher information metric \( F_\ell^{(B)} \):
 
 $$\langle a, b \rangle_{F_\ell^{(B)}} := a^T F_\ell^{(B)} b, \quad a, b \in T_{x_\ell^{(B)}}\mathcal{M}_\ell$$
 
@@ -91,4 +92,4 @@ $$\mathcal{J}_\ell := J_\ell^{(A)} (J_\ell^{(A)})^T - J_\ell^{(B)} (J_\ell^{(B)}
 
 capturing differential sensitivity of the latent space to parameter perturbations.
 
-Enhance $\text{nTDS}_\ell$ by weighting $\alpha_\ell$ with spectral properties of $\mathcal{J}_\ell$, thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
+Enhance \( \text{nTDS}_\ell \) by weighting \( \alpha_\ell \) with spectral properties of \( \mathcal{J}_\ell \), thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
