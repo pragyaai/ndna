@@ -112,8 +112,6 @@ which serves as an interpretable neural genotype divergence score.
   This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
 </p>
 
-
-
 <img src="{{ 'assets/gifs/neural_genomics/ngdi_layerwise_fusion.png' | relative_url }}" style="width: 100%; max-width: 600px; display: block; margin: auto;" />
 
 <p style="text-align: center; font-weight: bold; margin-top: 0.8em;">
