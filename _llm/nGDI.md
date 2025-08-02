@@ -46,7 +46,7 @@ $$\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\right],
 <img src="{{ 'assets/gifs/neural_genomics/nei-genetic-distance-heatmap.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-    <strong>Figure 35: Nei's Genetic Distance Heatmap Among Worldwide Human Populations:</strong>
+    <strong>Figure 1: Nei's Genetic Distance Heatmap Among Worldwide Human Populations:</strong>
 </p>
 
 <div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
@@ -243,3 +243,37 @@ $$\frac{\partial p}{\partial t} = -\nabla \cdot (vp) + D\Delta_{\mathcal{M}_\ell
 where $p$ is the embedding density and $D$ a diffusion constant. This enables forecasting semantic trajectory evolution, facilitating continual learning and domain adaptation.
 
 In applications, nGDI includes fine-grained semantic drift monitoring in multilingual NLP, bias detection in recommender systems, and adaptive tuning of culturally diverse conversational agents. Its solid mathematical basis enables adjustments that preserve semantic integrity while embracing diversity, paving the way for context-aware, geometry-informed AI systems attuned to global dynamics. Figure 38 reveals layerwise semantic drift in nDNA trajectories, & Fig. 39 illustrates offspring models as dynamic, layer-wise fusions of parental latent geometries with shifting semantic dominance.
+
+<!-- Row 1: Africa and Asia trajectories -->
+<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(a) Africa nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift.
+    </div>
+  </div>
+  
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nGDI/Asia_ngdi_rotation.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(b) Asia nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Asia shows a similar increasing trend with values ranging approximately from 0.1 to 0.5 across layers ℓ = 20 . . . 30. The trajectory's thickness visualizes growing dissimilarity from the LLaMA base, indicating that deep transformer layers encode progressively distinct neural semantics reflective of cultural fine-tuning.
+    </div>
+  </div>
+</div>
+
+<!-- Row 2: Australia and China trajectories -->
+<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nGDI/Australia_ngdi_rotation.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(c) Australia nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Australia ranges approximately from 0.1 to 0.4, exhibiting slight fluctuations across layers. Compared to Africa and Asia, the Australia model shows a more moderate latent genetic divergence, suggesting a closer semantic alignment to the LLaMA base in these layers.
+    </div>
+  </div>
+  
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nGDI/China_ngdi_rotation.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(d) China nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for China rises from about 0.05 to 0.5, showing notable non-monotonic curvature. This indicates layer-specific latent divergence patterns, likely reflecting a complex interplay between general base semantics and culturally specific fine-tuning.
+    </div>
+  </div>
+</div>
