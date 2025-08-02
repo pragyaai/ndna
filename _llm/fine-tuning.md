@@ -161,16 +161,6 @@ All models are fine-tuned using Low-Rank Adaptation (LoRA) with rank 16, a batch
   </div>
 </div>
 
-### Comparative Analysis
-
-<div style="text-align: center; margin: 30px 0;">
-  <a href="{{ '/assets/img/ethnic_llms/cultural_trajectories_comparison.gif' | relative_url }}" data-lightbox="gallery" data-title="Cultural Fine-Tuning Trajectories Comparison">
-    <img src="{{ '/assets/img/ethnic_llms/cultural_trajectories_comparison.gif' | relative_url }}" alt="Cultural Fine-Tuning Trajectories Comparison" style="max-width: 100%; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-  </a>
-  <p style="margin-top: 8px; font-weight: 500;">Cultural Fine-Tuning Trajectories: Latent Geometry Reorganization Across Cultures</p>
-  <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Visualization of semantic and geometric shifts in LLaMA's internal manifold after fine-tuning on data from eight distinct cultural regions</p>
-</div>
-
 ### Group-Level Clustering
 
 <div style="text-align: center; margin: 30px 0;">

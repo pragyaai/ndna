@@ -7,6 +7,57 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <link rel="icon" type="image/png" href="{{ '/assets/img/nDNA_logo.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/ndna.css' | relative_url }}">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['base', 'ams', 'textmacros']},
+        tags: 'ams',
+        autoload: {}
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      startup: {
+        ready: function() {
+          console.log('MathJax is starting up');
+          MathJax.startup.defaultReady();
+          MathJax.startup.promise.then(function() {
+            console.log('MathJax initial typeset complete');
+          }).catch(function(err) {
+            console.error('MathJax error:', err);
+          });
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <style>
+    .MathJax { 
+      font-size: 1.1em !important;
+      line-height: 1.5 !important;
+    }
+    .MathJax_Display {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script>
+    // Force MathJax to re-render when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.MathJax) {
+        console.log('DOM content loaded, re-rendering MathJax');
+        MathJax.typesetPromise().catch(function(err) {
+          console.error('MathJax typeset error:', err);
+        });
+      }
+    });
+  </script>
   {% feed_meta %}
   {% seo %}
 </head>
@@ -32,7 +83,7 @@
     <!-- TOP MENU -->
     <div class="navbar">
       <div class="navbar-content">
-        <div id="topMenu" style="display: flex; flex-wrap: wrap; align-items: center; flex: 1; min-width: 0;"></div>
+        <div id="topMenu"></div>
         <div class="pragya-logo">
           <a href="https://pragyaai.github.io/" target="_blank">
             <img src="{{ '/assets/img/pragya.png' | relative_url }}" alt="Pragya Logo">

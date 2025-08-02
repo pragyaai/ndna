@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Multilinguality
+title: Multilingual nDNA Analysis
 permalink: /llm/multilinguality/
 ---
-
-# Multilingual nDNA Analysis
 
 ## Language-Specific Cognitive Patterns
 

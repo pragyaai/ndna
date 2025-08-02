@@ -9,7 +9,7 @@ title: nDNA
 
 **nDNA**—short for *Neural DNA*—is a semantic-genotypic representation that captures the latent identity of foundation models through the intrinsic geometry of belief. It is synthesized from three indispensable dimensions of latent geometry: spectral curvature, thermodynamic length, and belief vector fields. These dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is a high-dimensional scaffold of internal cognition—a latent topography called nDNA.
 
-<img src="assets/img/nDNA_structure.gif" alt="nDNA Structure" width="50%">
+
 
 ## The Core Triad of nDNA
 
