@@ -6,7 +6,6 @@ permalink: /llm/model-collapse/
 
 # nDNA-Lens: Model Collapse as Latent Manifold Flattening
 
-
 ## What is Model Collapse?
 
 Model collapse is a degenerative phenomenon in LLMs where expressivity, diversity, and semantic richness progressively deteriorate, manifesting as semantic homogenization, overconfident predictions, and diminished generative variability.
@@ -47,17 +46,43 @@ T_nDNA = {(κ_ℓ, L_ℓ, ||v^(c)_ℓ||)}^L_{ℓ=1}
 ## Experimental Findings
 
 ### Repeated Fine-Tuning (Alpaca on LLaMA)
+
 - Models fine-tuned on their own outputs: D^(g) = Output(M^(g-1), Alpaca Prompts)
 - **Collapse threshold:** Generation 10
 - Progressive flattening: κ_ℓ → 0.2, L_ℓ → 0.2 by Gen 10
 
+![LLaMA Collapse]({{ '/assets/gifs/alignment/llama_collapse_v2_1.gif' | relative_url }})
+*LLaMA showing moderate, stable alignment characteristics*
+
 ### Recursive Self-Merging
+
 Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child^(g) = Merge(Child^(g-1), Child^(g-2))
 
 **Cultural collapse rates:**
 - **Fast (Gen 9):** China, Middle East
 - **Medium (Gen 11-13):** Asia, Europe, Latin America
 - **Slow (Gen 15-16):** Africa, North America, Australia
+
+![Africa Alignment]({{ '/assets/gifs/alignment/africa_ndna_final.gif' | relative_url }})
+*Africa: κₗ: 0.85 → 0.75, Lₗ: 0.9 → 0.8*
+
+![Asia Alignment]({{ '/assets/gifs/alignment/asia_ndna_collapse.gif' | relative_url }})
+*Asia: κₗ reduced by ~10%, smoothing epistemic manifolds*
+
+![China Alignment]({{ '/assets/gifs/alignment/china_ndna_final.gif' | relative_url }})
+*China: κₗ: >0.9 → 0.8, Significant latent reorientation*
+
+![Latin America Alignment]({{ '/assets/gifs/alignment/latinamerica.gif' | relative_url }})
+*Latin America: κₗ: 0.7 → 0.6*
+
+![Middle East Alignment]({{ '/assets/gifs/alignment/middleeast_ndna_final.gif' | relative_url }})
+*Middle East: 8-12% reduction in both κₗ and Lₗ*
+
+![Europe Alignment]({{ '/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif' | relative_url }})
+*Europe: κₗ: 0.4 → 0.5, Confirms alignment stability*
+
+![North America Alignment]({{ '/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif' | relative_url }})
+*North America: Remains within pretrained epistemic manifold*
 
 ![Cultural Collapse Comparison](assets/cultural-collapse-trajectories.png)
 *Comparative collapse trajectories across culturally-aligned models*
@@ -66,27 +91,34 @@ Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child^(g) = 
 
 Healthy models maintain belief vector magnitudes of 0.10-0.60 with directional diversity. Collapsed models show magnitudes below 0.05 at deeper layers, with vectors converging toward zero - indicating loss of semantic differentiation.
 
+![Global nDNA Trajectories]({{ '/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif' | relative_url }})
+*Global nDNA Trajectories showing belief vector field evolution*
+
 ![Belief Vector Fields](assets/belief-vector-evolution.png)
 *Healthy vs collapsed belief vector fields showing loss of semantic steering*
 
 ## Practical Applications
 
 ### Geometric Diagnostics
+
 Monitor κ_ℓ, L_ℓ, and ||v^(c)_ℓ|| as early warning signals for collapse.
 
 ### Preservation Interventions
+
 - Spectral regularization
 - Geodesic constraints  
 - Modular training
 - Torsion-aware objectives
 
 ### Epistemic Vitality Function
+
 ```
 V_ℓ := κ_ℓ · L_ℓ · ||v^(c)_ℓ||
 Collapse indicator: d/dg V^(g)_ℓ < 0
 ```
 
 ### Epistemic Audits
+
 Supplement behavioral evaluations with geometric health assessments for semantic longevity rather than just task compliance.
 
 ## Impact
@@ -101,5 +133,3 @@ This research reframes model evaluation from surface-level performance to **geom
 Neural genomics - tracking spectral, thermodynamic, and vectorial signatures - enables cultivation of models that are resilient, modular, and capable of retaining epistemic diversity over time.
 
 ---
-
-**Research Status:** Active development of geometric diagnostic tools for foundation model health monitoring.
