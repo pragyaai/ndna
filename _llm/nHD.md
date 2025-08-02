@@ -43,7 +43,7 @@ Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\ma
 
 
 
-<img src="{{ '/assets/figures/nhd_graphical_genotyping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+<img src="{{ 'assets/gifs/neural_genomics/nhd_graphical_genotyping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
 <div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
   <strong>Figure 1. Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):</strong>
