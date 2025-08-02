@@ -43,7 +43,7 @@ The kernel mean embeddings of the distributions are defined as:
 $$\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\right], \quad \mu_\ell^{(B)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(B)}(x), \cdot)\right] \in \mathcal{H}$$
 
 
-<img src="{{ 'assets/images/nei-genetic-distance-heatmap.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+<img src="{{ 'assets/gifs/neural_genomics/nei-genetic-distance-heatmap.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
     <strong>Figure 35: Nei's Genetic Distance Heatmap Among Worldwide Human Populations:</strong>
@@ -183,7 +183,7 @@ balancing kernel-based distributional divergence with geometry-aware parametric 
 
 ### Empirical Observations
 
-Layerwise visualization of $\text{nGDI}_\ell$ for $\ell = 1, \ldots, L$ reveals systematic patterns of semantic drift accumulating in intermediate and deep layers ($\ell \in [20, 30]$), consistent with the intuition that deeper layers encode higher-order semantic and cultural concepts. Notably, $\text{nGDI}_\ell$ attains local maxima aligning with semantic abstraction transitions, suggesting that these layers serve as pivot points where cultural priors increasingly diverge.
+Layerwise visualization of $$\text{nGDI}_\ell$$ for $$\ell = 1, \ldots, L$$ reveals systematic patterns of semantic drift accumulating in intermediate and deep layers ($$\ell \in [20, 30]$$), consistent with the intuition that deeper layers encode higher-order semantic and cultural concepts. Notably, $$\text{nGDI}_\ell$$attains local maxima aligning with semantic abstraction transitions, suggesting that these layers serve as pivot points where cultural priors increasingly diverge.
 
 The distributional nature of nGDI highlights that drift is not simply a mean shift but involves complex population-level reshaping of embeddings, reflecting changes in semantic variability, multimodality, and latent clustering. Such nuanced characterization surpasses simplistic distance measures and enables detection of latent semantic fragmentation or fusion effects.
 
