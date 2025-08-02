@@ -9,9 +9,7 @@ title: nDNA
 
 **nDNA**—short for *Neural DNA*—is a semantic-genotypic representation that captures the latent identity of foundation models through the intrinsic geometry of belief. It is synthesized from three indispensable dimensions of latent geometry: spectral curvature, thermodynamic length, and belief vector fields. These dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is a high-dimensional scaffold of internal cognition—a latent topography called nDNA.
 
-nDNA enables investigation of how alignment, fine-tuning, cultural adaptation, and architectural modifications reshape the semantic core of a model. It reveals inheritance, mutation, and semantic drift across a model’s training lifecycle.
-
-![nDNA Structure](assets/img/nDNA_structure.gif)
+<img src="assets/img/nDNA_structure.gif" alt="nDNA Structure" width="50%">
 
 ## The Core Triad of nDNA
 
@@ -29,7 +27,7 @@ $$
 
 Peaks in $\kappa_\ell$ identify zones of semantic inflection, belief compression, or ideological absorption.
 
-![Spectral Curvature](assets/gifs/introduction/spectral_curvature.gif)
+<img src="assets/gifs/introduction/spectral_curvature.gif" alt="Spectral Curvature" width="50%">
 
 ---
 
@@ -43,7 +41,7 @@ $$
 
 This metric reveals the latent computational cost of adapting to alignment constraints, cultural priors, or multilingual semantics.
 
-![Thermodynamic Length](assets/gifs/introduction/Final_thermodynamic_length.gif)
+<img src="assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length" width="50%">
 
 ---
 
@@ -57,7 +55,7 @@ $$
 
 The norm $\|v^{(c)}_\ell\|$ identifies regions of strong directional pressure from cultural priors.
 
-![Belief Vector Field](assets/gifs/introduction/belief_vector_field.gif)
+<img src="assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field" width="50%">
 
 ---
 
@@ -71,7 +69,7 @@ $$
 
 This product integrates internal bending, epistemic effort, and external drift into a unified diagnostic signal.
 
-![nDNA Composite](assets/gifs/introduction/ndna_refined_story.gif)
+<img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="50%">
 
 ---
 
@@ -79,4 +77,4 @@ This product integrates internal bending, epistemic effort, and external drift i
 
 The geometry of nDNA is the joint distribution of $\kappa_\ell$, $L_\ell$, and $\|v^{(c)}_\ell\|$ across layers. This triad constitutes a high-dimensional semantic fingerprint that encodes inheritance stability, alignment dynamics, and cultural drift. Patterns across this geometry distinguish models by latent adaptation history.
 
-![nDNA Geometry Table](assets/gifs/introduction/nDNA_matrics.png)
+<img src="assets/gifs/introduction/nDNA_matrics.png" alt="nDNA Geometry Table" width="50%">
