@@ -1,3 +1,8 @@
+---
+layout: page
+title: "Neural Trait Dominance Score(nTDS)"
+permalink: /llm/neural-genomics/nTDS/
+---
 # Neural Trait Dominance Score (nTDS)
 
 ## Introduction
