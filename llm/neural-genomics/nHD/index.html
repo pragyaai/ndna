@@ -68,11 +68,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T11:46:43+00:00" />
+<meta property="article:published_time" content="2025-08-02T11:48:39+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T11:46:43+00:00","datePublished":"2025-08-02T11:46:43+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T11:48:39+00:00","datePublished":"2025-08-02T11:48:39+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -128,8 +128,6 @@
 
 <p>nHD detects and localizes these <strong>semantic mutation signatures</strong>, helping identify which layers or parameters are more vulnerable to <strong>drift</strong>, enabling model realignment and robustness analysis.</p>
 
-<hr />
-
 <h2 id="141-from-genomic-mutation-to-neural-lineage-drift">14.1 From Genomic Mutation to Neural Lineage Drift</h2>
 
 <h3 id="what-the-metric-does">What the Metric Does</h3>
@@ -152,7 +150,14 @@
 
 <p>Hamming distance defines a geodesic metric on the <strong>Hamming hypercube</strong> \( \mathcal{H}^n = \{0, 1\}^n \), where each vertex represents a binary sequence and each edge represents a single-bit mutation.</p>
 
-<hr />
+<p><img src="/nDNA/assets/figures/nhd_graphical_genotyping.png" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
+
+<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+  <strong>Figure 1. Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):</strong>
+  This figure, adapted from Deblieck et al. (309), displays detailed genetic and physical maps of two RILs resulting from a biparental cross between drought-resistant wild emmer accession G18-16 (green alleles) and drought-susceptible durum wheat accession Langdon (red alleles). Heterozygous regions are highlighted in magenta. Black connecting lines indicate recombination breakpoints and allele transitions across chromosomes.
+  <br /><br />
+  The classical Hamming Distance (HD) metric, widely used in genomics for quantifying bit-level mutational differences across binary allelic sequences, serves as an intuitive biological analogy for the Neural Hamming Distance (nHD). The nHD extends this concept to neural models by binarizing layer-wise weights or activations to capture bit-level mutations that accumulate as semantic divergence in model behavior. This bridge between classical genotype comparison and neural model analysis underpins the utility of nHD as a fine-grained, interpretable metric for semantic mutation monitoring in neural genomics.
+</div>
 
 <h3 id="extending-to-foundation-models">Extending to Foundation Models</h3>
 
@@ -192,8 +197,6 @@
   <li><strong>Targeted interventions</strong>: Identifying layers for pruning or bias realignment</li>
 </ul>
 
-<hr />
-
 <h2 id="142-interpretation-and-implications">14.2 Interpretation and Implications</h2>
 
 <p>nHD operates on the Hamming hypercube \( \mathcal{H}^{b \cdot d} \), where each vertex is a binarized neural state. Its layerwise definition:</p>
@@ -213,8 +216,6 @@
 \[\mathbf{d} = (\text{nHD}_1, \text{nHD}_2, \dots, \text{nHD}_L) \in [0,1]^L\]
 
 <p>This vector reveals mutation hotspots and informs alignment strategies.</p>
-
-<hr />
 
 <h2 id="143-applications-and-mathematical-insights">14.3 Applications and Mathematical Insights</h2>
 
@@ -246,8 +247,6 @@
 
 \[\min_{\theta} \sum_{\ell=1}^{L} \lambda_\ell \cdot \text{nHD}_\ell(\theta, \theta_{\text{ref}})\]
 
-<hr />
-
 <h2 id="144-case-study-and-validation">14.4 Case Study and Validation</h2>
 
 <ul>
@@ -257,8 +256,6 @@
   <li>During fine-tuning or merging, nHD reveals <strong>lineage drift</strong> and <strong>cumulative mutation load</strong>.</li>
   <li>Enables <strong>layer-specific pruning, realignment</strong>, and <strong>bias mitigation</strong>.</li>
 </ul>
-
-<hr />
 
 <h2 id="outlook">Outlook</h2>
 
