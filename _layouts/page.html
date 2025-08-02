@@ -14,16 +14,23 @@
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
         processEscapes: true,
         processEnvironments: true,
-        packages: {'[+]': ['textmacros']}
+        packages: {'[+]': ['base', 'ams', 'textmacros']},
+        tags: 'ams',
+        autoload: {}
       },
       options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
       },
       startup: {
-        ready: () => {
+        ready: function() {
+          console.log('MathJax is starting up');
           MathJax.startup.defaultReady();
-          MathJax.startup.promise.then(() => {
-            console.log('MathJax is ready');
+          MathJax.startup.promise.then(function() {
+            console.log('MathJax initial typeset complete');
+          }).catch(function(err) {
+            console.error('MathJax error:', err);
           });
         }
       }
@@ -31,8 +38,26 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
   <style>
-    .MathJax { font-size: 1.1em; }
+    .MathJax { 
+      font-size: 1.1em !important;
+      line-height: 1.5 !important;
+    }
+    .MathJax_Display {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
   </style>
+  <script>
+    // Force MathJax to re-render when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.MathJax) {
+        console.log('DOM content loaded, re-rendering MathJax');
+        MathJax.typesetPromise().catch(function(err) {
+          console.error('MathJax typeset error:', err);
+        });
+      }
+    });
+  </script>
   {% feed_meta %}
   {% seo %}
 </head>

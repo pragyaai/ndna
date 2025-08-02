@@ -81,9 +81,11 @@ To quantify latent geometry and model adaptation, the nDNA score integrates the 
 2. **Length ($L_\ell$)**: Displacement effort  
 3. **Belief Vector Norm ($\|\mathbf{v}^{(c)}_\ell\|$)**: Directional force from cultural priors
 
-\[
+{% raw %}
+$$
 \text{nDNA} := \sum_{\ell=1}^L \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|\mathbf{v}^{(c)}_\ell\|
-\]
+$$
+{% endraw %}
 
 where $\omega_\ell$ are weights for semantically active layers. This score diagnoses how latent traits persist, mutate, or degrade over model evolution.
 
