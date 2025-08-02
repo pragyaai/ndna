@@ -101,18 +101,19 @@ which serves as an interpretable neural genotype divergence score.
 <img src="{{ 'assets/gifs/neural_genomics/nhd_classical_vs_neural.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  Figure 2. Illustrating Classical vs Neural Hamming Distance (nHD)
+  <strong>Figure 2:</strong> <strong>Illustrating Classical vs Neural Hamming Distance (nHD)</strong>
 </p>
 
 <div class="mathjax-render" style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
-  <em>Left:</em> The classical Hamming Distance counts the number of positions (loci) at which the corresponding symbols 
+  <strong>Left:</strong> The classical Hamming Distance counts the number of positions (loci) at which the corresponding symbols 
   (e.g., nucleotides, bits) differ between two or more sequences. Here, the offspring differs from both parents at two loci.
   <br><br>
-  <em>Right:</em> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. 
-  At each layer \\( \ell \\) in the ÆTHER manifold, we compare the latent vector \\( o_\ell \\) of the offspring against those 
-  of the parents \\( p_\ell^1 \\) and \\( p_\ell^2 \\). A binary indicator is activated if 
-  \\( \|o_\ell - p_\ell^1\| > \delta \\) and \\( \|o_\ell - p_\ell^2\| > \delta \\), indicating significant divergence 
-  from both parents at that layer. nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). 
+  <strong>Right:</strong> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. 
+  At each layer \\( \ell \\) in the ÆTHER manifold, we compare the latent vector \\( \mathbf{o}_\ell \\) of the offspring against 
+  those of the parents \\( \mathbf{p}_\ell^1 \\) and \\( \mathbf{p}_\ell^2 \\). A binary indicator is activated if 
+  \\( \|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| > \delta \\) and 
+  \\( \|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta \\), indicating significant divergence from both parents at that layer. 
+  nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). 
   This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
 </div>
 
