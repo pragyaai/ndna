@@ -19,7 +19,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 ---
 
-### 1. Spectral Curvature \( \kappa_\ell \)
+### 1. Spectral Curvature \( $ \kappa_\ell $ \) 
 
 Spectral curvature measures how sharply internal representational trajectories bend. It is defined as the second-order difference across layer activations:
 
@@ -29,11 +29,11 @@ $$
 
 Peaks in $\kappa_\ell$ identify zones of semantic inflection, belief compression, or ideological absorption.
 
-![Spectral Curvature](assets/img/spectral_curvature.gif)
+![Spectral Curvature](assets/gifs/introduction/spectral_curvature.gif)
 
 ---
 
-### 2. Thermodynamic Length \( L_\ell \)
+### 2. Thermodynamic Length \( $ L_\ell  $\)
 
 Thermodynamic length quantifies the epistemic effort required to traverse belief transitions across layers. It is computed as:
 
@@ -43,11 +43,11 @@ $$
 
 This metric reveals the latent computational cost of adapting to alignment constraints, cultural priors, or multilingual semantics.
 
-![Thermodynamic Length](assets/img/thermodynamic_length.gif)
+![Thermodynamic Length](assets/gifs/introduction/Final_thermodynamic_length.gif)
 
 ---
 
-### 3. Belief Vector Field \( \|v^{(c)}_\ell\| \)
+### 3. Belief Vector Field \( $ \|v^{(c)}_\ell\| $ \)
 
 The belief vector field models the directional semantic force exerted by cultural or value systems on a model’s latent representations. It is defined as:
 
@@ -57,7 +57,7 @@ $$
 
 The norm $\|v^{(c)}_\ell\|$ identifies regions of strong directional pressure from cultural priors.
 
-![Belief Vector Field](assets/img/belief_vector_field.gif)
+![Belief Vector Field](assets/gifs/introduction/belief_vector_field.gif)
 
 ---
 
@@ -71,7 +71,7 @@ $$
 
 This product integrates internal bending, epistemic effort, and external drift into a unified diagnostic signal.
 
-![nDNA Composite](assets/img/ndna_score.gif)
+![nDNA Composite](assets/gifs/introduction/ndna_refined_story.gif)
 
 ---
 
@@ -79,4 +79,4 @@ This product integrates internal bending, epistemic effort, and external drift i
 
 The geometry of nDNA is the joint distribution of $\kappa_\ell$, $L_\ell$, and $\|v^{(c)}_\ell\|$ across layers. This triad constitutes a high-dimensional semantic fingerprint that encodes inheritance stability, alignment dynamics, and cultural drift. Patterns across this geometry distinguish models by latent adaptation history.
 
-![nDNA Geometry Table](assets/img/ndna_geometry_table.gif)
+![nDNA Geometry Table](assets/gifs/introduction/nDNA_matrics.png)
