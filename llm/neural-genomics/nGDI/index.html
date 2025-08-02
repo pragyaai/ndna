@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T15:16:47+00:00" />
+<meta property="article:published_time" content="2025-08-02T15:25:37+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Genetic Dissimilarity Index(nGDI)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T15:16:47+00:00","datePublished":"2025-08-02T15:16:47+00:00","description":"nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T15:25:37+00:00","datePublished":"2025-08-02T15:25:37+00:00","description":"nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -153,7 +153,7 @@
 
 \[\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\right], \quad \mu_\ell^{(B)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(B)}(x), \cdot)\right] \in \mathcal{H}\]
 
-<p><img src="/nDNA/assets/images/nei-genetic-distance-heatmap.png" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
+<p><img src="/nDNA/assets/gifs/neural_genomics/nei-genetic-distance-heatmap.png" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
     <strong>Figure 35: Nei's Genetic Distance Heatmap Among Worldwide Human Populations:</strong>
@@ -292,7 +292,7 @@
 
 <h3 id="empirical-observations">Empirical Observations</h3>
 
-<p>Layerwise visualization of $\text{nGDI}<em>\ell$ for $\ell = 1, \ldots, L$ reveals systematic patterns of semantic drift accumulating in intermediate and deep layers ($\ell \in [20, 30]$), consistent with the intuition that deeper layers encode higher-order semantic and cultural concepts. Notably, $\text{nGDI}</em>\ell$ attains local maxima aligning with semantic abstraction transitions, suggesting that these layers serve as pivot points where cultural priors increasingly diverge.</p>
+<p>Layerwise visualization of \(\text{nGDI}_\ell\) for \(\ell = 1, \ldots, L\) reveals systematic patterns of semantic drift accumulating in intermediate and deep layers (\(\ell \in [20, 30]\)), consistent with the intuition that deeper layers encode higher-order semantic and cultural concepts. Notably, \(\text{nGDI}_\ell\)attains local maxima aligning with semantic abstraction transitions, suggesting that these layers serve as pivot points where cultural priors increasingly diverge.</p>
 
 <p>The distributional nature of nGDI highlights that drift is not simply a mean shift but involves complex population-level reshaping of embeddings, reflecting changes in semantic variability, multimodality, and latent clustering. Such nuanced characterization surpasses simplistic distance measures and enables detection of latent semantic fragmentation or fusion effects.</p>
 
