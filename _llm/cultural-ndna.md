@@ -4,8 +4,6 @@ title: Cultural nDNA
 permalink: /llm/cultural-ndna/
 ---
 
-# Cultural nDNA
-
 Neural DNA (nDNA) offers a sophisticated framework for understanding the internal cognitive identity of AI foundation models, moving beyond traditional surface-level evaluations to a neurogeometric introspection of their "latent genome." Cultural nDNA specifically delves into how training data from various cultures, regions, and social contexts imprints distinct cognitive fingerprints within these models.
 
 ## Understanding Cultural Imprints
