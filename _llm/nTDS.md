@@ -10,7 +10,7 @@ While nHD and nGDI effectively quantify overall semantic divergence and global r
 
 ## Genome-wide Quantitative Trait Loci (QTL) Mapping
 
-<img src="{{ 'assets/gifs/neural_genomics/qtl-mapping-genome-wide.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+<img src="{{ 'assets/gifs/neural_genomics/nTDS/nTDS_QTL_Mapping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
     <strong>Figure 40: Genome-wide Quantitative Trait Loci (QTL) Mapping:</strong>
 </p>
