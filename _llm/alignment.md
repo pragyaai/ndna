@@ -101,8 +101,8 @@ Using 10,000 curated prompts (5,000 safe, 5,000 unsafe), Direct Preference Optim
 ### Global Alignment Patterns
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="assets/gifs/collapse/belief_vector_field_side_by_side_refined.gif" data-lightbox="gallery" data-title="Global nDNA Trajectories">
-    <img src="assets/gifs/collapse/belief_vector_field_side_by_side_refined.gif" alt="Global nDNA Trajectories" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  <a href="assets/gifs/collapse/ndna_dpo_rotation.gif" data-lightbox="gallery" data-title="Global nDNA Trajectories">
+    <img src="assets/gifs/collapse/ndna_dpo_rotation.gif" alt="Global nDNA Trajectories" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
   </a>
   <p style="margin-top: 8px; font-weight: 500;">Global nDNA Trajectories</p>
 </div>
