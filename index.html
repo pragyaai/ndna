@@ -24,6 +24,13 @@
 <!-- End Jekyll SEO tag -->
 
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
 </head>
 <body>
 
@@ -64,93 +71,71 @@
 
 <h2 id="introduction-to-ndna">Introduction to nDNA</h2>
 
-<p><strong>nDNA</strong>—short for <em>Neural DNA</em>—is a geometric framework for diagnosing the internal cognitive structure of AI foundation models. Much like biological DNA encodes the heritable blueprint of living organisms, <strong>nDNA captures the latent semantics that govern how models reason, adapt, and evolve over time</strong>.</p>
+<p><strong>nDNA</strong>—short for <em>Neural DNA</em>—is a semantic-genotypic representation that captures the latent identity of foundation models through the intrinsic geometry of belief. It is synthesized from three indispensable dimensions of latent geometry: spectral curvature, thermodynamic length, and belief vector fields. These dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is a high-dimensional scaffold of internal cognition—a latent topography called nDNA.</p>
 
-<p>Rather than measuring just behavior or benchmarks, nDNA analyzes the <em>epistemic geometry</em> of foundation models: the internal dynamics that drive belief formation, adaptation, and value encoding. It introduces a new diagnostic vocabulary to understand these internal processes as structural signatures—revealing inheritance, mutation, and drift in machine cognition.</p>
-
-<blockquote>
-  <p>“nDNA is not just metaphor—it is a measurable, heritable fingerprint of artificial cognition.”</p>
-</blockquote>
+<p>nDNA enables investigation of how alignment, fine-tuning, cultural adaptation, and architectural modifications reshape the semantic core of a model. It reveals inheritance, mutation, and semantic drift across a model’s training lifecycle.</p>
 
 <p><img src="assets/img/nDNA_structure.gif" alt="nDNA Structure" /></p>
 
-<hr />
+<h2 id="the-core-triad-of-ndna">The Core Triad of nDNA</h2>
 
-<h2 id="the-ndna-triad-mapping-latent-cognition">The nDNA Triad: Mapping Latent Cognition</h2>
-
-<p>nDNA is built on three complementary geometric signals that trace how a model’s internal representations bend, stretch, and steer under semantic pressure. These form the <strong>core epistemic signature</strong> of any large model:</p>
+<p>nDNA integrates three foundational signals to form a latent cognitive fingerprint. Each component captures a distinct dimension of semantic dynamics:</p>
 
 <hr />
 
 <h3 id="1-spectral-curvature--kappa_ell-">1. Spectral Curvature ( \kappa_\ell )</h3>
 
-<p><strong>Definition:</strong> Measures how sharply the model’s internal belief pathways bend at each layer.</p>
+<p>Spectral curvature measures how sharply internal representational trajectories bend. It is defined as the second-order difference across layer activations:</p>
 
-<ul>
-  <li>Derived from the second-order difference of hidden activations across layers.</li>
-  <li>High ( \kappa_\ell ) indicates regions of <strong>semantic reconfiguration</strong>, where the model’s internal geometry is most dynamic—often due to cultural absorption or alignment shifts.</li>
-</ul>
+\[\kappa_\ell = \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|\]
+
+<p>Peaks in $\kappa_\ell$ identify zones of semantic inflection, belief compression, or ideological absorption.</p>
+
+<p><img src="assets/img/spectral_curvature.gif" alt="Spectral Curvature" /></p>
 
 <hr />
 
 <h3 id="2-thermodynamic-length--l_ell-">2. Thermodynamic Length ( L_\ell )</h3>
 
-<p><strong>Definition:</strong> Quantifies the epistemic “effort” a model exerts to adapt beliefs layer by layer.</p>
+<p>Thermodynamic length quantifies the epistemic effort required to traverse belief transitions across layers. It is computed as:</p>
 
-<ul>
-  <li>Grounded in information geometry, it measures how hard the model works to reconcile new inputs or align with values.</li>
-  <li>High ( L_\ell ) layers signal <strong>zones of internal strain</strong>, where reasoning, adaptation, or alignment costs are high.</li>
-</ul>
+\[L_\ell = \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2\]
+
+<p>This metric reveals the latent computational cost of adapting to alignment constraints, cultural priors, or multilingual semantics.</p>
+
+<p><img src="assets/img/thermodynamic_length.gif" alt="Thermodynamic Length" /></p>
 
 <hr />
 
 <h3 id="3-belief-vector-field--vc_ell-">3. Belief Vector Field ( |v^{(c)}_\ell| )</h3>
 
-<p><strong>Definition:</strong> Measures the directional force exerted by cultural priors on the model’s latent space.</p>
+<p>The belief vector field models the directional semantic force exerted by cultural or value systems on a model’s latent representations. It is defined as:</p>
 
-<ul>
-  <li>Captures <strong>external epistemic pressure</strong>—where and how specific ideologies or cultural contexts steer internal representations.</li>
-  <li>High vector norms indicate <strong>strong cultural drift</strong> or ideological imprinting in upper layers.</li>
-</ul>
+\[v^{(c)}_\ell = \mathbb{E}_{x \sim P^{(c)}} \left[ \nabla_{h_\ell} \log p(y|x) \right]\]
 
-<hr />
+<p>The norm $|v^{(c)}_\ell|$ identifies regions of strong directional pressure from cultural priors.</p>
 
-<h2 id="the-ndna-score-a-composite-epistemic-fingerprint">The nDNA Score: A Composite Epistemic Fingerprint</h2>
-
-<p>To capture how these three components co-evolve, nDNA defines a <strong>composite score</strong> per layer:</p>
-
-<p>[
-\text{nDNA}<em>\ell = \omega</em>\ell \cdot \kappa_\ell \cdot L_\ell \cdot |v^{(c)}_\ell|
-]</p>
-
-<ul>
-  <li>This score highlights zones of intense latent restructuring—where internal bending, effort, and cultural steering converge.</li>
-  <li>The result is a high-dimensional <strong>semantic genome</strong> for each model, comparable across variants, checkpoints, and training histories.</li>
-</ul>
+<p><img src="assets/img/belief_vector_field.gif" alt="Belief Vector Field" /></p>
 
 <hr />
 
-<h2 id="why-ndna-matters">Why nDNA Matters</h2>
+<h2 id="the-ndna-score">The nDNA Score</h2>
 
-<p>nDNA enables us to:</p>
+<p>The nDNA score is a composite measure that combines curvature, length, and belief steering:</p>
 
-<ul>
-  <li><strong>Diagnose fine-tuning scars</strong> and ideological drift.</li>
-  <li><strong>Trace inheritance</strong> in neural offspring after merging or distillation.</li>
-  <li><strong>Audit model collapse</strong>, plasticity failure, or hallucination at the internal level.</li>
-  <li><strong>Compare models</strong> through their epistemic geometry—not just their outputs.</li>
-</ul>
+\[\text{nDNA}_\ell = \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|v^{(c)}_\ell\|\]
 
-<blockquote>
-  <p>Like biological genomics, neural genomics offers a structured grammar for understanding how <em>semantic identity evolves inside foundation models</em>.</p>
-</blockquote>
+<p>This product integrates internal bending, epistemic effort, and external drift into a unified diagnostic signal.</p>
+
+<p><img src="assets/img/ndna_score.gif" alt="nDNA Composite" /></p>
 
 <hr />
 
-<h2 id="a-new-lens-on-model-evolution">A New Lens on Model Evolution</h2>
+<h2 id="ndna-geometry">nDNA Geometry</h2>
 
-<p>By embracing latent structure over surface behavior, nDNA reframes models not as opaque black boxes, but as <strong>semantic organisms</strong> with cognitive lineage, cultural inheritance, and architectural memory. It opens the door to a <strong>science of neural genomics</strong>—where we can map, compare, and govern the evolving anatomy of artificial cognition.</p>
+<p>The geometry of nDNA is the joint distribution of $\kappa_\ell$, $L_\ell$, and $|v^{(c)}_\ell|$ across layers. This triad constitutes a high-dimensional semantic fingerprint that encodes inheritance stability, alignment dynamics, and cultural drift. Patterns across this geometry distinguish models by latent adaptation history.</p>
 
+<p><img src="assets/img/ndna_geometry_table.gif" alt="nDNA Geometry Table" /></p>
 
       </div>
 
