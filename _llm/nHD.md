@@ -105,22 +105,34 @@ which serves as an interpretable neural genotype divergence score.
 </div>
 
 
-<img src="{{ 'assets/gifs/neural_genomics/ngdi_layerwise_fusion.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+<img src="{{ 'assets/gifs/neural_genomics/ngdi_layerwise_fusion.png' | relative_url }}" style="width: 100%; max-width: 600px; display: block; margin: auto;" />
 
 <p style="text-align: center; font-weight: bold; margin-top: 0.8em;">
   Figure 3. Neural Genetic Dissimilarity in Layer-wise Fusion
 </p>
 
-<div class="mathjax-render" style="text-align: left; font-size: 0.95em; line-height: 1.5;">
-  Each row represents a transformer layer (\\( \ell = 20 \\) to \\( 30 \\)), and each column corresponds to a latent dimension in the ÆTHER alignment space. Blue circles indicate features inherited from Parent 1, yellow from Parent 2, and red circles mark divergent features not matching either parent.
-  <br><br>
+<p style="text-align: justify; font-size: 0.9em;">
+  Each row represents a transformer layer 
+  <span class="mathjax-render">\\( \ell = 20 \\)</span> to 
+  <span class="mathjax-render">\\( 30 \\)</span>, and each column corresponds to a latent dimension in the ÆTHER alignment space. 
+  Blue circles indicate features inherited from Parent 1, yellow from Parent 2, and red circles mark divergent features not matching either parent.
+</p>
+
+<p style="text-align: justify; font-size: 0.9em;">
   This visualization forms the input to the Neural Genetic Dissimilarity Index (nGDI), computed as:
-  <br><br>
-  \\[
+</p>
+
+<div class="mathjax-render" style="text-align: center; font-size: 0.95em; margin: 1em 0;">
+  \[
   \text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
-  \\]
-  where \\( d(o, p_i) \\) denotes the distance between the offspring and parent \\( i \\), and \\( \cos(p_1, p_2) \\) measures inter-parental alignment similarity. A higher nGDI reflects greater semantic drift and directional bias in fusion.
+  \]
 </div>
+
+<p class="mathjax-render" style="text-align: justify; font-size: 0.9em;">
+  where \\( d(o, p_i) \\) denotes the distance between the offspring and parent \\( i \\), and 
+  \\( \cos(p_1, p_2) \\) measures inter-parental alignment similarity. A higher nGDI reflects greater semantic drift and directional bias in fusion.
+</p>
+
 
 
 
