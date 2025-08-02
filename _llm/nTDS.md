@@ -20,12 +20,8 @@ This example shows the genome-wide scan for quantitative trait loci across genom
 
 **Connection to Neural Trait Dominance Score (nTDS)** Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the **nTDS** quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer **ℓ** functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring's internal representation.
 
->## Implications
-This biological metaphor underscores that **semantic inheritance in neural models is layer-specific and trait-dependent**, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates:
-- **Targeted alignment tuning**
-- **Improved interpretability** 
-- **Balanced semantic integration**
-- **Mitigation of bias propagation** in multicultural AI systems
+## Implications
+This biological metaphor underscores that **semantic inheritance in neural models is layer-specific and trait-dependent**, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates: **Targeted alignment tuning**, **Improved interpretability**, **Balanced semantic integration**, **Mitigation of bias propagation** in multicultural AI systems
 
 ## Mathematical Formulation of Neural Trait Dominance Score (nTDS)
 
