@@ -311,3 +311,15 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
     </div>
   </div>
 </div>
+
+<img src="{{ 'assets/gifs/neural_genomics/nGDI/all.gif' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+
+<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+  <strong>Figure 2: 3D Neural Genetic Dissimilarity Index (d<sub>ℓ</sub><sup>nGDI</sup>) Trajectories Comparing Fine-Tuned Models Against the LLaMA Base Model.</strong> For each transformer layer ℓ ∈ {20, . . . , 30}, the metric d<sub>ℓ</sub><sup>nGDI</sup> quantifies <em>latent semantic genetic divergence</em> relative to the base model. The colored curves represent <em>culturally fine-tuned model trajectories</em>, while the black dashed curve denotes the <em>LLaMA base reference</em>. <em>Line thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup></em>, highlighting layers with maximal representational shifts. <strong>Mathematical Context:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> is formally defined as a <em>layerwise divergence metric</em> in latent space measuring the <em>geodesic</em> or <em>information-theoretic distance</em> between the cultural fine-tuned model's and base model's manifold embeddings (312; 319). This provides a rigorous geometric quantification of <em>semantic drift</em> across deep model layers. <strong>Biological Analogy:</strong> Analogous to <em>genetic mutation hotspots</em> in biological DNA recombination (313), the layerwise variation in d<sub>ℓ</sub><sup>nGDI</sup> reveals <em>critical neural depths</em> where semantic realignment, adaptation, and cultural imprinting occur. Models such as Africa and Middle East exhibit pronounced divergence, indicating <em>region-specific evolutionary adaptations</em>, while North America's low divergence suggests <em>semantic stability</em> and close affinity to ancestral priors. <strong>Mathematical Takeaway:</strong> The offspring latent manifold at layer ℓ can be modeled as a nonlinear fusion of parental manifolds:
+  <br><br>
+  <div style="text-align: center; background-color: #f8f9fa; padding: 1em; border: 1px solid #ddd; margin: 1em 0;">
+    <strong>M<sub>offspring</sub><sup>(ℓ)</sup> = α<sup>(ℓ)</sup>M<sub>A</sub><sup>(ℓ)</sup> + (1 − α<sup>(ℓ)</sup>)M<sub>B</sub><sup>(ℓ)</sup> + ε<sup>(ℓ)</sup></strong>
+  </div>
+  <br>
+  where α<sup>(ℓ)</sup> ∈ [0, 1] denotes the <em>layer-dependent semantic dominance coefficient</em>, dynamically modulating parental influence, and ε<sup>(ℓ)</sup> captures <em>emergent nonlinear geometry</em> beyond linear interpolation. This formalism captures <em>multi-layered integration</em>, <em>selective semantic imprinting</em>, and <em>complex evolutionary dynamics</em> in transformer latent spaces, providing a principled framework for interpreting <em>cultural neural DNA fusion</em> and semantic innovation in multilingual AI systems.
+</div>
