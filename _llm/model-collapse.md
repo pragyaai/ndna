@@ -5,6 +5,7 @@ permalink: /llm/model-collapse/
 ---
 
 # nDNA-Lens: Model Collapse as Latent Manifold Flattening
+# nDNA-Lens: Model Collapse as Latent Manifold Flattening
 
 ## What is Model Collapse?
 
@@ -14,8 +15,6 @@ We identify two routes to collapse:
 1. **Repeated fine-tuning** on synthetic outputs (traditional)
 2. **Recursive self-merging** - a novel form of **semantic inbreeding**
 
-![Model Collapse Visualization](assets/collapse-animation.gif)
-*Neural DNA trajectories showing progressive flattening across generations*
 
 ## Biological Analogy
 
@@ -35,8 +34,6 @@ T_nDNA = {(κ_ℓ, L_ℓ, ||v^(c)_ℓ||)}^L_{ℓ=1}
 
 **Collapse signature:** κ_ℓ → const, L_ℓ → min, ||v^(c)_ℓ|| → uniform
 
-![Geometric Measurements](assets/geometry-tracking.gif)
-*Real-time tracking of curvature and thermodynamic length during collapse*
 
 ## Empirical Results
 
@@ -51,8 +48,13 @@ T_nDNA = {(κ_ℓ, L_ℓ, ||v^(c)_ℓ||)}^L_{ℓ=1}
 - **Collapse threshold:** Generation 10
 - Progressive flattening: κ_ℓ → 0.2, L_ℓ → 0.2 by Gen 10
 
-![LLaMA Collapse]({{ '/assets/gifs/alignment/llama_collapse_v2_1.gif' | relative_url }})
-*LLaMA showing moderate, stable alignment characteristics*
+<div style="text-align: center;">
+  <a href="{{ '/assets/gifs/alignment/llama_collapse_v2_1.gif' | relative_url }}" data-lightbox="gallery" data-title="LLaMA">
+    <img src="{{ '/assets/gifs/alignment/llama_collapse_v2_1.gif' | relative_url }}" alt="LLaMA Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 500;">LLaMA</p>
+  <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Moderate, stable alignment characteristics</p>
+</div>
 
 ### Recursive Self-Merging
 
@@ -63,26 +65,71 @@ Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child^(g) = 
 - **Medium (Gen 11-13):** Asia, Europe, Latin America
 - **Slow (Gen 15-16):** Africa, North America, Australia
 
-![Africa Alignment]({{ '/assets/gifs/alignment/africa_ndna_final.gif' | relative_url }})
-*Africa: κₗ: 0.85 → 0.75, Lₗ: 0.9 → 0.8*
-
-![Asia Alignment]({{ '/assets/gifs/alignment/asia_ndna_collapse.gif' | relative_url }})
-*Asia: κₗ reduced by ~10%, smoothing epistemic manifolds*
-
-![China Alignment]({{ '/assets/gifs/alignment/china_ndna_final.gif' | relative_url }})
-*China: κₗ: >0.9 → 0.8, Significant latent reorientation*
-
-![Latin America Alignment]({{ '/assets/gifs/alignment/latinamerica.gif' | relative_url }})
-*Latin America: κₗ: 0.7 → 0.6*
-
-![Middle East Alignment]({{ '/assets/gifs/alignment/middleeast_ndna_final.gif' | relative_url }})
-*Middle East: 8-12% reduction in both κₗ and Lₗ*
-
-![Europe Alignment]({{ '/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif' | relative_url }})
-*Europe: κₗ: 0.4 → 0.5, Confirms alignment stability*
-
-![North America Alignment]({{ '/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif' | relative_url }})
-*North America: Remains within pretrained epistemic manifold*
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 24px; margin: 30px 0;">
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/africa_ndna_final.gif' | relative_url }}" data-lightbox="gallery" data-title="Africa">
+      <img src="{{ '/assets/gifs/alignment/africa_ndna_final.gif' | relative_url }}" alt="Africa Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Africa</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.85 → 0.75, Lₗ: 0.9 → 0.8</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/asia_ndna_collapse.gif' | relative_url }}" data-lightbox="gallery" data-title="Asia">
+      <img src="{{ '/assets/gifs/alignment/asia_ndna_collapse.gif' | relative_url }}" alt="Asia Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Asia</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ reduced by ~10%, smoothing epistemic manifolds</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/china_ndna_final.gif' | relative_url }}" data-lightbox="gallery" data-title="China">
+      <img src="{{ '/assets/gifs/alignment/china_ndna_final.gif' | relative_url }}" alt="China Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">China</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: >0.9 → 0.8, Significant latent reorientation</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/latinamerica.gif' | relative_url }}" data-lightbox="gallery" data-title="Latin America">
+      <img src="{{ '/assets/gifs/alignment/latinamerica.gif' | relative_url }}" alt="Latin America Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Latin America</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.7 → 0.6</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/middleeast_ndna_final.gif' | relative_url }}" data-lightbox="gallery" data-title="Middle East">
+      <img src="{{ '/assets/gifs/alignment/middleeast_ndna_final.gif' | relative_url }}" alt="Middle East Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Middle East</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">8-12% reduction in both κₗ and Lₗ</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif' | relative_url }}" data-lightbox="gallery" data-title="Europe">
+      <img src="{{ '/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif' | relative_url }}" alt="Europe Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Europe</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.4 → 0.5, Confirms alignment stability</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif' | relative_url }}" data-lightbox="gallery" data-title="North America">
+      <img src="{{ '/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif' | relative_url }}" alt="North America Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">North America</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Remains within pretrained epistemic manifold</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="{{ '/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif' | relative_url }}" data-lightbox="gallery" data-title="Australia">
+      <img src="{{ '/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif' | relative_url }}" alt="Australia Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <p style="margin-top: 8px; font-weight: 500;">Australia</p>
+    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.42 → 0.55, Minimal reconfiguration</p>
+  </div>
+</div>
 
 ![Cultural Collapse Comparison](assets/cultural-collapse-trajectories.png)
 *Comparative collapse trajectories across culturally-aligned models*
@@ -91,8 +138,13 @@ Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child^(g) = 
 
 Healthy models maintain belief vector magnitudes of 0.10-0.60 with directional diversity. Collapsed models show magnitudes below 0.05 at deeper layers, with vectors converging toward zero - indicating loss of semantic differentiation.
 
-![Global nDNA Trajectories]({{ '/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif' | relative_url }})
-*Global nDNA Trajectories showing belief vector field evolution*
+<div style="text-align: center; margin: 30px 0;">
+  <a href="{{ '/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif' | relative_url }}" data-lightbox="gallery" data-title="Global nDNA Trajectories">
+    <img src="{{ '/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif' | relative_url }}" alt="Global nDNA Trajectories" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <p style="margin-top: 8px; font-weight: 500;">Global nDNA Trajectories</p>
+  <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Belief vector field evolution showing healthy vs collapsed states</p>
+</div>
 
 ![Belief Vector Fields](assets/belief-vector-evolution.png)
 *Healthy vs collapsed belief vector fields showing loss of semantic steering*
@@ -133,3 +185,5 @@ This research reframes model evaluation from surface-level performance to **geom
 Neural genomics - tracking spectral, thermodynamic, and vectorial signatures - enables cultivation of models that are resilient, modular, and capable of retaining epistemic diversity over time.
 
 ---
+
+**Research Status:** Active development of geometric diagnostic tools for foundation model health monitoring.
