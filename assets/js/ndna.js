@@ -16,7 +16,7 @@ const menusByModel = {
     { text: "Model Collapse", url: baseUrl + "/llm/model-collapse/" },
     { text: "Knowledge Distillation", url: "#" },
     { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/" },
-    { text: "Risk: Latent Manipulation", url: "#" },
+    { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
     { text: "at-a-glance", url: "#" },
     { text: "FAQ", url: "#" }
   ],
