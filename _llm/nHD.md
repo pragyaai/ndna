@@ -50,8 +50,12 @@ Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\ma
 
 <img src="{{ 'assets/gifs/neural_genomics/nhd_graphical_genotyping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
+<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
+    <strong>Figure 1. Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):</strong>
+</p>
+
 <div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
-  <strong>Figure 1. Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):</strong>
+  
   This figure, adapted from Deblieck et al. (309), displays detailed genetic and physical maps of two RILs resulting from a biparental cross between drought-resistant wild emmer accession G18-16 (green alleles) and drought-susceptible durum wheat accession Langdon (red alleles). Heterozygous regions are highlighted in magenta. Black connecting lines indicate recombination breakpoints and allele transitions across chromosomes.
   <br><br>
   The classical Hamming Distance (HD) metric, widely used in genomics for quantifying bit-level mutational differences across binary allelic sequences, serves as an intuitive biological analogy for the Neural Hamming Distance (nHD). The nHD extends this concept to neural models by binarizing layer-wise weights or activations to capture bit-level mutations that accumulate as semantic divergence in model behavior. This bridge between classical genotype comparison and neural model analysis underpins the utility of nHD as a fine-grained, interpretable metric for semantic mutation monitoring in neural genomics.
@@ -101,7 +105,7 @@ which serves as an interpretable neural genotype divergence score.
 <img src="{{ 'assets/gifs/neural_genomics/nhd_classical_vs_neural.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  <strong>Figure 26:</strong> <strong>Illustrating Classical vs Neural Hamming Distance (nHD)</strong>
+  <strong>Figure 2:</strong> <strong>Illustrating Classical vs Neural Hamming Distance (nHD)</strong>
 </p>
 
 <div style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
@@ -110,7 +114,6 @@ which serves as an interpretable neural genotype divergence score.
 </div>
 
 <div style="text-align: justify; font-size: 0.95em; line-height: 1.5; margin-top: 1em;">
-    $$
   <strong>Right:</strong> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. 
   At each layer \( \ell \) in the ÆTHER manifold, we compare the latent vector \( \mathbf{o}_\ell \) of the offspring against 
   those of the parents \( \mathbf{p}_\ell^1 \) and \( \mathbf{p}_\ell^2 \). A binary indicator is activated if 
@@ -118,7 +121,6 @@ which serves as an interpretable neural genotype divergence score.
   \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta \), indicating significant divergence from both parents at that layer. 
   nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). 
   This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
-    $$
 </div>
 
 <p style="text-align: justify; font-size: 0.9em; margin-top: 1.5em;">
@@ -128,7 +130,7 @@ which serves as an interpretable neural genotype divergence score.
 <img src="{{ 'assets/gifs/neural_genomics/ngdi_layerwise_fusion.png' | relative_url }}" style="width: 100%; max-width: 600px; display: block; margin: auto; margin-top: 2em;" />
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  <strong>Figure 27:</strong> <strong>Neural Genetic Dissimilarity in Layer-wise Fusion</strong>
+  <strong>Figure 3:</strong> <strong>Neural Genetic Dissimilarity in Layer-wise Fusion</strong>
 </p>
 
 <p style="text-align: justify; font-size: 0.9em; margin-top: 1em;">
