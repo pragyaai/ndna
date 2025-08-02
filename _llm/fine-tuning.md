@@ -238,5 +238,5 @@ This latent genomic structure offers a geometric fingerprint of cultural inherit
 
 A natural critique arises: If LLaMA's pretraining already includes global English data (e.g., Wikipedia, CommonCrawl, CC-News), how much novel signal can cultural fine-tuning provide? Prior work demonstrates that even modest, domain-specific fine-tuning can induce significant representational drift, overwriting pretraining attractors in both activation geometry and generation behavior. Recent studies further show that targeted preference and instruction tuning reshape internal manifolds–especially in later layers (ℓ ≥ 20)–embedding new epistemic alignments and latent biases. 
 
-Our latent geometry diagnostics (e.g., \( \kappa_\ell, L_\ell, \|v^{(c)}_\ell\| \)) provide direct evidence that cultural fine-tuning imprints distinctive, heritable signatures—what we term the model's **neural DNA (nDNA)**.
+Our latent geometry diagnostics (e.g., $ \kappa_\ell, L_\ell, \|v^{(c)}_\ell\| $) provide direct evidence that cultural fine-tuning imprints distinctive, heritable signatures—what we term the model’s **neural DNA (nDNA)**.
 
