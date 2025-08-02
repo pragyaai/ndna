@@ -92,4 +92,3 @@ $$\mathcal{J}_\ell := J_\ell^{(A)} (J_\ell^{(A)})^T - J_\ell^{(B)} (J_\ell^{(B)}
 capturing differential sensitivity of the latent space to parameter perturbations.
 
 Enhance $\text{nTDS}_\ell$ by weighting $\alpha_\ell$ with spectral properties of $\mathcal{J}_\ell$, thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
-
