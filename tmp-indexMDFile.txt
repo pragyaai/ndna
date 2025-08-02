@@ -1,0 +1,25 @@
+---
+layout: ndna
+title: nDNA
+---
+
+# nDNA
+
+## Introduction to nDNA
+
+**nDNA**—short for *Neural DNA*—is a novel framework for analyzing the latent cognitive structure of large AI models. Just as biological DNA governs inheritance in living systems, nDNA models the *semantic genome* of foundation models—mapping how they internalize, evolve, and transmit abstract patterns of thought, reasoning, and belief.
+
+Rather than focusing solely on surface-level performance, nDNA dives into the internal epistemic geometry of models—revealing how they reason, adapt, and align with external values over time. It functions as a diagnostic fingerprint of a model's evolving "mind."
+
+![nDNA Structure](assets/img/nDNA_structure.gif)
+
+## The Core Triad of nDNA
+
+nDNA integrates three foundational signals to form a latent cognitive fingerprint of a model. Each component captures a distinct dimension of semantic dynamics:
+
+**1. Spectral Curvature *κ<sub>ℓ</sub>***
+
+**Definition:** Spectral measure of latent manifold bending and flexibility
+
+> **Interpretation:** Quantifies how sharply internal representational trajectories bend, serving as a scalar measure of latent acceleration. High curvature indicates regions where the model's internal geometry undergoes rapid structural changes.
+
