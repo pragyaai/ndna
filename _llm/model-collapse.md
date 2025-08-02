@@ -32,8 +32,7 @@ T<sub>nDNA</sub> = {(κ<sub>ℓ</sub>, L<sub>ℓ</sub>, ||v<sup>(c)</sup><sub>�
 
 **Collapse signature:** κ<sub>ℓ</sub> → const, L<sub>ℓ</sub> → min, ||v<sup>(c)</sup><sub>ℓ</sub>|| → uniform
 
-![Geometric Measurements](assets/geometry-tracking.gif)
-*Real-time tracking of curvature and thermodynamic length during collapse*
+
 
 ## Empirical Results
 
@@ -146,8 +145,6 @@ Healthy models maintain belief vector magnitudes of 0.10-0.60 with directional d
   <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Belief vector field evolution showing healthy vs collapsed states</p>
 </div>
 
-![Belief Vector Fields](assets/belief-vector-evolution.png)
-*Healthy vs collapsed belief vector fields showing loss of semantic steering*
 
 ## Practical Applications
 
