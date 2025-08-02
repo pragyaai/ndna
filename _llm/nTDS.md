@@ -3,7 +3,6 @@ layout: page
 title: "Neural Trait Dominance Score(nTDS)"
 permalink: /llm/neural-genomics/nTDS/
 ---
-# Neural Trait Dominance Score (nTDS)
 
 ## Introduction
 
@@ -11,29 +10,12 @@ While nHD and nGDI effectively quantify overall semantic divergence and global r
 
 ## Genome-wide Quantitative Trait Loci (QTL) Mapping
 
-<div align="center">
-<img src="assets/gifs/neural_genomics/nTDS/nTDS.png" alt="Genome-wide Quantitative Trait Loci (QTL) Mapping" style="max-width: 100%; height: auto;">
-<br>
-<strong>Figure 40:</strong> Genome-wide Quantitative Trait Loci (QTL) Mapping
-</div>
-
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
-
-This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation. 
-
-**Formally, QTL mapping estimates the association between genetic markers G<sub>i</sub> and quantitative traits T by testing the linear model:**
-
-<div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
-<strong>T = μ + β<sub>i</sub>G<sub>i</sub> + ε</strong>
-</div>
-
-where:
-- **μ** is the population mean
-- **β<sub>i</sub>** is the effect size of marker G<sub>i</sub>
-- **ε** is the residual error (320; 321)
-
-Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.
-
+<img src="{{ 'assets/gifs/neural_genomics/qtl-mapping-genome-wide.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
+    <strong>Figure 40: Genome-wide Quantitative Trait Loci (QTL) Mapping:</strong>
+</p>
+<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation. Formally, QTL mapping estimates the association between genetic markers G<sub>i</sub> and quantitative traits T by testing the linear model: <strong>T = μ + β<sub>i</sub>G<sub>i</sub> + ε</strong>, where μ is the population mean, β<sub>i</sub> is the effect size of marker G<sub>i</sub>, and ε is the residual error (320; 321). Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.
 </div>
 
 ## Connection to Neural Trait Dominance Score (nTDS)
