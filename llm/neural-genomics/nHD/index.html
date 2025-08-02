@@ -68,11 +68,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T13:42:42+00:00" />
+<meta property="article:published_time" content="2025-08-02T13:56:01+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T13:42:42+00:00","datePublished":"2025-08-02T13:42:42+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T13:56:01+00:00","datePublished":"2025-08-02T13:56:01+00:00","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -195,32 +195,36 @@
 <p><img src="/nDNA/assets/gifs/neural_genomics/nhd_classical_vs_neural.png" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  <strong>Figure 2:</strong> <strong>Illustrating Classical vs Neural Hamming Distance (nHD)</strong>
+  <strong>Figure 26:</strong> <strong>Illustrating Classical vs Neural Hamming Distance (nHD)</strong>
 </p>
 
-<div class="mathjax-render" style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
+<div style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
   <strong>Left:</strong> The classical Hamming Distance counts the number of positions (loci) at which the corresponding symbols 
   (e.g., nucleotides, bits) differ between two or more sequences. Here, the offspring differs from both parents at two loci.
 </div>
 
-<div class="mathjax-render" style="text-align: justify; font-size: 0.95em; line-height: 1.5; margin-top: 1em;">
+<div style="text-align: justify; font-size: 0.95em; line-height: 1.5; margin-top: 1em;">
   <strong>Right:</strong> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. 
-  At each layer \\\\( \\ell \\\\) in the ÆTHER manifold, we compare the latent vector \\\\( \\mathbf{o}_\\ell \\\\) of the offspring against 
-  those of the parents \\\\( \\mathbf{p}_\\ell^1 \\\\) and \\\\( \\mathbf{p}_\\ell^2 \\\\). A binary indicator is activated if 
-  \\\\( \\|\\mathbf{o}_\\ell - \\mathbf{p}_\\ell^1\\| &gt; \\delta \\\\) and 
-  \\\\( \\|\\mathbf{o}_\\ell - \\mathbf{p}_\\ell^2\\| &gt; \\delta \\\\), indicating significant divergence from both parents at that layer. 
+  At each layer \( \ell \) in the ÆTHER manifold, we compare the latent vector \( \mathbf{o}_\ell \) of the offspring against 
+  those of the parents \( \mathbf{p}_\ell^1 \) and \( \mathbf{p}_\ell^2 \). A binary indicator is activated if 
+  \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| &gt; \delta \) and 
+  \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| &gt; \delta \), indicating significant divergence from both parents at that layer. 
   nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). 
   This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
 </div>
 
+<p style="text-align: justify; font-size: 0.9em; margin-top: 1.5em;">
+  which serves as an interpretable <em>neural genotype divergence score</em>.
+</p>
+
 <p><img src="/nDNA/assets/gifs/neural_genomics/ngdi_layerwise_fusion.png" style="width: 100%; max-width: 600px; display: block; margin: auto; margin-top: 2em;" /></p>
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  <strong>Figure 2:</strong> <strong>Neural Genetic Dissimilarity in Layer-wise Fusion</strong>
+  <strong>Figure 27:</strong> <strong>Neural Genetic Dissimilarity in Layer-wise Fusion</strong>
 </p>
 
 <p style="text-align: justify; font-size: 0.9em; margin-top: 1em;">
-  Each row represents a transformer layer (\\\\( \\ell = 20 \\\\) to \\\\( 30 \\\\)), and each column corresponds to a latent dimension 
+  Each row represents a transformer layer (\( \ell = 20 \) to \( 30 \)), and each column corresponds to a latent dimension 
   in the ÆTHER alignment space. <strong>Blue</strong> circles indicate features inherited from Parent 1, <strong>yellow</strong> from Parent 2, and <strong>red</strong> circles 
   mark divergent features not matching either parent.
 </p>
@@ -229,15 +233,15 @@
   This visualization forms the input to the Neural Genetic Dissimilarity Index (nGDI), computed as:
 </p>
 
-<div class="mathjax-render" style="text-align: center; font-size: 0.9em; margin: 1em 0;">
-  \[
+<div style="text-align: center; font-size: 0.9em; margin: 1em 0;">
+  $$
   \text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
-  \]
+  $$
 </div>
 
-<p class="mathjax-render" style="text-align: justify; font-size: 0.9em;">
-  where \\( d(o, p_i) \\) denotes the distance between the offspring and parent \\( i \\), and 
-  \\( \cos(p_1, p_2) \\) measures inter-parental alignment similarity. A higher nGDI reflects greater semantic drift and directional bias in fusion.
+<p style="text-align: justify; font-size: 0.9em;">
+  where \( d(o, p_i) \) denotes the distance between the offspring and parent \( i \), and 
+  \( \cos(p_1, p_2) \) measures inter-parental alignment similarity. A higher nGDI reflects greater semantic drift and directional bias in fusion.
 </p>
 
 <p>Within the broader Neural DNA (nDNA) framework, nHD acts as a discrete mutation signature metric complementing continuous geometric measures such as spectral curvature (nGDI) and latent radius (nTDS).</p>
