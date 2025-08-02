@@ -68,11 +68,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-02T19:08:04+00:00" />
+<meta property="article:published_time" content="2025-08-02T19:25:51+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Trait Dominance Score(nTDS)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T19:08:04+00:00","datePublished":"2025-08-02T19:08:04+00:00","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-02T19:25:51+00:00","datePublished":"2025-08-02T19:25:51+00:00","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -255,17 +255,8 @@ Enhance \\( \text{nTDS}_\ell \\) by weighting \\( \alpha_\ell \\) with spectral 
 
 <h3 id="trait-dominance-profiling-and-semantic-layer-dynamics">Trait Dominance Profiling and Semantic Layer Dynamics:</h3>
 
-<p>Layerwise $\mathrm{nTDS}<em>\ell$ decomposes the global inheritance pattern into a *trait dominance trajectory* over model depth $\ell \in {1, \dots, L}$, revealing <strong>where</strong> and <strong>how strongly</strong> offspring semantics skew towards parent $A$ ($\mathrm{nTDS}</em>\ell &gt; 0$) or parent $B$ ($\mathrm{nTDS}_\ell &lt; 0$). This fine-grained analysis uncovers <em>semantic loci</em> within the latent manifold where cultural or functional traits concentrate, morph, or attenuate.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Mathematically, the continuity and smoothness of $\mathrm{nTDS}_\ell$ over $\ell$ provide insights into <strong>hierarchical trait propagation</strong> and <strong>transformer layer specialization</strong>. For instance, abrupt discontinuities or high gradient magnitudes $\left</td>
-      <td>\frac{d}{d\ell} \mathrm{nTDS}_\ell \right</td>
-      <td>$ may signal semantic bottlenecks or layerwise representational shifts critical for alignment tuning.</td>
-    </tr>
-  </tbody>
-</table>
+<p>Layerwise $\mathrm{nTDS}\ell$ decomposes the global inheritance pattern into a trait dominance trajectory over model depth $\ell \in {1, \dots, L}$, revealing where and how strongly offspring semantics skew towards parent $A$ ($\mathrm{nTDS}\ell &gt; 0$) or parent $B$ ($\mathrm{nTDS}_\ell &lt; 0$). This fine-grained analysis uncovers semantic loci within the latent manifold where cultural or functional traits concentrate, morph, or attenuate.
+Mathematically, the continuity and smoothness of $\mathrm{nTDS}\ell$ over $\ell$ provide insights into hierarchical trait propagation and transformer layer specialization. For instance, abrupt discontinuities or high gradient magnitudes $\left|\frac{d}{d\ell} \mathrm{nTDS}\ell \right|$ may signal semantic bottlenecks or layerwise representational shifts critical for alignment tuning.</p>
 
 <h3 id="implications-for-model-fusion-and-fine-tuning">Implications for Model Fusion and Fine-Tuning:</h3>
 
