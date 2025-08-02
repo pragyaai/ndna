@@ -18,7 +18,6 @@ Subtle changes in neural weights or activations—especially across culturally h
 
 nHD detects and localizes these **semantic mutation signatures**, helping identify which layers or parameters are more vulnerable to **drift**, enabling model realignment and robustness analysis.
 
----
 
 ## 14.1 From Genomic Mutation to Neural Lineage Drift
 
@@ -43,7 +42,16 @@ This captures point mutations, essential for studying genetic drift, recombinati
 Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\mathcal{H}^n = \\{0, 1\\}^n \\), where each vertex represents a binary sequence and each edge represents a single-bit mutation.
 
 
----
+
+<img src="{{ '/assets/figures/nhd_graphical_genotyping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+
+<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+  <strong>Figure 1. Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):</strong>
+  This figure, adapted from Deblieck et al. (309), displays detailed genetic and physical maps of two RILs resulting from a biparental cross between drought-resistant wild emmer accession G18-16 (green alleles) and drought-susceptible durum wheat accession Langdon (red alleles). Heterozygous regions are highlighted in magenta. Black connecting lines indicate recombination breakpoints and allele transitions across chromosomes.
+  <br><br>
+  The classical Hamming Distance (HD) metric, widely used in genomics for quantifying bit-level mutational differences across binary allelic sequences, serves as an intuitive biological analogy for the Neural Hamming Distance (nHD). The nHD extends this concept to neural models by binarizing layer-wise weights or activations to capture bit-level mutations that accumulate as semantic divergence in model behavior. This bridge between classical genotype comparison and neural model analysis underpins the utility of nHD as a fine-grained, interpretable metric for semantic mutation monitoring in neural genomics.
+</div>
+
 
 ### Extending to Foundation Models
 
@@ -90,7 +98,6 @@ By analyzing layerwise nHD trajectories, we can enable:
 - **Mutation load analysis**: Quantifying semantic impact of fine-tuning or architectural changes  
 - **Targeted interventions**: Identifying layers for pruning or bias realignment  
 
----
 
 ## 14.2 Interpretation and Implications
 
@@ -120,7 +127,6 @@ $$
 
 This vector reveals mutation hotspots and informs alignment strategies.
 
----
 
 ## 14.3 Applications and Mathematical Insights
 
@@ -162,7 +168,6 @@ $$
 \min_{\theta} \sum_{\ell=1}^{L} \lambda_\ell \cdot \text{nHD}_\ell(\theta, \theta_{\text{ref}})
 $$
 
----
 
 ## 14.4 Case Study and Validation
 
@@ -172,7 +177,6 @@ $$
 - During fine-tuning or merging, nHD reveals **lineage drift** and **cumulative mutation load**.
 - Enables **layer-specific pruning, realignment**, and **bias mitigation**.
 
----
 
 ## Outlook
 
