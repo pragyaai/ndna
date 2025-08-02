@@ -4,8 +4,6 @@ title: Alignment
 permalink: /llm/alignment/
 ---
 
-# Alignment
-
 **nDNA** provides quantitative methods for measuring and monitoring AI alignment, offering deep insights into how models internalize human values and behavioral constraints through three core metrics:
 
 - **Spectral Curvature** (κₗ): Behavioral instability and reasoning path deviations  

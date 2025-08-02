@@ -4,8 +4,6 @@ title: Cultural nDNA
 permalink: /llm/cultural-ndna/
 ---
 
-# Cultural nDNA
-
 Neural DNA (nDNA) offers a sophisticated framework for understanding the internal cognitive identity of AI foundation models, moving beyond traditional surface-level evaluations to a neurogeometric introspection of their "latent genome." Cultural nDNA specifically delves into how training data from various cultures, regions, and social contexts imprints distinct cognitive fingerprints within these models.
 
 ## Understanding Cultural Imprints
@@ -25,21 +23,15 @@ Cultural nDNA analysis is performed through three primary dimensions of latent g
 <div><b>Tip:</b> <i>Click on any visualization below to expand it. Click outside the image or press DELETE to close.</i></div>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-  <div style="text-align: center;">
-    <a href="{{ '/assets/img/cultural_ndna/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" data-lightbox="gallery" data-title="Global Comparison">
-      <img src="{{ '/assets/img/cultural_ndna/llama_vs_cultures_group_tagged_360.gif' | relative_url }}" alt="Global Comparison" style="width: 100%; height: 300px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">Global Comparison</p>
-  </div>
-  {% assign regions = "Africa,Asia,Australia,China,Europe,LatinAmerica,MiddleEast,NorthAmerica" | split: "," %}
-  {% for region in regions %}
-  <div style="text-align: center;">
-    <a href="{{ '/assets/img/cultural_ndna/llama_culture_shift_gifs_final 2/llama_' | append: region | append: '_rotation.gif' | relative_url }}" data-lightbox="gallery" data-title="{{ region | replace: 'LatinAmerica','Latin America' | replace: 'MiddleEast','Middle East' | replace: 'NorthAmerica','North America' }}">
-      <img src="{{ '/assets/img/cultural_ndna/llama_culture_shift_gifs_final 2/llama_' | append: region | append: '_rotation.gif' | relative_url }}" alt="{{ region }} Cultural nDNA Rotation" style="width: 100%; height: 300px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <p style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">{{ region | replace: 'LatinAmerica','Latin America' | replace: 'MiddleEast','Middle East' | replace: 'NorthAmerica','North America' }}</p>
-  </div>
-  {% endfor %}
+  {% include visualization.html gif_url="cultural_ndna/llama_vs_cultures_group_tagged_360.gif" title="Global Comparison" style="global" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Africa_rotation.gif" title="Africa" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Asia_rotation.gif" title="Asia" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Australia_rotation.gif" title="Australia" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_China_rotation.gif" title="China" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Europe_rotation.gif" title="Europe" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_LatinAmerica_rotation.gif" title="Latin America" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_MiddleEast_rotation.gif" title="Middle East" %}
+  {% include visualization.html gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_NorthAmerica_rotation.gif" title="North America" %}
 </div>
 
 ### Belief Vector Orientation
