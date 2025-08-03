@@ -4,7 +4,7 @@
     <img src="{{ '/assets/gifs/' | append: include.image_path | relative_url }}" alt="{{ include.title }}" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
   </a>
   <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
-    <strong>{{ include.title }}</strong>{% if include.caption %} {{ include.caption }}{% endif %}
+    <strong>{{ include.title }}</strong>{% if include.caption %} {{ include.caption | markdownify }}{% endif %}
   </figcaption>
   {% if include.metrics %}
     <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">{{ include.metrics }}</p>

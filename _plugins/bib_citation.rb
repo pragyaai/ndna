@@ -194,7 +194,13 @@ module Jekyll
       end
 
       entry = site.data['bibliography'][@citation_key]
-      return "[#{@citation_key}]" unless entry
+      # return "[#{@citation_key}]" unless entry
+
+      # If citation not found, log warning and return empty string to skip it
+      unless entry
+        Jekyll.logger.warn "Citation Warning:", "Citation key '#{@citation_key}' not found in bibliography"
+        return ""
+      end
 
       # Add to citation tracker and get number
       citation_number = CitationTracker.add_citation(@citation_key)
