@@ -22,9 +22,11 @@
 }
 
 .threat-cards-subtitle {
+  max-width: 50rem;
   text-align: center;
   font-style: italic;
   color: #666;
+  margin: auto;
   margin-bottom: 2rem;
   font-size: 0.95rem;
 }
@@ -204,8 +206,6 @@
   border-radius: 8px;
   padding: 1rem;
   margin-top: 1rem;
-  font-weight: 600;
-  color: #c53030;
 }
 
 /* Responsive Design */

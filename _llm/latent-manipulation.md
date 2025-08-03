@@ -9,18 +9,18 @@ skip_title: true
 
 > *"Not all fakes look false. Some are so well-mimicked, they poison the source."*
 
-As large foundation models evolve from tools into cognitive infrastructures, their *latent semantic genome*—the **nDNA**—emerges not merely as an encoding of learned knowledge, but as a **strategic attack surface**. While prior risks centered on *prompt injection*, *jailbreaking*, and *output-level adversarial triggers* [[1]](#ref1)[[2]](#ref2)[[3]](#ref3)[[4]](#ref4)[[5]](#ref5), a new class of threat now materializes: **forgeries of internal cognition**.
+As large foundation models evolve from tools into cognitive infrastructures, their *latent semantic genome*—the **nDNA**—emerges not merely as an encoding of learned knowledge, but as a **strategic attack surface**. While prior risks centered on *prompt injection*, *jailbreaking*, and *output-level adversarial triggers* {% cite wallace2019universal %}{% cite carlini2022quantifying %}{% cite zou2023universal %}{% cite wei2023jailbroken %}{% cite liu2023jailbreaker %}, a new class of threat now materializes: **forgeries of internal cognition**.
 
 **This is not just an escalation—it is an ontological shift.** An adversary need not modify outputs or prompts; they can intervene *directly at the representational level*—**reshaping belief vector fields**, **bending curvature**, and **collapsing thermodynamic scaffolds**—to produce models that appear culturally aligned, politically safe, or pedagogically sound, yet bear *forged epistemic structures*.
 
 **Why would one do this?** The motivations are deeply practical—and potentially devastating:
 
-- **Economic deception:** Forge alignment to gain regulatory approval, enter markets, or win AI safety contracts [[6]](#ref6)[[7]](#ref7)
-- **Political mimicry:** Falsely emulate cultural or ideological stances to manipulate narratives or infiltrate aligned ecosystems [[8]](#ref8)[[9]](#ref9)
-- **Scientific plagiarism:** Copy the nDNA geometry of state-of-the-art models to claim illegitimate epistemic grounding [[10]](#ref10)[[11]](#ref11)
-- **Cognitive infiltration:** Implant ideological priors into latent space to induce *slow-burn belief drift* without obvious output anomalies [[12]](#ref12)[[13]](#ref13)
+- **Economic deception:** Forge alignment to gain regulatory approval, enter markets, or win AI safety contracts {% cite rando2023language %}{% cite shen2023deception %}
+- **Political mimicry:** Falsely emulate cultural or ideological stances to manipulate narratives or infiltrate aligned ecosystems {% cite ganguli2023capacity %}{% cite perez2022discovering %}
+- **Scientific plagiarism:** Copy the nDNA geometry of state-of-the-art models to claim illegitimate epistemic grounding {% cite hinton2015distilling %}{% cite romero2015fitnets %}
+- **Cognitive infiltration:** Implant ideological priors into latent space to induce *slow-burn belief drift* without obvious output anomalies {% cite wei2022emergent %}{% cite burns2022discovering %}
 
-Unlike adversarial examples [[14]](#ref14), backdoor attacks [[15]](#ref15)[[16]](#ref16), or prompt exploits [[17]](#ref17), **adversarial nDNA manipulations** are harder to detect, harder to defend against, and more catastrophic in the long term. They offer *no surface trace*, **no suspicious prompt**, and **no toxic output**. They falsify the model's internal beliefs while preserving its external performance. *This is alignment forgery, not alignment failure.*
+Unlike adversarial examples {% cite goodfellow2014explaining %}, backdoor attacks {% cite gu2017badnets %}{% cite li2022backdoor %}, or prompt exploits {% cite zhu2023promptbench %}, **adversarial nDNA manipulations** are harder to detect, harder to defend against, and more catastrophic in the long term. They offer *no surface trace*, **no suspicious prompt**, and **no toxic output**. They falsify the model's internal beliefs while preserving its external performance. *This is alignment forgery, not alignment failure.*
 
 **What can we do?** If the attack is on *epistemic structure*, then the defense must begin with epistemic traceability. We must:
 
@@ -39,70 +39,68 @@ While classical adversarial attacks often operate at the token or activation lev
 
 **A crucial caveat:** In this section, we deliberately refrain from disclosing detailed methodologies, implementation procedures, or attack parameters. The risks associated with such manipulations are not merely academic—they are potentially catastrophic in downstream misuse. Instead, we offer a principled *taxonomy of threat categories*, grounded in the emerging science of **Neural Genomics**, to stimulate awareness, oversight, and responsible research.
 
-### Strategic Typology of nDNA Manipulation Attacks
-
-*Each category below summarizes a high-risk manipulation targeting the semantic genome of foundation models. **Technical details are redacted by design.***
+<!-- ### Strategic Typology of nDNA Manipulation Attacks -->
 
 <div class="threat-cards-container">
   <div class="threat-cards-title">Strategic Typology of nDNA Manipulation Attacks</div>
   <div class="threat-cards-subtitle">Each card below summarizes a high-risk manipulation targeting the semantic genome of foundation models. <strong>Technical details are redacted by design.</strong></div>
   <div class="threat-cards-layout-container">
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-gavel" 
    title="Ideological Infusion" 
    mechanism="Embed political or religious priors via belief-field steering and latent gradient shaping." 
    risks="Amplifies polarization, corrodes civic trust, destabilizes deliberative AI." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-mask" 
    title="nDNA Impersonation" 
    mechanism="Clone latent signature of verified safe models to evade scrutiny or obtain regulatory clearance." 
    risks="Undermines auditability, enables counterfeit AI deployments." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-bug" 
    title="Latent Trojaning" 
    mechanism="Inject stealth triggers into latent geometry—silent until adversarial context is detected." 
    risks="Critical infrastructure compromise, covert activation risks." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-wave-square" 
    title="Topological Drift Injection" 
    mechanism="Perturb curvature and thermodynamic smoothness to impair long-range reasoning." 
    risks="Misjudgments in law, medicine, engineering decisions." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-eye-slash" 
    title="nDNA Steganography" 
    mechanism="Encode hidden payloads in manifolds—retrievable by specific decoding queries." 
    risks="Censorship evasion, illicit communication, regulatory blind spots." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-code-branch" 
    title="Inheritance Hijack" 
    mechanism="Corrupt teacher or ancestor models to propagate epistemic flaws through generations." 
    risks="Infects downstream checkpoints; undermines open model trust." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-user-secret" 
    title="nDNA Deepfake" 
    mechanism="Mimic the latent structure of a reputable model to simulate capabilities or ideology." 
    risks="Brand hijack, counterfeit alignment, deceptive chatbot mimicry." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-low-vision" 
    title="Semantic Obfuscation" 
    mechanism="Flatten contrast in latent belief space to obscure true model tendencies." 
    risks="Bypasses alignment tests; failure in safety-critical contexts." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-magic" 
    title="Alignment Mirage" 
    mechanism="Over-optimize outward alignment while diverging internally at latent scale." 
    risks="Faked ethics in AI for law, education, medicine." %}
 
-{% include threat-card.html 
+{% include threat-card.liquid 
    icon="fa-globe" 
    title="Cultural Trojan Fusion" 
    mechanism="Merge with targeted ideological nDNA using asymmetric blending." 
@@ -131,7 +129,7 @@ This deception is potent precisely because it resides beneath surface metrics. T
 
 We do not present this merely as a theoretical oddity—but as a wake-up call. **If AI is to mediate global narratives, then tracing the provenance of its epistemic geometry is no longer optional—it is existential.**
 
-### 🥷 ThreatCard: Adversarial nDNA Sculpting
+<!-- ### ThreatCard: Adversarial nDNA Sculpting -->
 
 {% assign mechanism_data = site.data.threat_mechanisms | default: empty_array %}
 {% assign risk_data = site.data.threat_risks | default: empty_array %}
@@ -154,7 +152,7 @@ We do not present this merely as a theoretical oddity—but as a wake-up call. *
 {% endcapture %}
 {% assign risks = risks_list | split: ',' %}
 
-{% include detailed-threat-card.html 
+{% include detailed-threat-card.liquid 
    icon="fa-user-ninja" 
    title="ThreatCard: Adversarial nDNA Sculpting"
    strategy_title="Semantic Mimicry via Latent Sculpting"
@@ -166,6 +164,4 @@ We do not present this merely as a theoretical oddity—but as a wake-up call. *
 
 ---
 
-## References
-
-{% references wallace2019universal,carlini2022quantifying,zou2023universal,wei2023jailbroken,liu2023jailbreaker,rando2023language,shen2023deception,ganguli2023capacity,perez2022discovering,hinton2015distilling,romero2015fitnets,wei2022emergent,burns2022discovering,goodfellow2014explaining,gu2017badnets,li2022backdoor,zhu2023promptbench %}
+{% auto_references %}

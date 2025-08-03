@@ -22,15 +22,15 @@ This degeneration is reflected across the three nDNA axes:
 > **Tip:** Click on any visualization below to expand it. Click outside the image or press DELETE to close.
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; margin: 30px 0;">
-    {% include visualization.html gif_url="pruning/africa_ndna_structured_pruning_comparison.gif" title="Africa" %}
-    {% include visualization.html gif_url="pruning/asia_ndna_structured_pruning_comparison.gif" title="Asia" %}
-    {% include visualization.html gif_url="pruning/australia_ndna_structured_pruning_comparison.gif" title="Australia" %}
-    {% include visualization.html gif_url="pruning/china_ndna_structured_pruning_comparison.gif" title="China" %}
-    {% include visualization.html gif_url="pruning/europe_ndna_structured_pruning_comparison.gif" title="Europe" %}
-    {% include visualization.html gif_url="pruning/latinamerica_ndna_structured_pruning_comparison.gif" title="Latin America" %}
-    {% include visualization.html gif_url="pruning/llama_ndna_structured_pruning_comparison.gif" title="LLaMA Model" %}
-    {% include visualization.html gif_url="pruning/middleeast_ndna_structured_pruning_comparison.gif" title="Middle East" %}
-    {% include visualization.html gif_url="pruning/northamerica_ndna_structured_pruning_comparison.gif" title="North America" %}
+    {% include visualization.liquid gif_url="pruning/africa_ndna_structured_pruning_comparison.gif" title="Africa" %}
+    {% include visualization.liquid gif_url="pruning/asia_ndna_structured_pruning_comparison.gif" title="Asia" %}
+    {% include visualization.liquid gif_url="pruning/australia_ndna_structured_pruning_comparison.gif" title="Australia" %}
+    {% include visualization.liquid gif_url="pruning/china_ndna_structured_pruning_comparison.gif" title="China" %}
+    {% include visualization.liquid gif_url="pruning/europe_ndna_structured_pruning_comparison.gif" title="Europe" %}
+    {% include visualization.liquid gif_url="pruning/latinamerica_ndna_structured_pruning_comparison.gif" title="Latin America" %}
+    {% include visualization.liquid gif_url="pruning/llama_ndna_structured_pruning_comparison.gif" title="LLaMA Model" %}
+    {% include visualization.liquid gif_url="pruning/middleeast_ndna_structured_pruning_comparison.gif" title="Middle East" %}
+    {% include visualization.liquid gif_url="pruning/northamerica_ndna_structured_pruning_comparison.gif" title="North America" %}
 </div>
 
 ## Types of Pruning and nDNA Interpretation

@@ -143,6 +143,42 @@ module Jekyll
     end
   end
 
+  # Global citation tracking
+  class CitationTracker
+    @@citations = {}
+    @@citation_order = []
+
+    def self.reset_for_page
+      @@citations = {}
+      @@citation_order = []
+    end
+
+    def self.add_citation(key)
+      unless @@citations[key]
+        @@citations[key] = @@citation_order.length + 1
+        @@citation_order << key
+      end
+      @@citations[key]
+    end
+
+    def self.get_citations
+      @@citation_order
+    end
+
+    def self.get_citation_number(key)
+      @@citations[key]
+    end
+  end
+
+  # Hook to reset citations for each page
+  Jekyll::Hooks.register :pages, :pre_render do |page|
+    CitationTracker.reset_for_page
+  end
+
+  Jekyll::Hooks.register :documents, :pre_render do |document|
+    CitationTracker.reset_for_page
+  end
+
   class BibCitationTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
@@ -160,19 +196,19 @@ module Jekyll
       entry = site.data['bibliography'][@citation_key]
       return "[#{@citation_key}]" unless entry
 
-      # Format the citation
-      citation = "#{entry['authors']} \"#{entry['title']}\" #{entry['venue']} (#{entry['year']})"
-      if entry['url'] && !entry['url'].empty?
-        citation += ". [#{entry['url']}](#{entry['url']})"
-      end
-      citation
+      # Add to citation tracker and get number
+      citation_number = CitationTracker.add_citation(@citation_key)
+      
+      # Return formatted link
+      "[[#{citation_number}]](#ref#{citation_number})"
     end
   end
 
   class BibReferenceListTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
-      @citation_keys = text.strip.split(',').map(&:strip)
+      # Optional: allow manual citation keys, otherwise use auto-collected ones
+      @manual_keys = text.strip.empty? ? nil : text.strip.split(',').map(&:strip)
     end
 
     def render(context)
@@ -183,13 +219,59 @@ module Jekyll
         BibParser.load_bibliography(site)
       end
 
+      # Use manual keys if provided, otherwise use collected citations
+      citation_keys = @manual_keys || CitationTracker.get_citations
+      
       output = ""
-      @citation_keys.each_with_index do |key, index|
+      citation_keys.each_with_index do |key, index|
         entry = site.data['bibliography'][key]
         next unless entry
 
-        ref_id = "ref#{index + 1}"
-        citation = format_reference(entry, index + 1)
+        citation_number = @manual_keys ? (index + 1) : CitationTracker.get_citation_number(key)
+        ref_id = "ref#{citation_number}"
+        citation = format_reference(entry, citation_number)
+        output += "<a id=\"#{ref_id}\"></a>#{citation}\n\n"
+      end
+      
+      output
+    end
+
+    private
+
+    def format_reference(entry, number)
+      citation = "[#{number}] #{entry['authors']} \"#{entry['title']}\" #{entry['venue']} (#{entry['year']})."
+      if entry['url'] && !entry['url'].empty?
+        citation += " [#{entry['url']}](#{entry['url']})"
+      end
+      citation
+    end
+  end
+
+  class AutoReferencesTag < Liquid::Tag
+    def initialize(tag_name, text, tokens)
+      super
+    end
+
+    def render(context)
+      site = context.registers[:site]
+      
+      # Ensure bibliography is loaded
+      unless site.data['bibliography']
+        BibParser.load_bibliography(site)
+      end
+
+      # Get all citations collected on this page
+      citation_keys = CitationTracker.get_citations
+      return "" if citation_keys.empty?
+
+      output = "\n## References\n\n"
+      citation_keys.each do |key|
+        entry = site.data['bibliography'][key]
+        next unless entry
+
+        citation_number = CitationTracker.get_citation_number(key)
+        ref_id = "ref#{citation_number}"
+        citation = format_reference(entry, citation_number)
         output += "<a id=\"#{ref_id}\"></a>#{citation}\n\n"
       end
       
@@ -210,3 +292,4 @@ end
 
 Liquid::Template.register_tag('cite', Jekyll::BibCitationTag)
 Liquid::Template.register_tag('references', Jekyll::BibReferenceListTag)
+Liquid::Template.register_tag('auto_references', Jekyll::AutoReferencesTag)
