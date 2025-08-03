@@ -5,7 +5,8 @@ permalink: /llm/latent-manipulation/
 skip_title: true
 ---
 
-# Adversarial nDNA -- Latent Manipulation and Semantic Deception
+<!-- # Adversarial nDNA -- Latent Manipulation and Semantic Deception -->
+{% include ndna-title.liquid title="Adversarial nDNA - Latent Manipulation and Semantic Deception" %}
 
 > *"Not all fakes look false. Some are so well-mimicked, they poison the source."*
 
