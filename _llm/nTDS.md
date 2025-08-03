@@ -29,11 +29,11 @@ This biological metaphor underscores that **semantic inheritance in neural model
 # Mathematical Formulation of Neural Trait Dominance Score (nTDS)
 
 The Neural Trait Dominance Score (nTDS) formalizes the notion of layerwise parental trait influence in an offspring foundation model $M_O$, constructed from two parent models $M_A$ and $M_B$, within the Neural DNA (nDNA) semantic geometry framework.
-Let \( x_\ell^{(A)}, x_\ell^{(B)}, x_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d \), 
-\( \ell = 1, \ldots, L \), denote the latent semantic embeddings at layer \( \ell \) 
-for \( M_A \), \( M_B \), and \( M_O \) respectively, where \( L \) is the total number 
-of transformer layers and \( d \) is the embedding dimension. Each \( \mathcal{M}_\ell \) 
-is a Riemannian manifold equipped with a local Fisher information metric \( F_\ell \).
+Let $x_\ell^{(A)}, x_\ell^{(B)}, x_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d$, 
+$\ell = 1, \ldots, L$, denote the latent semantic embeddings at layer $\ell$
+for $M_A$, $M_B$, and $M_O$ respectively, where $L$ is the total number 
+of transformer layers and $d$ is the embedding dimension. Each $\mathcal{M}_\ell$
+is a Riemannian manifold equipped with a local Fisher information metric $F_\ell$.
 
 
 
