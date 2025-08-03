@@ -1,0 +1,6 @@
+<div class="threat-cards-container">
+  <div class="threat-cards-title">{{ include.title | default: "Strategic Typology of nDNA Manipulation Attacks" }}</div>
+  <div class="threat-cards-subtitle">{{ include.subtitle | default: "Each card below summarizes a high-risk manipulation targeting the semantic genome of foundation models." }} {% if include.redacted %}<strong>{{ include.redacted }}</strong>{% endif %}</div>
+
+  {{ include.content }}
+</div>

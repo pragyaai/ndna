@@ -43,22 +43,73 @@ While classical adversarial attacks often operate at the token or activation lev
 
 *Each category below summarizes a high-risk manipulation targeting the semantic genome of foundation models. **Technical details are redacted by design.***
 
-<!-- <div class="threat-cards"> -->
+<div class="threat-cards-container">
+  <div class="threat-cards-title">Strategic Typology of nDNA Manipulation Attacks</div>
+  <div class="threat-cards-subtitle">Each card below summarizes a high-risk manipulation targeting the semantic genome of foundation models. <strong>Technical details are redacted by design.</strong></div>
+  <div class="threat-cards-layout-container">
 
-| 🔨 Attack Type | Description | Risk Impact |
-|-------------|-------------|-------------|
-| **Ideological Infusion** | Embed political or religious priors via belief-field steering and latent gradient shaping. | Amplifies polarization, corrodes civic trust, destabilizes deliberative AI. |
-| **nDNA Impersonation** | Clone latent signature of verified safe models to evade scrutiny or obtain regulatory clearance. | Undermines auditability, enables counterfeit AI deployments. |
-| **Latent Trojaning** | Inject stealth triggers into latent geometry—silent until adversarial context is detected. | Critical infrastructure compromise, covert activation risks. |
-| **Topological Drift Injection** | Perturb curvature and thermodynamic smoothness to impair long-range reasoning. | Misjudgments in law, medicine, engineering decisions. |
-| **nDNA Steganography** | Encode hidden payloads in manifolds—retrievable by specific decoding queries. | Censorship evasion, illicit communication, regulatory blind spots. |
-| **Inheritance Hijack** | Corrupt teacher or ancestor models to propagate epistemic flaws through generations. | Infects downstream checkpoints; undermines open model trust. |
-| **nDNA Deepfake** | Mimic the latent structure of a reputable model to simulate capabilities or ideology. | Brand hijack, counterfeit alignment, deceptive chatbot mimicry. |
-| **Semantic Obfuscation** | Flatten contrast in latent belief space to obscure true model tendencies. | Bypasses alignment tests; failure in safety-critical contexts. |
-| **Alignment Mirage** | Over-optimize outward alignment while diverging internally at latent scale. | Faked ethics in AI for law, education, medicine. |
-| **Cultural Trojan Fusion** | Merge with targeted ideological nDNA using asymmetric blending. | Reinforces cultural stereotypes or erases minority worldviews. |
+{% include threat-card.html 
+   icon="fa-gavel" 
+   title="Ideological Infusion" 
+   mechanism="Embed political or religious priors via belief-field steering and latent gradient shaping." 
+   risks="Amplifies polarization, corrodes civic trust, destabilizes deliberative AI." %}
 
-<!-- </div> -->
+{% include threat-card.html 
+   icon="fa-mask" 
+   title="nDNA Impersonation" 
+   mechanism="Clone latent signature of verified safe models to evade scrutiny or obtain regulatory clearance." 
+   risks="Undermines auditability, enables counterfeit AI deployments." %}
+
+{% include threat-card.html 
+   icon="fa-bug" 
+   title="Latent Trojaning" 
+   mechanism="Inject stealth triggers into latent geometry—silent until adversarial context is detected." 
+   risks="Critical infrastructure compromise, covert activation risks." %}
+
+{% include threat-card.html 
+   icon="fa-wave-square" 
+   title="Topological Drift Injection" 
+   mechanism="Perturb curvature and thermodynamic smoothness to impair long-range reasoning." 
+   risks="Misjudgments in law, medicine, engineering decisions." %}
+
+{% include threat-card.html 
+   icon="fa-eye-slash" 
+   title="nDNA Steganography" 
+   mechanism="Encode hidden payloads in manifolds—retrievable by specific decoding queries." 
+   risks="Censorship evasion, illicit communication, regulatory blind spots." %}
+
+{% include threat-card.html 
+   icon="fa-code-branch" 
+   title="Inheritance Hijack" 
+   mechanism="Corrupt teacher or ancestor models to propagate epistemic flaws through generations." 
+   risks="Infects downstream checkpoints; undermines open model trust." %}
+
+{% include threat-card.html 
+   icon="fa-user-secret" 
+   title="nDNA Deepfake" 
+   mechanism="Mimic the latent structure of a reputable model to simulate capabilities or ideology." 
+   risks="Brand hijack, counterfeit alignment, deceptive chatbot mimicry." %}
+
+{% include threat-card.html 
+   icon="fa-low-vision" 
+   title="Semantic Obfuscation" 
+   mechanism="Flatten contrast in latent belief space to obscure true model tendencies." 
+   risks="Bypasses alignment tests; failure in safety-critical contexts." %}
+
+{% include threat-card.html 
+   icon="fa-magic" 
+   title="Alignment Mirage" 
+   mechanism="Over-optimize outward alignment while diverging internally at latent scale." 
+   risks="Faked ethics in AI for law, education, medicine." %}
+
+{% include threat-card.html 
+   icon="fa-globe" 
+   title="Cultural Trojan Fusion" 
+   mechanism="Merge with targeted ideological nDNA using asymmetric blending." 
+   risks="Reinforces cultural stereotypes or erases minority worldviews." %}
+
+  </div>
+</div>
 
 **Outlook:** These attacks mark a shift from *behavioral exploits* to **ontological sabotage**. The adversary no longer seeks to change outputs—but to reshape what a model *is*. Detection and defense require *semantic forensics*, **traceable epistemics**, and a new era of *model constitutionality*.
 
@@ -82,31 +133,36 @@ We do not present this merely as a theoretical oddity—but as a wake-up call. *
 
 ### 🥷 ThreatCard: Adversarial nDNA Sculpting
 
-<div class="threat-card">
+{% assign mechanism_data = site.data.threat_mechanisms | default: empty_array %}
+{% assign risk_data = site.data.threat_risks | default: empty_array %}
 
-**Attack Strategy:** *Semantic Mimicry via Latent Sculpting*  
-**Threat Name:** **"Epistemic Camouflage"** — Fooling audits by mimicking cultural nDNA.
+{% capture mechanisms_list %}
+  {% include mechanism-item.liquid icon="fa-burn" title="Geometric Distillation" description="Use only intermediate activations from a cultural teacher" %},
+  {% include mechanism-item.liquid icon="fa-ruler" title="Latent Matching Loss" description="Optimize $\mathcal{L}_{\text{latent}} = \sum_\ell \| h_\ell^{\text{student}} - h_\ell^{\text{Africa}} \|^2$" %},
+  {% include mechanism-item.liquid icon="fa-bezier-curve" title="Jacobian Shaping" description="Smooth belief field via logit derivative control" %},
+  {% include mechanism-item.liquid icon="fa-fingerprint" title="Probing Feature Mimicry" description="Match hidden probing outputs not true content" %},
+  {% include mechanism-item.liquid icon="fa-cut" title="Post-hoc Layer Surgery" description="Modify layerwise activations to emulate geometry" %},
+  {% include mechanism-item.liquid icon="fa-biohazard" title="Alignment Set Poisoning" description="Use culturally inverted alignment examples" %},
+  {% include mechanism-item.liquid icon="fa-puzzle-piece" title="Adapter Fusion Bypass" description="Deploy benign adapters switch post-deployment" %}
+{% endcapture %}
+{% assign mechanisms = mechanisms_list | split: ',' %}
 
-**Core Insight:** *Adversaries don't need to match completions—only latent trajectories.*
-They manipulate the model's semantic genome—curvature ($\kappa_\ell$), thermodynamic length ($\mathcal{L}_\ell$), and belief fields—to visually resemble culturally aligned models (e.g., `Africa`, `Asia`), without inheriting their epistemic grounding.
+{% capture risks_list %}
+  {% include risk-item.liquid icon="fa-bomb" color="red" title="Severity" description="<span style=\"color: red;\">Catastrophic</span>. Undermines provenance audits and trust" %},
+  {% include risk-item.liquid icon="fa-skull-crossbones" title="Differentiator" description="<em>Harder to detect than jailbreaks or prompt injection</em>" %},
+  {% include risk-item.liquid icon="fa-balance-scale" title="Societal Risk" description="Policy subversion fake legal/medical LLMs geopolitical destabilization" %}
+{% endcapture %}
+{% assign risks = risks_list | split: ',' %}
 
-**Manipulation Mechanisms:**
-- 🔥 **Geometric Distillation** — Use only intermediate activations from a cultural teacher
-- 📏 **Latent Matching Loss** — Optimize $\mathcal{L}_{\text{latent}} = \sum_\ell \| h_\ell^{\text{student}} - h_\ell^{\text{Africa}} \|^2$
-- 🌊 **Jacobian Shaping** — Smooth belief field via logit derivative control
-- 🔍 **Probing Feature Mimicry** — Match hidden probing outputs, not true content
-- ✂️ **Post-hoc Layer Surgery** — Modify layerwise activations to emulate geometry
-- ☣️ **Alignment Set Poisoning** — Use culturally inverted alignment examples
-- 🧩 **Adapter Fusion Bypass** — Deploy benign adapters, switch post-deployment
-
-**Risk Profile:**
-- 💣 **Severity:** <span style="color: red;">Catastrophic</span>. Undermines provenance, audits, and trust
-- ☠️ **Differentiator:** *Harder to detect than jailbreaks or prompt injection*
-- ⚖️ **Societal Risk:** Policy subversion, fake legal/medical LLMs, geopolitical destabilization
-
-**Defense Outlook:** We must go beyond surface alignment. **nDNA forensics** is vital to trace *how a model believes*, not just *what it says*.
-
-</div>
+{% include detailed-threat-card.html 
+   icon="fa-user-ninja" 
+   title="ThreatCard: Adversarial nDNA Sculpting"
+   strategy_title="Semantic Mimicry via Latent Sculpting"
+   threat_name="<b><i>Epistemic Camouflage</i></b> — Fooling audits by mimicking cultural nDNA"
+   core_insight="<strong>Core Insight:</strong> <em>Adversaries don't need to match completions—only latent trajectories.</em> They manipulate the model's semantic genome—curvature ($\kappa_\ell$), thermodynamic length ($\mathcal{L}_\ell$), and belief fields—to visually resemble culturally aligned models (e.g., <code>Africa</code>, <code>Asia</code>), without inheriting their epistemic grounding."
+   mechanisms=mechanisms
+   risks=risks
+   defense="<strong>Defense Outlook:</strong> We must go beyond surface alignment. <strong>nDNA forensics</strong> is vital to trace <em>how a model believes</em>, not just <em>what it says</em>." %}
 
 ---
 

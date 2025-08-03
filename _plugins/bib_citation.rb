@@ -105,7 +105,9 @@ module Jekyll
 
     def self.clean_field_value(value)
       # Remove braces, quotes, and trailing commas
-      value.gsub(/^\s*["{]\s*/, '').gsub(/\s*["}],?\s*$/, '').strip
+      cleaned = value.gsub(/^\s*["{]\s*/, '').gsub(/\s*["}],?\s*$/, '').strip
+      # Handle LaTeX escape sequences
+      cleaned.gsub(/\\&/, '&').gsub(/\\%/, '%').gsub(/\\_/, '_').gsub(/\\\$/, '$')
     end
 
     def self.format_authors(authors)
@@ -160,7 +162,9 @@ module Jekyll
 
       # Format the citation
       citation = "#{entry['authors']} \"#{entry['title']}\" #{entry['venue']} (#{entry['year']})"
-      citation += ". #{entry['url']}" if entry['url'] && !entry['url'].empty?
+      if entry['url'] && !entry['url'].empty?
+        citation += ". [#{entry['url']}](#{entry['url']})"
+      end
       citation
     end
   end
@@ -195,7 +199,11 @@ module Jekyll
     private
 
     def format_reference(entry, number)
-      "[#{number}] #{entry['authors']} \"#{entry['title']}\" #{entry['venue']} (#{entry['year']})."
+      citation = "[#{number}] #{entry['authors']} \"#{entry['title']}\" #{entry['venue']} (#{entry['year']})."
+      if entry['url'] && !entry['url'].empty?
+        citation += " [#{entry['url']}](#{entry['url']})"
+      end
+      citation
     end
   end
 end
