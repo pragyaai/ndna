@@ -42,6 +42,7 @@ To quantify how knowledge distillation reshapes the latent epistemic geometry of
 
 {% include visualization.liquid 
    image_path="llama_vs_cultures_offspring_students.gif"
+   interactive_html="cultural_ndna_with_students_annotated.html"
    caption=figure_caption
    alt_text="3D visualization showing latent geometry comparison between teacher models, student models, and neural offspring" %}
 
