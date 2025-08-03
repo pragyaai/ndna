@@ -251,6 +251,15 @@ body {
   display: flex;
   gap: 40px;
 }
+.page-title, .page-title-ndna {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h1.page-title {
+  font-size: 2rem !important;
+}
 
 .main-text {
   flex: 2;
