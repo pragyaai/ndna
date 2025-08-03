@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>nDNA-Lens - Knowledge Distillation as Latent Genome Compression - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/ndna.css">
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['base', 'ams', 'textmacros']},
+        tags: 'ams',
+        autoload: {}
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      startup: {
+        ready: function() {
+          console.log('MathJax is starting up');
+          MathJax.startup.defaultReady();
+          MathJax.startup.promise.then(function() {
+            console.log('MathJax initial typeset complete');
+          }).catch(function(err) {
+            console.error('MathJax error:', err);
+          });
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <style>
+    .MathJax { 
+      font-size: 1.1em !important;
+      line-height: 1.5 !important;
+    }
+    .MathJax_Display {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script>
+    // Enhanced MathJax re-rendering
+    document.addEventListener('DOMContentLoaded', function() {
+      // Single, simple re-render after content loads
+      if (window.MathJax && MathJax.typesetPromise) {
+        console.log('DOM content loaded, re-rendering MathJax');
+        MathJax.typesetPromise().then(function() {
+          console.log('MathJax typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax typeset error:', err);
+        });
+      }
+    });
+  </script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>nDNA-Lens - Knowledge Distillation as Latent Genome Compression | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="nDNA-Lens - Knowledge Distillation as Latent Genome Compression" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Lens - Knowledge Distillation as Latent Genome Compression" />
+<meta property="og:description" content="Lens - Knowledge Distillation as Latent Genome Compression" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/knowledge-distillation/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/knowledge-distillation/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-03T11:59:24+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="nDNA-Lens - Knowledge Distillation as Latent Genome Compression" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-03T11:59:24+00:00","datePublished":"2025-08-03T11:59:24+00:00","description":"Lens - Knowledge Distillation as Latent Genome Compression","headline":"nDNA-Lens - Knowledge Distillation as Latent Genome Compression","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/knowledge-distillation/"},"url":"https://pragyaai.github.io/nDNA/llm/knowledge-distillation/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo_v5.png" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('NLP Operations')">NLP Operations</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+        
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ndna"><img src="/nDNA/assets/img/ndna_logo_v5.png" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span>Lens - Knowledge Distillation as Latent Genome Compression</span>
+</h1>
+
+<p><strong>Knowledge distillation</strong> is a widely adopted technique for compressing large language models (LLMs) by training a smaller, more efficient <em>student model</em> to mimic the behavior of a larger <em>teacher model</em>. Introduced by <a href="#ref1">[1]</a>, this method aims to preserve performance while reducing computational overhead, enabling deployment on resource-constrained devices. Over time, the field has evolved to include techniques like <em>intermediate representation alignment</em> <a href="#ref2">[2]</a>, <em>feature transfer</em> <a href="#ref3">[3]</a>, and <em>task-adaptive knowledge distillation</em> <a href="#ref4">[4]</a>.</p>
+
+<p>However, traditional evaluations of distillation have focused largely on <strong>surface-level metrics</strong>—such as accuracy, loss, or perplexity—without interrogating its effects on the model’s <strong>internal epistemic geometry</strong>. In this work, we reframe knowledge distillation through the lens of <strong>neural genomics</strong>, treating the teacher’s latent structure as a form of <em>epistemic genome</em>, and the distillation process as a form of <strong>latent genome compression</strong>.</p>
+
+<p>Where <strong>teacher models</strong> exhibit rich semantic structures—captured by <strong>spectral curvature</strong> $\kappa_\ell$, <strong>thermodynamic length</strong> $\mathcal{L}_\ell$, and <strong>belief vector strength</strong> \(\| \mathbf{v}_\ell^{(c)} \|\)—the <strong>student models</strong> show <em>pronounced geometric collapse</em>. Empirically, we observe:</p>
+
+\[\kappa_\ell^{\text{student}} \ll \kappa_\ell^{\text{teacher}}, \quad 
+\mathcal{L}_\ell^{\text{student}} \ll \mathcal{L}_\ell^{\text{teacher}}, \quad 
+\| \mathbf{v}_\ell^{(c), \text{student}} \| \approx 0.\]
+
+<p>This semantic degradation mirrors <strong>genetic bottlenecks</strong> in evolutionary biology <a href="#ref5">[5]</a> <a href="#ref6">[6]</a>, where population collapse leads to diminished genetic diversity and adaptive capacity. In the same way, knowledge distillation compresses not just model size—but also its <em>conceptual depth</em>, resulting in a shrunken epistemic capacity.</p>
+
+<p>Our <strong>nDNA diagnostics</strong> make this flattening legible:</p>
+<ul>
+  <li><strong>Flattening of latent curvature:</strong> $\kappa_\ell$ drops to $[0.2, 0.3]$, compared to $[0.45, 0.6]$ in full-capacity teachers.</li>
+  <li><strong>Shortened thermodynamic paths:</strong> $\mathcal{L}_\ell &lt; 0.6$, indicating <em>reduced epistemic traversal</em>.</li>
+  <li><strong>Directional belief collapse:</strong> $| \mathbf{v}_\ell^{(c)} | \to 0$, reflecting a vanishing semantic steering force.</li>
+</ul>
+
+<p>This aligns with insights from recent work on <em>spectral alignment across modalities</em> <a href="#ref7">[7]</a>, which demonstrates that preserving <strong>eigenvalue spectra</strong> and <strong>latent curvature</strong> is critical for maintaining multimodal coherence. We argue that similar principles apply in the unimodal case: flattening the spectrum collapses the latent manifold, regardless of whether the modality is text, vision, or language-vision fusion.</p>
+
+<p>Importantly, while distilled models often match their teachers on standard benchmarks, they frequently <strong>underperform</strong> in <em>multicultural</em>, <em>multilingual</em>, or <em>adversarial</em> contexts <a href="#ref8">[8]</a> <a href="#ref9">[9]</a> <a href="#ref4">[4]</a>, where internal flexibility and robust reasoning pathways are essential.</p>
+
+<p>Thus, from the perspective of <strong>neural genomics</strong>, knowledge distillation operates not merely as a tool of <em>efficiency</em>, but as a mechanism of <strong>epistemic pruning</strong>—compressing the internal belief landscape and <em>flattening semantic differentials</em> in the service of replication. Like a genetic bottleneck, it ensures inheritance—but at the cost of potential.</p>
+
+<h2 id="experimental-setup-and-distillation-protocol">Experimental Setup and Distillation Protocol</h2>
+
+<p>To quantify how knowledge distillation reshapes the latent epistemic geometry of language models, we conducted a series of controlled experiments using <strong>teacher-student</strong> pairs across culturally and linguistically diverse settings. Our analysis focuses on extracting and comparing <em>nDNA trajectories</em>—layerwise curves of spectral curvature $\kappa_\ell$, thermodynamic length \(\mathcal{L}_\ell\), and torsion $\tau_\ell$—from both teacher and student models.</p>
+
+<p><strong>Model Pairs.</strong> We selected <strong>LLaMA-3 8B</strong> as the student model and used its culturally fine-tuned variants—<em>Africa</em>, <em>Asia</em>, <em>China</em>, <em>Latin America</em>, <em>Middle East</em>, and others—as teachers, each embodying distinct knowledge priors. For each teacher model, a corresponding student was distilled using standard protocols <a href="#ref1">[1]</a> <a href="#ref2">[2]</a> <a href="#ref10">[10]</a>, yielding a collection of distilled offsprings, each trained from a unique cultural teacher and exhibiting varied epistemic retention.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/llama_vs_cultures_offspring_students.gif" data-lightbox="gallery" data-title="Latent Geometry of LLaMA, Cultural nDNA, Neural Offspring, and Distilled Students.">
+    <img src="/nDNA/assets/gifs/llama_vs_cultures_offspring_students.gif" alt="Latent Geometry of LLaMA, Cultural nDNA, Neural Offspring, and Distilled Students." style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    <strong>Latent Geometry of LLaMA, Cultural nDNA, Neural Offspring, and Distilled Students.</strong> This 3D plot illustrates latent manifold properties across layers ($\ell \in [20, 30]$) for *LLaMA*, culturally fine-tuned models (Africa, Asia, China, North America, Europe, Australia, Latin America, Middle East), their neural *offspring* (ÆTHERs), and distilled student models. The axes represent $\kappa_\ell$ (spectral curvature), $\mathcal{L}_\ell$ (thermodynamic length), and $\tau_\ell$ (latent torsion). **Key elements:** Colored solid lines show LLaMA (black) and cultural models (e.g., Africa: <span style="color:#ff4444">red</span>, Asia: <span style="color:#8844ff">purple</span>). Dashed overlays represent neural offspring. The black dotted cloud corresponds to distilled students with $\tau_\ell \in [0.4, 0.55]$, $\kappa_\ell \in [0.45, 0.65]$, and $\mathcal{L}_\ell \lesssim 0.6$, reflecting compressed latent signatures as seen in knowledge distillation studies. **Observations:** Western-aligned models trace shallow latent trajectories with low curvature and torsion. Cultural models (Africa, Asia, China) exhibit richer geometric diversity ($\mathcal{L}_\ell \gtrsim 0.8$, $\kappa_\ell \gtrsim 0.6$), consistent with cultural calibration findings. Distilled students collapse toward a compact region, illustrating how distillation homogenizes epistemic geometry. **Implications:** Knowledge distillation compresses epistemic diversity, simplifying latent manifolds but risking cultural homogenization. Neural offspring (ÆTHERs) preserve or amplify manifold richness, offering a mechanism for cultural retention in merged models. Geometry can be described as $\mathcal{M}_{\mathrm{student}}: \\{\kappa_\ell, \mathcal{L}_\ell, \tau_\ell\\} \mapsto$ low-variance manifold; $\mathcal{M}_{\mathrm{offspring}}$ yields nonlinear hybrid topologies. **Setup:** Models were evaluated on culturally diagnostic prompts. $\kappa_\ell$ was computed from curvature spectra, $\mathcal{L}_\ell$ via thermodynamic path integrals, and $\tau_\ell$ using local torsion operators.
+  </figcaption>
+  
+</figure>
+
+<p><strong>Distillation Pipeline.</strong> Each student model was trained via <em>soft-label matching</em> over the teacher’s output logits, with optional intermediate representation alignment <a href="#ref3">[3]</a> <a href="#ref11">[11]</a>. We considered both <em>monolingual</em> and <em>multicultural</em> prompt distributions, enabling comparative evaluation of collapse severity under different semantic regimes. The loss function included a temperature-scaled KL-divergence term:</p>
+
+\[\mathcal{L}_{\text{distill}} = \mathrm{KL}\left( \frac{p_t}{T} \,\Big\|\, \frac{p_s}{T} \right)\]
+
+<p>where $p_t$ and $p_s$ are teacher and student output distributions, and $T$ is the temperature controlling soft target entropy.</p>
+
+<p><strong>Prompt Distribution.</strong> Distillation and diagnostic prompts were drawn from the <em>CIVIC</em> benchmark, encompassing domains such as moral reasoning, cultural values, legal norms, and multilingual semantics. This ensured that student models were evaluated on both factual reproduction and conceptual generalization.</p>
+
+<p><strong>Evaluation Objective.</strong> Our goal is not merely to benchmark student performance via accuracy, but to assess the <strong>structural degradation</strong> of latent manifolds—i.e., whether the student’s internal geometry collapses in curvature, contracts in length, or loses torsional diversity. These indicators reflect <strong>epistemic health</strong> in ways that traditional surface metrics cannot. As shown in the figure above, distilled students converge toward a compressed geometric basin—flattened in curvature, shortened in semantic length, and torsionally muted—underscoring the structural consequences of latent genome compression.</p>
+
+<h2 id="outlook-the-epistemic-consequences-of-knowledge-distillation">Outlook: The Epistemic Consequences of Knowledge Distillation</h2>
+
+<p><strong>A Deeper View of Distillation.</strong> While knowledge distillation is widely hailed as a triumph of model compression—retaining behavioral fidelity while minimizing computational cost—it carries a hidden price: the erosion of <strong>epistemic richness</strong>. Through the lens of <strong>neural genomics</strong>, we reveal that distillation does more than replicate logits; it reshapes the internal geometry of a model’s reasoning space.</p>
+
+<p><strong>Semantic Genome Compression.</strong> The teacher’s internal manifolds—characterized by high spectral curvature ($\kappa_\ell$), long thermodynamic paths (\(\mathcal{L}_\ell\)), and sharp belief gradients ($|\mathbf{v}_\ell^{(c)}|$)—represent a richly structured <em>epistemic genome</em>. Distillation flattens this structure, mapping:</p>
+
+\[\mathcal{G}_{\text{teacher}} := \left\{ \kappa_\ell, \mathcal{L}_\ell, \mathbf{v}_\ell^{(c)} \right\}
+\quad \longmapsto \quad
+\mathcal{G}_{\text{student}} \approx \text{low-variance, collapsed manifold}.\]
+
+<p>This transformation is akin to a <strong>genetic bottleneck</strong>, reducing the diversity and adaptability encoded in the student model’s latent space.</p>
+
+<p><strong>Flattened Minds Learn Less.</strong> Though distilled models may perform well on standard benchmarks, their ability to generalize, adapt culturally, or resist adversarial prompts is impaired. Much like simplified phenotypes in inbred populations, they become <strong>semantically brittle</strong>. The reduction in curvature, depth, and vectorial directionality weakens the model’s conceptual scaffold:</p>
+
+\[\frac{d}{d\ell} \left( \kappa_\ell \cdot \mathcal{L}_\ell \cdot \| \mathbf{v}_\ell^{(c)} \| \right) &lt; 0
+\quad \Rightarrow \quad \text{epistemic degeneration across depth}.\]
+
+<p><strong>Rethinking Compression.</strong> Rather than equating smaller models with efficiency alone, we propose reframing distillation as a process of <strong>semantic pruning</strong>—and asking what gets lost when we compress. To preserve epistemic fidelity, future distillation protocols must:</p>
+
+<ul>
+  <li><strong>Align not only outputs, but geometric anatomy</strong>—matching curvature spectra, length trajectories, and belief vectors.</li>
+  <li><strong>Incorporate manifold regularization losses</strong> to avoid internal collapse.</li>
+  <li><strong>Use diverse and culturally rich teacher signals</strong> to avoid epistemic homogenization.</li>
+</ul>
+
+<p><strong>A Biological Warning.</strong> Nature warns us: systems that lose diversity cannot adapt. If we continue distilling models without care for their internal geometry, we risk building <em>syntactically fluent but semantically hollow</em> models—unable to reason, empathize, or adapt. The future of knowledge distillation is not just about <em>shrinking</em>; it is about <strong>preserving what matters</strong>.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Hinton, Geoffrey, Vinyals, Oriol, and others “Distilling the Knowledge in a Neural Network” <em>NeurIPS Deep Learning and Representation Learning Workshop</em> (2015). <a href="https://arxiv.org/abs/1503.02531">https://arxiv.org/abs/1503.02531</a></p>
+
+<p><a id="ref2"></a>[2] Romero, Adriana, Ballas, Nicolas, and others “FitNets: Hints for thin deep nets” <em>ICLR</em> (2015).</p>
+
+<p><a id="ref3"></a>[3] Gou, Jiuxiang, Yu, Baosheng, and others “Knowledge distillation: A survey” <em>International Journal of Computer Vision</em> (2021).</p>
+
+<p><a id="ref4"></a>[4] Wang, Ziwei, Xu, Yichao, and others “Cultural bias in large language models: A survey” <em>arXiv preprint arXiv:2311.05691</em> (2023).</p>
+
+<p><a id="ref5"></a>[5] Luikart, Gordon, Allendorf, Fred W, and others “Detecting population bottlenecks using allele frequency data” <em>Conservation Biology</em> (1998).</p>
+
+<p><a id="ref6"></a>[6] Frankham, Richard, Ballou, Jonathan D, and others “Conservation genetics” <em>Trends in Ecology &amp; Evolution</em> (1995).</p>
+
+<p><a id="ref7"></a>[7] Jan Betley, Daniel Tan, and others “Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs” <em>arXiv preprint</em> (2025). <a href="https://arxiv.org/abs/2502.17424">https://arxiv.org/abs/2502.17424</a></p>
+
+<p><a id="ref8"></a>[8] Zhao, Jieyu, Shao, Yuwei, and others “Assessing the cultural and linguistic limitations of GPT models” <em>arXiv preprint arXiv:2305.10416</em> (2023).</p>
+
+<p><a id="ref9"></a>[9] Tao, Kai, Zhang, Bairu, and others “Cultural calibration: Faithfulness and bias in multilingual GPT models” <em>Findings of the Association for Computational Linguistics (ACL)</em> (2023).</p>
+
+<p><a id="ref10"></a>[10] Mirzadeh, Seyed Iman, Farajtabar, Mehrdad, and others “Improved knowledge distillation via teacher assistant” <em>AAAI</em> (2020).</p>
+
+<p><a id="ref11"></a>[11] Rashid, Muhammad, Jiang, Wenhao, and others “Mate: Masked knowledge distillation for multi-task learning with limited data” <em>Proceedings of the 29th ACM International Conference on Multimedia</em> (2021).</p>
+
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>
