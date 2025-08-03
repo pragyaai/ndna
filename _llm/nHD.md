@@ -24,7 +24,7 @@ Subtle changes in neural weights or activations—especially across culturally h
 nHD detects and localizes these **semantic mutation signatures**, helping identify which layers or parameters are more vulnerable to **drift**, enabling model realignment and robustness analysis.
 
 
-## 14.1 From Genomic Mutation to Neural Lineage Drift
+## From Genomic Mutation to Neural Lineage Drift
 
 ### What the Metric Does
 
