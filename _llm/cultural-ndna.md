@@ -23,15 +23,15 @@ Cultural nDNA analysis is performed through three primary dimensions of latent g
 <div><b>Tip:</b> <i>Click on any visualization below to expand it. Click outside the image or press DELETE to close.</i></div>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-  {% include visualization.liquid gif_url="cultural_ndna/llama_vs_cultures_group_tagged_360.gif" title="Global Comparison" style="global" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Africa_rotation.gif" title="Africa" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Asia_rotation.gif" title="Asia" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Australia_rotation.gif" title="Australia" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_China_rotation.gif" title="China" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Europe_rotation.gif" title="Europe" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_LatinAmerica_rotation.gif" title="Latin America" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_MiddleEast_rotation.gif" title="Middle East" %}
-  {% include visualization.liquid gif_url="cultural_ndna/llama_culture_shift_gifs_final 2/llama_NorthAmerica_rotation.gif" title="North America" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_vs_cultures_group_tagged_360.gif" title="Global Comparison" style="global" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Africa_rotation.gif" title="Africa" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Asia_rotation.gif" title="Asia" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Australia_rotation.gif" title="Australia" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_China_rotation.gif" title="China" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Europe_rotation.gif" title="Europe" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_LatinAmerica_rotation.gif" title="Latin America" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_MiddleEast_rotation.gif" title="Middle East" %}
+  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_NorthAmerica_rotation.gif" title="North America" %}
 </div>
 
 ### Belief Vector Orientation

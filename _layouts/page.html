@@ -50,11 +50,14 @@
     }
   </style>
   <script>
-    // Force MathJax to re-render when page loads
+    // Enhanced MathJax re-rendering
     document.addEventListener('DOMContentLoaded', function() {
-      if (window.MathJax) {
+      // Single, simple re-render after content loads
+      if (window.MathJax && MathJax.typesetPromise) {
         console.log('DOM content loaded, re-rendering MathJax');
-        MathJax.typesetPromise().catch(function(err) {
+        MathJax.typesetPromise().then(function() {
+          console.log('MathJax typeset complete');
+        }).catch(function(err) {
           console.error('MathJax typeset error:', err);
         });
       }
