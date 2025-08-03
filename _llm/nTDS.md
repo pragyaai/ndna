@@ -133,7 +133,7 @@ In summary, **nTDS** delivers a *biologically grounded*, **mathematically rigoro
 
 ## Applications and Empirical Insights
 
-The **Neural Trait Dominance Score (nTDS)** serves as a mathematically rigorous and semantically nuanced metric that quantifies *layerwise parental influence* on an offspring foundation model's latent semantic embeddings. Formally, for each transformer layer $\ell$, the quantity $\mathrm{nTDS}_\ell$ measures the normalized difference in Euclidean distances between the offspring embedding $\mathbf{x}^{(O)}_\ell$ and its parents’ embeddings $\mathbf{x}^{(A)}_\ell$ and $\mathbf{x}^{(B)}_\ell$:
+The **Neural Trait Dominance Score (nTDS)** serves as a mathematically rigorous and semantically nuanced metric that quantifies *layerwise parental influence* on an offspring foundation model's latent semantic embeddings. Formally, for each transformer layer $\ell$, the quantity $\mathrm{nTDS}\ell$ measures the normalized difference in Euclidean distances between the offspring embedding $\mathbf{x}^{(O)}\ell$ and its parents’ embeddings $\mathbf{x}^{(A)}\ell$ and $\mathbf{x}^{(B)}\ell$:
 
 $$
 \mathrm{nTDS}_\ell = \frac{\|\mathbf{x}^{(O)}_\ell - \mathbf{x}^{(B)}_\ell\|_2 - \|\mathbf{x}^{(O)}_\ell - \mathbf{x}^{(A)}_\ell\|_2}{\|\mathbf{x}^{(A)}_\ell - \mathbf{x}^{(B)}_\ell\|_2 + \epsilon}
