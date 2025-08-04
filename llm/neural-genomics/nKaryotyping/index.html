@@ -73,11 +73,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-04T05:08:10+00:00" />
+<meta property="article:published_time" content="2025-08-04T05:40:57+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Karyotyping (nKaryotyping)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T05:08:10+00:00","datePublished":"2025-08-04T05:08:10+00:00","headline":"Neural Karyotyping (nKaryotyping)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T05:40:57+00:00","datePublished":"2025-08-04T05:40:57+00:00","headline":"Neural Karyotyping (nKaryotyping)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -179,15 +179,15 @@
 
 <p>For each band $k$ at layer $\ell$, define a semantic band divergence:</p>
 
-<p>$\Delta^{(O;A,B)}<em>{\ell,k} := \min(|b^{(O)}</em>{\ell,k} - b^{(A)}<em>{\ell,k}|_2, |b^{(O)}</em>{\ell,k} - b^{(B)}_{\ell,k}|_2)$</p>
+\[\Delta^{(O;A,B)}_{\ell,k} := \min(\|b^{(O)}_{\ell,k} - b^{(A)}_{\ell,k}\|_2, \|b^{(O)}_{\ell,k} - b^{(B)}_{\ell,k}\|_2)\]
 
 <p>which quantifies how closely the offspring’s semantic band aligns with either parent’s band.</p>
 
 <h3 id="semantic-structural-variations">Semantic Structural Variations</h3>
 
-<p>Let $\pi_\ell: {1, \dots, K^{(A)}<em>\ell} \to {1, \dots, K^{(B)}</em>\ell}$ be a band correspondence mapping. Then we measure:</p>
+<p>Let $\pi_\ell$: {1, \dots, K^{(A)}<em>\ell} \to {1, \dots, K^{(B)}</em>\ell}$ be a band correspondence mapping. Then we measure:</p>
 
-<p>$\text{Translocation}<em>\ell := \sum</em>{k=1}^{K^{(A)}<em>\ell} \mathbf{1}[\pi</em>\ell(k) \ne k]$</p>
+\[\text{Translocation}_\ell := \sum_{k=1}^{K^{(A)}_\ell} \mathbf{1}[\pi_\ell(k) \ne k]\]
 
 <p>indicating positional shifts in semantic band inheritance. Similar formulations apply for duplication and deletion counts.</p>
 
@@ -234,9 +234,9 @@
 <table>
   <tbody>
     <tr>
-      <td>capturing band means $\mu$, variances $\sigma$, and sizes $</td>
+      <td>capturing band means $\mu$, variances $\sigma$, and sizes (</td>
       <td>B_{\ell,i}</td>
-      <td>$, which encode semantic inheritance strength and variability.</td>
+      <td>), which encode semantic inheritance strength and variability.</td>
     </tr>
   </tbody>
 </table>
@@ -248,9 +248,9 @@
 <table>
   <tbody>
     <tr>
-      <td>where $\text{Inv}(\cdot, \cdot)$ measures band inversions or reorderings, and $</td>
+      <td>where $\text{Inv}(\cdot, \cdot)$ measures band inversions or reorderings, and (</td>
       <td>\cdot</td>
-      <td>$ denotes band size differences, collectively revealing semantic translocations, duplications, and deletions across layers.</td>
+      <td>) denotes band size differences, collectively revealing semantic translocations, duplications, and deletions across layers.</td>
     </tr>
   </tbody>
 </table>
@@ -269,7 +269,7 @@
 
 <h2 id="case-study-and-validation">Case Study and Validation</h2>
 
-<p>To empirically validate the Neural Karyotyping (nKaryotyping) framework, we analyze foundation models fine-tuned on diverse cultural corpora, such as European and Asian datasets, and their merged offspring models generated through Fisher-weighted latent space fusion. For each transformer layer $\ell$, we extract semantic chromosome band structures $K^{(Eur)}<em>\ell$, $K^{(Asi)}</em>\ell$, and $K^{(Merged)}_\ell$, representing the clustered semantic traits analogous to biological chromosome banding.</p>
+<p>To empirically validate the Neural Karyotyping (nKaryotyping) framework, we analyze foundation models fine-tuned on diverse cultural corpora, such as European and Asian datasets, and their merged offspring models generated through Fisher-weighted latent space fusion. For each transformer layer $\ell$, we extract semantic chromosome band structures ( K^{(\text{Eur})}<em>\ell ), ( K^{(\text{Asi})}</em>\ell ), and ( K^{(\text{Merged})}_\ell ), representing the clustered semantic traits analogous to biological chromosome banding.</p>
 
 <p>Formally, we quantify layerwise structural divergences using metrics capturing chromosomal rearrangements:</p>
 
@@ -278,9 +278,9 @@
 <table>
   <tbody>
     <tr>
-      <td>where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and $</td>
+      <td>where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and (</td>
       <td>B_{\ell,i}</td>
-      <td>$ denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.</td>
+      <td>) denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.</td>
     </tr>
   </tbody>
 </table>
