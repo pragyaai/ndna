@@ -20,7 +20,7 @@ Through this lens, nKaryotyping offers actionable insights for targeted layerwis
 
 In summary, nKaryotyping bridges biological cytogenetics and neural representation theory, transforming abstract latent geometries into comprehensible semantic chromosomal maps. This novel paradigm empowers researchers and practitioners to visualize and manipulate the semantic architecture of foundation models with unprecedented precision and biological intuition.
 
-## 14.16 Mathematical Formulation of Neural Karyotyping (nKaryotyping)
+## Mathematical Formulation of Neural Karyotyping (nKaryotyping)
 
 To systematically characterize semantic inheritance patterns across layers in foundation models, we introduce Neural Karyotyping (nKaryotyping)–a principled framework adapting biological cytogenetics concepts to the latent semantic geometry of transformer architectures. Just as karyotypes visualize the chromosomal architecture of genomes to detect inherited, rearranged, or mutated genetic segments (330), nKaryotyping represents the layerwise semantic chromosome structure of neural models, capturing the distribution, continuity, and perturbations of inherited semantic traits.
 
