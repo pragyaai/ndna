@@ -69,17 +69,17 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Neural Epistemic Plasticity Index (nEPI)" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Epistemic Plasticity Index (nEPI): Quantifying Semantic Adaptability of Foundation Models" />
-<meta property="og:description" content="Epistemic Plasticity Index (nEPI): Quantifying Semantic Adaptability of Foundation Models" />
+<meta name="description" content="Epistemic Plasticity Index (nEPI):Quantifying Semantic Adaptability of Foundation Models" />
+<meta property="og:description" content="Epistemic Plasticity Index (nEPI):Quantifying Semantic Adaptability of Foundation Models" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/neural-genomics/nEPI/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nEPI/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-04T08:28:42+00:00" />
+<meta property="article:published_time" content="2025-08-04T08:39:11+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Epistemic Plasticity Index (nEPI)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T08:28:42+00:00","datePublished":"2025-08-04T08:28:42+00:00","description":"Epistemic Plasticity Index (nEPI): Quantifying Semantic Adaptability of Foundation Models","headline":"Neural Epistemic Plasticity Index (nEPI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nEPI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nEPI/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T08:39:11+00:00","datePublished":"2025-08-04T08:39:11+00:00","description":"Epistemic Plasticity Index (nEPI):Quantifying Semantic Adaptability of Foundation Models","headline":"Neural Epistemic Plasticity Index (nEPI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nEPI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nEPI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -123,7 +123,7 @@
             <h1>Neural Epistemic Plasticity Index (nEPI)</h1>
           
         
-        <h1 id="epistemic-plasticity-index-nepi-quantifying-semantic-adaptability-of-foundation-models">Epistemic Plasticity Index (nEPI): Quantifying Semantic Adaptability of Foundation Models</h1>
+        <p><strong>Epistemic Plasticity Index (nEPI):Quantifying Semantic Adaptability of Foundation Models</strong></p>
 
 <p>While metrics like <strong>nHD</strong>, <strong>nGDI</strong>, <strong>nTDS</strong>, <strong>nKaryotyping</strong>, and <strong>nDIV</strong> unveil the extent of <em>semantic divergence</em>, <em>representational dominance</em>, <em>inheritance patterns</em>, and <em>directional biases</em> in foundation models, the <strong>Epistemic Plasticity Index (nEPI)</strong> uniquely captures the model’s capacity for <em>semantic restructuring</em> and <em>memory adaptation</em>. It reveals how internal latent representations dynamically evolve during <em>alignment</em> or <em>instruction tuning</em>–analogous to biological <em>synaptic plasticity</em> underlying learning and memory formation–thus reflecting the model’s flexible ability to incorporate new knowledge and update its understanding beyond static representational differences.</p>
 
@@ -195,7 +195,11 @@
 
 <p>which measures the local sensitivity of the model’s predictive distribution to changes in $\theta$.</p>
 
-<p>Through the Jacobian $\mathbf{J}<em>\ell^x(\theta) := \nabla</em>\theta h_\ell(\theta, x)$, the Fisher metric induces a pullback metric on the latent space:</p>
+<p style="text-align: justify; font-size: 0.9em;">
+  Through the Jacobian 
+  <span class="mathjax-render">\( \mathbf{J}_\ell^x(\theta) := \nabla_\theta h_\ell(\theta, x) \)</span>, 
+  the Fisher metric induces a pullback metric on the latent space:
+</p>
 
 \[g_\ell^x(\dot{\theta}, \dot{\theta}) = \dot{\theta}^\top \mathbf{J}_\ell^x(\theta)^\top \mathbf{F}(\theta) \mathbf{J}_\ell^x(\theta) \dot{\theta},\]
 
@@ -235,13 +239,37 @@
 
 <h2 id="interpretation-and-diagnostic-insights-semantic-flexibility-and-rigidity-in-latent-geometry">Interpretation and Diagnostic Insights: Semantic Flexibility and Rigidity in Latent Geometry</h2>
 
-<p>The <em>Epistemic Plasticity Index</em> $\mathrm{nEPI}<em>\ell$ serves as a nuanced quantifier of <strong>semantic adaptability</strong> across the hierarchical architecture of foundation models. Elevated values of $\mathrm{nEPI}</em>\ell$ reveal layers exhibiting <em>latent malleability</em>, where the model’s internal semantic geometry undergoes significant reconfiguration in response to alignment or merging. Conversely, layers with diminished $\mathrm{nEPI}_\ell$ manifest <em>semantic rigidity</em>, indicating entrenched inductive biases or foundational language priors resistant to modification.</p>
+<p style="text-align: justify; font-size: 0.9em;">
+  The <em>Epistemic Plasticity Index</em> 
+  <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
+  serves as a nuanced quantifier of <strong>semantic adaptability</strong> across the hierarchical architecture of foundation models. Elevated values of 
+  <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
+  reveal layers exhibiting <em>latent malleability</em>, where the model's internal semantic geometry undergoes significant reconfiguration in response to alignment or merging. Conversely, layers with diminished 
+  <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
+  manifest <em>semantic rigidity</em>, indicating entrenched inductive biases or foundational language priors resistant to modification.
+</p>
 
 <p>This dichotomy resonates deeply with the <strong>stability-plasticity dilemma</strong>–a fundamental trade-off in cognitive science and continual learning theory. Models must preserve previously acquired knowledge (stability) while remaining sufficiently flexible (plasticity) to incorporate new semantic constructs. The $\mathrm{nEPI}_\ell$ quantification enables a fine-grained diagnostic to map this tension onto the latent semantic manifold, identifying <em>plastic zones</em> optimal for targeted semantic intervention and <em>stable cores</em> anchoring robust linguistic foundations.</p>
 
-<p>Empirically, it is observed that <strong>early transformer layers</strong> typically exhibit $\mathrm{nEPI}<em>\ell \approx 0$, consistent with their encoding of *lexical, syntactic, and shallow semantic features* shared across diverse linguistic and cultural corpora. In contrast, <strong>intermediate and deep layers</strong> demonstrate pronounced peaks in $\mathrm{nEPI}</em>\ell$, coinciding with regions that encode <em>abstract, contextual, and culturally nuanced semantics</em>. These <em>plastic zones</em> represent critical loci for effective alignment tuning, instruction injection, or fine-tuning, allowing AI systems to internalize complex ethical norms, cultural sensitivities, or domain-specific knowledge.</p>
+<p style="text-align: justify; font-size: 0.9em;">
+  Empirically, it is observed that <strong>early transformer layers</strong> typically exhibit 
+  <span class="mathjax-render">\( \mathrm{nEPI}_\ell \approx 0 \)</span>, 
+  consistent with their encoding of <em>lexical, syntactic, and shallow semantic features</em> shared across diverse linguistic and cultural corpora. 
+  In contrast, <strong>intermediate and deep layers</strong> demonstrate pronounced peaks in 
+  <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span>, 
+  coinciding with regions that encode <em>abstract, contextual, and culturally nuanced semantics</em>. 
+  These <em>plastic zones</em> represent critical loci for effective alignment tuning, instruction injection, or fine-tuning, allowing AI systems to internalize complex ethical norms, cultural sensitivities, or domain-specific knowledge.
+</p>
 
-<p>From a geometric perspective, $\mathrm{nEPI}<em>\ell$ highlights the topological flexibility of neural manifolds, reflecting changes in local curvature and connectivity patterns within latent spaces. Regions of high $\mathrm{nEPI}</em>\ell$ correspond to <em>semantic corridors</em> along which embeddings flow under tuning-induced transformations, akin to neurobiological synaptic remodeling pathways. Understanding these pathways provides an interpretability scaffold linking abstract alignment objectives to concrete geometric deformations.</p>
+<p style="text-align: justify; font-size: 0.9em;">
+  From a geometric perspective, 
+  <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
+  highlights the topological flexibility of neural manifolds, reflecting changes in local curvature and connectivity patterns within latent spaces. 
+  Regions of high 
+  <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
+  correspond to <em>semantic corridors</em> along which embeddings flow under tuning-induced transformations, akin to neurobiological synaptic remodeling pathways. 
+  Understanding these pathways provides an interpretability scaffold linking abstract alignment objectives to concrete geometric deformations.
+</p>
 
 <p>Moreover, $\mathrm{nEPI}_\ell$ facilitates <strong>layer-specific regularization</strong>, where differential plasticity informs tailored constraints–encouraging adaptation in pliable layers while preserving stability in rigid cores. Such selective modulation mitigates risks of <em>catastrophic forgetting</em>, balances <em>generalization</em> and <em>specialization</em>, and underpins <em>continual learning</em> strategies vital for evolving AI systems.</p>
 
