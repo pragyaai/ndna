@@ -73,11 +73,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-04T06:07:42+00:00" />
+<meta property="article:published_time" content="2025-08-04T06:21:52+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Karyotyping (nKaryotyping)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T06:07:42+00:00","datePublished":"2025-08-04T06:07:42+00:00","headline":"Neural Karyotyping (nKaryotyping)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T06:21:52+00:00","datePublished":"2025-08-04T06:21:52+00:00","headline":"Neural Karyotyping (nKaryotyping)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -185,7 +185,7 @@
 
 <h3 id="semantic-structural-variations">Semantic Structural Variations</h3>
 
-<p>Let $\pi_\ell$: ${1, \dots, K^{(A)}<em>\ell}$ $\to$ ${1, \dots, K^{(B)}</em>\ell}$ be a band correspondence mapping. Then we measure:</p>
+<p>Let $\pi_\ell$: \(\{1, \dots, K^{(A)}_\ell\} \to \{1, \dots, K^{(B)}_\ell\}\) be a band correspondence mapping. Then we measure:</p>
 
 \[\text{Translocation}_\ell := \sum_{k=1}^{K^{(A)}_\ell} \mathbf{1}[\pi_\ell(k) \ne k]\]
 
@@ -227,16 +227,16 @@
 
 <p>The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semantic trait distributions into structured chromosome-like representations, enabling quantitative and visual analysis of semantic inheritance and structural rearrangements in foundation models.</p>
 
-<p>• <strong>Semantic Chromosome Banding</strong>: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands $\{B_{\ell,i}\}<em>{i=1}^K$, where each band $B</em>{\ell,i}$ corresponds to a coherent semantic cluster or concept. Formally, these bands are identified via clustering or spectral segmentation on $x_\ell \in \mathbb{R}^d$, yielding a chromosomal semantic profile:</p>
+<p>• <strong>Semantic Chromosome Banding</strong>: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands ${B_{\ell,i}}<em>{i=1}^K$, where each band $B</em>{\ell,i}$ corresponds to a coherent semantic cluster or concept. <em>Formally, these bands are identified via clustering or spectral segmentation on</em> $x_\ell \in \mathbb{R}^d$, <em>yielding a chromosomal semantic profile:</em></p>
 
 \[K_\ell = \{\mu(B_{\ell,i}), \sigma(B_{\ell,i}), |B_{\ell,i}|\}_{i=1}^K,\]
 
 <table>
   <tbody>
     <tr>
-      <td>capturing band means $\mu$, variances $\sigma$, and sizes $$</td>
+      <td>capturing band means $\mu$, variances $\sigma$, and sizes $</td>
       <td>B_{\ell,i}</td>
-      <td>$$, which encode semantic inheritance strength and variability.</td>
+      <td>$, which encode semantic inheritance strength and variability.</td>
     </tr>
   </tbody>
 </table>
