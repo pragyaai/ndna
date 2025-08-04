@@ -263,36 +263,32 @@ h1.page-title {
 
 .main-text {
   flex: 2;
+  font-size: 1.1rem;
+  line-height: 1.75em;
 }
 
-.main-text h1 {
+h1 {
   font-size: 2.6em;
   margin-bottom: 10px;
 }
 
-.main-text h2 {
+h2 {
   margin-top: 40px;
   font-size: 1.4em;
 }
 
-.main-text h3 {
+h3 {
   margin-top: 30px;
   font-size: 1.2em;
 }
 
-.main-text p {
+ul, ol {
   font-size: 1.1em;
   line-height: 1.75em;
   margin-bottom: 16px;
 }
 
-.main-text ul, .main-text ol {
-  font-size: 1.1em;
-  line-height: 1.75em;
-  margin-bottom: 16px;
-}
-
-.main-text li {
+li {
   margin-bottom: 8px;
 }
 
