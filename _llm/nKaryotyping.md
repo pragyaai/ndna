@@ -6,7 +6,7 @@ permalink: /llm/neural-genomics/nKaryotyping/
 
 <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-# nKaryotyping: Semantic Chromosome Inheritance Across Layers
+**nKaryotyping: Semantic Chromosome Inheritance Across Layers**
 
 As foundation models grow in complexity and cultural diversity, the need to understand semantic inheritance across neural layers becomes increasingly paramount. To this end, we introduce **nKaryotyping** (see Figure 48) – a conceptual and visual framework inspired by biological karyotyping, which charts chromosomal structures to detect inherited, rearranged, or mutated genetic material. Analogously, nKaryotyping visualizes the layerwise semantic banding patterns within transformer models, revealing how inherited semantic traits manifest, reorganize, or diverge across the model's depth.
 

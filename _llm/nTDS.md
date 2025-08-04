@@ -187,7 +187,8 @@ which reveal consistent patterns or variabilities in trait dominance across diff
 
 **Interpretability and Explainability:** By tracing $\mathrm{nTDS}_\ell$ trajectories, researchers gain transparent maps of semantic lineage, enabling interpretability of offspring model behavior in terms of parental cultural and functional contributions. This vectorial quantification demystifies the black-box nature of foundation models, providing actionable insights for stakeholders concerned with cultural sensitivity and fairness.
 
-**Biological and Theoretical Insights:** <p style="text-align: justify; font-size: 0.9em;">
+**Biological and Theoretical Insights:** 
+<p style="text-align: justify; font-size: 0.9em;">
   <span class="mathjax-render">\( \mathrm{nTDS}_\ell \)</span> is conceptually analogous to quantitative trait loci (QTLs) in genomics (321), where trait variance is mapped onto chromosomal positions. Here, 
   <span class="mathjax-render">\( \mathrm{nTDS}_\ell \)</span> maps semantic trait dominance onto transformer layers, elucidating semantic loci akin to chromosomal trait regions. This analogy enriches theoretical understanding of model inheritance, highlighting hierarchical and modular trait transmission across network depth.
 </p>
