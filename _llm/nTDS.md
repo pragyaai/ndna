@@ -230,3 +230,37 @@ By operationalizing these hierarchical dominance coefficients, nTDS guides the d
 Looking forward, nTDS paves the way for mathematically principled explorations into multi-scale knowledge transfer, dynamical trait adaptation, and compositional cultural synthesis within foundation models. By enabling explicit control over trait propagation in a Riemannian semantic space, nTDS lays the theoretical and practical groundwork for AI systems that evolve adaptively, mirror the complexity of human cultural heritage, and respond coherently to shifting societal values.
 
 In essence, the Neural Trait Dominance Score is poised to become a cornerstone metric–both a diagnostic lens and a strategic instrument–empowering researchers and practitioners to engineer responsible, inclusive, and context-aware AI systems with fine-grained control over the flow and balance of semantic traits at scale.
+
+<!-- Row 1: Africa-Asia and Africa-China trait dominance -->
+<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Africa_Asia_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(I) Africa–Asia Trait Dominance:</strong> The Neural Trait Dominance Score (nTDS) reveals a layer-wise shift in dominance from Africa to Asia. Early layers (20–23) show stronger dominance by Africa (nTDS close to 1.0), reflecting more foundational semantic traits inherited from the African lineage. Mid-layers (24–27) display a transition zone, with nTDS scores trending toward 0.5, indicating balanced trait blending. Late layers (28–30) exhibit dominance by Asia (nTDS near 0), suggesting higher-level abstraction and stylistic features originating from Asian traits. This pattern resembles epigenetic regulation in biology where certain traits activate or suppress at distinct developmental stages.
+    </div>
+  </div>
+  
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Africa_China_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(II) Africa–China Trait Dominance:</strong> The dominance visualization shows pronounced episodic fluctuations in nTDS across layers. Africa dominates the earliest layers (20–22), but a marked oscillation emerges mid-way, reflecting competitive trait inheritance dynamics. The dominance score dips sharply toward China dominance between layers 23–26 (nTDS near 0), followed by a rebound in African dominance at layer 27. Late layers (28–30) balance near an nTDS of approximately 0.5, suggesting harmonized trait fusion. The vertical bars amplitudes indicate variance in semantic inheritance strength, analogous to gene expression bursts influenced by environmental or regulatory factors.
+    </div>
+  </div>
+</div>
+
+<!-- Row 2: Africa-Latin America and Africa-Middle East trait dominance -->
+<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Africa_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(III) Africa–Latin America Trait Dominance:</strong> This visualization captures a monotonic decline in African dominance from near-complete at layer 20 (nTDS ∼1.0) to balanced inheritance at layers 28–30 (nTDS ∼0.5). Latin America progressively asserts influence, indicating gradual semantic trait assimilation. The vertical bar heights reflect increasing semantic variability from layer 24 onward, highlighting layers where trait recombination and hybridization intensify. This smooth gradient evokes biological morphogen gradients that specify cellular fates based on spatial and temporal context.
+    </div>
+  </div>
+  
+  <div style="flex: 1;">
+    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Africa_MiddleEast_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
+      <strong>(IV) Africa–Middle East Trait Dominance:</strong> The trait dominance shows early balanced dominance (nTDS ∼0.5) between layers 20–23, shifting to clear African dominance in mid layers (24–27), and culminating in mixed dominance in final layers. Notably, larger vertical bars in mid layers indicate significant semantic trait variance, possibly reflecting latent cultural conflict or synergy. This pattern parallels biological epistatic interactions, where multiple genes influence traits in complex, nonlinear ways across developmental stages.
+    </div>
+  </div>
+</div>
