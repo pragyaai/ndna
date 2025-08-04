@@ -28,15 +28,18 @@ This biological metaphor underscores that **semantic inheritance in neural model
 
 # Mathematical Formulation of Neural Trait Dominance Score (nTDS)
 
-**The Neural Trait Dominance Score (nTDS)** formalizes the notion of layerwise parental trait influence in an offspring foundation model $M_O$, constructed from two parent models $M_A$ and $M_B$, within the Neural DNA (nDNA) semantic geometry framework.
-Let 
-$$x_\ell^{(A)}, x_\ell^{(B)}, x_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d$$, 
-$\ell = 1, $\ldots$, $L$, denote the latent semantic embeddings at layer $\ell$
-for $M_A$, $M_B$, and $M_O$ respectively, where $L$ is the total number 
-of transformer layers and $d$ is the embedding dimension. Each \\mathcal{M}_\ell\\
-is a Riemannian manifold equipped with a local Fisher information metric $F_\ell$.
-
-
+<p style="text-align: justify; font-size: 0.9em;">
+  <strong>The Neural Trait Dominance Score (nTDS)</strong> formalizes the notion of layerwise parental trait influence in an offspring foundation model <span class="mathjax-render">\( M_O \)</span>, constructed from two parent models <span class="mathjax-render">\( M_A \)</span> and <span class="mathjax-render">\( M_B \)</span>, within the Neural DNA (nDNA) semantic geometry framework.
+  Let 
+  <span class="mathjax-render">\( \mathbf{x}_\ell^{(A)},\ \mathbf{x}_\ell^{(B)},\ \mathbf{x}_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d \)</span>,
+  <span class="mathjax-render">\( \ell = 1, \ldots, L \)</span>, 
+  denote the latent semantic embeddings at layer <span class="mathjax-render">\( \ell \)</span>
+  for <span class="mathjax-render">\( M_A \)</span>, <span class="mathjax-render">\( M_B \)</span>, and <span class="mathjax-render">\( M_O \)</span> respectively, where <span class="mathjax-render">\( L \)</span> is the total number 
+  of transformer layers and <span class="mathjax-render">\( d \)</span> is the embedding dimension. Each 
+  <span class="mathjax-render">\( \mathcal{M}_\ell \)</span>
+  is a Riemannian manifold equipped with a local Fisher information metric 
+  <span class="mathjax-render">\( \mathbf{F}_\ell \)</span>.
+</p>
 
 
 ## Trait Axis and Local Linearization
@@ -55,8 +58,12 @@ These vectors encode semantic trait differences and inheritance displacement wit
 
 ## Fisher-Rao Metric and Inner Product
 
-The tangent space \( T_{x_\ell^{(B)}}\mathcal{M}_\ell \) is endowed with a local inner product induced by the Fisher information metric \( F_\ell^{(B)} \):
-
+<p style="text-align: justify; font-size: 0.9em;">
+  The tangent space 
+  <span class="mathjax-render">\( T_{\mathbf{x}_\ell^{(B)}}\mathcal{M}_\ell \)</span> 
+  is endowed with a local inner product induced by the Fisher information metric 
+  <span class="mathjax-render">\( \mathbf{F}_\ell^{(B)} \)</span>:
+</p>
 
 $$\langle a, b \rangle_{F_\ell^{(B)}} := a^T F_\ell^{(B)} b, \quad a, b \in T_{x_\ell^{(B)}}\mathcal{M}_\ell$$
 
@@ -99,9 +106,12 @@ $$\mathcal{J}_\ell := J_\ell^{(A)} (J_\ell^{(A)})^T - J_\ell^{(B)} (J_\ell^{(B)}
 
 capturing differential sensitivity of the latent space to parameter perturbations.
 
-<div class="mathjax-render">
-Enhance \\( \text{nTDS}_\ell \\) by weighting \\( \alpha_\ell \\) with spectral properties of \\( \mathcal{J}_\ell \\), thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
-</div>
+<p style="text-align: justify; font-size: 0.9em;">
+  Enhance <span class="mathjax-render">\( \text{nTDS}_\ell \)</span> by weighting 
+  <span class="mathjax-render">\( \alpha_\ell \)</span> with spectral properties of 
+  <span class="mathjax-render">\( \mathcal{J}_\ell \)</span>, thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
+</p>
+
 
 ## Interpretation:
 
@@ -119,7 +129,17 @@ The **nTDS** provides a rigorous, curvature-aware, and sensitivity-informed meas
 
 ## Interpretation and Implications
 
-The *Neural Trait Dominance Score* (**nTDS**) serves as a **precise**, layer-resolved indicator of how semantic traits from each parent model manifest within an offspring foundation model. By quantifying the relative proximity of the offspring's latent embeddings $\mathbf{x}^{(O)}_{\ell}$ to each parent's embeddings $\mathbf{x}^{(A)}_{\ell}$ and $\mathbf{x}^{(B)}_{\ell}$ at every layer $\ell$, **nTDS** reveals the *parental influence gradient* governing semantic inheritance.
+<p style="text-align: justify; font-size: 0.9em;">
+  The <em>Neural Trait Dominance Score</em> (<strong>nTDS</strong>) serves as a <strong>precise</strong>, layer-resolved indicator of how semantic traits from each parent model manifest within an offspring foundation model. By quantifying the relative proximity of the offspring's latent embeddings 
+  <span class="mathjax-render">\( \mathbf{x}^{(O)}_{\ell} \)</span> 
+  to each parent's embeddings 
+  <span class="mathjax-render">\( \mathbf{x}^{(A)}_{\ell} \)</span> and 
+  <span class="mathjax-render">\( \mathbf{x}^{(B)}_{\ell} \)</span> 
+  at every layer 
+  <span class="mathjax-render">\( \ell \)</span>, 
+  <strong>nTDS</strong> reveals the <em>parental influence gradient</em> governing semantic inheritance.
+</p>
+
 
 Explicitly, the metric
 $$\text{nTDS}_\ell = \frac{\left\| \mathbf{x}^{(O)}_{\ell} - \mathbf{x}^{(B)}_{\ell} \right\|_2 - \left\| \mathbf{x}^{(O)}_{\ell} - \mathbf{x}^{(A)}_{\ell} \right\|_2}{\left\| \mathbf{x}^{(A)}_{\ell} - \mathbf{x}^{(B)}_{\ell} \right\|_2 + \epsilon}$$
@@ -167,7 +187,11 @@ which reveal consistent patterns or variabilities in trait dominance across diff
 
 **Interpretability and Explainability:** By tracing $\mathrm{nTDS}_\ell$ trajectories, researchers gain transparent maps of semantic lineage, enabling interpretability of offspring model behavior in terms of parental cultural and functional contributions. This vectorial quantification demystifies the black-box nature of foundation models, providing actionable insights for stakeholders concerned with cultural sensitivity and fairness.
 
-**Biological and Theoretical Insights:** $\mathrm{nTDS}_\ell$ is conceptually analogous to quantitative trait loci (QTLs) in genomics (321), where trait variance is mapped onto chromosomal positions. Here, $\mathrm{nTDS}_\ell$ maps semantic trait dominance onto transformer layers, elucidating semantic loci akin to chromosomal trait regions. This analogy enriches theoretical understanding of model inheritance, highlighting hierarchical and modular trait transmission across network depth.
+**Biological and Theoretical Insights:** 
+<p style="text-align: justify; font-size: 0.9em;">
+  <span class="mathjax-render">\( \mathrm{nTDS}_\ell \)</span> is conceptually analogous to quantitative trait loci (QTLs) in genomics (321), where trait variance is mapped onto chromosomal positions. Here, 
+  <span class="mathjax-render">\( \mathrm{nTDS}_\ell \)</span> maps semantic trait dominance onto transformer layers, elucidating semantic loci akin to chromosomal trait regions. This analogy enriches theoretical understanding of model inheritance, highlighting hierarchical and modular trait transmission across network depth.
+</p>
 
 **Practical Applications:** $\mathrm{nTDS}_\ell$ guides targeted intervention in layer-specific fine-tuning, adaptive fusion mechanism design, and alignment auditing to ensure culturally robust and semantically faithful foundation models. Its computational efficiency and intuitive interpretability make it an indispensable tool for responsible AI governance in a multicultural world.
 
@@ -177,7 +201,7 @@ In essence, the Neural Trait Dominance Score (nTDS) advances both the scientific
 
 To empirically validate the Neural Trait Dominance Score (nTDS), we examine foundation models pretrained or fine-tuned on culturally distinct corpora, such as European and Asian datasets, along with their merged offspring models. By extracting layerwise latent embeddings $x_\ell^{(\mathrm{Eur})}$, $x_\ell^{(\mathrm{Asi})}$, and $x_\ell^{(\mathrm{Offspring})}$, we compute the $\mathrm{nTDS}_\ell$ metric as:
 
-$\mathrm{nTDS}_\ell = \frac{\|x_\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Asi})}\|_2 - \|x_\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Eur})}\|_2}{\|x_\ell^{(\mathrm{Eur})} - x_\ell^{(\mathrm{Asi})}\|_2 + \epsilon}$
+$$\mathrm{nTDS}_\ell = \frac{\|x_\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Asi})}\|_2 - \|x_\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Eur})}\|_2}{\|x_\ell^{(\mathrm{Eur})} - x_\ell^{(\mathrm{Asi})}\|_2 + \epsilon}$$
 
 where $\epsilon > 0$ ensures numerical stability.
 
