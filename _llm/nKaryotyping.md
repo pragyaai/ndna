@@ -134,7 +134,8 @@ Overall, nKaryotyping complements scalar and vectorial metrics by revealing the 
 
 The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semantic trait distributions into structured chromosome-like representations, enabling quantitative and visual analysis of semantic inheritance and structural rearrangements in foundation models.
 
-• **Semantic Chromosome Banding**: <p style="text-align: justify; font-size: 0.9em;">
+• **Semantic Chromosome Banding**: 
+<p style="text-align: justify; font-size: 0.9em;">
   At each transformer layer 
   <span class="mathjax-render">\\( \ell \\)</span>, 
   nKaryotyping partitions the latent embedding space into discrete semantic bands 
