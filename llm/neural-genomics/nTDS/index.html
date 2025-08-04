@@ -73,11 +73,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-04T08:02:49+00:00" />
+<meta property="article:published_time" content="2025-08-04T08:03:17+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Trait Dominance Score(nTDS)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T08:02:49+00:00","datePublished":"2025-08-04T08:02:49+00:00","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T08:03:17+00:00","datePublished":"2025-08-04T08:03:17+00:00","headline":"Neural Trait Dominance Score(nTDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nTDS/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -86,7 +86,7 @@
   <!-- LEFT COLUMN: Logo + Tabs -->
   <div class="left-column">
     <div class="logo-container">
-      <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
+      <img src="/nDNA/assets/img/ndna_logo_v5.png" alt="nDNA Logo">
     </div>
     <div class="side-menu" id="leftTabs">
       <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
@@ -145,18 +145,13 @@ This example shows the genome-wide scan for quantitative trait loci across genom
 
 <h1 id="mathematical-formulation-of-neural-trait-dominance-score-ntds">Mathematical Formulation of Neural Trait Dominance Score (nTDS)</h1>
 
-<p style="text-align: justify; font-size: 0.9em;">
-  <strong>The Neural Trait Dominance Score (nTDS)</strong> formalizes the notion of layerwise parental trait influence in an offspring foundation model <span class="mathjax-render">\( M_O \)</span>, constructed from two parent models <span class="mathjax-render">\( M_A \)</span> and <span class="mathjax-render">\( M_B \)</span>, within the Neural DNA (nDNA) semantic geometry framework.
-  Let 
-  <span class="mathjax-render">\( \mathbf{x}_\ell^{(A)},\ \mathbf{x}_\ell^{(B)},\ \mathbf{x}_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d \)</span>,
-  <span class="mathjax-render">\( \ell = 1, \ldots, L \)</span>, 
-  denote the latent semantic embeddings at layer <span class="mathjax-render">\( \ell \)</span>
-  for <span class="mathjax-render">\( M_A \)</span>, <span class="mathjax-render">\( M_B \)</span>, and <span class="mathjax-render">\( M_O \)</span> respectively, where <span class="mathjax-render">\( L \)</span> is the total number 
-  of transformer layers and <span class="mathjax-render">\( d \)</span> is the embedding dimension. Each 
-  <span class="mathjax-render">\( \mathcal{M}_\ell \)</span>
-  is a Riemannian manifold equipped with a local Fisher information metric 
-  <span class="mathjax-render">\( \mathbf{F}_\ell \)</span>.
-</p>
+<p><strong>The Neural Trait Dominance Score (nTDS)</strong> formalizes the notion of layerwise parental trait influence in an offspring foundation model $M_O$, constructed from two parent models $M_A$ and $M_B$, within the Neural DNA (nDNA) semantic geometry framework.
+Let 
+\(x_\ell^{(A)}, x_\ell^{(B)}, x_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d\), 
+$\ell = 1, $\ldots$, $L$, denote the latent semantic embeddings at layer $\ell$
+for $M_A$, $M_B$, and $M_O$ respectively, where $L$ is the total number 
+of transformer layers and $d$ is the embedding dimension. Each \mathcal{M}<em>\ell<br />
+is a Riemannian manifold equipped with a local Fisher information metric $F</em>\ell$.</p>
 
 <h2 id="trait-axis-and-local-linearization">Trait Axis and Local Linearization</h2>
 
@@ -174,12 +169,7 @@ This example shows the genome-wide scan for quantitative trait loci across genom
 
 <h2 id="fisher-rao-metric-and-inner-product">Fisher-Rao Metric and Inner Product</h2>
 
-<p style="text-align: justify; font-size: 0.9em;">
-  The tangent space 
-  <span class="mathjax-render">\( T_{\mathbf{x}_\ell^{(B)}}\mathcal{M}_\ell \)</span> 
-  is endowed with a local inner product induced by the Fisher information metric 
-  <span class="mathjax-render">\( \mathbf{F}_\ell^{(B)} \)</span>:
-</p>
+<p>The tangent space ( T_{x_\ell^{(B)}}\mathcal{M}<em>\ell ) is endowed with a local inner product induced by the Fisher information metric ( F</em>\ell^{(B)} ):</p>
 
 \[\langle a, b \rangle_{F_\ell^{(B)}} := a^T F_\ell^{(B)} b, \quad a, b \in T_{x_\ell^{(B)}}\mathcal{M}_\ell\]
 
@@ -224,11 +214,9 @@ This example shows the genome-wide scan for quantitative trait loci across genom
 
 <p>capturing differential sensitivity of the latent space to parameter perturbations.</p>
 
-<p style="text-align: justify; font-size: 0.9em;">
-  Enhance <span class="mathjax-render">\( \text{nTDS}_\ell \)</span> by weighting 
-  <span class="mathjax-render">\( \alpha_\ell \)</span> with spectral properties of 
-  <span class="mathjax-render">\( \mathcal{J}_\ell \)</span>, thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
-</p>
+<div class="mathjax-render">
+Enhance \\( \text{nTDS}_\ell \\) by weighting \\( \alpha_\ell \\) with spectral properties of \\( \mathcal{J}_\ell \\), thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
+</div>
 
 <h2 id="interpretation">Interpretation:</h2>
 
@@ -248,16 +236,7 @@ This example shows the genome-wide scan for quantitative trait loci across genom
 
 <h2 id="interpretation-and-implications">Interpretation and Implications</h2>
 
-<p style="text-align: justify; font-size: 0.9em;">
-  The <em>Neural Trait Dominance Score</em> (<strong>nTDS</strong>) serves as a <strong>precise</strong>, layer-resolved indicator of how semantic traits from each parent model manifest within an offspring foundation model. By quantifying the relative proximity of the offspring's latent embeddings 
-  <span class="mathjax-render">\( \mathbf{x}^{(O)}_{\ell} \)</span> 
-  to each parent's embeddings 
-  <span class="mathjax-render">\( \mathbf{x}^{(A)}_{\ell} \)</span> and 
-  <span class="mathjax-render">\( \mathbf{x}^{(B)}_{\ell} \)</span> 
-  at every layer 
-  <span class="mathjax-render">\( \ell \)</span>, 
-  <strong>nTDS</strong> reveals the <em>parental influence gradient</em> governing semantic inheritance.
-</p>
+<p>The <em>Neural Trait Dominance Score</em> (<strong>nTDS</strong>) serves as a <strong>precise</strong>, layer-resolved indicator of how semantic traits from each parent model manifest within an offspring foundation model. By quantifying the relative proximity of the offspring’s latent embeddings $\mathbf{x}^{(O)}<em>{\ell}$ to each parent’s embeddings $\mathbf{x}^{(A)}</em>{\ell}$ and $\mathbf{x}^{(B)}_{\ell}$ at every layer $\ell$, <strong>nTDS</strong> reveals the <em>parental influence gradient</em> governing semantic inheritance.</p>
 
 <p>Explicitly, the metric
 \(\text{nTDS}_\ell = \frac{\left\| \mathbf{x}^{(O)}_{\ell} - \mathbf{x}^{(B)}_{\ell} \right\|_2 - \left\| \mathbf{x}^{(O)}_{\ell} - \mathbf{x}^{(A)}_{\ell} \right\|_2}{\left\| \mathbf{x}^{(A)}_{\ell} - \mathbf{x}^{(B)}_{\ell} \right\|_2 + \epsilon}\)</p>
@@ -303,10 +282,7 @@ Mathematically, the continuity and smoothness of $\mathrm{nTDS}\ell$ over $\ell$
 
 <p><strong>Interpretability and Explainability:</strong> By tracing $\mathrm{nTDS}_\ell$ trajectories, researchers gain transparent maps of semantic lineage, enabling interpretability of offspring model behavior in terms of parental cultural and functional contributions. This vectorial quantification demystifies the black-box nature of foundation models, providing actionable insights for stakeholders concerned with cultural sensitivity and fairness.</p>
 
-<p><strong>Biological and Theoretical Insights:</strong> &lt;p style="text-align: justify; font-size: 0.9em;"&gt;
-  <span class="mathjax-render">( \mathrm{nTDS}_\ell )</span> is conceptually analogous to quantitative trait loci (QTLs) in genomics (321), where trait variance is mapped onto chromosomal positions. Here, 
-  <span class="mathjax-render">( \mathrm{nTDS}_\ell )</span> maps semantic trait dominance onto transformer layers, elucidating semantic loci akin to chromosomal trait regions. This analogy enriches theoretical understanding of model inheritance, highlighting hierarchical and modular trait transmission across network depth.
-&lt;/p&gt;</p>
+<p><strong>Biological and Theoretical Insights:</strong> $\mathrm{nTDS}<em>\ell$ is conceptually analogous to quantitative trait loci (QTLs) in genomics (321), where trait variance is mapped onto chromosomal positions. Here, $\mathrm{nTDS}</em>\ell$ maps semantic trait dominance onto transformer layers, elucidating semantic loci akin to chromosomal trait regions. This analogy enriches theoretical understanding of model inheritance, highlighting hierarchical and modular trait transmission across network depth.</p>
 
 <p><strong>Practical Applications:</strong> $\mathrm{nTDS}_\ell$ guides targeted intervention in layer-specific fine-tuning, adaptive fusion mechanism design, and alignment auditing to ensure culturally robust and semantically faithful foundation models. Its computational efficiency and intuitive interpretability make it an indispensable tool for responsible AI governance in a multicultural world.</p>
 
@@ -316,7 +292,7 @@ Mathematically, the continuity and smoothness of $\mathrm{nTDS}\ell$ over $\ell$
 
 <p>To empirically validate the Neural Trait Dominance Score (nTDS), we examine foundation models pretrained or fine-tuned on culturally distinct corpora, such as European and Asian datasets, along with their merged offspring models. By extracting layerwise latent embeddings $x_\ell^{(\mathrm{Eur})}$, $x_\ell^{(\mathrm{Asi})}$, and $x_\ell^{(\mathrm{Offspring})}$, we compute the $\mathrm{nTDS}_\ell$ metric as:</p>
 
-\[\mathrm{nTDS}_\ell = \frac{\|x_\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Asi})}\|_2 - \|x_\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Eur})}\|_2}{\|x_\ell^{(\mathrm{Eur})} - x_\ell^{(\mathrm{Asi})}\|_2 + \epsilon}\]
+<p>$\mathrm{nTDS}<em>\ell = \frac{|x</em>\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Asi})}|<em>2 - |x</em>\ell^{(\mathrm{Offspring})} - x_\ell^{(\mathrm{Eur})}|<em>2}{|x</em>\ell^{(\mathrm{Eur})} - x_\ell^{(\mathrm{Asi})}|_2 + \epsilon}$</p>
 
 <p>where $\epsilon &gt; 0$ ensures numerical stability.</p>
 
