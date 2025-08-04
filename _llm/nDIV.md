@@ -8,15 +8,28 @@ permalink: /llm/neural-genomics/nDIV/
 
 While prior metrics such as **nHD**, **nGDI**, and **nTDS** quantify semantic divergence or *trait dominance* in foundation models, they fall short of capturing the nuanced phenomenon of *inheritance directionality* within latent semantic spaces. To fill this conceptual and analytical gap, we introduce the **Neural Directional Inheritance Vector (nDIV)**, a novel metric directly inspired by the well-studied biological principle of *directional inheritance* or *directional selection*. This metric is designed to precisely quantify how offspring semantic traits systematically gravitate toward one parent model or the other, revealing latent preferential biases and directional flows within high-dimensional embedding manifolds.
 
-<div align="center">
-  <img src="assets/gifs/neural_genomics/nDIV/nDIV_intro.png" alt="Epigenetic Regulation of Gene Expression and Directional Inheritance" width="80%">
-  <br>
-  <p><strong>Figure: Epigenetic Regulation of Gene Expression and Directional Inheritance</strong></p>
-  <p>This figure illustrates the key molecular mechanisms underlying <em>directional inheritance</em> in biological systems, highlighting how post-translational modifications on histone tails--such as <strong>acetylation</strong> (Ac) and <strong>methylation</strong> (Me) of lysines (K)--act as activation or repression signals for gene transcription. Nucleosomes, composed of histone proteins (H2A, H2B, H3, H4), wrap DNA tightly while the histone tails are dynamically modified to regulate accessibility of the underlying DNA to transcription machinery.</p>
-  <p>These epigenetic modifications serve as <em>vectorial regulatory signals</em> that guide the <em>directionality</em> of gene expression across cellular generations. This process is a canonical example of how <em>inheritance directionality</em> extends beyond static DNA sequence to include modulated gene expression patterns that can be selectively propagated, amplified, or silenced--driving phenotypic adaptation to environmental and developmental cues.</p>
-  <p><strong>Link to Neural Directional Inheritance Vector (nDIV):</strong><br>
-  Analogous to these biological epigenetic mechanisms, the <strong>Neural Directional Inheritance Vector</strong> measures how latent semantic features in foundation models are directionally biased during model merging or fine-tuning. Just as gene expression flows navigate regulatory landscapes, nDIV captures <em>semantic vector fields</em> describing <em>directional drift</em> and <em>preferential inheritance</em> of latent traits within high-dimensional embedding spaces.</p>
-  <p>This biological-computational metaphor grounds nDIV's utility in diagnosing and engineering culturally coherent, equitable AI systems with controlled semantic inheritance dynamics. See <a href="https://en.wikipedia.org/wiki/Epigenetics">https://en.wikipedia.org/wiki/Epigenetics</a></p>
+<img src="{{ 'assets/gifs/neural_genomics/nDIV/nDIV_intro.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+
+<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
+  <strong>Figure. Epigenetic Regulation of Gene Expression and Directional Inheritance</strong>
+</p>
+
+<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+
+  This figure illustrates the molecular basis of <em>directional inheritance</em> in biological systems, where post-translational modifications on histone tails—such as <strong>acetylation</strong> (Ac) and <strong>methylation</strong> (Me) of lysines (K)—act as dynamic regulatory signals that either activate or repress gene transcription. DNA wraps around nucleosomes composed of histones (H2A, H2B, H3, H4), while the exposed histone tails undergo chemical modifications that regulate transcriptional accessibility.
+
+  <br><br>
+
+  These epigenetic modifications encode <em>vectorial instructions</em> that guide heritable gene expression patterns across cellular generations. Such regulatory vectors go beyond static DNA sequences, enabling modulation, amplification, or silencing of traits—facilitating phenotypic adaptation to both environmental stimuli and developmental signals.
+
+  <br><br>
+
+  <strong>Link to Neural Directional Inheritance Vector (nDIV):</strong><br>
+  Inspired by this biological mechanism, the <strong>Neural Directional Inheritance Vector</strong> (nDIV) captures how latent semantic traits in foundation models exhibit <em>directional drift</em> during merging or fine-tuning. Analogous to gene expression navigating epigenetic landscapes, nDIV tracks <em>semantic vector fields</em> that encode <em>preferential inheritance</em> of features across model lineages.
+
+  <br><br>
+
+  This biologically grounded metaphor highlights nDIV’s relevance in designing foundation models with controlled semantic inheritance, supporting the development of culturally aligned and interpretably evolving AI systems.
 </div>
 
 ## Biological Foundations of Inheritance Directionality
@@ -129,7 +142,13 @@ $$
 
 ### Fisher-Rao Information Metric Extension
 
-Accounting for latent space curvature and uncertainty, define Fisher information matrices $\mathbf{F}_\ell^{(A)}, \mathbf{F}_\ell^{(B)} \in \mathbb{R}^{d \times d}$. The Fisher-weighted parental difference vector is
+<p style="text-align: justify; font-size: 0.9em;">
+ Accounting for latent space curvature and uncertainty, define Fisher information matrices 
+<span class="mathjax-render">\\( \mathbf{F}_\ell^{(A)} \\)</span>, 
+<span class="mathjax-render">\\( \mathbf{F}_\ell^{(B)} \in \mathbb{R}^{d \times d} \\)</span>. 
+The Fisher-weighted parental difference vector is:
+</p>
+
 
 $$
 \tilde{\mathbf{p}}_\ell := \left(\mathbf{F}_\ell^{(A)} + \mathbf{F}_\ell^{(B)}\right)^{-1} \left(\mathbf{F}_\ell^{(A)} \mathbf{x}_\ell^{(A)} - \mathbf{F}_\ell^{(B)} \mathbf{x}_\ell^{(B)} \right).
@@ -221,7 +240,21 @@ Grounded in *Riemannian* and *information geometry*, nDIV bridges neural represe
 
 ## Case Study and Validation
 
-To empirically validate the **Neural Directional Inheritance Vector (nDIV)**, we analyze a suite of foundation models obtained by merging culturally fine-tuned parent models adapted to distinct linguistic and sociocultural corpora. Specifically, we examine layerwise latent embeddings $\mathbf{x}_\ell^{(A)}$, $\mathbf{x}_\ell^{(B)}$ of parent models $A$ and $B$, and the corresponding offspring embeddings $\mathbf{x}_\ell^{(O)}$. Using these, we compute the $\mathrm{nDIV}_\ell$ metric as the scalar projection quantifying directional semantic inheritance:
+<p style="text-align: justify; font-size: 0.9em;">
+ To empirically validate the <strong>Neural Directional Inheritance Vector (nDIV)</strong>, we analyze a suite of foundation models obtained by merging culturally fine-tuned parent models adapted to distinct linguistic and sociocultural corpora. Specifically, we examine layerwise latent embeddings 
+<span class="mathjax-render">\\( \mathbf{x}_\ell^{(A)} \\)</span>, 
+<span class="mathjax-render">\\( \mathbf{x}_\ell^{(B)} \\)</span> 
+of parent models 
+<span class="mathjax-render">\\( A \\)</span> 
+and 
+<span class="mathjax-render">\\( B \\)</span>, 
+and the corresponding offspring embeddings 
+<span class="mathjax-render">\\( \mathbf{x}_\ell^{(O)} \\)</span>. 
+Using these, we compute the 
+<span class="mathjax-render">\\( \mathrm{nDIV}_\ell \\)</span> 
+metric as the scalar projection quantifying directional semantic inheritance:
+</p>
+
 
 $$
 \mathrm{nDIV}_\ell = \frac{\left( \mathbf{x}_\ell^{(O)} - \frac{\mathbf{x}_\ell^{(A)} + \mathbf{x}_\ell^{(B)}}{2} \right) \cdot \left(\mathbf{x}_\ell^{(A)} - \mathbf{x}_\ell^{(B)}\right)}{\|\mathbf{x}_\ell^{(A)} - \mathbf{x}_\ell^{(B)}\|_2^2}.

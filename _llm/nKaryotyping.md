@@ -112,7 +112,8 @@ Overall, nKaryotyping complements scalar and vectorial metrics by revealing the 
 
 The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semantic trait distributions into structured chromosome-like representations, enabling quantitative and visual analysis of semantic inheritance and structural rearrangements in foundation models.
 
-• **Semantic Chromosome Banding**: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands $\{B_{\ell,i}\}_{i=1}^K$, where each band $B_{\ell,i}$ corresponds to a coherent semantic cluster or concept. *Formally, these bands are identified via clustering or spectral segmentation on* $x_\ell \in \mathbb{R}^d$, *yielding a chromosomal semantic profile:*
+• **Semantic Chromosome Banding**: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands 
+<span class="mathjax-render">\\( \{B_{\ell,i}\}_{i=1}^K \\)</span>, where each band $B_{\ell,i}$ corresponds to a coherent semantic cluster or concept. *Formally, these bands are identified via clustering or spectral segmentation on* $x_\ell \in \mathbb{R}^d$, *yielding a chromosomal semantic profile:*
 
 $$K_\ell = \{\mu(B_{\ell,i}), \sigma(B_{\ell,i}), |B_{\ell,i}|\}_{i=1}^K,$$
 
@@ -122,7 +123,8 @@ capturing band means $\mu$, variances $\sigma$, and sizes $|B_{\ell,i}|$, which 
 
 $$\Delta^{inv}_\ell = \sum_{i=1}^K \text{Inv}(B^{(O)}_{\ell,i}, B^{(A,B)}_{\ell,i}), \quad \Delta^{dup}_\ell = \sum_{i=1}^K \left||B^{(O)}_{\ell,i}|-|B^{(A,B)}_{\ell,i}|\right|,$$
 
-where $\text{Inv}(\cdot, \cdot)$ measures band inversions or reorderings, and \( |\cdot| \) denotes band size differences, collectively revealing semantic translocations, duplications, and deletions across layers.
+where $\text{Inv}(\cdot, \cdot)$ measures band inversions or reorderings, and <span class="mathjax-render">\\( |\cdot| \\)</span>
+ denotes band size differences, collectively revealing semantic translocations, duplications, and deletions across layers.
 
 • **Fine-Tuning and Alignment Targeting**: Layers exhibiting high structural divergence $\Delta^*_\ell$ identify semantic instability hotspots, guiding selective fine-tuning and regularization to restore semantic integrity while preserving representational diversity:
 
@@ -138,7 +140,11 @@ Through these mathematically principled operations, nKaryotyping elevates semant
 
 ## Case Study and Validation
 
-To empirically validate the Neural Karyotyping (nKaryotyping) framework, we analyze foundation models fine-tuned on diverse cultural corpora, such as European and Asian datasets, and their merged offspring models generated through Fisher-weighted latent space fusion. For each transformer layer $\ell$, we extract semantic chromosome band structures \( K^{(\text{Eur})}_\ell \), \( K^{(\text{Asi})}_\ell \), and \( K^{(\text{Merged})}_\ell \), representing the clustered semantic traits analogous to biological chromosome banding.
+To empirically validate the Neural Karyotyping (nKaryotyping) framework, we analyze foundation models fine-tuned on diverse cultural corpora, such as European and Asian datasets, and their merged offspring models generated through Fisher-weighted latent space fusion. For each transformer layer $\ell$, we extract semantic chromosome band structures
+<span class="mathjax-render">\\( K^{(\text{Eur})}_\ell \\)</span>, 
+<span class="mathjax-render">\\( K^{(\text{Asi})}_\ell \\)</span>, and 
+<span class="mathjax-render">\\( K^{(\text{Merged})}_\ell \\)</span>,
+ representing the clustered semantic traits analogous to biological chromosome banding.
 
 Formally, we quantify layerwise structural divergences using metrics capturing chromosomal rearrangements:
 
