@@ -355,7 +355,7 @@ Looking forward, nKaryotyping supports continual monitoring of model evolution a
     </div>
   </div>
   <div style="flex: 1;">
-    <img src="{{assets/gifs/neural_genomics/nKaryotyping/Europe_MiddleEast_nkaryotyping_rotation.gif' | relative_url}}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="{{'assets/gifs/neural_genomics/nKaryotyping/Europe_MiddleEast_nkaryotyping_rotation.gif' | relative_url}}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(XX) Europe–Middle East Semantic Chromosome Inheritance:</strong> Europe exhibits a broad distribution of semantic chromosomes across early-to-mid layers l = 20–27, with moderate spectral curvature and thermodynamic length indicating stable semantic processing. Middle East traits concentrate in mid layers (l = 25–29) with pronounced curvature peaks, reflecting distinct latent semantic specialization. The offspring shows a hybrid inheritance mosaic with novel traits emerging in late layers and evidence of latent space reconfiguration, revealing nonlinear dynamics and epigenetic-like phenomena in semantic fusion.
     </div>
@@ -387,7 +387,7 @@ Looking forward, nKaryotyping supports continual monitoring of model evolution a
     </div>
   </div>
   <div style="flex: 1;">
-    <img src="{{assets/gifs/neural_genomics/nKaryotyping/NorthAmerica_Asia_nkaryotyping_rotation.gif' | relative_url}}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="{{'assets/gifs/neural_genomics/nKaryotyping/NorthAmerica_Asia_nkaryotyping_rotation.gif' | relative_url}}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(XXIV) North America–Asia Semantic Chromosome Inheritance:</strong> North America shows pronounced early-layer semantic chromosomes across layers l = 20–24, with moderate spectral curvature (κ<sub>l</sub> ≈ 0.35–0.5) and stable thermodynamic length (L<sub>l</sub> ≈ 0.3–0.45), reflecting strong early semantic imprinting. Asia exhibits sustained deep-layer traits from l = 25–30, with increased thermodynamic length (L<sub>l</sub> ≈ 0.4–0.6), indicating prolonged semantic integration. The offspring demonstrates layerwise recombination and novel trait emergence, revealing nonlinear epigenetic-like modulation and semantic plasticity analogous to biological gene regulatory networks driving phenotypic diversity.
     </div>
