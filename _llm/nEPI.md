@@ -120,7 +120,7 @@ This comprehensive derivation elevates the **Epistemic Plasticity Index** as a m
 
 ## Interpretation and Diagnostic Insights: Semantic Flexibility and Rigidity in Latent Geometry
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   The <em>Epistemic Plasticity Index</em> 
   <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
   serves as a nuanced quantifier of <strong>semantic adaptability</strong> across the hierarchical architecture of foundation models. Elevated values of 
@@ -132,7 +132,7 @@ This comprehensive derivation elevates the **Epistemic Plasticity Index** as a m
 
 This dichotomy resonates deeply with the **stability-plasticity dilemma**--a fundamental trade-off in cognitive science and continual learning theory. Models must preserve previously acquired knowledge (stability) while remaining sufficiently flexible (plasticity) to incorporate new semantic constructs. The $\mathrm{nEPI}_\ell$ quantification enables a fine-grained diagnostic to map this tension onto the latent semantic manifold, identifying *plastic zones* optimal for targeted semantic intervention and *stable cores* anchoring robust linguistic foundations.
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   Empirically, it is observed that <strong>early transformer layers</strong> typically exhibit 
   <span class="mathjax-render">\( \mathrm{nEPI}_\ell \approx 0 \)</span>, 
   consistent with their encoding of <em>lexical, syntactic, and shallow semantic features</em> shared across diverse linguistic and cultural corpora. 
@@ -142,7 +142,7 @@ This dichotomy resonates deeply with the **stability-plasticity dilemma**--a fun
   These <em>plastic zones</em> represent critical loci for effective alignment tuning, instruction injection, or fine-tuning, allowing AI systems to internalize complex ethical norms, cultural sensitivities, or domain-specific knowledge.
 </p>
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   From a geometric perspective, 
   <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
   highlights the topological flexibility of neural manifolds, reflecting changes in local curvature and connectivity patterns within latent spaces. 
