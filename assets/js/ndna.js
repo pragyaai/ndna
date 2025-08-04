@@ -5,6 +5,7 @@ const baseUrl = document.querySelector('meta[name="base-url"]')?.getAttribute('c
 const menusByModel = {
   LLM: [
     { text: "nDNA", url: baseUrl + "/" },
+    { text: "15 LLMs", url: baseUrl + "/llm/15-llms/" },
     { text: "Fine-Tuning", url: baseUrl + "/llm/fine-tuning/" },
     { text: "CIVIC", url: baseUrl + "/llm/civic/" },
     { text: "Cultural nDNA", url: baseUrl + "/llm/cultural-ndna/" },
