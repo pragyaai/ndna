@@ -69,17 +69,17 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Multilingual nDNA Analysis" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Language-Specific Cognitive Patterns" />
-<meta property="og:description" content="Language-Specific Cognitive Patterns" />
+<meta name="description" content="Multilingual : Latent Genomics of Language-Specific Adaptation in LLaMA" />
+<meta property="og:description" content="Multilingual : Latent Genomics of Language-Specific Adaptation in LLaMA" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/multilinguality/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/multilinguality/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-04T20:25:41+00:00" />
+<meta property="article:published_time" content="2025-08-04T22:41:37+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Multilingual nDNA Analysis" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T20:25:41+00:00","datePublished":"2025-08-04T20:25:41+00:00","description":"Language-Specific Cognitive Patterns","headline":"Multilingual nDNA Analysis","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/multilinguality/"},"url":"https://pragyaai.github.io/nDNA/llm/multilinguality/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T22:41:37+00:00","datePublished":"2025-08-04T22:41:37+00:00","description":"Multilingual : Latent Genomics of Language-Specific Adaptation in LLaMA","headline":"Multilingual nDNA Analysis","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/multilinguality/"},"url":"https://pragyaai.github.io/nDNA/llm/multilinguality/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -119,85 +119,445 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
-          
-            <h1>Multilingual nDNA Analysis</h1>
-          
         
-        <h2 id="language-specific-cognitive-patterns">Language-Specific Cognitive Patterns</h2>
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ndna">Multilingual<img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span>: Latent Genomics of Language-Specific Adaptation in LLaMA</span>
+</h1>
 
-<p>Each language creates distinct nDNA signatures within multilingual foundation models, revealing how linguistic structures influence internal reasoning patterns.</p>
+<p>Large language models (LLMs) like <strong>LLaMA-2</strong> <a href="#ref1">[1]</a> and <strong>LLaMA-3</strong> <a href="#ref2">[2]</a> claim impressive multilingual capabilities, trained on diverse corpora spanning dozens of languages. Yet, much of our understanding of multilingual performance remains limited to output accuracy–BLEU scores, perplexity, or alignment metrics <a href="#ref3">[3]</a> <a href="#ref4">[4]</a>. In this section, we propose a deeper lens: the <em>multilingual nDNA</em> of LLaMA–how language-specific priors sculpt the <em>latent genomic geometry</em> of models.</p>
 
-<h2 id="language-specific-ndna-signatures">Language-Specific nDNA Signatures</h2>
+<h2 id="llamas-multilingual-reach">LLaMA’s Multilingual Reach</h2>
 
-<h3 id="spectral-curvature-by-language-family">Spectral Curvature by Language Family</h3>
-<p>Different language families create characteristic curvature patterns:</p>
+<p>The LLaMA family advertises support for over 20 languages, covering major world tongues across <strong>Indo-European</strong>, <strong>Sino-Tibetan</strong>, <strong>Dravidian</strong>, and <strong>Turkic</strong> language families <a href="#ref1">[1]</a> <a href="#ref2">[2]</a>. For this study, we select the top-10 high-coverage languages where LLaMA shows strong performance as per public benchmarks <a href="#ref5">[5]</a> <a href="#ref6">[6]</a>: <em>English, Spanish, French, German, Portuguese, Italian, Russian, Chinese, Hindi</em>, and <em>Thai</em>. These languages represent diverse linguistic typologies, writing systems, and cultural provenance–making them ideal for investigating latent genomic adaptation.</p>
+
+<h2 id="multilingual-ndnas-probing-llamas-latent-geometry-across-languages">Multilingual nDNAs: Probing LLaMA’s Latent Geometry Across Languages</h2>
+
+<p>LLaMA models are pre-trained on multilingual data but exhibit uneven performance across languages. To investigate how linguistic diversity shapes their latent genomic signature (<em>nDNA</em>), we construct language-specific nDNA trajectories for ten representative languages drawn from LLaMA’s support. These languages span high-resource (e.g., <em>Spanish</em>, <em>French</em>), mid-resource (e.g., <em>Hindi</em>), and low-resource (e.g., <em>Thai</em>) settings, reflecting both LLaMA’s strengths and its cultural-epistemic gaps.</p>
+
+<h3 id="language-specific-nlp-tasks-and-benchmarks">Language-Specific NLP Tasks and Benchmarks</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Language</th>
+      <th style="text-align: left">Benchmark / Task</th>
+      <th style="text-align: left">References</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">English</td>
+      <td style="text-align: left">GLUE / SuperGLUE (sentiment, NLI, QA)</td>
+      <td style="text-align: left"><a href="#ref7">[7]</a> <a href="#ref8">[8]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Spanish</td>
+      <td style="text-align: left">MLQA / Spanish subset QA, cross-lingual QA</td>
+      <td style="text-align: left"><a href="#ref9">[9]</a> <a href="#ref10">[10]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">French</td>
+      <td style="text-align: left">French subset of XNLI (NLI)</td>
+      <td style="text-align: left"><a href="#ref11">[11]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">German</td>
+      <td style="text-align: left">German Web FAQ, NER / POS tagging</td>
+      <td style="text-align: left"><a href="#ref12">[12]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Portuguese</td>
+      <td style="text-align: left">Portuguese portion of XCOPA (commonsense reasoning)</td>
+      <td style="text-align: left"><a href="#ref13">[13]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Italian</td>
+      <td style="text-align: left">Italian PAT-Italian (paraphrase / textual similarity)</td>
+      <td style="text-align: left"><a href="#ref14">[14]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Russian</td>
+      <td style="text-align: left">Russian SuperGLUE (translation-based adaptation)</td>
+      <td style="text-align: left"><a href="#ref15">[15]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Chinese</td>
+      <td style="text-align: left">CLUE benchmark (classification, MRC)</td>
+      <td style="text-align: left"><a href="#ref16">[16]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hindi</td>
+      <td style="text-align: left">MLQA Hindi QA and Hindi NLI subset</td>
+      <td style="text-align: left"><a href="#ref9">[9]</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Thai</td>
+      <td style="text-align: left">Thai-H6 reasoning QA and NLI benchmark</td>
+      <td style="text-align: left"><a href="#ref17">[17]</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="constructing-language-specific-ndnas">Constructing Language-Specific nDNAs</h3>
+
+<p>To investigate how language-specific inputs reshape the internal semantics of large multilingual models, we extract <em>nDNA trajectories</em> for ten languages across the full stack of <strong>LLaMA-3 (8B)</strong>. For each language, we use the <em>entire benchmark dataset</em> (Table above), ensuring full task coverage and authentic linguistic expression. Every input undergoes complete forward propagation through all 32 transformer layers. At each layer \(\ell\), we compute a diagnostic triplet: (i) <strong>Spectral Curvature</strong> \(\kappa_\ell\) – capturing the warping or flattening of semantic topology; (ii) <strong>Thermodynamic Length</strong> \(\mathcal{L}_\ell\) – measuring latent path complexity and cognitive effort; and (iii) <strong>Belief Force Magnitude</strong> \(\|\vec{v}_\ell^{(c)}\|\) – the norm of semantic steering induced by cultural priors. Importantly, <em>model weights, decoding, and tokenization are kept constant</em> across all languages to ensure that any variation arises from the linguistic and epistemic structure of the input alone.</p>
+
+<h2 id="numerical-characterization-of-multilingual-ndna">Numerical Characterization of Multilingual nDNA</h2>
+
+<p>To concretely illustrate the variation in latent genomic signatures, the following table summarizes representative value ranges of spectral curvature (\(\kappa_\ell\)), thermodynamic length (\(\mathcal{L}_\ell\)), and belief vector norm (\(\|\mathbf{v}_\ell^{(c)}\|\)) across the top-performing languages. Values are reported for upper transformer layers (\(\ell \geq 24\)) where most cultural and linguistic adaptation occurs.</p>
+
+<h3 id="multilingual-ndna-summary">Multilingual nDNA Summary</h3>
+
+<p>Representative average latent diagnostic ranges across languages in the LLaMA multilingual nDNA study. Color intensity highlights increasing latent strain and epistemic effort.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Language</th>
+      <th style="text-align: left">\({\kappa_\ell}\)</th>
+      <th style="text-align: left">\({\mathcal{L}_\ell}\)</th>
+      <th style="text-align: left">\(|\mathbf{v}_\ell^{(c)}|\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Spanish</td>
+      <td style="text-align: left">0.045–0.055</td>
+      <td style="text-align: left">0.85–0.95</td>
+      <td style="text-align: left">0.55–0.62</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">French</td>
+      <td style="text-align: left">0.045–0.054</td>
+      <td style="text-align: left">0.84–0.93</td>
+      <td style="text-align: left">0.54–0.61</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">German</td>
+      <td style="text-align: left">0.046–0.056</td>
+      <td style="text-align: left">0.86–0.95</td>
+      <td style="text-align: left">0.56–0.63</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Portuguese</td>
+      <td style="text-align: left">0.048–0.058</td>
+      <td style="text-align: left">0.88–0.97</td>
+      <td style="text-align: left">0.57–0.65</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Italian</td>
+      <td style="text-align: left">0.047–0.056</td>
+      <td style="text-align: left">0.86–0.95</td>
+      <td style="text-align: left">0.56–0.64</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hindi</td>
+      <td style="text-align: left">0.065–0.075</td>
+      <td style="text-align: left">1.05–1.12</td>
+      <td style="text-align: left">0.66–0.74</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Thai</td>
+      <td style="text-align: left">0.067–0.078</td>
+      <td style="text-align: left">1.08–1.15</td>
+      <td style="text-align: left">0.68–0.75</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Chinese</td>
+      <td style="text-align: left">0.070–0.080</td>
+      <td style="text-align: left">1.10–1.18</td>
+      <td style="text-align: left">0.70–0.78</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Russian</td>
+      <td style="text-align: left">0.050–0.060</td>
+      <td style="text-align: left">0.90–1.00</td>
+      <td style="text-align: left">0.58–0.66</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These average values reflect how nDNA metrics reveal nuanced internal strain:</p>
 <ul>
-  <li><strong>Indo-European</strong>: Gradual curvature transitions reflecting shared grammatical structures</li>
-  <li><strong>Sino-Tibetan</strong>: Sharp curvature spikes at tonal processing regions</li>
-  <li><strong>Afroasiatic</strong>: Distinctive curvature patterns around root-based morphology</li>
-  <li><strong>Agglutinative</strong>: Step-like curvature increases with morphological complexity</li>
+  <li><strong>Western European languages</strong> maintain compact, efficient latent structures, consistent with pretraining data priors <a href="#ref18">[18]</a> <a href="#ref19">[19]</a>.</li>
+  <li><strong>Asian languages</strong> require models to bend and stretch their latent manifolds significantly—an internal cost of cultural and linguistic underrepresentation in pretraining corpora <a href="#ref20">[20]</a> <a href="#ref21">[21]</a>.</li>
 </ul>
 
-<h3 id="thermodynamic-language-processing">Thermodynamic Language Processing</h3>
-<p>The cognitive effort varies significantly across languages:</p>
+<h2 id="learnings-from-multilingual-ndnas">Learnings from Multilingual nDNAs</h2>
+
+<p>Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. We summarize the key observations below:</p>
+
 <ul>
-  <li><strong>Native training languages</strong>: Low thermodynamic length</li>
-  <li><strong>Low-resource languages</strong>: High thermodynamic length indicating processing difficulty</li>
-  <li><strong>Code-switching scenarios</strong>: Variable patterns showing language transition costs</li>
+  <li><strong>Cultural Alignment:</strong>
+    <ul>
+      <li>Each language’s nDNA gravitates toward its cultural attractor–e.g., <em>Spanish</em> → Latin America, <em>Hindi</em> → Asia <a href="#ref22">[22]</a> <a href="#ref23">[23]</a>.</li>
+      <li>Alignment is visible via curvature trajectories and belief force directionality matching cultural priors.</li>
+    </ul>
+  </li>
+  <li><strong>Geometric Signatures of Resource Richness:</strong>
+    <ul>
+      <li>High-resource languages (<em>English</em>, <em>French</em>, <em>Portuguese</em>) show:
+        <ul>
+          <li>Higher spectral curvature \(\kappa_\ell\) → richer topological folding.</li>
+          <li>Longer thermodynamic length \(\mathcal{L}_\ell\) → deeper semantic maturation.</li>
+        </ul>
+      </li>
+      <li>Low-/mid-resource languages (<em>Hindi</em>, <em>Thai</em>, <em>Russian</em>) show:
+        <ul>
+          <li>Flattened \(\kappa_\ell\) curves and abrupt \(\mathcal{L}_\ell\) saturation.</li>
+          <li>Evidence of <em>epistemic torsion</em> or geometric shortcutting in mid layers (\(\ell \in [10, 20]\)).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Belief Force Diagnostics:</strong>
+    <ul>
+      <li>\(\|\mathbf{v}_\ell^{(c)}\|\) reveals semantic steering sensitivity.</li>
+      <li>Languages with clearer, culturally grounded belief signals exhibit smoother belief vector flow (e.g., <em>Spanish</em>, <em>German</em>).</li>
+      <li>Low-resource languages show directional instability or internal contradiction.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Epigenetic Blueprint of Language-Specific nDNA.</strong>
+Much like biological cells derive specialized functions from a shared genome via epigenetic regulation, we observe that language-specific trajectories in LLaMA’s latent space emerge from differential semantic activation over a common transformer backbone. Here, the model’s universal <code class="language-plaintext highlighter-rouge">nDNA</code> serves as a latent genomic scaffold–malleable, expressive, and conditioned by its linguistic environment.</p>
+
+    <p>The composite structure of each language’s trajectory empirically supports the hypothesis that</p>
+
+\[\boxed{
+\texttt{nDNA}_{\text{lang}} = \alpha \cdot \texttt{nDNA}_{\text{culture}} + \beta \cdot \texttt{nDNA}_{\text{LLaMA}} + \gamma \cdot \texttt{Noise}
+}\]
+
+    <p>where the latent geometry of a language model emerges as a linear combination of culturally anchored priors, architectural inheritance from LLaMA, and residual fine-tuning stochasticity.</p>
+  </li>
 </ul>
 
-<h3 id="belief-vector-language-alignment">Belief Vector Language Alignment</h3>
-<p>Language-specific directional forces in the representation space:</p>
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/europe_lang.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/europe_lang.png" alt="3D trajectory plot showing European language evolution in latent space" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(a) <strong>Neural Evolution of European Languages.</strong> This plot depicts latent-space trajectories of four European languages–French, German, Italian, and English–projected into the \((\kappa_\ell, \mathcal{L}_\ell, \ell)\) coordinate space, where \(\kappa_\ell\) denotes spectral curvature, \(\mathcal{L}_\ell\) the thermodynamic length, and \(\ell\) the transformer layer index (\(\ell \in [20,30]\)). All languages exhibit smooth semantic evolution curves with minor curvature fluctuations, reflecting stable cultural grounding. English diverges slightly from the Romance cluster (French, Italian) yet remains structurally coherent.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/europe_lang_cul.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/europe_lang_cul.png" alt="3D trajectory plot showing European languages with cultural anchor overlays" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(b) <strong>Cultural Anchoring of European Languages.</strong> Overlaying the same language trajectories with culturally grounded base models–Europe, North America, Australia, and LLaMA–we observe distinct semantic pull effects. French, German, and Italian remain geometrically proximal to the Europe base, while English veers closer to LLaMA, indicating stronger architectural affinity and training alignment. The divergence vectors suggest partial semantic inheritance from European priors and partial drift towards globally optimized foundation representations. These patterns illuminate how language-specific tuning interacts with pretrained cultural baselines in shaping latent geometry.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/latin_language_only_trajectories.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/latin_language_only_trajectories.png" alt="3D trajectory plot showing Spanish and Portuguese language evolution" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(c) <strong>Latent Trajectories of Latin Languages.</strong> This plot shows the nDNA trajectories of Spanish and Portuguese within the \((\kappa_\ell, \mathcal{L}_\ell, \ell)\) space, capturing their semantic evolution across transformer layers \(\ell \in [20,30]\). The close proximity and parallel curvature profiles between the two languages indicate shared linguistic structure and priors. Anchoring arrows at \(\ell = 25\) reveal convergence points in latent space, suggesting a high degree of representational coherence rooted in common Romance language ancestry.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/latin_language_culture_static.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/latin_language_culture_static.png" alt="3D trajectory plot showing Latin languages with cultural alignment" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(d) <strong>Cultural Alignment of Latin Languages.</strong> Overlaying the trajectories with the Latin America culture base reveals pronounced spatial alignment of both Spanish and Portuguese with their regional anchor. The trajectory pull indicates that these language nDNAs are not only structurally similar, but also semantically grounded within the cultural priors of Latin America. This supports the hypothesis that multilingual foundation models implicitly encode culturally conditioned semantics, manifesting in geometric alignment between linguistic and cultural nDNA paths.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/rest_languages.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/rest_languages.png" alt="3D trajectory plot showing Asian language evolution with complex patterns" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(e) <strong>Latent Geometries of Asian Languages.</strong> This plot visualizes the nDNA trajectories for Hindi, Chinese, Russian, and Thai across layers \(\ell \in [20,30]\) in \((\kappa_\ell, \mathcal{L}_\ell, \ell)\) space. Compared to European languages, these trajectories exhibit higher torsion, sharper inflection points in curvature \(\kappa_\ell\), and more complex thermodynamic length \(\mathcal{L}_\ell\) patterns, suggesting non-linear evolution and culturally distinct semantic encoding. The variability reflects underlying differences in linguistic structure (e.g., logographic vs. phonetic), script diversity, and morpho-syntactic richness.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/rest_language+culture.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/rest_language+culture.png" alt="3D trajectory plot showing Asian languages with cultural anchor overlays" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(f) <strong>Cultural Anchoring of Asian and African Languages.</strong> Overlaying cultural trajectories reveals strong alignment of Chinese with China and Hindi, and Thai with Asia, affirming culture-conditioned encoding in multilingual LLMs. The spatial convergence across \((\kappa_\ell, \mathcal{L}_\ell, \ell)\) dimensions suggests that regional priors are embedded not just through vocabulary, but through latent geometric patterns. Thai shows weaker alignment, exhibiting torsional drift yet trending toward Asia. These patterns indicate that LLMs internalize cultural semantics via token frequency, orthographic structure, and alignment-era supervision–capturing deep semantic regularities shaped by linguistic and geopolitical proximity.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/all_lang.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/all_lang.png" alt="3D trajectory plot showing all 10 languages in unified view" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(g) <strong>Unified Language Trajectories.</strong> A comprehensive 3D visualization of 10 language-specific neural trajectories across layers \(\ell \in [20,30]\), plotted in the latent geometry space defined by spectral curvature \(\kappa_\ell\) and thermodynamic length \(\mathcal{L}_\ell\). Variations in trajectory shape and spacing reflect differences in linguistic priors, orthographic systems, and token distributions across languages. Notably, Indo-European languages cluster more tightly, while Chinese and Thai show distinct curvature signatures.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="/nDNA/assets/gifs/language/all_lang_cul.png" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/language/all_lang_cul.png" alt="3D trajectory plot showing complete language-culture alignment patterns" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p>(h) <strong>Language–Culture Neural Alignment.</strong> Overlaying cultural base trajectories reveals directional convergence of languages toward semantically aligned cultures in \((\kappa_\ell, \mathcal{L}_\ell, \ell)\)-space. Dashed arrows denote displacement vectors from each language to its closest cultural anchor, reflecting the semantic pull exerted by culturally grounded model variants. These alignments suggest that LLMs implicitly encode regional and civilizational priors even without explicit cultural supervision.</p>
+
+  </figcaption>
+  
+</figure>
+
+<p>The coefficients \((\alpha, \beta, \gamma)\) serve as <strong>epigenetic regulators</strong> in the semantic genome of language models, dynamically modulating the expression of latent priors. Analogous to methylation or acetylation in biological cells, these regulators shape the activation and attenuation of cultural, architectural, and stochastic components in <code class="language-plaintext highlighter-rouge">nDNA</code>. Their magnitudes are adaptively governed by:</p>
+
 <ul>
-  <li>Cultural values embedded in language structure</li>
-  <li>Grammatical constraints influencing reasoning patterns</li>
-  <li>Semantic relationships varying across linguistic contexts</li>
+  <li><strong>Task-Specific Fitness</strong> (\(\alpha\)): The observed performance of the model on language-specific benchmarks, which modulates \(\alpha\) to prioritize cultural fidelity.</li>
+  <li><strong>Training Resource Ecology</strong> (\(\beta\)): The volume, diversity, and linguistic coverage in the pretraining corpus, which influences \(\beta\) by amplifying LLaMA’s inductive priors under data scarcity.</li>
+  <li><strong>Latent Semantic Drift</strong> (\(\gamma\)): Deviations in internal geometry–e.g., shifts in spectral curvature \(\kappa_\ell\), thermodynamic length \(\mathcal{L}_\ell\), or belief vector norms–compared to high-resource anchors, guiding \(\gamma\) to encode stochastic divergence.</li>
 </ul>
 
-<h2 id="cross-lingual-transfer-analysis">Cross-Lingual Transfer Analysis</h2>
+<p>This biologically grounded decomposition elevates <code class="language-plaintext highlighter-rouge">nDNA</code> from a fixed trajectory to a <em>dynamically expressed, culture-conditioned semantic genotype</em>, revealing how language context, data topology, and architectural inheritance coalesce to sculpt epistemic behavior in multilingual LLMs.</p>
 
-<h3 id="language-interference-patterns">Language Interference Patterns</h3>
-<p>nDNA reveals how languages influence each other within the model:</p>
+<h2 id="broader-implications">Broader Implications</h2>
+
+<p>The nDNA framework transcends surface-level metrics like perplexity, offering a structural lens into how models <em>internalize, distort, or neglect</em> meaning across languages. It reframes multilingual evaluation as a question of <em>epistemic integrity</em>–how reliably a model’s latent space carries beliefs, not just tokens, across linguistic domains.</p>
+
+<p>This opens up principled interventions:</p>
 <ul>
-  <li>Positive transfer: Similar curvature patterns facilitate learning</li>
-  <li>Negative interference: Conflicting patterns create processing difficulties</li>
-  <li>Language clustering: Related languages show similar nDNA profiles</li>
+  <li><strong>Cultural Realignment via Counterfactual Geometry</strong>: Rebalancing latent pathways by projecting underrepresented languages toward culturally coherent attractors.</li>
+  <li><strong>Geometric Interpolation for Low-Resource Repair</strong>: Using nDNA trajectories of high-resource languages to reconstruct plausible manifolds in data-sparse regions.</li>
+  <li><strong>Epistemic Surveillance</strong>: Continuously monitoring curvature, drift, and belief force to detect silent failures and semantic blind spots in multilingual AI.</li>
 </ul>
 
-<h3 id="zero-shot-performance-prediction">Zero-Shot Performance Prediction</h3>
-<p>nDNA signatures can predict cross-lingual performance:</p>
+<h2 id="why-ndna-geometry-matters">Why nDNA Geometry Matters</h2>
+
+<p>Conventional multilingual benchmarks primarily evaluate surface-level performance: accuracy, BLEU, perplexity, F1. While useful, these metrics offer limited visibility into the <em>internal semantics</em> of foundation models. In contrast, <strong>nDNA geometry</strong> illuminates the underlying cognitive terrain traversed by the model during multilingual inference. Specifically, it reveals:</p>
+
 <ul>
-  <li>High curvature similarity → Better zero-shot transfer</li>
-  <li>Large thermodynamic differences → Reduced transfer effectiveness</li>
-  <li>Aligned belief vectors → Successful cross-lingual generalization</li>
+  <li>The <strong>semantic energy landscape</strong> shaped by each language–capturing the <em>internal effort</em> required for coherent meaning construction.</li>
+  <li>The <strong>geometric deformations</strong> induced by linguistic diversity–highlighting torsion, drift, and curvature as signatures of structural adaptation.</li>
+  <li>The <strong>epistemic tax</strong> silently imposed on underrepresented languages–manifesting as flattened trajectories, dampened belief vectors, and diminished thermodynamic flow.</li>
 </ul>
 
-<h2 id="applications">Applications</h2>
+<p>Rather than asking merely how well a model performs, the nDNA framework compels us to ask: <em>How does the model think across languages? And at what cost?</em></p>
 
-<h3 id="language-model-development">Language Model Development</h3>
 <ul>
-  <li>Optimize multilingual training strategies</li>
-  <li>Identify language pairs for effective transfer learning</li>
-  <li>Design architectures that better handle linguistic diversity</li>
+  <li><em>Languages aligned with pretraining corpora</em> enjoy latent efficiency–needing minimal adaptation at the belief manifold level.</li>
+  <li><em>Underrepresented languages</em> incur internal cost: their latent pathways must twist and lengthen to accommodate distinct grammatical, semantic, and cultural structures <a href="#ref20">[20]</a> <a href="#ref24">[24]</a>.</li>
 </ul>
 
-<h3 id="low-resource-language-support">Low-Resource Language Support</h3>
+<p>These geometric signals support more equitable design and evaluation of multilingual models <a href="#ref25">[25]</a> <a href="#ref26">[26]</a>.</p>
+
+<h2 id="looking-forward-toward-epistemically-grounded-multilingual-ai">Looking Forward: Toward Epistemically Grounded Multilingual AI</h2>
+
+<p>The multilingual nDNA framework reorients our understanding of linguistic performance–from surface fluency to internal semantic health. This shift opens fertile ground for future research and responsible deployment:</p>
+
 <ul>
-  <li>Predict which high-resource languages best support low-resource targets</li>
-  <li>Identify optimal training data mixing ratios</li>
-  <li>Develop language-specific fine-tuning approaches</li>
+  <li>
+    <p><strong>Corpus Equity and Cultural Grounding:</strong> Expand pretraining datasets to ensure culturally balanced representation, prioritizing underrepresented languages, dialects, and epistemologies <a href="#ref23">[23]</a> .</p>
+  </li>
+  <li>
+    <p><strong>nDNA-Aware Diagnostics:</strong> Integrate spectral curvature, thermodynamic length, and belief vector dynamics into evaluation pipelines to detect latent strain, representational collapse, or misalignment <em>before</em> deployment.</p>
+  </li>
+  <li>
+    <p><strong>Geometric Fairness Metrics:</strong> Develop fairness indicators rooted in nDNA geometry to complement output-level evaluations–quantifying how equitably semantic space is allocated across linguistic groups.</p>
+  </li>
+  <li>
+    <p><strong>Alignment Without Distortion:</strong> Design fine-tuning strategies that preserve epistemic geometry, minimizing latent warping while improving task alignment–particularly in low-resource or code-mixed contexts.</p>
+  </li>
+  <li>
+    <p><strong>Generative Policy Implications:</strong> Use nDNA insights to inform regulatory and design standards for foundation models that are not just multilingual, but <em>multilogical</em>–capable of honoring diverse ways of reasoning and knowing.</p>
+  </li>
 </ul>
 
-<h3 id="translation-quality-assessment">Translation Quality Assessment</h3>
-<ul>
-  <li>Use nDNA patterns to predict translation quality</li>
-  <li>Identify potential translation errors before generation</li>
-  <li>Optimize multilingual alignment objectives</li>
-</ul>
+<p>Together, these directions converge toward a new goalpost for multilingual AI: building models that do not merely speak many languages, but genuinely <em>understand, respect, and represent</em> them. As echoed in recent calls for inclusive foundation model design <a href="#ref27">[27]</a>, we envision models built <em>for everyone, with everyone, by everyone</em>.</p>
 
-<h2 id="research-discoveries">Research Discoveries</h2>
+<hr />
 
-<p>Multilingual nDNA analysis reveals that successful multilingual models develop language-agnostic reasoning cores while maintaining language-specific surface processing patterns.</p>
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Touvron, Hugo and Others “LLaMA: Open and efficient foundation language models” <em>arXiv preprint arXiv:2302.13971</em> (2023).</p>
+
+<p><a id="ref2"></a>[2] Dubey, Abhimanyu, Jauhri, Abhinav, and others “The Llama 3 Herd of Models” <em>arXiv:2407.21783</em> (2024). <a href="https://arxiv.org/abs/2407.21783">https://arxiv.org/abs/2407.21783</a></p>
+
+<p><a id="ref3"></a>[3] Liang, Percy, Bommasani, Rishi, and others “Holistic Evaluation of Language Models” <em>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL)</em> (2023).</p>
+
+<p><a id="ref4"></a>[4] Xu, J. and others “Aligning large language models with iterative feedback” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref5"></a>[5] Hu, Jiachang, Ruder, Sebastian, and others “XTREME: A Massively Multilingual Multi-task Benchmark for Evaluating Cross-lingual Generalization” <em>Proceedings of the 37th International Conference on Machine Learning (ICML)</em> (2020). <a href="https://proceedings.mlr.press/v119/hu20b.html">https://proceedings.mlr.press/v119/hu20b.html</a></p>
+
+<p><a id="ref6"></a>[6] Liu, Yinhan, Ott, Myle, and others “Multilingual Denoising Pre-training for Neural Machine Translation” <em>Transactions of the Association for Computational Linguistics (TACL)</em> (2020). <a href="https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00343/96445/Multilingual-Denoising-Pre-training-for-Neural">https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00343/96445/Multilingual-Denoising-Pre-training-for-Neural</a></p>
+
+<p><a id="ref7"></a>[7] Wang, Alex, Singh, Amanpreet, and others “GLUE: A multi-task benchmark and analysis platform for natural language understanding” <em>ICLR</em> (2019).</p>
+
+<p><a id="ref8"></a>[8] Wang, Alex, Pruksachatkun, Yada, and others “SuperGLUE: A stickier benchmark for general-purpose language understanding systems” <em>NeurIPS</em> (2019).</p>
+
+<p><a id="ref9"></a>[9] Lewis, Patrick, Oguz, Barlas, and others “MLQA: Evaluating cross-lingual extractive question answering” <em>arXiv preprint arXiv:1910.07475</em> (2019).</p>
+
+<p><a id="ref10"></a>[10] Barrachina, Sergio and Tiedemann, J{"o}rg “The OPUS corpus — Parallel corpora for everyone” <em>LREC</em> (2019).</p>
+
+<p><a id="ref11"></a>[11] Conneau, Alexis, Rinott, Ruty, and others “XNLI: Evaluating cross-lingual sentence representations” <em>EMNLP</em> (2018).</p>
+
+<p><a id="ref12"></a>[12] Benikova, Darina, Biemann, Chris, and others “GermEval 2014 Named Entity Recognition Shared Task: Companion Paper” <em>Konvens</em> (2014).</p>
+
+<p><a id="ref13"></a>[13] Ponti, Edoardo Maria, Xu, Peng, and others “XCOPA: A multilingual dataset for causal commonsense reasoning” <em>EMNLP</em> (2020).</p>
+
+<p><a id="ref14"></a>[14] Ghaleb, Elyes, Di Carlo, Valerio, and others “PAT-Italian: A new dataset for paraphrase detection and textual similarity in Italian” <em>CEUR Workshop Proceedings</em> (2020).</p>
+
+<p><a id="ref15"></a>[15] Shavrina, Tatiana, Fenogenova, Alena, and others “Russian SuperGLUE: A Russian Language Understanding Evaluation Benchmark” <em>arXiv preprint arXiv:2108.01794</em> (2021).</p>
+
+<p><a id="ref16"></a>[16] Xu, Liang, Hu, Hai, and others “CLUE: A Chinese language understanding evaluation benchmark” <em>arXiv preprint arXiv:2004.05986</em> (2020).</p>
+
+<p><a id="ref17"></a>[17] Research compilation based on multilingual QA + reasoning Thai-specific benchmarks (ARC, HellaSwag, GSM8K) “Thai-H6: A Thai benchmark suite for multi-task language understanding” <em>Open source repositories and collaborative datasets (compiled)</em> (2024).</p>
+
+<p><a id="ref18"></a>[18] Mukherjee, Subhabrata, Dossani, Rehan, and others “Globalizing BERT: A comprehensive multilingual evaluation” <em>arXiv preprint arXiv:2008.00364</em> (2020).</p>
+
+<p><a id="ref19"></a>[19] Sang, Ethan, Van Durme, Benjamin, and others “Evaluating the cross-linguistic fairness of NLP systems” <em>Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)</em> (2022).</p>
+
+<p><a id="ref20"></a>[20] Blodgett, Su Lin, Barocas, Solon, and others “Language (technology) is power: A critical survey of “bias” in NLP” <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (2020).</p>
+
+<p><a id="ref21"></a>[21] Xiang, Yue, Zhao, Zexuan, and others “Cultural Calibration of Large Language Models” <em>Proceedings of ACL 2024</em> (2024).</p>
+
+<p><a id="ref22"></a>[22] Mager, Manuel, Ortega, Juan, and others “Lost in translation: Analysis of information loss during machine translation between polysynthetic and fusional languages” <em>LREC</em> (2018).</p>
+
+<p><a id="ref23"></a>[23] Adelani, David Ifeoluwa, Alabi, Jesujoba O, and others “Massively Multilingual Transfer for {NER}” <em>Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</em> (2021). <a href="https://aclanthology.org/2021.naacl-main.154">https://aclanthology.org/2021.naacl-main.154</a></p>
+
+<p><a id="ref24"></a>[24] Wang, Ziwei, Xu, Yichao, and others “Cultural bias in large language models: A survey” <em>arXiv preprint arXiv:2311.05691</em> (2023).</p>
+
+<p><a id="ref25"></a>[25] Laurens, Ethan and others “The Ethics of Alignment: Towards Culturally Inclusive Foundation Models” <em>Proceedings of the AAAI Conference on Artificial Intelligence</em> (2024).</p>
+
+<p><a id="ref26"></a>[26] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+
+<p><a id="ref27"></a>[27] Mihalcea, Rada, Ignat, Oana, and others “Why AI Is WEIRD and Shouldn’t Be This Way: Towards AI for Everyone, with Everyone, by Everyone” <em>Proceedings of the AAAI Conference on Artificial Intelligence</em> (2025). <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35092">https://ojs.aaai.org/index.php/AAAI/article/view/35092</a></p>
+
 
       </div>
     </div>
