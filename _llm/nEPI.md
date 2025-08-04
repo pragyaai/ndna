@@ -76,7 +76,7 @@ $$\mathbf{F}(\theta) = \mathbb{E}_{x,y \sim \mathcal{D}} \left[ \nabla_\theta \l
 
 which measures the local sensitivity of the model's predictive distribution to changes in $\theta$.
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   Through the Jacobian 
   <span class="mathjax-render">\( \mathbf{J}_\ell^x(\theta) := \nabla_\theta h_\ell(\theta, x) \)</span>, 
   the Fisher metric induces a pullback metric on the latent space:

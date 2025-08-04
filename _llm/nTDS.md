@@ -28,7 +28,7 @@ This biological metaphor underscores that **semantic inheritance in neural model
 
 # Mathematical Formulation of Neural Trait Dominance Score (nTDS)
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   <strong>The Neural Trait Dominance Score (nTDS)</strong> formalizes the notion of layerwise parental trait influence in an offspring foundation model <span class="mathjax-render">\( M_O \)</span>, constructed from two parent models <span class="mathjax-render">\( M_A \)</span> and <span class="mathjax-render">\( M_B \)</span>, within the Neural DNA (nDNA) semantic geometry framework.
   Let 
   <span class="mathjax-render">\( \mathbf{x}_\ell^{(A)},\ \mathbf{x}_\ell^{(B)},\ \mathbf{x}_\ell^{(O)} \in \mathcal{M}_\ell \subseteq \mathbb{R}^d \)</span>,
@@ -58,7 +58,7 @@ These vectors encode semantic trait differences and inheritance displacement wit
 
 ## Fisher-Rao Metric and Inner Product
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   The tangent space 
   <span class="mathjax-render">\( T_{\mathbf{x}_\ell^{(B)}}\mathcal{M}_\ell \)</span> 
   is endowed with a local inner product induced by the Fisher information metric 
@@ -106,7 +106,7 @@ $$\mathcal{J}_\ell := J_\ell^{(A)} (J_\ell^{(A)})^T - J_\ell^{(B)} (J_\ell^{(B)}
 
 capturing differential sensitivity of the latent space to parameter perturbations.
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   Enhance <span class="mathjax-render">\( \text{nTDS}_\ell \)</span> by weighting 
   <span class="mathjax-render">\( \alpha_\ell \)</span> with spectral properties of 
   <span class="mathjax-render">\( \mathcal{J}_\ell \)</span>, thereby integrating dynamic semantic influence and identifying layers where trait dominance is both geometrically and parametrically significant.
@@ -129,7 +129,7 @@ The **nTDS** provides a rigorous, curvature-aware, and sensitivity-informed meas
 
 ## Interpretation and Implications
 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   The <em>Neural Trait Dominance Score</em> (<strong>nTDS</strong>) serves as a <strong>precise</strong>, layer-resolved indicator of how semantic traits from each parent model manifest within an offspring foundation model. By quantifying the relative proximity of the offspring's latent embeddings 
   <span class="mathjax-render">\( \mathbf{x}^{(O)}_{\ell} \)</span> 
   to each parent's embeddings 
@@ -188,7 +188,7 @@ which reveal consistent patterns or variabilities in trait dominance across diff
 **Interpretability and Explainability:** By tracing $\mathrm{nTDS}_\ell$ trajectories, researchers gain transparent maps of semantic lineage, enabling interpretability of offspring model behavior in terms of parental cultural and functional contributions. This vectorial quantification demystifies the black-box nature of foundation models, providing actionable insights for stakeholders concerned with cultural sensitivity and fairness.
 
 **Biological and Theoretical Insights:** 
-<p style="text-align: justify; font-size: 0.9em;">
+<p style="text-align: justify; font-size: 1em;">
   <span class="mathjax-render">\( \mathrm{nTDS}_\ell \)</span> is conceptually analogous to quantitative trait loci (QTLs) in genomics (321), where trait variance is mapped onto chromosomal positions. Here, 
   <span class="mathjax-render">\( \mathrm{nTDS}_\ell \)</span> maps semantic trait dominance onto transformer layers, elucidating semantic loci akin to chromosomal trait regions. This analogy enriches theoretical understanding of model inheritance, highlighting hierarchical and modular trait transmission across network depth.
 </p>
