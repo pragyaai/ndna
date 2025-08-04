@@ -62,15 +62,15 @@ Given two parent models $M^A$ and $M^B$ with karyotypes $K^{(A)}$ and $K^{(B)}$,
 
 For each band $k$ at layer $\ell$, define a semantic band divergence:
 
-$\Delta^{(O;A,B)}_{\ell,k} := \min(\|b^{(O)}_{\ell,k} - b^{(A)}_{\ell,k}\|_2, \|b^{(O)}_{\ell,k} - b^{(B)}_{\ell,k}\|_2)$
+$$\Delta^{(O;A,B)}_{\ell,k} := \min(\|b^{(O)}_{\ell,k} - b^{(A)}_{\ell,k}\|_2, \|b^{(O)}_{\ell,k} - b^{(B)}_{\ell,k}\|_2)$$
 
 which quantifies how closely the offspring's semantic band aligns with either parent's band.
 
 ### Semantic Structural Variations
 
-Let $\pi_\ell: \{1, \dots, K^{(A)}_\ell\} \to \{1, \dots, K^{(B)}_\ell\}$ be a band correspondence mapping. Then we measure:
+Let $\pi_\ell$: \{1, \dots, K^{(A)}_\ell\} \to \{1, \dots, K^{(B)}_\ell\}$ be a band correspondence mapping. Then we measure:
 
-$\text{Translocation}_\ell := \sum_{k=1}^{K^{(A)}_\ell} \mathbf{1}[\pi_\ell(k) \ne k]$
+$$\text{Translocation}_\ell := \sum_{k=1}^{K^{(A)}_\ell} \mathbf{1}[\pi_\ell(k) \ne k]$$
 
 indicating positional shifts in semantic band inheritance. Similar formulations apply for duplication and deletion counts.
 
@@ -116,13 +116,13 @@ The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semant
 
 $$K_\ell = \{\mu(B_{\ell,i}), \sigma(B_{\ell,i}), |B_{\ell,i}|\}_{i=1}^K,$$
 
-capturing band means $\mu$, variances $\sigma$, and sizes $|B_{\ell,i}|$, which encode semantic inheritance strength and variability.
+capturing band means $\mu$, variances $\sigma$, and sizes \(|B_{\ell,i}| \), which encode semantic inheritance strength and variability.
 
 • **Layerwise Structural Divergence Metrics**: Comparing parent (A, B) and offspring (O) semantic karyotypes, we quantify structural rearrangements through:
 
 $$\Delta^{inv}_\ell = \sum_{i=1}^K \text{Inv}(B^{(O)}_{\ell,i}, B^{(A,B)}_{\ell,i}), \quad \Delta^{dup}_\ell = \sum_{i=1}^K \left||B^{(O)}_{\ell,i}|-|B^{(A,B)}_{\ell,i}|\right|,$$
 
-where $\text{Inv}(\cdot, \cdot)$ measures band inversions or reorderings, and $|\cdot|$ denotes band size differences, collectively revealing semantic translocations, duplications, and deletions across layers.
+where $\text{Inv}(\cdot, \cdot)$ measures band inversions or reorderings, and \( |\cdot| \) denotes band size differences, collectively revealing semantic translocations, duplications, and deletions across layers.
 
 • **Fine-Tuning and Alignment Targeting**: Layers exhibiting high structural divergence $\Delta^*_\ell$ identify semantic instability hotspots, guiding selective fine-tuning and regularization to restore semantic integrity while preserving representational diversity:
 
@@ -138,13 +138,13 @@ Through these mathematically principled operations, nKaryotyping elevates semant
 
 ## Case Study and Validation
 
-To empirically validate the Neural Karyotyping (nKaryotyping) framework, we analyze foundation models fine-tuned on diverse cultural corpora, such as European and Asian datasets, and their merged offspring models generated through Fisher-weighted latent space fusion. For each transformer layer $\ell$, we extract semantic chromosome band structures $K^{(Eur)}_\ell$, $K^{(Asi)}_\ell$, and $K^{(Merged)}_\ell$, representing the clustered semantic traits analogous to biological chromosome banding.
+To empirically validate the Neural Karyotyping (nKaryotyping) framework, we analyze foundation models fine-tuned on diverse cultural corpora, such as European and Asian datasets, and their merged offspring models generated through Fisher-weighted latent space fusion. For each transformer layer $\ell$, we extract semantic chromosome band structures \( K^{(\text{Eur})}_\ell \), \( K^{(\text{Asi})}_\ell \), and \( K^{(\text{Merged})}_\ell \), representing the clustered semantic traits analogous to biological chromosome banding.
 
 Formally, we quantify layerwise structural divergences using metrics capturing chromosomal rearrangements:
 
 $$\Delta^{inv}_\ell = \sum_{i=1}^K \text{Inv}(B^{(Merged)}_{\ell,i}, B^{(Eur,Asi)}_{\ell,i}), \quad \Delta^{dup}_\ell = \sum_{i=1}^K \left||B^{(Merged)}_{\ell,i}|-|B^{(Eur,Asi)}_{\ell,i}|\right|,$$
 
-where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and $|B_{\ell,i}|$ denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.
+where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and \( |B_{\ell,i}| \) denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.
 
 Visualization of $\Delta^*_\ell$ across layers reveals distinct semantic karyotype instability hotspots predominantly in the mid-to-deep transformer layers $\ell \in [22, 28]$, coinciding with regions encoding complex, abstract concepts and cultural priors. These structural divergences correspond to latent rearrangements of semantic traits, illustrating how cultural fusion induces nontrivial genomic-like modifications in the model's internal representations.
 
