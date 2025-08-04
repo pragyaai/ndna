@@ -42,6 +42,28 @@ For each band $B_{\ell,k}$, we define a representative semantic vector:
 
 $b_{\ell,k} \in \mathbb{R}^d$
 
+<img src="{{ 'assets/gifs/neural_genomics/nKaryotyping/nKaryotyping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
+
+<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
+  <strong>Figure. Human Karyotype with Bands and Sub-Bands: Biological Inspiration for nKaryotyping</strong>
+</p>
+
+<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+
+  This figure depicts the classic human karyotype with chromosomes arranged in homologous pairs, highlighting chromosomal bands and sub-bands (light and dark regions) that serve as cytogenetic landmarks in genetic diagnostics and evolutionary biology. Both male (XY) and female (XX) karyotypes are shown, along with schematic illustrations of a cell nucleus and mitochondria for cellular context.
+
+  Karyotyping is a fundamental technique in genetics that visualizes chromosomes to detect structural variations such as deletions, duplications, inversions, and translocations. These chromosomal changes can significantly affect an organism’s traits, health, and evolutionary fitness. The banding patterns reflect complex DNA-protein interactions, gene density, and replication timing, forming a high-resolution map of genomic architecture.
+
+  <strong>Connection to Neural Karyotyping (nKaryotyping):</strong> Analogous to biological karyotyping, <strong>nKaryotyping</strong> extends this paradigm to foundation models by interpreting their internal latent semantic structure as a form of neural genome. Just as chromosomal bands denote distinct genomic regions, nKaryotyping partitions latent representations into hierarchical layers and semantic subspaces.
+
+  It identifies structural alignment mutations—including semantic deletions, duplications, and inversions—that correspond to changes in model behavior, epistemic stability, and cultural priors. By mapping such latent rearrangements, nKaryotyping offers a principled and interpretable framework for diagnosing layerwise semantic health and guiding targeted alignment interventions.
+
+  This biological metaphor grounds nKaryotyping’s relevance in understanding how latent structure affects reasoning, fairness, and robustness in culturally heterogeneous AI systems—laying the foundation for more transparent, accountable, and equitable model design.
+
+  See <a href="https://en.wikipedia.org/wiki/Karyotype" target="_blank">https://en.wikipedia.org/wiki/Karyotype</a>
+</div>
+
+
 which can be computed as the centroid of latent embeddings in $B_{\ell,k}$ or the principal eigenvector derived via spectral clustering (335). This vector serves as the semantic gene analogue encoding a modular trait cluster.
 
 ### Semantic Chromosome Construction
@@ -112,12 +134,23 @@ Overall, nKaryotyping complements scalar and vectorial metrics by revealing the 
 
 The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semantic trait distributions into structured chromosome-like representations, enabling quantitative and visual analysis of semantic inheritance and structural rearrangements in foundation models.
 
-• **Semantic Chromosome Banding**: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands 
-<span class="mathjax-render">\\( \{B_{\ell,i}\}_{i=1}^K \\)</span>, where each band $B_{\ell,i}$ corresponds to a coherent semantic cluster or concept. *Formally, these bands are identified via clustering or spectral segmentation on* $x_\ell \in \mathbb{R}^d$, *yielding a chromosomal semantic profile:*
+• **Semantic Chromosome Banding**: <p style="text-align: justify; font-size: 0.9em;">
+  At each transformer layer 
+  <span class="mathjax-render">\\( \ell \\)</span>, 
+  nKaryotyping partitions the latent embedding space into discrete semantic bands 
+  <span class="mathjax-render">\\( \{B_{\ell,i}\}_{i=1}^K \\)</span>, 
+  where each band 
+  <span class="mathjax-render">\\( B_{\ell,i} \\)</span> 
+  corresponds to a coherent semantic cluster or concept. 
+  <em>Formally, these bands are identified via clustering or spectral segmentation on</em> 
+  <span class="mathjax-render">\\( x_\ell \in \mathbb{R}^d \\)</span>, 
+  <em>yielding a chromosomal semantic profile:</em>
+</p>
 
 $$K_\ell = \{\mu(B_{\ell,i}), \sigma(B_{\ell,i}), |B_{\ell,i}|\}_{i=1}^K,$$
 
-capturing band means $\mu$, variances $\sigma$, and sizes $|B_{\ell,i}|$, which encode semantic inheritance strength and variability.
+capturing band means $\mu$, variances $\sigma$, and sizes <span class="mathjax-render">\\( |B_{\ell,i}| \\)</span>
+, which encode semantic inheritance strength and variability.
 
 • **Layerwise Structural Divergence Metrics**: Comparing parent (A, B) and offspring (O) semantic karyotypes, we quantify structural rearrangements through:
 
@@ -150,7 +183,8 @@ Formally, we quantify layerwise structural divergences using metrics capturing c
 
 $$\Delta^{inv}_\ell = \sum_{i=1}^K \text{Inv}(B^{(Merged)}_{\ell,i}, B^{(Eur,Asi)}_{\ell,i}), \quad \Delta^{dup}_\ell = \sum_{i=1}^K \left||B^{(Merged)}_{\ell,i}|-|B^{(Eur,Asi)}_{\ell,i}|\right|,$$
 
-where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and \( |B_{\ell,i}| \) denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.
+where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and <span class="mathjax-render">\\( |B_{\ell,i}| \\)</span>
+ denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.
 
 Visualization of $\Delta^*_\ell$ across layers reveals distinct semantic karyotype instability hotspots predominantly in the mid-to-deep transformer layers $\ell \in [22, 28]$, coinciding with regions encoding complex, abstract concepts and cultural priors. These structural divergences correspond to latent rearrangements of semantic traits, illustrating how cultural fusion induces nontrivial genomic-like modifications in the model's internal representations.
 

@@ -141,12 +141,10 @@ $$
 - $\mathrm{nDIV}_\ell \approx 0$: Balanced inheritance, equidistant semantic blend.
 
 ### Fisher-Rao Information Metric Extension
-
 <p style="text-align: justify; font-size: 0.9em;">
- Accounting for latent space curvature and uncertainty, define Fisher information matrices 
-<span class="mathjax-render">\\( \mathbf{F}_\ell^{(A)} \\)</span>, 
-<span class="mathjax-render">\\( \mathbf{F}_\ell^{(B)} \in \mathbb{R}^{d \times d} \\)</span>. 
-The Fisher-weighted parental difference vector is:
+  Accounting for latent space curvature and uncertainty, define Fisher information matrices 
+  <span class="mathjax-render">\\( \mathbf{F}_\ell^{(A)},\ \mathbf{F}_\ell^{(B)} \in \mathbb{R}^{d \times d} \\)</span>. 
+  The Fisher-weighted parental difference vector is:
 </p>
 
 
@@ -239,22 +237,17 @@ nDIV's *geometry-aware* formulation provides a universal lens for comparing inhe
 Grounded in *Riemannian* and *information geometry*, nDIV bridges neural representations with biological directional inheritance. It models cultural epistemic flows as *vector bundles* over semantic manifolds, allowing application of evolutionary tools like *selection gradients* and *adaptive landscapes* to AI. This frames semantic inheritance as an active, directionally biased evolutionary process.
 
 ## Case Study and Validation
-
 <p style="text-align: justify; font-size: 0.9em;">
- To empirically validate the <strong>Neural Directional Inheritance Vector (nDIV)</strong>, we analyze a suite of foundation models obtained by merging culturally fine-tuned parent models adapted to distinct linguistic and sociocultural corpora. Specifically, we examine layerwise latent embeddings 
-<span class="mathjax-render">\\( \mathbf{x}_\ell^{(A)} \\)</span>, 
-<span class="mathjax-render">\\( \mathbf{x}_\ell^{(B)} \\)</span> 
-of parent models 
-<span class="mathjax-render">\\( A \\)</span> 
-and 
-<span class="mathjax-render">\\( B \\)</span>, 
-and the corresponding offspring embeddings 
-<span class="mathjax-render">\\( \mathbf{x}_\ell^{(O)} \\)</span>. 
-Using these, we compute the 
-<span class="mathjax-render">\\( \mathrm{nDIV}_\ell \\)</span> 
-metric as the scalar projection quantifying directional semantic inheritance:
+  To empirically validate the <strong>Neural Directional Inheritance Vector (nDIV)</strong>, we analyze a suite of foundation models obtained by merging culturally fine-tuned parent models adapted to distinct linguistic and sociocultural corpora. Specifically, we examine layerwise latent embeddings 
+  <span class="mathjax-render">\\( \mathbf{x}_\ell^{(A)},\ \mathbf{x}_\ell^{(B)} \\)</span> 
+  of parent models 
+  <span class="mathjax-render">\\( A \\)</span> and <span class="mathjax-render">\\( B \\)</span>, 
+  and the corresponding offspring embeddings 
+  <span class="mathjax-render">\\( \mathbf{x}_\ell^{(O)} \\)</span>. 
+  Using these, we compute the 
+  <span class="mathjax-render">\\( \mathrm{nDIV}_\ell \\)</span> 
+  metric as the scalar projection quantifying directional semantic inheritance:
 </p>
-
 
 $$
 \mathrm{nDIV}_\ell = \frac{\left( \mathbf{x}_\ell^{(O)} - \frac{\mathbf{x}_\ell^{(A)} + \mathbf{x}_\ell^{(B)}}{2} \right) \cdot \left(\mathbf{x}_\ell^{(A)} - \mathbf{x}_\ell^{(B)}\right)}{\|\mathbf{x}_\ell^{(A)} - \mathbf{x}_\ell^{(B)}\|_2^2}.
