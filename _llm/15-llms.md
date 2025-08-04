@@ -131,7 +131,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
    
    <ul class="metrics-list">
       <li class="metric-item">
-         <div class="metric-symbol">$\kappa_\ell$</div>
+         <div class="metric-symbol">$$\kappa_\ell$$</div>
          <div class="metric-main">
          <div class="metric-title">The intrinsic <strong>semantic curvature</strong> of latent trajectories</div>
          <div class="metric-description">—how sharply the internal path of representations bends across depth. It encodes second-order structure, analogous to geometric curvature on manifolds.</div>
@@ -142,7 +142,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
          </div>
       </li>
       <li class="metric-item">
-         <div class="metric-symbol">$\mathcal{L}_\ell$</div>
+         <div class="metric-symbol">$$\mathcal{L}_\ell$$</div>
          <div class="metric-main">
          <div class="metric-title">The cumulative <strong>epistemic work</strong> performed as the model adapts beliefs layer by layer</div>
          <div class="metric-description">—quantifying the energy expenditure needed for belief state transitions in the Fisher–Rao geometry of statistical manifolds.</div>
@@ -154,7 +154,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
          </div>
       </li>
       <li class="metric-item">
-         <div class="metric-symbol">$\|\mathbf{v}_\ell^{(c)}\|$</div>
+         <div class="metric-symbol">$$\|\mathbf{v}_\ell^{(c)}\|$$</div>
          <div class="metric-main">
          <div class="metric-title">The directional <strong>cultural force</strong> acting upon the latent manifold</div>
          <div class="metric-description">—how much external priors or sociolinguistic constraints steer internal belief trajectories.</div>
@@ -174,10 +174,10 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
     <h3>Other combinations evaluated and their limitations.</h3>
     <p>We systematically experimented with numerous alternative metric sets to determine whether they could match or exceed the diagnostic power of this triad:</p>
     <ul class="standard-list">
-      <li><strong>Norm-based pairs:</strong> combinations like $(\|h_\ell\|,\ \|\nabla_\theta h_\ell\|)$, weight norms {% cite neyshabur2015norm %} {% cite zhang2019all %}, singular values of attention matrices {% cite gao2019representation %}, these collapse under trivial rescaling and layer normalization {% cite ba2016layer %}, offering little insight into geometric inflections or external directional forces. They reflect magnitude, not structure.</li>
+      <li><strong>Norm-based pairs:</strong> combinations like $$(\|h_\ell\|,\ \|\nabla_\theta h_\ell\|)$$, weight norms {% cite neyshabur2015norm %} {% cite zhang2019all %}, singular values of attention matrices {% cite gao2019representation %}, these collapse under trivial rescaling and layer normalization {% cite ba2016layer %}, offering little insight into geometric inflections or external directional forces. They reflect magnitude, not structure.</li>
       <li><strong>Gradient-only diagnostics:</strong> Fisher information diagonal {% cite amari1998natural %} {% cite kunstner2019limitations %}, local logit gradients {% cite ji2020directional %}, these capture internal strain or sensitivity but fail to reveal latent manifold curvature or the directional drift imposed by external priors, leaving cultural or alignment effects hidden.</li>
       <li><strong>Entropy measures:</strong> activation entropy {% cite belinkov2017analyzing %}, token probability entropy {% cite mielke2021between %}, valuable for quantifying output uncertainty or diversity, but disconnected from the internal geometric dynamics that govern latent inheritance or reorganization.</li>
-      <li><strong>Pairings of curvature and local statistics:</strong> attempts like $(\kappa_\ell,\ \text{activation variance})$ {% cite raghu2017svcca %}, $(\mathcal{L}_\ell,\ \|h_\ell\|)$ fail to jointly encode latent shape, adaptation cost, and directional drift in a unified, interpretable manner. They fragment geometric, energetic, and external-force insights rather than synthesizing them.</li>
+      <li><strong>Pairings of curvature and local statistics:</strong> attempts like $$(\kappa_\ell,\ \text{activation variance})$$ {% cite raghu2017svcca %}, $(\mathcal{L}_\ell,\ \|h_\ell\|)$ fail to jointly encode latent shape, adaptation cost, and directional drift in a unified, interpretable manner. They fragment geometric, energetic, and external-force insights rather than synthesizing them.</li>
     </ul>
     <p>None of these alternatives provided the geometric separability across model families (e.g., LLaMA vs. Mixtral vs. Qwen) nor the interpretability of zones of mutation, inheritance, and adaptation that our triad achieved.</p>
   </div>
