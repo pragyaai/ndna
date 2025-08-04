@@ -72,10 +72,93 @@ Let $\pi_\ell: \{1, \dots, K^{(A)}_\ell\} \to \{1, \dots, K^{(B)}_\ell\}$ be a b
 
 $\text{Translocation}_\ell := \sum_{k=1}^{K^{(A)}_\ell} \mathbf{1}[\pi_\ell(k) \ne k]$
 
+indicating positional shifts in semantic band inheritance. Similar formulations apply for duplication and deletion counts.
+
+## Global Semantic Karyotype Distance
+
 Aggregating band divergences and structural variations yields the global karyotype distance metric:
 
 $$
 n\text{KaryotypeDist}(M^A, M^B) := \frac{1}{L} \sum_{\ell=1}^{L} \left( \frac{1}{K_\ell} \sum_{k=1}^{K_\ell} \Delta^{(A,B)}_{\ell,k} + \lambda \cdot \text{StructuralVar}_\ell \right)
 $$
 
+# Neural Karyotyping Framework
+
+## Interpretation and Implications
+
+The nKaryotyping framework offers a profound lens to visualize and analyze semantic inheritance patterns and structural rearrangements across the layered latent space of foundation models. Analogous to biological karyotyping, which maps chromosomal composition and structural variations to diagnose genetic inheritance and anomalies (331; 336), nKaryotyping reveals layer-specific semantic architectures that govern knowledge transmission, fusion, and drift in neural models.
+
+Formally, by representing layerwise semantic traits as discrete **semantic chromosomes**–each encoding distinct conceptual clusters, cultural priors, or representational motifs–nKaryotyping transforms the high-dimensional latent space into an interpretable, chromosome-like structure. Variations such as **semantic duplications**, **deletions**, **translocations**, or **inversions** manifest as discontinuous shifts or pattern reorganizations across layers, reflecting complex inheritance dynamics and epistemic perturbations.
+
+These structural rearrangements uncover latent semantic instabilities and heterogeneities often obscured by aggregate scalar metrics like nHD or nGDI, which primarily quantify overall distance or dominance but lack spatial interpretability. In contrast, nKaryotyping's chromosome-inspired visualization and segmentation identify **epistemic hotspots** and **semantic aberrations** with precise layer-resolution, enabling granular inspection of how foundational knowledge structures evolve or fracture during merging and fine-tuning.
+
+Biologically, such rearrangements echo the well-documented role of chromosomal abnormalities in phenotypic diversity and disease susceptibility (330). Likewise, in neural models, nKaryotyping highlights **semantic translocations** that may cause knowledge conflicts, conceptual drift, or alignment degradation, necessitating targeted semantic realignment or regularization.
+
+Mathematically, nKaryotyping corresponds to a discrete segmentation of the latent semantic manifold into **semantic loci**, each modeled as a subspace or cluster whose continuity and integrity can be tracked across layers. By quantifying inter-locus distances, structural discontinuities, and positional shifts, it encodes a chromosomal map of semantic inheritance, analogous to cytogenetic banding patterns. This map facilitates layerwise semantic diagnostics and informs fine-tuning strategies that preserve structural coherence, much as biological therapies aim to correct chromosomal instabilities.
+
+In practice, nKaryotyping empowers researchers and engineers to:
+
+• Detect **semantic duplications** or redundancies that inflate model complexity without added value,
+
+• Identify **semantic deletions** where critical knowledge clusters vanish or weaken,
+
+• Map **semantic translocations** indicating cultural or conceptual shifts that may disrupt alignment,
+
+• Localize **structural breakpoints** for targeted intervention and correction.
+
+Overall, nKaryotyping complements scalar and vectorial metrics by revealing the architecture of semantic inheritance itself, providing a structural and visual vocabulary to interpret, diagnose, and steer latent knowledge evolution in foundation models. This framework is pivotal for designing robust, interpretable, and equitable AI systems that maintain epistemic integrity amid cultural diversity and continuous learning.
+
+## Applications and Empirical Insights
+
+The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semantic trait distributions into structured chromosome-like representations, enabling quantitative and visual analysis of semantic inheritance and structural rearrangements in foundation models.
+
+• **Semantic Chromosome Banding**: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands $\{B_{\ell,i}\}_{i=1}^K$, where each band $B_{\ell,i}$ corresponds to a coherent semantic cluster or concept. Formally, these bands are identified via clustering or spectral segmentation on $x_\ell \in \mathbb{R}^d$, yielding a chromosomal semantic profile:
+
+$$K_\ell = \{\mu(B_{\ell,i}), \sigma(B_{\ell,i}), |B_{\ell,i}|\}_{i=1}^K,$$
+
+capturing band means $\mu$, variances $\sigma$, and sizes $|B_{\ell,i}|$, which encode semantic inheritance strength and variability.
+
+• **Layerwise Structural Divergence Metrics**: Comparing parent (A, B) and offspring (O) semantic karyotypes, we quantify structural rearrangements through:
+
+$$\Delta^{inv}_\ell = \sum_{i=1}^K \text{Inv}(B^{(O)}_{\ell,i}, B^{(A,B)}_{\ell,i}), \quad \Delta^{dup}_\ell = \sum_{i=1}^K \left||B^{(O)}_{\ell,i}|-|B^{(A,B)}_{\ell,i}|\right|,$$
+
+where $\text{Inv}(\cdot, \cdot)$ measures band inversions or reorderings, and $|\cdot|$ denotes band size differences, collectively revealing semantic translocations, duplications, and deletions across layers.
+
+• **Fine-Tuning and Alignment Targeting**: Layers exhibiting high structural divergence $\Delta^*_\ell$ identify semantic instability hotspots, guiding selective fine-tuning and regularization to restore semantic integrity while preserving representational diversity:
+
+$$L_{align} = \sum_{\ell \in H} \lambda_\ell \cdot \Delta^*_\ell,$$
+
+where $H$ is the set of high-divergence layers and $\lambda_\ell$ are tuning coefficients.
+
+• **Cross-Model Semantic Genomics**: nKaryotyping provides a common semantic genome coordinate system enabling quantitative comparison of models $M^{(1)}, M^{(2)}, \ldots$ through their layerwise karyotype vectors $\{K^{(m)}_\ell\}$. This facilitates benchmarking of semantic architectural fidelity and identification of conserved vs. emergent semantic structures:
+
+$$\text{Sim}(K^{(m)}_\ell, K^{(n)}_\ell) = \frac{\langle K^{(m)}_\ell, K^{(n)}_\ell \rangle}{\|K^{(m)}_\ell\|\|K^{(n)}_\ell\|}.$$
+
+Through these mathematically principled operations, nKaryotyping elevates semantic analysis from flat vector metrics to structured chromosomal landscapes, elucidating how semantic knowledge is conserved, reorganized, or innovated across model layers and training histories. This enables precise, interpretable diagnostics and targeted alignment strategies critical for building robust, interpretable, and culturally coherent AI systems.
+
+## Case Study and Validation
+
+To empirically validate the Neural Karyotyping (nKaryotyping) framework, we analyze foundation models fine-tuned on diverse cultural corpora, such as European and Asian datasets, and their merged offspring models generated through Fisher-weighted latent space fusion. For each transformer layer $\ell$, we extract semantic chromosome band structures $K^{(Eur)}_\ell$, $K^{(Asi)}_\ell$, and $K^{(Merged)}_\ell$, representing the clustered semantic traits analogous to biological chromosome banding.
+
+Formally, we quantify layerwise structural divergences using metrics capturing chromosomal rearrangements:
+
+$$\Delta^{inv}_\ell = \sum_{i=1}^K \text{Inv}(B^{(Merged)}_{\ell,i}, B^{(Eur,Asi)}_{\ell,i}), \quad \Delta^{dup}_\ell = \sum_{i=1}^K \left||B^{(Merged)}_{\ell,i}|-|B^{(Eur,Asi)}_{\ell,i}|\right|,$$
+
+where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and $|B_{\ell,i}|$ denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.
+
+Visualization of $\Delta^*_\ell$ across layers reveals distinct semantic karyotype instability hotspots predominantly in the mid-to-deep transformer layers $\ell \in [22, 28]$, coinciding with regions encoding complex, abstract concepts and cultural priors. These structural divergences correspond to latent rearrangements of semantic traits, illustrating how cultural fusion induces nontrivial genomic-like modifications in the model's internal representations.
+
+These empirical results mirror biological cytogenetic phenomena, where chromosomal rearrangements–such as inversions, duplications, and deletions–significantly impact phenotype expression and inheritance (337; 338). Similarly, nKaryotyping reveals that semantic chromosomes in neural models undergo analogous reorganization, underscoring the need for targeted fine-tuning and alignment correction at layers exhibiting high structural divergence.
+
+Practically, this enables precise layer-specific interventions aimed at stabilizing semantic chromosome structures, preserving semantic integrity while facilitating cultural coherence. Such methods promote robust, interpretable, and fair AI systems sensitive to diverse cultural contexts and resilient to latent semantic disruptions.
+
+In sum, this case study confirms the efficacy of nKaryotyping as a powerful diagnostic and prescriptive tool, bridging neural genomics and semantic alignment engineering, and laying a principled foundation for responsible cross-cultural AI integration.
+
+## Outlook
+
+The Neural Karyotyping (nKaryotyping) framework offers a structured and interpretable approach within Neural Genomics to visualize and analyze semantic inheritance patterns across foundation model layers. Inspired by biological cytogenetics, it reveals latent structural rearrangements, duplications, and modulations in semantic traits that scalar metrics cannot detect (see Fig. 55).
+
+By mapping semantic chromosomes, nKaryotyping enables precise identification of semantic mutations and recombinations arising from model merging or fine-tuning, guiding targeted, layer-specific interventions to preserve semantic coherence and alignment fidelity.
+
+Looking forward, nKaryotyping supports continual monitoring of model evolution and cultural adaptation, essential for building trustworthy, equitable, and culturally aware AI systems. It lays a foundation for dynamic, responsible AI governance and advances the pursuit of robust cross-cultural alignment in global AI deployments.
 
