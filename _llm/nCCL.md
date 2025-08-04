@@ -38,6 +38,7 @@ $$\mathbf{x}^{(\mathrm{merged})}_\ell \approx \Phi\big(\mathbf{x}^{(A)}_\ell, \m
   <span class="mathjax-render">\( \ell \)</span>, encoding local curvature and uncertainty in the latent space.
 </p>
 
+
 <img src="{{ 'assets/gifs/neural_genomics/nCCL/nCCL.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
 <p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">

@@ -201,3 +201,4 @@ By mapping semantic chromosomes, nKaryotyping enables precise identification of 
 
 Looking forward, nKaryotyping supports continual monitoring of model evolution and cultural adaptation, essential for building trustworthy, equitable, and culturally aware AI systems. It lays a foundation for dynamic, responsible AI governance and advances the pursuit of robust cross-cultural alignment in global AI deployments.
 
+
