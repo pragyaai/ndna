@@ -69,7 +69,6 @@ indicating loss of latent manifold flexibility and adaptive curvature. This coll
 
 {% include visualization.liquid 
    image_path="quantization/quantization.png"
-   title="Cultural nDNA Trajectories under Quantization"
    caption=figure_caption
    alt_text="3D visualization showing nDNA trajectories before and after quantization across culturally fine-tuned LLaMA variants" %}
 
