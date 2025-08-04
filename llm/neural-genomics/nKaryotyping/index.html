@@ -73,11 +73,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-04T06:50:20+00:00" />
+<meta property="article:published_time" content="2025-08-04T07:16:47+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Karyotyping (nKaryotyping)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T06:50:20+00:00","datePublished":"2025-08-04T06:50:20+00:00","headline":"Neural Karyotyping (nKaryotyping)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-04T07:16:47+00:00","datePublished":"2025-08-04T07:16:47+00:00","headline":"Neural Karyotyping (nKaryotyping)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nKaryotyping/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -159,6 +159,27 @@
 
 <p>$b_{\ell,k} \in \mathbb{R}^d$</p>
 
+<p><img src="/nDNA/assets/gifs/neural_genomics/nKaryotyping/nKaryotyping.png" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
+
+<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
+  <strong>Figure. Human Karyotype with Bands and Sub-Bands: Biological Inspiration for nKaryotyping</strong>
+</p>
+
+<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+
+  This figure depicts the classic human karyotype with chromosomes arranged in homologous pairs, highlighting chromosomal bands and sub-bands (light and dark regions) that serve as cytogenetic landmarks in genetic diagnostics and evolutionary biology. Both male (XY) and female (XX) karyotypes are shown, along with schematic illustrations of a cell nucleus and mitochondria for cellular context.
+
+  Karyotyping is a fundamental technique in genetics that visualizes chromosomes to detect structural variations such as deletions, duplications, inversions, and translocations. These chromosomal changes can significantly affect an organism’s traits, health, and evolutionary fitness. The banding patterns reflect complex DNA-protein interactions, gene density, and replication timing, forming a high-resolution map of genomic architecture.
+
+  <strong>Connection to Neural Karyotyping (nKaryotyping):</strong> Analogous to biological karyotyping, <strong>nKaryotyping</strong> extends this paradigm to foundation models by interpreting their internal latent semantic structure as a form of neural genome. Just as chromosomal bands denote distinct genomic regions, nKaryotyping partitions latent representations into hierarchical layers and semantic subspaces.
+
+  It identifies structural alignment mutations—including semantic deletions, duplications, and inversions—that correspond to changes in model behavior, epistemic stability, and cultural priors. By mapping such latent rearrangements, nKaryotyping offers a principled and interpretable framework for diagnosing layerwise semantic health and guiding targeted alignment interventions.
+
+  This biological metaphor grounds nKaryotyping’s relevance in understanding how latent structure affects reasoning, fairness, and robustness in culturally heterogeneous AI systems—laying the foundation for more transparent, accountable, and equitable model design.
+
+  See <a href="https://en.wikipedia.org/wiki/Karyotype" target="_blank">https://en.wikipedia.org/wiki/Karyotype</a>
+</div>
+
 <p>which can be computed as the centroid of latent embeddings in $B_{\ell,k}$ or the principal eigenvector derived via spectral clustering (335). This vector serves as the semantic gene analogue encoding a modular trait cluster.</p>
 
 <h3 id="semantic-chromosome-construction">Semantic Chromosome Construction</h3>
@@ -227,20 +248,23 @@
 
 <p>The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semantic trait distributions into structured chromosome-like representations, enabling quantitative and visual analysis of semantic inheritance and structural rearrangements in foundation models.</p>
 
-<p>• <strong>Semantic Chromosome Banding</strong>: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands 
-<span class="mathjax-render">\( {B_{\ell,i}}<em>{i=1}^K \)&lt;/span&gt;, where each band $B</em>{\ell,i}$ corresponds to a coherent semantic cluster or concept. <em>Formally, these bands are identified via clustering or spectral segmentation on</em> $x_\ell \in \mathbb{R}^d$, <em>yielding a chromosomal semantic profile:</em></span></p>
+<p>• <strong>Semantic Chromosome Banding</strong>: &lt;p style="text-align: justify; font-size: 0.9em;"&gt;
+  At each transformer layer 
+  <span class="mathjax-render">\( \ell \)</span>, 
+  nKaryotyping partitions the latent embedding space into discrete semantic bands 
+  <span class="mathjax-render">\( {B_{\ell,i}}_{i=1}^K \)</span>, 
+  where each band 
+  <span class="mathjax-render">\( B_{\ell,i} \)</span> 
+  corresponds to a coherent semantic cluster or concept. 
+  <em>Formally, these bands are identified via clustering or spectral segmentation on</em> 
+  <span class="mathjax-render">\( x_\ell \in \mathbb{R}^d \)</span>, 
+  <em>yielding a chromosomal semantic profile:</em>
+&lt;/p&gt;</p>
 
 \[K_\ell = \{\mu(B_{\ell,i}), \sigma(B_{\ell,i}), |B_{\ell,i}|\}_{i=1}^K,\]
 
-<table>
-  <tbody>
-    <tr>
-      <td>capturing band means $\mu$, variances $\sigma$, and sizes $</td>
-      <td>B_{\ell,i}</td>
-      <td>$, which encode semantic inheritance strength and variability.</td>
-    </tr>
-  </tbody>
-</table>
+<p>capturing band means $\mu$, variances $\sigma$, and sizes <span class="mathjax-render">\( |B_{\ell,i}| \)</span>
+, which encode semantic inheritance strength and variability.</p>
 
 <p>• <strong>Layerwise Structural Divergence Metrics</strong>: Comparing parent (A, B) and offspring (O) semantic karyotypes, we quantify structural rearrangements through:</p>
 
@@ -273,15 +297,8 @@
 
 \[\Delta^{inv}_\ell = \sum_{i=1}^K \text{Inv}(B^{(Merged)}_{\ell,i}, B^{(Eur,Asi)}_{\ell,i}), \quad \Delta^{dup}_\ell = \sum_{i=1}^K \left||B^{(Merged)}_{\ell,i}|-|B^{(Eur,Asi)}_{\ell,i}|\right|,\]
 
-<table>
-  <tbody>
-    <tr>
-      <td>where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and (</td>
-      <td>B_{\ell,i}</td>
-      <td>) denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.</td>
-    </tr>
-  </tbody>
-</table>
+<p>where $\text{Inv}(\cdot, \cdot)$ measures inversion or reorderings of semantic bands, and <span class="mathjax-render">\( |B_{\ell,i}| \)</span>
+ denotes band sizes, jointly capturing semantic translocations, duplications, and deletions within latent space.</p>
 
 <p>Visualization of $\Delta^*_\ell$ across layers reveals distinct semantic karyotype instability hotspots predominantly in the mid-to-deep transformer layers $\ell \in [22, 28]$, coinciding with regions encoding complex, abstract concepts and cultural priors. These structural divergences correspond to latent rearrangements of semantic traits, illustrating how cultural fusion induces nontrivial genomic-like modifications in the model’s internal representations.</p>
 
