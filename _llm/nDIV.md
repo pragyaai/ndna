@@ -165,7 +165,16 @@ $$
 \mathbf{V}_\ell(\mathbf{x}) := \nabla_{\mathbf{x}} \mathrm{nDIV}_\ell,
 $$
 
-defined over the model's high-dimensional semantic manifold $\mathcal{M}_\ell \subset \mathbb{R}^d$ at transformer layer $\ell$. Here, $\nabla_{\mathbf{x}}$ denotes the gradient with respect to the embedding $\mathbf{x} \in \mathcal{M}_\ell$.
+<p>
+defined over the model's high-dimensional semantic manifold 
+<span class="mathjax-render">\( \mathcal{M}_\ell \subset \mathbb{R}^d \)</span> 
+at transformer layer 
+<span class="mathjax-render">\( \ell \)</span>. 
+Here, 
+<span class="mathjax-render">\( \nabla_{\mathbf{x}} \)</span> 
+denotes the gradient with respect to the embedding 
+<span class="mathjax-render">\( \mathbf{x} \in \mathcal{M}_\ell \)</span>.
+</p>
 
 This vector field encodes the **differential semantic drift** of the offspring embedding relative to its parental embeddings, capturing *directionality* in the latent space beyond scalar magnitudes of divergence. This construction draws deep parallels with *dynamical systems theory* and *differential geometry*, where flows describe continuous evolution on curved spaces.
 

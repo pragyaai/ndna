@@ -68,7 +68,7 @@ which quantifies how closely the offspring's semantic band aligns with either pa
 
 ### Semantic Structural Variations
 
-Let $\pi_\ell$: $\{1, \dots, K^{(A)}_\ell\}$ $\to$ $\{1, \dots, K^{(B)}_\ell\}$ be a band correspondence mapping. Then we measure:
+Let $\pi_\ell$: $$\{1, \dots, K^{(A)}_\ell\} \to \{1, \dots, K^{(B)}_\ell\}$$ be a band correspondence mapping. Then we measure:
 
 $$\text{Translocation}_\ell := \sum_{k=1}^{K^{(A)}_\ell} \mathbf{1}[\pi_\ell(k) \ne k]$$
 
@@ -112,11 +112,11 @@ Overall, nKaryotyping complements scalar and vectorial metrics by revealing the 
 
 The Neural Karyotyping (nKaryotyping) framework rigorously maps layerwise semantic trait distributions into structured chromosome-like representations, enabling quantitative and visual analysis of semantic inheritance and structural rearrangements in foundation models.
 
-• **Semantic Chromosome Banding**: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands $\\{B_{\\ell,i}\\}_{i=1}^K$, where each band $B_{\\ell,i}$ corresponds to a coherent semantic cluster or concept. Formally, these bands are identified via clustering or spectral segmentation on $x_\\ell \\in \\mathbb{R}^d$, yielding a chromosomal semantic profile:
+• **Semantic Chromosome Banding**: At each transformer layer $\ell$, nKaryotyping partitions the latent embedding space into discrete semantic bands $\{B_{\ell,i}\}_{i=1}^K$, where each band $B_{\ell,i}$ corresponds to a coherent semantic cluster or concept. *Formally, these bands are identified via clustering or spectral segmentation on* $x_\ell \in \mathbb{R}^d$, *yielding a chromosomal semantic profile:*
 
 $$K_\ell = \{\mu(B_{\ell,i}), \sigma(B_{\ell,i}), |B_{\ell,i}|\}_{i=1}^K,$$
 
-capturing band means $\mu$, variances $\sigma$, and sizes $$|B_{\ell,i}|$$, which encode semantic inheritance strength and variability.
+capturing band means $\mu$, variances $\sigma$, and sizes $|B_{\ell,i}|$, which encode semantic inheritance strength and variability.
 
 • **Layerwise Structural Divergence Metrics**: Comparing parent (A, B) and offspring (O) semantic karyotypes, we quantify structural rearrangements through:
 
