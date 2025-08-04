@@ -26,7 +26,7 @@ This example shows the genome-wide scan for quantitative trait loci across genom
 ## Implications
 This biological metaphor underscores that **semantic inheritance in neural models is layer-specific and trait-dependent**, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates: **Targeted alignment tuning**, **Improved interpretability**, **Balanced semantic integration**, **Mitigation of bias propagation** in multicultural AI systems
 
-# Mathematical Formulation of Neural Trait Dominance Score (nTDS)
+**Mathematical Formulation of Neural Trait Dominance Score (nTDS)**
 
 <p style="text-align: justify; font-size: 1em;">
   <strong>The Neural Trait Dominance Score (nTDS)</strong> formalizes the notion of layerwise parental trait influence in an offspring foundation model <span class="mathjax-render">\( M_O \)</span>, constructed from two parent models <span class="mathjax-render">\( M_A \)</span> and <span class="mathjax-render">\( M_B \)</span>, within the Neural DNA (nDNA) semantic geometry framework.
@@ -481,7 +481,12 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 **Figure: Neural Trait Dominance Score (nTDS) Across Cultural Model Pairs and Offspring.** These visualizations capture the layerwise trait dominance evolution in fusions of eight culturally distinct models, revealing dynamic shifts in spectral curvature and thermodynamic length, reflecting epigenetic-like semantic modulation akin to developmental heterochrony<sup>(324; 325)</sup> and gene regulatory networks<sup>(326; 327)</sup>. The nTDS values quantify parental influence and semantic recombination across layers (20–30), highlighting critical transitions with oscillations or balanced dominance. These patterns align with nonlinear dynamical systems and bifurcation theory<sup>(328)</sup>, where competing attractors shape semantic landscapes, offering insights into neural culture inheritance and semantic fusion and advancing latent geometry evolution understanding. **Mathematical Context:** The Neural Trait Dominance Score nTDS<sub>ℓ</sub> is formally defined as a layerwise dominance metric in latent space measuring the relative influence between cultural fine-tuned models' manifold embeddings. This provides a rigorous geometric quantification of semantic trait inheritance across deep model layers. **Biological Analogy:** Analogous to gene expression regulation in biological developmental systems, the layerwise variation in nTDS<sub>ℓ</sub> reveals critical neural depths where semantic realignment, adaptation, and cultural imprinting occur. Models exhibit region-specific evolutionary adaptations, while balanced dominance patterns suggest semantic stability and trait harmonization. **Mathematical Takeaway:** The offspring semantic dominance at layer ℓ can be modeled as a nonlinear competition of parental influences:
 
 <div style="border: 2px solid #ddd; padding: 1.5em; margin: 1em 0; background-color: #f9f9f9; text-align: center;">
-<strong>nTDS<sub>ℓ</sub> = {κ<sub>ℓ</sub>(p) · L<sub>ℓ</sub>(p)} / {κ<sub>ℓ</sub>(p) · L<sub>ℓ</sub>(p) + κ<sub>ℓ</sub>(q) · L<sub>ℓ</sub>(q)}</strong>
+  <span class="mathjax-render">
+    \[
+    \mathrm{nTDS}_\ell = \frac{\kappa_\ell(p) \cdot L_\ell(p)}{\kappa_\ell(p) \cdot L_\ell(p) + \kappa_\ell(q) \cdot L_\ell(q)}
+    \]
+  </span>
 </div>
+
 
 where κ<sup>(ℓ)</sup> ∈ [0, 1] denotes the layer-dependent spectral curvature coefficient, dynamically modulating parental influence, L<sup>(ℓ)</sup> captures thermodynamic length at layer ℓ, and p, q represent parental indices. This formalism captures multi-layered integration, selective semantic imprinting, and complex evolutionary dynamics in transformer latent spaces, providing a principled framework for interpreting cultural neural trait fusion and semantic innovation in multilingual AI systems.
