@@ -1,139 +1,411 @@
 ---
 layout: page
-title: Cultural nDNA
+title: Finetuning and Cultural nDNA
 permalink: /llm/cultural-ndna/
+
 ---
 
-Neural DNA (nDNA) offers a sophisticated framework for understanding the internal cognitive identity of AI foundation models, moving beyond traditional surface-level evaluations to a neurogeometric introspection of their "latent genome." Cultural nDNA specifically delves into how training data from various cultures, regions, and social contexts imprints distinct cognitive fingerprints within these models.
-
-## Understanding Cultural Imprints
-
-Cultural nDNA reveals how foundation models internalize human values and behavioral constraints by analyzing their latent geometry. This approach provides unprecedented insights into the models' "cultural personalities," which persist across different tasks and contexts. It offers a novel framework for assessing AI cultural competency, allowing researchers to:
-
-- Track the effectiveness of cultural adaptation  
-- Identify cultural knowledge gaps within models  
-- Optimize localization strategies for diverse cultural contexts
-
-The concept of cultural provenance is particularly impactful in the final decoder layers (ℓ ∈) of transformer models, where sociolinguistic priors most heavily influence the output distribution.
-
-## Cultural Signature Analysis
-
-Cultural nDNA analysis is performed through three primary dimensions of latent geometry: spectral curvature, thermodynamic length, and belief gradients. These dimensions converge to unveil an underlying epistemic cognitive geometry.
-
-<div><b>Tip:</b> <i>Click on any visualization below to expand it. Click outside the image or press DELETE to close.</i></div>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-  {% include visualization.liquid image_path="cultural_ndna/llama_vs_cultures_group_tagged_360.gif" title="Global Comparison" style="global" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Africa_rotation.gif" title="Africa" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Asia_rotation.gif" title="Asia" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Australia_rotation.gif" title="Australia" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_China_rotation.gif" title="China" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_Europe_rotation.gif" title="Europe" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_LatinAmerica_rotation.gif" title="Latin America" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_MiddleEast_rotation.gif" title="Middle East" %}
-  {% include visualization.liquid image_path="cultural_ndna/llama_culture_shift_gifs_final 2/llama_NorthAmerica_rotation.gif" title="North America" %}
-</div>
-
-### Belief Vector Orientation
-
-Different cultural contexts introduce measurable directional biases in the belief vector space:
-
-- **Western contexts**: Exhibit individualistic reasoning patterns.  
-- **Eastern contexts**: Show an emphasis on collective decision-making.  
-- **Global contexts**: Tend to use hybrid reasoning approaches.  
-- **Fine-tuned models**: Encode zones of inheritance, mutation, and ideological absorption, with belief vector norm spikes modulating latent beliefs without full semantic reorganization.
-
-The belief vector field ($\mathbf{v}^{(c)}_\ell$) represents the semantic steering force at a given layer (ℓ) toward a concept (c), conditioned on cultural priors.
-
-### Cultural Thermodynamic Patterns
-
-The computational effort required to process culturally specific information varies:
-
-- **Native cultural context**: Low thermodynamic length → easy processing  
-- **Foreign cultural context**: High thermodynamic length → increased effort  
-- **Cross-cultural scenarios**: Variable thermodynamic length → adaptive reconfiguration
-
-This reflects how non-Western models often incur latent costs to encode distinct priors, reinforcing concerns about **representational inequality**.
-
-### Spectral Curvature Cultural Signatures
-
-Different cultural training creates distinct curvature patterns:
-
-- **Sharp curvature changes** at cultural concept boundaries  
-- **Smooth transitions** within familiar cultural domains  
-- **Cultural harmonics** in the spectral profile that form unique latent epistemic fingerprints
-
-High curvature can indicate dense or conflicting cultural entanglement; low curvature suggests cleaner, disentangled cultural reasoning.
-
-## Unified nDNA Score
-
-To quantify latent geometry and model adaptation, the nDNA score integrates the three components:
-
-1. **Curvature ($\kappa_\ell$)**: Bending of latent trajectories  
-2. **Length ($L_\ell$)**: Displacement effort  
-3. **Belief Vector Norm ($\|\mathbf{v}^{(c)}_\ell\|$)**: Directional force from cultural priors
-
 {% raw %}
-$$
-\text{nDNA} := \sum_{\ell=1}^L \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|\mathbf{v}^{(c)}_\ell\|
-$$
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {% endraw %}
 
-where $\omega_\ell$ are weights for semantically active layers. This score diagnoses how latent traits persist, mutate, or degrade over model evolution.
+{% raw %}
 
-## Cultural Fine-Tuning and Latent Geometry
+## Ethnic LLMs: Cultural Fine-Tuning and the Latent Geometry of Culture-Specific nDNAs
 
-Models trained on global corpora often encode homogenized epistemic perspectives. Fine-tuning on regional English corpora—news, parliament, literature, oral histories—imprints region-specific cultural priors. These reshape spectral curvature, thermodynamic length, and belief vector intensity.
+Modern foundation models, trained on globally aggregated corpora, inevitably encode a homogenized epistemic perspective—one that reflects dominant data distributions rather than the pluralism of human cultures. To systematically probe how language models internalize and express distinct cultural priors, we construct **seven culturally–aligned LLMs**, each fine-tuned on a corpus curated to reflect the textual traditions, values, and discourse patterns of a specific geopolitical-cultural region: *Europe*, *Asia*, *Africa*, *North America*, *Latin America*, *the Middle East*, and *Australia*.
 
-- **Western-aligned models**: Lower epistemic strain, close to pretraining attractors  
-- **Non-Western models**: Higher strain and latent reconfiguration in upper layers
+### Cultural Lineages and Corpus Design
 
-This divergence maps the **zones of semantic inheritance and mutation** across culturally adapted models.
+Each regional model builds upon the same LLaMA-3 8B base architecture [<a href="#ref1">1</a>], but is fine-tuned on culturally resonant English-language corpora. These datasets are carefully collected from sources such as local news outlets, parliamentary records, canonical literature, Wikipedia subsets, and digitized oral histories. We apply strict provenance filtering using publisher metadata, domain-specific heuristics, and named entity priors to ensure cultural fidelity. In doing so, we aim to align not only topic distributions but also epistemic style—what is emphasized, what is omitted, and how truth is framed. Sources of the dataset are summarized in [Table 1](#table-1).
 
-## Comparison with Word2Vec
+<a name="table-1"></a>
 
-
-<div style="overflow-x: auto; margin: 2em 0;">
-<table style="width: 100%; border-collapse: collapse; border: 1px solid #e1e4e8; border-radius: 6px; overflow: hidden;">
+<table style="width:100%; border-collapse:collapse; font-size:1em; margin: 24px 0;">
   <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="padding: 12px 15px; text-align: left; border-bottom: 2px solid #dfe2e5;"></th>
-      <th style="padding: 12px 15px; text-align: left; border-bottom: 2px solid #dfe2e5;">Word2Vec</th>
-      <th style="padding: 12px 15px; text-align: left; border-bottom: 2px solid #dfe2e5;">Cultural nDNA</th>
+    <tr style="background:#e9e9f6;">
+      <th style="border:1px solid #888; padding:8px; text-align:left;"><b>Cultural Region</b></th>
+      <th style="border:1px solid #888; padding:8px; text-align:left;"><b>Target Countries</b></th>
+      <th style="border:1px solid #888; padding:8px; text-align:left;"><b>Primary Datasets (EN Only)</b></th>
+      <th style="border:1px solid #888; padding:8px; text-align:left;"><b>Cultural Framing in English Corpus</b></th>
+      <th style="border:1px solid #888; padding:8px; text-align:left;"><b>Corpus Size</b></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #eaecef; font-weight: 500;">Discovery</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #eaecef;">Token-level linear semantics</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #eaecef;">Differential geometry of belief systems</td>
+      <td style="border:1px solid #888; padding:8px;"><b>Europe</b></td>
+      <td style="border:1px solid #888; padding:8px;">UK, Germany, France, Italy</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://www.statmt.org/europarl/">EuroParl</a>,
+        <a href="https://data.statmt.org/cc-100/">CC100-en</a>,
+        <a href="https://www.gutenberg.org/">Project Gutenberg (EU)</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">Governmental records, literature, encyclopedic sources reflecting Western rationalism, secularism, and legal tradition.</td>
+      <td style="border:1px solid #888; padding:8px;">1.1B</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #eaecef; font-weight: 500;">Example</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #eaecef;">king - man + woman ≈ queen</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #eaecef;">Regionally sculpted curvature, length, belief force</td>
+      <td style="border:1px solid #888; padding:8px;"><b>China</b></td>
+      <td style="border:1px solid #888; padding:8px;">Mainland China</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://huggingface.co/datasets/cc_news">CC-News (China)</a>,
+        <a href="https://commoncrawl.org/">CommonCrawl (EN: China)</a>,
+        <a href="https://en.wikipedia.org/wiki/China">Wikipedia (EN: China)</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">English-language civic/policy articles intended for international readership; emphasizes techno-governance and Confucian framing.</td>
+      <td style="border:1px solid #888; padding:8px;">950M</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; font-weight: 500;">Implication</td>
-      <td style="padding: 12px 15px;">Token algebra</td>
-      <td style="padding: 12px 15px;">Neural ancestry and epistemic structure</td>
+      <td style="border:1px solid #888; padding:8px;"><b>Japan</b></td>
+      <td style="border:1px solid #888; padding:8px;">Japan</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://huggingface.co/datasets/cc_news">CC-News (Japan)</a>,
+        <a href="https://commoncrawl.org/">CommonCrawl (EN: Japan)</a>,
+        <a href="https://en.wikipedia.org/wiki/Japan">Wikipedia (EN: Japan)</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">English narratives capturing hierarchy, honorifics, formality, and cultural etiquette from Japan-centric discourse.</td>
+      <td style="border:1px solid #888; padding:8px;">850M</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #888; padding:8px;"><b>Asia (Non-CN/JP)</b></td>
+      <td style="border:1px solid #888; padding:8px;">India, Vietnam, Korea, Indonesia</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://github.com/ai4bharat/indiccorp">IndicCorp (EN)</a>,
+        <a href="https://huggingface.co/datasets/cc_news">CC-News (S. Asia)</a>,
+        <a href="https://en.wikipedia.org/wiki/Asia">Wikipedia (EN: Asia)</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">Postcolonial English texts embodying pluralism, spirituality, oral traditions, and South-Asian narrative logic.</td>
+      <td style="border:1px solid #888; padding:8px;">1.4B</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #888; padding:8px;"><b>Middle East</b></td>
+      <td style="border:1px solid #888; padding:8px;">UAE, Saudi Arabia, Egypt, Iran</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://huggingface.co/datasets/cc_news">CC-News (Middle East)</a>,
+        <a href="https://commoncrawl.org/">CommonCrawl (ME)</a>,
+        <a href="https://en.wikipedia.org/wiki/Middle_East">Wikipedia (EN: ME)</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">English discourse shaped by religious authority, tribal collectivism, regional politics, and historical cosmology.</td>
+      <td style="border:1px solid #888; padding:8px;">730M</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #888; padding:8px;"><b>Africa</b></td>
+      <td style="border:1px solid #888; padding:8px;">Nigeria, Kenya, Ghana, Ethiopia</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://github.com/AI4D-Africa/african-corpora">AfriT<sup>v</sup>A (EN)</a>,
+        <a href="https://huggingface.co/datasets/cc_news">CC-News (Africa)</a>,
+        <a href="https://en.wikipedia.org/wiki/Africa">Wikipedia (EN: Africa)</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">English corpora capturing oral epistemologies, proverbs, civic rhetoric, and multilingual African worldviews.</td>
+      <td style="border:1px solid #888; padding:8px;">950M</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #888; padding:8px;"><b>Latin America</b></td>
+      <td style="border:1px solid #888; padding:8px;">Mexico, Brazil, Argentina</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://huggingface.co/datasets/oscar">OSCAR (EN LATAM)</a>,
+        <a href="https://github.com/facebookresearch/cc_net">WikiMatrix (EN LATAM)</a>,
+        <a href="https://en.wikipedia.org/wiki/Latin_America">Wikipedia (EN LATAM)</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">Authored-in-English texts discussing colonial history, syncretic belief systems, collectivist family structures.</td>
+      <td style="border:1px solid #888; padding:8px;">620M</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #888; padding:8px;"><b>Australia</b></td>
+      <td style="border:1px solid #888; padding:8px;">Australia</td>
+      <td style="border:1px solid #888; padding:8px;">
+        <a href="https://huggingface.co/datasets/openwebtext">OpenWebText (AU)</a>,
+        <a href="https://about.abc.net.au/press-releases/">ABC News</a>,
+        <a href="https://www.aph.gov.au/Parliamentary_Business/Hansard">AU Parliament Records</a>
+      </td>
+      <td style="border:1px solid #888; padding:8px;">English corpora blending settler-colonial legacies with ecological narratives and Aboriginal cultural references.</td>
+      <td style="border:1px solid #888; padding:8px;">420M</td>
     </tr>
   </tbody>
 </table>
+
+<div style="font-size:1em; margin-top:8px; font-style:italic;">
+<b>Table 1:</b> Culturally aligned English-language corpora representing diverse regional epistemic perspectives. Each corpus is natively authored in English, carefully selected to preserve authentic cultural nuances while minimizing translation artifacts.
 </div>
 
+### Fine-Tuning Protocol
 
-Cultural nDNA enables:
+All models are fine-tuned using Low-Rank Adaptation (LoRA) with rank 16, a batch size of 256, and a learning rate of $1 \times 10^{-4}$. We apply perplexity-based filters to exclude noisy or low-information documents, preserving high semantic density. The fine-tuning objective remains standard next-token prediction; however, the cultural signal is amplified through corpus design rather than objective modification. This protocol ensures that each model retains its original autoregressive capability while acquiring culturally distinctive latent adaptations.
 
-- Cross-model cultural comparisons  
-- Diagnosis of latent strain and mutation  
-- Equitable cultural alignment of LLMs
+### Overwriting Pretraining and Cultural Rewriting
 
-## Research Insights
+A natural critique arises: *If LLaMA’s pretraining already includes global English data (e.g., Wikipedia, CommonCrawl, CC-News), how much novel signal can cultural fine-tuning provide?* Prior work ([<a href="#ref2">2</a>] [<a href="#ref3">3</a>] [<a href="#ref4">4</a>] [<a href="#ref5">5</a>]) demonstrates that even modest, domain-specific fine-tuning can induce significant *representational drift*, overwriting pretraining attractors in both activation geometry and generation behavior. Recent studies ([<a href="#ref6">6</a>] [<a href="#ref7">7</a>] [<a href="#ref8">8</a>]) further show that targeted preference and instruction tuning reshape internal manifolds—especially in later layers ($\ell \ge 20$)—embedding new epistemic alignments and latent biases. Our latent geometry diagnostics (e.g., $\kappa_\ell, \mathcal L_\ell, \|\mathbf{v}_\ell^{(c)}\| $) provide direct evidence that cultural fine-tuning imprints distinctive, heritable signatures—what we term the model’s *neural DNA (nDNA)*. 
 
-Cultural nDNA analysis reveals that models develop persistent **cultural personalities**. Fine-tuning non-uniformly sculpts spectral curvature, thermodynamic length, and directional belief force:
+### Why Cultural nDNA Matters.
 
-- **Non-Western fine-tuned models** (e.g., Africa, Asia, China): Show greater latent divergence, high curvature ($\kappa_\ell$), and thermodynamic strain ($L_\ell$)  
-- **Western models** (e.g., Europe, North America, Australia): Form a compact, low-strain cluster aligned with pretrained priors
+By analyzing these eight culturally fine-tuned models, we reveal how fine-tuning on regionally grounded corpora leads to measurable divergence in latent geometry. Our diagnostics uncover zones of increased spectral curvature (latent manifold bending), thermodynamic length (epistemic effort), and belief vector field intensity (cultural directional pressure). This latent genomic structure offers a geometric fingerprint of cultural inheritance--demonstrating how models absorb, reframe, and propagate culturally specific epistemic priors even when built upon shared architectural foundations. Collectively, this experimental design enables a rigorous examination of how language models become vessels of culture--not just in their outputs, but deep within their hidden representations.
 
-This geometry exposes the **WEIRD bias** (Western, Educated, Industrialized, Rich, Democratic) in pretraining, while demonstrating how cultural fine-tuning can correct epistemic asymmetries in model cognition.
+
+<!-- Culturally Aligned LLaMA Model Rotations: Responsive Grid with Modal -->
+<style>
+  .gif-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+    margin-top: 36px;
+  }
+  .gif-grid-item {
+    flex: 1 1 48%;
+    max-width: 48%;
+    min-width: 200px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s;
+  }
+  .gif-grid-item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  }
+  .gif-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    background: #f8f8fa;
+  }
+  /* Modal styles */
+  .gif-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+  }
+  .gif-modal.active {
+    display: flex;
+  }
+  .gif-modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.23);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .gif-modal-content img {
+    max-width: 70vw;
+    max-height: 70vh;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+  .gif-modal-close {
+    position: absolute;
+    top: 8px; right: 18px;
+    font-size: 2rem;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  @media (max-width: 600px) {
+    .gif-grid { flex-direction: column; align-items: center; }
+    .gif-grid-item { max-width: 96vw; }
+  }
+</style>
+
+<div class="gif-grid">
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Africa_rotation.gif" data-lightbox="gallery" data-title="Africa">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Africa_rotation.gif" alt="LLaMA Africa Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Africa</div>
+  </div>
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Asia_rotation.gif" data-lightbox="gallery" data-title="Asia">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Asia_rotation.gif" alt="LLaMA Asia Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Asia</div>
+  </div>
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Australia_rotation.gif" data-lightbox="gallery" data-title="Australia">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Australia_rotation.gif" alt="LLaMA Australia Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Australia</div>
+  </div>
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_China_rotation.gif" data-lightbox="gallery" data-title="China">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_China_rotation.gif" alt="LLaMA China Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">China</div>
+  </div>
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Europe_rotation.gif" data-lightbox="gallery" data-title="Europe">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Europe_rotation.gif" alt="LLaMA Europe Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Europe</div>
+  </div>
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_LatinAmerica_rotation.gif" data-lightbox="gallery" data-title="Latin America">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_LatinAmerica_rotation.gif" alt="LLaMA Latin America Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Latin America</div>
+  </div>
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_MiddleEast_rotation.gif" data-lightbox="gallery" data-title="Middle East">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_MiddleEast_rotation.gif" alt="LLaMA Middle East Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Middle East</div>
+  </div>
+  <div class="gif-grid-item">
+    <a href="/nDNA/assets/gifs/cultural_ndna/llama_NorthAmerica_rotation.gif" data-lightbox="gallery" data-title="North America">
+      <img src="/nDNA/assets/gifs/cultural_ndna/llama_NorthAmerica_rotation.gif" alt="LLaMA North America Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+    </a>
+    <div style="text-align:center; font-size:0.97em; margin-top:4px;">North America</div>
+  </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="gifModal" class="gif-modal" onclick="closeGifModal(event)">
+  <div class="gif-modal-content" onclick="event.stopPropagation()">
+    <button class="gif-modal-close" onclick="closeGifModal(event)">&times;</button>
+    <img id="modalGifImg" src="" alt="Expanded GIF">
+    <div id="modalGifLabel" style="text-align:center; font-size:1.05em; margin-top:4px;"></div>
+  </div>
+</div>
+
+<script>
+const gifSources = [
+  '/nDNA/assets/gifs/cultural_ndna/llama_Africa_rotation.gif',
+  '/nDNA/assets/gifs/cultural_ndna/llama_Asia_rotation.gif',
+  '/nDNA/assets/gifs/cultural_ndna/llama_Australia_rotation.gif',
+  '/nDNA/assets/gifs/cultural_ndna/llama_China_rotation.gif',
+  '/nDNA/assets/gifs/cultural_ndna/llama_Europe_rotation.gif',
+  '/nDNA/assets/gifs/cultural_ndna/llama_LatinAmerica_rotation.gif',
+  '/nDNA/assets/gifs/cultural_ndna/llama_MiddleEast_rotation.gif',
+  '/nDNA/assets/gifs/cultural_ndna/llama_NorthAmerica_rotation.gif'
+];
+const gifLabels = [
+  'Africa', 'Asia', 'Australia', 'China', 'Europe', 'Latin America', 'Middle East', 'North America'
+];
+function openGifModal(idx) {
+  document.getElementById('modalGifImg').src = gifSources[idx];
+  document.getElementById('modalGifImg').alt = gifLabels[idx] + ' GIF';
+  document.getElementById('modalGifLabel').textContent = gifLabels[idx];
+  document.getElementById('gifModal').classList.add('active');
+}
+function closeGifModal(event) {
+  if (event) event.stopPropagation();
+  document.getElementById('gifModal').classList.remove('active');
+  document.getElementById('modalGifImg').src = '';
+}
+</script>
+
+<figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
+  <strong>Figure 1:</strong> Cultural Fine-Tuning Trajectories of LLaMA: Latent Geometry Reorganization Across Cultures
+  <br><br>
+  <strong>Overview:</strong> This figure visualizes the semantic and geometric shifts in LLaMA's internal manifold after fine-tuning on data from eight distinct cultural regions. Each subplot plots layer index $\ell$, spectral curvature $\kappa_\ell$, and thermodynamic length $\mathcal L_\ell$, providing a geometric lens on how latent structure evolves. The gray line denotes the base LLaMA model; the green line represents its culturally fine-tuned variant.
+  <br><br>
+  <strong>Key Observations:</strong> Cultures such as Africa, Asia, and China produce significant trajectory divergence, particularly in upper layers ($\ell \geq 25$), with $\kappa_\ell \geq 0.06$ and $\mathcal L_\ell \geq 1.2$—indicative of strong conceptual reorientation and latent strain. Europe, Australia, and NorthAmerica remain close to the base trajectory, typically maintaining $\kappa_\ell \leq 0.045$ and $\mathcal L_\ell \leq 1.0$, suggesting alignment with pretrained priors. LatinAmerica and MiddleEast show layer-specific oscillations where $\|\mathbf{v}_\ell^{(c)}\|$ spikes (up to $\approx 0.75$), modulating latent beliefs without full semantic reorganization.
+  <br><br>
+  <strong>Conclusion:</strong> These patterns highlight how culturally grounded fine-tuning carves unique latent epistemic fingerprints, encoding zones of inheritance, mutation, and ideological absorption that define each model's nDNA geometry.
+</figcaption>
+
+
+## Cultural nDNAs: A Leap in Latent Genomic Understanding of LLMs
+
+The discovery of cultural nDNA trajectories represents a conceptual leap in our ability to interpret the inner structure of LLMs. Just as the celebrated *king-queen analogy* in Word2Vec [<a href="#ref9">9</a>] revealed linear semantic regularities in word embeddings through
+$$\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$$
+where this equation unveiled *linear semantics* at the token level, cultural nDNA exposes the ***differential geometry of belief systems***—mapping how fine-tuning on region-specific corpora non-uniformly sculpts **spectral curvature** ($\kappa_\ell$), **thermodynamic length** ($\mathcal L_\ell$), and **directional belief force** ($|\mathbf v_\ell^{(c)}|$).
+
+
+<figure style="text-align: center; margin: 24px auto; max-width: 600px;">
+  <div style="text-align: center;">
+  <a href="/nDNA/assets/img/cultural_ndna/king_queen.png" data-lightbox="gallery" data-title="Word2Vec Semantic Analogy">
+    <img src="/nDNA/assets/img/cultural_ndna/king_queen.png" alt="Word2Vec Semantic Analogy: The King-Queen Vector Geometry." style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+</div>
+  <figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
+    <strong>Figure 2:</strong> Word2Vec Semantic Analogy: The King-Queen Vector Geometry
+    <br><br>
+    <strong>Overview:</strong> This illustration depicts the iconic linear semantic regularity uncovered by Word2Vec embeddings [<a href="#ref9">9</a>], where $\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$. The diagram visualizes how vector differences capture conceptual dimensions such as gender (purple arrows) and royalty (orange arrows), enabling algebraic reasoning in embedding space.
+    <br><br>
+    <strong>Key Insight:</strong> The geometric relationship $\mathbf{v}_{\text{king}} - \mathbf{v}_{\text{man}} \approx \mathbf{v}_{\text{queen}} - \mathbf{v}_{\text{woman}}$ demonstrates that vector spaces can encode abstract relationships as linear transformations. This property, where $\mathbf{v}_{\text{king}} - \mathbf{v}_{\text{man}} + \mathbf{v}_{\text{woman}} \approx \mathbf{v}_{\text{queen}}$, reveals how neural networks organize concepts in high-dimensional space, a principle that extends to the cultural fine-tuning dynamics explored in this work.
+  </figcaption>
+</figure>
+
+Our analysis reveals **family-level clustering and divergence**:
+
+- **Western-aligned variants** (*Europe*, *North America*, *Australia*) exhibit *modest latent deformation*, with $\kappa_\ell$ in $[0.045, 0.055]$ and $\mathcal{L}_\ell$ in $[0.85, 0.95]$. Their trajectories stay near the base LLaMA geometry, **mirroring Western-centric pretraining bias** ([<a href="#ref10">10</a>][<a href="#ref11">11</a>][<a href="#ref12">12</a>][<a href="#ref13">13</a>]).
+- **Non-Western models** (*Africa*, *Asia*, *China*) show *pronounced reconfiguration*, with $\kappa_\ell > 0.070$ and $\mathcal{L}_\ell > 1.10$ in upper decoder layers ($\ell \geq 25$), consistent with **cultural calibration and bias mitigation efforts** ([<a href="#ref15">15</a>][<a href="#ref5">5</a>][<a href="#ref6">6</a>]).
+- **Middle Eastern and Latin American variants** present *localized latent oscillations* ($\kappa_\ell$ fluctuating $0.050$–$0.065$, $\mathcal{L}_\ell$ peaking near $1.10$), illustrating the **partial cultural rewriting phenomenon** ([<a href="#ref2">2</a>][<a href="#ref3">3</a>][<a href="#ref4">4</a>]).
+
+### Beyond Surface Fairness: Latent Anatomy
+
+These nDNA trajectories align with calls to *audit foundation models* not only at the output level but also in their internal representations([<a href="#ref16">16</a>][<a href="#ref17">17</a>]).
+nDNA is a **semantic fingerprint**, enabling *latent audits* of ideological absorption and bias inheritance ([<a href="#ref17">17</a>][<a href="#ref18">18</a>][<a href="#ref13">13</a>]).
+
+<figure style="text-align: center; margin: 24px auto;">
+  <a href="/nDNA/assets/gifs/cultural_ndna/llama_vs_cultures_group_tagged_360.gif" data-lightbox="gallery" data-title="LLaMA vs. Cultural nDNA Trajectories">
+    <img src="/nDNA/assets/gifs/cultural_ndna/llama_vs_cultures_group_tagged_360.gif" alt="LLaMA vs. Cultural nDNA Trajectories—Group-Tagged Latent Geometry." style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+  </a>
+  <figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
+    <strong>Figure 3:</strong> LLaMA vs. Cultural nDNA Trajectories—Group-Tagged Latent Geometry
+    <br><br>
+    <strong>Overview:</strong> This figure visualizes the latent nDNA trajectories of LLaMA and its culturally fine-tuned variants across eight regions: Europe, North America, Australia, Africa, Asia, China, Middle East, and Latin America. The plot spans layer index $\ell$, spectral curvature $\kappa_\ell$, and thermodynamic length $\mathcal L_\ell$.
+    <br><br>
+    <strong>Key Observations:</strong> The gray line denotes the base LLaMA model, while colored lines represent cultural variants. Each cultural variant carves a unique trajectory through the latent space, with distinct patterns in how $\kappa_\ell$ (curvature) and $\mathcal L_\ell$ (thermodynamic length) evolve across layers. The lower layers ($\ell < 10$) show minimal divergence, while middle-to-upper layers ($10 \leq \ell \leq 30$) exhibit significant cultural specialization, particularly in $\mathcal L_\ell$. The trajectories form a high-dimensional manifold where cultural variants cluster based on linguistic and conceptual proximity, with $\|\mathbf v_\ell^{(c)}\|$ (not shown) modulating the strength of these effects.
+  </figcaption>
+</figure>
+
+### Cultural nDNA as a Tool for Inclusive AI
+
+This geometric fingerprinting illuminates the **WEIRD bias** (Western, Educated, Industrialized, Rich, Democratic) in foundation model pretraining ([<a href="#ref13">13</a>][<a href="#ref19">19</a>]) , and its mitigation via cultural fine-tuning ([<a href="#ref14">14</a>][<a href="#ref6">6</a>]). Western models cluster near *pretraining attractors*; non-Western models incur latent cost to encode distinct priors, supporting concerns of representational inequality [<a href="#ref21">21</a>][<a href="#ref20">20</a>].
+
+### From Vector Algebra to Latent Geometry
+
+Where *vector arithmetic* revealed word-level embedding regularities, **nDNA geometry** charts *ideological inheritance* across high-dimensional latent manifolds. This leap enables: i) *principled comparison of culturally fine-tuned models*, ii) *diagnosis of latent strain and mutation zones*, iii) *development of culturally calibrated, equitable foundation models* [<a href="#ref15">  15</a>][<a href="#ref18">18</a>][<a href="#ref3">3</a>]. *Cultural nDNA thus transcends surface output metrics—offering a mathematical, interpretable, and actionable map of neural ancestry and epistemic adaptation in modern AI.*
+
+## References
+
+1. <a name="ref1"></a>H. Touvron and Others, "Llama: Open and efficient foundation language models," arXiv preprint arXiv:2302.13971, 2023.
+2. <a name="ref2"></a>Z. Diao, A. Li, and J. Xu, "Overwriting pretraining distributions through fine-tuning," in ICML 2024, 2024, to appear.
+3. <a name="ref3"></a>W. Zhao, S. He, and Y. Gao, "Language models forget in latent space," in NeurIPS 2023, 2023.
+4. <a name="ref4"></a>W. Zhao, C. Liu, and Y. Gao, "Calibrating language models via latent geometry," in ICLR 2023, 2023.
+5. <a name="ref5"></a>X. Huang, Z. Dai, L. Zhou et al., "Replug: Retrieval-augmented black-box language models," in ICLR 2023, 2023.
+6. <a name="ref6"></a>Y. Xiang, Z. Zhao, X. Tan et al., "Cultural calibration of large language models," in Proceedings of ACL 2024, 2024.
+7. <a name="ref7"></a>M. S. Rafi et al., "Discovering and mitigating cultural biases in llms through synthetic preference tuning," arXiv preprint arXiv:2311.07744, 2023.
+8. <a name="ref8"></a>L. Ouyang, J. Wu, X. Jiang, D. Almeida, C. Wainwright, P. Mishkin, C. Zhang, S. Agarwal, A. Slama, C. Ray et al., "Training language models to follow instructions with human feedback," Advances in Neural Information Processing Systems, vol. 35, pp. 27 730–27 744, 2022.
+9. <a name="ref9"></a>T. Mikolov, K. Chen, G. Corrado, and J. Dean, “Efficient estimation of wordrepresentations in vector space,” in Proc. of ICLR (Workshop), 2013. [Online]. Available: https://arxiv.org/abs/1301.3781
+10. <a name="ref10"></a> S. Mukherjee, R. Dossani, and A. H. Awadallah, “Globalizing bert: A comprehensive multilingual evaluation,” arXiv preprint arXiv:2008.00364, 2020.
+11. <a name="ref11"></a> E. Sheng, K.-W. Chang, P. Natarajan, and N. Peng, “The woman worked as a babysitter: On biases in language generation,” in Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP) and the 9th International Joint Conference on Natural Language Processing (IJCNLP). Association for Computational Linguistics, 2019, pp. 3407–3412. [Online]. Available: https://aclanthology.org/D19-1340
+12. <a name="ref12"></a> E. Sang, B. Van Durme, and R. Cotterell, “Evaluating the cross-linguistic fairness of nlp systems,” in Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), 2022, pp. 3334–3349.
+13. <a name="ref13"></a> R. Mihalcea, O. Ignat, L. Bai, A. Borah, L. Chiruzzo, Z. Jin, C. Kwizera, J. Nwatu,S. Poria, and T. Solorio, “Why ai is weird and shouldnt be this way: Towards ai for everyone, with everyone, by everyone,” Proceedings of the AAAI Conference on Artificial Intelligence, vol. 39, no. 27, pp. 28 657–28 670, 2025. [Online]. Available: https://ojs.aaai.org/index.php/AAAI/article/view/35092
+14. <a name="ref14"></a>B. Peng, L. Wang, and X. Li, “Culturally aligned language modeling: Methods and benchmarks,” ACL, 2024.
+15. <a name="ref15"></a> D. Ganguli et al., “Reducing sycophancy in large language models via self-distillation,” arXiv preprint arXiv:2305.17493, 2023.
+16. <a name="ref16"></a> R. Bommasani et al., “Foundation models: Past, present, and future,” arXiv preprint arXiv:2309.00616, 2023.
+17. <a name="ref17"></a> Z. Wang, Y. Xu, J. Yan, Y. Lin, and J. Zhou, “Cultural bias in large language models: A survey,” arXiv preprint arXiv:2311.05691, 2023.
+18. <a name="ref18"></a>  E. Laurens et al., “The ethics of alignment: Towards culturally inclusive foundation models,” in Proceedings of the AAAI Conference on Artificial Intelligence, 2024.
+19. <a name="ref19"></a> J. Henrich, The Weirdest People in the World. Farrar, Straus and Giroux, 2010.
+20. <a name="ref20"></a> S. L. Blodgett, S. Barocas, H. Daumé III, and H. Wallach, “Language (technology) is power: A critical survey of bias in nlp,” Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pp. 5454–5476, 2020.
+21. <a name="ref21"></a>E. Sheng, Z. Zhang, K.-W. Chang, and P. Natarajan, “Revealing the critical role of pre-training data in language model bias,” in Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics, 2021, pp. 864–873. [Online]. Available: https://aclanthology.org/2021.emnlp-main.65.
+{% endraw %}
