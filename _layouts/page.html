@@ -14,60 +14,54 @@
     {% endfor %}
   {% endif %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true,
-        packages: {'[+]': ['base', 'ams', 'textmacros']},
-        tags: 'ams',
-        autoload: {}
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-        ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process'
-      },
-      startup: {
-        ready: function() {
-          console.log('MathJax is starting up');
-          MathJax.startup.defaultReady();
-          MathJax.startup.promise.then(function() {
-            console.log('MathJax initial typeset complete');
-          }).catch(function(err) {
-            console.error('MathJax error:', err);
-          });
-        }
-      }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
   <style>
-    .MathJax { 
-      font-size: 1.1em !important;
-      line-height: 1.5 !important;
-    }
-    .MathJax_Display {
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-  </style>
-  <script>
-    // Enhanced MathJax re-rendering
-    document.addEventListener('DOMContentLoaded', function() {
-      // Single, simple re-render after content loads
-      if (window.MathJax && MathJax.typesetPromise) {
-        console.log('DOM content loaded, re-rendering MathJax');
-        MathJax.typesetPromise().then(function() {
-          console.log('MathJax typeset complete');
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
         }).catch(function(err) {
-          console.error('MathJax typeset error:', err);
+          console.error('MathJax error:', err);
         });
       }
-    });
-  </script>
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
   {% feed_meta %}
   {% seo %}
 </head>
