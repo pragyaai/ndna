@@ -22,7 +22,7 @@ This parallels consanguinity in population genetics - prolonged inbreeding expos
 
 Model collapse manifests as flattening of the latent manifold defined by neural DNA (nDNA):
 
-$`T_{\text{nDNA}} = \{(\kappa_{\ell}, L_{\ell}, \|v^{(c)}_{\ell}\|)\}^{L}_{\ell=1}`$
+$T_{\text{nDNA}} = \{(\kappa_{\ell}, L_{\ell}, \|v^{(c)}_{\ell}\|)\}^{L}_{\ell=1}$
 
 - **κ<sub>ℓ</sub>**: Latent curvature (semantic flexibility)
 - **L<sub>ℓ</sub>**: Thermodynamic length (epistemic work)
