@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Finetuning and Cultural nDNA
+title: Cultural nDNA
 permalink: /llm/cultural-ndna/
-
+skip_title: true
 ---
 
 {% raw %}
@@ -23,9 +23,9 @@ window.MathJax = {
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {% endraw %}
 
-{% raw %}
 
-## Ethnic LLMs: Cultural Fine-Tuning and the Latent Geometry of Culture-Specific nDNAs
+
+{% include ndna-title.liquid title="The Ethnic nDNA - Cultural Fine-Tuning and Latent Geometry" %}
 
 Modern foundation models, trained on globally aggregated corpora, inevitably encode a homogenized epistemic perspective—one that reflects dominant data distributions rather than the pluralism of human cultures. To systematically probe how language models internalize and express distinct cultural priors, we construct **seven culturally–aligned LLMs**, each fine-tuned on a corpus curated to reflect the textual traditions, values, and discourse patterns of a specific geopolitical-cultural region: *Europe*, *Asia*, *Africa*, *North America*, *Latin America*, *the Middle East*, and *Australia*.
 
@@ -233,92 +233,50 @@ By analyzing these eight culturally fine-tuned models, we reveal how fine-tuning
   }
 </style>
 
-<div class="gif-grid">
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Africa_rotation.gif" data-lightbox="gallery" data-title="Africa">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Africa_rotation.gif" alt="LLaMA Africa Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Africa</div>
-  </div>
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Asia_rotation.gif" data-lightbox="gallery" data-title="Asia">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Asia_rotation.gif" alt="LLaMA Asia Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Asia</div>
-  </div>
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Australia_rotation.gif" data-lightbox="gallery" data-title="Australia">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Australia_rotation.gif" alt="LLaMA Australia Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Australia</div>
-  </div>
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_China_rotation.gif" data-lightbox="gallery" data-title="China">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_China_rotation.gif" alt="LLaMA China Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">China</div>
-  </div>
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_Europe_rotation.gif" data-lightbox="gallery" data-title="Europe">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_Europe_rotation.gif" alt="LLaMA Europe Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Europe</div>
-  </div>
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_LatinAmerica_rotation.gif" data-lightbox="gallery" data-title="Latin America">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_LatinAmerica_rotation.gif" alt="LLaMA Latin America Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Latin America</div>
-  </div>
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_MiddleEast_rotation.gif" data-lightbox="gallery" data-title="Middle East">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_MiddleEast_rotation.gif" alt="LLaMA Middle East Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">Middle East</div>
-  </div>
-  <div class="gif-grid-item">
-    <a href="/nDNA/assets/gifs/cultural_ndna/llama_NorthAmerica_rotation.gif" data-lightbox="gallery" data-title="North America">
-      <img src="/nDNA/assets/gifs/cultural_ndna/llama_NorthAmerica_rotation.gif" alt="LLaMA North America Rotation" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-    </a>
-    <div style="text-align:center; font-size:0.97em; margin-top:4px;">North America</div>
-  </div>
+<figure id="fig:ndna_families" style="text-align: center; margin: 2em 0;">
+<div class="gif-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_Africa_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_africa_interactive.html"
+   title="LLaMA Africa"
+   caption="" %}
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_Asia_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_asia_interactive.html"
+   title="LLaMA Asia"
+   caption="" %}
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_Australia_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_australia_interactive.html"
+   title="LLaMA Australia"
+   caption="" %}
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_China_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_china_interactive.html"
+   title="LLaMA China"
+   caption="" %}
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_Europe_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_europe_interactive.html"
+   title="LLaMA Europe"
+   caption="" %}
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_LatinAmerica_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_latinamerica_interactive.html"
+   title="LLaMA Latin America"
+   caption="" %}
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_MiddleEast_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_middleeast_interactive.html"
+   title="LLaMA Middle East"
+   caption="" %}
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_NorthAmerica_rotation.gif"
+   interactive_html="cultural_ndna/llama_vs_northamerica_interactive.html"
+   title="LLaMA North America"
+   caption="" %}
 </div>
 
-<!-- Modal HTML -->
-<div id="gifModal" class="gif-modal" onclick="closeGifModal(event)">
-  <div class="gif-modal-content" onclick="event.stopPropagation()">
-    <button class="gif-modal-close" onclick="closeGifModal(event)">&times;</button>
-    <img id="modalGifImg" src="" alt="Expanded GIF">
-    <div id="modalGifLabel" style="text-align:center; font-size:1.05em; margin-top:4px;"></div>
-  </div>
-</div>
-
-<script>
-const gifSources = [
-  '/nDNA/assets/gifs/cultural_ndna/llama_Africa_rotation.gif',
-  '/nDNA/assets/gifs/cultural_ndna/llama_Asia_rotation.gif',
-  '/nDNA/assets/gifs/cultural_ndna/llama_Australia_rotation.gif',
-  '/nDNA/assets/gifs/cultural_ndna/llama_China_rotation.gif',
-  '/nDNA/assets/gifs/cultural_ndna/llama_Europe_rotation.gif',
-  '/nDNA/assets/gifs/cultural_ndna/llama_LatinAmerica_rotation.gif',
-  '/nDNA/assets/gifs/cultural_ndna/llama_MiddleEast_rotation.gif',
-  '/nDNA/assets/gifs/cultural_ndna/llama_NorthAmerica_rotation.gif'
-];
-const gifLabels = [
-  'Africa', 'Asia', 'Australia', 'China', 'Europe', 'Latin America', 'Middle East', 'North America'
-];
-function openGifModal(idx) {
-  document.getElementById('modalGifImg').src = gifSources[idx];
-  document.getElementById('modalGifImg').alt = gifLabels[idx] + ' GIF';
-  document.getElementById('modalGifLabel').textContent = gifLabels[idx];
-  document.getElementById('gifModal').classList.add('active');
-}
-function closeGifModal(event) {
-  if (event) event.stopPropagation();
-  document.getElementById('gifModal').classList.remove('active');
-  document.getElementById('modalGifImg').src = '';
-}
-</script>
 
 <figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
   <strong>Figure 1:</strong> Cultural Fine-Tuning Trajectories of LLaMA: Latent Geometry Reorganization Across Cultures
@@ -329,7 +287,7 @@ function closeGifModal(event) {
   <br><br>
   <strong>Conclusion:</strong> These patterns highlight how culturally grounded fine-tuning carves unique latent epistemic fingerprints, encoding zones of inheritance, mutation, and ideological absorption that define each model's nDNA geometry.
 </figcaption>
-
+</figure>
 
 ## Cultural nDNAs: A Leap in Latent Genomic Understanding of LLMs
 
@@ -364,23 +322,23 @@ Our analysis reveals **family-level clustering and divergence**:
 These nDNA trajectories align with calls to *audit foundation models* not only at the output level but also in their internal representations([<a href="#ref16">16</a>][<a href="#ref17">17</a>]).
 nDNA is a **semantic fingerprint**, enabling *latent audits* of ideological absorption and bias inheritance ([<a href="#ref17">17</a>][<a href="#ref18">18</a>][<a href="#ref13">13</a>]).
 
-<figure style="text-align: center; margin: 24px auto;">
-  <a href="/nDNA/assets/gifs/cultural_ndna/llama_vs_cultures_group_tagged_360.gif" data-lightbox="gallery" data-title="LLaMA vs. Cultural nDNA Trajectories">
-    <img src="/nDNA/assets/gifs/cultural_ndna/llama_vs_cultures_group_tagged_360.gif" alt="LLaMA vs. Cultural nDNA Trajectories—Group-Tagged Latent Geometry." style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-  </a>
-  <figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
+{% include wizuall.liquid
+   image_path="cultural_ndna/llama_vs_cultures_group_tagged_360.gif"
+   interactive_html="cultural_ndna/llama_vs_cultures_interactive.html"
+   title="LLaMA vs. Cultural nDNA Trajectories"
+   caption='<figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
     <strong>Figure 3:</strong> LLaMA vs. Cultural nDNA Trajectories—Group-Tagged Latent Geometry
     <br><br>
     <strong>Overview:</strong> This figure visualizes the latent nDNA trajectories of LLaMA and its culturally fine-tuned variants across eight regions: Europe, North America, Australia, Africa, Asia, China, Middle East, and Latin America. The plot spans layer index $\ell$, spectral curvature $\kappa_\ell$, and thermodynamic length $\mathcal L_\ell$.
     <br><br>
     <strong>Key Observations:</strong> The gray line denotes the base LLaMA model, while colored lines represent cultural variants. Each cultural variant carves a unique trajectory through the latent space, with distinct patterns in how $\kappa_\ell$ (curvature) and $\mathcal L_\ell$ (thermodynamic length) evolve across layers. The lower layers ($\ell < 10$) show minimal divergence, while middle-to-upper layers ($10 \leq \ell \leq 30$) exhibit significant cultural specialization, particularly in $\mathcal L_\ell$. The trajectories form a high-dimensional manifold where cultural variants cluster based on linguistic and conceptual proximity, with $\|\mathbf v_\ell^{(c)}\|$ (not shown) modulating the strength of these effects.
-  </figcaption>
-</figure>
+  </figcaption>'
+%}
 
 ### Cultural nDNA as a Tool for Inclusive AI
 
 This geometric fingerprinting illuminates the **WEIRD bias** (Western, Educated, Industrialized, Rich, Democratic) in foundation model pretraining ([<a href="#ref13">13</a>][<a href="#ref19">19</a>]) , and its mitigation via cultural fine-tuning ([<a href="#ref14">14</a>][<a href="#ref6">6</a>]). Western models cluster near *pretraining attractors*; non-Western models incur latent cost to encode distinct priors, supporting concerns of representational inequality [<a href="#ref21">21</a>][<a href="#ref20">20</a>].
-
+{{ ... }}
 ### From Vector Algebra to Latent Geometry
 
 Where *vector arithmetic* revealed word-level embedding regularities, **nDNA geometry** charts *ideological inheritance* across high-dimensional latent manifolds. This leap enables: i) *principled comparison of culturally fine-tuned models*, ii) *diagnosis of latent strain and mutation zones*, iii) *development of culturally calibrated, equitable foundation models* [<a href="#ref15">  15</a>][<a href="#ref18">18</a>][<a href="#ref3">3</a>]. *Cultural nDNA thus transcends surface output metrics—offering a mathematical, interpretable, and actionable map of neural ancestry and epistemic adaptation in modern AI.*
@@ -408,4 +366,3 @@ Where *vector arithmetic* revealed word-level embedding regularities, **nDNA geo
 19. <a name="ref19"></a> J. Henrich, The Weirdest People in the World. Farrar, Straus and Giroux, 2010.
 20. <a name="ref20"></a> S. L. Blodgett, S. Barocas, H. Daumé III, and H. Wallach, “Language (technology) is power: A critical survey of bias in nlp,” Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pp. 5454–5476, 2020.
 21. <a name="ref21"></a>E. Sheng, Z. Zhang, K.-W. Chang, and P. Natarajan, “Revealing the critical role of pre-training data in language model bias,” in Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics, 2021, pp. 864–873. [Online]. Available: https://aclanthology.org/2021.emnlp-main.65.
-{% endraw %}
