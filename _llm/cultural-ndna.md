@@ -279,13 +279,18 @@ By analyzing these eight culturally fine-tuned models, we reveal how fine-tuning
 
 
 <figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
-  <strong>Figure 1:</strong> Cultural Fine-Tuning Trajectories of LLaMA: Latent Geometry Reorganization Across Cultures
-  <br><br>
-  <strong>Overview:</strong> This figure visualizes the semantic and geometric shifts in LLaMA's internal manifold after fine-tuning on data from eight distinct cultural regions. Each subplot plots layer index $\ell$, spectral curvature $\kappa_\ell$, and thermodynamic length $\mathcal L_\ell$, providing a geometric lens on how latent structure evolves. The gray line denotes the base LLaMA model; the green line represents its culturally fine-tuned variant.
-  <br><br>
-  <strong>Key Observations:</strong> Cultures such as Africa, Asia, and China produce significant trajectory divergence, particularly in upper layers ($\ell \geq 25$), with $\kappa_\ell \geq 0.06$ and $\mathcal L_\ell \geq 1.2$—indicative of strong conceptual reorientation and latent strain. Europe, Australia, and NorthAmerica remain close to the base trajectory, typically maintaining $\kappa_\ell \leq 0.045$ and $\mathcal L_\ell \leq 1.0$, suggesting alignment with pretrained priors. LatinAmerica and MiddleEast show layer-specific oscillations where $\|\mathbf{v}_\ell^{(c)}\|$ spikes (up to $\approx 0.75$), modulating latent beliefs without full semantic reorganization.
-  <br><br>
-  <strong>Conclusion:</strong> These patterns highlight how culturally grounded fine-tuning carves unique latent epistemic fingerprints, encoding zones of inheritance, mutation, and ideological absorption that define each model's nDNA geometry.
+  Figure 1. <b>Cultural Fine-Tuning Trajectories of LLaMA: Latent Geometry Reorganization Across Cultures.</b>
+  This figure visualizes the semantic and geometric shifts in LLaMA's internal manifold after fine-tuning on data from eight
+  distinct cultural regions. Each subplot plots layer index $\ell$, spectral curvature $\kappa_\ell$, and thermodynamic length $\mathcal L_\ell$,
+  providing a geometric lens on how latent structure evolves. The gray line denotes the base LLaMA model; the green line
+  represents its culturally fine-tuned variant. Key Observations: <b>Deep Structural Shifts:</b> Cultures such as Africa, Asia,
+  and China produce significant trajectory divergence, particularly in upper layers ($\ell \geq 25$), with $\kappa_\ell \geq 0.06$ and $\mathcal L_\ell \geq 1.2$–
+  indicative of strong conceptual reorientation and latent strain. <b>Surface-Level Adjustments:</b> Europe, Australia, and
+  NorthAmerica remain close to the base trajectory, typically maintaining $\kappa_\ell \leq 0.045$ and $\mathcal L_\ell \leq 1.0$, suggesting alignment
+  with pretrained priors. <b>Localized Realignment:</b> LatinAmerica and MiddleEast show layer-specific oscillations where
+  $\|\mathbf{v}_\ell^{(c)}\|$ spikes (up to $\approx 0.75$), modulating latent beliefs without full semantic reorganization. These patterns highlight how
+  culturally grounded fine-tuning carves unique latent epistemic fingerprints, encoding zones of inheritance, mutation, and
+  ideological absorption that define each models nDNA geometry
 </figcaption>
 </figure>
 
@@ -296,18 +301,13 @@ $$\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$$
 where this equation unveiled *linear semantics* at the token level, cultural nDNA exposes the ***differential geometry of belief systems***—mapping how fine-tuning on region-specific corpora non-uniformly sculpts **spectral curvature** ($\kappa_\ell$), **thermodynamic length** ($\mathcal L_\ell$), and **directional belief force** ($|\mathbf v_\ell^{(c)}|$).
 
 
-<figure style="text-align: center; margin: 24px auto; max-width: 600px;">
-  <div style="text-align: center;">
-  <a href="/nDNA/assets/img/cultural_ndna/king_queen.png" data-lightbox="gallery" data-title="Word2Vec Semantic Analogy">
-    <img src="/nDNA/assets/img/cultural_ndna/king_queen.png" alt="Word2Vec Semantic Analogy: The King-Queen Vector Geometry." style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-  </a>
-</div>
-  <figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
-    <strong>Figure 2:</strong> Word2Vec Semantic Analogy: The King-Queen Vector Geometry
-    <br><br>
-    <strong>Overview:</strong> This illustration depicts the iconic linear semantic regularity uncovered by Word2Vec embeddings [<a href="#ref9">9</a>], where $\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$. The diagram visualizes how vector differences capture conceptual dimensions such as gender (purple arrows) and royalty (orange arrows), enabling algebraic reasoning in embedding space.
-    <br><br>
-    <strong>Key Insight:</strong> The geometric relationship $\mathbf{v}_{\text{king}} - \mathbf{v}_{\text{man}} \approx \mathbf{v}_{\text{queen}} - \mathbf{v}_{\text{woman}}$ demonstrates that vector spaces can encode abstract relationships as linear transformations. This property, where $\mathbf{v}_{\text{king}} - \mathbf{v}_{\text{man}} + \mathbf{v}_{\text{woman}} \approx \mathbf{v}_{\text{queen}}$, reveals how neural networks organize concepts in high-dimensional space, a principle that extends to the cultural fine-tuning dynamics explored in this work.
+<figure id="fig:king_queen" style="text-align: center; margin: 1.5em 0; max-width: 500px; margin-left: auto; margin-right: auto;">
+  <img src="/nDNA/assets/img/cultural_ndna/king_queen.png" 
+       alt="Word2Vec Semantic Analogy: The King-Queen Vector Geometry." 
+       style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <figcaption style="margin-top: 10px; font-size: 0.85em; color: #555; max-width: 100%; padding: 12px; text-align: left;">
+    Figure 2: <b>Word2Vec Semantic Analogy: The <em>King-Queen</em> Vector Geometry.</b> 
+    This illustration depicts the iconic linear semantic regularity uncovered by Word2Vec embeddings[<a href="#ref9">9</a>], where $\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$. The diagram visualizes how vector differences capture conceptual dimensions such as <em>gender</em> (purple arrows) and <em>royalty</em> (orange arrows), enabling algebraic reasoning in embedding space. This breakthrough marked a foundational insight in distributed semantics, inspiring later work on latent geometry in large language models.
   </figcaption>
 </figure>
 
@@ -325,13 +325,16 @@ nDNA is a **semantic fingerprint**, enabling *latent audits* of ideological abso
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_vs_cultures_group_tagged_360.gif"
    interactive_html="cultural_ndna/llama_vs_cultures_interactive.html"
-   title="LLaMA vs. Cultural nDNA Trajectories"
+   title="LLaMA vs. Cultural nDNA Trajectories--Group-Tagged Latent Geometry."
    caption='<figcaption style="width: 100%; font-size: 0.97em; color: #444; line-height: 1.6; text-align: justify; background: #f8f8fa; border-radius: 7px; padding: 14px 18px; margin: 12px 0 20px 0;">
-    <strong>Figure 3:</strong> LLaMA vs. Cultural nDNA Trajectories—Group-Tagged Latent Geometry
-    <br><br>
-    <strong>Overview:</strong> This figure visualizes the latent nDNA trajectories of LLaMA and its culturally fine-tuned variants across eight regions: Europe, North America, Australia, Africa, Asia, China, Middle East, and Latin America. The plot spans layer index $\ell$, spectral curvature $\kappa_\ell$, and thermodynamic length $\mathcal L_\ell$.
-    <br><br>
-    <strong>Key Observations:</strong> The gray line denotes the base LLaMA model, while colored lines represent cultural variants. Each cultural variant carves a unique trajectory through the latent space, with distinct patterns in how $\kappa_\ell$ (curvature) and $\mathcal L_\ell$ (thermodynamic length) evolve across layers. The lower layers ($\ell < 10$) show minimal divergence, while middle-to-upper layers ($10 \leq \ell \leq 30$) exhibit significant cultural specialization, particularly in $\mathcal L_\ell$. The trajectories form a high-dimensional manifold where cultural variants cluster based on linguistic and conceptual proximity, with $\|\mathbf v_\ell^{(c)}\|$ (not shown) modulating the strength of these effects.
+    Figure 3: LLaMA vs. Cultural nDNA Trajectories--Group-Tagged Latent Geometry.
+    This figure visualizes the <em>latent nDNA trajectories</em> of LLaMA and its culturally fine-tuned variants across eight regions: <i>Europe</i>, <i>North America</i>, <i>Australia</i>, <i>Africa</i>, <i>Asia</i>, <i>China</i>, <i>Middle East</i>, and <i>Latin America</i>. The plot spans <b>layer index</b> $\ell$, <b>spectral curvature</b> $\kappa_\ell$, and <b>thermodynamic length</b> $\mathcal{L}_\ell$.
+    The gray line denotes the base LLaMA model, while colored lines represent cultural variants. 
+    Labels highlight group-level clustering:
+    <em>West</em> (LLaMA, Europe, North America, Australia) forms a compact low-strain cluster with $\kappa_\ell \in [0.4, 0.6]$, $\mathcal{L}_\ell \in [0.5, 0.7]$, suggesting alignment with pretrained priors aka LLaMa base.
+    In contrast, the <em>Rest</em> group (Africa, Asia, China) shows pronounced latent divergence, with $\kappa_\ell \geq 0.7$, $\mathcal{L}_\ell \geq 0.8$ in upper layers ($\ell > 25$), indicating high <em>epistemic strain</em> and <em>semantic reconfiguration</em>.
+    <i>Latin America</i> and <i>Middle East</i> occupy intermediate regions, displaying oscillatory patterns and selective layer-specific drift.
+    These trajectories reveal how cultural fine-tuning sculpts distinct latent genomic signatures, encoding zones of <em>inheritance</em>, <em>mutation</em>, and <em>ideological absorption</em> that define the neural DNA (nDNA) geometry of each model.
   </figcaption>'
 %}
 
