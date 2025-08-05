@@ -466,6 +466,50 @@ footer {
   }
 }
 
+.visualization-html {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem auto;
+  max-width: 100%;
+}
+
+.vh-image, .vh-html {
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+  width: calc(50% - 1rem);
+  flex: 1 1 50%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.vh-image.cover {
+  object-fit: cover;
+}
+
+.interactive-plot-container {
+  position: relative;
+  padding-top: 50%;
+}
+
+.interactive-plot-container iframe {
+  position: absolute;
+  inset: 0;
+}
+
+.figure-caption {
+  margin-top: 0.75rem;
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #555;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: left;
+}
+
 .figure-caption p {
   margin: 0.25rem 0;
 }
@@ -474,4 +518,18 @@ footer {
   font-size: 1rem;
   color: #34495e;
   margin-top: 0.5rem;
+}
+
+.view-interactive-html {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
+  border: none;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  transform: scale(1);
 }
