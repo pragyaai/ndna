@@ -146,6 +146,8 @@
 
 <p>These phenomena—often dismissed as quirks—are in fact <strong>heritable traits etched into the model’s internal manifold</strong>. Viewed through this lens, <strong>model collapse</strong>, <strong>alignment-induced drift</strong>, and <strong>semantic mimicry</strong> become <strong>structural signatures</strong> of deeper latent dynamics.</p>
 
+<hr />
+
 <h2 id="a-scientific-grammar-for-cognition">A Scientific Grammar for Cognition</h2>
 
 <p>nDNA transcends metaphor to become a <strong>scientific grammar</strong> for measuring:</p>
@@ -180,148 +182,374 @@
 
 <hr />
 
-<h2>Spectral Curvature (κ<sub>ℓ</sub>)</h2>
+<h3 id="1-spectral-curvature---kappa_ell--">1. Spectral Curvature ( $ \kappa_\ell $ )</h3>
 
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>What is Spectral Curvature?</h3>
-  <p>In classical geometry, <strong>curvature</strong> measures how much a path deviates from being straight. In <em>spectral geometry</em> and <em>harmonic analysis</em>, it captures how signals bend under structure-encoding operators (like Laplacians). Spectral curvature quantifies the latent signal’s shape as it evolves across layers.</p>
-</div>
+<h2 id="what-is-spectral-curvature">What is Spectral Curvature?</h2>
 
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why It Matters in Foundation Models</h3>
-  <p>Hidden states <code>{ h<sub>ℓ</sub> }</code> trace a trajectory in high-dimensional latent space, reflecting belief updates. Spectral curvature reveals how this path <em>bends</em>, making it ideal for studying adaptation, alignment, and internal belief structure across depth.</p>
-</div>
+<p>In classical geometry, <strong>curvature</strong> quantifies how much a path deviates from being straight—measuring the local bending of a trajectory.</p>
 
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Mathematical Formulation</h3>
-  <ul>
-    <li><strong>First-order difference:</strong> Δh<sub>ℓ</sub> = h<sub>ℓ</sub> - h<sub>ℓ-1</sub></li>
-    <li><strong>Second-order difference (discrete Laplacian):</strong> Δ²h<sub>ℓ</sub> = h<sub>ℓ+1</sub> - 2h<sub>ℓ</sub> + h<sub>ℓ-1</sub></li>
-    <li><strong>Spectral curvature:</strong><br />
-      $$\kappa_\ell := \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|$$
-    </li>
-  </ul>
-  <p>This acts as a layerwise estimator of latent geometric bending.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Interpretation</h3>
-  <p>High κ<sub>ℓ</sub> values emerge where latent geometry is most dynamic—indicating:</p>
-  <ul>
-    <li>Semantic inflection points</li>
-    <li>Compression or reorientation of beliefs</li>
-    <li>Ideological absorption or alignment tension</li>
-  </ul>
-  <p>These are zones of <strong>epistemic adaptation</strong>.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Scientific Lineage</h3>
-  <p>Builds on:</p>
-  <ul>
-    <li>Geometric Deep Learning</li>
-    <li>Ricci Flow for ML</li>
-    <li>Equivariant Architectures</li>
-    <li>Spectral Graph Theory (refs 33–42)</li>
-  </ul>
-</div>
-
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="/nDNA/assets/gifs/introduction/spectral_curvature.gif" alt="Spectral Curvature" width="50%" />
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> κ<sub>ℓ</sub> is typically elevated in upper decoder layers (ℓ ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation.
-  </figcaption>
-</figure>
+<p>In <strong>spectral geometry</strong> and <strong>harmonic analysis</strong>, curvature extends to how signals or paths behave in frequency space or under structure-encoding operators (e.g., Laplacians, difference operators). <strong>Spectral curvature</strong> refers to curvature derived through such operators—capturing the shape of latent signals as they evolve across layers of a model.</p>
 
 <hr />
 
-<h2>Thermodynamic Length (ℒ<sub>ℓ</sub>)</h2>
+<h2 id="why-spectral-curvature-for-latent-manifolds">Why Spectral Curvature for Latent Manifolds?</h2>
 
-<div class="card">
-  <h3>What is Thermodynamic Length?</h3>
-  <p>Thermodynamic length measures the <em>epistemic effort</em> exerted as a model transitions from one belief state to another. Rooted in information geometry, it reflects how far the model travels in latent space during adaptation, capturing the cumulative <strong>internal work</strong> done across layers.</p>
-</div>
+<p>In foundation models, hidden representations form a sequence of activations:</p>
 
-<div class="card">
-  <h3>Why It Matters in Foundation Models</h3>
-  <p>High ℒ<sub>ℓ</sub> values indicate zones of significant belief restructuring. These are regions where the model is performing <strong>nontrivial internal updates</strong>—often under external alignment pressure, domain shift, or instruction tuning. It complements curvature by showing <em>how much effort</em> is involved, not just how sharply the model turns.</p>
-</div>
+\[\{ h_\ell \}_{\ell=0}^{L}\]
 
-<div class="card">
-  <h3>Mathematical Formulation</h3>
-  <p>Given a sequence of hidden states <code>{ h<sub>ℓ</sub> }</code>, define:</p>
-  <ul>
-    <li><strong>Velocity vector:</strong> Δh<sub>ℓ</sub> = h<sub>ℓ</sub> - h<sub>ℓ-1</sub></li>
-    <li><strong>Thermodynamic Length:</strong><br />
-      $$
-      \mathcal{L}_\ell := \sum_{\ell} \left\| \frac{h_\ell - h_{\ell-1}}{\Delta s} \right\|
-      $$
-      <small>(Typically computed with unit steps: Δs = 1)</small>
-    </li>
-  </ul>
-</div>
+<p>These activations trace a <strong>path in high-dimensional latent space</strong>, encoding the model’s internal conceptual flow—how its beliefs evolve as it integrates priors, inputs, and alignment constraints.</p>
 
-<div class="card">
-  <h3>Interpretation</h3>
-  <p>ℒ<sub>ℓ</sub> peaks in layers where:</p>
-  <ul>
-    <li>Models integrate alignment constraints</li>
-    <li>Semantic load intensifies</li>
-    <li>Conceptual transitions require maximal internal adjustment</li>
-  </ul>
-  <p>It signals zones of <strong>epistemic strain</strong> and <strong>adaptive cost</strong>.</p>
-</div>
-
-<figure style="text-align: center;">
-  <img src="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length" width="50%" />
-  <figcaption>
-    <strong>Figure:</strong> ℒ<sub>ℓ</sub> quantifies the effort exerted across layers—rising in zones of instruction tuning, cultural fusion, or belief refinement.
-  </figcaption>
-</figure>
+<p><strong>Spectral operators</strong> (e.g., discrete Laplacians) naturally quantify how this path bends or accelerates. Unlike distance-based metrics, <strong>spectral curvature reflects intrinsic shape</strong>, invariant under reparameterization, making it ideal for probing internal geometry.</p>
 
 <hr />
 
-<h2>Belief Vector Field (‖𝐯<sub>ℓ</sub><sup>(c)</sup>‖)</h2>
+<h2 id="mathematical-formulation">Mathematical Formulation</h2>
 
-<div class="card">
-  <h3>What is the Belief Vector Field?</h3>
-  <p>‖𝐯<sub>ℓ</sub><sup>(c)</sup>‖ measures the <em>magnitude of cultural or directional pressure</em> acting on latent states. It captures how much external priors—e.g., social values, instruction signals, fine-tuning data—are steering internal belief dynamics at each layer.</p>
-</div>
+<p>Let the hidden activation at each layer be:</p>
 
-<div class="card">
-  <h3>Why It Matters</h3>
-  <p>This norm detects where a model’s internal representations are being strongly <em>reoriented</em> by non-neutral guidance. High values imply alignment-induced drift, ideological pressure, or the assimilation of new cultural signals. It localizes regions of <strong>semantic control</strong>.</p>
-</div>
+\[h_\ell \in \mathbb{R}^d\]
 
-<div class="card">
-  <h3>Mathematical Formulation</h3>
-  <ul>
-    <li><strong>Belief vector:</strong> 𝐯<sub>ℓ</sub><sup>(c)</sup> is extracted by projecting activations onto a directional subspace representing cultural priors.</li>
-    <li><strong>Norm of interest:</strong><br />
-      $$
-      \left\| \mathbf{v}_\ell^{(c)} \right\| = \text{magnitude of belief alignment shift at layer } \ell
-      $$
-    </li>
-  </ul>
-</div>
+<h3 id="first-order-difference">First-order difference:</h3>
 
-<div class="card">
-  <h3>Interpretation</h3>
-  <p>High ‖𝐯<sub>ℓ</sub><sup>(c)</sup>‖ occurs in layers where:</p>
-  <ul>
-    <li>Alignment protocols actively steer cognition</li>
-    <li>Models simulate or absorb sociocultural worldviews</li>
-    <li>Conflicting norms (e.g. multilingual or ideological) compete for influence</li>
-  </ul>
-  <p>It exposes <strong>latent cultural conflict</strong> and <strong>ideological absorption</strong>.</p>
-</div>
+\[\Delta h_\ell := h_\ell - h_{\ell-1}\]
 
-<figure style="text-align: center;">
-  <img src="/nDNA/assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field" width="50%" />
-  <figcaption>
-    <strong>Figure:</strong> Belief vector fields visualize alignment influence—arrows trace directional shifts, and length encodes pressure intensity.
-  </figcaption>
-</figure>
+<p>This approximates <strong>local directional change</strong>—a discrete analogue of velocity in latent space.</p>
+
+<h3 id="second-order-difference-discrete-curvature">Second-order difference (discrete curvature):</h3>
+
+\[\Delta^2 h_\ell := \Delta h_{\ell+1} - \Delta h_\ell = h_{\ell+1} - 2h_\ell + h_{\ell-1}\]
+
+<p>This acts like a <strong>discrete Laplacian</strong> along the latent trajectory, highlighting where internal belief flow deviates from a straight path.</p>
+
+<h3 id="spectral-curvature">Spectral Curvature:</h3>
+
+\[\kappa_\ell := \|\Delta^2 h_\ell\| = \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|\]
+
+<p>In the continuous case, this corresponds to:</p>
+
+\[\kappa(s) = \left\| \frac{d^2 h(s)}{ds^2} \right\|\]
+
+<p>where \(s\) parameterizes depth through the network. The discrete \(\kappa_\ell\) serves as a <strong>practical, layerwise estimator</strong> of curvature.</p>
+
+<hr />
+
+<h2 id="why-is-this-meaningful">Why Is This Meaningful?</h2>
+
+<p><strong>Peaks in \(\kappa_\ell\)</strong> indicate layers where the model’s <strong>internal geometry is most dynamic</strong>—zones of:</p>
+
+<ul>
+  <li>Semantic inflection</li>
+  <li>Belief compression</li>
+  <li>Ideological absorption</li>
+</ul>
+
+<p>These are <strong>structural signatures of epistemic adaptation</strong>, essential for tracing <strong>cultural inheritance</strong> and <strong>alignment-induced drift</strong> in foundation models.</p>
+
+<hr />
+
+<h2 id="lineage-and-context">Lineage and Context</h2>
+
+<p>Spectral curvature draws on ideas from:</p>
+
+<ul>
+  <li><strong>Geometric deep learning</strong></li>
+  <li><strong>Equivariant architectures</strong></li>
+  <li><strong>Ricci flow in ML</strong></li>
+  <li><strong>Spectral graph theory</strong> (see: 33–42)</li>
+</ul>
+
+<p>Within the <strong>nDNA framework</strong>, spectral curvature functions as a <strong>principled geometric fingerprint</strong>, revealing not just <em>what</em> is encoded, but <em>how</em> internal belief pathways have been <strong>reshaped to encode it</strong>.</p>
+
+<hr />
+
+<h2 id="visualizing-spectral-curvature">Visualizing Spectral Curvature</h2>
+
+<p><strong>Figure 1</strong> illustrates how spectral curvature:</p>
+
+\[\kappa_\ell := \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|\]
+
+<p>quantifies second-order deviations in latent representations across transformer layers. <strong>High curvature</strong> often emerges in <strong>upper decoder layers</strong>:</p>
+
+\[\ell \in [21, 30]\]
+
+<p>These layers are where models accommodate <strong>sociolinguistic priors</strong>, undergo <strong>multicultural or multilingual fusion</strong>, and reflect <strong>ideologically loaded or epistemically volatile regions</strong>.</p>
+
+<p>Curvature in this context captures <strong>latent inheritance dynamics</strong>, serving as a <strong>fine-grained geometric fingerprint</strong> of internal restructuring and cultural adaptation.</p>
+
+<p><img src="assets/gifs/introduction/spectral_curvature.gif" alt="Spectral Curvature" width="50%" /></p>
+
+<hr />
+
+<h3 id="2-thermodynamic-length---l_ell--">2. Thermodynamic Length ( $ L_\ell  $)</h3>
+
+<h2 id="what-is-thermodynamic-length">What is Thermodynamic Length?</h2>
+
+<p>In <strong>statistical thermodynamics</strong> and <strong>information geometry</strong>, <strong>thermodynamic length</strong> measures the <strong>cumulative effort—or work—required for a system to transition between states</strong> on a statistical manifold. It integrates local gradient energy along a trajectory, providing an <strong>intrinsic cost measure</strong> that is independent of parametrization.</p>
+
+<hr />
+
+<h2 id="why-thermodynamic-length-for-foundation-models">Why Thermodynamic Length for Foundation Models?</h2>
+
+<p>In foundation models, <strong>layers trace a path through latent belief space</strong>. As input data and alignment priors reshape activations, the model <strong>expends internal computational effort</strong> to adjust its belief state.</p>
+
+<p><strong>Thermodynamic length quantifies this latent effort</strong>—measuring not just <em>what</em> the model knows, but <strong>how hard it works</strong> to adapt that knowledge across layers in response to <strong>epistemic pressures</strong> such as:</p>
+
+<ul>
+  <li>Cultural fusion</li>
+  <li>Alignment shifts</li>
+  <li>Semantic restructuring</li>
+</ul>
+
+<hr />
+
+<h2 id="mathematical-intuition">Mathematical Intuition</h2>
+
+<p>Let \(h_\ell\) denote the latent state at layer \(\ell\), and let \(\mathcal{M}\) be the model’s latent manifold. Layer transitions define a curve:</p>
+
+\[\gamma : [0, L] \to \mathcal{M}\]
+
+<p>The <strong>thermodynamic length</strong> of \(\gamma\) is:</p>
+
+\[L(\gamma) = \int_0^L \sqrt{ \langle \dot{\gamma}(s), G_{\text{Fisher}} \, \dot{\gamma}(s) \rangle } \, ds\]
+
+<p>where \(G_{\text{Fisher}}\) is the <strong>Fisher information metric</strong>. This integral represents the <strong>intrinsic work</strong> needed to traverse the belief trajectory \(\gamma\) on \(\mathcal{M}\).</p>
+
+<hr />
+
+<h2 id="interpretation">Interpretation</h2>
+
+<p>High <strong>thermodynamic length</strong> indicates <strong>regions where latent geometry stretches</strong>—where the model undergoes substantial <strong>reconfiguration</strong> to reconcile prior beliefs with new input.</p>
+
+<p>Zones of high \(L_\ell\) reveal:</p>
+<ul>
+  <li>Alignment tension</li>
+  <li>Cultural fusion</li>
+  <li>Complex reasoning</li>
+  <li>Internal scaffold strain</li>
+</ul>
+
+<p>This offers a window onto the model’s <strong>latent energy budget</strong>—how internal belief states reshape to meet complexity, constraint, and context.</p>
+
+<hr />
+
+<h2 id="discrete-formulation">Discrete Formulation</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Let $$p_\ell(y</td>
+      <td>x)\(be the model’s **conditional distribution** at layer\)\ell$$. The <strong>local epistemic cost</strong> is given by:</td>
+    </tr>
+  </tbody>
+</table>
+
+\[\|\nabla_\theta \log p_\ell(x)\|^2\]
+
+<p>This measures <strong>how much adjustment</strong> is needed locally at layer \(\ell\) to better fit input \(x\). Then, <strong>thermodynamic length</strong> at layer \(\ell\) is:</p>
+
+\[L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2 = |D| \cdot \mathbb{E}_{x \sim D} \|\nabla_\theta \log p_\ell(x)\|^2\]
+
+<p>This captures both the <strong>average local effort</strong> and how it <strong>scales with dataset size</strong>.</p>
+
+<hr />
+
+<h2 id="geometric-interpretation">Geometric Interpretation</h2>
+
+<p>In differential geometric terms, thermodynamic length can also be written as a <strong>path energy integral</strong>:</p>
+
+\[L_\ell = \int_{\gamma_\ell} \left\langle \frac{d h_\ell}{ds}, G_{\text{Fisher}}(h_\ell) \frac{d h_\ell}{ds} \right\rangle ds\]
+
+<p>where:</p>
+<ul>
+  <li>\(h_\ell\) represents latent trajectories</li>
+  <li>\(G_{\text{Fisher}}\) is the Fisher information metric</li>
+  <li>\(s\) is arc length along \(\gamma_\ell\)</li>
+</ul>
+
+<p>This integral reflects <strong>how much internal “heat” or computational work</strong> is generated to reconcile the model’s <strong>prior state with new input</strong> at layer \(\ell\).</p>
+
+<hr />
+
+<h2 id="why-is-this-meaningful-1">Why Is This Meaningful?</h2>
+
+<p>Unlike static metrics like <strong>weight magnitudes</strong>, \(L_\ell\) is <strong>dynamically grounded</strong>. It reveals where the model <strong>actively strains</strong> to reconcile <strong>competing epistemic demands</strong>.</p>
+
+<p>High \(L_\ell\) signals:</p>
+<ul>
+  <li>Internal resistance</li>
+  <li>Belief restructuring</li>
+  <li>Compression under tension</li>
+  <li>Response to multilingual or cultural shifts</li>
+</ul>
+
+<hr />
+
+<h2 id="lineage-and-context-1">Lineage and Context</h2>
+
+<p>This diagnostic builds on:</p>
+<ul>
+  <li>The <strong>Fisher–Rao metric</strong> in information geometry</li>
+  <li><strong>Thermodynamic length</strong> formalism from statistical physics (see: 33, 43–45)</li>
+</ul>
+
+<p>Within the <strong>nDNA framework</strong>, thermodynamic length complements <strong>spectral curvature</strong>: while curvature reveals <em>where</em> the model bends, \(L_\ell\) shows <strong>how hard it works</strong> to do so.</p>
+
+<p>Together, these axes form a <strong>neurogeometric anatomy</strong> of latent belief adaptation.</p>
+
+<hr />
+
+<h2 id="visualizing-thermodynamic-length">Visualizing Thermodynamic Length</h2>
+
+<p><strong>Figure 2</strong> shows thermodynamic length:</p>
+
+\[L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2\]
+
+<p>It quantifies <strong>epistemic work</strong> across transformer layers—computed as the <strong>cumulative squared gradient norm</strong> of layerwise log-likelihoods.</p>
+
+<p>Peaks in \(L_\ell\) highlight:</p>
+<ul>
+  <li><strong>Belief compression</strong></li>
+  <li><strong>Alignment restructuring</strong></li>
+  <li><strong>Negotiation of conflicting priors</strong></li>
+</ul>
+
+<p>In culturally fine-tuned models, these peaks typically <strong>localize to upper decoder layers</strong>, where <strong>intense adaptation</strong> occurs near output-generating blocks.</p>
+
+<p>Within <strong>nDNA</strong>, this metric <strong>reveals latent epistemic effort</strong>—providing a nuanced view of <strong>how and where</strong> models allocate internal resources during learning and inference.</p>
+
+<p><img src="assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length" width="50%" /></p>
+
+<hr />
+
+<h3 id="3-belief-vector-field---vc_ell--">3. Belief Vector Field ( $ |v^{(c)}_\ell| $ )</h3>
+
+<h2 id="what-is-the-belief-vector-field">What is the Belief Vector Field?</h2>
+
+<p>In differential geometry and physics, a <strong>vector field</strong> describes a directional force applied at each point of a space. Inspired by this, the <strong>Belief Vector Field</strong> models the <strong>directional semantic force</strong> that a specific culture or value system exerts on a model’s latent representations.</p>
+
+<p>It encodes <strong>where</strong>, <strong>how strongly</strong>, and <strong>in what direction</strong> cultural priors act within the model’s internal geometry—functioning as a <strong>semantic compass</strong> through the latent manifold.</p>
+
+<hr />
+
+<h2 id="why-a-vector-field-for-cultural-influence">Why a Vector Field for Cultural Influence?</h2>
+
+<p>While <strong>spectral curvature</strong> ( \kappa_\ell ) captures how sharply latent paths bend, and <strong>thermodynamic length</strong> ( L_\ell ) captures how hard the model works during adaptation, <strong>neither reveals the source, direction, or origin</strong> of that adaptation.</p>
+
+<p>The <strong>Belief Vector Field</strong> offers this missing piece: it traces the <strong>latent steering</strong> (aka torsion) applied by culture-conditioned priors—<strong>where</strong> the model is being pushed in latent space, by <strong>what epistemic force</strong>, and <strong>toward which semantic direction</strong>.</p>
+
+<p>This makes it a critical diagnostic for studying:</p>
+
+<ul>
+  <li>Cultural drift</li>
+  <li>Ideological imprinting</li>
+  <li>Alignment tension</li>
+</ul>
+
+<hr />
+
+<h2 id="visualization">Visualization</h2>
+
+<p><strong>Figure 3: Belief Vector Field Visualization</strong></p>
+
+\[v^{(c)}_\ell = \mathbb{E}_{x \sim P^{(c)}_{\text{CIVIC}}} \left[ \nabla_{h_\ell} \log p(y | x) \right]\]
+
+<p>This represents the <strong>belief semantic steering force</strong> at layer ( \ell ) toward concept ( c ), conditioned on CIVIC cultural priors (cf. Sec. 6).</p>
+
+<ul>
+  <li>Large magnitudes ( | v^{(c)}_\ell | \in [0.15, 0.50] ) indicate <strong>strong directional pressure</strong>—zones where cultural values actively <strong>reshape latent geometry</strong>.</li>
+  <li>Color-coded arrows trace <strong>distinct conceptual trajectories</strong> (<em>protest, peace, order, power, disobedience, justice</em>).</li>
+  <li>Numeric labels quantify <strong>local steering strength</strong>.</li>
+</ul>
+
+<p>Upper layers ( \ell \geq 20 ) typically exhibit <strong>epistemic reorientation</strong>, where cultural priors most heavily influence belief encoding.</p>
+
+<p>Such visualizations reveal whether a model <strong>internalizes culturally contingent reasoning</strong> or merely mimics alignment at the <strong>output surface</strong>.</p>
+
+<hr />
+
+<h2 id="mathematical-formulation-1">Mathematical Formulation</h2>
+
+<p>Let ( p(y \mid x) ) denote the model’s conditional output distribution for input ( x ), and let ( h_\ell ) be the latent representation at layer ( \ell ).</p>
+
+<p>The <strong>local belief gradient</strong> is:</p>
+
+\[\nabla_{h_\ell} \log p(y \mid x)\]
+
+<p>This measures how a small change in ( h_\ell ) would affect output confidence—a <strong>proxy for semantic force</strong> at that layer.</p>
+
+<p>To extract the culturally conditioned semantic force, we compute its expectation over a culture-specific distribution ( P^{(c)} ):</p>
+
+<h3 id="belief-vector-field-at-layer--ell-">Belief Vector Field at layer ( \ell ):</h3>
+
+\[v^{(c)}_\ell := \mathbb{E}_{x \sim P^{(c)}} \left[ \nabla_{h_\ell} \log p(y \mid x) \right]\]
+
+<p>Here, ( P^{(c)} ) represents inputs <strong>emblematic of a given manifold condition</strong> ( c ) (e.g., regional, linguistic, or ideological contexts).</p>
+
+<p>This formulation captures <strong>not just latent deformation, but its cause</strong>: how <strong>cultural priors exert directional influence</strong> within the belief manifold.</p>
+
+<hr />
+
+<h2 id="why-is-this-meaningful-2">Why is This Meaningful?</h2>
+
+<p>The vector field ( v^{(c)}_\ell ) provides a <strong>directional lens on latent dynamics</strong>.</p>
+
+<ul>
+  <li>High ( | v^{(c)}_\ell | ): regions where the model is actively <strong>redirected by external cultural forces</strong></li>
+  <li>Offers diagnostic power for detecting:
+    <ul>
+      <li>Ideological drift</li>
+      <li>Semantic conflict</li>
+      <li>Bias inheritance</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Unlike ( \kappa_\ell ) or ( L_\ell ), which capture <strong>internal geometry</strong>, ( v^{(c)}_\ell ) reveals <strong>external epistemic pressure</strong> and its <strong>directional impact</strong>.</p>
+
+<hr />
+
+<h2 id="lineage-and-context-2">Lineage and Context</h2>
+
+<p>This diagnostic builds upon:</p>
+
+<ul>
+  <li><strong>Belief geometry</strong></li>
+  <li><strong>Alignment drift studies</strong></li>
+  <li><strong>Cultural bias tracing in NLP</strong> ([5], [18], [46]–[53])</li>
+</ul>
+
+<p>Within the <strong>nDNA framework</strong>, it integrates with <strong>curvature</strong> and <strong>length</strong> to offer a <strong>holistic neurogeometric portrait</strong>—revealing:</p>
+
+<ul>
+  <li>How models <strong>inherit</strong> beliefs</li>
+  <li>Where they <strong>adapt</strong> under cultural force</li>
+  <li>When they <strong>distort</strong> or <strong>realign</strong> due to ideological influence</li>
+</ul>
+
+<hr />
+
+<h2 id="interpretability-in-practice">Interpretability in Practice</h2>
+
+<p>By mapping ( v^{(c)}_\ell ) across <strong>layers</strong> and <strong>cultures</strong>, we can:</p>
+
+<ul>
+  <li>Trace <strong>cultural provenance</strong></li>
+  <li>Identify <strong>ideological pressure zones</strong></li>
+  <li>Diagnose <strong>inheritance asymmetry</strong> in <strong>multilingual</strong> or <strong>aligned models</strong></li>
+</ul>
+
+<p>This <strong>directional fingerprint</strong> informs audits of:</p>
+
+<ul>
+  <li>Model bias</li>
+  <li>Robustness</li>
+  <li>Alignment integrity</li>
+</ul>
+
+<p>It provides the <strong>missing vectorial dimension</strong> in understanding machine cognition.</p>
+
+<p><img src="assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field" width="50%" /></p>
 
 <hr />
 
