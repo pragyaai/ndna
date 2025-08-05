@@ -3,6 +3,10 @@ email: your-email@example.com
 baseurl: "/nDNA"
 url: "https://pragyaai.github.io"
 
+# CDN Configuration
+cdn_url: "https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets"
+fallback_cdn: "https://pragyaai.github.io/cdn-assets"
+
 # Build settings
 markdown: kramdown
 kramdown:
