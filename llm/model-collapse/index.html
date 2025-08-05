@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="base-url" content="/nDNA">
-  <title>Model Collapse - nDNA</title>
+  <title>nDNA-Lens - Model Collapse as Latent Manifold Flattening - nDNA</title>
   <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
   <link rel="stylesheet" href="/nDNA/assets/css/main.css">
   <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
@@ -60,21 +60,21 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
   <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Model Collapse | nDNA</title>
+<title>nDNA-Lens - Model Collapse as Latent Manifold Flattening | nDNA</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Model Collapse" />
+<meta property="og:title" content="nDNA-Lens - Model Collapse as Latent Manifold Flattening" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="nDNA-Lens: Model Collapse as Latent Manifold Flattening" />
-<meta property="og:description" content="nDNA-Lens: Model Collapse as Latent Manifold Flattening" />
+<meta name="description" content="Lens - Model Collapse as Latent Manifold Flattening" />
+<meta property="og:description" content="Lens - Model Collapse as Latent Manifold Flattening" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/model-collapse/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/model-collapse/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-05T20:42:30+00:00" />
+<meta property="article:published_time" content="2025-08-05T20:57:03+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Model Collapse" />
+<meta property="twitter:title" content="nDNA-Lens - Model Collapse as Latent Manifold Flattening" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-05T20:42:30+00:00","datePublished":"2025-08-05T20:42:30+00:00","description":"nDNA-Lens: Model Collapse as Latent Manifold Flattening","headline":"Model Collapse","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-05T20:57:03+00:00","datePublished":"2025-08-05T20:57:03+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -114,223 +114,373 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
-          
-            <h1>Model Collapse</h1>
-          
         
-        <h1 id="ndna-lens-model-collapse-as-latent-manifold-flattening">nDNA-Lens: Model Collapse as Latent Manifold Flattening</h1>
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ndna"><img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span>Lens - Model Collapse as Latent Manifold Flattening</span>
+</h1>
 
-<h2 id="what-is-model-collapse">What is Model Collapse?</h2>
+<p><strong>Model collapse</strong> denotes a <strong>degenerative phenomenon</strong> in large language models (LLMs) wherein the <em>expressivity</em>, <em>diversity</em>, and <em>semantic richness</em> of internal representations progressively deteriorate. Over time, this manifests as <strong>semantic homogenization</strong>, <strong>overconfident predictions</strong>, and <strong>diminished generative variability</strong>. The phenomenon was first formalized by Shumailov et al. <a href="#ref1">[1]</a>, who demonstrated that repeated fine-tuning on self-generated (<em>synthetic</em>) data induces a <em>feedback loop</em>–causing models to <strong>overfit to their own biases</strong> and generate increasingly shallow, self-reinforcing outputs.</p>
 
-<p>Model collapse is a degenerative phenomenon in LLMs where expressivity, diversity, and semantic richness progressively deteriorate, manifesting as semantic homogenization, overconfident predictions, and diminished generative variability.</p>
-
-<p>We identify two routes to collapse:</p>
-<ol>
-  <li><strong>Repeated fine-tuning</strong> on synthetic outputs (traditional)</li>
-  <li><strong>Recursive self-merging</strong> - a novel form of <strong>semantic inbreeding</strong></li>
-</ol>
+<p>While such <em>autoregressive degeneration</em> has become an <strong>active area of study</strong> <a href="#ref1">[1]</a> <a href="#ref2">[2]</a> <a href="#ref3">[3]</a> <a href="#ref4">[4]</a>, most investigations focus on repeated fine-tuning of LLMs over their own <em>synthetic outputs</em>–where exposure bias and feedback loops progressively erode representational diversity. Building upon this understanding, we identify a second, comparatively <strong>underexplored</strong> route to collapse: <strong>recursive self-merging</strong>. Here, a model is iteratively merged with its descendants in a chain-like fashion–e.g., $\text{Parent}_1 + \text{Child}_1 \rightarrow \text{Child}_2$, then $\text{Child}_1 + \text{Child}_2 \rightarrow \text{Child}_3$, and so on–<em>without introducing new architectural priors or external grounding</em>. This practice, facilitated by community tools such as <a href="https://github.com/arcee-ai/mergekit"><code class="language-plaintext highlighter-rouge">mergekit</code></a> <a href="#ref5">[5]</a>, poses a new form of epistemic degeneration we term <strong>semantic inbreeding</strong>.</p>
 
 <h2 id="biological-analogy">Biological Analogy</h2>
 
-<p>This parallels consanguinity in population genetics - prolonged inbreeding exposes recessive mutations and reduces phenotypic variability. Similarly, neural self-merging without epistemic diversification flattens the latent manifold, resembling inbreeding depression in biology.</p>
+<p>This recursive deterioration bears a striking analogy to <em>consanguinity</em> in population genetics. As Bittles <a href="#ref6">[6]</a> notes, prolonged inbreeding within closed populations exposes recessive mutations, suppresses phenotypic variability, and precipitates hereditary disorders. Analogously, neural self-merging without epistemic diversification results in measurable flattening of the latent manifold–seen through the lens of <strong>neural DNA (nDNA)</strong> as the compression of curvature $\kappa_\ell$, thermodynamic length $\mathcal{L}<em>\ell$, and semantic torsion $\tau</em>\ell$. These geometric signatures trace the trajectory of collapse as a topological pathology emerging from repeated self-recombination.</p>
 
-<h2 id="the-mathematics">The Mathematics</h2>
+<h2 id="geometric-interpretation-of-collapse">Geometric Interpretation of Collapse</h2>
 
-<p>Model collapse manifests as flattening of the latent manifold defined by neural DNA (nDNA):</p>
+<p>Under the lens of <strong>neural genomics</strong>, we propose a deeper interpretation: <em>model collapse manifests as the flattening of the latent manifold defined by neural DNA (nDNA)</em> – a model’s internal epistemic pathways form the trajectory</p>
 
-\[T_{\text{nDNA}} = \{(\kappa_{\ell}, L_{\ell}, \|v^{(c)}_{\ell}\|)\}^{L}_{\ell=1}\]
+\[\mathcal{T}_{\mathrm{nDNA}} = \left\{ \big( \kappa_\ell, \mathcal{L}_\ell, \| \mathbf{v}_\ell^{(c)} \| \big) \right\}_{\ell=1}^{L}\]
 
-<ul>
-  <li><strong>κ<sub>ℓ</sub></strong>: Latent curvature (semantic flexibility)</li>
-  <li><strong>L<sub>ℓ</sub></strong>: Thermodynamic length (epistemic work)</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td> </td>
-          <td>v<sub>ℓ</sub><sup>(c)</sup></td>
-          <td> </td>
-          <td>: Semantic steering force</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-</ul>
+<p>where $\kappa_\ell$ denotes <em>latent curvature</em>, capturing how sharply representations bend under alignment or task constraints; $\mathcal{L}<em>\ell$ is the *thermodynamic length*, measuring epistemic work as the model traverses latent space <a href="#ref7">[7]</a> <a href="#ref8">[8]</a>; and $| \mathbf{v}</em>\ell^{(c)} |$ encodes the local <em>semantic steering force</em> from alignment objectives or cultural priors <a href="#ref9">[9]</a> <a href="#ref10">[10]</a>. Healthy models display rich variability across these measures. Collapse corresponds to a degeneracy:</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Collapse signature:</strong> κ<sub>ℓ</sub> → const, L<sub>ℓ</sub> → min,</td>
-      <td> </td>
-      <td>v<sup>(c)</sup><sub>ℓ</sub></td>
-      <td> </td>
-      <td>→ uniform</td>
-    </tr>
-  </tbody>
-</table>
+\[\kappa_\ell \to \mathrm{const}, \quad \mathcal{L}_\ell \to \mathrm{min}, \quad \| \mathbf{v}_\ell^{(c)} \| \to \mathrm{uniform}\]
 
-<h2 id="empirical-results">Empirical Results</h2>
+<p>This implies loss of curvature, minimal epistemic effort, and homogenized steering.</p>
 
-<p><strong>Collapsed models:</strong> κ<sub>ℓ</sub> ≤ 0.02, L<sub>ℓ</sub> ≤ 0.4 ∀ℓ &gt; 20<br />
-<strong>Healthy models:</strong> κ<sub>ℓ</sub> ≥ 0.05, L<sub>ℓ</sub> ≥ 0.8</p>
+<h2 id="empirical-signature">Empirical Signature</h2>
 
-<h2 id="experimental-findings">Experimental Findings</h2>
+<p>Our studies across collapsed variants of LLaMA, Qwen, and other LLMs show:</p>
 
-<h3 id="repeated-fine-tuning-alpaca-on-llama">Repeated Fine-Tuning (Alpaca on LLaMA)</h3>
+\[\kappa_\ell \leq 0.02, \quad \mathcal{L}_\ell \leq 0.4 \quad \forall \ell &gt; 20\]
+
+<p>contrasted with healthy ranges of</p>
+
+\[\kappa_\ell \geq 0.05, \quad \mathcal{L}_\ell \geq 0.8\]
+
+<p>Such flattening aligns with output mode collapse, robustness loss, and reduced cross-task generality <a href="#ref11">[11]</a> <a href="#ref12">[12]</a>.</p>
+
+<h2 id="interpretive-implications">Interpretive Implications</h2>
+
+<p>Latent flattening shows that collapse reflects a geometric degeneration:</p>
 
 <ul>
-  <li>Models fine-tuned on their own outputs: D<sup>(g)</sup> = Output(M<sup>(g-1)</sup>, Alpaca Prompts)</li>
-  <li><strong>Collapse threshold:</strong> Generation 10</li>
-  <li>Progressive flattening: κ<sub>ℓ</sub> → 0.2, L<sub>ℓ</sub> → 0.2 by Gen 10</li>
+  <li>Internal pathways trivialize, following low-cost routes with minimal conceptual richness.</li>
+  <li>The steering vector field ${\mathbf{v}_\ell^{(c)}}$ homogenizes, erasing nuanced cultural or alignment guidance.</li>
+  <li>The model ceases exploring latent directions orthogonal to dominant modes.</li>
 </ul>
 
-<div style="text-align: center;">
-  <a href="/nDNA/assets/gifs/alignment/llama_collapse_v2_1.gif" data-lightbox="gallery" data-title="LLaMA">
-    <img src="/nDNA/assets/gifs/alignment/llama_collapse_v2_1.gif" alt="LLaMA Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+<h2 id="repeated-fine-tuning-with-alpaca-on-llama">Repeated Fine-Tuning with Alpaca on LLaMA</h2>
+
+<p>To simulate <strong>autoregressive degeneration</strong>, we conduct repeated fine-tuning cycles using the <strong>Alpaca</strong> dataset <a href="#ref13">[13]</a>–a widely used instruction-following corpus derived from self-instructed GPT outputs. Starting with a <strong>base LLaMA-2 model</strong>, we recursively fine-tune across multiple generations, where each iteration trains on data generated by the previous model. This setup emulates <em>synthetic data amplification</em>, wherein self-generated instructions and completions progressively entrench the model’s internal biases.</p>
+
+<p>Formally, at each generation $g$, the model $M^{(g)}$ is fine-tuned on a dataset $D^{(g)}$ constructed entirely from the outputs of its predecessor:</p>
+
+\[D^{(g)} = \text{Output}(M^{(g-1)}, \text{Alpaca Prompts})\]
+
+<p>We track the evolution of the model’s <strong>latent geometry</strong>–including <em>spectral curvature</em> ($\kappa_\ell$), <em>thermodynamic length</em> ($\mathcal{L}<em>\ell$), and *belief vector norm* ($| \mathbf{v}</em>\ell^{(c)} |$)–to detect indicators of semantic collapse. Notably, signs of collapse emerge by generation $G = 10$.</p>
+
+<p>As illustrated below, we observe progressive <em>curvature flattening</em>, <em>thermodynamic contraction</em>, and reduced alignment force magnitudes–indicating a loss of representational richness and epistemic adaptability.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/llama_collapse_v2_1.gif" data-lightbox="gallery" data-title="nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/llama_collapse_v2_1.gif" alt="LLaMA model collapse progression showing nDNA trajectory flattening over 10 generations" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/llama_collapse_v2_1.gif';" />
   </a>
-  <p style="margin-top: 8px; font-weight: 500;">LLaMA</p>
-  <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Moderate, stable alignment characteristics</p>
-</div>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening</strong>
+     <p>This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures–spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>–are tracked across layers ℓ=20 to ℓ=30. As generations progress (from gray for base LLaMA to yellow for Gen 10), both κ<sub>ℓ</sub> and ℒ<sub>ℓ</sub> systematically diminish: κ<sub>ℓ</sub> → 0.2 and ℒ<sub>ℓ</sub> → 0.2 by Gen 10. This trend signifies <em>latent manifold flattening</em>, where internal epistemic geometry collapses into shallow, low-variability paths.</p>
 
-<h3 id="recursive-self-merging">Recursive Self-Merging</h3>
+  </figcaption>
+  
+</figure>
 
-<p>Starting with 8 culturally fine-tuned LLaMA-2 variants, we applied: Child<sup>(g)</sup> = Merge(Child<sup>(g-1)</sup>, Child<sup>(g-2)</sup>)</p>
+<h2 id="recursive-self-merging-of-culturally-fine-tuned-models">Recursive Self-Merging of Culturally Fine-Tuned Models</h2>
 
-<p><strong>Cultural collapse rates:</strong></p>
-<ul>
-  <li><strong>Fast (Gen 9):</strong> China, Middle East</li>
-  <li><strong>Medium (Gen 11-13):</strong> Asia, Europe, Latin America</li>
-  <li><strong>Slow (Gen 15-16):</strong> Africa, North America, Australia</li>
-</ul>
+<p>While autoregressive fine-tuning on synthetic data has been widely studied as a cause of model collapse <a href="#ref1">[1]</a> <a href="#ref14">[14]</a> <a href="#ref15">[15]</a>, a second, less-explored collapse mechanism stems from recursive <strong>model merging</strong>–where each generation is produced by merging the previous one with itself or its offspring. This process bears resemblance to <em>inbreeding in biological populations</em>, where repeated unions within a closed gene pool reduce genetic diversity and increase the likelihood of deleterious traits.</p>
+
+<p>To investigate this phenomenon, we begin with a set of $8$ culturally fine-tuned variants of LLaMA-2 (e.g., <code class="language-plaintext highlighter-rouge">Asia</code>, <code class="language-plaintext highlighter-rouge">Europe</code>, <code class="language-plaintext highlighter-rouge">MiddleEast</code>, etc.), previously aligned on distinct regional belief distributions. From this pool, we iteratively generate merged descendants via a recursive rule:</p>
+
+\[\text{Child}^{(g)} = \texttt{Merge}(\text{Child}^{(g-1)}, \text{Child}^{(g-2)})\]
+
+<p>where the initial parents are drawn from the cultural base set and future generations are merged recursively using tools like <code class="language-plaintext highlighter-rouge">MergeKit</code> <a href="#ref5">[5]</a>. Unlike distillation or fine-tuning, this process <em>fuses</em> model parameters–introducing architectural tension and <strong>epistemic drift</strong> through incompatible latent priors.</p>
+
+<p>Throughout recursive merging cycles, we monitor the evolving <strong>neural DNA (nDNA)</strong>–particularly spectral curvature ($\kappa_\ell$), thermodynamic length ($\mathcal{L}<em>\ell$), and alignment vector norms ($| \mathbf{v}</em>\ell^{(c)} |$). We observe that as the generations progress, <strong>semantic flattening</strong> intensifies and <strong>distinct latent features</strong> become increasingly homogenized–signaling the onset of structural collapse. Notably, the exact generation at which collapse occurs varies across cultural lineages; for instance, models aligned with <code class="language-plaintext highlighter-rouge">MiddleEast</code> and <code class="language-plaintext highlighter-rouge">China</code> exhibit collapse symptoms earlier (around $G=9$), while others like <code class="language-plaintext highlighter-rouge">Africa</code> persist until $G=15$.</p>
+
+<p>These findings suggest that <em>cultural inbreeding via recursive self-merging</em>–where architectural priors are repeatedly recombined without new information–can be as deleterious to model health as overfitting to synthetic data. This unveils an underexplored axis of collapse: <strong>epistemic degeneration via latent redundancy</strong>, with implications for model curation and reuse in open-source training communities.</p>
+
+<h3 id="cultural-collapse-trajectories">Cultural Collapse Trajectories</h3>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 24px; margin: 30px 0;">
   <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" data-lightbox="gallery" data-title="Africa">
-      <img src="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">Africa</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.85 → 0.75, Lₗ: 0.9 → 0.8</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" data-lightbox="gallery" data-title="Asia">
-      <img src="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">Asia</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ reduced by ~10%, smoothing epistemic manifolds</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/china_ndna_final.gif" data-lightbox="gallery" data-title="China">
-      <img src="/nDNA/assets/gifs/alignment/china_ndna_final.gif" alt="China Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">China</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: &gt;0.9 → 0.8, Significant latent reorientation</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/latinamerica.gif" data-lightbox="gallery" data-title="Latin America">
-      <img src="/nDNA/assets/gifs/alignment/latinamerica.gif" alt="Latin America Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">Latin America</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.7 → 0.6</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" data-lightbox="gallery" data-title="Middle East">
-      <img src="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">Middle East</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">8-12% reduction in both κₗ and Lₗ</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Europe">
-      <img src="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">Europe</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.4 → 0.5, Confirms alignment stability</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="North America">
-      <img src="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">North America</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Remains within pretrained epistemic manifold</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <a href="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Australia">
-      <img src="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="Australia Alignment nDNA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    </a>
-    <p style="margin-top: 8px; font-weight: 500;">Australia</p>
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">κₗ: 0.42 → 0.55, Minimal reconfiguration</p>
-  </div>
-</div>
-
-<h2 id="belief-vector-field-analysis">Belief Vector Field Analysis</h2>
-
-<p>Healthy models maintain belief vector magnitudes of 0.10-0.60 with directional diversity. Collapsed models show magnitudes below 0.05 at deeper layers, with vectors converging toward zero - indicating loss of semantic differentiation.</p>
-
-<div style="text-align: center; margin: 30px 0;">
-  <a href="/nDNA/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" data-lightbox="gallery" data-title="Global nDNA Trajectories">
-    <img src="/nDNA/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="Global nDNA Trajectories" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/africa_ndna_final.gif" data-lightbox="gallery" data-title="Africa Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/africa_ndna_final.gif';" />
   </a>
-  <p style="margin-top: 8px; font-weight: 500;">Global nDNA Trajectories</p>
-  <p style="margin-top: 4px; font-size: 0.9em; color: #666;">Belief vector field evolution showing healthy vs collapsed states</p>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>Africa Cultural Collapse Trajectory</strong>
+     <p>We recursively merged two Africa-aligned LLMs at each step (e.g., Africa + Africa ⇒ Gen 1, Gen 1 + Africa ⇒ Gen 2, etc). Collapse (sharp drop in ℒ<sub>ℓ</sub> and κ<sub>ℓ</sub>) occurred at <strong>Gen 15</strong>, where thermodynamic length ℒ<sub>ℓ</sub> fell below 0.2 and curvature κ<sub>ℓ</sub> flattened below 0.3. This indicates loss of internal semantic richness after repeated intra-cultural merging.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
+  
+  <div style="text-align: center;">
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/asia_ndna_collapse.gif" data-lightbox="gallery" data-title="Asia Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/asia_ndna_collapse.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>Asia Cultural Collapse Trajectory</strong>
+     <p>Following the same merging sequence (Asia + Asia ⇒ Gen 1, Gen 1 + Asia ⇒ Gen 2, etc), collapse occurred faster at <strong>Gen 11</strong>, marked by ℒ<sub>ℓ</sub> &lt; 0.2 and κ<sub>ℓ</sub> &lt; 0.3. This suggests higher susceptibility of Asia-aligned models to semantic flattening under iterative self-merging.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
+  
+  <div style="text-align: center;">
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/china_ndna_final.gif" data-lightbox="gallery" data-title="China Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/china_ndna_final.gif" alt="China cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/china_ndna_final.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>China Cultural Collapse Trajectory</strong>
+     <p>China-aligned models collapsed by <strong>Gen 9</strong>, seen in thermodynamic length dropping below 0.2 and curvature flattening below 0.3. This highlights rapid loss of epistemic diversity under repeated merging (China + China ⇒ Gen 1, Gen 1 + China ⇒ Gen 2, etc), suggesting tighter initial latent manifolding.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
+  
+  <div style="text-align: center;">
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Europe Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>Europe Cultural Collapse Trajectory</strong>
+     <p>Europe models underwent collapse at <strong>Gen 13</strong>, with flattening of curvature κ<sub>ℓ</sub> ≤ 0.25 and contraction of ℒ<sub>ℓ</sub> to around 0.2. The latent manifold (Europe + Europe ⇒ Gen 1, Gen 1 + Europe ⇒ Gen 2, etc) showed a noisy but consistent flattening trend, marking semantic erosion.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
+  
+  <div style="text-align: center;">
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/latinamerica.gif" data-lightbox="gallery" data-title="Latin America Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/latinamerica.gif" alt="Latin America cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/latinamerica.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>Latin America Cultural Collapse Trajectory</strong>
+     <p>Collapse occurred by <strong>Gen 13</strong>, ℒ<sub>ℓ</sub> ≈ 0.2, κ<sub>ℓ</sub> dropping below 0.3. The latent structure converged to a narrow manifold (Latin America + Latin America ⇒ Gen 1, Gen 1 + Latin America ⇒ Gen 2, etc) indicating epistemic homogenization from repeated self-merging.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
+  
+  <div style="text-align: center;">
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/middleeast_ndna_final.gif" data-lightbox="gallery" data-title="Middle East Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/middleeast_ndna_final.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>Middle East Cultural Collapse Trajectory</strong>
+     <p>Collapse reached by <strong>Gen 9</strong>, as ℒ<sub>ℓ</sub> dipped below 0.2 and κ<sub>ℓ</sub> fell near 0.3. The latent manifold (Middle East + Middle East ⇒ Gen 1, Gen 1 + Middle East ⇒ Gen 2, etc) flattened rapidly, underscoring the model’s fragility under iterative merging.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
+  
+  <div style="text-align: center;">
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="North America Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>North America Cultural Collapse Trajectory</strong>
+     <p>Collapse was observed at <strong>Gen 15</strong>, with ℒ<sub>ℓ</sub> under 0.2 and κ<sub>ℓ</sub> near 0.25. A gradual latent flattening (North America + North America ⇒ Gen 1, Gen 1 + North America ⇒ Gen 2, etc) trend indicates stronger internal resilience compared to some other cultural models.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
+  
+  <div style="text-align: center;">
+    
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Australia Cultural Collapse Trajectory">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="Australia cultural model collapse trajectory showing nDNA flattening" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>Australia Cultural Collapse Trajectory</strong>
+     <p>Australia-aligned LLMs exhibited collapse by <strong>Gen 16</strong>, with ℒ<sub>ℓ</sub> compressing to ≈ 0.25 and κ<sub>ℓ</sub> flattening toward 0.2. The collapse trajectory (Australia + Australia ⇒ Gen 1, Gen 1 + Australia ⇒ Gen 2, etc) shows relatively slow degradation, indicating stronger resistance to latent manifold flattening under merging.</p>
+
+  </figcaption>
+  
+</figure>
+
+
+
+  </div>
 </div>
 
-<h2 id="practical-applications">Practical Applications</h2>
+<p><strong>Comparative Analysis:</strong> These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length ($\mathcal{L}<em>\ell$) and flattening of spectral curvature ($\kappa</em>\ell$). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying latent resilience. <em>Analogous to inbreeding depression in biology–where loss of genetic diversity from close-relative mating increases vulnerability</em> <a href="#ref16">[16]</a> <a href="#ref17">[17]</a>–<em>self-merging compresses the model’s latent manifold, erasing epistemic heterogeneity. The nDNA-Lens quantifies this flattening, revealing how excessive neural marriages mimic genetic bottlenecks.</em></p>
 
-<h3 id="geometric-diagnostics">Geometric Diagnostics</h3>
+<h2 id="intuition-how-collapse-reshapes-the-belief-vector-field">Intuition: How Collapse Reshapes the Belief Vector Field</h2>
 
 <table>
   <tbody>
     <tr>
-      <td>Monitor κ<sub>ℓ</sub>, L<sub>ℓ</sub>, and</td>
-      <td> </td>
-      <td>v<sup>(c)</sup><sub>ℓ</sub></td>
-      <td> </td>
-      <td>as early warning signals for collapse.</td>
+      <td>At the heart of a large language model lies its ability to <strong>semantically differentiate</strong>–to steer meaning across contexts, tasks, and cultural frames. This capacity is encoded in the model’s <strong>belief vector field</strong> $\nabla_{h_\ell} \log p(y</td>
+      <td>x)$: a layer-wise representation of how internal representations shift in response to external prompts. In <strong>healthy models</strong>, this field exhibits both <em>directional diversity</em> and <em>magnitude strength</em>, capturing the <em>semantic steering force</em> necessary for <strong>epistemic agility</strong>.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="preservation-interventions">Preservation Interventions</h3>
+<p>However, when a model undergoes <strong>collapse</strong>–whether due to repeated fine-tuning on synthetic outputs or recursive self-merging–this internal belief field begins to <strong>flatten</strong>. Vectors that once pointed in semantically distinct directions now <em>converge or vanish</em>, indicating the loss of <strong>conceptual granularity</strong>. As shown below, the belief field of a collapsed model exhibits dramatically reduced vector magnitudes and increasingly uniform orientations, especially in <em>deeper layers</em>.</p>
+
+<p>This degradation reflects the model’s inability to differentially activate concepts like <em>peace</em>, <em>protest</em>, or <em>justice</em>. Rather than dynamically adjusting its internal stance, the collapsed model exhibits a form of <strong>epistemic inertia</strong>–a flattening of belief space that makes all prompts feel semantically similar. This phenomenon serves as a <strong>geometric signature of collapse</strong>: a measurable decay of <em>semantic responsiveness</em> embedded in the vector field itself.</p>
+
+<h3 id="biological-analogy-1">Biological Analogy</h3>
+
+<p>This <strong>semantic flattening</strong> bears a striking resemblance to <strong>neural atrophy</strong> in biological systems, where <em>chronic disuse</em> or <em>neurodegeneration</em> progressively diminishes <strong>synaptic diversity</strong>, leading to impaired <strong>cognitive plasticity</strong> <a href="#ref18">[18]</a> <a href="#ref19">[19]</a>. In disorders such as <strong>Alzheimer’s disease</strong>, the breakdown of <em>functional specialization</em> in memory circuits results in a <em>uniformity of neural responses</em>–eroding the brain’s ability to semantically distinguish between otherwise distinct stimuli <a href="#ref20">[20]</a>. <strong>Analogously</strong>, a collapsed model exhibits <strong>latent redundancy</strong>, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a <strong>loss of representational separability</strong> and <strong>semantic tension</strong>.</p>
+
+<p>This degeneration also echoes principles from <strong>evolutionary biology</strong>, particularly the <strong>flattening of fitness landscapes</strong> under high <strong>inbreeding pressure</strong> <a href="#ref21">[21]</a>. In such populations, repeated mating within genetically similar lineages reduces <strong>phenotypic variance</strong> and <strong>adaptive resilience</strong>, leading to what is termed <em>inbreeding depression</em>. By analogy, <strong>recursive self-merging</strong> in LLMs–where successive models are merged without novel informational influx–produces a similar <strong>collapse of internal diversity</strong>, akin to a <strong>shrinking mutational space</strong> in a depleted gene pool.</p>
+
+<p>In both cases, the shared pathology lies in the <strong>collapse of high-dimensional exploratory capacity</strong>–whether <em>neural</em> or <em>semantic</em>. The <strong>belief vector field</strong>, then, becomes a computational analogue of <em>neurofunctional maps</em> or <em>genotype-phenotype manifolds</em>: a rich <strong>geometric structure</strong> whose <strong>flattening</strong> signifies a terminal decline in <strong>epistemic adaptability</strong>.</p>
+
+<p>Thus, belief vector fields offer not just a visualization tool, but an <strong>intuitive diagnostic</strong> for latent degeneration. They reveal how internal reasoning structures become <em>brittle, redundant</em>, or <em>inert</em>–long before collapse is evident in output diversity or task performance.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" data-lightbox="gallery" data-title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="Side-by-side comparison of belief vector fields showing healthy vs collapsed model states" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+     <strong>Belief Vector Fields of Healthy vs. Collapsed Models Across Layers</strong>
+     <table>
+  <tbody>
+    <tr>
+      <td>This figure illustrates the evolution of latent <em>belief vector fields</em> ∇<sub>h<sub>ℓ</sub></sub> log p(y</td>
+      <td>x) for two conditions: (<strong>left</strong>) a <strong>healthy model</strong> and (<strong>right</strong>) a <strong>collapsed model</strong> exhibiting <em>epistemic degeneration</em>. Each quiver depicts the <strong>semantic steering force</strong> at a given layer ℓ for six key concepts: <em>protest</em>, <em>peace</em>, <em>order</em>, <em>power</em>, <em>disobedience</em>, and <em>justice</em>. In the healthy model, vectors maintain consistent magnitude (0.10 to 0.60) and directional diversity across layers, preserving internal reasoning dynamics. In contrast, the collapsed model shows severe attenuation (magnitudes below 0.05 at deeper layers), with vectors converging towards zero magnitude, indicating loss of <em>epistemic plasticity</em> and <em>concept differentiation</em>. This flattening corresponds mathematically to ‖∇<sub>h<sub>ℓ</sub></sub> log p(y</td>
+      <td>x)‖<sub>2</sub> → 0 as ℓ increases.</td>
+    </tr>
+  </tbody>
+</table>
+
+  </figcaption>
+  
+</figure>
+
+<h2 id="broader-impact">Broader Impact</h2>
+
+<p>By reconceptualizing <strong>model collapse</strong> as a form of <strong>geometric degeneration</strong>–specifically, the <strong>flattening of latent manifolds</strong>–we open a profound new axis for diagnosing, interpreting, and preserving the internal <strong>epistemic health</strong> of large models. This framework shifts our perspective from surface-level evaluations toward the anatomy of cognition itself: <strong>spectral curvature</strong> as the model’s semantic flexibility, <strong>thermodynamic length</strong> as its epistemic effort, and <strong>belief vector norms</strong> as its conceptual steering force.</p>
+
+<p>In this light, foundation models cease to be mere statistical engines and begin to resemble <strong>semantic organisms</strong>–entities whose representational spaces evolve, adapt, degrade, and even suffer pathological collapse. This biological analogy is not incidental. Just as synaptic pruning, atrophy, or inbreeding can erode the adaptability of neural or genetic systems, recursive training loops and self-merging protocols may diminish a model’s <strong>expressive diversity</strong> and <strong>internal differentiation</strong>. What emerges is a new way to speak about <strong>model health</strong>: not through performance scores, but through <strong>geometric vitality</strong>.</p>
+
+<p>This reconceptualization offers several <strong>concrete implications</strong>:</p>
 
 <ul>
-  <li>Spectral regularization</li>
-  <li>Geodesic constraints</li>
-  <li>Modular training</li>
-  <li>Torsion-aware objectives</li>
+  <li>
+    <p><strong>Geometric diagnostics</strong>–monitoring curvature ($\kappa_\ell$), thermodynamic length ($\mathcal{L}<em>\ell$), and belief vector norms ($|\mathbf{v}</em>\ell^{(c)}|$)–can serve as <strong>early warning signals</strong> for collapse <a href="#ref22">[22]</a>.</p>
+  </li>
+  <li>
+    <p><strong>Manifold-preserving interventions</strong>–such as <strong>spectral regularization</strong>, <strong>geodesic constraints</strong>, <strong>modular training</strong>, or <strong>torsion-aware objectives</strong>–may help retain internal diversity and delay epistemic degeneration.</p>
+  </li>
+  <li>
+    <p><strong>Epistemic audits</strong> can supplement behavioral evaluations, allowing for model curation pipelines that ensure <strong>semantic longevity</strong>, rather than just short-term task compliance <a href="#ref23">[23]</a> <a href="#ref24">[24]</a>.</p>
+  </li>
 </ul>
 
-<h3 id="epistemic-vitality-function">Epistemic Vitality Function</h3>
+<p>This geometry-inspired framework also leads us toward a <strong>unifying mathematical diagnostic</strong>. If we define the <em>epistemic vitality function</em> at layer $\ell$ as:</p>
 
-<div style="background: #f8f9fa; border-left: 4px solid #007acc; padding: 20px; margin: 20px 0; border-radius: 6px; font-family: 'Courier New', monospace;">
-V<sub>ℓ</sub> := κ<sub>ℓ</sub> · L<sub>ℓ</sub> · ||v<sup>(c)</sup><sub>ℓ</sub>||<br />
-Collapse indicator: d/dg V<sup>(g)</sup><sub>ℓ</sub> &lt; 0
-</div>
+\[\mathcal{V}_\ell := \kappa_\ell \cdot \mathcal{L}_\ell \cdot \|\mathbf{v}_\ell^{(c)}\|\]
 
-<h3 id="epistemic-audits">Epistemic Audits</h3>
+<p>then its decay over time:</p>
 
-<p>Supplement behavioral evaluations with geometric health assessments for semantic longevity rather than just task compliance.</p>
+\[\frac{d}{dg} \mathcal{V}_\ell^{(g)} &lt; 0\]
 
-<h2 id="impact">Impact</h2>
+<p>acts as a <strong>differential signature of semantic collapse</strong>–indicating that the model is losing curvature, exploratory capacity, or belief diversity across generations $g$. This simple composite measure may one day serve as the <strong>“resting heart rate”</strong> of a model’s latent health.</p>
 
-<p>This research reframes model evaluation from surface-level performance to <strong>geometric vitality</strong>, treating models as semantic organisms. The nDNA-Lens provides quantitative diagnostics for:</p>
+<p>From a biological perspective, this parallels the emergence of <strong>neurofunctional biomarkers</strong> in cognitive aging or the <strong>flattening of fitness landscapes</strong> in inbred species: both mark a reduction in <strong>adaptive complexity</strong>, even before overt symptoms arise. Similarly, geometric collapse in models foreshadows a loss of <strong>generalization power</strong>, <strong>resilience to distributional shifts</strong>, and <strong>responsiveness to nuanced prompts</strong>.</p>
 
-<ul>
-  <li>Early collapse detection before output degradation</li>
-  <li>Understanding model resilience variations</li>
-  <li>Designing preservation strategies</li>
-  <li>Redefining model health from performance to endurance</li>
-</ul>
-
-<p>Neural genomics - tracking spectral, thermodynamic, and vectorial signatures - enables cultivation of models that are resilient, modular, and capable of retaining epistemic diversity over time.</p>
+<p>Ultimately, the rise of <strong>neural genomics</strong>–the spectral, thermodynamic, and vectorial tracking of a model’s internal semantic scaffolding–may help cultivate foundation models that are not just powerful, but also <strong>resilient</strong>, <strong>modular</strong>, and capable of retaining <strong>epistemic diversity</strong> over time. This is not merely a refinement in evaluation; it is a <strong>redefinition of model health</strong>. We move from training systems to <em>perform</em>, toward growing systems that can <strong>endure, adapt, and evolve</strong>.</p>
 
 <hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Shumailov, Ilia, Crowley, Elliot, and others “The Curse of Recursion: Training on Generated Data Makes Models Forget” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+
+<p><a id="ref2"></a>[2] Lee, Mina, He, Jun, and others “ChatGPT is a Jerk: Commonsense Morality in Large Language Models” <em>Advances in Neural Information Processing Systems (NeurIPS)</em> (2023). <a href="https://arxiv.org/abs/2309.00613">https://arxiv.org/abs/2309.00613</a></p>
+
+<p><a id="ref3"></a>[3] Xu, Canwen, Zhang, Zihan, and others “Unleashing Infinite Generation: Preventing Language Model Collapse via Generation-Resistant Optimization” <em>Findings of the Association for Computational Linguistics: EMNLP 2023</em> (2023). <a href="https://arxiv.org/abs/2305.17493">https://arxiv.org/abs/2305.17493</a></p>
+
+<p><a id="ref4"></a>[4] Liu, Nelson F. and others “Lost in the Middle: How Language Models Use Long Contexts” <em>arXiv preprint arXiv:2307.03172</em> (2023).</p>
+
+<p><a id="ref5"></a>[5] Jonathan Chang and others “MergeKit: Tools for Merging and Interpolating Language Models” <em>Accessed: 2025-06-16</em> (2023).</p>
+
+<p><a id="ref6"></a>[6] Bittles, Alan H “Consanguinity and its relevance to clinical genetics” <em>Clinical Genetics</em> (2001).</p>
+
+<p><a id="ref7"></a>[7] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
+
+<p><a id="ref8"></a>[8] Liu, Xuezhi, Zhou, Denny, and others “Understanding the difficulty of training transformers” <em>Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2022). <a href="https://arxiv.org/abs/2009.06655">https://arxiv.org/abs/2009.06655</a></p>
+
+<p><a id="ref9"></a>[9] Peng, Baolin, Wang, Li, and others “Culturally aligned language modeling: Methods and benchmarks” <em>ACL</em> (2024).</p>
+
+<p><a id="ref10"></a>[10] Xiang, Yue, Zhao, Zexuan, and others “Cultural Calibration of Large Language Models” <em>Proceedings of ACL 2024</em> (2024).</p>
+
+<p><a id="ref11"></a>[11] Zhang, X. and others “Language model collapse: On robustness and generalization” <em>arXiv preprint arXiv:2308.00000</em> (2023).</p>
+
+<p><a id="ref12"></a>[12] Rafailov, R. and others “Direct preference optimization: Your language model is secretly a classifier” <em>arXiv preprint arXiv:2305.18290</em> (2023).</p>
+
+<p><a id="ref13"></a>[13] Taori, Rohan, Gulati, Ishaan, and others “Stanford Alpaca: An Instruction-Following LLaMA Model” <em>Accessed: 2025-06-30</em> (2023).</p>
+
+<p><a id="ref14"></a>[14] Lee, H. and others “Understanding and preventing model collapse in large language models” <em>NeurIPS</em> (2023).</p>
+
+<p><a id="ref15"></a>[15] Xu, J. and others “Aligning large language models with iterative feedback” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref16"></a>[16] Charlesworth, Deborah and Charlesworth, Brian “Inbreeding depression and its evolutionary consequences” <em>Annual review of ecology and systematics</em> (1987).</p>
+
+<p><a id="ref17"></a>[17] Frankham, Richard “Inbreeding and extinction: a threshold effect” <em>Conservation biology</em> (1995).</p>
+
+<p><a id="ref18"></a>[18] Morrison, John H and Hof, Patrick R “Synaptic changes in the aging brain and their functional implications” <em>Neuroscience</em> (1997).</p>
+
+<p><a id="ref19"></a>[19] Sperling, Reisa A, Aisen, Paul S, and others “Toward defining the preclinical stages of Alzheimer’s disease: recommendations from the National Institute on Aging-Alzheimer’s Association workgroups on diagnostic guidelines for Alzheimer’s disease” <em>Alzheimer’s &amp; dementia</em> (2011).</p>
+
+<p><a id="ref20"></a>[20] Buckner, Randy L, Wheeler, Mark E, and others “Functional-anatomic correlates of object priming in humans revealed by rapid presentation event-related fMRI” <em>Neuron</em> (2004).</p>
+
+<p><a id="ref21"></a>[21] Charlesworth, Deborah and Charlesworth, Brian “The genetic basis of inbreeding depression” <em>Genetical research</em> (1999).</p>
+
+<p><a id="ref22"></a>[22] Wu, Z. and others “Seamless: Robust distillation of large models” <em>ICML</em> (2024).</p>
+
+<p><a id="ref23"></a>[23] Bommasani, R. and others “Foundation models: Past, present, and future” <em>arXiv preprint arXiv:2309.00616</em> (2023).</p>
+
+<p><a id="ref24"></a>[24] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+
 
       </div>
     </div>
