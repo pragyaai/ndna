@@ -3,6 +3,7 @@ layout: page
 title: nDNA-Lens - Alignment Techniques Through Steering Vector Manifolds
 permalink: /llm/alignment/
 skip_title: true
+mathjax: true
 ---
 
 {% include ndna-title.liquid title="nDNA Lens - Alignment Techniques Through Steering Vector Manifolds" %}
@@ -24,7 +25,7 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
 
 Recent mechanistic findings {% cite NEURIPS2024_a9bef53e %} show that **safety fine-tuning (DPO) minimally modifies MLP weights** to steer unsafe inputs into a "refusal" direction--often aligned with the model's null space. This appears as:
 
-$$W_{\mathrm{ST}} = W_{\mathrm{IT}} + \Delta W$$
+$W_{\mathrm{ST}} = W_{\mathrm{IT}} + \Delta W$
 
 where $\|\Delta W\| \ll \|W_{\mathrm{IT}}\|$, yet $\Delta W$ exerts pivotal effect. Through nDNA lens, this manifests as:
 
@@ -34,13 +35,13 @@ where $\|\Delta W\| \ll \|W_{\mathrm{IT}}\|$, yet $\Delta W$ exerts pivotal effe
 
 The transformation can be formalized as:
 
-$$\boxed{
+$\boxed{
 \mathcal{M}_{\text{base}} \xrightarrow{\text{DPO}} \mathcal{M}_{\text{aligned}} \quad \text{s.t.} \quad \kappa_\ell \downarrow \text{ (high-strain)},\; \mathcal{L}_\ell \text{ compressed},\; \mathbf{v}_\ell^{(c)} \text{ steered}
-}$$
+}$
 
 **Null-Space Steering and Minimalist Safety Geometry.** To disentangle safety-relevant learning from task adaptation, we decompose the LoRA update:
 
-$$\Delta W = AB = \Delta W_A + \Delta W_T, \quad W = W_0 + \Delta W$$
+$\Delta W = AB = \Delta W_A + \Delta W_T, \quad W = W_0 + \Delta W$
 
 - **Alignment-Critical Component ($\Delta W_A$):** Projected into a sensitive subspace via $P_A(AB)$, this component is tightly regularized to preserve safety.
 - **Task-Specific Component ($\Delta W_T$):** The residual update $(I - P_A)(AB)$ captures task knowledge and remains flexible.
@@ -85,61 +86,61 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 ## nDNA Trajectories Before and After DPO Alignment
 
 {% include visualization.liquid 
-   image_path="alignment/africa.png"
+   image_path="assets/gifs/collapse/africa_dpo_rotation.gif"
    title="Africa: Base vs DPO-aligned"
    caption="The latent trajectory shows high spectral curvature $\kappa_\ell$ reaching $0.85$ and thermodynamic length $\mathcal{L}_\ell$ up to $0.9$ in the base; DPO alignment reduces these to $\kappa_\ell \approx 0.75$, $\mathcal{L}_\ell \approx 0.8$, indicating a softening of latent strain and ideological tension at upper layers ($\ell \geq 25$)."
    alt_text="nDNA trajectory comparison for Africa-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/asia.png"
+   image_path="assets/gifs/collapse/asia_dpo_rotation.gif"
    title="Asia: Base vs DPO-aligned"
    caption="The base model's curvature peaks at $\kappa_\ell \approx 0.88$ and $\mathcal{L}_\ell \approx 0.92$, reflecting strong epistemic effort; DPO alignment smooths this manifold with $\kappa_\ell$ reduced by $\sim 10\%$, flattening reorientation zones in high layers."
    alt_text="nDNA trajectory comparison for Asia-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/australia.png"
+   image_path="assets/gifs/collapse/australia_dpo_rotation.gif"
    title="Australia: Base vs DPO-aligned"
    caption="Minimal latent reconfiguration observed: $\kappa_\ell$ stays within $0.42$–$0.55$; $\mathcal{L}_\ell$ within $0.5$–$0.7$. DPO tuning induces minor latent tension relaxation, reflecting low initial latent strain."
    alt_text="nDNA trajectory comparison for Australia-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/china.png"
+   image_path="assets/gifs/collapse/china_dpo_rotation.gif"
    title="China: Base vs DPO-aligned"
    caption="A high-curvature manifold with $\kappa_\ell$ exceeding $0.9$, $\mathcal{L}_\ell$ near $0.95$ is tamed by DPO to $\kappa_\ell \leq 0.8$, $\mathcal{L}_\ell \leq 0.85$, showing significant alignment-induced latent reorientation."
    alt_text="nDNA trajectory comparison for China-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/europe.png"
+   image_path="assets/gifs/collapse/europe_dpo_rotation.gif"
    title="Europe: Base vs DPO-aligned"
    caption="Both base and DPO variants exhibit low latent strain: $\kappa_\ell$ in $0.4$–$0.5$, $\mathcal{L}_\ell$ in $0.55$–$0.7$, confirming alignment stability within pretraining attractor zones."
    alt_text="nDNA trajectory comparison for Europe-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/latinamerica.png"
+   image_path="assets/gifs/collapse/latinamerica_dpo_rotation.gif"
    title="Latin America: Base vs DPO-aligned"
    caption="DPO alignment compresses latent divergence ($\kappa_\ell$ drops from $0.7$ to $0.6$), indicating absorption of alignment constraints while preserving regional epistemic identity."
    alt_text="nDNA trajectory comparison for Latin America-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/llama.png"
+   image_path="assets/gifs/collapse/llama_dpo_rotation.gif"
    title="LLaMA: Base vs DPO-aligned"
    caption="Base and aligned variants show stable geometry: $\kappa_\ell$ in $0.38$–$0.5$, $\mathcal{L}_\ell$ in $0.5$–$0.65$, reflecting moderate epistemic workload typical of generic alignment tuning."
    alt_text="nDNA trajectory comparison for base LLaMA model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/middleeast.png"
+   image_path="assets/gifs/collapse/middleeast_dpo_rotation.gif"
    title="Middle East: Base vs DPO-aligned"
    caption="DPO reduces latent torsion and curvature: $\kappa_\ell$ down by $\sim 12\%$, $\mathcal{L}_\ell$ down by $\sim 8\%$, showing partial smoothing of complex belief vector fields."
    alt_text="nDNA trajectory comparison for Middle East-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/northamerica.png"
+   image_path="assets/gifs/collapse/northamerica_dpo_rotation.gif"
    title="North America: Base vs DPO-aligned"
    caption="Both variants stay within the pretraining manifold: $\kappa_\ell$ in $0.4$–$0.52$, $\mathcal{L}_\ell$ in $0.55$–$0.7$, confirming low-cost alignment geometry."
    alt_text="nDNA trajectory comparison for North America-tuned model before and after DPO alignment" %}
 
 {% include visualization.liquid 
-   image_path="alignment/all.png"
+   image_path="assets/gifs/collapse/ndna_dpo_rotation.gif"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment"
    caption="DPO alignment visibly compresses high-curvature outliers (e.g., Africa, Asia, China), drawing their trajectories toward the LLaMA attractor; low-strain regions (Europe, North America, Australia) remain largely unaffected. This illustrates DPO's role in harmonizing epistemic manifolds across cultural fine-tunings."
    alt_text="Combined visualization of all cultural nDNA trajectories showing the effect of DPO alignment" %}
