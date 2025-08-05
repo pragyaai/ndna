@@ -27,21 +27,54 @@
 
   <!-- MathJax for LaTeX rendering -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-        ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process'
-      }
-    };
-  </script>
-  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
 
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax error:', err);
+        });
+      }
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
 
 </head>
 <body>
