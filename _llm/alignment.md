@@ -25,7 +25,7 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
 
 Recent mechanistic findings {% cite NEURIPS2024_a9bef53e %} show that **safety fine-tuning (DPO) minimally modifies MLP weights** to steer unsafe inputs into a "refusal" direction--often aligned with the model's null space. This appears as:
 
-$W_{\mathrm{ST}} = W_{\mathrm{IT}} + \Delta W$
+$$W_{\mathrm{ST}} = W_{\mathrm{IT}} + \Delta W$$
 
 where $\|\Delta W\| \ll \|W_{\mathrm{IT}}\|$, yet $\Delta W$ exerts pivotal effect. Through nDNA lens, this manifests as:
 
@@ -35,13 +35,13 @@ where $\|\Delta W\| \ll \|W_{\mathrm{IT}}\|$, yet $\Delta W$ exerts pivotal effe
 
 The transformation can be formalized as:
 
-$\boxed{
+$$\boxed{
 \mathcal{M}_{\text{base}} \xrightarrow{\text{DPO}} \mathcal{M}_{\text{aligned}} \quad \text{s.t.} \quad \kappa_\ell \downarrow \text{ (high-strain)},\; \mathcal{L}_\ell \text{ compressed},\; \mathbf{v}_\ell^{(c)} \text{ steered}
-}$
+}$$
 
 **Null-Space Steering and Minimalist Safety Geometry.** To disentangle safety-relevant learning from task adaptation, we decompose the LoRA update:
 
-$\Delta W = AB = \Delta W_A + \Delta W_T, \quad W = W_0 + \Delta W$
+$$\Delta W = AB = \Delta W_A + \Delta W_T, \quad W = W_0 + \Delta W$$
 
 - **Alignment-Critical Component ($\Delta W_A$):** Projected into a sensitive subspace via $P_A(AB)$, this component is tightly regularized to preserve safety.
 - **Task-Specific Component ($\Delta W_T$):** The residual update $(I - P_A)(AB)$ captures task knowledge and remains flexible.
@@ -197,7 +197,7 @@ Singular value decomposition (SVD) of the Jacobian
 
 $$J_h = \frac{\partial \mathbf{h}(x)}{\partial x}$$
 
-in post-DPO layers ($\ell = 22\text{--}30$) shows rapid spectral decay:
+in post-DPO layers ($\ell = 22$–$30$) shows rapid spectral decay:
 
 $$\sigma_1 \gg \sigma_2 \approx \cdots \approx \sigma_k \approx 0, \quad k > 1$$
 
