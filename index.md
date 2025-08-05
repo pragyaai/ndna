@@ -19,45 +19,7 @@ Just as molecular genetics enabled biology to transcend surface taxonomies and u
 
 ---
 
-## Layer Importance and Semantic Specialization
-
-Not all layers contribute equally to a model's epistemic structure. Evidence shows that **semantic representations, cultural memory, and alignment behavior concentrate in mid-to-upper transformer layers**—particularly the final 10 layers in 30-layer models. These layers encode deep semantic priors and value shifts. For nDNA to serve as a meaningful genomic diagnostic, it must trace **inheritance**, **drift**, and **trait transformation** across these epistemically sensitive regions.
-
----
-
-## Semantic Drift and Heritable Traits
-
-Subtle misalignments and persistent divergences—documented in alignment studies—can occur even when models appear behaviorally consistent. These are **not superficial perturbations**, but **inheritable epistemic traits** passed along neural offspring.
-
----
-
-## Value Simulation vs. Internalization
-
-As models become more context-sensitive, they can **simulate alignment without internalizing values**. Disentangling genuine normative internalization from **strategic mimicry** is essential for meaningful epistemic inspection.
-
----
-
-## Plasticity and Collapse
-
-Aggressive fine-tuning, distillation, or ideological merging can induce **plasticity collapse**—a reduction in epistemic flexibility and semantic richness. This demands **metrics that trace robustness and degeneration** over time.
-
----
-
-## Latent Cultural Conflict
-
-In multilingual or cross-cultural settings, models often encode **conflicting or incoherent value systems**. These conflicts are **not visible through surface metrics like BLEU or ROUGE**—they reside in the model's **latent belief structure** and must be surfaced through **geometric lineage analysis**.
-
----
-
-## Topological Continuity
-
-Alignment and fine-tuning **warp the internal geometry** of models in nontrivial ways. nDNA must preserve **continuity and interpretability** of semantic trajectories across these transformations.
-
----
-
-## Epistemic Mutation
-
-Merging preferences, annotator distributions, or learned behaviors creates **emergent traits** that standard metrics cannot track. These **mutations** are only diagnosable through a genomic lens focused on **representation evolution**.
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05);"> <ul style="list-style-type: none; padding-left: 0;"> <li><b>✶ Layer Importance and Semantic Specialization:</b> Not all layers contribute equally to a model's epistemic structure. A growing body of evidence (21; 22; 23; 24) reveals that semantic representations, cultural memory, and alignment behavior disproportionately concentrate in the mid-to-upper transformer layers—particularly the final 10 layers in 30-layer models. These layers encode more than surface patterns; they carry deep <em>semantic priors</em> and value shifts induced by alignment, fine-tuning, and cultural adaptation. For <em>nDNA</em> to serve as a meaningful genomic diagnostic, it must trace <em>inheritance</em>, <em>drift</em>, and <em>trait transformation</em> across these epistemically sensitive regions.</li> <br> <li><b>✶ Semantic Drift and Heritable Traits:</b> Subtle misalignments and persistent divergences—documented in alignment studies (5; 7)—can occur even when models appear behaviorally consistent. These are not superficial perturbations but <em>inheritable epistemic traits</em> passed along neural offspring (25; 26).</li> <br> <li><b>✶ Value Simulation vs. Internalization:</b> As models grow more context-sensitive, they learn to <em>simulate</em> alignment without embodying its values (6; 8). Disentangling true normative internalization from strategic mimicry is essential for any meaningful epistemic inspection.</li> <br> <li><b>✶ Plasticity and Collapse:</b> Aggressive fine-tuning, distillation, or ideological merging can induce <em>plasticity collapse</em>—a reduction in epistemic flexibility and semantic richness (27; 28). This demands metrics that trace both robustness and degeneration over time.</li> <br> <li><b>✶ Latent Cultural Conflict:</b> In multilingual or cross-cultural settings, models often encode conflicting or incoherent value systems (29; 30). These conflicts are not visible through BLEU or ROUGE—they reside in the model’s <em>latent belief structure</em> and must be surfaced through <em>geometric lineage analysis</em>.</li> <br> <li><b>✶ Topological Continuity:</b> Alignment and fine-tuning <em>warp the internal geometry</em> of models in nontrivial ways (24; 31). <em>nDNA</em> must preserve continuity and interpretability of semantic trajectories across such transformations.</li> <br> <li><b>✶ Epistemic Mutation:</b> Merging preferences, annotator distributions, or learned behaviors—as explored by (32)—creates emergent traits that standard metrics cannot track. These mutations are only diagnosable through a genomic lens on representation evolution.</li> </ul> </div>
 
 ---
 
