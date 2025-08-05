@@ -17,6 +17,7 @@ const menusByModel = {
     { text: "Knowledge Distillation", url: baseUrl + "/llm/knowledge-distillation/" },
     { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/" },
     { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
+    { text: "NLP Operations", url: "#" },
     { text: "at-a-glance", url: "#" },
     { text: "FAQ", url: "#" }
   ],
@@ -25,11 +26,6 @@ const menusByModel = {
     { text: "Multimodal Analysis", url: "#" },
     { text: "Vision-Language", url: "#" },
     { text: "Cross-Modal Alignment", url: "#" }
-  ],
-  "NLP Operations": [
-    { text: "Machine Translation", url: baseUrl + "/nlp/machine-translation/" },
-    { text: "Multi-turn Conversation", url: baseUrl + "/nlp/multi-turn-conversation/" },
-    { text: "Adversarial Attack", url: baseUrl + "/nlp/adversarial-attack/" }
   ],
   T2I: [
     { text: "nDNA", url: baseUrl + "/" },
@@ -52,6 +48,12 @@ const menusByModel = {
 };
 
 const neuralSubmenuItems = ["nHD", "nGDI", "nTDS", "nKaryotyping", "nDIV", "nEPI", "nCCL"];
+
+const nlpOperationsItems = [
+  { text: "Machine Translation", url: baseUrl + "/llm/machine-translation/" },
+  { text: "Multi-turn Conversation", url: baseUrl + "/llm/multi-turn-conversation/" },
+  { text: "Adversarial Attack", url: baseUrl + "/llm/adversarial-attack/" }
+];
 
 function renderTopMenu(items) {
   const container = document.getElementById('topMenu');
@@ -97,6 +99,14 @@ function renderTopMenu(items) {
       });
     }
 
+    if ((item.text || item) === "NLP Operations") {
+      link.addEventListener('click', () => {
+        setTimeout(() => {
+          const submenu = document.getElementById("nlpOperationsSubmenu");
+          if (submenu) submenu.style.display = "flex";
+        }, 100);
+      });
+    }
 
     container.appendChild(link);
 
@@ -117,6 +127,22 @@ function renderTopMenu(items) {
       container.appendChild(submenu);
     }
 
+    // Add submenu HTML for NLP Operations
+    if ((item.text || item) === "NLP Operations") {
+      const submenu = document.createElement('div');
+      submenu.className = "submenu";
+      submenu.id = "nlpOperationsSubmenu";
+      submenu.style.display = "none"; // Initially hidden
+
+      nlpOperationsItems.forEach(nlpItem => {
+        const subLink = document.createElement('a');
+        subLink.href = nlpItem.url;
+        subLink.innerText = nlpItem.text;
+        submenu.appendChild(subLink);
+      });
+
+      container.appendChild(submenu);
+    }
   });
 }
 
@@ -141,8 +167,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
   }
 
-  // Auto-switch to NLP Operations tab if on NLP operations pages
-  if (window.location.pathname.includes("/nlp/")) {
-    switchView("NLP Operations");
+  // Auto-show NLP Operations submenu if on NLP operations pages
+  if (window.location.pathname.includes("/llm/machine-translation") || 
+      window.location.pathname.includes("/llm/multi-turn-conversation") || 
+      window.location.pathname.includes("/llm/adversarial-attack")) {
+    setTimeout(() => {
+      const submenu = document.getElementById("nlpOperationsSubmenu");
+      if (submenu) submenu.style.display = "flex";
+    }, 100);
+  }
+
+  // Auto-switch to LLM tab if on LLM pages (including NLP operations which are now under /llm/)
+  if (window.location.pathname.includes("/llm/")) {
+    switchView("LLM");
   }
 });
