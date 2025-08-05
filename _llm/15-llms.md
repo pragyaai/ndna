@@ -2,16 +2,16 @@
 layout: page
 title: 15 LLMs
 permalink: /llm/15-llms/
+css_files:
+  - "15_llms.css"
 skip_title: true
 ---
 
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-<link rel="stylesheet" href="{{ '/assets/css/15_llms.css' | relative_url }}">
-
-{% include ndna-title.liquid title="The nDNA -- Cartography Across 15 Foundation Models" %}
+{% include ndna-title.liquid title="The nDNA -- C         <div class="metric-citations">
+         {% cite wang2023culturalbias %}
+         {% cite zhou2023alignmentdrift %}
+         {% cite shen2023beliefgeometry %}
+         </div>hy Across 15 Foundation Models" %}
 
 To chart the latent genomic landscape of modern foundation models, we choose a representative suite of large language models (LLMs) spanning diverse architectural paradigms, parameter scales, training objectives, and alignment methodologies. Our selection includes:
 
