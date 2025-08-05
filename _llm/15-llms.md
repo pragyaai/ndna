@@ -121,7 +121,7 @@ In this sense, **nDNA is not a metaphor--it is a geometric genome**: an intrinsi
 
 ## Why This Triad? On the Necessity of $$\kappa_\ell$$, $$\mathcal{L}_\ell$$, and $$\|\mathbf{v}_\ell^{(c)}\|$$ for nDNA Geometry
 
-It may be tempting to argue that any pair or triplet of latent metricscould produce seemingly unique latent fingerprints when plotted layer-wise. Why, then, do we assert that the specific triad of **spectral curvature** ($\kappa_\ell$), **thermodynamic length** ($$\mathcal{L}_\ell$$), and **belief vector norm** ($$\|\mathbf{v}_\ell^{(c)}\|$$) is both minimal and sufficient for robust nDNA geometry?
+It may be tempting to argue that any pair or triplet of latent metricscould produce seemingly unique latent fingerprints when plotted layer-wise. Why, then, do we assert that the specific triad of **spectral curvature** ($$\kappa_\ell$$), **thermodynamic length** ($$\mathcal{L}_\ell$$), and **belief vector norm** ($$\|\mathbf{v}_\ell^{(c)}\|$$) is both minimal and sufficient for robust nDNA geometry?
 
 <div class="content-showcase-container">
 
@@ -134,7 +134,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
          <div class="metric-symbol">$$\kappa_\ell$$</div>
          <div class="metric-main">
          <div class="metric-title">The intrinsic <strong>semantic curvature</strong> of latent trajectories</div>
-         <div class="metric-description">—how sharply the internal path of representations bends across depth. It encodes second-order structure, analogous to geometric curvature on manifolds.</div>
+         <div class="metric-description">> how sharply the internal path of representations bends across depth. It encodes second-order structure, analogous to geometric curvature on manifolds.</div>
          </div>
          <div class="metric-citations">
          {% cite farzam2024ricci %}
@@ -145,7 +145,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
          <div class="metric-symbol">$$\mathcal{L}_\ell$$</div>
          <div class="metric-main">
          <div class="metric-title">The cumulative <strong>epistemic work</strong> performed as the model adapts beliefs layer by layer</div>
-         <div class="metric-description">—quantifying the energy expenditure needed for belief state transitions in the Fisher–Rao geometry of statistical manifolds.</div>
+         <div class="metric-description">> quantifying the energy expenditure needed for belief state transitions in the Fisher–Rao geometry of statistical manifolds.</div>
          </div>
          <div class="metric-citations">
          {% cite crooks2007measuring %}
@@ -157,7 +157,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
          <div class="metric-symbol">$$\|\mathbf{v}_\ell^{(c)}\|$$</div>
          <div class="metric-main">
          <div class="metric-title">The directional <strong>cultural force</strong> acting upon the latent manifold</div>
-         <div class="metric-description">—how much external priors or sociolinguistic constraints steer internal belief trajectories.</div>
+         <div class="metric-description">> how much external priors or sociolinguistic constraints steer internal belief trajectories.</div>
          </div>
          <div class="metric-citations">
          {% cite wang2023culturalbias %}
@@ -177,7 +177,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
       <li><strong>Norm-based pairs:</strong> combinations like $$(\|h_\ell\|,\ \|\nabla_\theta h_\ell\|)$$, weight norms {% cite neyshabur2015norm %} {% cite zhang2019all %}, singular values of attention matrices {% cite gao2019representation %}, these collapse under trivial rescaling and layer normalization {% cite ba2016layer %}, offering little insight into geometric inflections or external directional forces. They reflect magnitude, not structure.</li>
       <li><strong>Gradient-only diagnostics:</strong> Fisher information diagonal {% cite amari1998natural %} {% cite kunstner2019limitations %}, local logit gradients {% cite ji2020directional %}, these capture internal strain or sensitivity but fail to reveal latent manifold curvature or the directional drift imposed by external priors, leaving cultural or alignment effects hidden.</li>
       <li><strong>Entropy measures:</strong> activation entropy {% cite belinkov2017analyzing %}, token probability entropy {% cite mielke2021between %}, valuable for quantifying output uncertainty or diversity, but disconnected from the internal geometric dynamics that govern latent inheritance or reorganization.</li>
-      <li><strong>Pairings of curvature and local statistics:</strong> attempts like $$(\kappa_\ell,\ \text{activation variance})$$ {% cite raghu2017svcca %}, $(\mathcal{L}_\ell,\ \|h_\ell\|)$ fail to jointly encode latent shape, adaptation cost, and directional drift in a unified, interpretable manner. They fragment geometric, energetic, and external-force insights rather than synthesizing them.</li>
+      <li><strong>Pairings of curvature and local statistics:</strong> attempts like $$(\kappa_\ell,\ \text{activation variance})$$ {% cite raghu2017svcca %}, $$(\mathcal{L}_\ell,\ \|h_\ell\|)$$ fail to jointly encode latent shape, adaptation cost, and directional drift in a unified, interpretable manner. They fragment geometric, energetic, and external-force insights rather than synthesizing them.</li>
     </ul>
     <p>None of these alternatives provided the geometric separability across model families (e.g., LLaMA vs. Mixtral vs. Qwen) nor the interpretability of zones of mutation, inheritance, and adaptation that our triad achieved.</p>
   </div>
@@ -187,7 +187,7 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
     <p>What ultimately validates this triad is its empirical effectiveness in unveiling the hidden structural signatures of:</p>
     <ul class="standard-list">
       <li><strong>Finetuning and alignment:</strong> zones where latent paths sharply reorient and effort spikes, e.g., LLaMA-3 Instruct vs. LLaMA-2 base {% cite touvron2023llama %} {% cite dubey2024llama %}.</li>
-      <li><strong>Cultural calibration:</strong> regions where $\|\mathbf{v}_\ell^{(c)}\|$ reveals external value steering, e.g., Qwen instruct's ideological absorption {% cite peng2024cultural %}.</li>
+      <li><strong>Cultural calibration:</strong> regions where $$\|\mathbf{v}_\ell^{(c)}\|$$ reveals external value steering, e.g., Qwen instruct's ideological absorption {% cite peng2024cultural %}.</li>
       <li><strong>Architectural specialization:</strong> how MoE models like Mixtral partition latent space via curvature and effort redistribution {% cite bommasani2023foundation %}.</li>
       <li><strong>Collapse and merging:</strong> detection of flattening or hybridization of latent manifolds in model collapse and neural marriages {% cite wang2023culturalbias %} {% cite xu2023aligning %}.</li>
     </ul>
