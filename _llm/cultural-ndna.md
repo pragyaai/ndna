@@ -302,7 +302,7 @@ where this equation unveiled *linear semantics* at the token level, cultural nDN
 
 
 <figure id="fig:king_queen" style="text-align: center; margin: 1.5em 0; max-width: 500px; margin-left: auto; margin-right: auto;">
-  <img src="/nDNA/assets/img/cultural_ndna/king_queen.png" 
+  <img src="/nDNA/assets/img/king_queen.png" 
        alt="Word2Vec Semantic Analogy: The King-Queen Vector Geometry." 
        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <figcaption style="margin-top: 10px; font-size: 0.85em; color: #555; max-width: 100%; padding: 12px; text-align: left;">
