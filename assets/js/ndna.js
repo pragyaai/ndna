@@ -12,7 +12,7 @@ const menusByModel = {
     { text: "Alignment", url: baseUrl + "/llm/alignment/" },
     { text: "Quantization", url: baseUrl + "/llm/quantization/" },
     { text: "Pruning", url: baseUrl + "/llm/pruning/" },
-    { text: "Model Merging", url: "#" },
+    { text: "Model Merging", url: baseUrl + "/llm/model-merging/" },
     { text: "Model Collapse", url: baseUrl + "/llm/model-collapse/" },
     { text: "Knowledge Distillation", url: baseUrl + "/llm/knowledge-distillation/" },
     { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/" },
