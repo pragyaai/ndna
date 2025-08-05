@@ -465,3 +465,13 @@ footer {
     min-width: 180px;
   }
 }
+
+.figure-caption p {
+  margin: 0.25rem 0;
+}
+
+.interactive-plot-caption p {
+  font-size: 1rem;
+  color: #34495e;
+  margin-top: 0.5rem;
+}

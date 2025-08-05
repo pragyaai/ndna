@@ -3,7 +3,7 @@
   <a href="{{ '/assets/gifs/' | append: include.image_path | relative_url }}" data-lightbox="gallery" data-title="{{ include.title }}">
     <img src="{{ '/assets/gifs/' | append: include.image_path | relative_url }}" alt="{{ include.alt_text | default: include.title }}" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
   </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
     {% if include.title %} <strong>{{ include.title }}</strong>{% endif %}
     {% if include.caption %} {{ include.caption | markdownify }}{% endif %}
   </figcaption>
