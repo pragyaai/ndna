@@ -7,11 +7,7 @@ css_files:
 skip_title: true
 ---
 
-{% include ndna-title.liquid title="The nDNA -- C         <div class="metric-citations">
-         {% cite wang2023culturalbias %}
-         {% cite zhou2023alignmentdrift %}
-         {% cite shen2023beliefgeometry %}
-         </div>hy Across 15 Foundation Models" %}
+{% include ndna-title.liquid title="The nDNA -- Cartography Across 15 Foundation Models" %}
 
 To chart the latent genomic landscape of modern foundation models, we choose a representative suite of large language models (LLMs) spanning diverse architectural paradigms, parameter scales, training objectives, and alignment methodologies. Our selection includes:
 
