@@ -6,9 +6,8 @@ const menusByModel = {
   LLM: [
     { text: "nDNA", url: baseUrl + "/" },
     { text: "15 Foundational LLMs", url: baseUrl + "/llm/15-llms/" },
-    { text: "Fine-Tuning", url: baseUrl + "/llm/fine-tuning/" },
-    { text: "CIVIC", url: baseUrl + "/llm/civic/" },
     { text: "Cultural nDNA", url: baseUrl + "/llm/cultural-ndna/" },
+    { text: "CIVIC", url: baseUrl + "/llm/civic/" },
     { text: "Multilinguality", url: baseUrl + "/llm/multilinguality/" },
     { text: "Alignment", url: baseUrl + "/llm/alignment/" },
     { text: "Quantization", url: baseUrl + "/llm/quantization/" },
