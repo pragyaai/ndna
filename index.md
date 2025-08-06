@@ -66,8 +66,6 @@ Together, these form a **latent semantic fingerprint**—a high-dimensional, bio
 
 nDNA integrates three foundational signals to form a latent cognitive fingerprint. Each component captures a distinct dimension of semantic dynamics:
 
----
-
 <h2>Spectral Curvature (κ<sub>ℓ</sub>)</h2>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
@@ -134,11 +132,19 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
   <p>Curvature in this context captures <strong>latent inheritance dynamics</strong>, serving as a <strong>fine-grained geometric fingerprint</strong> of internal restructuring and cultural adaptation.</p>
 </div>
 
+<figure style="text-align: center; margin: 2em auto;">
+  <img src="{{ '/assets/gifs/introduction/spectral_curvature.gif' | relative_url }}" alt="Spectral Curvature" width="50%">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
+    <strong>Figure:</strong> κ<sub>ℓ</sub> is typically elevated in upper decoder layers (ℓ ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation.
+  </figcaption>
+</figure>
+
 {% include wizuall.liquid
-      image_path="introduction/spectral_curvature.gif"
-      interactive_html="index/spectral_curvature_animation.html"
-      title="Spectral Curvature (κ_ℓ)"
-      caption="κ<sub>ℓ</sub> quantifies second-order deviations in latent representations across transformer layers, with high curvature typically emerging in upper decoder layers (ℓ ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation." %}
+     image_path="introduction/spectral_curvature_llama_ndna_animation.gif"
+     interactive_html="index/spectral_curvature_animation.html"
+     title="Spectral Curvature (κ_ℓ)"
+     caption="Spectral Curvature (κ<sub>ℓ</sub>) quantifies second-order deviations in latent representations across transformer layers–computed via the discrete geometric operator κ<sub>ℓ</sub> := ‖h<sub>ℓ+1</sub> − 2h<sub>ℓ</sub> + h<sub>ℓ−1</sub>‖ . High curvature signals semantic inflection points where internal geometry bends sharply–often in culturally dense, ideologically loaded, or epistemically volatile regions. Peaks in κ<sub>ℓ</sub> typically emerge in upper decoder layers (ℓ ∈ [21, 30]), where the model accommodates sociolinguistic priors during alignment, multicultural or multilingual fusion. Within the nDNA framework, such curvature reflects latent inheritance dynamics, offering a fine-grained geometric fingerprint of representational restructuring." %}
+     caption="Spectral Curvature (κ<sub>ℓ</sub>) quantifies second-order deviations in latent representations across transformer layers–computed via the discrete geometric operator κ<sub>ℓ</sub> := ‖h<sub>ℓ+1</sub> − 2h<sub>ℓ</sub> + h<sub>ℓ−1</sub>‖ . High curvature signals semantic inflection points where internal geometry bends sharply–often in culturally dense, ideologically loaded, or epistemically volatile regions. Peaks in κ<sub>ℓ</sub> typically emerge in upper decoder layers (ℓ ∈ [21, 30]), where the model accommodates sociolinguistic priors during alignment, multicultural or multilingual fusion. Within the nDNA framework, such curvature reflects latent inheritance dynamics, offering a fine-grained geometric fingerprint of representational restructuring." %}
 
 ---
 
@@ -450,6 +456,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 ---
 
 # The Corpus Dependence of nDNA: A Necessary Feature, Not a Flaw
+<br>
 
 In biological systems, DNA is celebrated as the universal code of life—a sequence of nucleotides that, across all known organisms, governs the development, function, and inheritance of traits (54; 55). Yet despite this universal structure, the functional expression of DNA is profoundly context-dependent.
 
@@ -475,12 +482,37 @@ Despite their contextual variation, both DNA and nDNA encode universal structure
 
 These priors act as the “genomic grammar” that binds task-specific latent pathways into a coherent reasoning framework.
 
-| DNA (Biology)                     | nDNA (LLM)                                                    |
-|----------------------------------|---------------------------------------------------------------|
-| Universal code                   | Codon mapping $$\varphi : \Sigma^3 \to A$$, kernel $$6 = \emptyset$$, redundancy ensures error tolerance (55) | Pretrained latent manifold; symmetries $$G_{LLM} \subset \text{Aut}(V)$$; generalization via equivariance (70) |
-| Context regulator               | Conditional $$P(\text{gene ON} | \text{TF, epi})$$; Bayesian gene networks (61) | Conditional latent path $$P(h_1, \ldots, h_L | x)$$; stochastic latent dynamics (64) |
-| Path geometry                  | Minimal energy path $$\gamma^*$$ in epigenetic landscape: $$\int_{\gamma} \|\nabla V\| ds$$ (76) | Latent geodesic minimizing cost: $$\int_{\gamma} \|\nabla_\theta \log p(y|x)\|^2 ds$$ (67) |
-| Output mapping                 | Fiber bundle: $$\pi : E_{\text{gene}} \to B_{\text{cell}}$$ | Fiber bundle: $$\pi : E_{\text{latent}} \to B_{\text{task}}$$ |
+<table style="width: 100%; border-collapse: collapse; margin: 2em 0; border: 2px solid #666;">
+  <thead>
+    <tr>
+      <th style="background: #e6e6fa; color: black; padding: 0.8em; text-align: left; font-weight: bold; border: 1px solid #666;">Aspect</th>
+      <th style="background: #e6e6fa; color: black; padding: 0.8em; text-align: left; font-weight: bold; border: 1px solid #666;">DNA (Biology)</th>
+      <th style="background: #e6e6fa; color: black; padding: 0.8em; text-align: left; font-weight: bold; border: 1px solid #666;">nDNA (LLM)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Universal code</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Codon mapping $$\varphi : \Sigma^3 \to A$$, kernel $$6 = \emptyset$$, redundancy ensures error tolerance (55)</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Pretrained latent manifold; symmetries $$G_{LLM} \subset \text{Aut}(V)$$; generalization via equivariance (70)</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Context regulator</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional $$P(\text{gene ON} | \text{TF, epi})$$; Bayesian gene networks (61)</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional latent path $$P(h_1, \ldots, h_L | x)$$; stochastic latent dynamics (64)</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Path geometry</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Minimal energy path $$\gamma^*$$ in epigenetic landscape: $$\int_{\gamma} \|\nabla V\| ds$$ (76)</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Latent geodesic minimizing cost: $$\int_{\gamma} \|\nabla_\theta \log p(y|x)\|^2 ds$$ (67)</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Output mapping</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $$\pi : E_{\text{gene}} \to B_{\text{cell}}$$</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $$\pi : E_{\text{latent}} \to B_{\text{task}}$$</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
