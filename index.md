@@ -513,6 +513,13 @@ These priors act as the “genomic grammar” that binds task-specific latent pa
   </tbody>
 </table>
 
+<figure style="text-align: center; margin: 2em auto;">
+  <img src="{{ '/assets/gifs/introduction/task.png' | relative_url }}" alt="Spectral Curvature" width="50%">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
+    <strong>Figure:</strong> κ<sub>l</sub> is typically elevated in upper decoder layers (l ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation. A hierarchical view of universal DNA and context-sensitive gene expression, as a biological parallel to nDNA latent scaffolding in LLMs. This figure illustrates how the same genome (depicted as a universal DNA helix at the top) produces distinct functional outcomes through a layered and structured regulatory architecture. The first regulatory layer consists of epigenetic modifications, including DNA methylation (linked with gene silencing) and histone acetylation (linked with gene activation) (56; 59). These modifications influence chromatin accessibility, setting the stage for context-specific transcriptional control. The second layer involves cell-type-specific transcription factors (TFs)—for example, NeuroD and REST in neurons, or HNF4 and C/EBPα in hepatocytes—which bind regulatory DNA elements and integrate signaling cues to guide gene expression programs (57; 58). The third layer reflects the resultant chromatin state: open, transcriptionally permissive configurations in neurons for synaptic gene activation, versus compact, repressive configurations in hepatocytes where those genes are silent (60; 62). Finally, this hierarchical regulatory control produces functionally specialized gene programs: neurons activate synaptic plasticity and axon signaling genes; hepatocytes activate detoxification and glucose metabolism genes (55; 61). This layered architecture provides a powerful biological analogy for nDNA in LLMs. Just as DNA's expression is shaped by regulatory logic rather than random variation, nDNA encodes both universal priors (shared across tasks)—such as pretrained latent manifolds, attention mechanisms, and model architecture—and corpus-dependent latent scaffolding, emerging as the model adapts to specific tasks or domains (63; 64; 65). The analogy emphasizes that corpus dependence in nDNA is not a weakness or artifact, but a reflection of meaningful task adaptation: structured variation grounded in universal latent geometry. This scaffolding ensures LLMs achieve functional diversity across tasks while maintaining coherence, alignment, and generalization, much like gene regulatory networks ensure appropriate cellular identity and function despite operating from a common genome blueprint (57; 61). The figure highlights that both biological DNA and nDNA exhibit clarity through complexity: layered, interpretable hierarchies enabling flexible, robust expression across contexts.
+  </figcaption>
+</figure>
+
 ---
 
 ## Evolutionary and Learning Dynamics: Convergence of Principles
@@ -562,5 +569,35 @@ What the genome is to life’s functional unity, nDNA is to the model’s reason
 
 ---
 
+<div style="display: flex; gap: 2em; margin: 2em auto; max-width: 1200px; align-items: flex-start;">
+  <figure style="flex: 1; text-align: center; margin: 0;">
+    <img src="{{ '/assets/gifs/introduction/ndna_llama_qa_axes_match.gif' | relative_url }}" alt="QA nDNA Trajectories" style="width: 100%; max-width: 400px;">
+    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
+      <strong>(a) QA group nDNA trajectories:</strong> κ ranges ∼ 0.012–0.03, L ∼ 0.47–0.53, τ ∼ 0.006–0.014. Trajectories are compact and consistently shaped across datasets, reflecting <strong>shared task structure.</strong>
+    </figcaption>
+  </figure>
 
+  <figure style="flex: 1; text-align: center; margin: 0;">
+    <img src="{{ '/assets/gifs/introduction/ndna_llama_dialogue_axes_match.gif' | relative_url }}" alt="Dialogue nDNA Trajectories" style="width: 100%; max-width: 400px;">
+    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
+      <strong>(b) Dialogue group nDNA trajectories:</strong> κ ranges ∼ 0.01–0.03, L ∼ 0.47–0.53, τ ∼ 0.006–0.014. Trajectories are shallow and tightly clustered, reflecting <strong>low latent complexity</strong> typical of conversational flow.
+    </figcaption>
+  </figure>
+</div>
+
+<div style="display: flex; gap: 2em; margin: 2em auto; max-width: 1200px; align-items: flex-start;">
+  <figure style="flex: 1; text-align: center; margin: 0;">
+    <img src="{{ '/assets/gifs/introduction/ndna_llama_qa_axes_match.gif' | relative_url }}" alt="QA nDNA Trajectories" style="width: 100%; max-width: 400px;">
+    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
+      <strong>(a) QA group nDNA trajectories:</strong> κ ranges ∼ 0.012–0.03, L ∼ 0.47–0.53, τ ∼ 0.006–0.014. Trajectories are compact and consistently shaped across datasets, reflecting shared task structure.
+    </figcaption>
+  </figure>
+
+  <figure style="flex: 1; text-align: center; margin: 0;">
+    <img src="{{ '/assets/gifs/introduction/ndna_llama_commonsense_axes_match.gif' | relative_url }}" alt="Commonsense nDNA Trajectories" style="width: 100%; max-width: 400px;">
+    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
+      <strong>(d) Commonsense group nDNA trajectories:</strong> κ ranges ∼ 0.00–0.04, L ∼ 0.44–0.54, τ ∼ 0.004–0.018. Trajectories are intermediate in complexity, reflecting varied latent demands of commonsense reasoning.
+    </figcaption>
+  </figure>
+</div>
 
