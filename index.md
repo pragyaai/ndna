@@ -434,8 +434,9 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>The Foundation of nDNA</h3>
-  <p>The notion of <strong>nDNA</strong> arises from a simple yet profound insight: modern foundation models do not merely produce outputs—they embody a <strong>latent cognitive structure</strong> that governs how they reason, adapt, and evolve (7; 48). This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers (24; 41).</p>
-  <p>We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and belief vector field norm ($$\|v^{(c)}_\ell\|$$) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model's inheritance stability, alignment dynamics, and cultural drift—analogous to how biological DNA records heritable traits and mutations (32; 47).</p>
+  <p>The notion of <strong>nDNA</strong> arises from a simple yet profound insight: modern foundation models do not merely produce outputs—they embody a <strong>latent cognitive structure</strong> that governs how they reason, adapt, and evolve  {% cite ganguli2023reducing %} {% cite bommasani2023foundation %}. This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers {% cite liu2023hidden %} {% cite wang2021geomtransformer %} .</p>
+  <p>We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and belief vector field norm ($$\|v^{(c)}_\ell\|$$) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model's inheritance stability, alignment dynamics, and cultural drift—analogous to how biological DNA records heritable traits and mutations {% cite bakker2024uniting %} {% cite shen2023beliefgeometry %} y.</p>
+  
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
@@ -449,9 +450,9 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
   <h3>Interpreting the nDNA Pattern</h3>
   <p>Table 1 provides an illustrative example of nDNA geometry, highlighting how these quantities vary across depth in a representative model. Rather than simple monotonic trends, we observe intricate layer-wise patterns:</p>
   <ul>
-    <li>Certain layers exhibit elevated curvature ($$\kappa_\ell > 0.06$$), signaling sharp latent reorientation (34),</li>
-    <li>Others concentrate thermodynamic length ($$L_\ell > 1.10$$), reflecting zones of intense internal work to reconcile competing priors (43; 44),</li>
-    <li>The belief vector norm ($$\|v^{(c)}_\ell\|$$) exposes the directional cultural force acting on the latent manifold (5; 49), marking layers where external alignment or sociolinguistic conditioning exerts greatest influence.</li>
+    <li>Certain layers exhibit elevated curvature ($$\kappa_\ell > 0.06$$), signaling sharp latent reorientation {% cite cho2023mixedcurvature %} ,</li>
+    <li>Others concentrate thermodynamic length ($$L_\ell > 1.10$$), reflecting zones of intense internal work to reconcile competing priors {% cite Crooks2007MeasuringLength %} {% cite micheli2022thermodynamics %} ,</li>
+    <li>The belief vector norm ($$\|v^{(c)}_\ell\|$$) exposes the directional cultural force acting on the latent manifold {% cite zhou2023alignmentdrift %} {% cite peng2024cultural %} , marking layers where external alignment or sociolinguistic conditioning exerts greatest influence.</li>
   </ul>
   <p>Together, these values form a geometry-specific trace that distinguishes models by their latent adaptation history.</p>
 </div>
@@ -461,17 +462,17 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 # The Corpus Dependence of nDNA: A Necessary Feature, Not a Flaw
 <br>
 
-In biological systems, DNA is celebrated as the universal code of life—a sequence of nucleotides that, across all known organisms, governs the development, function, and inheritance of traits (54; 55). Yet despite this universal structure, the functional expression of DNA is profoundly context-dependent.
+In biological systems, DNA is celebrated as the universal code of life—a sequence of nucleotides that, across all known organisms, governs the development, function, and inheritance of traits {% cite alberts2014molecular %} {% cite lewin2013genes %} . Yet despite this universal structure, the functional expression of DNA is profoundly context-dependent.
 
-The same genome, when expressed in different cellular contexts, gives rise to vastly different phenotypes: for instance, neurons and hepatocytes arise from identical genetic material yet serve radically different functions (56; 57). This context-sensitive expression is orchestrated through layered regulatory mechanisms, including epigenetic modifications (56), transcription factor (TF) binding (58), and chromatin architecture remodeling (59; 60). These mechanisms form a hierarchical, probabilistic regulatory network that determines gene expression patterns in response to developmental and environmental cues (61).
+The same genome, when expressed in different cellular contexts, gives rise to vastly different phenotypes: for instance, neurons and hepatocytes arise from identical genetic material yet serve radically different functions {% cite bird2007perceptions %} {% cite davidson2006gene %} . This context-sensitive expression is orchestrated through layered regulatory mechanisms, including epigenetic modifications {% cite bird2007perceptions %}, transcription factor (TF) binding {% cite lambert2018human %}, and chromatin architecture remodeling {% cite clapier2017mechanisms %} {% cite dekker2013exploring %}. These mechanisms form a hierarchical, probabilistic regulatory network that determines gene expression patterns in response to developmental and environmental cues {% cite alon2006introduction %}.
 
 Figure 5 illustrates a hierarchical regulatory framework where universal DNA undergoes epigenetic modifications and context-specific transcription factor actions to produce specialized gene expression programs. Analogously, in large language models, this layered structure parallels nDNA latent scaffolding that encodes both universal priors and task-dependent adaptations, enabling coherent, flexible, and robust functional diversity across domains.
 
-Similarly, in large foundation models, the neural DNA (nDNA)—a composite measure of latent geometry encompassing spectral curvature ($$\kappa$$) (66), thermodynamic length ($$L$$) (67), and latent belief vector norms (63)—exhibits both universal structure and corpus-specific adaptation.
+Similarly, in large foundation models, the neural DNA (nDNA)—a composite measure of latent geometry encompassing spectral curvature ($$\kappa$$) {% cite belkin2019reconciling %}, thermodynamic length ($$L$$) {% cite still2012thermodynamic %}, and latent belief vector norms {% cite olah2020zoom %} —exhibits both universal structure and corpus-specific adaptation.
 
-LLMs encode universal latent priors through pretraining: architectural invariances (68), semantic manifolds (69; 70), and attention-based relational structures (64). However, when probed with different corpora such as mathematical reasoning benchmarks (e.g., GSM8K (71)), dialogue datasets (e.g., MultiWOZ (72)), or encyclopedic QA (e.g., SQuAD (73)), the model activates distinct latent scaffolding, producing task-specific geometric pathways.
+LLMs encode universal latent priors through pretraining: architectural invariances {% cite vaswani2017attention %}, semantic manifolds {% cite mikolov2013distributed %} {% cite bommasani2021opportunities %}, and attention-based relational structures (64). However, when probed with different corpora such as mathematical reasoning benchmarks (e.g., GSM8K {% cite cobbe2021training %}), dialogue datasets (e.g., MultiWOZ {% cite budzianowski2018multiwoz %}), or encyclopedic QA (e.g., SQuAD {% cite rajpurkar2016squad %}), the model activates distinct latent scaffolding, producing task-specific geometric pathways.
 
-In both systems, structured variation emerges as a necessity: in biology, to produce functional diversity across cell types; in LLMs, to scaffold reasoning across tasks while maintaining alignment and generalization (70; 71). Like tissue-specific gene expression, corpus-dependent nDNA scaffolding follows precise, learned priors rather than arbitrary variation. Mathematical models of both systems reduce to path integrals over conditional cost:
+In both systems, structured variation emerges as a necessity: in biology, to produce functional diversity across cell types; in LLMs, to scaffold reasoning across tasks while maintaining alignment and generalization {% cite bommasani2021opportunities %} {% cite cobbe2021training %}. Like tissue-specific gene expression, corpus-dependent nDNA scaffolding follows precise, learned priors rather than arbitrary variation. Mathematical models of both systems reduce to path integrals over conditional cost:
 
 $$
 S(c) = \int_{\gamma_c} C(h_\ell; c) \, ds
@@ -481,7 +482,7 @@ where $$\gamma_c$$ is the pathway for context $$c$$ (cell type or corpus), and $
 
 Where DNA differentiates cells, nDNA differentiates reasoning. Both systems achieve functional coherence through context-dependent geometry anchored in universal code.
 
-Despite their contextual variation, both DNA and nDNA encode universal structure that stabilizes functional diversity. In biology, this universality is embodied in the genetic code: the shared language of codons, conserved regulatory motifs, and chromatin architectural principles that ensure coherent development across tissues (54; 55). In large language models, nDNA's universality arises from the shared latent priors learned during pretraining: attention-based relational structures (68), semantic manifolds (69), and transformer-invariant latent symmetries (70).
+Despite their contextual variation, both DNA and nDNA encode universal structure that stabilizes functional diversity. In biology, this universality is embodied in the genetic code: the shared language of codons, conserved regulatory motifs, and chromatin architectural principles that ensure coherent development across tissues {% cite alberts2014molecular %} {% cite lewin2013genes %}. In large language models, nDNA's universality arises from the shared latent priors learned during pretraining: attention-based relational structures {% cite vaswani2017attention %}, semantic manifolds {% cite mikolov2013distributed %}, and transformer-invariant latent symmetries {% cite bommasani2021opportunities %}.
 
 These priors act as the “genomic grammar” that binds task-specific latent pathways into a coherent reasoning framework.
 
@@ -496,18 +497,18 @@ These priors act as the “genomic grammar” that binds task-specific latent pa
   <tbody>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Universal code</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Codon mapping $$\varphi : \Sigma^3 \to A$$, kernel $$6 = \emptyset$$, redundancy ensures error tolerance (55)</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Pretrained latent manifold; symmetries $$G_{LLM} \subset \text{Aut}(V)$$; generalization via equivariance (70)</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Codon mapping $$\varphi : \Sigma^3 \to A$$, kernel $$6 = \emptyset$$, redundancy ensures error tolerance {% cite lewin2013genes %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Pretrained latent manifold; symmetries $$G_{LLM} \subset \text{Aut}(V)$$; generalization via equivariance {% cite bommasani2021opportunities %}</td>
     </tr>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Context regulator</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional $$P(\text{gene ON} | \text{TF, epi})$$; Bayesian gene networks (61)</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional latent path $$P(h_1, \ldots, h_L | x)$$; stochastic latent dynamics (64)</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional $$P(\text{gene ON} | \text{TF, epi})$$; Bayesian gene networks {% cite alon2006introduction %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional latent path $$P(h_1, \ldots, h_L | x)$$; stochastic latent dynamics {% cite geva2021transformer %}</td>
     </tr>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Path geometry</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Minimal energy path $$\gamma^*$$ in epigenetic landscape: $$\int_{\gamma} \|\nabla V\| ds$$ (76)</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Latent geodesic minimizing cost: $$\int_{\gamma} \|\nabla_\theta \log p(y|x)\|^2 ds$$ (67)</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Minimal energy path $$\gamma^*$$ in epigenetic landscape: $$\int_{\gamma} \|\nabla V\| ds$$ {% cite waddington1957strategy %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Latent geodesic minimizing cost: $$\int_{\gamma} \|\nabla_\theta \log p(y|x)\|^2 ds$$ {% cite still2012thermodynamic %}</td>
     </tr>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Output mapping</td>
@@ -520,7 +521,7 @@ These priors act as the “genomic grammar” that binds task-specific latent pa
 <figure style="text-align: center; margin: 2em auto;">
   <img src="{{ '/assets/gifs/introduction/task.png' | relative_url }}" alt="Spectral Curvature" width="50%">
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> κ<sub>l</sub> is typically elevated in upper decoder layers (l ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation. A hierarchical view of universal DNA and context-sensitive gene expression, as a biological parallel to nDNA latent scaffolding in LLMs. This figure illustrates how the same genome (depicted as a universal DNA helix at the top) produces distinct functional outcomes through a layered and structured regulatory architecture. The first regulatory layer consists of epigenetic modifications, including DNA methylation (linked with gene silencing) and histone acetylation (linked with gene activation) (56; 59). These modifications influence chromatin accessibility, setting the stage for context-specific transcriptional control. The second layer involves cell-type-specific transcription factors (TFs)—for example, NeuroD and REST in neurons, or HNF4 and C/EBPα in hepatocytes—which bind regulatory DNA elements and integrate signaling cues to guide gene expression programs (57; 58). The third layer reflects the resultant chromatin state: open, transcriptionally permissive configurations in neurons for synaptic gene activation, versus compact, repressive configurations in hepatocytes where those genes are silent (60; 62). Finally, this hierarchical regulatory control produces functionally specialized gene programs: neurons activate synaptic plasticity and axon signaling genes; hepatocytes activate detoxification and glucose metabolism genes (55; 61). This layered architecture provides a powerful biological analogy for nDNA in LLMs. Just as DNA's expression is shaped by regulatory logic rather than random variation, nDNA encodes both universal priors (shared across tasks)—such as pretrained latent manifolds, attention mechanisms, and model architecture—and corpus-dependent latent scaffolding, emerging as the model adapts to specific tasks or domains (63; 64; 65). The analogy emphasizes that corpus dependence in nDNA is not a weakness or artifact, but a reflection of meaningful task adaptation: structured variation grounded in universal latent geometry. This scaffolding ensures LLMs achieve functional diversity across tasks while maintaining coherence, alignment, and generalization, much like gene regulatory networks ensure appropriate cellular identity and function despite operating from a common genome blueprint (57; 61). The figure highlights that both biological DNA and nDNA exhibit clarity through complexity: layered, interpretable hierarchies enabling flexible, robust expression across contexts.
+    <strong>Figure:</strong> κ<sub>l</sub> is typically elevated in upper decoder layers (l ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation. A hierarchical view of universal DNA and context-sensitive gene expression, as a biological parallel to nDNA latent scaffolding in LLMs. This figure illustrates how the same genome (depicted as a universal DNA helix at the top) produces distinct functional outcomes through a layered and structured regulatory architecture. The first regulatory layer consists of epigenetic modifications, including DNA methylation (linked with gene silencing) and histone acetylation (linked with gene activation) {% cite bird2007perceptions %} {% cite clapier2017mechanisms %}. These modifications influence chromatin accessibility, setting the stage for context-specific transcriptional control. The second layer involves cell-type-specific transcription factors (TFs)—for example, NeuroD and REST in neurons, or HNF4 and C/EBPα in hepatocytes—which bind regulatory DNA elements and integrate signaling cues to guide gene expression programs {% cite davidson2006gene %} {% cite lambert2018human %}. The third layer reflects the resultant chromatin state: open, transcriptionally permissive configurations in neurons for synaptic gene activation, versus compact, repressive configurations in hepatocytes where those genes are silent {% cite dekker2013exploring %} {% cite thurman2012accessible %}. Finally, this hierarchical regulatory control produces functionally specialized gene programs: neurons activate synaptic plasticity and axon signaling genes; hepatocytes activate detoxification and glucose metabolism genes {% cite lewin2013genes %} {% cite alon2006introduction %}. This layered architecture provides a powerful biological analogy for nDNA in LLMs. Just as DNA's expression is shaped by regulatory logic rather than random variation, nDNA encodes both universal priors (shared across tasks)—such as pretrained latent manifolds, attention mechanisms, and model architecture—and corpus-dependent latent scaffolding, emerging as the model adapts to specific tasks or domains {% cite olah2020zoom %} {% cite geva2021transformer %} {% cite beltagy2020longformer %} . The analogy emphasizes that corpus dependence in nDNA is not a weakness or artifact, but a reflection of meaningful task adaptation: structured variation grounded in universal latent geometry. This scaffolding ensures LLMs achieve functional diversity across tasks while maintaining coherence, alignment, and generalization, much like gene regulatory networks ensure appropriate cellular identity and function despite operating from a common genome blueprint {% cite Davidson2006 %} {% cite alon2006introduction %} . The figure highlights that both biological DNA and nDNA exhibit clarity through complexity: layered, interpretable hierarchies enabling flexible, robust expression across contexts.
   </figcaption>
 </figure>
 
@@ -528,21 +529,21 @@ These priors act as the “genomic grammar” that binds task-specific latent pa
 
 ## Evolutionary and Learning Dynamics: Convergence of Principles
 
-Both DNA and nDNA are shaped by selection processes. In biology, the genome has evolved under millennia of selective pressure, with regulatory networks fine-tuned to ensure robust development and adaptability (57; 61). In LLMs, pretraining operates as an evolutionary analogue: stochastic gradient descent (SGD) over massive corpora selects latent priors that minimize expected loss across tasks, with fine-tuning akin to epigenetic adjustment (70; 74):
+Both DNA and nDNA are shaped by selection processes. In biology, the genome has evolved under millennia of selective pressure, with regulatory networks fine-tuned to ensure robust development and adaptability {% cite Davidson2006 %} {% cite alon2006introduction %} . In LLMs, pretraining operates as an evolutionary analogue: stochastic gradient descent (SGD) over massive corpora selects latent priors that minimize expected loss across tasks, with fine-tuning akin to epigenetic adjustment {% cite bommasani2021opportunities %} {% cite pfeiffer2021adapterfusion %}:
 
 $$
 \mathcal{L}_{\text{pretrain}}(\theta) = \mathbb{E}_{(x,y)}[-\log p_\theta(y|x)]
 $$
 
-This evolutionary parallel explains why both systems exhibit clarity through complexity: layered hierarchies, probabilistic pathways, and interpretable modularity. Where biological evolution yields modular gene regulatory networks that ensure context-sensitive expression (61), LLM training yields modular latent structures such as attention heads and adapter modules that scaffold task-specific reasoning (64; 74).
+This evolutionary parallel explains why both systems exhibit clarity through complexity: layered hierarchies, probabilistic pathways, and interpretable modularity. Where biological evolution yields modular gene regulatory networks that ensure context-sensitive expression {% cite alon2006introduction %}, LLM training yields modular latent structures such as attention heads and adapter modules that scaffold task-specific reasoning {% cite geva2021transformer %} {% cite pfeiffer2021adapterfusion %} .
 
 ---
 
 ## Why Corpus Dependence Matters
 
-Far from a flaw, corpus dependence in nDNA is the signature of a flexible, adaptive reasoning architecture. Just as biological systems rely on tissue-specific gene expression to produce functional diversity from a universal genome (57; 61), large language models (LLMs) leverage corpus-dependent latent scaffolding to generate reasoning structures attuned to task demands, mirroring the reproducibility logic of biological variability quantification (75).
+Far from a flaw, corpus dependence in nDNA is the signature of a flexible, adaptive reasoning architecture. Just as biological systems rely on tissue-specific gene expression to produce functional diversity from a universal genome {% cite davidson2006gene %} {% cite alon2006introduction %} , large language models (LLMs) leverage corpus-dependent latent scaffolding to generate reasoning structures attuned to task demands, mirroring the reproducibility logic of biological variability quantification {% cite marioni2011rna %} .
 
-By examining nDNA’s spectral curvature ($$\kappa$$), thermodynamic length ($$L$$), and belief vector norm ($$\|v^{(c)}_\ell\|$$), we gain a diagnostic lens for alignment, generalization, and safety (63; 66; 67):
+By examining nDNA’s spectral curvature ($$\kappa$$), thermodynamic length ($$L$$), and belief vector norm ($$\|v^{(c)}_\ell\|$$), we gain a diagnostic lens for alignment, generalization, and safety {% cite olah2020zoom %} {% cite belkin2019reconciling %} {% cite still2012thermodynamic %} :
 
 $$
 S_{nDNA}(c) = \int_{\gamma_c} \left( \alpha \kappa + \beta L + \gamma \|v^{(c)}_\ell\| \right) ds
@@ -552,18 +553,18 @@ where $$\gamma_c$$ is the latent trajectory for corpus $$c$$.
 
 This latent geometry echoes Waddington’s epigenetic landscape where paths represent developmental fates (76). Figure 6 illustrates different corpus types evoking distinct latent path characteristics:
 
-- QA tasks evoke compact low-curvature paths (e.g., $$\kappa \sim 0.012–0.03$$, $$L \sim 0.47–0.53$$) (73; 77; 78),  
-- Reasoning tasks elicit broader high-curvature paths (e.g., $$\kappa \sim 0.005–0.04$$) (64; 71; 79),  
-- Dialogue corpora produce shallow clustered scaffolds (72; 80; 81),  
-- Commonsense tasks yield oscillatory paths (82; 83; 84).
+- QA tasks evoke compact low-curvature paths (e.g., $$\kappa \sim 0.012–0.03$$, $$L \sim 0.47–0.53$$) {% cite rajpurkar2016squad %} {% cite kwiatkowski2019natural %} {% cite joshi2017triviaqa %} ,  
+- Reasoning tasks elicit broader high-curvature paths (e.g., $$\kappa \sim 0.005–0.04$$) {% cite geva2021transformer %} {% cite bommasani2021opportunities %} {% cite patel2021nlp %},  
+- Dialogue corpora produce shallow clustered scaffolds {% cite budzianowski2018multiwoz %} {% cite li2016persona %} {% cite zhang2018personalizing %} ,  
+- Commonsense tasks yield oscillatory paths {% cite sap2019socialiqa %} {% cite zellers2019hellaswag %} {% cite talmor2019commonsenseqa %} .
 
-nDNA aligns with interpretable AI goals (85) and geometric decoding approaches (86).
+nDNA aligns with interpretable AI goals {% cite zhang2018interpretable %} and geometric decoding approaches {% cite narayanan2021decoding %} .
 
-This corpus dependence is not arbitrary noise; it reflects the model’s learned latent regulatory logic, analogous to the combinatorial control of gene regulatory networks that ensures context-sensitive yet robust gene expression (55; 61). Just as developmental disorders arise when regulatory circuits misfire (57), misalignment or hallucination in LLMs can be traced to latent trajectories that diverge from expected scaffolding. nDNA analysis, therefore, does not merely characterize model geometry—it offers a tool for interpretability, failure detection, and safe alignment.
-
+This corpus dependence is not arbitrary noise; it reflects the model’s learned latent regulatory logic, analogous to the combinatorial control of gene regulatory networks that ensures context-sensitive yet robust gene expression {% cite lewin2013genes %} {% cite alon2006introduction %} . Just as developmental disorders arise when regulatory circuits misfire {% cite davidson2006gene %} , misalignment or hallucination in LLMs can be traced to latent trajectories that diverge from expected scaffolding. nDNA analysis, therefore, does not merely characterize model geometry—it offers a tool for interpretability, failure detection, and safe alignment.
+ 
 Corpus dependence in nDNA is the expression of reasoning plasticity, bounded by universal latent priors much like gene networks balance flexibility with functional coherence.
 
-Moreover, the universality of nDNA’s foundational structure—its pretrained manifold, architectural symmetries, and core alignment priors—provides the stabilizing grammar that constrains corpus-specific scaffolds within meaningful reasoning spaces (68; 70). This is the latent equivalent of biology’s genetic code and conserved transcriptional machinery: an invariant substrate that supports functional diversity without sacrificing coherence.
+Moreover, the universality of nDNA’s foundational structure—its pretrained manifold, architectural symmetries, and core alignment priors—provides the stabilizing grammar that constrains corpus-specific scaffolds within meaningful reasoning spaces {% cite vaswani2017attention %} {% cite bommasani2021opportunities %} . This is the latent equivalent of biology’s genetic code and conserved transcriptional machinery: an invariant substrate that supports functional diversity without sacrificing coherence.
 
 By quantifying how nDNA paths bend, stretch, or steer in response to task demands, we can map the model’s cognitive landscape and determine when it traces human-aligned reasoning or drifts into failure modes.
 
