@@ -419,7 +419,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 </div>
 
 <figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="20%">
+  <img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="50%">
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
     <strong>Figure:</strong> The nDNA score unifies spectral curvature (κ<sub>ℓ</sub>), thermodynamic length (L<sub>ℓ</sub>), and belief vector field magnitude (||v<sup>(c)</sup><sub>ℓ</sub>||) to create a heritable geometry index that diagnoses how latent traits persist, mutate, or degrade as foundation models evolve.
   </figcaption>
@@ -482,7 +482,7 @@ Despite their contextual variation, both DNA and nDNA encode universal structure
 
 These priors act as the “genomic grammar” that binds task-specific latent pathways into a coherent reasoning framework.
 
-<table style="width: 100%; border-collapse: collapse; margin: 2em 0; border: 2px solid #666;">
+<table style="border-collapse: collapse; margin: 2em 0; border: 2px solid #666; width: auto;">
   <thead>
     <tr>
       <th style="background: #e6e6fa; color: black; padding: 0.8em; text-align: left; font-weight: bold; border: 1px solid #666;">Aspect</th>
