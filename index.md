@@ -136,7 +136,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 {% include wizuall.liquid
       image_path="introduction/spectral_curvature.gif"
-      interactive_html="html_plots/spectral_curvature_animation.html"
+      interactive_html="index/spectral_curvature_animation.html"
       title="Spectral Curvature (κ_ℓ)"
       caption="κ<sub>ℓ</sub> quantifies second-order deviations in latent representations across transformer layers, with high curvature typically emerging in upper decoder layers (ℓ ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation." %}
 
@@ -242,12 +242,11 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
   <p>Within <strong>nDNA</strong>, this metric <strong>reveals latent epistemic effort</strong>—providing a nuanced view of <strong>how and where</strong> models allocate internal resources during learning and inference.</p>
 </div>
 
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length" width="50%">
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> L<sub>ℓ</sub> quantifies epistemic work across transformer layers—computed as the cumulative squared gradient norm of layerwise log-likelihoods. Peaks typically localize to upper decoder layers where intense adaptation occurs.
-  </figcaption>
-</figure>
+{% include wizuall.liquid
+     image_path="introduction/Final_thermodynamic_length.gif"
+     interactive_html="index/thermodynamic_length_animation.html"
+     title="Thermodynamic Length (L_ℓ)"
+     caption="L<sub>ℓ</sub> quantifies epistemic work across transformer layers—computed as the cumulative squared gradient norm of layerwise log-likelihoods. Peaks typically localize to upper decoder layers where intense adaptation occurs." %}
 
 ---
 
@@ -347,12 +346,11 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
   <p>It provides the <strong>missing vectorial dimension</strong> in understanding machine cognition.</p>
 </div>
 
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field" width="50%">
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation.
-  </figcaption>
-</figure>
+{% include wizuall.liquid
+     image_path="introduction/belief_vector_field.gif"
+     interactive_html="index/belief_vector_field_3d_all_layers_thick_long_vectors.html"
+     title="Belief Vector Field (||v^(c)_ℓ||)"
+     caption="v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation." %}
 
 ---
 
