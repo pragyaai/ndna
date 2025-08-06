@@ -357,87 +357,98 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 ---
 
-## The nDNA Score
+<h2>nDNA Score</h2>
 
-### Why a unified score?
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>Why a unified score?</h3>
+  <p>While spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and the belief vector field norm ($$\|v^{(c)}_\ell\|$$) each offer unique insight into latent dynamics, they operate on distinct facets of epistemic geometry.</p>
+  <p>The <strong>nDNA score</strong> is a cumulative measure of latent geometry, quantifying how a large language model adapts its internal scaffolding to a given corpus. It integrates three key components at each layer $$\ell$$:</p>
+  <ul>
+    <li><strong>Curvature ($$\kappa_\ell$$):</strong> how twisted or bent the latent manifold is; captures how sharply internal trajectories bend — a scalar measure of latent acceleration.</li>
+    <li><strong>Length ($$L_\ell$$):</strong> how much latent work or displacement occurs as representations evolve; quantifies how hard the model works to adapt its beliefs — a scalar effort integral.</li>
+    <li><strong>Belief vector norm ($$\|v^{(c)}_\ell\|$$):</strong> how strong the model's belief signal is for that corpus; encodes where and how strongly cultural priors steer latent space — a scalar magnitude derived from the vector field.</li>
+  </ul>
+</div>
 
-While spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and the belief vector field norm ($$\|v^{(c)}_\ell\|$$) each offer unique insight into latent dynamics, they operate on distinct facets of epistemic geometry.
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>Formal Definition</h3>
+  <p>The <strong>nDNA score</strong> is defined as:</p>
+  <p>$$\text{nDNA} := \sum_{\ell=1}^L \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|v^{(c)}_\ell\|$$</p>
+  <p>where:</p>
+  <ul>
+    <li>$$\omega_\ell$$ is the layer weight to emphasize semantically expressive or epistemically significant layers (e.g., decoder tops),</li>
+    <li>$$\kappa_\ell$$ is spectral curvature,</li>
+    <li>$$L_\ell$$ is thermodynamic length,</li>
+    <li>$$\|v^{(c)}_\ell\|$$ is the magnitude of the belief vector field conditioned on culture $$c$$.</li>
+  </ul>
+</div>
 
-The **nDNA score** is a cumulative measure of latent geometry, quantifying how a large language model adapts its internal scaffolding to a given corpus. It integrates three key components at each layer $$\ell$$:
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>Why multiply these?</h3>
+  <p>Individually, the terms illuminate:</p>
+  <ul>
+    <li><strong>Latent strain</strong> ($$\kappa_\ell$$),</li>
+    <li><strong>Adaptation cost</strong> ($$L_\ell$$),</li>
+    <li><strong>Cultural pressure</strong> ($$\|v^{(c)}_\ell\|$$).</li>
+  </ul>
+  <p>Together, their <strong>product</strong> gives a unified diagnostic of <strong>latent reconfiguration</strong> — indicating where internal bending, belief effort, and epistemic steering all co-occur.</p>
+  <p>The weight $$\omega_\ell$$ can be:</p>
+  <ul>
+    <li>Uniform across layers,</li>
+    <li>Hand-tuned based on epistemic depth,</li>
+    <li>Optimized via alignment or interpretability objectives.</li>
+  </ul>
+</div>
 
-- **Curvature ($$\kappa_\ell$$):** how twisted or bent the latent manifold is; captures how sharply internal trajectories bend — a scalar measure of latent acceleration.  
-- **Length ($$L_\ell$$):** how much latent work or displacement occurs as representations evolve; quantifies how hard the model works to adapt its beliefs — a scalar effort integral.  
-- **Belief vector norm ($$\|v^{(c)}_\ell\|$$):** how strong the model’s belief signal is for that corpus; encodes where and how strongly cultural priors steer latent space — a scalar magnitude derived from the vector field.
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>Interpretability & Practical Use</h3>
+  <p>The <strong>nDNA score</strong> enables:</p>
+  <ul>
+    <li>Comparison of parent vs. child models (fine-tuning, distillation, merging),</li>
+    <li>Detection of <strong>semantic mutation</strong>, <strong>ideological drift</strong>, or <strong>inheritance asymmetry</strong>,</li>
+    <li>Quantification of <strong>latent epistemic integrity</strong> — the hidden cost and directionality of adaptation.</li>
+  </ul>
+</div>
 
-### Formal Definition
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>Conviction</h3>
+  <p>By unifying spectral ($$\kappa_\ell$$), thermodynamic ($$L_\ell$$), and vectorial ($$\|v^{(c)}_\ell\|$$) diagnostics, the <strong>nDNA score</strong> acts as a <strong>heritable geometry index</strong>, diagnosing how <strong>latent traits persist, mutate, or degrade</strong> as foundation models evolve.</p>
+</div>
 
-The **nDNA score** is defined as:
-
-$$
-\text{nDNA} := \sum_{\ell=1}^L \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|v^{(c)}_\ell\|
-$$
-
-where:
-
-- $$\omega_\ell$$ is the layer weight to emphasize semantically expressive or epistemically significant layers (e.g., decoder tops),  
-- $$\kappa_\ell$$ is spectral curvature,  
-- $$L_\ell$$ is thermodynamic length,  
-- $$\|v^{(c)}_\ell\|$$ is the magnitude of the belief vector field conditioned on culture $$c$$.
+<figure style="text-align: center; margin: 2em auto;">
+  <img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="50%">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
+    <strong>Figure:</strong> The nDNA score unifies spectral curvature (κ<sub>ℓ</sub>), thermodynamic length (L<sub>ℓ</sub>), and belief vector field magnitude (||v<sup>(c)</sup><sub>ℓ</sub>||) to create a heritable geometry index that diagnoses how latent traits persist, mutate, or degrade as foundation models evolve.
+  </figcaption>
+</figure>
 
 ---
 
-### Why multiply these?
+<h2>nDNA Geometry</h2>
 
-Individually, the terms illuminate:
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>The Foundation of nDNA</h3>
+  <p>The notion of <strong>nDNA</strong> arises from a simple yet profound insight: modern foundation models do not merely produce outputs—they embody a <strong>latent cognitive structure</strong> that governs how they reason, adapt, and evolve (7; 48). This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers (24; 41).</p>
+  <p>We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and belief vector field norm ($$\|v^{(c)}_\ell\|$$) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model's inheritance stability, alignment dynamics, and cultural drift—analogous to how biological DNA records heritable traits and mutations (32; 47).</p>
+</div>
 
-- **Latent strain** ($$\kappa_\ell$$),  
-- **Adaptation cost** ($$L_\ell$$),  
-- **Cultural pressure** ($$\|v^{(c)}_\ell\|$$).  
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>Table 1: Illustrative nDNA Example</h3>
+  <figure style="text-align: center; margin: 1em 0;">
+    <img src="assets/gifs/introduction/nDNA_matrics.png" alt="nDNA Geometry Table" width="50%">
+  </figure>
+</div>
 
-Together, their **product** gives a unified diagnostic of **latent reconfiguration** — indicating where internal bending, belief effort, and epistemic steering all co-occur.
-
-The weight $$\omega_\ell$$ can be:
-
-- Uniform across layers,  
-- Hand-tuned based on epistemic depth,  
-- Optimized via alignment or interpretability objectives.
-
----
-
-### Interpretability & Practical Use
-
-The **nDNA score** enables:
-
-- Comparison of parent vs. child models (fine-tuning, distillation, merging),  
-- Detection of **semantic mutation**, **ideological drift**, or **inheritance asymmetry**,  
-- Quantification of **latent epistemic integrity** — the hidden cost and directionality of adaptation.
-
-### Conviction
-
-By unifying spectral ($$\kappa_\ell$$), thermodynamic ($$L_\ell$$), and vectorial ($$\|v^{(c)}_\ell\|$$) diagnostics, the **nDNA score** acts as a **heritable geometry index**, diagnosing how **latent traits persist, mutate, or degrade** as foundation models evolve.
-
-<img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="50%">
-
----
-
-## nDNA Geometry
-
-The notion of **nDNA** arises from a simple yet profound insight: modern foundation models do not merely produce outputs—they embody a **latent cognitive structure** that governs how they reason, adapt, and evolve (7; 48). This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers (24; 41).
-
-We define the **nDNA geometry** of a model as the joint distribution of its spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and belief vector field norm ($$\|v^{(c)}_\ell\|$$) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model’s inheritance stability, alignment dynamics, and cultural drift—analogous to how biological DNA records heritable traits and mutations (32; 47).
-
-### Table 1: Illustrative nDNA Example
-
-<img src="assets/gifs/introduction/nDNA_matrics.png" alt="nDNA Geometry Table" width="50%">
-
-
-Table 1 provides an illustrative example of nDNA geometry, highlighting how these quantities vary across depth in a representative model. Rather than simple monotonic trends, we observe intricate layer-wise patterns:
-
-- Certain layers exhibit elevated curvature ($$\kappa_\ell > 0.06$$), signaling sharp latent reorientation (34),  
-- Others concentrate thermodynamic length ($$L_\ell > 1.10$$), reflecting zones of intense internal work to reconcile competing priors (43; 44),  
-- The belief vector norm ($$\|v^{(c)}_\ell\|$$) exposes the directional cultural force acting on the latent manifold (5; 49), marking layers where external alignment or sociolinguistic conditioning exerts greatest influence.
-
-Together, these values form a geometry-specific trace that distinguishes models by their latent adaptation history.
+<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
+  <h3>Interpreting the nDNA Pattern</h3>
+  <p>Table 1 provides an illustrative example of nDNA geometry, highlighting how these quantities vary across depth in a representative model. Rather than simple monotonic trends, we observe intricate layer-wise patterns:</p>
+  <ul>
+    <li>Certain layers exhibit elevated curvature ($$\kappa_\ell > 0.06$$), signaling sharp latent reorientation (34),</li>
+    <li>Others concentrate thermodynamic length ($$L_\ell > 1.10$$), reflecting zones of intense internal work to reconcile competing priors (43; 44),</li>
+    <li>The belief vector norm ($$\|v^{(c)}_\ell\|$$) exposes the directional cultural force acting on the latent manifold (5; 49), marking layers where external alignment or sociolinguistic conditioning exerts greatest influence.</li>
+  </ul>
+  <p>Together, these values form a geometry-specific trace that distinguishes models by their latent adaptation history.</p>
+</div>
 
 ---
 
