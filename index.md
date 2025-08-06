@@ -354,7 +354,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 {% include wizuall.liquid
      image_path="introduction/belief_vector_field.gif"
      interactive_html="index/belief_vector_field_3d_all_layers_thick_long_vectors.html"
-     title="Belief Vector Field (||v^(c)_ℓ||)"
+     title="Belief Vector Field ($$||v^{(c)}_{\ell}||$$)"
      caption="v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation." %}
 
 ---
