@@ -419,7 +419,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 </div>
 
 <figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="50%">
+  <img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="20%">
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
     <strong>Figure:</strong> The nDNA score unifies spectral curvature (κ<sub>ℓ</sub>), thermodynamic length (L<sub>ℓ</sub>), and belief vector field magnitude (||v<sup>(c)</sup><sub>ℓ</sub>||) to create a heritable geometry index that diagnoses how latent traits persist, mutate, or degrade as foundation models evolve.
   </figcaption>
