@@ -608,7 +608,4 @@ What the genome is to life’s functional unity, nDNA is to the model’s reason
 
 ---
 
-<div style="font-family: Arial, sans-serif; line-height: 1.6; margin: 2em; max-width: 800px;">
-<h2>References</h2>
-
 {% auto_references %}
