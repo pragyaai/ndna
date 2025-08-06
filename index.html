@@ -262,7 +262,7 @@
   
   
     <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/html_plots/spectral_curvature_animation.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+      <a href="/nDNA/assets/html_plots/index/spectral_curvature_animation.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
         <button style="display: inline-block; padding: 10px 20px;
                        font-size: 0.875rem; font-weight: 500;
                        color: #fff; background: #000;
@@ -378,11 +378,35 @@
   <p>Within <strong>nDNA</strong>, this metric <strong>reveals latent epistemic effort</strong>—providing a nuanced view of <strong>how and where</strong> models allocate internal resources during learning and inference.</p>
 </div>
 
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length" width="50%" />
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> L<sub>ℓ</sub> quantifies epistemic work across transformer layers—computed as the cumulative squared gradient norm of layerwise log-likelihoods. Peaks typically localize to upper decoder layers where intense adaptation occurs.
+<figure style="text-align: center; margin: 1.5em 0; position: relative;">
+  <a href="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" data-lightbox="gallery" data-title="Thermodynamic Length (L_ℓ)">
+    <img src="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length (L_ℓ)" style="max-width: 100%; height: 600px; object-fit: contain;
+                border-radius: 8px; background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
+                     color: #555; max-width: 800px; margin-left: auto;
+                     margin-right: auto; text-align: left;">
+    <strong>Thermodynamic Length (L_ℓ)</strong>
+     <p>L<sub>ℓ</sub> quantifies epistemic work across transformer layers—computed as the cumulative squared gradient norm of layerwise log-likelihoods. Peaks typically localize to upper decoder layers where intense adaptation occurs.</p>
+
   </figcaption>
+  
+  
+  
+    <div style="margin-top: 1em; text-align: center;">
+      <a href="/nDNA/assets/html_plots/index/thermodynamic_length_animation.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+        <button style="display: inline-block; padding: 10px 20px;
+                       font-size: 0.875rem; font-weight: 500;
+                       color: #fff; background: #000;
+                       border: none; border-radius: 8px;
+                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
 </figure>
 
 <hr />
@@ -483,11 +507,35 @@
   <p>It provides the <strong>missing vectorial dimension</strong> in understanding machine cognition.</p>
 </div>
 
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field" width="50%" />
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation.
+<figure style="text-align: center; margin: 1.5em 0; position: relative;">
+  <a href="/nDNA/assets/gifs/introduction/belief_vector_field.gif" data-lightbox="gallery" data-title="Belief Vector Field (||v^(c)_ℓ||)">
+    <img src="/nDNA/assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field (||v^(c)_ℓ||)" style="max-width: 100%; height: 600px; object-fit: contain;
+                border-radius: 8px; background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
+  </a>
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
+                     color: #555; max-width: 800px; margin-left: auto;
+                     margin-right: auto; text-align: left;">
+    <strong>Belief Vector Field (||v^(c)_ℓ||)</strong>
+     <p>v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation.</p>
+
   </figcaption>
+  
+  
+  
+    <div style="margin-top: 1em; text-align: center;">
+      <a href="/nDNA/assets/html_plots/index/belief_vector_field_3d_all_layers_thick_long_vectors.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+        <button style="display: inline-block; padding: 10px 20px;
+                       font-size: 0.875rem; font-weight: 500;
+                       color: #fff; background: #000;
+                       border: none; border-radius: 8px;
+                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
 </figure>
 
 <hr />
