@@ -2,6 +2,7 @@
 layout: ndna
 title: nDNA
 ---
+{% include ndna-title.liquid %}
 
 # nDNA
 
