@@ -134,12 +134,11 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
   <p>Curvature in this context captures <strong>latent inheritance dynamics</strong>, serving as a <strong>fine-grained geometric fingerprint</strong> of internal restructuring and cultural adaptation.</p>
 </div>
 
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/spectral_curvature.gif" alt="Spectral Curvature" width="50%">
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> κ<sub>ℓ</sub> quantifies second-order deviations in latent representations across transformer layers, with high curvature typically emerging in upper decoder layers (ℓ ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation.
-  </figcaption>
-</figure>
+{% include wizuall.liquid
+      image_path="introduction/spectral_curvature.gif"
+      interactive_html="html_plots/spectral_curvature_animation.html"
+      title="Spectral Curvature (κ_ℓ)"
+      caption="κ<sub>ℓ</sub> quantifies second-order deviations in latent representations across transformer layers, with high curvature typically emerging in upper decoder layers (ℓ ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation." %}
 
 ---
 
