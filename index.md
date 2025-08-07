@@ -11,9 +11,8 @@ title: nDNA
     <h2>Introduction to nDNA</h2>
     <p><strong>nDNA</strong>—short for <em>Neural DNA</em>—is a semantic-genotypic representation that captures the latent identity of foundation models through the intrinsic geometry of belief. It is synthesized from three indispensable dimensions of latent geometry: spectral curvature, thermodynamic length, and belief vector fields. These dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is a high-dimensional scaffold of internal cognition—a latent topography called nDNA.</p>
   </div>
-  <div style="flex-shrink: 0; width: 300px; text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);">
-    <img src="{{ '/assets/img/nDNA_logo.png' | relative_url }}" alt="nDNA Diagram" style="max-width: 100%; height: auto; border-radius: 8px; background: rgba(255, 255, 255, 0.1); padding: 20px;"/>
-    <p style="margin-top: 20px; font-weight: bold; font-size: 1.4em; color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">nDNA</p>
+  <div style="flex-shrink: 0; width: 300px; text-align: center;">
+    <img src="{{ '/assets/img/nDNA_logo.png' | relative_url }}" alt="nDNA Diagram" style="max-width: 100%; height: auto;"/>
   </div>
 </div>
 
