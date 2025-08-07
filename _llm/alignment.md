@@ -197,7 +197,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
    caption="DPO alignment compresses latent divergence (κ<sub>ℓ</sub> drops from 0.7 to 0.6), indicating absorption of alignment constraints while preserving regional epistemic identity." %}
 
 {% include wizuall.liquid
-   image_path="assets/gifs/collapse/llama_dpo_rotation.gif"
+   image_path="collapse/llama_dpo_rotation.gif"
    interactive_html="assets/gifs/collapse/llama_dpo_interactive.html"
    title="LLaMA: Base vs DPO-aligned"
    caption="Base and aligned variants show stable geometry: κ<sub>ℓ</sub> in 0.38–0.5, ℒ<sub>ℓ</sub> in 0.5–0.65, reflecting moderate epistemic workload typical of generic alignment tuning." %}
