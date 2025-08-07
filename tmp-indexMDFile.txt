@@ -133,11 +133,6 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 
       </div>
-
-      <div class="image-card">
-        <img src="/nDNA/assets/img/nDNA_logo.png" alt="nDNA Diagram"/>
-        <p style="margin-top: 10px; font-weight: bold; font-size: 1.2em;">nDNA</p>
-      </div>
     </div>
 
     <footer>
