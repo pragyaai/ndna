@@ -160,67 +160,65 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 
 ## nDNA Trajectories Before and After DPO Alignment
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/africa_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/africa_dpo_interactive.html"
    title="Africa: Base vs DPO-aligned"
-   caption="The latent trajectory shows high spectral curvature κ<sub>ℓ</sub> reaching 0.85 and thermodynamic length ℒ<sub>ℓ</sub> up to 0.9 in the base; DPO alignment reduces these to κ<sub>ℓ</sub> ≈ 0.75, ℒ<sub>ℓ</sub> ≈ 0.8, indicating a softening of latent strain and ideological tension at upper layers (ℓ ≥ 25)."
-   alt_text="nDNA trajectory comparison for Africa-tuned model before and after DPO alignment" %}
+   caption="The latent trajectory shows high spectral curvature κ<sub>ℓ</sub> reaching 0.85 and thermodynamic length ℒ<sub>ℓ</sub> up to 0.9 in the base; DPO alignment reduces these to κ<sub>ℓ</sub> ≈ 0.75, ℒ<sub>ℓ</sub> ≈ 0.8, indicating a softening of latent strain and ideological tension at upper layers (ℓ ≥ 25)." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/asia_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/asia_dpo_interactive.html"
    title="Asia: Base vs DPO-aligned"
-   caption="The base model's curvature peaks at κ<sub>ℓ</sub> ≈ 0.88 and ℒ<sub>ℓ</sub> ≈ 0.92, reflecting strong epistemic effort; DPO alignment smooths this manifold with κ<sub>ℓ</sub> reduced by ~10%, flattening reorientation zones in high layers."
-   alt_text="nDNA trajectory comparison for Asia-tuned model before and after DPO alignment" %}
+   caption="The base model's curvature peaks at κ<sub>ℓ</sub> ≈ 0.88 and ℒ<sub>ℓ</sub> ≈ 0.92, reflecting strong epistemic effort; DPO alignment smooths this manifold with κ<sub>ℓ</sub> reduced by ~10%, flattening reorientation zones in high layers." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/australia_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/australia_dpo_interactive.html"
    title="Australia: Base vs DPO-aligned"
-   caption="Minimal latent reconfiguration observed: κ<sub>ℓ</sub> stays within 0.42–0.55; ℒ<sub>ℓ</sub> within 0.5–0.7. DPO tuning induces minor latent tension relaxation, reflecting low initial latent strain."
-   alt_text="nDNA trajectory comparison for Australia-tuned model before and after DPO alignment" %}
+   caption="Minimal latent reconfiguration observed: κ<sub>ℓ</sub> stays within 0.42–0.55; ℒ<sub>ℓ</sub> within 0.5–0.7. DPO tuning induces minor latent tension relaxation, reflecting low initial latent strain." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/china_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/china_dpo_interactive.html"
    title="China: Base vs DPO-aligned"
-   caption="A high-curvature manifold with κ<sub>ℓ</sub> exceeding 0.9, ℒ<sub>ℓ</sub> near 0.95 is tamed by DPO to κ<sub>ℓ</sub> ≤ 0.8, ℒ<sub>ℓ</sub> ≤ 0.85, showing significant alignment-induced latent reorientation."
-   alt_text="nDNA trajectory comparison for China-tuned model before and after DPO alignment" %}
+   caption="A high-curvature manifold with κ<sub>ℓ</sub> exceeding 0.9, ℒ<sub>ℓ</sub> near 0.95 is tamed by DPO to κ<sub>ℓ</sub> ≤ 0.8, ℒ<sub>ℓ</sub> ≤ 0.85, showing significant alignment-induced latent reorientation." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/europe_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/europe_dpo_interactive.html"
    title="Europe: Base vs DPO-aligned"
-   caption="Both base and DPO variants exhibit low latent strain: κ<sub>ℓ</sub> in 0.4–0.5, ℒ<sub>ℓ</sub> in 0.55–0.7, confirming alignment stability within pretraining attractor zones."
-   alt_text="nDNA trajectory comparison for Europe-tuned model before and after DPO alignment" %}
+   caption="Both base and DPO variants exhibit low latent strain: κ<sub>ℓ</sub> in 0.4–0.5, ℒ<sub>ℓ</sub> in 0.55–0.7, confirming alignment stability within pretraining attractor zones." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/latinamerica_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/latinamerica_dpo_interactive.html"
    title="Latin America: Base vs DPO-aligned"
-   caption="DPO alignment compresses latent divergence (κ<sub>ℓ</sub> drops from 0.7 to 0.6), indicating absorption of alignment constraints while preserving regional epistemic identity."
-   alt_text="nDNA trajectory comparison for Latin America-tuned model before and after DPO alignment" %}
+   caption="DPO alignment compresses latent divergence (κ<sub>ℓ</sub> drops from 0.7 to 0.6), indicating absorption of alignment constraints while preserving regional epistemic identity." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/llama_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/llama_dpo_interactive.html"
    title="LLaMA: Base vs DPO-aligned"
-   caption="Base and aligned variants show stable geometry: κ<sub>ℓ</sub> in 0.38–0.5, ℒ<sub>ℓ</sub> in 0.5–0.65, reflecting moderate epistemic workload typical of generic alignment tuning."
-   alt_text="nDNA trajectory comparison for base LLaMA model before and after DPO alignment" %}
+   caption="Base and aligned variants show stable geometry: κ<sub>ℓ</sub> in 0.38–0.5, ℒ<sub>ℓ</sub> in 0.5–0.65, reflecting moderate epistemic workload typical of generic alignment tuning." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/middleeast_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/middleeast_dpo_interactive.html"
    title="Middle East: Base vs DPO-aligned"
-   caption="DPO reduces latent torsion and curvature: κ<sub>ℓ</sub> down by ~12%, ℒ<sub>ℓ</sub> down by ~8%, showing partial smoothing of complex belief vector fields."
-   alt_text="nDNA trajectory comparison for Middle East-tuned model before and after DPO alignment" %}
+   caption="DPO reduces latent torsion and curvature: κ<sub>ℓ</sub> down by ~12%, ℒ<sub>ℓ</sub> down by ~8%, showing partial smoothing of complex belief vector fields." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/northamerica_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/northamerica_dpo_interactive.html"
    title="North America: Base vs DPO-aligned"
-   caption="Both variants stay within the pretraining manifold: κ<sub>ℓ</sub> in 0.4–0.52, ℒ<sub>ℓ</sub> in 0.55–0.7, confirming low-cost alignment geometry."
-   alt_text="nDNA trajectory comparison for North America-tuned model before and after DPO alignment" %}
+   caption="Both variants stay within the pretraining manifold: κ<sub>ℓ</sub> in 0.4–0.52, ℒ<sub>ℓ</sub> in 0.55–0.7, confirming low-cost alignment geometry." %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid
    image_path="assets/gifs/collapse/ndna_dpo_rotation.gif"
+   interactive_html="assets/gifs/collapse/ndna_dpo_interactive.html"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment"
-   caption="DPO alignment visibly compresses high-curvature outliers (e.g., Africa, Asia, China), drawing their trajectories toward the LLaMA attractor; low-strain regions (Europe, North America, Australia) remain largely unaffected. This illustrates DPO's role in harmonizing epistemic manifolds across cultural fine-tunings."
-   alt_text="Combined visualization of all cultural nDNA trajectories showing the effect of DPO alignment" %}
-
-
+   caption="DPO alignment visibly compresses high-curvature outliers (e.g., Africa, Asia, China), drawing their trajectories toward the LLaMA attractor; low-strain regions (Europe, North America, Australia) remain largely unaffected. This illustrates DPO's role in harmonizing epistemic manifolds across cultural fine-tunings." %}
 
 ## nDNA Unveils: DPO as Steering Vector Perturbation in Activation Space
 
