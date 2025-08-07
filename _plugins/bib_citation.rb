@@ -206,7 +206,7 @@ module Jekyll
       citation_number = CitationTracker.add_citation(@citation_key)
       
       # Return formatted link
-      "[[#{citation_number}]](#ref#{citation_number})"
+      "<a href=\"#ref#{citation_number}\">[#{citation_number}]</a>"
     end
   end
 

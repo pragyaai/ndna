@@ -96,7 +96,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (a) **Neural Evolution of European Languages.** This plot depicts latent-space trajectories of four European languages--French, German, Italian, and English--projected into the $$(\kappa_\ell, \mathcal{L}_\ell, \ell)$$ coordinate space, where $$\kappa_\ell$$ denotes spectral curvature, $$\mathcal{L}_\ell$$ the thermodynamic length, and $$\ell$$ the transformer layer index ($$\ell \in [20,30]$$). All languages exhibit smooth semantic evolution curves with minor curvature fluctuations, reflecting stable cultural grounding. English diverges slightly from the Romance cluster (French, Italian) yet remains structurally coherent.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/europe_lang.png"
    caption=europe_lang_caption
    alt_text="3D trajectory plot showing European language evolution in latent space" %}
@@ -105,7 +105,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (b) **Cultural Anchoring of European Languages.** Overlaying the same language trajectories with culturally grounded base models--Europe, North America, Australia, and LLaMA--we observe distinct semantic pull effects. French, German, and Italian remain geometrically proximal to the Europe base, while English veers closer to LLaMA, indicating stronger architectural affinity and training alignment. The divergence vectors suggest partial semantic inheritance from European priors and partial drift towards globally optimized foundation representations. These patterns illuminate how language-specific tuning interacts with pretrained cultural baselines in shaping latent geometry.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/europe_lang_cul.png"
    caption=europe_lang_cul_caption
    alt_text="3D trajectory plot showing European languages with cultural anchor overlays" %}
@@ -114,7 +114,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (c) **Latent Trajectories of Latin Languages.** This plot shows the nDNA trajectories of Spanish and Portuguese within the $$(\kappa_\ell, \mathcal{L}_\ell, \ell)$$ space, capturing their semantic evolution across transformer layers $$\ell \in [20,30]$$. The close proximity and parallel curvature profiles between the two languages indicate shared linguistic structure and priors. Anchoring arrows at $$\ell = 25$$ reveal convergence points in latent space, suggesting a high degree of representational coherence rooted in common Romance language ancestry.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/latin_language_only_trajectories.png"
    caption=latin_lang_caption
    alt_text="3D trajectory plot showing Spanish and Portuguese language evolution" %}
@@ -123,7 +123,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (d) **Cultural Alignment of Latin Languages.** Overlaying the trajectories with the Latin America culture base reveals pronounced spatial alignment of both Spanish and Portuguese with their regional anchor. The trajectory pull indicates that these language nDNAs are not only structurally similar, but also semantically grounded within the cultural priors of Latin America. This supports the hypothesis that multilingual foundation models implicitly encode culturally conditioned semantics, manifesting in geometric alignment between linguistic and cultural nDNA paths.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/latin_language_culture_static.png"
    caption=latin_culture_caption
    alt_text="3D trajectory plot showing Latin languages with cultural alignment" %}
@@ -132,7 +132,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (e) **Latent Geometries of Asian Languages.** This plot visualizes the nDNA trajectories for Hindi, Chinese, Russian, and Thai across layers $$\ell \in [20,30]$$ in $$(\kappa_\ell, \mathcal{L}_\ell, \ell)$$ space. Compared to European languages, these trajectories exhibit higher torsion, sharper inflection points in curvature $$\kappa_\ell$$, and more complex thermodynamic length $$\mathcal{L}_\ell$$ patterns, suggesting non-linear evolution and culturally distinct semantic encoding. The variability reflects underlying differences in linguistic structure (e.g., logographic vs. phonetic), script diversity, and morpho-syntactic richness.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/rest_languages.png"
    caption=asian_lang_caption
    alt_text="3D trajectory plot showing Asian language evolution with complex patterns" %}
@@ -141,7 +141,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (f) **Cultural Anchoring of Asian and African Languages.** Overlaying cultural trajectories reveals strong alignment of Chinese with China and Hindi, and Thai with Asia, affirming culture-conditioned encoding in multilingual LLMs. The spatial convergence across $$(\kappa_\ell, \mathcal{L}_\ell, \ell)$$ dimensions suggests that regional priors are embedded not just through vocabulary, but through latent geometric patterns. Thai shows weaker alignment, exhibiting torsional drift yet trending toward Asia. These patterns indicate that LLMs internalize cultural semantics via token frequency, orthographic structure, and alignment-era supervision--capturing deep semantic regularities shaped by linguistic and geopolitical proximity.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/rest_language+culture.png"
    caption=asian_culture_caption
    alt_text="3D trajectory plot showing Asian languages with cultural anchor overlays" %}
@@ -150,7 +150,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (g) **Unified Language Trajectories.** A comprehensive 3D visualization of 10 language-specific neural trajectories across layers $$\ell \in [20,30]$$, plotted in the latent geometry space defined by spectral curvature $$\kappa_\ell$$ and thermodynamic length $$\mathcal{L}_\ell$$. Variations in trajectory shape and spacing reflect differences in linguistic priors, orthographic systems, and token distributions across languages. Notably, Indo-European languages cluster more tightly, while Chinese and Thai show distinct curvature signatures.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/all_lang.png"
    caption=all_lang_caption
    alt_text="3D trajectory plot showing all 10 languages in unified view" %}
@@ -159,7 +159,7 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 (h) **Language–Culture Neural Alignment.** Overlaying cultural base trajectories reveals directional convergence of languages toward semantically aligned cultures in $$(\kappa_\ell, \mathcal{L}_\ell, \ell)$$-space. Dashed arrows denote displacement vectors from each language to its closest cultural anchor, reflecting the semantic pull exerted by culturally grounded model variants. These alignments suggest that LLMs implicitly encode regional and civilizational priors even without explicit cultural supervision.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="language/all_lang_cul.png"
    caption=all_lang_cul_caption
    alt_text="3D trajectory plot showing complete language-culture alignment patterns" %}
