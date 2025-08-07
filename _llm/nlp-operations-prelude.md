@@ -1,7 +1,7 @@
 ---
 layout: page
 title: NLP Operations
-permalink: /llm/nlp-operations-prelude/
+permalink: /llm/nlp-operations/prelude/
 ---
 
 

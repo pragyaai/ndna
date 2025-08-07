@@ -15,7 +15,7 @@ const menusByModel = {
     { text: "Model Merging", url: baseUrl + "/llm/model-merging/" },
     { text: "Model Collapse", url: baseUrl + "/llm/model-collapse/" },
     { text: "Knowledge Distillation", url: baseUrl + "/llm/knowledge-distillation/" },
-    { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/" },
+    { text: "Neural Genomics", url: "#" },
     { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
     { text: "NLP Operations", url: "#" },
     { text: "at-a-glance", url: "#" },
@@ -47,9 +47,10 @@ const menusByModel = {
   ]
 };
 
-const neuralSubmenuItems = ["nHD", "nGDI", "nTDS", "nKaryotyping", "nDIV", "nEPI", "nCCL"];
+const neuralSubmenuItems = ["Prelude", "nHD", "nGDI", "nTDS", "nKaryotyping", "nDIV", "nEPI", "nCCL"];
 
 const nlpOperationsItems = [
+  { text: "Prelude", url: baseUrl + "/llm/nlp-operations/prelude/" },
   { text: "Machine Translation", url: baseUrl + "/llm/machine-translation/" },
   { text: "Multi-turn Conversation", url: baseUrl + "/llm/multi-turn-conversation/" },
   { text: "Adversarial Attack", url: baseUrl + "/llm/adversarial-attack/" }
@@ -119,7 +120,11 @@ function renderTopMenu(items) {
 
       neuralSubmenuItems.forEach(sub => {
         const subLink = document.createElement('a');
-        subLink.href = baseUrl + `/llm/neural-genomics/${sub}/`; 
+        if (sub === "Prelude") {
+          subLink.href = baseUrl + `/llm/neural-genomics/prelude/`;
+        } else {
+          subLink.href = baseUrl + `/llm/neural-genomics/${sub}/`;
+        }
         subLink.innerText = sub;
         submenu.appendChild(subLink);
       });
@@ -159,8 +164,15 @@ function switchView(view) {
 document.addEventListener('DOMContentLoaded', function() {
   switchView("LLM");
 
-  // Auto-show submenu if on /llm/neural-genomics/
-  if (window.location.pathname.includes("/llm/neural-genomics")) {
+  // Auto-show submenu if on /llm/neural-genomics/ sub-pages
+  if (window.location.pathname.includes("/llm/neural-genomics") || 
+      window.location.pathname.includes("/llm/nHD") ||
+      window.location.pathname.includes("/llm/nGDI") ||
+      window.location.pathname.includes("/llm/nTDS") ||
+      window.location.pathname.includes("/llm/nKaryotyping") ||
+      window.location.pathname.includes("/llm/nDIV") ||
+      window.location.pathname.includes("/llm/nEPI") ||
+      window.location.pathname.includes("/llm/nCCL")) {
     setTimeout(() => {
       const submenu = document.getElementById("neuralGenomicsSubmenu");
       if (submenu) submenu.style.display = "flex";
@@ -168,7 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Auto-show NLP Operations submenu if on NLP operations pages
-  if (window.location.pathname.includes("/llm/machine-translation") || 
+  if (window.location.pathname.includes("/llm/nlp-operations/prelude") ||
+      window.location.pathname.includes("/llm/machine-translation") || 
       window.location.pathname.includes("/llm/multi-turn-conversation") || 
       window.location.pathname.includes("/llm/adversarial-attack")) {
     setTimeout(() => {
