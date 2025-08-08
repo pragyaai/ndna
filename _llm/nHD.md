@@ -50,15 +50,16 @@ Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\ma
 
 <img src="{{ 'assets/gifs/neural_genomics/nhd_graphical_genotyping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
-<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-    <strong>Figure 1. Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):</strong>
-</p>
-
 <div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
-  
-  This figure, adapted from Deblieck et al. (309), displays detailed genetic and physical maps of two RILs resulting from a biparental cross between drought-resistant wild emmer accession G18-16 (green alleles) and drought-susceptible durum wheat accession Langdon (red alleles). Heterozygous regions are highlighted in magenta. Black connecting lines indicate recombination breakpoints and allele transitions across chromosomes.
-  <br><br>
-  The classical Hamming Distance (HD) metric, widely used in genomics for quantifying bit-level mutational differences across binary allelic sequences, serves as an intuitive biological analogy for the Neural Hamming Distance (nHD). The nHD extends this concept to neural models by binarizing layer-wise weights or activations to capture bit-level mutations that accumulate as semantic divergence in model behavior. This bridge between classical genotype comparison and neural model analysis underpins the utility of nHD as a fine-grained, interpretable metric for semantic mutation monitoring in neural genomics.
+
+{% capture figure_caption %}
+**Graphical genotyping maps recombination patterns in RIL55 and RIL12.**  
+**Green and red segments** denote alleles from drought-resistant wild emmer accession G18-16 and drought-susceptible durum wheat accession Langdon, respectively, while **magenta regions** indicate heterozygous loci.  
+Black connectors trace recombination breakpoints and allele transitions across chromosomes.  
+Drawing from the *classical Hamming Distance* used in genomics to quantify bit-level mutational differences in binary allelic sequences, the proposed **Neural Hamming Distance (nHD)** extends this principle to neural networks by binarizing layer-wise weights or activations.  
+This enables fine-grained, interpretable monitoring of semantic divergence in model behavior — bridging genotype variation analysis with neural representation shifts.
+{% endcapture %}
+
 </div>
 
 
