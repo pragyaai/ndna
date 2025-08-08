@@ -2,8 +2,10 @@
 layout: page
 title: "Neural Hamming Distance (nHD)"
 permalink: /llm/neural-genomics/nHD/
+skip_title: True
+mathjax: True
 ---
-
+{% include ndna-title.liquid title="nHD - Neural Hamming Distance" %}
 <script type="text/javascript" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
@@ -34,8 +36,8 @@ nHD quantifies the **discrete divergence** between two neural representations by
 
 In genomics, the Hamming distance between two sequences \\( S^{(1)}, S^{(2)} \\) of length \\( n \\) is:
 
-$$
-d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\right]
+$$\boxed{
+d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\right]}
 $$
 
 Where:  
@@ -47,11 +49,6 @@ This captures point mutations, essential for studying genetic drift, recombinati
 Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\mathcal{H}^n = \\{0, 1\\}^n \\), where each vertex represents a binary sequence and each edge represents a single-bit mutation.
 
 
-
-<img src="{{ 'assets/gifs/neural_genomics/nhd_graphical_genotyping.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
-
-<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
-
 {% capture figure_caption %}
 **Graphical genotyping maps recombination patterns in RIL55 and RIL12.**  
 **Green and red segments** denote alleles from drought-resistant wild emmer accession G18-16 and drought-susceptible durum wheat accession Langdon, respectively, while **magenta regions** indicate heterozygous loci.  
@@ -60,7 +57,10 @@ Drawing from the *classical Hamming Distance* used in genomics to quantify bit-l
 This enables fine-grained, interpretable monitoring of semantic divergence in model behavior — bridging genotype variation analysis with neural representation shifts.
 {% endcapture %}
 
-</div>
+{% include visualization.liquid 
+   image_path="assets/gifs/neural_genomics/nhd_graphical_genotyping.png"
+   caption=figure_caption
+   alt_text="Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):" %}
 
 
 ### Extending to Foundation Models
@@ -79,8 +79,8 @@ Where:
 
 To binarize using a threshold \\( \\tau \\), define:
 
-$$
-B_\ell^{(k)} = \mathbf{1}\left(H_\ell^{(k)} > \tau\right), \quad B_\ell^{(k)} \in \{0, 1\}^{b \times d}
+$$\boxed{
+B_\ell^{(k)} = \mathbf{1}\left(H_\ell^{(k)} > \tau\right), \quad B_\ell^{(k)} \in \{0, 1\}^{b \times d}}
 $$
 
 This binary representation enables bitwise comparison to trace **semantic drift** in LLMs, akin to tracking mutation in biological systems.
@@ -105,55 +105,36 @@ which serves as an interpretable neural genotype divergence score.
 
 <img src="{{ 'assets/gifs/neural_genomics/nhd_classical_vs_neural.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
 
-<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  <strong>Figure 2:</strong> <strong>Illustrating Classical vs Neural Hamming Distance (nHD)</strong>
-</p>
+<div style="text-align: justify; font-size: 0.9em;">
 
-<div style="text-align: justify; font-size: 0.95em; line-height: 1.5;">
-  <strong>Left:</strong> The classical Hamming Distance counts the number of positions (loci) at which the corresponding symbols 
-  (e.g., nucleotides, bits) differ between two or more sequences. Here, the offspring differs from both parents at two loci.
+{% capture figure_caption %}
+**Extending classical Hamming Distance to neural manifolds.**  
+**Left:** The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).  
+**Right:** The **Neural Hamming Distance (nHD)** applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer \( \ell \) is marked if \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| > \delta \) and \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta \), indicating deviation from both parents.  
+nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving as an interpretable *neural genotype divergence score*.
+{% endcapture %}
+
 </div>
-
-<div style="text-align: justify; font-size: 0.95em; line-height: 1.5; margin-top: 1em;">
-  <strong>Right:</strong> The Neural Hamming Distance (nHD) adapts this logic to the geometric setting of foundation models. 
-  At each layer \( \ell \) in the ÆTHER manifold, we compare the latent vector \( \mathbf{o}_\ell \) of the offspring against 
-  those of the parents \( \mathbf{p}_\ell^1 \) and \( \mathbf{p}_\ell^2 \). A binary indicator is activated if 
-  \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| > \delta \) and 
-  \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta \), indicating significant divergence from both parents at that layer. 
-  nHD is the count of such activations across layers (e.g., Layer 21, 21, and 30 in the figure). 
-  This abstraction preserves the spirit of classical Hamming metrics while adapting to continuous, high-dimensional neural representations.
-</div>
-
-<p style="text-align: justify; font-size: 0.9em; margin-top: 1.5em;">
-  which serves as an interpretable <em>neural genotype divergence score</em>.
-</p>
 
 <img src="{{ 'assets/gifs/neural_genomics/ngdi_layerwise_fusion.png' | relative_url }}" style="width: 100%; max-width: 600px; display: block; margin: auto; margin-top: 2em;" />
 
-<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  <strong>Figure 3:</strong> <strong>Neural Genetic Dissimilarity in Layer-wise Fusion</strong>
-</p>
 
-<p style="text-align: justify; font-size: 0.9em; margin-top: 1em;">
-  Each row represents a transformer layer (\( \ell = 20 \) to \( 30 \)), and each column corresponds to a latent dimension 
-  in the ÆTHER alignment space. <strong>Blue</strong> circles indicate features inherited from Parent 1, <strong>yellow</strong> from Parent 2, and <strong>red</strong> circles 
-  mark divergent features not matching either parent.
-</p>
+<div style="text-align: justify; font-size: 0.9em;">
 
-<p style="text-align: justify; font-size: 0.9em;">
-  This visualization forms the input to the Neural Genetic Dissimilarity Index (nGDI), computed as:
-</p>
+{% capture figure_caption %}
+**Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion.**  
+Each row denotes a transformer layer (\( \ell = 20\text{--}30 \)), columns represent latent dimensions in the ÆTHER alignment space.  
+**Blue** features are inherited from Parent 1, **yellow** from Parent 2, and **red** mark divergences from both.  
+These form the basis of the **Neural Genetic Dissimilarity Index (nGDI)**:  
+$$
+\text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
+$$  
+where \( d(o, p_i) \) is offspring–parent distance and \( \cos(p_1, p_2) \) measures inter-parental alignment.  
+Higher nGDI signals greater semantic drift and asymmetric inheritance.
+{% endcapture %}
 
-<div style="text-align: center; font-size: 0.9em; margin: 1em 0;">
-  $$
-  \text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
-  $$
 </div>
 
-<p style="text-align: justify; font-size: 0.9em;">
-  where \( d(o, p_i) \) denotes the distance between the offspring and parent \( i \), and 
-  \( \cos(p_1, p_2) \) measures inter-parental alignment similarity. A higher nGDI reflects greater semantic drift and directional bias in fusion.
-</p>
 
 
 Within the broader Neural DNA (nDNA) framework, nHD acts as a discrete mutation signature metric complementing continuous geometric measures such as spectral curvature (nGDI) and latent radius (nTDS).
@@ -165,12 +146,12 @@ By analyzing layerwise nHD trajectories, we can enable:
 - **Targeted interventions**: Identifying layers for pruning or bias realignment  
 
 
-## 14.2 Interpretation and Implications
+## Interpretation and Implications
 
 nHD operates on the Hamming hypercube \\( \\mathcal{H}^{b \\cdot d} \\), where each vertex is a binarized neural state. Its layerwise definition:
 
-$$
-\text{nHD}_\ell(\mathcal{M}_1, \mathcal{M}_2) = \frac{1}{bd} \sum_{i=1}^{b} \sum_{j=1}^{d} \mathbf{1}\left[B^{(1)}_{\ell,ij} \neq B^{(2)}_{\ell,ij}\right]
+$$\boxed{
+\text{nHD}_\ell(\mathcal{M}_1, \mathcal{M}_2) = \frac{1}{bd} \sum_{i=1}^{b} \sum_{j=1}^{d} \mathbf{1}\left[B^{(1)}_{\ell,ij} \neq B^{(2)}_{\ell,ij}\right]}
 $$
 
 The mutation process can be modeled as a stochastic transition on \\( \\mathcal{H}^{b \\cdot d} \\). For bit-flip probabilities \\( p_m \\), the transition probability from state \\( x \\rightarrow y \\) is:
