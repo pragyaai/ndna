@@ -5,7 +5,7 @@ permalink: /llm/neural-genomics/nHD/
 skip_title: True
 mathjax: True
 ---
-{% include ndna-title.liquid title="nHD - Neural Hamming Distance" %}
+{% include ndna-title.liquid title="nDNA Lens -- Neural Hamming Distance(nHD)" %}
 <script type="text/javascript" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
@@ -58,7 +58,7 @@ This enables fine-grained, interpretable monitoring of semantic divergence in mo
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="assets/gifs/neural_genomics/nhd_graphical_genotyping.png"
+   image_path="neural_genomics/nhd_graphical_genotyping.png"
    caption=figure_caption
    alt_text="Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):" %}
 
@@ -103,10 +103,6 @@ $$
 which serves as an interpretable neural genotype divergence score.
 
 
-<img src="{{ 'assets/gifs/neural_genomics/nhd_classical_vs_neural.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
-
-<div style="text-align: justify; font-size: 0.9em;">
-
 {% capture figure_caption %}
 **Extending classical Hamming Distance to neural manifolds.**  
 **Left:** The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).  
@@ -114,12 +110,13 @@ which serves as an interpretable neural genotype divergence score.
 nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving as an interpretable *neural genotype divergence score*.
 {% endcapture %}
 
+{% include visualization.liquid 
+   image_path="neural_genomics/nhd_classical_vs_neural.png"
+   caption=figure_caption
+   alt_text="Illustrating Classical vs Neural Hamming Distance (nHD):" %}
+
 </div>
 
-<img src="{{ 'assets/gifs/neural_genomics/ngdi_layerwise_fusion.png' | relative_url }}" style="width: 100%; max-width: 600px; display: block; margin: auto; margin-top: 2em;" />
-
-
-<div style="text-align: justify; font-size: 0.9em;">
 
 {% capture figure_caption %}
 **Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion.**  
@@ -133,7 +130,11 @@ where \( d(o, p_i) \) is offspring–parent distance and \( \cos(p_1, p_2) \) me
 Higher nGDI signals greater semantic drift and asymmetric inheritance.
 {% endcapture %}
 
-</div>
+{% include visualization.liquid 
+   image_path="neural_genomics/ngdi_layerwise_fusion.png"
+   caption=figure_caption
+   alt_text="Neural Genetic Dissimilarity in Layer-wise Fusion" %}
+
 
 
 
