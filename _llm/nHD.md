@@ -105,8 +105,8 @@ which serves as an interpretable neural genotype divergence score.
 
 {% capture figure_caption %}
 **Extending classical Hamming Distance to neural manifolds.**  
-**Left:** The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).  
-**Right:** The **Neural Hamming Distance (nHD)** applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer \( \ell \) is marked if \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| > \delta \) and \( \|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta \), indicating deviation from both parents.  
+**Left:** The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).
+**Right:** The **Neural Hamming Distance (nHD)** applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer $\ell$ is marked if $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| > \delta$$ and  $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta $$, indicating deviation from both parents.  
 nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving as an interpretable *neural genotype divergence score*.
 {% endcapture %}
 
@@ -115,18 +115,17 @@ nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving 
    caption=figure_caption
    alt_text="Illustrating Classical vs Neural Hamming Distance (nHD):" %}
 
-</div>
 
 
 {% capture figure_caption %}
 **Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion.**  
-Each row denotes a transformer layer (\( \ell = 20\text{--}30 \)), columns represent latent dimensions in the ÆTHER alignment space.  
+Each row denotes a transformer layer $$( \ell = 20\text{--}30 \)$$, columns represent latent dimensions in the ÆTHER alignment space.  
 **Blue** features are inherited from Parent 1, **yellow** from Parent 2, and **red** mark divergences from both.  
 These form the basis of the **Neural Genetic Dissimilarity Index (nGDI)**:  
 $$
 \text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
 $$  
-where \( d(o, p_i) \) is offspring–parent distance and \( \cos(p_1, p_2) \) measures inter-parental alignment.  
+where  $d(o, p_i) \$ is offspring–parent distance and $\cos(p_1, p_2)$ measures inter-parental alignment.  
 Higher nGDI signals greater semantic drift and asymmetric inheritance.
 {% endcapture %}
 
@@ -176,7 +175,7 @@ $$
 This vector reveals mutation hotspots and informs alignment strategies.
 
 
-## 14.3 Applications and Mathematical Insights
+## Applications and Mathematical Insights
 
 ### Discrete Geometry
 
@@ -204,8 +203,8 @@ $$
 
 To reduce fusion conflict, optimize weights \\( w_\\ell \\in [0,1] \\):
 
-$$
-\min_{w} \sum_{\ell=1}^{L} w_\ell \left(\text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_A) + \text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_B)\right)
+$$\boxed{
+\min_{w} \sum_{\ell=1}^{L} w_\ell \left(\text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_A) + \text{nHD}_\ell(\mathcal{M}_F, \mathcal{M}_B)\right)}
 $$
 
 ### Robustness and Bias Monitoring
@@ -217,7 +216,7 @@ $$
 $$
 
 
-## 14.4 Case Study and Validation
+## Case Study and Validation
 
 - nHD is validated by comparing models trained on culturally distinct corpora (e.g., European vs Asian).
 - Mutation hotspots are typically in intermediate-to-deep layers, correlating with abstract, cultural features.
@@ -246,7 +245,7 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   </div>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0;">
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 30px 0;">
 
 <!-- (1) Africa–Asia -->
 <div style="text-align: center;">
