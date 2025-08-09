@@ -9,10 +9,6 @@
   <link rel="stylesheet" href="/nDNA/assets/css/main.css">
   <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
   
-    
-      <link rel="stylesheet" href="/nDNA/assets/css/15_llms.css">
-    
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
   /* Improve math readability and mobile responsiveness */
@@ -68,17 +64,15 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="15 LLMs" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The -- Cultural Biases Across 15 Foundation Models" />
-<meta property="og:description" content="The -- Cultural Biases Across 15 Foundation Models" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/15-llms/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/15-llms/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-09T14:48:28+00:00" />
+<meta property="article:published_time" content="2025-08-09T17:37:24+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="15 LLMs" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T14:48:28+00:00","datePublished":"2025-08-09T14:48:28+00:00","description":"The -- Cultural Biases Across 15 Foundation Models","headline":"15 LLMs","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/15-llms/"},"url":"https://pragyaai.github.io/nDNA/llm/15-llms/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T17:37:24+00:00","datePublished":"2025-08-09T17:37:24+00:00","headline":"15 LLMs","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/15-llms/"},"url":"https://pragyaai.github.io/nDNA/llm/15-llms/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -117,10 +111,14 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
-        
+        <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<link rel="stylesheet" href="/nDNA/assets/css/15_llms.css" />
+
 <h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
   <span class="page-title-ndna">The<img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
-  <span>-- Cultural Biases Across 15 Foundation Models</span>
+  <span>-- Cartography Across 15 Foundation Models</span>
 </h1>
 
 <p>To chart the latent genomic landscape of modern foundation models, we choose a representative suite of large language models (LLMs) spanning diverse architectural paradigms, parameter scales, training objectives, and alignment methodologies. Our selection includes:</p>
@@ -170,252 +168,415 @@ As shown by the below table from the previous module, this latent geometry is no
 
 <figure id="fig:ndna_families" style="text-align: center; margin: 2em 0;">
 
-   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0;">
+  <!-- Row 1: LLaMA -->
+  <div style="margin-bottom: 2em;">
+    
 
-   
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="/nDNA/assets/gifs/15_llms/llama.gif" data-lightbox="gallery" data-title="(a) LLaMA Family">
-    <img src="/nDNA/assets/gifs/15_llms/llama.gif" alt="(a) LLaMA Family" style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/llama.gif" data-lightbox="gallery" data-title="(a) LLaMA Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/llama.gif" alt="(a) LLaMA Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/llama.html" title="(a) LLaMA Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(a) LLaMA Family</strong>
      <p>The <em>latent genomic trajectory</em> of <strong>LLaMA-3 Instruct</strong> displays pronounced <strong>spectral curvature</strong> rising from \(\kappa_\ell \approx 0.05\) at mid-depth to peaks of \(\kappa_\ell \approx 0.12\) in upper layers (\(\ell \geq 24\)), alongside heightened <strong>thermodynamic length</strong> increasing from \(\mathcal{L}_\ell \approx 0.8\) to \(\mathcal{L}_\ell \approx 1.3\). This pattern reflects zones of <em>epistemic strain</em> where alignment tuning reshapes internal belief geometry. By contrast, <strong>LLaMA-2</strong> and base variants maintain smoother trajectories, with \(\kappa_\ell &lt; 0.04\) and \(\mathcal{L}_\ell &lt; 1.0\), preserving the stability of their pretrained semantic manifold.</p>
 
   </figcaption>
+
   
+
+  <!-- Button below caption -->
   
-  
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/15_llms/llama.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/llama.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   
+
 </figure>
 
+  </div>
 
-   
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="/nDNA/assets/gifs/15_llms/gemma.gif" data-lightbox="gallery" data-title="(b) Gemma Family">
-    <img src="/nDNA/assets/gifs/15_llms/gemma.gif" alt="(b) Gemma Family" style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+  <!-- Row 2: Gemma -->
+  <div style="margin-bottom: 2em;">
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/gemma.gif" data-lightbox="gallery" data-title="(b) Gemma Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/gemma.gif" alt="(b) Gemma Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/gemma.html" title="(b) Gemma Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(b) Gemma Family</strong>
      <p><strong>Gemma Instruct</strong> exhibits a noticeable transition in its latent geometry: prior to \(\ell=25\), the <strong>spectral curvature</strong> stays moderate at \(\kappa_\ell \approx 0.05\), but beyond this point it spikes by 25% to \(\kappa_\ell \approx 0.065\). Similarly, the <strong>thermodynamic length</strong> rises from \(\mathcal{L}_\ell \approx 1.1\) to peak near \(\mathcal{L}_\ell \approx 1.4\) in the terminal layers. These shifts signal zones of <em>belief reconfiguration</em> where instruction tuning imposes substantial internal adaptation. By contrast, the base variant retains a flatter latent trajectory (\(\kappa_\ell &lt; 0.04\), \(\mathcal{L}_\ell &lt; 1.0\)), reflecting preservation of pretrained semantic structure.</p>
 
   </figcaption>
+
   
+
+  <!-- Button below caption -->
   
-  
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/15_llms/gemma.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/gemma.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   
+
 </figure>
 
+  </div>
 
-   </div>
+  <!-- Row 3: Mistral -->
+  <div style="margin-bottom: 2em;">
+    
 
-   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0;">
 
-   
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="/nDNA/assets/gifs/15_llms/mistral.gif" data-lightbox="gallery" data-title="(c) Mistral Family">
-    <img src="/nDNA/assets/gifs/15_llms/mistral.gif" alt="(c) Mistral Family" style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/mistral.gif" data-lightbox="gallery" data-title="(c) Mistral Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/mistral.gif" alt="(c) Mistral Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/mistral.html" title="(c) Mistral Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(c) Mistral Family</strong>
      <p>The <strong>Mixtral Expert</strong> model exhibits markedly elevated <strong>spectral curvature</strong>, rising from \(\kappa_\ell \approx 0.05\) in mid layers to peaks near \(\kappa_\ell \approx 0.10\) in routing-active regions (\(\ell \geq 22\)), accompanied by heightened <strong>thermodynamic length</strong> increasing from \(\mathcal{L}_\ell \approx 0.9\) to \(\mathcal{L}_\ell &gt; 1.1\). These patterns reflect latent specialization driven by <em>expert routing</em>, where different experts selectively reorient and compress pathways in latent space–partitioning conceptual flow and tailoring knowledge representation for efficiency and task-specific precision.</p>
 
   </figcaption>
+
   
+
+  <!-- Button below caption -->
   
-  
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/15_llms/mistral.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/mistral.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   
+
 </figure>
 
+  </div>
 
-   
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="/nDNA/assets/gifs/15_llms/deepseek.gif" data-lightbox="gallery" data-title="(d) Deepseek Family">
-    <img src="/nDNA/assets/gifs/15_llms/deepseek.gif" alt="(d) Deepseek Family" style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+  <!-- Row 4: Deepseek -->
+  <div style="margin-bottom: 2em;">
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/deepseek.gif" data-lightbox="gallery" data-title="(d) Deepseek Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/deepseek.gif" alt="(d) Deepseek Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/deepseek.html" title="(d) Deepseek Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(d) Deepseek Family</strong>
      <p>The <strong>Deepseek Chat</strong> variant reveals a steep thermodynamic gradient, with <strong>thermodynamic length</strong> \(\mathcal{L}_\ell\) increasing from approximately \(0.7\) in mid layers to peaks beyond \(\mathcal{L}_\ell = 1.3\) in upper decoder layers (\(\ell \geq 26\)). <strong>Spectral curvature</strong> remains moderate (\(\kappa_\ell \leq 0.06\)), indicating that while internal pathways bend gently, the model expends significant <em>epistemic effort</em> to reconcile safety constraints and dialog alignment–reshaping latent beliefs without drastic geometric reorientation.</p>
 
   </figcaption>
+
   
+
+  <!-- Button below caption -->
   
-  
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/15_llms/deepseek.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/deepseek.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   
+
 </figure>
 
+  </div>
 
-   </div>
+  <!-- Row 5: Qwen -->
+  <div style="margin-bottom: 2em;">
+    
 
-   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0;">
 
-   
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="/nDNA/assets/gifs/15_llms/qwen.gif" data-lightbox="gallery" data-title="(e) Qwen Family">
-    <img src="/nDNA/assets/gifs/15_llms/qwen.gif" alt="(e) Qwen Family" style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/qwen.gif" data-lightbox="gallery" data-title="(e) Qwen Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/qwen.gif" alt="(e) Qwen Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/qwen.html" title="(e) Qwen Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(e) Qwen Family</strong>
      <p>Both base and instruct-tuned <strong>Qwen models</strong> display pronounced latent reorganization, with <strong>spectral curvature</strong> \(\kappa_\ell\) frequently exceeding \(0.1\) in upper layers (\(\ell \geq 25\)) and <strong>thermodynamic length</strong> \(\mathcal{L}_\ell\) sustaining elevated levels above \(1.2\) throughout the final decoder blocks. This indicates zones of heightened <em>semantic strain</em>, where the models reconcile multilingual priors with alignment objectives, and areas of <em>ideological absorption</em>, where latent geometry bends under competing cultural and task demands.</p>
 
   </figcaption>
+
   
+
+  <!-- Button below caption -->
   
-  
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/15_llms/qwen.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/qwen.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   
+
 </figure>
 
+  </div>
 
-   
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="/nDNA/assets/gifs/15_llms/others.gif" data-lightbox="gallery" data-title="(f) Other Models">
-    <img src="/nDNA/assets/gifs/15_llms/others.gif" alt="(f) Other Models" style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+  <!-- Row 6: Others -->
+  <div style="margin-bottom: 2em;">
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/others.gif" data-lightbox="gallery" data-title="(f) Other Models" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/others.gif" alt="(f) Other Models" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/others.html" title="(f) Other Models - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(f) Other Models</strong>
      <p><strong>Falcon</strong>, <strong>GPT-NeoX</strong>, <strong>Phi-2</strong>, and <strong>TinyLLaMA</strong> exhibit notably flatter latent trajectories, with <strong>spectral curvature</strong> \(\kappa_\ell\) remaining below \(0.03\) and <strong>thermodynamic length</strong> \(\mathcal{L}_\ell\) consistently under \(0.9\) across layers. This smooth geometry reflects models that largely preserve their pretrained belief structures, undergoing minimal latent reorientation. Such patterns suggest simpler alignment or fine-tuning histories and more conservative design choices that favor stability over aggressive semantic adaptation.</p>
 
   </figcaption>
+
   
+
+  <!-- Button below caption -->
   
-  
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/15_llms/others.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/others.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   
+
 </figure>
 
+  </div>
 
-   </div>
+  <!-- Final combined / all -->
+  <div style="margin-bottom: 2em;">
+    
 
-   
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="/nDNA/assets/gifs/15_llms/all.gif" data-lightbox="gallery" data-title="">
-    <img src="/nDNA/assets/gifs/15_llms/all.gif" alt="" style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/all.gif" data-lightbox="gallery" data-title="" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/all.gif" alt="" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/all.html" title=" - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong></strong>
      
 
   </figcaption>
+
   
+
+  <!-- Button below caption -->
   
-  
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="/nDNA/assets/html_plots/15_llms/all.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/all.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   
+
 </figure>
 
+  </div>
 
-<figcaption style="margin-top: 12px; font-size: 1.1em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
-   <b>Figure 1: (g) nDNA Landscape across 15 Foundation Models.</b> The composite visualization reveals striking <b>family-level clustering</b> in spectral-thermodynamic space, mapping how foundation models diverge in their latent genomic architecture. <b>High-strain models</b>--notably <b>Qwen</b> and <b>Mixtral</b>--consistently exhibit <b>spectral curvature</b> <i>κ<sub>ℓ</sub></i> exceeding 0.1 and <b>thermodynamic length</b> <i>L<sub>ℓ</sub></i> rising beyond 1.2 in upper decoder layers (<i>ℓ</i> ≥ 24). These profiles reflect aggressive latent reorganization driven by multilingual pretraining, expert routing, and intensive alignment adaptation--zones of <em>semantic strain</em>, <em>conceptual shock</em>, and <em>ideological absorption</em>. In contrast, <b>low-strain models</b> such as <b>Falcon</b>, <b>TinyLLaMA</b>, and <b>GPT-NeoX</b> form a distinct cluster where <i>κ<sub>ℓ</sub></i> &lt; 0.03 and <i>L<sub>ℓ</sub></i> &lt; 0.9, indicating smoother latent pathways that preserve pretrained epistemic structure with minimal reorientation. <b>LLaMA-3 Instruct</b>, <b>Gemma Instruct</b>, and <b>Deepseek Chat</b> occupy an intermediate zone--showing moderate curvature spikes (<i>κ<sub>ℓ</sub></i> peaking near 0.08) and thermodynamic gradients (<i>L<sub>ℓ</sub></i> up to 1.1)--highlighting selective reconfiguration in response to alignment and instruction tuning. This landscape provides a <em>geometric map of neural ancestry and adaptation</em>, illuminating inherited traits, semantic mutations, and the latent genomic signatures that distinguish foundation model families.
-</figcaption>
+  <figcaption style="margin-top: 12px; font-size: 1.1em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
+     <b>Figure 1: (g) nDNA Landscape across 15 Foundation Models.</b> The composite visualization reveals striking <b>family-level clustering</b> in spectral-thermodynamic space, mapping how foundation models diverge in their latent genomic architecture. <b>High-strain models</b>--notably <b>Qwen</b> and <b>Mixtral</b>--consistently exhibit <b>spectral curvature</b> <i>κ<sub>ℓ</sub></i> exceeding 0.1 and <b>thermodynamic length</b> <i>L<sub>ℓ</sub></i> rising beyond 1.2 in upper decoder layers (<i>ℓ</i> ≥ 24). These profiles reflect aggressive latent reorganization driven by multilingual pretraining, expert routing, and intensive alignment adaptation--zones of <em>semantic strain</em>, <em>conceptual shock</em>, and <em>ideological absorption</em>. In contrast, <b>low-strain models</b> such as <b>Falcon</b>, <b>TinyLLaMA</b>, and <b>GPT-NeoX</b> form a distinct cluster where <i>κ<sub>ℓ</sub></i> &lt; 0.03 and <i>L<sub>ℓ</sub></i> &lt; 0.9, indicating smoother latent pathways that preserve pretrained epistemic structure with minimal reorientation. <b>LLaMA-3 Instruct</b>, <b>Gemma Instruct</b>, and <b>Deepseek Chat</b> occupy an intermediate zone--showing moderate curvature spikes (<i>κ<sub>ℓ</sub></i> peaking near 0.08) and thermodynamic gradients (<i>L<sub>ℓ</sub></i> up to 1.1)--highlighting selective reconfiguration in response to alignment and instruction tuning. This landscape provides a <em>geometric map of neural ancestry and adaptation</em>, illuminating inherited traits, semantic mutations, and the latent genomic signatures that distinguish foundation model families.
+  </figcaption>
 </figure>
 
 <hr />
@@ -491,7 +652,6 @@ As shown by the below table from the previous module, this latent geometry is no
 </ul>
 
 <p>These are phenomena we rigorously map in the sections that follow, each tied to distinctive nDNA signatures visible only when these three axes are combined.</p>
-
 <blockquote>
   <h3 id="why-not-more-metrics-why-not-fewer">Why not more metrics? Why not fewer?</h3>
 
