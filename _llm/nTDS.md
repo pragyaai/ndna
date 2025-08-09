@@ -255,7 +255,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Africa_Asia_nTDS_rotating_with_offspring.gif"
-      interactive_html="nTDS/Africa_Asia_nTDS_interactive_rect_bars.html
+      interactive_html="nTDS/Africa_Asia_nTDS_interactive_rect_bars.html"
       title="(I) Africa–Asia Trait Dominance"
       caption="The Neural Trait Dominance Score (nTDS) reveals a layer-wise shift in dominance from Africa to Asia. Early layers (20–23) show stronger dominance by Africa (nTDS close to 1.0), reflecting more foundational semantic traits inherited from the African lineage. Mid-layers (24–27) display a transition zone, with nTDS scores trending toward 0.5, indicating balanced trait blending. Late layers (28–30) exhibit dominance by Asia (nTDS near 0), suggesting higher-level abstraction and stylistic features originating from Asian traits. This pattern resembles epigenetic regulation in biology where certain traits activate or suppress at distinct developmental stages."
       style="flex: 1;" 
@@ -263,6 +263,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
   
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Africa_China_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Africa_China_nTDS_interactive_rect_bars.html"
       title="(II) Africa–China Trait Dominance"
       caption="The dominance visualization shows pronounced episodic fluctuations in nTDS across layers. Africa dominates the earliest layers (20–22), but a marked oscillation emerges mid-way, reflecting competitive trait inheritance dynamics. The dominance score dips sharply toward China dominance between layers 23–26 (nTDS near 0), followed by a rebound in African dominance at layer 27. Late layers (28–30) balance near an nTDS of approximately 0.5, suggesting harmonized trait fusion. The vertical bars amplitudes indicate variance in semantic inheritance strength, analogous to gene expression bursts influenced by environmental or regulatory factors."
       style="flex: 1;"
