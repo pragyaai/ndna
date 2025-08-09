@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-09T06:17:56+00:00" />
+<meta property="article:published_time" content="2025-08-09T06:33:02+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Genetic Dissimilarity Index(nGDI)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T06:17:56+00:00","datePublished":"2025-08-09T06:17:56+00:00","description":"Lens - nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T06:33:02+00:00","datePublished":"2025-08-09T06:33:02+00:00","description":"Lens - nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -439,11 +439,15 @@ See Nei’s Genetic Distance on Wikipedia for foundational background.</p>
   </div>
 </div>
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nGDI/all.gif" data-lightbox="gallery" data-title="">
-    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nGDI/all.gif" alt="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/nGDI/all.gif';" />
+<figure style="text-align: center; margin: 1.5em 0; position: relative;">
+  <a href="/nDNA/assets/gifs/neural_genomics/nGDI/all.gif" data-lightbox="gallery" data-title="">
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/all.gif" alt="" style="max-width: 100%; height: 600px; object-fit: contain;
+                border-radius: 8px; background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
   </a>
-  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
+                     color: #555; max-width: 800px; margin-left: auto;
+                     margin-right: auto; text-align: left;">
     
      
 <p><strong>3D Neural Genetic Dissimilarity Index (d<sub>ℓ</sub><sup>nGDI</sup>) Trajectories Comparing Fine-Tuned Models Against the LLaMA Base Model.</strong><br />
@@ -471,39 +475,22 @@ This formalism captures <em>multi-layered integration</em>, <em>selective semant
 
   </figcaption>
   
-</figure>
-
-<div class="interactive-plot-container" style="width: 100%; margin: auto; margin-top: 20px;">
-  <iframe src="/nDNA/assets/html_plots/neural_genomics/nGDI/combined_cultural_trajectories_nGDI.html" style="width: 100%; height: 600px; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-  </iframe>
-</div>
-<div class="interactive-plot-caption">
   
-   
-<p><strong>3D Neural Genetic Dissimilarity Index (d<sub>ℓ</sub><sup>nGDI</sup>) Trajectories Comparing Fine-Tuned Models Against the LLaMA Base Model.</strong><br />
-For each transformer layer ℓ ∈ {20, . . . , 30}, the metric d<sub>ℓ</sub><sup>nGDI</sup> quantifies <em>latent semantic genetic divergence</em> relative to the base model.<br />
-The colored curves represent <em>culturally fine-tuned model trajectories</em>, while the black dashed curve denotes the <em>LLaMA base reference</em>.<br />
-<em>Line thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup></em>, highlighting layers with maximal representational shifts.</p>
-
-<p><strong>Mathematical Context:</strong><br />
-The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> is formally defined as a <em>layerwise divergence metric</em> in latent space measuring the <em>geodesic</em> or <em>information-theoretic distance</em> between the cultural fine-tuned model’s and base model’s manifold embeddings (312; 319).<br />
-This provides a rigorous geometric quantification of <em>semantic drift</em> across deep model layers.</p>
-
-<p><strong>Biological Analogy:</strong><br />
-Analogous to <em>genetic mutation hotspots</em> in biological DNA recombination <a href="#ref5">[5]</a>, the layerwise variation in d<sub>ℓ</sub><sup>nGDI</sup> reveals <em>critical neural depths</em> where semantic realignment, adaptation, and cultural imprinting occur.<br />
-Models such as Africa and Middle East exhibit pronounced divergence, indicating <em>region-specific evolutionary adaptations</em>, while North America’s low divergence suggests <em>semantic stability</em> and close affinity to ancestral priors.</p>
-
-<p><strong>Mathematical Takeaway:</strong><br />
-The offspring latent manifold at layer ℓ can be modeled as a nonlinear fusion of parental manifolds:</p>
-
-<div style="text-align: center; background-color: #f8f9fa; padding: 1em; border: 1px solid #ddd; margin: 1em 0;">
-<strong>M<sub>offspring</sub><sup>(ℓ)</sup> = α<sup>(ℓ)</sup>M<sub>A</sub><sup>(ℓ)</sup> + (1 − α<sup>(ℓ)</sup>)M<sub>B</sub><sup>(ℓ)</sup> + ε<sup>(ℓ)</sup></strong>
-</div>
-
-<p>where α<sup>(ℓ)</sup> ∈ [0, 1] denotes the <em>layer-dependent semantic dominance coefficient</em>, dynamically modulating parental influence, and ε<sup>(ℓ)</sup> captures <em>emergent nonlinear geometry</em> beyond linear interpolation.<br />
-This formalism captures <em>multi-layered integration</em>, <em>selective semantic imprinting</em>, and <em>complex evolutionary dynamics</em> in transformer latent spaces, providing a principled framework for interpreting <em>cultural neural DNA fusion</em> and semantic innovation in multilingual AI systems.</p>
-
-</div>
+  
+    <div style="margin-top: 1em; text-align: center;">
+      <a href="/nDNA/assets/html_plots/nGDI/combined_cultural_trajectories_nGDI.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+        <button style="display: inline-block; padding: 10px 20px;
+                       font-size: 0.875rem; font-weight: 500;
+                       color: #fff; background: #000;
+                       border: none; border-radius: 8px;
+                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+                       cursor: pointer; transition: transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';" onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+</figure>
 
 <hr />
 
