@@ -5,7 +5,6 @@ permalink: /llm/neural-genomics/nTDS/
 skip_title: True
 mathjax: True
 ---
-
 {% include ndna-title.liquid title="nDNA Lens - nTDS: Neural Trait Dominance Score" %}
 
 <script type="text/javascript" async
