@@ -5,8 +5,7 @@ permalink: /llm/neural-genomics/nGDI/
 skip_title: True
 mathjax: True
 ---
-
-# nGDI: Genetic Drift in Embedding Populations
+{% include ndna-title.liquid title="nDNA Lens - nGDI: Genetic Drift in Embedding Populations" %}
 
 As artificial intelligence continues to expand its reach across culturally diverse environments, foundation models trained or fine-tuned on heterogeneous datasets manifest complex semantic evolutions.
 
@@ -75,7 +74,7 @@ See Nei's Genetic Distance on Wikipedia for foundational background.
    alt_text="Nei's Genetic Distance Heatmap Among Worldwide Human Populations" %}
 
 
-The Maximum Mean Discrepancy (MMD) (% cite gretton2012kernel %) between these distributions is the RKHS norm:
+The Maximum Mean Discrepancy (MMD) {% cite gretton2012kernel %} between these distributions is the RKHS norm:
 
 $$\text{MMD}^2\left(P_\ell^{(A)}, P_\ell^{(B)}\right) = \left\|\mu_\ell^{(A)} - \mu_\ell^{(B)}\right\|_{\mathcal{H}}^2$$
 
@@ -244,7 +243,7 @@ decomposes semantic variation into eigenfunctions $\{\phi_i\}$ and eigenvalues $
 
 The layerwise metric
 
-$$\text{nGDI}_\ell = \alpha \cdot \text{MMD}(P_\ell^{(A)}, P_\ell^{(B)}) + (1 - \alpha) \cdot d_{FR}(\theta_A, \theta_B)$$
+$$\boxed{\text{nGDI}_\ell = \alpha \cdot \text{MMD}(P_\ell^{(A)}, P_\ell^{(B)}) + (1 - \alpha) \cdot d_{FR}(\theta_A, \theta_B)}$$
 
 guides targeted interventions on layers with maximal semantic drift, supporting geometry-aware regularization, manifold alignment, and selective parameter adaptation, enhancing robustness, fairness, and semantic coherence.
 
@@ -351,6 +350,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
 
 {% include visualization.liquid 
    image_path="neural_genomics/nGDI/all.gif"
+   interactive_html="neural_genomics/nGDI/combined_cultural_trajectories_nGDI.html"
    caption=figure_caption
    alt_text="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories" %}
 

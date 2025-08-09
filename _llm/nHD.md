@@ -5,7 +5,7 @@ permalink: /llm/neural-genomics/nHD/
 skip_title: True
 mathjax: True
 ---
-{% include ndna-title.liquid title="nDNA Lens -- Neural Hamming Distance(nHD)" %}
+{% include ndna-title.liquid title="nDNA Lens - Neural Hamming Distance(nHD)" %}
 <script type="text/javascript" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
