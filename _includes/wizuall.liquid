@@ -1,87 +1,79 @@
-{% if include.caption %}
-<figure style="text-align: center; margin: 1.5em 0; position: relative;">
-  <a href="{{ '/assets/gifs/' | append: include.image_path | relative_url }}"
-     data-lightbox="gallery"
-     data-title="{{ include.title }}">
-    <img src="{{ '/assets/gifs/' | append: include.image_path | relative_url }}"
-         alt="{{ include.title }}"
-         style="max-width: 100%; height: 600px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-  </a>
-  <figcaption style="margin-top: 12px; font-size: 0.9em; line-height: 1.4;
-                     color: #555; max-width: 800px; margin-left: auto;
-                     margin-right: auto; text-align: left;">
+{% comment %}
+wizuall.liquid
+- Renders GIF left, interactive HTML right (if provided).
+- Single shared caption below both (preserves caption text unchanged).
+- Interactive button below caption that opens the HTML in a new tab.
+- Responsive: stacks on narrow screens.
+- Params used: image_path, interactive_html, title, caption, metrics
+{% endcomment %}
+
+{% assign gif_src = '/assets/gifs/' | append: include.image_path | relative_url %}
+{% if include.interactive_html %}
+  {% assign html_src = '/assets/html_plots/' | append: include.interactive_html | relative_url %}
+{% endif %}
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    {% if include.interactive_html and include.interactive_html != "" %}
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="{{ gif_src }}"
+               alt="{{ include.title }}"
+               style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe
+            src="{{ html_src }}"
+            title="{{ include.title }} - Interactive"
+            style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          ></iframe>
+        </div>
+      </div>
+
+    {% else %}
+      <!-- Only GIF (no interactive HTML provided) -->
+      <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" style="display:block; overflow:hidden; border-radius:8px;">
+        <img src="{{ gif_src }}"
+             alt="{{ include.title }}"
+             style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+      </a>
+    {% endif %}
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     {% if include.title %}<strong>{{ include.title }}</strong>{% endif %}
     {% if include.caption %} {{ include.caption | markdownify }}{% endif %}
   </figcaption>
-  
+
   {% if include.metrics %}
-    <p style="margin-top: 8px; font-size: 0.85em; color: #666;
-              font-style: italic;">
+    <p style="margin-top:8px; font-size:0.85em; color:#666; font-style:italic; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
       {{ include.metrics }}
     </p>
   {% endif %}
-  {% if include.interactive_html %}
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}"
-         target="_blank" rel="noopener noreferrer"
-         style="text-decoration: none;">
-        <button style="display: inline-block; padding: 10px 20px;
-                       font-size: 0.875rem; font-weight: 500;
-                       color: #fff; background: #000;
-                       border: none; border-radius: 8px;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-                       cursor: pointer; transition: transform .2s ease;"
-                onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';"
-                onmouseout="this.style.transform='scale(1)'; this.style.background='#000';">
+
+  <!-- Button below caption -->
+  {% if include.interactive_html and include.interactive_html != "" %}
+    <div style="margin-top:1em; text-align:center;">
+      <a href="{{ html_src }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
       </a>
     </div>
   {% endif %}
+
 </figure>
-{% else %}
-<div style="text-align: center;">
-  <a href="{{ '/assets/gifs/' | append: include.gif_url | relative_url }}"
-     data-lightbox="gallery"
-     data-title="{{ include.title }}">
-    <img src="{{ '/assets/gifs/' | append: include.gif_url | relative_url }}"
-         alt="{{ include.title }} Cultural nDNA Rotation"
-         style="width: 100%; height: 300px; object-fit: contain;
-                border-radius: 8px; background-color: #fff;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
-  </a>
-  <p style="margin-top: 8px; font-weight: 500;">{{ include.title }}</p>
-  {% if include.metrics %}
-    <p style="margin-top: 4px; font-size: 0.9em; color: #666;">
-      {{ include.metrics }}
-    </p>
-  {% endif %}
-  {% if include.interactive_html %}
-    <div style="margin-top: 1em; text-align: center;">
-      <a href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}"
-        target="_blank" rel="noopener noreferrer"
-        style="text-decoration: none;">
-        <button style="
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #fff;
-            background: #000;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease;
-          "
-          onmouseover="this.style.transform='scale(1.05)'; this.style.background='#333';"
-          onmouseout="this.style.transform='scale(1)'; this.style.background='#000';"
-        >
-          📊 View Interactive Plot
-        </button>
-      </a>
-    </div>
-  {% endif %}
-{% endif %}
