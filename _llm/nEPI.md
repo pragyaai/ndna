@@ -2,9 +2,10 @@
 layout: page
 title: "Neural Epistemic Plasticity Index (nEPI)"
 permalink: /llm/neural-genomics/nEPI/
+skip_title: True
+mathjax: True
 ---
-
-**Epistemic Plasticity Index (nEPI):Quantifying Semantic Adaptability of Foundation Models**
+{% include ndna-title.liquid title="nDNA Lens - Epistemic Plasticity Index (nEPI):Quantifying Semantic Adaptability of Foundation Models" %}
 
 While metrics like **nHD**, **nGDI**, **nTDS**, **nKaryotyping**, and **nDIV** unveil the extent of *semantic divergence*, *representational dominance*, *inheritance patterns*, and *directional biases* in foundation models, the **Epistemic Plasticity Index (nEPI)** uniquely captures the model's capacity for *semantic restructuring* and *memory adaptation*. It reveals how internal latent representations dynamically evolve during *alignment* or *instruction tuning*--analogous to biological *synaptic plasticity* underlying learning and memory formation--thus reflecting the model's flexible ability to incorporate new knowledge and update its understanding beyond static representational differences.
 
@@ -205,4 +206,8 @@ This case study establishes **nEPI** as a rigorous, geometry-aware diagnostic th
 ## Outlook
 
 The **Epistemic Plasticity Index (nEPI)** establishes a foundational framework within *Neural Genomics* for rigorously quantifying ***semantic adaptability*** and ***epistemic flexibility*** in foundation models. By enabling precise layerwise diagnostics of plasticity, **nEPI** guides the development of ***culturally aware***, **robust**, and **interpretable** AI systems capable of nuanced alignment and continual adaptation. This work opens promising avenues for future research on *dynamic fine-tuning*, *transfer learning*, and *lifelong learning* paradigms--paving the way for responsible, context-sensitive AI deployments across diverse cultural landscapes.
+
+---
+{% auto_references %}
+
 

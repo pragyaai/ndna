@@ -480,3 +480,6 @@ Looking forward, nKaryotyping supports continual monitoring of model evolution a
   </ol>
   This figure acts as a foundational reference for understanding cross-cultural latent geometry in large language models. An interactive 3D visualization accompanies this work as supplementary material, enabling detailed exploration of each offspring’s layered semantic topology and curvature dynamics.
 </div>
+
+---
+{% auto_references %}
