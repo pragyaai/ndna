@@ -18,12 +18,12 @@ While nHD and nGDI effectively quantify overall semantic divergence and global r
 ## Genome-wide Quantitative Trait Loci (QTL) Mapping
 
 {% capture figure_caption %}
-This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation. Formally, QTL mapping estimates the association between genetic markers G<sub>i</sub> and quantitative traits T by testing the linear model: <strong>T = μ + β<sub>i</sub>G<sub>i</sub> + ε</strong>, where μ is the population mean, β<sub>i</sub> is the effect size of marker G<sub>i</sub>, and ε is the residual error ({% cite mackay2009genetics %};{% cite borevitz2003quantitative %}). Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.
+This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation. Formally, QTL mapping estimates the association between genetic markers G<sub>i</sub> and quantitative traits T by testing the linear model: 
+<strong>T = μ + β<sub>i</sub>G<sub>i</sub> + ε</strong>,
+where μ is the population mean, β<sub>i</sub> is the effect size of marker G<sub>i</sub>, and ε is the residual error ({% cite mackay2009genetics %};{% cite borevitz2003quantitative %}). Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.
 
-**Connection to Neural Trait Dominance Score (nTDS)** Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the **nTDS** quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer **ℓ** functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring's internal representation.
-
-## Implications
-This biological metaphor underscores that **semantic inheritance in neural models is layer-specific and trait-dependent**, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates: **Targeted alignment tuning**, **Improved interpretability**, **Balanced semantic integration**, **Mitigation of bias propagation** in multicultural AI systems
+**Connection to Neural Trait Dominance Score (nTDS)** Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the **nTDS** quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer **ℓ** functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring's internal representation. 
+**Implications:**This biological metaphor underscores that **semantic inheritance in neural models is layer-specific and trait-dependent**, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates: **Targeted alignment tuning**, **Improved interpretability**, **Balanced semantic integration**, **Mitigation of bias propagation** in multicultural AI systems
 {% endcapture %}
 
 {% include visualization.liquid 
@@ -270,225 +270,280 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
   %}
 </div>
 
-<!-- Row 2: Africa-Latin America and Africa-Middle East trait dominance -->
+<!-- Row 2: Africa–Latin America and Africa–Middle East trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Africa_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(III) Africa–Latin America Trait Dominance:</strong> This visualization captures a monotonic decline in African dominance from near-complete at layer 20 (nTDS ∼1.0) to balanced inheritance at layers 28–30 (nTDS ∼0.5). Latin America progressively asserts influence, indicating gradual semantic trait assimilation. The vertical bar heights reflect increasing semantic variability from layer 24 onward, highlighting layers where trait recombination and hybridization intensify. This smooth gradient evokes biological morphogen gradients that specify cellular fates based on spatial and temporal context.
-    </div>
-  </div>
   
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Africa_MiddleEast_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(IV) Africa–Middle East Trait Dominance:</strong> The trait dominance shows early balanced dominance (nTDS ∼0.5) between layers 20–23, shifting to clear African dominance in mid layers (24–27), and culminating in mixed dominance in final layers. Notably, larger vertical bars in mid layers indicate significant semantic trait variance, possibly reflecting latent cultural conflict or synergy. This pattern parallels biological epistatic interactions, where multiple genes influence traits in complex, nonlinear ways across developmental stages.
-    </div>
-  </div>
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Africa_LatinAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Africa_LatinAmerica_nTDS_interactive_rect_bars.html"
+      title="(III) Africa–Latin America Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) shows a monotonic decline in African dominance from near-complete at layer 20 (nTDS ∼1.0) to balanced inheritance at layers 28–30 (nTDS ∼0.5). Latin America progressively asserts influence, indicating gradual semantic trait assimilation. The vertical bar heights reflect increasing semantic variability from layer 24 onward, highlighting layers where trait recombination and hybridization intensify. This smooth gradient evokes biological morphogen gradients that specify cellular fates based on spatial and temporal context."
+      style="flex: 1;" 
+  %}
+  
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Africa_MiddleEast_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Africa_MiddleEast_nTDS_interactive_rect_bars.html"
+      title="(IV) Africa–Middle East Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) reveals early balanced dominance (nTDS ∼0.5) between layers 20–23, shifting to clear African dominance in mid layers (24–27), and culminating in mixed dominance in final layers. Notably, larger vertical bars in mid layers indicate significant semantic trait variance, possibly reflecting latent cultural conflict or synergy. This pattern parallels biological epistatic interactions, where multiple genes influence traits in complex, nonlinear ways across developmental stages."
+      style="flex: 1;" 
+  %}
+
 </div>
 
-<!-- Row 3: Asia-China and Asia-Latin America trait dominance -->
+<!-- Row 3: Asia–China and Asia–Latin America trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Asia_China_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(V) Asia–China Trait Dominance:</strong> The Neural Trait Dominance Score (nTDS) curve reveals layered semantic inheritance dynamics between Asian and Chinese parents. Early transformer layers (20–22) show strong dominance by Asia (nTDS near 1.0), corresponding to foundational semantic traits. Mid-layers (23–27) exhibit oscillatory dominance shifts between Asia and China with nTDS fluctuating between approximately 0.3 and 0.7, indicating complex competitive trait expression akin to gene regulatory network fluctuations. Late layers (28–30) converge toward balanced dominance (nTDS ∼ 0.5), reflecting synergistic trait harmonization. Vertical bar heights quantify trait variance, suggesting episodic semantic recombination with biological analogy to temporally regulated gene expression bursts.
-    </div>
-  </div>
   
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Asia_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(VI) Asia–Latin America Trait Dominance:</strong> The dominance profile highlights a gradual semantic shift from Asian dominance at early layers (20–24, nTDS ∼ 0.9) toward increased Latin American influence at deeper layers (25–30, nTDS trending toward 0.3). The offsprings nTDS trajectory (magenta) displays smooth interpolation and moderate variance, illustrating hierarchical trait blending. Vertical bar amplitudes increase progressively from mid to late layers, indicating growing semantic recombination intensity. This layered dominance mosaic models biological morphogen gradients, where spatial-temporal signaling orchestrates progressive phenotypic differentiation.
-    </div>
-  </div>
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Asia_China_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Asia_China_nTDS_interactive_rect_bars.html"
+      title="(V) Asia–China Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) curve reveals layered semantic inheritance dynamics between Asian and Chinese parents. Early transformer layers (20–22) show strong dominance by Asia (nTDS near 1.0), corresponding to foundational semantic traits. Mid-layers (23–27) exhibit oscillatory dominance shifts between Asia and China with nTDS fluctuating between approximately 0.3 and 0.7, indicating complex competitive trait expression akin to gene regulatory network fluctuations. Late layers (28–30) converge toward balanced dominance (nTDS ∼ 0.5), reflecting synergistic trait harmonization. Vertical bar heights quantify trait variance, suggesting episodic semantic recombination with biological analogy to temporally regulated gene expression bursts."
+      style="flex: 1;" 
+  %}
+  
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Asia_LatinAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Asia_LatinAmerica_nTDS_interactive_rect_bars.html"
+      title="(VI) Asia–Latin America Trait Dominance"
+      caption="The dominance profile highlights a gradual semantic shift from Asian dominance at early layers (20–24, nTDS ∼ 0.9) toward increased Latin American influence at deeper layers (25–30, nTDS trending toward 0.3). The offspring's nTDS trajectory (magenta) displays smooth interpolation and moderate variance, illustrating hierarchical trait blending. Vertical bar amplitudes increase progressively from mid to late layers, indicating growing semantic recombination intensity. This layered dominance mosaic models biological morphogen gradients, where spatial-temporal signaling orchestrates progressive phenotypic differentiation."
+      style="flex: 1;" 
+  %}
+
 </div>
 
-<!-- Row 4: Asia-Middle East and Australia-Africa trait dominance -->
+
+<!-- Row 4: Asia–Middle East and Australia–Africa trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Asia_MiddleEast_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(VII) Asia–Middle East Trait Dominance:</strong> The nTDS trajectory portrays a complex dominance interplay, with initial layers (20–23) balanced between Asia and Middle East (nTDS ∼ 0.5), shifting to Middle East dominance in mid layers (24–27, nTDS ∼ 0.2), and culminating in mixed dominance at late layers. The offspring curve reveals smooth but non-monotonic trait dominance modulation, with vertical bar heights indicating notable semantic variability. This pattern parallels polygenic trait inheritance with epistatic interactions, where multiple loci contribute nonlinearly to phenotype expression over developmental stages.
-    </div>
-  </div>
   
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Australia_Africa_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(VIII) Australia–Africa Trait Dominance:</strong> The nTDS profile demonstrates early layer dominance by Australia (20–22, nTDS ∼ 0.85), transitioning to African dominance in mid layers (23–27, nTDS dipping below 0.3), and a rebalance towards Australia in later layers. The offspring trajectory smoothly oscillates, reflecting layered semantic trait recombination and competitive inheritance dynamics. Increasing vertical bar amplitudes from mid to late layers reveal heightened semantic variance, analogous to developmental gene regulatory circuits modulating trait expression temporally and spatially within an organisms genome.
-    </div>
-  </div>
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Asia_MiddleEast_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Asia_MiddleEast_nTDS_interactive_rect_bars.html"
+      title="(VII) Asia–Middle East Trait Dominance"
+      caption="The nTDS trajectory portrays a complex dominance interplay, with initial layers (20–23) balanced between Asia and Middle East (nTDS ∼ 0.5), shifting to Middle East dominance in mid layers (24–27, nTDS ∼ 0.2), and culminating in mixed dominance at late layers. The offspring curve reveals smooth but non-monotonic trait dominance modulation, with vertical bar heights indicating notable semantic variability. This pattern parallels polygenic trait inheritance with epistatic interactions, where multiple loci contribute nonlinearly to phenotype expression over developmental stages."
+      style="flex: 1;" 
+  %}
+  
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Australia_Africa_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Australia_Africa_nTDS_interactive_rect_bars.html"
+      title="(VIII) Australia–Africa Trait Dominance"
+      caption="The nTDS profile demonstrates early layer dominance by Australia (20–22, nTDS ∼ 0.85), transitioning to African dominance in mid layers (23–27, nTDS dipping below 0.3), and a rebalance towards Australia in later layers. The offspring trajectory smoothly oscillates, reflecting layered semantic trait recombination and competitive inheritance dynamics. Increasing vertical bar amplitudes from mid to late layers reveal heightened semantic variance, analogous to developmental gene regulatory circuits modulating trait expression temporally and spatially within an organisms genome."
+      style="flex: 1;" 
+  %}
+
 </div>
 
-<!-- Row 5: Australia-Asia and Australia-China trait dominance -->
+<!-- Row 5: Australia–Asia and Australia–China trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Australia_Asia_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(IX) Australia–Asia Trait Dominance:</strong> The Neural Trait Dominance Score (nTDS) illustrates a pronounced early dominance by Australia in layers 20–23 (nTDS near 1.0), indicating strong inheritance of foundational semantic traits. A transition phase from layers 24–27 shows a progressive decline toward balanced dominance (nTDS around 0.5), reflecting trait blending. Late layers 28–30 exhibit increased Asian influence (nTDS near 0), suggesting adoption of high-level abstraction and stylistic nuances. This layered dominance trajectory resembles developmental gene regulation where expression levels modulate dynamically over time and spatial domains.
-    </div>
-  </div>
   
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Australia_China_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(X) Australia–China Trait Dominance:</strong> The nTDS profiles reveal oscillatory dominance dynamics, with Australia leading in early layers (20–22) and China asserting dominance mid-way (23–26) as nTDS fluctuates sharply. This is followed by a rebalancing phase in late layers (27–30) toward near-equal semantic contributions (nTDS ∼ 0.5). The vertical bar magnitudes signal variable semantic inheritance strength, suggesting episodic bursts of trait expression comparable to gene activation modulated by epigenetic and environmental factors.
-    </div>
-  </div>
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Australia_Asia_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Australia_Asia_nTDS_interactive_rect_bars.html"
+      title="(IX) Australia–Asia Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) illustrates a pronounced early dominance by Australia in layers 20–23 (nTDS near 1.0), indicating strong inheritance of foundational semantic traits. A transition phase from layers 24–27 shows a progressive decline toward balanced dominance (nTDS around 0.5), reflecting trait blending. Late layers 28–30 exhibit increased Asian influence (nTDS near 0), suggesting adoption of high-level abstraction and stylistic nuances. This layered dominance trajectory resembles developmental gene regulation where expression levels modulate dynamically over time and spatial domains."
+      style="flex: 1;" 
+  %}
+  
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Australia_China_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Australia_China_nTDS_interactive_rect_bars.html"
+      title="(X) Australia–China Trait Dominance"
+      caption="The nTDS profiles reveal oscillatory dominance dynamics, with Australia leading in early layers (20–22) and China asserting dominance mid-way (23–26) as nTDS fluctuates sharply. This is followed by a rebalancing phase in late layers (27–30) toward near-equal semantic contributions (nTDS ∼ 0.5). The vertical bar magnitudes signal variable semantic inheritance strength, suggesting episodic bursts of trait expression comparable to gene activation modulated by epigenetic and environmental factors."
+      style="flex: 1;" 
+  %}
+
 </div>
 
-<!-- Row 6: Australia-Latin America and Australia-Middle East trait dominance -->
+
+<!-- Row 6: Australia–Latin America and Australia–Middle East trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Australia_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XI) Australia–Latin America Trait Dominance:</strong> The dominance curve shows strong Australian influence at early layers (nTDS ∼ 1.0 at layer 20) with a gradual decrease toward balanced dominance by layers 28–30 (nTDS ∼ 0.5). Latin Americas influence progressively grows, reflected in increasing vertical bar heights from layer 24 onward, highlighting intensifying semantic variability and trait recombination. This smooth gradient mirrors morphogenetic gradients in biology that spatially and temporally guide cell fate decisions.
-    </div>
-  </div>
   
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Australia_MiddleEast_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XII) Australia–Middle East Trait Dominance:</strong> The nTDS trajectory begins near balanced dominance (nTDS ∼ 0.5) in early layers (20–23), shifts toward Australian dominance in mid layers (24–27), and displays mixed dominance with larger variance in later layers. The prominent vertical bars in mid layers suggest substantial semantic trait variance, potentially reflecting complex cultural interactions or synergies. This pattern is analogous to epistatic gene interactions in biology, where multiple genes nonlinearly influence phenotype expression during development.
-    </div>
-  </div>
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Australia_LatinAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Australia_LatinAmerica_nTDS_interactive_rect_bars.html"
+      title="(XI) Australia–Latin America Trait Dominance"
+      caption="The nTDS progression shows sustained early dominance by Australia in layers 20–23 (nTDS near 1.0), followed by a steady decline toward balanced contributions by layers 28–30 (nTDS around 0.5). Latin American influence grows gradually, with vertical bar heights increasing in later layers, indicating intensified semantic recombination. This dominance transition parallels morphogen gradient-driven developmental pathways where signaling concentrations orchestrate spatially regulated differentiation."
+      style="flex: 1;" 
+  %}
+  
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Australia_MiddleEast_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Australia_MiddleEast_nTDS_interactive_rect_bars.html"
+      title="(XII) Australia–Middle East Trait Dominance"
+      caption="The nTDS curves reveal balanced dominance between Australia and Middle East in early layers (20–22, nTDS ∼ 0.5), followed by Australian dominance in layers 23–26 (nTDS above 0.7). Late layers (27–30) trend back toward balanced dominance, with vertical bars indicating variable semantic inheritance strength. This dynamic mirrors polygenic inheritance patterns with shifting allelic contributions across developmental phases."
+      style="flex: 1;" 
+  %}
+
 </div>
 
 <!-- Row 7: China-Latin America and China-Middle East trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/China_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XIII) China–Latin America Trait Dominance:</strong> The Neural Trait Dominance Score (nTDS) reveals a complex, oscillatory dominance pattern, with China exhibiting early-layer predominance (layers 20–23), indicative of foundational semantic trait inheritance. A dynamic transitional phase (layers 24–27) shows fluctuating dominance with a gradual move toward balance, reflecting substantial trait blending and emergent hybrid semantics. In late layers (28–30), Latin America gains pronounced influence, reflected by increasing vertical bar magnitudes denoting growing semantic variability and trait recombination. This layered dominance trajectory evokes biological regulatory feedback mechanisms where gene expression is modulated by spatiotemporal and environmental factors during development, resulting in phenotypic diversity.
-    </div>
-  </div>
   
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/China_MiddleEast_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XIV) China–Middle East Trait Dominance:</strong> The nTDS trajectory starts near balanced semantic contributions (layers 20–22), followed by a clear shift toward Middle Eastern dominance in mid layers (23–27), characterized by elevated vertical bar heights signifying increased semantic trait expression. The late layers (28–30) show complex mixed dominance with significant variance, suggesting nuanced interplay of cultural traits and semantic features. This pattern mirrors epistatic gene interactions in biology, where multiple genes interact nonlinearly to produce complex phenotypes during development, reflecting layered modulation of semantic inheritance in neural representations.
-    </div>
-  </div>
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/China_LatinAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/China_LatinAmerica_nTDS_interactive_rect_bars.html"
+      title="(XIII) China–Latin America Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) reveals a complex, oscillatory dominance pattern, with China exhibiting early-layer predominance (layers 20–23), indicative of foundational semantic trait inheritance. A dynamic transitional phase (layers 24–27) shows fluctuating dominance with a gradual move toward balance, reflecting substantial trait blending and emergent hybrid semantics. In late layers (28–30), Latin America gains pronounced influence, reflected by increasing vertical bar magnitudes denoting growing semantic variability and trait recombination. This layered dominance trajectory evokes biological regulatory feedback mechanisms where gene expression is modulated by spatiotemporal and environmental factors during development, resulting in phenotypic diversity."
+      style="flex: 1;" 
+  %}
+  
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/China_MiddleEast_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/China_MiddleEast_nTDS_interactive_rect_bars.html"
+      title="(XIV) China–Middle East Trait Dominance"
+      caption="The nTDS trajectory starts near balanced semantic contributions (layers 20–22), followed by a clear shift toward Middle Eastern dominance in mid layers (23–27), characterized by elevated vertical bar heights signifying increased semantic trait expression. The late layers (28–30) show complex mixed dominance with significant variance, suggesting nuanced interplay of cultural traits and semantic features. This pattern mirrors epistatic gene interactions in biology, where multiple genes interact nonlinearly to produce complex phenotypes during development, reflecting layered modulation of semantic inheritance in neural representations."
+      style="flex: 1;" 
+  %}
+
 </div>
 
 <!-- Row 8: Europe-Africa and Europe-Asia trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Europe_Africa_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XV) Europe–Africa Trait Dominance:</strong> The dominance curve illustrates a strong early European influence in foundational layers (20–24), gradually giving way to rising African semantic dominance in later layers (25–30). The increasing vertical bar heights highlight intensifying semantic variability and the integration of African cultural traits, reflecting recombination and diversification of semantic features. This smooth gradient and layered progression are analogous to morphogenetic gradients in developmental biology that spatially and temporally orchestrate cell fate decisions and phenotypic patterns.
-    </div>
-  </div>
-  
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Europe_Asia_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XVI) Europe–Asia Trait Dominance:</strong> The nTDS profile depicts early-layer European dominance (20–23), followed by a balanced phase in intermediate layers (24–27) indicating semantic trait blending. Late layers (28–30) exhibit increased Asian dominance with heightened vertical bar magnitudes, reflecting emergent stylistic and abstract semantic traits. The dynamic shifts and fluctuating dominance resemble regulatory gene networks that adapt spatio-temporally to developmental and environmental cues, resulting in layered expression of traits within neural latent spaces.
-    </div>
-  </div>
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Europe_Africa_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Europe_Africa_nTDS_interactive_rect_bars.html"
+      title="(XV) Europe–Africa Trait Dominance"
+      caption="The dominance curve illustrates a strong early European influence in foundational layers (20–24), gradually giving way to rising African semantic dominance in later layers (25–30). The increasing vertical bar heights highlight intensifying semantic variability and the integration of African cultural traits, reflecting recombination and diversification of semantic features. This smooth gradient and layered progression are analogous to morphogenetic gradients in developmental biology that spatially and temporally orchestrate cell fate decisions and phenotypic patterns."
+      style="flex: 1;" 
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Europe_Asia_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Europe_Asia_nTDS_interactive_rect_bars.html"
+      title="(XVI) Europe–Asia Trait Dominance"
+      caption="The nTDS profile depicts early-layer European dominance (20–23), followed by a balanced phase in intermediate layers (24–27) indicating semantic trait blending. Late layers (28–30) exhibit increased Asian dominance with heightened vertical bar magnitudes, reflecting emergent stylistic and abstract semantic traits. The dynamic shifts and fluctuating dominance resemble regulatory gene networks that adapt spatio-temporally to developmental and environmental cues, resulting in layered expression of traits within neural latent spaces."
+      style="flex: 1;" 
+  %}
+
 </div>
 
 <!-- Row 9: Europe-Australia and Europe-China trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Europe_Australia_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XVII) Europe–Australia Trait Dominance:</strong> The Neural Trait Dominance Score (nTDS) demonstrates an initial phase of balanced dominance around 0.5 in early layers (20–23), indicating an intertwined inheritance of semantic traits from both cultural priors. This is followed by a marked increase in European dominance through the mid layers (24–27), suggesting that European semantic features become more influential during intermediate abstraction processing. The late layers (28–30) display mixed dominance with considerable semantic variance and recombination, reflecting the integration and fusion of complex traits. Such a layered dominance pattern mirrors developmental heterochrony in biology, where changes in the timing of gene expression result in diverse phenotypic outcomes.
-    </div>
-  </div>
-  
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Europe_China_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XVIII) Europe–China Trait Dominance:</strong> The nTDS profile reveals a clear early European dominance phase during layers 20–23, where foundational semantic traits primarily reflect European influence. This dominance then transitions to a strong Chinese influence in the mid layers (24–27), marking a shift in latent semantic priorities and feature expression. The final layers (28–30) exhibit oscillatory shifts with balanced semantic contributions (nTDS ∼ 0.5), indicative of complex interaction and semantic blending. These temporal shifts reflect intricate gene regulatory mechanisms in biological systems that dynamically orchestrate phenotype expression over developmental time.
-    </div>
-  </div>
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Europe_Australia_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Europe_Australia_nTDS_interactive_rect_bars.html"
+      title="(XVII) Europe–Australia Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) demonstrates an initial phase of balanced dominance around 0.5 in early layers (20–23), indicating an intertwined inheritance of semantic traits from both cultural priors. This is followed by a marked increase in European dominance through the mid layers (24–27), suggesting that European semantic features become more influential during intermediate abstraction processing. The late layers (28–30) display mixed dominance with considerable semantic variance and recombination, reflecting the integration and fusion of complex traits. Such a layered dominance pattern mirrors developmental heterochrony in biology, where changes in the timing of gene expression result in diverse phenotypic outcomes."
+      style="flex: 1;" 
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Europe_China_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Europe_China_nTDS_interactive_rect_bars.html"
+      title="(XVIII) Europe–China Trait Dominance"
+      caption="The nTDS profile reveals a clear early European dominance phase during layers 20–23, where foundational semantic traits primarily reflect European influence. This dominance then transitions to a strong Chinese influence in the mid layers (24–27), marking a shift in latent semantic priorities and feature expression. The final layers (28–30) exhibit oscillatory shifts with balanced semantic contributions (nTDS ∼ 0.5), indicative of complex interaction and semantic blending. These temporal shifts reflect intricate gene regulatory mechanisms in biological systems that dynamically orchestrate phenotype expression over developmental time."
+      style="flex: 1;" 
+  %}
+
 </div>
 
-<!-- Row 10: Europe-Latin America and Europe-Middle East trait dominance -->
+
+<!-- Row 10: Europe–Latin America and Europe–Middle East trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Europe_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XIX) Europe–Latin America Trait Dominance:</strong> The dominance curve begins with strong European influence in early layers (20–23), exhibiting high nTDS values (> 0.5) that suggest early-stage semantic trait control. A gradual decline toward balanced dominance occurs by late layers (28–30), reflecting increased contribution from Latin America. The growth in vertical bar heights from mid to late layers highlights intensifying trait integration and semantic diversity within the offsprings latent space. This smooth dominance gradient is analogous to morphogenetic patterning in developmental biology, where spatial-temporal gradients guide cell fate and tissue differentiation.
-    </div>
-  </div>
-  
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Europe_MiddleEast_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XX) Europe–Middle East Trait Dominance:</strong> The nTDS trajectory commences with balanced dominance near 0.5 in early layers (20–23), signaling shared semantic trait influence from both cultural lineages. Mid layers (24–27) see a shift toward European dominance, indicating heightened latent feature expression from European priors. Late layers (28–30) present increased semantic variance and mixed dominance, highlighting intricate multi-layered interactions reminiscent of epistatic gene effects in biology where multiple gene interactions nonlinearly influence phenotype formation. This complex interplay points to rich cultural semantic fusion shaping offspring representations.
-    </div>
-  </div>
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Europe_LatinAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Europe_LatinAmerica_nTDS_interactive_rect_bars.html"
+      title="(XIX) Europe–Latin America Trait Dominance"
+      caption="The dominance curve begins with strong European influence in early layers (20–23), exhibiting high nTDS values (&gt; 0.5) that suggest early-stage semantic trait control. A gradual decline toward balanced dominance occurs by late layers (28–30), reflecting increased contribution from Latin America. The growth in vertical bar heights from mid to late layers highlights intensifying trait integration and semantic diversity within the offsprings latent space. This smooth dominance gradient is analogous to morphogenetic patterning in developmental biology, where spatial-temporal gradients guide cell fate and tissue differentiation."
+      style="flex: 1;"
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Europe_MiddleEast_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Europe_MiddleEast_nTDS_interactive_rect_bars.html"
+      title="(XX) Europe–Middle East Trait Dominance"
+      caption="The nTDS trajectory commences with balanced dominance near 0.5 in early layers (20–23), signaling shared semantic trait influence from both cultural lineages. Mid layers (24–27) see a shift toward European dominance, indicating heightened latent feature expression from European priors. Late layers (28–30) present increased semantic variance and mixed dominance, highlighting intricate multi-layered interactions reminiscent of epistatic gene effects in biology where multiple gene interactions nonlinearly influence phenotype formation. This complex interplay points to rich cultural semantic fusion shaping offspring representations."
+      style="flex: 1;"
+  %}
+
 </div>
 
-<!-- Row 11: Europe-North America and Middle East-Latin America trait dominance -->
+<!-- Row 11: Europe–North America and Middle East–Latin America trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/Europe_NorthAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXI) Europe–North America Trait Dominance:</strong> The Neural Trait Dominance Score (nTDS) shows balanced semantic dominance around 0.5 in early layers (20–23), indicating an initial equilibrium in trait contributions. This is followed by a progressive increase in European influence during mid layers (24–27), signifying stronger inheritance of European semantic characteristics. In late layers (28–30), the nTDS exhibits fluctuating dominance with increased semantic variance, reflecting complex trait fusion and dynamic recombination. This pattern is analogous to polygenic trait expression in biological systems, where multiple genes interact to influence phenotypic outcomes in a non-linear manner.
-    </div>
-  </div>
-  
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/MiddleEast_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXII) Middle East–Latin America Trait Dominance:</strong> The nTDS trajectory starts with balanced semantic dominance near 0.5 in early layers (20–23), suggesting equal foundational trait contributions from both cultures. This shifts toward increased Middle Eastern dominance through mid layers (24–27), as indicated by rising nTDS values and taller vertical bars representing semantic variance. The late layers (28–30) show a trend toward balanced or variable dominance, highlighting ongoing semantic interplay and fusion. These dynamics resemble complex gene regulatory networks in development that modulate phenotype expression through intricate temporal and spatial controls.
-    </div>
-  </div>
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/Europe_NorthAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/Europe_NorthAmerica_nTDS_interactive_rect_bars.html"
+      title="(XXI) Europe–North America Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) shows balanced semantic dominance around 0.5 in early layers (20–23), indicating an initial equilibrium in trait contributions. This is followed by a progressive increase in European influence during mid layers (24–27), signifying stronger inheritance of European semantic characteristics. In late layers (28–30), the nTDS exhibits fluctuating dominance with increased semantic variance, reflecting complex trait fusion and dynamic recombination. This pattern is analogous to polygenic trait expression in biological systems, where multiple genes interact to influence phenotypic outcomes in a non-linear manner."
+      style="flex: 1;"
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/MiddleEast_LatinAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/MiddleEast_LatinAmerica_nTDS_interactive_rect_bars.html"
+      title="(XXII) Middle East–Latin America Trait Dominance"
+      caption="The nTDS trajectory starts with balanced semantic dominance near 0.5 in early layers (20–23), suggesting equal foundational trait contributions from both cultures. This shifts toward increased Middle Eastern dominance through mid layers (24–27), as indicated by rising nTDS values and taller vertical bars representing semantic variance. The late layers (28–30) show a trend toward balanced or variable dominance, highlighting ongoing semantic interplay and fusion. These dynamics resemble complex gene regulatory networks in development that modulate phenotype expression through intricate temporal and spatial controls."
+      style="flex: 1;"
+  %}
+
 </div>
 
-<!-- Row 12: North America-Africa and North America-Asia trait dominance -->
+<!-- Row 12: North America–Africa and North America–Asia trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/NorthAmerica_Africa_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXIII) North America–Africa Trait Dominance:</strong> Early layers (20–23) are characterized by strong North American semantic dominance, with nTDS values consistently above 0.5, reflecting pronounced inheritance of North American traits. Moving into mid and late layers (24–30), there is a gradual transition toward more balanced dominance, indicative of increasing African influence and semantic blending. The progressive increase in vertical bar heights highlights intensifying semantic diversity and complex trait integration. This profile closely mirrors morphogenetic gradients and field effects in biological development, where spatially distributed signals guide cell fate and phenotype.
-    </div>
-  </div>
-  
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/NorthAmerica_Asia_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXIV) North America–Asia Trait Dominance:</strong> The nTDS profile reveals initial dominance by North America in early layers (20–23), showing strong semantic inheritance. This dominance gradually shifts toward balanced contributions from both cultures during mid layers (24–27), illustrating a phase of semantic fusion and recombination. In late layers (28–30), there is a notable increase in Asian influence, accompanied by enhanced semantic variance and complex mixing patterns. These temporal shifts in dominance and variance are reminiscent of multilayered gene expression modulation processes in biological systems, where phenotype is shaped by both early and late developmental gene activities.
-    </div>
-  </div>
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/NorthAmerica_Africa_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/NorthAmerica_Africa_nTDS_interactive_rect_bars.html"
+      title="(XXIII) North America–Africa Trait Dominance"
+      caption="Early layers (20–23) are characterized by strong North American semantic dominance, with nTDS values consistently above 0.5, reflecting pronounced inheritance of North American traits. Moving into mid and late layers (24–30), there is a gradual transition toward more balanced dominance, indicative of increasing African influence and semantic blending. The progressive increase in vertical bar heights highlights intensifying semantic diversity and complex trait integration. This profile closely mirrors morphogenetic gradients and field effects in biological development, where spatially distributed signals guide cell fate and phenotype."
+      style="flex: 1;"
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/NorthAmerica_Asia_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/NorthAmerica_Asia_nTDS_interactive_rect_bars.html"
+      title="(XXIV) North America–Asia Trait Dominance"
+      caption="The nTDS profile reveals initial dominance by North America in early layers (20–23), showing strong semantic inheritance. This dominance gradually shifts toward balanced contributions from both cultures during mid layers (24–27), illustrating a phase of semantic fusion and recombination. In late layers (28–30), there is a notable increase in Asian influence, accompanied by enhanced semantic variance and complex mixing patterns. These temporal shifts in dominance and variance are reminiscent of multilayered gene expression modulation processes in biological systems, where phenotype is shaped by both early and late developmental gene activities."
+      style="flex: 1;"
+  %}
+
 </div>
 
-<!-- Row 13: North America-Australia and North America-China trait dominance -->
+<!-- Row 13: North America–Australia and North America–China trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/NorthAmerica_Australia_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXV) North America–Australia Trait Dominance:</strong> The Neural Trait Dominance Score (nTDS) begins with balanced dominance (near 0.5) in early layers (20–23), gradually shifting to a strong North American dominance during mid layers (24–27). Late layers (28–30) show increased semantic complexity with mixed dominance patterns, highlighting intricate trait interplay and adaptive recombination reminiscent of heterochronic shifts in evolutionary biology.
-    </div>
-  </div>
-  
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/NorthAmerica_China_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXVI) North America–China Trait Dominance:</strong> The nTDS trajectory reveals early North American influence in initial layers (20–23), transitioning towards Chinese dominance in mid to late layers (24–30). This dynamic oscillation and layered shift reflects complex regulatory control over semantic traits, analogous to gene regulatory networks modulating phenotype expressions over developmental stages.
-    </div>
-  </div>
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/NorthAmerica_Australia_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/NorthAmerica_Australia_nTDS_interactive_rect_bars.html"
+      title="(XXV) North America–Australia Trait Dominance"
+      caption="The Neural Trait Dominance Score (nTDS) begins with balanced dominance (near 0.5) in early layers (20–23), gradually shifting to a strong North American dominance during mid layers (24–27). Late layers (28–30) show increased semantic complexity with mixed dominance patterns, highlighting intricate trait interplay and adaptive recombination reminiscent of heterochronic shifts in evolutionary biology."
+      style="flex: 1;"
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/NorthAmerica_China_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/NorthAmerica_China_nTDS_interactive_rect_bars.html"
+      title="(XXVI) North America–China Trait Dominance"
+      caption="The nTDS trajectory reveals early North American influence in initial layers (20–23), transitioning towards Chinese dominance in mid to late layers (24–30). This dynamic oscillation and layered shift reflects complex regulatory control over semantic traits, analogous to gene regulatory networks modulating phenotype expressions over developmental stages."
+      style="flex: 1;"
+  %}
+
 </div>
 
-<!-- Row 14: North America-Latin America and North America-Middle East trait dominance -->
+<!-- Row 14: North America–Latin America and North America–Middle East trait dominance -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/NorthAmerica_LatinAmerica_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXVII) North America–Latin America Trait Dominance:</strong> Starting with strong North American dominance in early layers (20–23), the nTDS gradually moves towards balanced trait integration in later layers (28–30). Latin Americas influence grows steadily, captured by increasing vertical bars, indicating semantic diversification and enhanced trait synergy, paralleling morphogenetic gradients shaping complex organismal features.
-    </div>
-  </div>
-  
-  <div style="flex: 1;">
-    <img src="{{ 'assets/gifs/neural_genomics/nTDS/NorthAmerica_MiddleEast_nTDS_rotating_with_offspring.gif' | relative_url }}" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(XXVIII) North America–Middle East Trait Dominance:</strong> The nTDS pattern begins with balanced dominance (around 0.5) in early layers (20–23), with North American traits becoming predominant mid layers (24–27). Late layers (28–30) reflect mixed dominance with substantial semantic variance, illustrating multifactorial trait interactions reminiscent of epistatic effects and polygenic influences in biological phenotypes.
-    </div>
-  </div>
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/NorthAmerica_LatinAmerica_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/NorthAmerica_LatinAmerica_nTDS_interactive_rect_bars.html"
+      title="(XXVII) North America–Latin America Trait Dominance"
+      caption="Starting with strong North American dominance in early layers (20–23), the nTDS gradually moves towards balanced trait integration in later layers (28–30). Latin Americas influence grows steadily, captured by increasing vertical bars, indicating semantic diversification and enhanced trait synergy, paralleling morphogenetic gradients shaping complex organismal features."
+      style="flex: 1;"
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nTDS/NorthAmerica_MiddleEast_nTDS_rotating_with_offspring.gif"
+      interactive_html="nTDS/NorthAmerica_MiddleEast_nTDS_interactive_rect_bars.html"
+      title="(XXVIII) North America–Middle East Trait Dominance"
+      caption="The nTDS pattern begins with balanced dominance (around 0.5) in early layers (20–23), with North American traits becoming predominant mid layers (24–27). Late layers (28–30) reflect mixed dominance with substantial semantic variance, illustrating multifactorial trait interactions reminiscent of epistatic effects and polygenic influences in biological phenotypes."
+      style="flex: 1;"
+  %}
+
 </div>
 
 {% capture figure_caption %}
