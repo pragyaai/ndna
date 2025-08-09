@@ -253,13 +253,13 @@ The symmetry of this displacement shows that DPO modifies behavior through shall
 {% include visualization.liquid 
    image_path="collapse/logit_geometry_vector_projection.png"
    title="Logit Geometry and the Preference Vector in DPO"
-   caption="This schematic illustrates the geometric interpretation of the DPO objective in latent space. The hidden state **$\mathbf{h}(x)$** is projected onto the preference vector **$\mathbf{v} = \mathbf{e}_{y_w} - \mathbf{e}_{y_\ell}$**, yielding the component $\mathrm{Proj}_{\mathbf{v}}(\mathbf{h}(x))$. DPO maximizes the logit gap by increasing the inner product $\langle \mathbf{h}(x), \mathbf{v} \rangle$, thereby *steering behavior* along the **preference axis** while preserving directions *orthogonal* to it."
+   caption="This schematic illustrates the geometric interpretation of the DPO objective in latent space. "
    alt_text="Geometric visualization of DPO objective showing vector projection in latent space" %}
 
 {% include visualization.liquid 
    image_path="collapse/steering_vector_3d_directions.png"
    title="Illustration of Aligned vs. Inverted States"
-   caption="This visualization shows the geometric effect of DPO steering in latent space. Gray **X**'s denote base hidden states \( \mathbf{h}_0 \), green points represent DPO-aligned points \( \mathbf{h}_0 + \lambda \mathbf{v}^\star \), and red points show inverted states \( \mathbf{h}_0 - \lambda \mathbf{v}^\star \). Arrows illustrate symmetric displacement along the learned preference direction \( \mathbf{v}^\star \), reinforcing that DPO applies **low-rank translation** in activation space rather than *semantic* or *conceptual restructuring*."
+   caption="This visualization shows the geometric effect of DPO steering in latent space. "
    alt_text="3D visualization showing symmetric displacement of hidden states under DPO alignment" %}
 
 ## Low-Rank Evidence from Spectral Compression
