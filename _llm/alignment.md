@@ -56,9 +56,9 @@ A *higher $\tau$* indicates stronger semantic disentanglement, enabling selectiv
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="collapse/dpo_steering_vector_field.png"
+   image_path="collapse/mechanistic.png"
    title="Steering Dynamics Across Hidden States"
-   caption="This vector field illustrates how DPO consistently steers hidden states along the <strong>preference vector</strong> \( \mathbf{v} \), as induced by the gradient \( \nabla_{\mathbf{h}(x)} \mathcal{L}_{\mathrm{DPO}} \propto -\mathbf{v} \). Each red arrow depicts a <strong>low-rank</strong>, directional shift from the base representation \( \mathbf{h}(x) \). The <em>uniformity</em> of these displacements shows that DPO enforces <em>global behavioral alignment</em> rather than <em>context-specific adaptation</em>."
+   caption="This vector field illustrates how DPO consistently steers hidden states along the preference vector 𝖛, as induced by the gradient ∇ₕ(x) ℒ_DPO ∝ −𝖛. Each red arrow depicts a low-rank, directional shift from the base representation ℎ(x). The uniformity of these displacements shows that DPO enforces global behavioral alignment rather than context-specific adaptation."
    alt_text="Vector field visualization showing uniform steering dynamics in DPO alignment" %}
 
 ## Cultural LLMs under Safety-Constrained DPO Alignment
