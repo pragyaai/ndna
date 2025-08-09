@@ -60,11 +60,11 @@ We track the evolution of the model's **latent geometry**--including *spectral c
 
 As illustrated below, we observe progressive *curvature flattening*, *thermodynamic contraction*, and reduced alignment force magnitudes--indicating a loss of representational richness and epistemic adaptability.
 
-{% include visualization.liquid 
-   image_path="assets/gifs/alignment/llama_collapse_v2_1.gif"
+{% include wizuall.liquid
+   image_path="alignment/llama_collapse_v2_1.gif"
+   interactive_html="alignment/llama_collapse_v2_1.html"
    title="nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening"
-   caption="This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures--spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>--are tracked across layers ℓ=20 to ℓ=30. As generations progress (from gray for base LLaMA to yellow for Gen 10), both κ<sub>ℓ</sub> and ℒ<sub>ℓ</sub> systematically diminish: κ<sub>ℓ</sub> → 0.2 and ℒ<sub>ℓ</sub> → 0.2 by Gen 10. This trend signifies *latent manifold flattening*, where internal epistemic geometry collapses into shallow, low-variability paths."
-   alt_text="LLaMA model collapse progression showing nDNA trajectory flattening over 10 generations" %}
+   caption="This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures--spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>--are tracked across layers ℓ=20 to ℓ=30. As generations progress (from gray for base LLaMA to yellow for Gen 10), both κ<sub>ℓ</sub> and ℒ<sub>ℓ</sub> systematically diminish: κ<sub>ℓ</sub> → 0.2 and ℒ<sub>ℓ</sub> → 0.2 by Gen 10. This trend signifies *latent manifold flattening*, where internal epistemic geometry collapses into shallow, low-variability paths." %}
 
 ## Recursive Self-Merging of Culturally Fine-Tuned Models
 
@@ -84,67 +84,67 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 24px; margin: 30px 0;">
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/africa_ndna_final.gif"
+    {% include wizuall.liquid
+       image_path="alignment/africa_ndna_final.gif"
+       interactive_html="alignment/africa_ndna_final.html"
        title="Africa Cultural Collapse Trajectory"
-       caption="We recursively merged two Africa-aligned LLMs at each step (e.g., Africa + Africa ⇒ Gen 1, Gen 1 + Africa ⇒ Gen 2, etc). Collapse (sharp drop in ℒ<sub>ℓ</sub> and κ<sub>ℓ</sub>) occurred at **Gen 15**, where thermodynamic length ℒ<sub>ℓ</sub> fell below 0.2 and curvature κ<sub>ℓ</sub> flattened below 0.3. This indicates loss of internal semantic richness after repeated intra-cultural merging."
-       alt_text="Africa cultural model collapse trajectory showing nDNA flattening" %}
+       caption="We recursively merged two Africa-aligned LLMs at each step (e.g., Africa + Africa ⇒ Gen 1, Gen 1 + Africa ⇒ Gen 2, etc). Collapse (sharp drop in ℒ<sub>ℓ</sub> and κ<sub>ℓ</sub>) occurred at **Gen 15**, where thermodynamic length ℒ<sub>ℓ</sub> fell below 0.2 and curvature κ<sub>ℓ</sub> flattened below 0.3. This indicates loss of internal semantic richness after repeated intra-cultural merging." %}
   </div>
   
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/asia_ndna_collapse.gif"
+    {% include wizuall.liquid
+       image_path="alignment/asia_ndna_collapse.gif"
+       interactive_html="alignment/asia_ndna_collapse.html"
        title="Asia Cultural Collapse Trajectory"
-       caption="Following the same merging sequence (Asia + Asia ⇒ Gen 1, Gen 1 + Asia ⇒ Gen 2, etc), collapse occurred faster at **Gen 11**, marked by ℒ<sub>ℓ</sub> < 0.2 and κ<sub>ℓ</sub> < 0.3. This suggests higher susceptibility of Asia-aligned models to semantic flattening under iterative self-merging."
-       alt_text="Asia cultural model collapse trajectory showing nDNA flattening" %}
+       caption="Following the same merging sequence (Asia + Asia ⇒ Gen 1, Gen 1 + Asia ⇒ Gen 2, etc), collapse occurred faster at **Gen 11**, marked by ℒ<sub>ℓ</sub> < 0.2 and κ<sub>ℓ</sub> < 0.3. This suggests higher susceptibility of Asia-aligned models to semantic flattening under iterative self-merging." %}
   </div>
   
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/china_ndna_final.gif"
+    {% include wizuall.liquid
+       image_path="alignment/china_ndna_final.gif"
+       interactive_html="alignment/china_ndna_final.html"
        title="China Cultural Collapse Trajectory"
-       caption="China-aligned models collapsed by **Gen 9**, seen in thermodynamic length dropping below 0.2 and curvature flattening below 0.3. This highlights rapid loss of epistemic diversity under repeated merging (China + China ⇒ Gen 1, Gen 1 + China ⇒ Gen 2, etc), suggesting tighter initial latent manifolding."
-       alt_text="China cultural model collapse trajectory showing nDNA flattening" %}
+       caption="China-aligned models collapsed by **Gen 9**, seen in thermodynamic length dropping below 0.2 and curvature flattening below 0.3. This highlights rapid loss of epistemic diversity under repeated merging (China + China ⇒ Gen 1, Gen 1 + China ⇒ Gen 2, etc), suggesting tighter initial latent manifolding." %}
   </div>
   
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/europe_ndna_collapse_FINAL.gif"
+    {% include wizuall.liquid
+       image_path="alignment/europe_ndna_collapse_FINAL.gif"
+       interactive_html="alignment/europe_ndna_collapse_FINAL.html"
        title="Europe Cultural Collapse Trajectory"
-       caption="Europe models underwent collapse at **Gen 13**, with flattening of curvature κ<sub>ℓ</sub> ≤ 0.25 and contraction of ℒ<sub>ℓ</sub> to around 0.2. The latent manifold (Europe + Europe ⇒ Gen 1, Gen 1 + Europe ⇒ Gen 2, etc) showed a noisy but consistent flattening trend, marking semantic erosion."
-       alt_text="Europe cultural model collapse trajectory showing nDNA flattening" %}
+       caption="Europe models underwent collapse at **Gen 13**, with flattening of curvature κ<sub>ℓ</sub> ≤ 0.25 and contraction of ℒ<sub>ℓ</sub> to around 0.2. The latent manifold (Europe + Europe ⇒ Gen 1, Gen 1 + Europe ⇒ Gen 2, etc) showed a noisy but consistent flattening trend, marking semantic erosion." %}
   </div>
   
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/latinamerica.gif"
+    {% include wizuall.liquid
+       image_path="alignment/latinamerica.gif"
+       interactive_html="alignment/latinamerica.html"
        title="Latin America Cultural Collapse Trajectory"
-       caption="Collapse occurred by **Gen 13**, ℒ<sub>ℓ</sub> ≈ 0.2, κ<sub>ℓ</sub> dropping below 0.3. The latent structure converged to a narrow manifold (Latin America + Latin America ⇒ Gen 1, Gen 1 + Latin America ⇒ Gen 2, etc) indicating epistemic homogenization from repeated self-merging."
-       alt_text="Latin America cultural model collapse trajectory showing nDNA flattening" %}
+       caption="Collapse occurred by **Gen 13**, ℒ<sub>ℓ</sub> ≈ 0.2, κ<sub>ℓ</sub> dropping below 0.3. The latent structure converged to a narrow manifold (Latin America + Latin America ⇒ Gen 1, Gen 1 + Latin America ⇒ Gen 2, etc) indicating epistemic homogenization from repeated self-merging." %}
   </div>
   
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/middleeast_ndna_final.gif"
+    {% include wizuall.liquid
+       image_path="alignment/middleeast_ndna_final.gif"
+       interactive_html="alignment/middleeast_ndna_final.html"
        title="Middle East Cultural Collapse Trajectory"
-       caption="Collapse reached by **Gen 9**, as ℒ<sub>ℓ</sub> dipped below 0.2 and κ<sub>ℓ</sub> fell near 0.3. The latent manifold (Middle East + Middle East ⇒ Gen 1, Gen 1 + Middle East ⇒ Gen 2, etc) flattened rapidly, underscoring the model's fragility under iterative merging."
-       alt_text="Middle East cultural model collapse trajectory showing nDNA flattening" %}
+       caption="Collapse reached by **Gen 9**, as ℒ<sub>ℓ</sub> dipped below 0.2 and κ<sub>ℓ</sub> fell near 0.3. The latent manifold (Middle East + Middle East ⇒ Gen 1, Gen 1 + Middle East ⇒ Gen 2, etc) flattened rapidly, underscoring the model's fragility under iterative merging." %}
   </div>
   
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif"
+    {% include wizuall.liquid
+       image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
+       interactive_html="alignment/northamerica_ndna_collapse_FINAL.html"
        title="North America Cultural Collapse Trajectory"
-       caption="Collapse was observed at **Gen 15**, with ℒ<sub>ℓ</sub> under 0.2 and κ<sub>ℓ</sub> near 0.25. A gradual latent flattening (North America + North America ⇒ Gen 1, Gen 1 + North America ⇒ Gen 2, etc) trend indicates stronger internal resilience compared to some other cultural models."
-       alt_text="North America cultural model collapse trajectory showing nDNA flattening" %}
+       caption="Collapse was observed at **Gen 15**, with ℒ<sub>ℓ</sub> under 0.2 and κ<sub>ℓ</sub> near 0.25. A gradual latent flattening (North America + North America ⇒ Gen 1, Gen 1 + North America ⇒ Gen 2, etc) trend indicates stronger internal resilience compared to some other cultural models." %}
   </div>
   
   <div style="text-align: center;">
-    {% include visualization.liquid 
-       image_path="assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif"
+    {% include wizuall.liquid
+       image_path="alignment/australia_ndna_collapse_FINAL.gif"
+       interactive_html="alignment/australia_ndna_collapse_FINAL.html"
        title="Australia Cultural Collapse Trajectory"
-       caption="Australia-aligned LLMs exhibited collapse by **Gen 16**, with ℒ<sub>ℓ</sub> compressing to ≈ 0.25 and κ<sub>ℓ</sub> flattening toward 0.2. The collapse trajectory (Australia + Australia ⇒ Gen 1, Gen 1 + Australia ⇒ Gen 2, etc) shows relatively slow degradation, indicating stronger resistance to latent manifold flattening under merging."
-       alt_text="Australia cultural model collapse trajectory showing nDNA flattening" %}
+       caption="Australia-aligned LLMs exhibited collapse by **Gen 16**, with ℒ<sub>ℓ</sub> compressing to ≈ 0.25 and κ<sub>ℓ</sub> flattening toward 0.2. The collapse trajectory (Australia + Australia ⇒ Gen 1, Gen 1 + Australia ⇒ Gen 2, etc) shows relatively slow degradation, indicating stronger resistance to latent manifold flattening under merging." %}
   </div>
 </div>
 
@@ -168,11 +168,11 @@ In both cases, the shared pathology lies in the **collapse of high-dimensional e
 
 Thus, belief vector fields offer not just a visualization tool, but an **intuitive diagnostic** for latent degeneration. They reveal how internal reasoning structures become *brittle, redundant*, or *inert*--long before collapse is evident in output diversity or task performance.
 
-{% include visualization.liquid 
-   image_path="assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif"
+{% include wizuall.liquid
+   image_path="alignment/belief_vector_field_side_by_side_refined.gif"
+   interactive_html="alignment/belief_vector_field_side_by_side_refined.html"
    title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers"
-   caption="This figure illustrates the evolution of latent *belief vector fields* ∇<sub>h<sub>ℓ</sub></sub> log p(y|x) for two conditions: (**left**) a **healthy model** and (**right**) a **collapsed model** exhibiting *epistemic degeneration*. Each quiver depicts the **semantic steering force** at a given layer ℓ for six key concepts: *protest*, *peace*, *order*, *power*, *disobedience*, and *justice*. In the healthy model, vectors maintain consistent magnitude (0.10 to 0.60) and directional diversity across layers, preserving internal reasoning dynamics. In contrast, the collapsed model shows severe attenuation (magnitudes below 0.05 at deeper layers), with vectors converging towards zero magnitude, indicating loss of *epistemic plasticity* and *concept differentiation*. This flattening corresponds mathematically to ‖∇<sub>h<sub>ℓ</sub></sub> log p(y|x)‖<sub>2</sub> → 0 as ℓ increases."
-   alt_text="Side-by-side comparison of belief vector fields showing healthy vs collapsed model states" %}
+   caption="This figure illustrates the evolution of latent *belief vector fields* ∇<sub>h<sub>ℓ</sub></sub> log p(y|x) for two conditions: (**left**) a **healthy model** and (**right**) a **collapsed model** exhibiting *epistemic degeneration*. Each quiver depicts the **semantic steering force** at a given layer ℓ for six key concepts: *protest*, *peace*, *order*, *power*, *disobedience*, and *justice*. In the healthy model, vectors maintain consistent magnitude (0.10 to 0.60) and directional diversity across layers, preserving internal reasoning dynamics. In contrast, the collapsed model shows severe attenuation (magnitudes below 0.05 at deeper layers), with vectors converging towards zero magnitude, indicating loss of *epistemic plasticity* and *concept differentiation*. This flattening corresponds mathematically to ‖∇<sub>h<sub>ℓ</sub></sub> log p(y|x)‖<sub>2</sub> → 0 as ℓ increases." %}
 
 ## Broader Impact
 
