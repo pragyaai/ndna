@@ -348,9 +348,9 @@ where α<sup>(ℓ)</sup> ∈ [0, 1] denotes the *layer-dependent semantic domina
 This formalism captures *multi-layered integration*, *selective semantic imprinting*, and *complex evolutionary dynamics* in transformer latent spaces, providing a principled framework for interpreting *cultural neural DNA fusion* and semantic innovation in multilingual AI systems.
 {% endcapture %}
 
-{% include visualization.liquid 
+{% include wizuall.liquid 
    image_path="neural_genomics/nGDI/all.gif"
-   interactive_html="neural_genomics/nGDI/combined_cultural_trajectories_nGDI.html"
+   interactive_html="nGDI/combined_cultural_trajectories_nGDI.html"
    caption=figure_caption
    alt_text="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories" %}
 

@@ -119,7 +119,7 @@ nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving 
 
 {% capture figure_caption %}
 **Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion.**  
-Each row denotes a transformer layer $$( \ell = 20\text{--}30 \)$$, columns represent latent dimensions in the ÆTHER alignment space.  
+Each row denotes a transformer layer $$\ell = 20\text{--}30$$, columns represent latent dimensions in the ÆTHER alignment space.  
 **Blue** features are inherited from Parent 1, **yellow** from Parent 2, and **red** mark divergences from both.  
 These form the basis of the **Neural Genetic Dissimilarity Index (nGDI)**:  
 $$
