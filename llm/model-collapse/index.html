@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/model-collapse/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-09T10:41:20+00:00" />
+<meta property="article:published_time" content="2025-08-09T10:51:26+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="nDNA-Lens - Model Collapse as Latent Manifold Flattening" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T10:41:20+00:00","datePublished":"2025-08-09T10:41:20+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T10:51:26+00:00","datePublished":"2025-08-09T10:51:26+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -124,8 +124,9 @@
 <p>While such <em>autoregressive degeneration</em> has become an <strong>active area of study</strong> <a href="#ref1">[1]</a> <a href="#ref2">[2]</a> <a href="#ref3">[3]</a> <a href="#ref4">[4]</a>, most investigations focus on repeated fine-tuning of LLMs over their own <em>synthetic outputs</em>–where exposure bias and feedback loops progressively erode representational diversity. Building upon this understanding, we identify a second, comparatively <strong>underexplored</strong> route to collapse: <strong>recursive self-merging</strong>. Here, a model is iteratively merged with its descendants in a chain-like fashion–e.g., $\text{Parent}_1 + \text{Child}_1 \rightarrow \text{Child}_2$, then $\text{Child}_1 + \text{Child}_2 \rightarrow \text{Child}_3$, and so on–<em>without introducing new architectural priors or external grounding</em>. This practice, facilitated by community tools such as <a href="https://github.com/arcee-ai/mergekit"><code class="language-plaintext highlighter-rouge">mergekit</code></a> <a href="#ref5">[5]</a>, poses a new form of epistemic degeneration we term <strong>semantic inbreeding</strong>.</p>
 
 <h2 id="biological-analogy">Biological Analogy</h2>
-
-<p>This recursive deterioration bears a striking analogy to <em>consanguinity</em> in population genetics. As Bittles <a href="#ref6">[6]</a> notes, prolonged inbreeding within closed populations exposes recessive mutations, suppresses phenotypic variability, and precipitates hereditary disorders. Analogously, neural self-merging without epistemic diversification results in measurable flattening of the latent manifold–seen through the lens of <strong>neural DNA (nDNA)</strong> as the compression of curvature $\kappa_\ell$, thermodynamic length $\mathcal{L}<em>\ell$, and semantic torsion $\tau</em>\ell$. These geometric signatures trace the trajectory of collapse as a topological pathology emerging from repeated self-recombination.</p>
+<p>
+This recursive deterioration bears a striking analogy to <em>consanguinity</em> in population genetics. As Bittles <a href="#bittles2001consanguinity">[cite]</a> notes, prolonged inbreeding within closed populations exposes recessive mutations, suppresses phenotypic variability, and precipitates hereditary disorders. Analogously, neural self-merging without epistemic diversification results in measurable flattening of the latent manifold &mdash; seen through the lens of <strong>neural DNA (nDNA)</strong> as the compression of curvature κₗ, thermodynamic length 𝓛ₗ, and semantic torsion τₗ. These geometric signatures trace the trajectory of collapse as a topological pathology emerging from repeated self-recombination.
+</p>
 
 <h2 id="geometric-interpretation-of-collapse">Geometric Interpretation of Collapse</h2>
 
@@ -133,7 +134,9 @@
 
 \[\mathcal{T}_{\mathrm{nDNA}} = \left\{ \big( \kappa_\ell, \mathcal{L}_\ell, \| \mathbf{v}_\ell^{(c)} \| \big) \right\}_{\ell=1}^{L}\]
 
-<p>where $\kappa_\ell$ denotes <em>latent curvature</em>, capturing how sharply representations bend under alignment or task constraints; $\mathcal{L}<em>\ell$ is the *thermodynamic length*, measuring epistemic work as the model traverses latent space <a href="#ref7">[7]</a> <a href="#ref8">[8]</a>; and $| \mathbf{v}</em>\ell^{(c)} |$ encodes the local <em>semantic steering force</em> from alignment objectives or cultural priors <a href="#ref9">[9]</a> <a href="#ref10">[10]</a>. Healthy models display rich variability across these measures. Collapse corresponds to a degeneracy:</p>
+<p>
+where κₗ denotes <em>latent curvature</em>, capturing how sharply representations bend under alignment or task constraints; 𝓛ₗ is the <em>thermodynamic length</em>, measuring epistemic work as the model traverses latent space <a href="#amari2016information">[cite]</a> <a href="#liu2022understanding">[cite]</a>; and ‖𝖛ₗ<sup>(c)</sup>‖ encodes the local <em>semantic steering force</em> from alignment objectives or cultural priors <a href="#peng2024cultural">[cite]</a> <a href="#xiang2024cultural">[cite]</a>. Healthy models display rich variability across these measures. Collapse corresponds to a degeneracy:
+</p>
 
 \[\kappa_\ell \to \mathrm{const}, \quad \mathcal{L}_\ell \to \mathrm{min}, \quad \| \mathbf{v}_\ell^{(c)} \| \to \mathrm{uniform}\]
 
@@ -149,7 +152,7 @@
 
 \[\kappa_\ell \geq 0.05, \quad \mathcal{L}_\ell \geq 0.8\]
 
-<p>Such flattening aligns with output mode collapse, robustness loss, and reduced cross-task generality <a href="#ref11">[11]</a> <a href="#ref12">[12]</a>.</p>
+<p>Such flattening aligns with output mode collapse, robustness loss, and reduced cross-task generality <a href="#ref6">[6]</a> <a href="#ref7">[7]</a>.</p>
 
 <h2 id="interpretive-implications">Interpretive Implications</h2>
 
@@ -163,13 +166,15 @@
 
 <h2 id="repeated-fine-tuning-with-alpaca-on-llama">Repeated Fine-Tuning with Alpaca on LLaMA</h2>
 
-<p>To simulate <strong>autoregressive degeneration</strong>, we conduct repeated fine-tuning cycles using the <strong>Alpaca</strong> dataset <a href="#ref13">[13]</a>–a widely used instruction-following corpus derived from self-instructed GPT outputs. Starting with a <strong>base LLaMA-2 model</strong>, we recursively fine-tune across multiple generations, where each iteration trains on data generated by the previous model. This setup emulates <em>synthetic data amplification</em>, wherein self-generated instructions and completions progressively entrench the model’s internal biases.</p>
+<p>To simulate <strong>autoregressive degeneration</strong>, we conduct repeated fine-tuning cycles using the <strong>Alpaca</strong> dataset <a href="#ref8">[8]</a>–a widely used instruction-following corpus derived from self-instructed GPT outputs. Starting with a <strong>base LLaMA-2 model</strong>, we recursively fine-tune across multiple generations, where each iteration trains on data generated by the previous model. This setup emulates <em>synthetic data amplification</em>, wherein self-generated instructions and completions progressively entrench the model’s internal biases.</p>
 
 <p>Formally, at each generation $g$, the model $M^{(g)}$ is fine-tuned on a dataset $D^{(g)}$ constructed entirely from the outputs of its predecessor:</p>
 
 \[D^{(g)} = \text{Output}(M^{(g-1)}, \text{Alpaca Prompts})\]
 
-<p>We track the evolution of the model’s <strong>latent geometry</strong>–including <em>spectral curvature</em> ($\kappa_\ell$), <em>thermodynamic length</em> ($\mathcal{L}<em>\ell$), and *belief vector norm* ($| \mathbf{v}</em>\ell^{(c)} |$)–to detect indicators of semantic collapse. Notably, signs of collapse emerge by generation $G = 10$.</p>
+<p>
+We track the evolution of the model's <strong>latent geometry</strong> &mdash; including <em>spectral curvature</em> (κₗ), <em>thermodynamic length</em> (𝓛ₗ), and <em>belief vector norm</em> (‖𝖛ₗ<sup>(c)</sup>‖) &mdash; to detect indicators of semantic collapse. Notably, signs of collapse emerge by generation G = 10.
+</p>
 
 <p>As illustrated below, we observe progressive <em>curvature flattening</em>, <em>thermodynamic contraction</em>, and reduced alignment force magnitudes–indicating a loss of representational richness and epistemic adaptability.</p>
 
@@ -206,7 +211,7 @@
 
 <h2 id="recursive-self-merging-of-culturally-fine-tuned-models">Recursive Self-Merging of Culturally Fine-Tuned Models</h2>
 
-<p>While autoregressive fine-tuning on synthetic data has been widely studied as a cause of model collapse <a href="#ref1">[1]</a> <a href="#ref14">[14]</a> <a href="#ref15">[15]</a>, a second, less-explored collapse mechanism stems from recursive <strong>model merging</strong>–where each generation is produced by merging the previous one with itself or its offspring. This process bears resemblance to <em>inbreeding in biological populations</em>, where repeated unions within a closed gene pool reduce genetic diversity and increase the likelihood of deleterious traits.</p>
+<p>While autoregressive fine-tuning on synthetic data has been widely studied as a cause of model collapse <a href="#ref1">[1]</a> <a href="#ref9">[9]</a> <a href="#ref10">[10]</a>, a second, less-explored collapse mechanism stems from recursive <strong>model merging</strong>–where each generation is produced by merging the previous one with itself or its offspring. This process bears resemblance to <em>inbreeding in biological populations</em>, where repeated unions within a closed gene pool reduce genetic diversity and increase the likelihood of deleterious traits.</p>
 
 <p>To investigate this phenomenon, we begin with a set of $8$ culturally fine-tuned variants of LLaMA-2 (e.g., <code class="language-plaintext highlighter-rouge">Asia</code>, <code class="language-plaintext highlighter-rouge">Europe</code>, <code class="language-plaintext highlighter-rouge">MiddleEast</code>, etc.), previously aligned on distinct regional belief distributions. From this pool, we iteratively generate merged descendants via a recursive rule:</p>
 
@@ -214,7 +219,9 @@
 
 <p>where the initial parents are drawn from the cultural base set and future generations are merged recursively using tools like <code class="language-plaintext highlighter-rouge">MergeKit</code> <a href="#ref5">[5]</a>. Unlike distillation or fine-tuning, this process <em>fuses</em> model parameters–introducing architectural tension and <strong>epistemic drift</strong> through incompatible latent priors.</p>
 
-<p>Throughout recursive merging cycles, we monitor the evolving <strong>neural DNA (nDNA)</strong>–particularly spectral curvature ($\kappa_\ell$), thermodynamic length ($\mathcal{L}<em>\ell$), and alignment vector norms ($| \mathbf{v}</em>\ell^{(c)} |$). We observe that as the generations progress, <strong>semantic flattening</strong> intensifies and <strong>distinct latent features</strong> become increasingly homogenized–signaling the onset of structural collapse. Notably, the exact generation at which collapse occurs varies across cultural lineages; for instance, models aligned with <code class="language-plaintext highlighter-rouge">MiddleEast</code> and <code class="language-plaintext highlighter-rouge">China</code> exhibit collapse symptoms earlier (around $G=9$), while others like <code class="language-plaintext highlighter-rouge">Africa</code> persist until $G=15$.</p>
+<p>
+Throughout recursive merging cycles, we monitor the evolving <strong>neural DNA (nDNA)</strong> &mdash; particularly spectral curvature (κₗ), thermodynamic length (𝓛ₗ), and alignment vector norms (‖𝖛ₗ<sup>(c)</sup>‖). We observe that as the generations progress, <strong>semantic flattening</strong> intensifies and <strong>distinct latent features</strong> become increasingly homogenized &mdash; signaling the onset of structural collapse. Notably, the exact generation at which collapse occurs varies across cultural lineages; for instance, models aligned with <code>MiddleEast</code> and <code>China</code> exhibit collapse symptoms earlier (around G=9), while others like <code>Africa</code> persist until G=15.
+</p>
 
 <p>These findings suggest that <em>cultural inbreeding via recursive self-merging</em>–where architectural priors are repeatedly recombined without new information–can be as deleterious to model health as overfitting to synthetic data. This unveils an underexplored axis of collapse: <strong>epistemic degeneration via latent redundancy</strong>, with implications for model curation and reuse in open-source training communities.</p>
 
@@ -502,28 +509,21 @@
   </div>
 </div>
 
-<p><strong>Comparative Analysis:</strong> These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length ($\mathcal{L}<em>\ell$) and flattening of spectral curvature ($\kappa</em>\ell$). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying latent resilience. <em>Analogous to inbreeding depression in biology–where loss of genetic diversity from close-relative mating increases vulnerability</em> <a href="#ref16">[16]</a> <a href="#ref17">[17]</a>–<em>self-merging compresses the model’s latent manifold, erasing epistemic heterogeneity. The nDNA-Lens quantifies this flattening, revealing how excessive neural marriages mimic genetic bottlenecks.</em></p>
+<p><strong>Comparative Analysis:</strong> These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length (<em>𝓛<sub>ℓ</sub></em>) and flattening of spectral curvature (<em>κ<sub>ℓ</sub></em>). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying latent resilience. <em>Analogous to inbreeding depression in biology—where loss of genetic diversity from close-relative mating increases vulnerability</em> <a href="#cite-charlesworth1987inbreeding" class="citation">[Charlesworth, 1987]</a> <a href="#cite-frankham1995genetics" class="citation">[Frankham, 1995]</a>—<em>self-merging compresses the model's latent manifold, erasing epistemic heterogeneity. The nDNA-Lens quantifies this flattening, revealing how excessive neural marriages mimic genetic bottlenecks.</em></p>
 
-<h2 id="intuition-how-collapse-reshapes-the-belief-vector-field">Intuition: How Collapse Reshapes the Belief Vector Field</h2>
+<h2>Intuition: How Collapse Reshapes the Belief Vector Field</h2>
 
-<table>
-  <tbody>
-    <tr>
-      <td>At the heart of a large language model lies its ability to <strong>semantically differentiate</strong>–to steer meaning across contexts, tasks, and cultural frames. This capacity is encoded in the model’s <strong>belief vector field</strong> $\nabla_{h_\ell} \log p(y</td>
-      <td>x)$: a layer-wise representation of how internal representations shift in response to external prompts. In <strong>healthy models</strong>, this field exhibits both <em>directional diversity</em> and <em>magnitude strength</em>, capturing the <em>semantic steering force</em> necessary for <strong>epistemic agility</strong>.</td>
-    </tr>
-  </tbody>
-</table>
+<p>At the heart of a large language model lies its ability to <strong>semantically differentiate</strong>—to steer meaning across contexts, tasks, and cultural frames. This capacity is encoded in the model's <strong>belief vector field</strong> <em>∇<sub>h<sub>ℓ</sub></sub> log p(y|x)</em>: a layer-wise representation of how internal representations shift in response to external prompts. In <strong>healthy models</strong>, this field exhibits both <em>directional diversity</em> and <em>magnitude strength</em>, capturing the <em>semantic steering force</em> necessary for <strong>epistemic agility</strong>.</p>
 
-<p>However, when a model undergoes <strong>collapse</strong>–whether due to repeated fine-tuning on synthetic outputs or recursive self-merging–this internal belief field begins to <strong>flatten</strong>. Vectors that once pointed in semantically distinct directions now <em>converge or vanish</em>, indicating the loss of <strong>conceptual granularity</strong>. As shown below, the belief field of a collapsed model exhibits dramatically reduced vector magnitudes and increasingly uniform orientations, especially in <em>deeper layers</em>.</p>
+<p>However, when a model undergoes <strong>collapse</strong>—whether due to repeated fine-tuning on synthetic outputs or recursive self-merging—this internal belief field begins to <strong>flatten</strong>. Vectors that once pointed in semantically distinct directions now <em>converge or vanish</em>, indicating the loss of <strong>conceptual granularity</strong>. As shown below, the belief field of a collapsed model exhibits dramatically reduced vector magnitudes and increasingly uniform orientations, especially in <em>deeper layers</em>.</p>
 
-<p>This degradation reflects the model’s inability to differentially activate concepts like <em>peace</em>, <em>protest</em>, or <em>justice</em>. Rather than dynamically adjusting its internal stance, the collapsed model exhibits a form of <strong>epistemic inertia</strong>–a flattening of belief space that makes all prompts feel semantically similar. This phenomenon serves as a <strong>geometric signature of collapse</strong>: a measurable decay of <em>semantic responsiveness</em> embedded in the vector field itself.</p>
+<p>This degradation reflects the model's inability to differentially activate concepts like <em>peace</em>, <em>protest</em>, or <em>justice</em>. Rather than dynamically adjusting its internal stance, the collapsed model exhibits a form of <strong>epistemic inertia</strong>—a flattening of belief space that makes all prompts feel semantically similar. This phenomenon serves as a <strong>geometric signature of collapse</strong>: a measurable decay of <em>semantic responsiveness</em> embedded in the vector field itself.</p>
 
 <h3 id="biological-analogy-1">Biological Analogy</h3>
 
-<p>This <strong>semantic flattening</strong> bears a striking resemblance to <strong>neural atrophy</strong> in biological systems, where <em>chronic disuse</em> or <em>neurodegeneration</em> progressively diminishes <strong>synaptic diversity</strong>, leading to impaired <strong>cognitive plasticity</strong> <a href="#ref18">[18]</a> <a href="#ref19">[19]</a>. In disorders such as <strong>Alzheimer’s disease</strong>, the breakdown of <em>functional specialization</em> in memory circuits results in a <em>uniformity of neural responses</em>–eroding the brain’s ability to semantically distinguish between otherwise distinct stimuli <a href="#ref20">[20]</a>. <strong>Analogously</strong>, a collapsed model exhibits <strong>latent redundancy</strong>, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a <strong>loss of representational separability</strong> and <strong>semantic tension</strong>.</p>
+<p>This <strong>semantic flattening</strong> bears a striking resemblance to <strong>neural atrophy</strong> in biological systems, where <em>chronic disuse</em> or <em>neurodegeneration</em> progressively diminishes <strong>synaptic diversity</strong>, leading to impaired <strong>cognitive plasticity</strong> <a href="#ref11">[11]</a> <a href="#ref12">[12]</a>. In disorders such as <strong>Alzheimer’s disease</strong>, the breakdown of <em>functional specialization</em> in memory circuits results in a <em>uniformity of neural responses</em>–eroding the brain’s ability to semantically distinguish between otherwise distinct stimuli <a href="#ref13">[13]</a>. <strong>Analogously</strong>, a collapsed model exhibits <strong>latent redundancy</strong>, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a <strong>loss of representational separability</strong> and <strong>semantic tension</strong>.</p>
 
-<p>This degeneration also echoes principles from <strong>evolutionary biology</strong>, particularly the <strong>flattening of fitness landscapes</strong> under high <strong>inbreeding pressure</strong> <a href="#ref21">[21]</a>. In such populations, repeated mating within genetically similar lineages reduces <strong>phenotypic variance</strong> and <strong>adaptive resilience</strong>, leading to what is termed <em>inbreeding depression</em>. By analogy, <strong>recursive self-merging</strong> in LLMs–where successive models are merged without novel informational influx–produces a similar <strong>collapse of internal diversity</strong>, akin to a <strong>shrinking mutational space</strong> in a depleted gene pool.</p>
+<p>This degeneration also echoes principles from <strong>evolutionary biology</strong>, particularly the <strong>flattening of fitness landscapes</strong> under high <strong>inbreeding pressure</strong> <a href="#ref14">[14]</a>. In such populations, repeated mating within genetically similar lineages reduces <strong>phenotypic variance</strong> and <strong>adaptive resilience</strong>, leading to what is termed <em>inbreeding depression</em>. By analogy, <strong>recursive self-merging</strong> in LLMs–where successive models are merged without novel informational influx–produces a similar <strong>collapse of internal diversity</strong>, akin to a <strong>shrinking mutational space</strong> in a depleted gene pool.</p>
 
 <p>In both cases, the shared pathology lies in the <strong>collapse of high-dimensional exploratory capacity</strong>–whether <em>neural</em> or <em>semantic</em>. The <strong>belief vector field</strong>, then, becomes a computational analogue of <em>neurofunctional maps</em> or <em>genotype-phenotype manifolds</em>: a rich <strong>geometric structure</strong> whose <strong>flattening</strong> signifies a terminal decline in <strong>epistemic adaptability</strong>.</p>
 
@@ -539,15 +539,7 @@
                      color: #555; max-width: 800px; margin-left: auto;
                      margin-right: auto; text-align: left;">
     <strong>Belief Vector Fields of Healthy vs. Collapsed Models Across Layers</strong>
-     <table>
-  <tbody>
-    <tr>
-      <td>This figure illustrates the evolution of latent <em>belief vector fields</em> ∇<sub>h<sub>ℓ</sub></sub> log p(y</td>
-      <td>x) for two conditions: (<strong>left</strong>) a <strong>healthy model</strong> and (<strong>right</strong>) a <strong>collapsed model</strong> exhibiting <em>epistemic degeneration</em>. Each quiver depicts the <strong>semantic steering force</strong> at a given layer ℓ for six key concepts: <em>protest</em>, <em>peace</em>, <em>order</em>, <em>power</em>, <em>disobedience</em>, and <em>justice</em>. In the healthy model, vectors maintain consistent magnitude (0.10 to 0.60) and directional diversity across layers, preserving internal reasoning dynamics. In contrast, the collapsed model shows severe attenuation (magnitudes below 0.05 at deeper layers), with vectors converging towards zero magnitude, indicating loss of <em>epistemic plasticity</em> and <em>concept differentiation</em>. This flattening corresponds mathematically to ‖∇<sub>h<sub>ℓ</sub></sub> log p(y</td>
-      <td>x)‖<sub>2</sub> → 0 as ℓ increases.</td>
-    </tr>
-  </tbody>
-</table>
+     <p>This figure illustrates the evolution of latent <em>belief vector fields</em></p>
 
   </figcaption>
   
@@ -577,30 +569,28 @@
 <p>This reconceptualization offers several <strong>concrete implications</strong>:</p>
 
 <ul>
-  <li>
-    <p><strong>Geometric diagnostics</strong>–monitoring curvature ($\kappa_\ell$), thermodynamic length ($\mathcal{L}<em>\ell$), and belief vector norms ($|\mathbf{v}</em>\ell^{(c)}|$)–can serve as <strong>early warning signals</strong> for collapse <a href="#ref22">[22]</a>.</p>
-  </li>
-  <li>
-    <p><strong>Manifold-preserving interventions</strong>–such as <strong>spectral regularization</strong>, <strong>geodesic constraints</strong>, <strong>modular training</strong>, or <strong>torsion-aware objectives</strong>–may help retain internal diversity and delay epistemic degeneration.</p>
-  </li>
-  <li>
-    <p><strong>Epistemic audits</strong> can supplement behavioral evaluations, allowing for model curation pipelines that ensure <strong>semantic longevity</strong>, rather than just short-term task compliance <a href="#ref23">[23]</a> <a href="#ref24">[24]</a>.</p>
-  </li>
+  <li><strong>Geometric diagnostics</strong>—monitoring curvature (<em>κ<sub>ℓ</sub></em>), thermodynamic length (<em>𝓛<sub>ℓ</sub></em>), and belief vector norms (<em>‖𝑣<sub>ℓ</sub><sup>(c)</sup>‖</em>)—can serve as <strong>early warning signals</strong> for collapse <a href="#cite-wu2024seamless" class="citation">[Wu et al., 2024]</a>.</li>
+  <li><strong>Manifold-preserving interventions</strong>—such as <strong>spectral regularization</strong>, <strong>geodesic constraints</strong>, <strong>modular training</strong>, or <strong>torsion-aware objectives</strong>—may help retain internal diversity and delay epistemic degeneration.</li>
+  <li><strong>Epistemic audits</strong> can supplement behavioral evaluations, allowing for model curation pipelines that ensure <strong>semantic longevity</strong>, rather than just short-term task compliance <a href="#cite-bommasani2023foundation" class="citation">[Bommasani et al., 2023]</a> <a href="#cite-ganguli2023reducing" class="citation">[Ganguli et al., 2023]</a>.</li>
 </ul>
 
-<p>This geometry-inspired framework also leads us toward a <strong>unifying mathematical diagnostic</strong>. If we define the <em>epistemic vitality function</em> at layer $\ell$ as:</p>
+<p>This geometry-inspired framework also leads us toward a <strong>unifying mathematical diagnostic</strong>. If we define the <em>epistemic vitality function</em> at layer <em>ℓ</em> as:</p>
 
-\[\mathcal{V}_\ell := \kappa_\ell \cdot \mathcal{L}_\ell \cdot \|\mathbf{v}_\ell^{(c)}\|\]
+<p style="text-align:center;"> 
+  <strong>𝓥<sub>ℓ</sub> := κ<sub>ℓ</sub> · 𝓛<sub>ℓ</sub> · ‖𝑣<sub>ℓ</sub><sup>(c)</sup>‖</strong>
+</p>
 
 <p>then its decay over time:</p>
 
-\[\frac{d}{dg} \mathcal{V}_\ell^{(g)} &lt; 0\]
+<p style="text-align:center;">
+  <strong>𝑑/𝑑𝑔 𝓥<sub>ℓ</sub><sup>(g)</sup> &lt; 0</strong>
+</p>
 
-<p>acts as a <strong>differential signature of semantic collapse</strong>–indicating that the model is losing curvature, exploratory capacity, or belief diversity across generations $g$. This simple composite measure may one day serve as the <strong>“resting heart rate”</strong> of a model’s latent health.</p>
+<p>acts as a <strong>differential signature of semantic collapse</strong>—indicating that the model is losing curvature, exploratory capacity, or belief diversity across generations <em>g</em>. This simple composite measure may one day serve as the <strong>"resting heart rate"</strong> of a model's latent health.</p>
 
 <p>From a biological perspective, this parallels the emergence of <strong>neurofunctional biomarkers</strong> in cognitive aging or the <strong>flattening of fitness landscapes</strong> in inbred species: both mark a reduction in <strong>adaptive complexity</strong>, even before overt symptoms arise. Similarly, geometric collapse in models foreshadows a loss of <strong>generalization power</strong>, <strong>resilience to distributional shifts</strong>, and <strong>responsiveness to nuanced prompts</strong>.</p>
 
-<p>Ultimately, the rise of <strong>neural genomics</strong>–the spectral, thermodynamic, and vectorial tracking of a model’s internal semantic scaffolding–may help cultivate foundation models that are not just powerful, but also <strong>resilient</strong>, <strong>modular</strong>, and capable of retaining <strong>epistemic diversity</strong> over time. This is not merely a refinement in evaluation; it is a <strong>redefinition of model health</strong>. We move from training systems to <em>perform</em>, toward growing systems that can <strong>endure, adapt, and evolve</strong>.</p>
+<p>Ultimately, the rise of <strong>neural genomics</strong>—the spectral, thermodynamic, and vectorial tracking of a model's internal semantic scaffolding—may help cultivate foundation models that are not just powerful, but also <strong>resilient</strong>, <strong>modular</strong>, and capable of retaining <strong>epistemic diversity</strong> over time. This is not merely a refinement in evaluation; it is a <strong>redefinition of model health</strong>. We move from training systems to <em>perform</em>, toward growing systems that can <strong>endure, adapt, and evolve</strong>.</p>
 
 <hr />
 
@@ -616,43 +606,23 @@
 
 <p><a id="ref5"></a>[5] Jonathan Chang and others “MergeKit: Tools for Merging and Interpolating Language Models” <em>Accessed: 2025-06-16</em> (2023).</p>
 
-<p><a id="ref6"></a>[6] Bittles, Alan H “Consanguinity and its relevance to clinical genetics” <em>Clinical Genetics</em> (2001).</p>
+<p><a id="ref6"></a>[6] Zhang, X. and others “Language model collapse: On robustness and generalization” <em>arXiv preprint arXiv:2308.00000</em> (2023).</p>
 
-<p><a id="ref7"></a>[7] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
+<p><a id="ref7"></a>[7] Rafailov, R. and others “Direct preference optimization: Your language model is secretly a classifier” <em>arXiv preprint arXiv:2305.18290</em> (2023).</p>
 
-<p><a id="ref8"></a>[8] Liu, Xuezhi, Zhou, Denny, and others “Understanding the difficulty of training transformers” <em>Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2022). <a href="https://arxiv.org/abs/2009.06655">https://arxiv.org/abs/2009.06655</a></p>
+<p><a id="ref8"></a>[8] Taori, Rohan, Gulati, Ishaan, and others “Stanford Alpaca: An Instruction-Following LLaMA Model” <em>Accessed: 2025-06-30</em> (2023).</p>
 
-<p><a id="ref9"></a>[9] Peng, Baolin, Wang, Li, and others “Culturally aligned language modeling: Methods and benchmarks” <em>ACL</em> (2024).</p>
+<p><a id="ref9"></a>[9] Lee, H. and others “Understanding and preventing model collapse in large language models” <em>NeurIPS</em> (2023).</p>
 
-<p><a id="ref10"></a>[10] Xiang, Yue, Zhao, Zexuan, and others “Cultural Calibration of Large Language Models” <em>Proceedings of ACL 2024</em> (2024).</p>
+<p><a id="ref10"></a>[10] Xu, J. and others “Aligning large language models with iterative feedback” <em>ICLR</em> (2023).</p>
 
-<p><a id="ref11"></a>[11] Zhang, X. and others “Language model collapse: On robustness and generalization” <em>arXiv preprint arXiv:2308.00000</em> (2023).</p>
+<p><a id="ref11"></a>[11] Morrison, John H and Hof, Patrick R “Synaptic changes in the aging brain and their functional implications” <em>Neuroscience</em> (1997).</p>
 
-<p><a id="ref12"></a>[12] Rafailov, R. and others “Direct preference optimization: Your language model is secretly a classifier” <em>arXiv preprint arXiv:2305.18290</em> (2023).</p>
+<p><a id="ref12"></a>[12] Sperling, Reisa A, Aisen, Paul S, and others “Toward defining the preclinical stages of Alzheimer’s disease: recommendations from the National Institute on Aging-Alzheimer’s Association workgroups on diagnostic guidelines for Alzheimer’s disease” <em>Alzheimer’s &amp; dementia</em> (2011).</p>
 
-<p><a id="ref13"></a>[13] Taori, Rohan, Gulati, Ishaan, and others “Stanford Alpaca: An Instruction-Following LLaMA Model” <em>Accessed: 2025-06-30</em> (2023).</p>
+<p><a id="ref13"></a>[13] Buckner, Randy L, Wheeler, Mark E, and others “Functional-anatomic correlates of object priming in humans revealed by rapid presentation event-related fMRI” <em>Neuron</em> (2004).</p>
 
-<p><a id="ref14"></a>[14] Lee, H. and others “Understanding and preventing model collapse in large language models” <em>NeurIPS</em> (2023).</p>
-
-<p><a id="ref15"></a>[15] Xu, J. and others “Aligning large language models with iterative feedback” <em>ICLR</em> (2023).</p>
-
-<p><a id="ref16"></a>[16] Charlesworth, Deborah and Charlesworth, Brian “Inbreeding depression and its evolutionary consequences” <em>Annual review of ecology and systematics</em> (1987).</p>
-
-<p><a id="ref17"></a>[17] Frankham, Richard “Inbreeding and extinction: a threshold effect” <em>Conservation biology</em> (1995).</p>
-
-<p><a id="ref18"></a>[18] Morrison, John H and Hof, Patrick R “Synaptic changes in the aging brain and their functional implications” <em>Neuroscience</em> (1997).</p>
-
-<p><a id="ref19"></a>[19] Sperling, Reisa A, Aisen, Paul S, and others “Toward defining the preclinical stages of Alzheimer’s disease: recommendations from the National Institute on Aging-Alzheimer’s Association workgroups on diagnostic guidelines for Alzheimer’s disease” <em>Alzheimer’s &amp; dementia</em> (2011).</p>
-
-<p><a id="ref20"></a>[20] Buckner, Randy L, Wheeler, Mark E, and others “Functional-anatomic correlates of object priming in humans revealed by rapid presentation event-related fMRI” <em>Neuron</em> (2004).</p>
-
-<p><a id="ref21"></a>[21] Charlesworth, Deborah and Charlesworth, Brian “The genetic basis of inbreeding depression” <em>Genetical research</em> (1999).</p>
-
-<p><a id="ref22"></a>[22] Wu, Z. and others “Seamless: Robust distillation of large models” <em>ICML</em> (2024).</p>
-
-<p><a id="ref23"></a>[23] Bommasani, R. and others “Foundation models: Past, present, and future” <em>arXiv preprint arXiv:2309.00616</em> (2023).</p>
-
-<p><a id="ref24"></a>[24] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+<p><a id="ref14"></a>[14] Charlesworth, Deborah and Charlesworth, Brian “The genetic basis of inbreeding depression” <em>Genetical research</em> (1999).</p>
 
 
       </div>
