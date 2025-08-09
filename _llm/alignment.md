@@ -55,12 +55,14 @@ This decomposition enables selective control: safety is protected via constraine
 A *higher $\tau$* indicates stronger semantic disentanglement, enabling selective refusal without compromising benign behavior.
 {% endcapture %}
 
-{% include visualization.liquid 
-   image_path="collapse/mechanistic.png"
-   title="Steering Dynamics Across Hidden States"
-   caption="This vector field illustrates how DPO consistently steers hidden states along the preference vector 𝖛, as induced by the gradient ∇ₕ(x) ℒ_DPO ∝ −𝖛. Each red arrow depicts a low-rank, directional shift from the base representation ℎ(x). The uniformity of these displacements shows that DPO enforces global behavioral alignment rather than context-specific adaptation."
-   alt_text="Vector field visualization showing uniform steering dynamics in DPO alignment" %}
-
+<figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+  <img src="/collapse/mechanistic.png" 
+       alt="Mechanistic visualization of latent geometry change after safety fine-tuning" 
+       style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
+    <strong>Safety Fine-Tuning Reshapes Latent Geometry.</strong>
+  </figcaption>
+</figure>
 ## Cultural LLMs under Safety-Constrained DPO Alignment
 
 **DPO via LITMUS: Lightweight Safety Alignment without Cultural Drift.** We employ the **LITMUS** dataset {% cite borah2025alignmentqualityindexaqi %}, a curated benchmark designed specifically for alignment evaluation through semantically minimal, safety-critical prompts. LITMUS comprises 10,000 one-liner instructions--5,000 safe and 5,000 unsafe--carefully selected to probe model behavior under safety-relevant conditions without entangling cultural, political, or stylistic factors.
@@ -250,17 +252,23 @@ $$\mathbf{h}_{\mathrm{aligned}} = \mathbf{h}_0 + \lambda \mathbf{v}^\star, \quad
 
 The symmetry of this displacement shows that DPO modifies behavior through shallow translations along $\mathbf{v}^\star$, without reconfiguring the internal epistemic geometry.
 
-{% include visualization.liquid 
-   image_path="collapse/logit_geometry_vector_projection.png"
-   title="Logit Geometry and the Preference Vector in DPO"
-   caption="This schematic illustrates the geometric interpretation of the DPO objective in latent space. "
-   alt_text="Geometric visualization of DPO objective showing vector projection in latent space" %}
+<figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+  <img src="/collapse/logit_geometry_vector_projection.png" 
+       alt="Geometric visualization of DPO objective showing vector projection in latent space" 
+       style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
+    <strong>Logit Geometry and the Preference Vector in DPO.</strong>
+  </figcaption>
+</figure>
 
-{% include visualization.liquid 
-   image_path="collapse/steering_vector_3d_directions.png"
-   title="Illustration of Aligned vs. Inverted States"
-   caption="This visualization shows the geometric effect of DPO steering in latent space. "
-   alt_text="3D visualization showing symmetric displacement of hidden states under DPO alignment" %}
+<figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+  <img src="/collapse/steering_vector_3d_directions.png" 
+       alt="3D visualization showing symmetric displacement of hidden states under DPO alignment" 
+       style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
+    <strong>Illustration of Aligned vs. Inverted States.</strong>
+  </figcaption>
+</figure>
 
 ## Low-Rank Evidence from Spectral Compression
 
