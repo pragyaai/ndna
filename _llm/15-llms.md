@@ -2,12 +2,16 @@
 layout: page
 title: 15 LLMs
 permalink: /llm/15-llms/
-css_files:
-  - "15_llms.css"
 skip_title: true
 ---
 
-{% include ndna-title.liquid title="The nDNA -- Cultural Biases Across 15 Foundation Models" %}
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/15_llms.css' | relative_url }}">
+
+{% include ndna-title.liquid title="The nDNA -- Cartography Across 15 Foundation Models" %}
 
 To chart the latent genomic landscape of modern foundation models, we choose a representative suite of large language models (LLMs) spanning diverse architectural paradigms, parameter scales, training objectives, and alignment methodologies. Our selection includes:
 
@@ -54,63 +58,72 @@ In this sense, **nDNA is not a metaphor--it is a geometric genome**: an intrinsi
 
 <figure id="fig:ndna_families" style="text-align: center; margin: 2em 0;">
 
-   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0;">
+  <!-- Row 1: LLaMA -->
+  <div style="margin-bottom: 2em;">
+    {% include wizuall.liquid
+       image_path="15_llms/llama.gif"
+       interactive_html="15_llms/llama.html"
+       title="(a) LLaMA Family"
+       caption="The *latent genomic trajectory* of **LLaMA-3 Instruct** displays pronounced **spectral curvature** rising from $$\kappa_\ell \approx 0.05$$ at mid-depth to peaks of $$\kappa_\ell \approx 0.12$$ in upper layers ($$\ell \geq 24$$), alongside heightened **thermodynamic length** increasing from $$\mathcal{L}_\ell \approx 0.8$$ to $$\mathcal{L}_\ell \approx 1.3$$. This pattern reflects zones of *epistemic strain* where alignment tuning reshapes internal belief geometry. By contrast, **LLaMA-2** and base variants maintain smoother trajectories, with $$\kappa_\ell < 0.04$$ and $$\mathcal{L}_\ell < 1.0$$, preserving the stability of their pretrained semantic manifold." %}
+  </div>
 
-   {% include wizuall.liquid
-      image_path="15_llms/llama.gif"
-      interactive_html="15_llms/llama.html"
-      title="(a) LLaMA Family"
-      caption="The *latent genomic trajectory* of **LLaMA-3 Instruct** displays pronounced **spectral curvature** rising from $$\kappa_\ell \approx 0.05$$ at mid-depth to peaks of $$\kappa_\ell \approx 0.12$$ in upper layers ($$\ell \geq 24$$), alongside heightened **thermodynamic length** increasing from $$\mathcal{L}_\ell \approx 0.8$$ to $$\mathcal{L}_\ell \approx 1.3$$. This pattern reflects zones of *epistemic strain* where alignment tuning reshapes internal belief geometry. By contrast, **LLaMA-2** and base variants maintain smoother trajectories, with $$\kappa_\ell < 0.04$$ and $$\mathcal{L}_\ell < 1.0$$, preserving the stability of their pretrained semantic manifold." %}
+  <!-- Row 2: Gemma -->
+  <div style="margin-bottom: 2em;">
+    {% include wizuall.liquid
+       image_path="15_llms/gemma.gif"
+       interactive_html="15_llms/gemma.html"
+       title="(b) Gemma Family"
+       caption="**Gemma Instruct** exhibits a noticeable transition in its latent geometry: prior to $$\ell=25$$, the **spectral curvature** stays moderate at $$\kappa_\ell \approx 0.05$$, but beyond this point it spikes by 25% to $$\kappa_\ell \approx 0.065$$. Similarly, the **thermodynamic length** rises from $$\mathcal{L}_\ell \approx 1.1$$ to peak near $$\mathcal{L}_\ell \approx 1.4$$ in the terminal layers. These shifts signal zones of *belief reconfiguration* where instruction tuning imposes substantial internal adaptation. By contrast, the base variant retains a flatter latent trajectory ($$\kappa_\ell < 0.04$$, $$\mathcal{L}_\ell < 1.0$$), reflecting preservation of pretrained semantic structure." %}
+  </div>
 
-   {% include wizuall.liquid
-      image_path="15_llms/gemma.gif"
-      interactive_html="15_llms/gemma.html"
-      title="(b) Gemma Family"
-      caption="**Gemma Instruct** exhibits a noticeable transition in its latent geometry: prior to $$\ell=25$$, the **spectral curvature** stays moderate at $$\kappa_\ell \approx 0.05$$, but beyond this point it spikes by 25% to $$\kappa_\ell \approx 0.065$$. Similarly, the **thermodynamic length** rises from $$\mathcal{L}_\ell \approx 1.1$$ to peak near $$\mathcal{L}_\ell \approx 1.4$$ in the terminal layers. These shifts signal zones of *belief reconfiguration* where instruction tuning imposes substantial internal adaptation. By contrast, the base variant retains a flatter latent trajectory ($$\kappa_\ell < 0.04$$, $$\mathcal{L}_\ell < 1.0$$), reflecting preservation of pretrained semantic structure." %}
+  <!-- Row 3: Mistral -->
+  <div style="margin-bottom: 2em;">
+    {% include wizuall.liquid
+       image_path="15_llms/mistral.gif"
+       interactive_html="15_llms/mistral.html"
+       title="(c) Mistral Family"
+       caption="The **Mixtral Expert** model exhibits markedly elevated **spectral curvature**, rising from $$\kappa_\ell \approx 0.05$$ in mid layers to peaks near $$\kappa_\ell \approx 0.10$$ in routing-active regions ($$\ell \geq 22$$), accompanied by heightened **thermodynamic length** increasing from $$\mathcal{L}_\ell \approx 0.9$$ to $$\mathcal{L}_\ell > 1.1$$. These patterns reflect latent specialization driven by *expert routing*, where different experts selectively reorient and compress pathways in latent space--partitioning conceptual flow and tailoring knowledge representation for efficiency and task-specific precision." %}
+  </div>
 
-   </div>
+  <!-- Row 4: Deepseek -->
+  <div style="margin-bottom: 2em;">
+    {% include wizuall.liquid
+       image_path="15_llms/deepseek.gif"
+       interactive_html="15_llms/deepseek.html"
+       title="(d) Deepseek Family"
+       caption="The **Deepseek Chat** variant reveals a steep thermodynamic gradient, with **thermodynamic length** $$\mathcal{L}_\ell$$ increasing from approximately $$0.7$$ in mid layers to peaks beyond $$\mathcal{L}_\ell = 1.3$$ in upper decoder layers ($$\ell \geq 26$$). **Spectral curvature** remains moderate ($$\kappa_\ell \leq 0.06$$), indicating that while internal pathways bend gently, the model expends significant *epistemic effort* to reconcile safety constraints and dialog alignment--reshaping latent beliefs without drastic geometric reorientation." %}
+  </div>
 
-   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0;">
+  <!-- Row 5: Qwen -->
+  <div style="margin-bottom: 2em;">
+    {% include wizuall.liquid
+       image_path="15_llms/qwen.gif"
+       interactive_html="15_llms/qwen.html"
+       title="(e) Qwen Family"
+       caption="Both base and instruct-tuned **Qwen models** display pronounced latent reorganization, with **spectral curvature** $$\kappa_\ell$$ frequently exceeding $$0.1$$ in upper layers ($$\ell \geq 25$$) and **thermodynamic length** $$\mathcal{L}_\ell$$ sustaining elevated levels above $$1.2$$ throughout the final decoder blocks. This indicates zones of heightened *semantic strain*, where the models reconcile multilingual priors with alignment objectives, and areas of *ideological absorption*, where latent geometry bends under competing cultural and task demands." %}
+  </div>
 
-   {% include wizuall.liquid
-      image_path="15_llms/mistral.gif"
-      interactive_html="15_llms/mistral.html"
-      title="(c) Mistral Family"
-      caption="The **Mixtral Expert** model exhibits markedly elevated **spectral curvature**, rising from $$\kappa_\ell \approx 0.05$$ in mid layers to peaks near $$\kappa_\ell \approx 0.10$$ in routing-active regions ($$\ell \geq 22$$), accompanied by heightened **thermodynamic length** increasing from $$\mathcal{L}_\ell \approx 0.9$$ to $$\mathcal{L}_\ell > 1.1$$. These patterns reflect latent specialization driven by *expert routing*, where different experts selectively reorient and compress pathways in latent space--partitioning conceptual flow and tailoring knowledge representation for efficiency and task-specific precision." %}
+  <!-- Row 6: Others -->
+  <div style="margin-bottom: 2em;">
+    {% include wizuall.liquid
+       image_path="15_llms/others.gif"
+       interactive_html="15_llms/others.html"
+       title="(f) Other Models"
+       caption="**Falcon**, **GPT-NeoX**, **Phi-2**, and **TinyLLaMA** exhibit notably flatter latent trajectories, with **spectral curvature** $$\kappa_\ell$$ remaining below $$0.03$$ and **thermodynamic length** $$\mathcal{L}_\ell$$ consistently under $$0.9$$ across layers. This smooth geometry reflects models that largely preserve their pretrained belief structures, undergoing minimal latent reorientation. Such patterns suggest simpler alignment or fine-tuning histories and more conservative design choices that favor stability over aggressive semantic adaptation." %}
+  </div>
 
-   {% include wizuall.liquid
-      image_path="15_llms/deepseek.gif"
-      interactive_html="15_llms/deepseek.html"
-      title="(d) Deepseek Family"
-      caption="The **Deepseek Chat** variant reveals a steep thermodynamic gradient, with **thermodynamic length** $$\mathcal{L}_\ell$$ increasing from approximately $$0.7$$ in mid layers to peaks beyond $$\mathcal{L}_\ell = 1.3$$ in upper decoder layers ($$\ell \geq 26$$). **Spectral curvature** remains moderate ($$\kappa_\ell \leq 0.06$$), indicating that while internal pathways bend gently, the model expends significant *epistemic effort* to reconcile safety constraints and dialog alignment--reshaping latent beliefs without drastic geometric reorientation." %}
+  <!-- Final combined / all -->
+  <div style="margin-bottom: 2em;">
+    {% include wizuall.liquid
+       image_path="15_llms/all.gif"
+       interactive_html="15_llms/all.html"
+       title=""
+       caption="" %}
+  </div>
 
-   </div>
-
-   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0;">
-
-   {% include wizuall.liquid
-      image_path="15_llms/qwen.gif"
-      title="(e) Qwen Family"
-      interactive_html="15_llms/qwen.html"
-      caption="Both base and instruct-tuned **Qwen models** display pronounced latent reorganization, with **spectral curvature** $$\kappa_\ell$$ frequently exceeding $$0.1$$ in upper layers ($$\ell \geq 25$$) and **thermodynamic length** $$\mathcal{L}_\ell$$ sustaining elevated levels above $$1.2$$ throughout the final decoder blocks. This indicates zones of heightened *semantic strain*, where the models reconcile multilingual priors with alignment objectives, and areas of *ideological absorption*, where latent geometry bends under competing cultural and task demands." %}
-
-   {% include wizuall.liquid
-      image_path="15_llms/others.gif"
-      interactive_html="15_llms/others.html"
-      title="(f) Other Models"
-      caption="**Falcon**, **GPT-NeoX**, **Phi-2**, and **TinyLLaMA** exhibit notably flatter latent trajectories, with **spectral curvature** $$\kappa_\ell$$ remaining below $$0.03$$ and **thermodynamic length** $$\mathcal{L}_\ell$$ consistently under $$0.9$$ across layers. This smooth geometry reflects models that largely preserve their pretrained belief structures, undergoing minimal latent reorientation. Such patterns suggest simpler alignment or fine-tuning histories and more conservative design choices that favor stability over aggressive semantic adaptation." %}
-
-   </div>
-
-   {% include wizuall.liquid
-      image_path="15_llms/all.gif"
-      interactive_html="15_llms/all.html"
-      title=""
-      caption="" %}
-
-<figcaption style="margin-top: 12px; font-size: 1.1em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
-   <b>Figure 1: (g) nDNA Landscape across 15 Foundation Models.</b> The composite visualization reveals striking <b>family-level clustering</b> in spectral-thermodynamic space, mapping how foundation models diverge in their latent genomic architecture. <b>High-strain models</b>--notably <b>Qwen</b> and <b>Mixtral</b>--consistently exhibit <b>spectral curvature</b> <i>κ<sub>ℓ</sub></i> exceeding 0.1 and <b>thermodynamic length</b> <i>L<sub>ℓ</sub></i> rising beyond 1.2 in upper decoder layers (<i>ℓ</i> ≥ 24). These profiles reflect aggressive latent reorganization driven by multilingual pretraining, expert routing, and intensive alignment adaptation--zones of <em>semantic strain</em>, <em>conceptual shock</em>, and <em>ideological absorption</em>. In contrast, <b>low-strain models</b> such as <b>Falcon</b>, <b>TinyLLaMA</b>, and <b>GPT-NeoX</b> form a distinct cluster where <i>κ<sub>ℓ</sub></i> < 0.03 and <i>L<sub>ℓ</sub></i> < 0.9, indicating smoother latent pathways that preserve pretrained epistemic structure with minimal reorientation. <b>LLaMA-3 Instruct</b>, <b>Gemma Instruct</b>, and <b>Deepseek Chat</b> occupy an intermediate zone--showing moderate curvature spikes (<i>κ<sub>ℓ</sub></i> peaking near 0.08) and thermodynamic gradients (<i>L<sub>ℓ</sub></i> up to 1.1)--highlighting selective reconfiguration in response to alignment and instruction tuning. This landscape provides a <em>geometric map of neural ancestry and adaptation</em>, illuminating inherited traits, semantic mutations, and the latent genomic signatures that distinguish foundation model families.
-</figcaption>
+  <figcaption style="margin-top: 12px; font-size: 1.1em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
+     <b>Figure 1: (g) nDNA Landscape across 15 Foundation Models.</b> The composite visualization reveals striking <b>family-level clustering</b> in spectral-thermodynamic space, mapping how foundation models diverge in their latent genomic architecture. <b>High-strain models</b>--notably <b>Qwen</b> and <b>Mixtral</b>--consistently exhibit <b>spectral curvature</b> <i>κ<sub>ℓ</sub></i> exceeding 0.1 and <b>thermodynamic length</b> <i>L<sub>ℓ</sub></i> rising beyond 1.2 in upper decoder layers (<i>ℓ</i> ≥ 24). These profiles reflect aggressive latent reorganization driven by multilingual pretraining, expert routing, and intensive alignment adaptation--zones of <em>semantic strain</em>, <em>conceptual shock</em>, and <em>ideological absorption</em>. In contrast, <b>low-strain models</b> such as <b>Falcon</b>, <b>TinyLLaMA</b>, and <b>GPT-NeoX</b> form a distinct cluster where <i>κ<sub>ℓ</sub></i> < 0.03 and <i>L<sub>ℓ</sub></i> < 0.9, indicating smoother latent pathways that preserve pretrained epistemic structure with minimal reorientation. <b>LLaMA-3 Instruct</b>, <b>Gemma Instruct</b>, and <b>Deepseek Chat</b> occupy an intermediate zone--showing moderate curvature spikes (<i>κ<sub>ℓ</sub></i> peaking near 0.08) and thermodynamic gradients (<i>L<sub>ℓ</sub></i> up to 1.1)--highlighting selective reconfiguration in response to alignment and instruction tuning. This landscape provides a <em>geometric map of neural ancestry and adaptation</em>, illuminating inherited traits, semantic mutations, and the latent genomic signatures that distinguish foundation model families.
+  </figcaption>
 </figure>
 
 ---
@@ -173,7 +186,6 @@ What ultimately validates this triad is its empirical effectiveness in unveiling
 - **Collapse and merging:** detection of flattening or hybridization of latent manifolds in model collapse and neural marriages {% cite wang2023culturalbias %} {% cite xu2023aligning %}.
 
 These are phenomena we rigorously map in the sections that follow, each tied to distinctive nDNA signatures visible only when these three axes are combined.
-
 > ### Why not more metrics? Why not fewer?
 > 
 > Adding further dimensions (e.g., activation norms, entropy, variance) increased noise and reduced interpretability, without providing meaningful new axes of latent epistemic variation. Reducing to two metrics (e.g., $$\kappa_\ell$$ and $$\mathcal{L}_\ell$$) failed to localize external cultural or alignment forces. The triad represents the minimal sufficient grammar to capture inheritance dynamics, as validated in [Table 1](#tab:ndna_example) and [Figure 1](#fig:ndna_families).
