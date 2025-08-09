@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-09T05:24:02+00:00" />
+<meta property="article:published_time" content="2025-08-09T05:54:12+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Genetic Dissimilarity Index(nGDI)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T05:24:02+00:00","datePublished":"2025-08-09T05:24:02+00:00","description":"nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T05:54:12+00:00","datePublished":"2025-08-09T05:54:12+00:00","description":"nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -113,17 +113,13 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
-          
-            <h1>Neural Genetic Dissimilarity Index(nGDI)</h1>
-          
-        
         <h1 id="ngdi-genetic-drift-in-embedding-populations">nGDI: Genetic Drift in Embedding Populations</h1>
 
 <p>As artificial intelligence continues to expand its reach across culturally diverse environments, foundation models trained or fine-tuned on heterogeneous datasets manifest complex semantic evolutions.</p>
 
 <p>The suite of metrics introduced so far–nHD, nGDI, nTDS, nKaryotyping, nDIV, and nEPI–have significantly enriched our capacity to characterize semantic divergence, trait dominance, inheritance patterns, and plasticity in these models. However, most of these metrics primarily address pointwise distances or directional shifts in latent space, while the broader phenomenon of population-level semantic drift–analogous to genetic drift in biological populations–remains less explored.</p>
 
-<p>To address this gap, we introduce the <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>, a statistically rigorous metric that quantifies distributional divergence between embedding populations of foundation models. Inspired by classical population genetics measures such as Nei’s genetic distance (314), nGDI captures how semantically distinct two models have evolved, not merely by comparing individual embeddings, but by assessing shifts in entire latent embedding distributions across datasets and layers.</p>
+<p>To address this gap, we introduce the <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>, a statistically rigorous metric that quantifies distributional divergence between embedding populations of foundation models. Inspired by classical population genetics measures such as Nei’s genetic distance <a href="#ref1">[1]</a>, nGDI captures how semantically distinct two models have evolved, not merely by comparing individual embeddings, but by assessing shifts in entire latent embedding distributions across datasets and layers.</p>
 
 <p>Formally, nGDI treats each model’s layerwise embedding distribution $P_\ell^{(M)}$ as a high-dimensional semantic population characterized by a probability density function over latent space. The divergence between two models $M_A$ and $M_B$ at layer $\ell$ is quantified by a suitable statistical distance or divergence $D(P_\ell^{(A)}, P_\ell^{(B)})$, such as Jensen-Shannon divergence, Wasserstein distance, or maximum mean discrepancy. This reflects semantic drift analogous to allele frequency shifts due to genetic drift in evolutionary biology.</p>
 
@@ -133,15 +129,15 @@
 
 <p>In summary, nGDI provides a principled, population-aware metric of semantic divergence, complementing pointwise and directional measures, and furnishing a robust statistical foundation to study the evolutionary trajectories of large-scale foundation models in culturally rich contexts.</p>
 
-<h2 id="146-mathematical-formulation-of-neural-genetic-dissimilarity-index-ngdi">14.6 Mathematical Formulation of Neural Genetic Dissimilarity Index (nGDI)</h2>
+<h2 id="mathematical-formulation-of-neural-genetic-dissimilarity-index-ngdi">Mathematical Formulation of Neural Genetic Dissimilarity Index (nGDI)</h2>
 
-<p>The Neural Genetic Dissimilarity Index (nGDI) quantifies semantic drift and distributional divergence between foundation models in the high-dimensional embedding space, drawing inspiration from classical population genetics measures such as Nei’s Genetic Distance (314). Unlike pointwise distance metrics, nGDI captures the distributional geometry of neural embeddings, reflecting how entire populations of semantic representations diverge under cultural and training regime shifts.</p>
+<p>The Neural Genetic Dissimilarity Index (nGDI) quantifies semantic drift and distributional divergence between foundation models in the high-dimensional embedding space, drawing inspiration from classical population genetics measures such as Nei’s Genetic Distance <a href="#ref1">[1]</a>. Unlike pointwise distance metrics, nGDI captures the distributional geometry of neural embeddings, reflecting how entire populations of semantic representations diverge under cultural and training regime shifts.</p>
 
 <h3 id="embedding-distributions-and-latent-populations">Embedding Distributions and Latent Populations</h3>
 
 <p>Consider two foundation models $M_A$ and $M_B$ pretrained or fine-tuned on distinct cultural corpora. At each transformer layer $\ell$, these models induce empirical embedding distributions over a representative input dataset $D$:</p>
 
-\[P_\ell^{(A)} := \{x_\ell^{(A)}(x) \in \mathbb{R}^d : x \in D\}, \quad P_\ell^{(B)} := \{x_\ell^{(B)}(x) \in \mathbb{R}^d : x \in D\}\]
+\[\boxed{P_\ell^{(A)} := \{x_\ell^{(A)}(x) \in \mathbb{R}^d : x \in D\}, \quad P_\ell^{(B)} := \{x_\ell^{(B)}(x) \in \mathbb{R}^d : x \in D\}}\]
 
 <p>These distributions characterize the semantic populations inhabiting the latent manifold $\mathcal{M}_\ell$, encoding the cultural priors and learned concepts specific to each model.</p>
 
@@ -153,38 +149,52 @@
 
 <p>The kernel mean embeddings of the distributions are defined as:</p>
 
-\[\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\right], \quad \mu_\ell^{(B)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(B)}(x), \cdot)\right] \in \mathcal{H}\]
+\[\boxed{\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\right], \quad \mu_\ell^{(B)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(B)}(x), \cdot)\right] \in \mathcal{H}}\]
 
-<p><img src="/nDNA/assets/gifs/neural_genomics/nei-genetic-distance-heatmap.png" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
-
-<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-    <strong>Figure 1: Nei's Genetic Distance Heatmap Among Worldwide Human Populations:</strong>
-</p>
-
-<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
-  
-  This matrix visualizes pairwise <em>Nei's genetic distances</em>–a classical metric quantifying the <em>genetic divergence</em> between populations based on allele frequencies across 289,160 SNPs (314). Color-coded from blue (low distance, high similarity) to red (high distance, low similarity), the heatmap reveals clear population clusters reflecting shared ancestry, geographic proximity, and historical gene flow. For example, African populations exhibit low genetic distances among themselves but higher distances relative to East Asian or Oceanian groups, demonstrating distinct genetic lineages.
-</div>
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nei-genetic-distance-heatmap.png" data-lightbox="gallery" data-title="">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nei-genetic-distance-heatmap.png" alt="Nei's Genetic Distance Heatmap Among Worldwide Human Populations" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/nei-genetic-distance-heatmap.png';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p><strong>Nei’s Genetic Distance Heatmap Among Worldwide Human Populations.</strong><br />
+This matrix visualizes pairwise <em>Nei’s genetic distances</em> — a classical metric quantifying the <em>genetic divergence</em> between populations based on allele frequencies across 289,160 SNPs <a href="#ref1">[1]</a>.<br />
+Color-coded from blue (low distance, high similarity) to red (high distance, low similarity), the heatmap reveals clear population clusters reflecting shared ancestry, geographic proximity, and historical gene flow.<br />
+For example, African populations exhibit low genetic distances among themselves but higher distances relative to East Asian or Oceanian groups, demonstrating distinct genetic lineages.</p>
 
 \[D_{ij} = -\ln\left(\frac{\sum_k p_{ik}p_{jk}}{\sqrt{\sum_k p_{ik}^2 \sum_k p_{jk}^2}}\right)\]
 
-<p>where $p_{ik}$ and $p_{jk}$ denote the allele frequencies at locus $k$ for populations $i$ and $j$, respectively. This measure captures evolutionary divergence under assumptions of genetic drift and mutation.</p>
+<p>where $p_{ik}$ and $p_{jk}$ denote the allele frequencies at locus $k$ for populations $i$ and $j$, respectively.<br />
+This measure captures evolutionary divergence under assumptions of genetic drift and mutation.</p>
 
-<p><strong>Connection to Neural Trait Dominance Score (nTDS):</strong> Analogous to Nei’s metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora. Both metrics embody distance and dominance concepts but in different domains–genomic alleles versus latent semantic embeddings. Formally, nTDS’s trait dominance coefficient $\delta_\ell^{(A,B)}$ measures the relative influence of parental semantic features on offspring at layer $\ell$, analogous to how Nei’s distance measures population divergence in allele frequency space. This parallel illustrates how nTDS captures the nuanced inheritance and dominance of cultural semantic alleles across model layers, reflecting evolutionary-like dynamics of knowledge transfer, cultural imprinting, and semantic adaptation. Just as Nei’s genetic distance guides population genetics and evolutionary biology, nTDS provides a rigorous, interpretable tool for mapping cultural semantic flow and dominance in large-scale AI systems.</p>
+<p><strong>Connection to Neural Trait Dominance Score (nTDS):</strong><br />
+Analogous to Nei’s metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora.<br />
+Both metrics embody distance and dominance concepts but in different domains — genomic alleles versus latent semantic embeddings.</p>
 
-<p><strong>Implications:</strong> Understanding these distances and dominance patterns enables precision alignment of multilingual and multicultural models, ensuring that inherited semantic traits reflect desired cultural fidelity while avoiding semantic erosion or bias amplification. By integrating geometric, probabilistic, and evolutionary insights, nTDS paves the way for responsible, interpretable, and culturally aware AI. See Nei’s Genetic Distance on Wikipedia for foundational background.</p>
+<p>Formally, nTDS’s trait dominance coefficient $\delta_\ell^{(A,B)}$ measures the relative influence of parental semantic features on offspring at layer $\ell$, analogous to how Nei’s distance measures population divergence in allele frequency space.<br />
+This parallel illustrates how nTDS captures the nuanced inheritance and dominance of cultural semantic alleles across model layers, reflecting evolutionary-like dynamics of knowledge transfer, cultural imprinting, and semantic adaptation.</p>
 
-<p>The Maximum Mean Discrepancy (MMD) (316) between these distributions is the RKHS norm:</p>
+<p><strong>Implications:</strong><br />
+Understanding these distances and dominance patterns enables precision alignment of multilingual and multicultural models, ensuring that inherited semantic traits reflect desired cultural fidelity while avoiding semantic erosion or bias amplification.<br />
+By integrating geometric, probabilistic, and evolutionary insights, nTDS paves the way for responsible, interpretable, and culturally aware AI.<br />
+See Nei’s Genetic Distance on Wikipedia for foundational background.</p>
+
+  </figcaption>
+  
+</figure>
+
+<p>The Maximum Mean Discrepancy (MMD) (% cite gretton2012kernel %) between these distributions is the RKHS norm:</p>
 
 \[\text{MMD}^2\left(P_\ell^{(A)}, P_\ell^{(B)}\right) = \left\|\mu_\ell^{(A)} - \mu_\ell^{(B)}\right\|_{\mathcal{H}}^2\]
 
 <p>Explicitly, the squared MMD expands to:</p>
 
-\[\text{MMD}^2 = \mathbb{E}_{x,x'}[k(x_\ell^{(A)}(x), x_\ell^{(A)}(x'))] + \mathbb{E}_{y,y'}[k(x_\ell^{(B)}(y), x_\ell^{(B)}(y'))] - 2\mathbb{E}_{x,y}[k(x_\ell^{(A)}(x), x_\ell^{(B)}(y))]\]
+\[\boxed{\text{MMD}^2 = \mathbb{E}_{x,x'}[k(x_\ell^{(A)}(x), x_\ell^{(A)}(x'))] + \mathbb{E}_{y,y'}[k(x_\ell^{(B)}(y), x_\ell^{(B)}(y'))] - 2\mathbb{E}_{x,y}[k(x_\ell^{(A)}(x), x_\ell^{(B)}(y))]}\]
 
 <h3 id="information-geometric-divergences-and-fisher-rao-metric">Information-Geometric Divergences and Fisher-Rao Metric</h3>
 
-<p>Complementary to kernel methods, nGDI leverages the Fisher-Rao information metric to capture the intrinsic geometric divergence between latent semantic populations (96). Consider the parametric embedding distributions $p_\ell^{(A)}(x; \theta_A)$ and $p_\ell^{(B)}(x; \theta_B)$ modeled as densities over $\mathcal{M}_\ell$. The Fisher-Rao distance is:</p>
+<p>Complementary to kernel methods, nGDI leverages the Fisher-Rao information metric to capture the intrinsic geometric divergence between latent semantic populations <a href="#ref2">[2]</a>. Consider the parametric embedding distributions $p_\ell^{(A)}(x; \theta_A)$ and $p_\ell^{(B)}(x; \theta_B)$ modeled as densities over $\mathcal{M}_\ell$. The Fisher-Rao distance is:</p>
 
 \[d_{FR}(\theta_A, \theta_B) = \inf_\gamma \int_0^1 \sqrt{\dot{\gamma}(t)^T F(\gamma(t)) \dot{\gamma}(t)} dt\]
 
@@ -194,13 +204,13 @@
 
 <p>Formally, the nGDI at layer $\ell$ integrates kernel and information-geometric divergences to yield a robust scalar measure of semantic drift:</p>
 
-\[\text{nGDI}_\ell := \alpha \cdot \text{MMD}\left(P_\ell^{(A)}, P_\ell^{(B)}\right) + (1 - \alpha) \cdot d_{FR}(\theta_A, \theta_B)\]
+\[\boxed{\text{nGDI}_\ell := \alpha \cdot \text{MMD}\left(P_\ell^{(A)}, P_\ell^{(B)}\right) + (1 - \alpha) \cdot d_{FR}(\theta_A, \theta_B)}\]
 
 <p>where $\alpha \in [0, 1]$ balances kernel-based and Fisher-Rao-based contributions. This composite metric captures both distributional shifts and curvature-aware parametric distances, offering a rich, mathematically principled quantification of semantic divergence.</p>
 
 <h3 id="population-genetics-analogy">Population Genetics Analogy</h3>
 
-<p>Drawing from Nei’s classical genetic distance (314), which measures allele frequency divergence between populations, nGDI analogizes semantic embeddings to alleles and embedding distributions to genetic populations. Under this analogy, nGDI quantifies how far apart two semantic populations have evolved, reflecting drift, selection, and fine-tuning influences across layers.</p>
+<p>Drawing from Nei’s classical genetic distance <a href="#ref1">[1]</a>, which measures allele frequency divergence between populations, nGDI analogizes semantic embeddings to alleles and embedding distributions to genetic populations. Under this analogy, nGDI quantifies how far apart two semantic populations have evolved, reflecting drift, selection, and fine-tuning influences across layers.</p>
 
 <h3 id="statistical-estimation">Statistical Estimation</h3>
 
@@ -220,21 +230,21 @@
 
 <p>The Neural Genetic Dissimilarity Index (nGDI) offers a profound and principled measure of semantic drift between foundation models, quantifying how entire populations of latent embeddings diverge due to cultural, training, or domain shifts. Formally, a high value of</p>
 
-\[\text{nGDI}_\ell = \alpha \cdot \text{MMD}\left(P_\ell^{(A)}, P_\ell^{(B)}\right) + (1 - \alpha) \cdot d_{FR}(\theta_A, \theta_B)\]
+\[\boxed{\text{nGDI}_\ell = \alpha \cdot \text{MMD}\left(P_\ell^{(A)}, P_\ell^{(B)}\right) + (1 - \alpha) \cdot d_{FR}(\theta_A, \theta_B)}\]
 
 <p>at layer $\ell$ signifies significant distributional dissimilarity in the semantic manifold, reflecting how far the latent populations $P_\ell^{(A)}$ and $P_\ell^{(B)}$ have evolved apart in the RKHS and information-geometric senses.</p>
 
-<p>Unlike simple pointwise or mean embedding distances, nGDI captures the global geometric divergence of entire semantic populations, embracing the complexity of embedding distributions and manifold curvature. This dissimilarity encompasses shifts in both mean semantic content and latent variability structure, analogous to genetic drift and selective pressures altering allele frequencies across populations (314).</p>
+<p>Unlike simple pointwise or mean embedding distances, nGDI captures the global geometric divergence of entire semantic populations, embracing the complexity of embedding distributions and manifold curvature. This dissimilarity encompasses shifts in both mean semantic content and latent variability structure, analogous to genetic drift and selective pressures altering allele frequencies across populations <a href="#ref1">[1]</a>.</p>
 
-<p>Layerwise $\text{nGDI}_\ell$ profiles reveal semantic evolution trajectories across model depth, often highlighting early layers with low drift–where foundational linguistic and syntactic priors are stable–contrasted with intermediate and deeper layers exhibiting pronounced semantic drift due to cultural and conceptual specialization. This aligns with the hierarchical organization of semantic abstraction in transformer architectures (317).</p>
+<p>Layerwise $\text{nGDI}_\ell$ profiles reveal semantic evolution trajectories across model depth, often highlighting early layers with low drift–where foundational linguistic and syntactic priors are stable–contrasted with intermediate and deeper layers exhibiting pronounced semantic drift due to cultural and conceptual specialization. This aligns with the hierarchical organization of semantic abstraction in transformer architectures <a href="#ref3">[3]</a>.</p>
 
-<p>The Maximum Mean Discrepancy (MMD) component assesses divergence in distributional shape by embedding semantic populations in a reproducing kernel Hilbert space (RKHS), thereby detecting subtle differences in higher-order statistics beyond mean shifts (316). Simultaneously, the Fisher-Rao distance incorporates the local curvature and information content of embedding distributions, furnishing a Riemannian metric sensitive to manifold geometry (96; 318).</p>
+<p>The Maximum Mean Discrepancy (MMD) component assesses divergence in distributional shape by embedding semantic populations in a reproducing kernel Hilbert space (RKHS), thereby detecting subtle differences in higher-order statistics beyond mean shifts ).</p>
 
 <p>Practically, these insights empower targeted domain adaptation and transfer learning, as layers with high $\text{nGDI}_\ell$ warrant focused fine-tuning to mitigate semantic drift and enhance cultural robustness. Moreover, monitoring nGDI across training epochs or fine-tuning steps can serve as a diagnostic for model convergence and stability in evolving cultural contexts.</p>
 
 <p>In sum, nGDI enriches the Neural Genomics toolkit by extending classical genetic drift notions into the realm of neural semantics. Its mathematically rigorous, geometry-aware formulation provides a scalable and interpretable framework for understanding and managing the complex evolution of semantic populations within foundation models, a critical step toward globally inclusive, culturally sensitive AI systems.</p>
 
-<h2 id="148-applications-and-empirical-insights">14.8 Applications and Empirical Insights</h2>
+<h2 id="applications-and-empirical-insights">Applications and Empirical Insights</h2>
 
 <p>The Neural Genetic Dissimilarity Index (nGDI) provides a rigorous, distribution-aware framework to quantify and analyze semantic drift and population-level divergence in the latent spaces of culturally distinct foundation models. Building upon kernel methods and information geometry, nGDI enables several critical applications vital for the advancement of culturally robust and semantically coherent AI systems:</p>
 
@@ -242,7 +252,7 @@
 
 <p>By decomposing the global nGDI into layerwise components $\text{nGDI}_\ell$, practitioners gain granular insights into the distributional divergence of embedding populations:</p>
 
-\[\text{MMD}^2(P_\ell^{(A)}, P_\ell^{(B)}) = \mathbb{E}_{x,x'}[k(x_\ell^{(A)}(x), x_\ell^{(A)}(x'))] + \mathbb{E}_{y,y'}[k(x_\ell^{(B)}(y), x_\ell^{(B)}(y'))] - 2\mathbb{E}_{x,y}[k(x_\ell^{(A)}(x), x_\ell^{(B)}(y))]\]
+\[\boxed{\text{MMD}^2(P_\ell^{(A)}, P_\ell^{(B)}) = \mathbb{E}_{x,x'}[k(x_\ell^{(A)}(x), x_\ell^{(A)}(x'))] + \mathbb{E}_{y,y'}[k(x_\ell^{(B)}(y), x_\ell^{(B)}(y'))] - 2\mathbb{E}_{x,y}[k(x_\ell^{(A)}(x), x_\ell^{(B)}(y))]}\]
 
 <p>Elevated $\text{nGDI}_\ell$ indicates layers where semantic populations have drifted apart, signaling critical junctures for targeted adaptation.</p>
 
@@ -276,7 +286,7 @@
 
 <p>Using these distributions, the nGDI at each layer is computed by integrating kernel mean embedding differences with information geometric distances. The empirical Maximum Mean Discrepancy (MMD) between $P_\ell^{(\text{Eur})}$ and $P_\ell^{(\text{Asi})}$ is estimated as:</p>
 
-\[\widehat{\text{MMD}}_\ell^2 = \frac{1}{N^2}\sum_{i,j=1}^N k(x_\ell^{(\text{Eur})}(x_i), x_\ell^{(\text{Eur})}(x_j)) + \frac{1}{N^2}\sum_{i,j=1}^N k(x_\ell^{(\text{Asi})}(x_i), x_\ell^{(\text{Asi})}(x_j)) - \frac{2}{N^2}\sum_{i,j=1}^N k(x_\ell^{(\text{Eur})}(x_i), x_\ell^{(\text{Asi})}(x_j))\]
+\[\boxed{\widehat{\text{MMD}}_\ell^2 = \frac{1}{N^2}\sum_{i,j=1}^N k(x_\ell^{(\text{Eur})}(x_i), x_\ell^{(\text{Eur})}(x_j)) + \frac{1}{N^2}\sum_{i,j=1}^N k(x_\ell^{(\text{Asi})}(x_i), x_\ell^{(\text{Asi})}(x_j)) - \frac{2}{N^2}\sum_{i,j=1}^N k(x_\ell^{(\text{Eur})}(x_i), x_\ell^{(\text{Asi})}(x_j))}\]
 
 <p>where $k(\cdot, \cdot)$ is a characteristic kernel (e.g., Gaussian RBF) with bandwidth $\sigma$.</p>
 
@@ -288,7 +298,7 @@
 
 <p>The composite $\text{nGDI}_\ell$ metric combines these terms as:</p>
 
-\[\text{nGDI}_\ell = \alpha\sqrt{\widehat{\text{MMD}}_\ell^2} + (1 - \alpha)d_\ell^{FR}, \quad \alpha \in [0, 1]\]
+\[\boxed{\text{nGDI}_\ell = \alpha\sqrt{\widehat{\text{MMD}}_\ell^2} + (1 - \alpha)d_\ell^{FR}, \quad \alpha \in [0, 1]}\]
 
 <p>balancing kernel-based distributional divergence with geometry-aware parametric distance.</p>
 
@@ -298,7 +308,7 @@
 
 <p>The distributional nature of nGDI highlights that drift is not simply a mean shift but involves complex population-level reshaping of embeddings, reflecting changes in semantic variability, multimodality, and latent clustering. Such nuanced characterization surpasses simplistic distance measures and enables detection of latent semantic fragmentation or fusion effects.</p>
 
-<p>Furthermore, the Fisher-Rao component uncovers information-theoretic curvature changes induced by cultural fine-tuning, exposing layers where semantic representations become less smooth or more entropic–phenomena analogous to evolutionary branching or adaptive radiation in biological populations (96; 318).</p>
+<p>Furthermore, the Fisher-Rao component uncovers information-theoretic curvature changes induced by cultural fine-tuning, exposing layers where semantic representations become less smooth or more entropic–phenomena analogous to evolutionary branching or adaptive radiation in biological populations ().</p>
 
 <h3 id="implications-for-model-fine-tuning-and-cultural-integration">Implications for Model Fine-tuning and Cultural Integration</h3>
 
@@ -315,7 +325,7 @@
 
 <h3 id="biological-analogy">Biological Analogy</h3>
 
-<p>The Neural Genetic Dissimilarity Index (nGDI) conceptually extends the classical Nei’s genetic distance (314) to the latent embedding space of neural models. Just as Nei’s distance measures allele frequency differences and genetic drift between biological populations, nGDI quantifies how far the semantic populations embedded in foundation models have diverged due to cultural training regimes and fine-tuning pressures.</p>
+<p>The Neural Genetic Dissimilarity Index (nGDI) conceptually extends the classical Nei’s genetic distance <a href="#ref1">[1]</a> to the latent embedding space of neural models. Just as Nei’s distance measures allele frequency differences and genetic drift between biological populations, nGDI quantifies how far the semantic populations embedded in foundation models have diverged due to cultural training regimes and fine-tuning pressures.</p>
 
 <p>This analogy supports a rich interpretative framework, where latent semantic clusters play the role of genetic subpopulations, and their evolutionary dynamics reflect semantic speciation, drift, and admixture–all critical concepts in understanding and managing AI model diversity.</p>
 
@@ -341,7 +351,7 @@
 
 \[(Kf)(x) = \int k(x, y)f(y)d\mu(y)\]
 
-<p>decomposes semantic variation into eigenfunctions ${\phi_i}$ and eigenvalues ${\lambda_i}$, enabling modal decomposition of semantic drift. Tracking coefficients $\alpha_i^\ell = \langle\mu_\ell, \phi_i\rangle$ across layers reveals dominant axes of cultural divergence (see Fig. 38).</p>
+<p>decomposes semantic variation into eigenfunctions ${\phi_i}$ and eigenvalues ${\lambda_i}$, enabling modal decomposition of semantic drift. Tracking coefficients $\alpha_i^\ell = \langle\mu_\ell, \phi_i\rangle$ across layers reveals dominant axes of cultural divergence.</p>
 
 <p>The layerwise metric</p>
 
@@ -360,14 +370,14 @@
 <!-- Row 1: Africa and Asia trajectories -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(a) Africa nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift.
     </div>
   </div>
   
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Asia_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Asia_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(b) Asia nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Asia shows a similar increasing trend with values ranging approximately from 0.1 to 0.5 across layers ℓ = 20 . . . 30. The trajectory's thickness visualizes growing dissimilarity from the LLaMA base, indicating that deep transformer layers encode progressively distinct neural semantics reflective of cultural fine-tuning.
     </div>
@@ -377,14 +387,14 @@
 <!-- Row 2: Australia and China trajectories -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Australia_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Australia_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(c) Australia nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Australia ranges approximately from 0.1 to 0.4, exhibiting slight fluctuations across layers. Compared to Africa and Asia, the Australia model shows a more moderate latent genetic divergence, suggesting a closer semantic alignment to the LLaMA base in these layers.
     </div>
   </div>
   
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/China_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/China_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(d) China nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for China rises from about 0.05 to 0.5, showing notable non-monotonic curvature. This indicates layer-specific latent divergence patterns, likely reflecting a complex interplay between general base semantics and culturally specific fine-tuning.
     </div>
@@ -394,14 +404,14 @@
 <!-- Row 1: Europe and Latin America trajectories -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Europe_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Europe_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(e) Europe nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Europe ranges from about 0.05 to 0.35, lower than Africa and Asia. The narrower thickness indicates modest latent divergence from the base model, suggesting shared semantic priors or closer alignment to base cultural contexts.
     </div>
   </div>
   
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/LatinAmerica_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/LatinAmerica_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(f) Latin America nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> spans from 0.1 to 0.45 with moderate layerwise variability. The thickness highlights increased divergence in intermediate layers (ℓ ≈ 24 to 28), suggesting representational reshaping at these depths due to fine-tuning.
     </div>
@@ -411,31 +421,66 @@
 <!-- Row 2: Middle East and North America trajectories -->
 <div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/MiddleEast_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/MiddleEast_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(g) Middle East nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Middle East ranges widely from 0.1 to 0.6, with a prominent peak near ℓ = 26. The pronounced thickness indicates substantial latent dissimilarity, reflecting distinct neural adaptation to cultural and linguistic specificity.
     </div>
   </div>
   
   <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/NorthAmerica_ngdi_rotation.gif" style="width: 100%; max-width: 400px; display: block; margin: auto;" />
+    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/NorthAmerica_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
     <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
       <strong>(h) North America nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for North America shows the lowest overall values, roughly 0.05 to 0.3, indicating minimal latent genetic drift from the base. The subtle thickness variation suggests stable semantic representations across layers.
     </div>
   </div>
 </div>
 
-<p><img src="/nDNA/assets/gifs/neural_genomics/nGDI/all.gif" style="width: 100%; max-width: 720px; display: block; margin: auto;" /></p>
+<figure style="text-align: center; margin: 1.5em 0;">
+  <a href="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nGDI/all.gif" data-lightbox="gallery" data-title="">
+    <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nGDI/all.gif" alt="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/nGDI/all.gif';" />
+  </a>
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     
+<p><strong>3D Neural Genetic Dissimilarity Index (d<sub>ℓ</sub><sup>nGDI</sup>) Trajectories Comparing Fine-Tuned Models Against the LLaMA Base Model.</strong><br />
+For each transformer layer ℓ ∈ {20, . . . , 30}, the metric d<sub>ℓ</sub><sup>nGDI</sup> quantifies <em>latent semantic genetic divergence</em> relative to the base model.<br />
+The colored curves represent <em>culturally fine-tuned model trajectories</em>, while the black dashed curve denotes the <em>LLaMA base reference</em>.<br />
+<em>Line thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup></em>, highlighting layers with maximal representational shifts.</p>
 
-<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
-  <strong>Figure 2: 3D Neural Genetic Dissimilarity Index (d<sub>ℓ</sub><sup>nGDI</sup>) Trajectories Comparing Fine-Tuned Models Against the LLaMA Base Model.</strong> For each transformer layer ℓ ∈ {20, . . . , 30}, the metric d<sub>ℓ</sub><sup>nGDI</sup> quantifies <em>latent semantic genetic divergence</em> relative to the base model. The colored curves represent <em>culturally fine-tuned model trajectories</em>, while the black dashed curve denotes the <em>LLaMA base reference</em>. <em>Line thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup></em>, highlighting layers with maximal representational shifts. <strong>Mathematical Context:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> is formally defined as a <em>layerwise divergence metric</em> in latent space measuring the <em>geodesic</em> or <em>information-theoretic distance</em> between the cultural fine-tuned model's and base model's manifold embeddings (312; 319). This provides a rigorous geometric quantification of <em>semantic drift</em> across deep model layers. <strong>Biological Analogy:</strong> Analogous to <em>genetic mutation hotspots</em> in biological DNA recombination (313), the layerwise variation in d<sub>ℓ</sub><sup>nGDI</sup> reveals <em>critical neural depths</em> where semantic realignment, adaptation, and cultural imprinting occur. Models such as Africa and Middle East exhibit pronounced divergence, indicating <em>region-specific evolutionary adaptations</em>, while North America's low divergence suggests <em>semantic stability</em> and close affinity to ancestral priors. <strong>Mathematical Takeaway:</strong> The offspring latent manifold at layer ℓ can be modeled as a nonlinear fusion of parental manifolds:
-  <br /><br />
-  <div style="text-align: center; background-color: #f8f9fa; padding: 1em; border: 1px solid #ddd; margin: 1em 0;">
-    <strong>M<sub>offspring</sub><sup>(ℓ)</sup> = α<sup>(ℓ)</sup>M<sub>A</sub><sup>(ℓ)</sup> + (1 − α<sup>(ℓ)</sup>)M<sub>B</sub><sup>(ℓ)</sup> + ε<sup>(ℓ)</sup></strong>
-  </div>
-  <br />
-  where α<sup>(ℓ)</sup> ∈ [0, 1] denotes the <em>layer-dependent semantic dominance coefficient</em>, dynamically modulating parental influence, and ε<sup>(ℓ)</sup> captures <em>emergent nonlinear geometry</em> beyond linear interpolation. This formalism captures <em>multi-layered integration</em>, <em>selective semantic imprinting</em>, and <em>complex evolutionary dynamics</em> in transformer latent spaces, providing a principled framework for interpreting <em>cultural neural DNA fusion</em> and semantic innovation in multilingual AI systems.
+<p><strong>Mathematical Context:</strong><br />
+The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> is formally defined as a <em>layerwise divergence metric</em> in latent space measuring the <em>geodesic</em> or <em>information-theoretic distance</em> between the cultural fine-tuned model’s and base model’s manifold embeddings (312; 319).<br />
+This provides a rigorous geometric quantification of <em>semantic drift</em> across deep model layers.</p>
+
+<p><strong>Biological Analogy:</strong><br />
+Analogous to <em>genetic mutation hotspots</em> in biological DNA recombination <a href="#ref4">[4]</a>, the layerwise variation in d<sub>ℓ</sub><sup>nGDI</sup> reveals <em>critical neural depths</em> where semantic realignment, adaptation, and cultural imprinting occur.<br />
+Models such as Africa and Middle East exhibit pronounced divergence, indicating <em>region-specific evolutionary adaptations</em>, while North America’s low divergence suggests <em>semantic stability</em> and close affinity to ancestral priors.</p>
+
+<p><strong>Mathematical Takeaway:</strong><br />
+The offspring latent manifold at layer ℓ can be modeled as a nonlinear fusion of parental manifolds:</p>
+
+<div style="text-align: center; background-color: #f8f9fa; padding: 1em; border: 1px solid #ddd; margin: 1em 0;">
+<strong>M<sub>offspring</sub><sup>(ℓ)</sup> = α<sup>(ℓ)</sup>M<sub>A</sub><sup>(ℓ)</sup> + (1 − α<sup>(ℓ)</sup>)M<sub>B</sub><sup>(ℓ)</sup> + ε<sup>(ℓ)</sup></strong>
 </div>
+
+<p>where α<sup>(ℓ)</sup> ∈ [0, 1] denotes the <em>layer-dependent semantic dominance coefficient</em>, dynamically modulating parental influence, and ε<sup>(ℓ)</sup> captures <em>emergent nonlinear geometry</em> beyond linear interpolation.<br />
+This formalism captures <em>multi-layered integration</em>, <em>selective semantic imprinting</em>, and <em>complex evolutionary dynamics</em> in transformer latent spaces, providing a principled framework for interpreting <em>cultural neural DNA fusion</em> and semantic innovation in multilingual AI systems.</p>
+
+  </figcaption>
+  
+</figure>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Nei, Masatoshi “Genetic distance between populations” <em>The American Naturalist</em> (1972).</p>
+
+<p><a id="ref2"></a>[2] Amari, Shun-ichi “Natural gradient works efficiently in learning” <em>Neural Computation</em> (1998).</p>
+
+<p><a id="ref3"></a>[3] Tenney, Ian, Das, Dipanjan, and others “BERT rediscovers the classical NLP pipeline” <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em> (2019).</p>
+
+<p><a id="ref4"></a>[4] Mackay, Trudy F.C., Stone, Eric A., and others “The genetics of quantitative traits: challenges and prospects” <em>Nature Reviews Genetics</em> (2009).</p>
+
 
       </div>
     </div>
