@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-11T08:57:09+00:00" />
+<meta property="article:published_time" content="2025-08-11T09:28:55+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Genetic Dissimilarity Index(nGDI)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-11T08:57:09+00:00","datePublished":"2025-08-11T08:57:09+00:00","description":"Lens - nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-11T09:28:55+00:00","datePublished":"2025-08-11T09:28:55+00:00","description":"Lens - nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -371,72 +371,452 @@ See Nei’s Genetic Distance on Wikipedia for foundational background.</p>
 
 <p>In applications, nGDI includes fine-grained semantic drift monitoring in multilingual NLP, bias detection in recommender systems, and adaptive tuning of culturally diverse conversational agents. Its solid mathematical basis enables adjustments that preserve semantic integrity while embracing diversity, paving the way for context-aware, geometry-informed AI systems attuned to global dynamics. Figure 38 reveals layerwise semantic drift in nDNA trajectories, &amp; Fig. 39 illustrates offspring models as dynamic, layer-wise fusions of parental latent geometries with shifting semantic dominance.</p>
 
-<!-- Row 1: Africa and Asia trajectories -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(a) Africa nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift.
-    </div>
-  </div>
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Asia_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(b) Asia nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Asia shows a similar increasing trend with values ranging approximately from 0.1 to 0.5 across layers ℓ = 20 . . . 30. The trajectory's thickness visualizes growing dissimilarity from the LLaMA base, indicating that deep transformer layers encode progressively distinct neural semantics reflective of cultural fine-tuning.
-    </div>
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif" data-lightbox="gallery" data-title="(a) Africa nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif" alt="(a) Africa nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/Africa_nGDI_plot.html" title="(a) Africa nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
   </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(a) Africa nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/Africa_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
+
+  
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/Asia_ngdi_rotation.gif" data-lightbox="gallery" data-title="(b) Asia nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Asia_ngdi_rotation.gif" alt="(b) Asia nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/Asia_nGDI_plot.html" title="(b) Asia nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(b) Asia nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Asia shows a similar increasing trend with values ranging approximately from 0.1 to 0.5 across layers ℓ = 20 . . . 30. The trajectory’s thickness visualizes growing dissimilarity from the LLaMA base, indicating that deep transformer layers encode progressively distinct neural semantics reflective of cultural fine-tuning.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/Asia_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
 </div>
 
-<!-- Row 2: Australia and China trajectories -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Australia_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(c) Australia nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Australia ranges approximately from 0.1 to 0.4, exhibiting slight fluctuations across layers. Compared to Africa and Asia, the Australia model shows a more moderate latent genetic divergence, suggesting a closer semantic alignment to the LLaMA base in these layers.
-    </div>
-  </div>
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/China_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(d) China nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for China rises from about 0.05 to 0.5, showing notable non-monotonic curvature. This indicates layer-specific latent divergence patterns, likely reflecting a complex interplay between general base semantics and culturally specific fine-tuning.
-    </div>
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/Australia_ngdi_rotation.gif" data-lightbox="gallery" data-title="(c) Australia nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Australia_ngdi_rotation.gif" alt="(c) Australia nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/Australia_nGDI_plot.html" title="(c) Australia nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
   </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(c) Australia nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Australia ranges approximately from 0.1 to 0.4, exhibiting slight fluctuations across layers. Compared to Africa and Asia, the Australia model shows a more moderate latent genetic divergence, suggesting a closer semantic alignment to the LLaMA base in these layers.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/Australia_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
+
+  
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/China_ngdi_rotation.gif" data-lightbox="gallery" data-title="(d) China nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/China_ngdi_rotation.gif" alt="(d) China nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/China_nGDI_plot.html" title="(d) China nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(d) China nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for China rises from about 0.05 to 0.5, showing notable non-monotonic curvature. This indicates layer-specific latent divergence patterns, likely reflecting a complex interplay between general base semantics and culturally specific fine-tuning.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/China_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
 </div>
 
-<!-- Row 1: Europe and Latin America trajectories -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Europe_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(e) Europe nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Europe ranges from about 0.05 to 0.35, lower than Africa and Asia. The narrower thickness indicates modest latent divergence from the base model, suggesting shared semantic priors or closer alignment to base cultural contexts.
-    </div>
-  </div>
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/LatinAmerica_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(f) Latin America nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> spans from 0.1 to 0.45 with moderate layerwise variability. The thickness highlights increased divergence in intermediate layers (ℓ ≈ 24 to 28), suggesting representational reshaping at these depths due to fine-tuning.
-    </div>
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/Europe_ngdi_rotation.gif" data-lightbox="gallery" data-title="(e) Europe nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/Europe_ngdi_rotation.gif" alt="(e) Europe nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/Europe_nGDI_plot.html" title="(e) Europe nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
   </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(e) Europe nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Europe ranges from about 0.05 to 0.35, lower than Africa and Asia. The narrower thickness indicates modest latent divergence from the base model, suggesting shared semantic priors or closer alignment to base cultural contexts.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/Europe_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
+
+  
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/LatinAmerica_ngdi_rotation.gif" data-lightbox="gallery" data-title="(f) Latin America nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/LatinAmerica_ngdi_rotation.gif" alt="(f) Latin America nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/LatinAmerica_nGDI_plot.html" title="(f) Latin America nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(f) Latin America nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> spans from 0.1 to 0.45 with moderate layerwise variability. The thickness highlights increased divergence in intermediate layers (ℓ ≈ 24 to 28), suggesting representational reshaping at these depths due to fine-tuning.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/LatinAmerica_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
 </div>
 
-<!-- Row 2: Middle East and North America trajectories -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/MiddleEast_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(g) Middle East nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Middle East ranges widely from 0.1 to 0.6, with a prominent peak near ℓ = 26. The pronounced thickness indicates substantial latent dissimilarity, reflecting distinct neural adaptation to cultural and linguistic specificity.
-    </div>
-  </div>
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
-  <div style="flex: 1;">
-    <img src="/nDNA/assets/gifs/neural_genomics/nGDI/NorthAmerica_ngdi_rotation.gif" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" />
-    <div style="text-align: justify; font-size: 0.85em; margin-top: 0.8em;">
-      <strong>(h) North America nGDI Trajectory:</strong> The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for North America shows the lowest overall values, roughly 0.05 to 0.3, indicating minimal latent genetic drift from the base. The subtle thickness variation suggests stable semantic representations across layers.
-    </div>
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/MiddleEast_ngdi_rotation.gif" data-lightbox="gallery" data-title="(g) Middle East nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/MiddleEast_ngdi_rotation.gif" alt="(g) Middle East nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/MiddleEast_nGDI_plot.html" title="(g) Middle East nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
   </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(g) Middle East nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Middle East ranges widely from 0.1 to 0.6, with a prominent peak near ℓ = 26. The pronounced thickness indicates substantial latent dissimilarity, reflecting distinct neural adaptation to cultural and linguistic specificity.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/MiddleEast_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
+
+  
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/neural_genomics/nGDI/NorthAmerica_ngdi_rotation.gif" data-lightbox="gallery" data-title="(h) North America nGDI Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/neural_genomics/nGDI/NorthAmerica_ngdi_rotation.gif" alt="(h) North America nGDI Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/nGDI/NorthAmerica_nGDI_plot.html" title="(h) North America nGDI Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>(h) North America nGDI Trajectory</strong>
+     <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for North America shows the lowest overall values, roughly 0.05 to 0.3, indicating minimal latent genetic drift from the base. The subtle thickness variation suggests stable semantic representations across layers.</p>
+
+  </figcaption>
+
+  
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/nGDI/NorthAmerica_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
+</figure>
+
 </div>
 
 <figure style="text-align:center; margin:1.5em 0; position:relative;">
