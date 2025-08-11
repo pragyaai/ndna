@@ -1,6 +1,6 @@
 
 <figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html">
+  <div class="visualization-html{% if include.full_width %} full-width{% endif %}">
     <img class="vh-image {% if include.cover_image %}cover{% endif %}" src="{{ site.cdn_url }}/assets/gifs/{{ include.image_path }}" 
         alt="{{ include.alt_text | default: include.title }}" 
         onerror="this.onerror=null; this.src='{{ site.fallback_cdn }}/assets/gifs/{{ include.image_path }}';">
