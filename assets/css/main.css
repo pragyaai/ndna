@@ -492,6 +492,18 @@ footer {
   max-width: 100%;
 }
 
+.visualization-html.full-width {
+  flex-direction: column;
+}
+
+.visualization-html.full-width > * {
+  width: 100%;
+}
+
+.visualization-html.full-width > .vh-html {
+  padding-top: 70%;
+}
+
 .vh-image, .vh-html {
   object-fit: contain;
   border-radius: 8px;
