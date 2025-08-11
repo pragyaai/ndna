@@ -271,7 +271,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 2: Africa–Latin America and Africa–Middle East trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Africa_LatinAmerica_nTDS_rotating_with_offspring.gif"
@@ -292,7 +292,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 3: Asia–China and Asia–Latin America trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Asia_China_nTDS_rotating_with_offspring.gif"
@@ -314,7 +314,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 
 
 <!-- Row 4: Asia–Middle East and Australia–Africa trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Asia_MiddleEast_nTDS_rotating_with_offspring.gif"
@@ -335,7 +335,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 5: Australia–Asia and Australia–China trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Australia_Asia_nTDS_rotating_with_offspring.gif"
@@ -357,7 +357,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 
 
 <!-- Row 6: Australia–Latin America and Australia–Middle East trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Australia_LatinAmerica_nTDS_rotating_with_offspring.gif"
@@ -378,7 +378,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 7: China-Latin America and China-Middle East trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/China_LatinAmerica_nTDS_rotating_with_offspring.gif"
@@ -399,7 +399,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 8: Europe-Africa and Europe-Asia trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
 
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Europe_Africa_nTDS_rotating_with_offspring.gif"
@@ -420,7 +420,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 9: Europe-Australia and Europe-China trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
 
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Europe_Australia_nTDS_rotating_with_offspring.gif"
@@ -442,7 +442,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 
 
 <!-- Row 10: Europe–Latin America and Europe–Middle East trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
 
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Europe_LatinAmerica_nTDS_rotating_with_offspring.gif"
@@ -463,7 +463,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 11: Europe–North America and Middle East–Latin America trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
 
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Europe_NorthAmerica_nTDS_rotating_with_offspring.gif"
@@ -484,7 +484,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 12: North America–Africa and North America–Asia trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
 
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/NorthAmerica_Africa_nTDS_rotating_with_offspring.gif"
@@ -505,7 +505,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 13: North America–Australia and North America–China trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
 
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/NorthAmerica_Australia_nTDS_rotating_with_offspring.gif"
@@ -526,7 +526,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 <!-- Row 14: North America–Latin America and North America–Middle East trait dominance -->
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
 
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/NorthAmerica_LatinAmerica_nTDS_rotating_with_offspring.gif"
