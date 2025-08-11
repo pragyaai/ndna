@@ -2,6 +2,7 @@
 layout: page
 title: 15 LLMs
 permalink: /llm/15-llms/
+css_files: 15_llms.css
 skip_title: true
 ---
 
