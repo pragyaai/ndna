@@ -444,48 +444,47 @@ Looking forward, nKaryotyping supports continual monitoring of model evolution a
   This unveils a resemblance of inheritance akin to biological chromosomes. Biologically, it simulates chromosomal crossover and epigenetic modulation, with offspring exhibiting mosaicism, epigenetic-like regulation, and novel semantic traits resembling genetic mutations or translocations. This balance reflects evolutionary biology and systems neuroscience.
 </div>
 
-<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
-      interactive_html="nKaryoTyping/interactive_nkaryotyping_cityscape.html"
-      title="Figure: 3D nKaryotyping of Semantic Trait Presence and Spectral Curvature"
-      caption="
-        This comprehensive visualization presents the layered semantic geometry of cultural fusion models through the lens of <em>nKaryotyping</em>, a diagnostic framework quantifying trait presence and spectral curvature across 28 culture pair offspring models.
-
-        The figure displays three key dimensions:
-        <ul>
-          <li><strong>Bar plots (bottom layers):</strong> Represent the semantic trait presence 
-            <span class='mathjax-render'>\( L(\ell) \)</span> 
-            across transformer layers 
-            <span class='mathjax-render'>\( \ell = 20 \ldots 30 \)</span>, for each parent culture and their offspring. Bar heights range approximately between 0.3 and 1.2, reflecting the intensity of semantic trait activation.
-          </li>
-          <li><strong>Thick black-edged colored lines:</strong> Overlay smooth layerwise trait presence curves 
-            <span class='mathjax-render'>\( L(\ell) \)</span>, serving as continuous summaries for each model — the two parents (solid blue and green) and the offspring (dashed orange). These curves highlight the preservation and blending of semantic features from parents into offspring across depth.
-          </li>
-          <li><strong>Dotted lines (top):</strong> Show the spectral curvature 
-            <span class='mathjax-render'>\( \kappa(\ell) \)</span> 
-            trajectories, reflecting the geometric complexity and nonlinear representational structure of the models in embedding space. Curvature values vary roughly between 0.3 and 0.9, with oscillations indicating regions of representational bending or epistemic transitions.
-          </li>
-        </ul>
-
-        The layout organizes the 28 offspring models formed by all pairwise cultural combinations of the eight canonical styles: <em>Europe, North America, Australia, Africa, Asia, China, Middle East,</em> and <em>Latin America</em>. The two horizontal axes correspond to transformer layer indices and culture pair indices, with explicit spacing between subplots to enhance visual clarity. The vertical axis denotes the quantitative trait and curvature values.
-
-        Together, this global comparative view reveals several key insights:
-        <ol>
-          <li><strong>Heterogeneous Semantic Inheritance:</strong> Offspring models manifest trait presence profiles blending parental features, but with nuanced deviations. Often, intermediate layers exhibit enhanced or attenuated activation, underscoring nonlinear fusion dynamics.</li>
-          <li><strong>Spectral Curvature as Epistemic Indicator:</strong> Peaks and troughs in 
-            <span class='mathjax-render'>\( \kappa(\ell) \)</span> 
-            curves identify layers where representational geometry sharply bends, potentially correlating with functional transitions or emergent semantic properties distinct from either parent.
-          </li>
-          <li><strong>Cultural Signature Distinctions:</strong> Parent cultures exhibit distinct curvature and trait patterns — e.g., <em>Asia</em> and <em>Middle East</em> display pronounced oscillatory curvature indicative of complex internal representations, while <em>Europe</em> and <em>North America</em> maintain more stable, literal semantic structures.</li>
-          <li><strong>Offspring Diversity:</strong> The spectrum of offspring curvature and trait presence reflects a rich space of model generalization and specialization, facilitating targeted fine-tuning strategies for culturally-aware AI systems.</li>
-        </ol>
-
-        This figure acts as a foundational reference for understanding cross-cultural latent geometry in large language models. An interactive 3D visualization accompanies this work as supplementary material, enabling detailed exploration of each offspring’s layered semantic topology and curvature dynamics.
-      "
-      style="flex: 1;"
-  %}
+<!-- Figure 56: 3D nKaryotyping Visualization -->
+<div style="text-align: center; margin: 2em 0;">
+  <a href="{{ 'assets/gifs/neural_genomics/nKaryotyping/nKtype.png' | relative_url }}" data-lightbox="figure56" data-title="Figure 56: 3D nKaryotyping of Semantic Trait Presence and Spectral Curvature">
+    <img src="{{ 'assets/gifs/neural_genomics/nKaryotyping/nKtype.png' | relative_url }}" alt="Figure 56: nKaryotyping 3D Visualization" style="max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+  </a>
 </div>
 
+<!-- Caption Text -->
+<div style="text-align: justify; font-size: 0.95em; margin: 2em 0; line-height: 1.6; color: #333;">
+  <strong>Figure: 3D nKaryotyping of Semantic Trait Presence and Spectral Curvature Across Culture Pairs.</strong><br><br>
+  This comprehensive visualization presents the layered semantic geometry of cultural fusion models through the lens of <em>nKaryotyping</em>, a diagnostic framework quantifying trait presence and spectral curvature across 28 culture pair offspring models.
+  <br><br>
+  The figure displays three key dimensions:
+  <ul>
+    <li><strong>Bar plots (bottom layers):</strong> Represent the semantic trait presence 
+      <span class="mathjax-render">\( L(\ell) \)</span> 
+      across transformer layers 
+      <span class="mathjax-render">\( \ell = 20 \ldots 30 \)</span>, for each parent culture and their offspring. Bar heights range approximately between 0.3 and 1.2, reflecting the intensity of semantic trait activation.
+    </li>
+    <li><strong>Thick black-edged colored lines:</strong> Overlay smooth layerwise trait presence curves 
+      <span class="mathjax-render">\( L(\ell) \)</span>, serving as continuous summaries for each model — the two parents (solid blue and green) and the offspring (dashed orange). These curves highlight the preservation and blending of semantic features from parents into offspring across depth.
+    </li>
+    <li><strong>Dotted lines (top):</strong> Show the spectral curvature 
+      <span class="mathjax-render">\( \kappa(\ell) \)</span> 
+      trajectories, reflecting the geometric complexity and nonlinear representational structure of the models in embedding space. Curvature values vary roughly between 0.3 and 0.9, with oscillations indicating regions of representational bending or epistemic transitions.
+    </li>
+  </ul>
+  The layout organizes the 28 offspring models formed by all pairwise cultural combinations of the eight canonical styles: <em>Europe, North America, Australia, Africa, Asia, China, Middle East,</em> and <em>Latin America</em>. The two horizontal axes correspond to transformer layer indices and culture pair indices, with explicit spacing between subplots to enhance visual clarity. The vertical axis denotes the quantitative trait and curvature values.
+  <br><br>
+  Together, this global comparative view reveals several key insights:
+  <ol>
+    <li><strong>Heterogeneous Semantic Inheritance:</strong> Offspring models manifest trait presence profiles blending parental features, but with nuanced deviations. Often, intermediate layers exhibit enhanced or attenuated activation, underscoring nonlinear fusion dynamics.</li>
+    <li><strong>Spectral Curvature as Epistemic Indicator:</strong> Peaks and troughs in 
+      <span class="mathjax-render">\( \kappa(\ell) \)</span> 
+      curves identify layers where representational geometry sharply bends, potentially correlating with functional transitions or emergent semantic properties distinct from either parent.
+    </li>
+    <li><strong>Cultural Signature Distinctions:</strong> Parent cultures exhibit distinct curvature and trait patterns — e.g., <em>Asia</em> and <em>Middle East</em> display pronounced oscillatory curvature indicative of complex internal representations, while <em>Europe</em> and <em>North America</em> maintain more stable, literal semantic structures.</li>
+    <li><strong>Offspring Diversity:</strong> The spectrum of offspring curvature and trait presence reflects a rich space of model generalization and specialization, facilitating targeted fine-tuning strategies for culturally-aware AI systems.</li>
+  </ol>
+  This figure acts as a foundational reference for understanding cross-cultural latent geometry in large language models. An interactive 3D visualization accompanies this work as supplementary material, enabling detailed exploration of each offspring’s layered semantic topology and curvature dynamics.
+</div>
 
 ---
 {% auto_references %}
