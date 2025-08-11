@@ -252,7 +252,7 @@ Looking forward, nTDS paves the way for mathematically principled explorations i
 
 In essence, the Neural Trait Dominance Score is poised to become a cornerstone metric–both a diagnostic lens and a strategic instrument–empowering researchers and practitioners to engineer responsible, inclusive, and context-aware AI systems with fine-grained control over the flow and balance of semantic traits at scale.
 
-<div style="display: flex; justify-content: space-between; margin: 2em 0; gap: 1em;">
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include wizuall.liquid
       image_path="neural_genomics/nTDS/Africa_Asia_nTDS_rotating_with_offspring.gif"
       interactive_html="nTDS/Africa_Asia_nTDS_interactive_rect_bars.html"
