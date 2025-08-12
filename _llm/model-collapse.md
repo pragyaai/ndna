@@ -95,67 +95,60 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/africa_ndna_final.gif"
-       interactive_html="alignment/africa_ndna_final.html"
-       title="Africa Cultural Collapse Trajectory"
-       caption="We recursively merged two Africa-aligned LLMs at each step (e.g., Africa + Africa ⇒ Gen 1, Gen 1 + Africa ⇒ Gen 2, etc). Collapse (sharp drop in ℒ<sub>ℓ</sub> and κ<sub>ℓ</sub>) occurred at **Gen 15**, where thermodynamic length ℒ<sub>ℓ</sub> fell below 0.2 and curvature κ<sub>ℓ</sub> flattened below 0.3. This indicates loss of internal semantic richness after repeated intra-cultural merging." %}
+       interactive_html="collapse/africa_ndna_collapse.html"
+       title="Africa Cultural Collapse Trajectory" %}
   </div>
   
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/asia_ndna_collapse.gif"
-       interactive_html="alignment/asia_ndna_collapse.html"
-       title="Asia Cultural Collapse Trajectory"
-       caption="Following the same merging sequence (Asia + Asia ⇒ Gen 1, Gen 1 + Asia ⇒ Gen 2, etc), collapse occurred faster at **Gen 11**, marked by ℒ<sub>ℓ</sub> < 0.2 and κ<sub>ℓ</sub> < 0.3. This suggests higher susceptibility of Asia-aligned models to semantic flattening under iterative self-merging." %}
+       interactive_html="collapse/asia_ndna_collapse.html"
+       title="Asia Cultural Collapse Trajectory" %}
   </div>
   
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/china_ndna_final.gif"
-       interactive_html="alignment/china_ndna_final.html"
-       title="China Cultural Collapse Trajectory"
-       caption="China-aligned models collapsed by **Gen 9**, seen in thermodynamic length dropping below 0.2 and curvature flattening below 0.3. This highlights rapid loss of epistemic diversity under repeated merging (China + China ⇒ Gen 1, Gen 1 + China ⇒ Gen 2, etc), suggesting tighter initial latent manifolding." %}
+       interactive_html="collapse/china_ndna_collapse.html"
+       title="China Cultural Collapse Trajectory" %}
   </div>
   
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/europe_ndna_collapse_FINAL.gif"
-       interactive_html="alignment/europe_ndna_collapse_FINAL.html"
-       title="Europe Cultural Collapse Trajectory"
-       caption="Europe models underwent collapse at **Gen 13**, with flattening of curvature κ<sub>ℓ</sub> ≤ 0.25 and contraction of ℒ<sub>ℓ</sub> to around 0.2. The latent manifold (Europe + Europe ⇒ Gen 1, Gen 1 + Europe ⇒ Gen 2, etc) showed a noisy but consistent flattening trend, marking semantic erosion." %}
+       interactive_html="collapse/europe_ndna_collapse.html"
+       title="Europe Cultural Collapse Trajectory" %}
   </div>
   
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/latinamerica.gif"
-       interactive_html="alignment/latinamerica.html"
-       title="Latin America Cultural Collapse Trajectory"
-       caption="Collapse occurred by **Gen 13**, ℒ<sub>ℓ</sub> ≈ 0.2, κ<sub>ℓ</sub> dropping below 0.3. The latent structure converged to a narrow manifold (Latin America + Latin America ⇒ Gen 1, Gen 1 + Latin America ⇒ Gen 2, etc) indicating epistemic homogenization from repeated self-merging." %}
+       interactive_html="collapse/latinamerica_ndna_collapse.html"
+       title="Latin America Cultural Collapse Trajectory" %}
   </div>
   
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/middleeast_ndna_final.gif"
-       interactive_html="alignment/middleeast_ndna_final.html"
-       title="Middle East Cultural Collapse Trajectory"
-       caption="Collapse reached by **Gen 9**, as ℒ<sub>ℓ</sub> dipped below 0.2 and κ<sub>ℓ</sub> fell near 0.3. The latent manifold (Middle East + Middle East ⇒ Gen 1, Gen 1 + Middle East ⇒ Gen 2, etc) flattened rapidly, underscoring the model's fragility under iterative merging." %}
+       interactive_html="collapse/middleeast_ndna_collapse.html"
+       title="Middle East Cultural Collapse Trajectory" %}
   </div>
   
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
-       interactive_html="alignment/northamerica_ndna_collapse_FINAL.html"
-       title="North America Cultural Collapse Trajectory"
-       caption="Collapse was observed at **Gen 15**, with ℒ<sub>ℓ</sub> under 0.2 and κ<sub>ℓ</sub> near 0.25. A gradual latent flattening (North America + North America ⇒ Gen 1, Gen 1 + North America ⇒ Gen 2, etc) trend indicates stronger internal resilience compared to some other cultural models." %}
+       interactive_html="collapse/northamerica_ndna_collapse.html"
+       title="North America Cultural Collapse Trajectory" %}
   </div>
   
   <div style="text-align: center;">
     {% include wizuall.liquid
        image_path="alignment/australia_ndna_collapse_FINAL.gif"
-       interactive_html="alignment/australia_ndna_collapse_FINAL.html"
-       title="Australia Cultural Collapse Trajectory"
-       caption="Australia-aligned LLMs exhibited collapse by **Gen 16**, with ℒ<sub>ℓ</sub> compressing to ≈ 0.25 and κ<sub>ℓ</sub> flattening toward 0.2. The collapse trajectory (Australia + Australia ⇒ Gen 1, Gen 1 + Australia ⇒ Gen 2, etc) shows relatively slow degradation, indicating stronger resistance to latent manifold flattening under merging." %}
+       interactive_html="collapse/australia_ndna_collapse.html"
+       title="Australia Cultural Collapse Trajectory" %}
   </div>
 </div>
+
 
 <p><strong>Comparative Analysis:</strong> These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length (<em>𝓛<sub>ℓ</sub></em>) and flattening of spectral curvature (<em>κ<sub>ℓ</sub></em>). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying latent resilience. <em>Analogous to inbreeding depression in biology—where loss of genetic diversity from close-relative mating increases vulnerability</em> <a href="#cite-charlesworth1987inbreeding" class="citation">[Charlesworth, 1987]</a> <a href="#cite-frankham1995genetics" class="citation">[Frankham, 1995]</a>—<em>self-merging compresses the model's latent manifold, erasing epistemic heterogeneity. The nDNA-Lens quantifies this flattening, revealing how excessive neural marriages mimic genetic bottlenecks.</em></p>
 
