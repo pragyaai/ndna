@@ -464,7 +464,8 @@ The **Epistemic Plasticity Index (nEPI)** establishes a foundational framework w
 
 {% capture figure_caption %}
 Figure 72: Layerwise Epistemic Plasticity (nEPI) across Parent Models and Hybrid Offspring: The Neural Epistemic Plasticity Index quantifies the rate of change in semantic adaptability over transformer layers $\ell \in [20, 30]$ as the derivative of the product of spectral curvature $\kappa_\ell$ and thermodynamic length $L_\ell$: 
-$\mathrm{nEPI}(\ell) := \dfrac{d}{d\ell}\left(\kappa_\ell \cdot L_\ell\right)$,
+
+$\boxed{\mathrm{nEPI}(\ell) := \dfrac{d}{d\ell}\left(\kappa_\ell \cdot L_\ell\right)}$,
 
 $\kappa_\ell \in [0.37, 0.92]$ local semantic complexity 
 $L_\ell \in [0.44, 0.93]$ latent representational change
@@ -475,12 +476,6 @@ $\begin{cases}
 > 0.70 & \text{highly plastic layers driving semantic innovation and robust generalization}
 \end{cases}$
 {% endcapture %}
-
-<div class="figure-block" style="margin: 1.25rem 0;">
-  <figcaption style="margin-top: 0.5rem; color: #e6ebf5; font: 500 0.98rem/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
-    {{ figure_caption | strip }}
-  </figcaption>
-</div>
 
 This framework draws analogy with biological **neural plasticity** and **epigenetic modulation** mechanisms regulating context-dependent gene expression ({% cite day2010epigenetic %};{% cite Experience-dependent st %}). The hybrid offspring models manifest **heterosis**-like effects through semantic recombination {% cite birchler2006heterosis %}, demonstrating emergent conceptual flexibility surpassing parental priors. These insights
 underscore the critical role of geometric and thermodynamic principles in understanding semantic evolution, crosscultural knowledge fusion, and alignment robustness in large-scale neural models.
