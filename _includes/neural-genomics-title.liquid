@@ -1,5 +1,5 @@
 {% comment %}
-Neural Genomics Title Template (fixed)
+Neural Genomics Title Template (fixed, no gap before colon)
 Usage:
   {% include neural-genomics-title.liquid
      title="Neural Genomics: A Paradigm Shift in Understanding Artificial Intelligence"
@@ -29,14 +29,14 @@ Params:
 {% assign contains_keyword = title_str contains "Neural Genomics" %}
 
 {% if contains_keyword %}
+  {%- comment -%}
+  Replace "Neural Genomics:" (including the colon and following space)
+  so no extra gap is introduced before the colon.
+  {%- endcomment -%}
   {% capture title_html %}
-    {{ title_str | replace_first: "Neural Genomics", logo_html }}
+    {{ title_str | replace_first: "Neural Genomics: ", logo_html | append: ": " }}
   {% endcapture %}
 {% else %}
-  {% comment %}
-  If the exact phrase isn't present, prepend the logo+text followed by the title.
-  Change to render as-is if you don't want this behavior.
-  {% endcomment %}
   {% capture title_html %}
     {{ logo_html }} {{ title_str }}
   {% endcapture %}

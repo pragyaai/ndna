@@ -462,8 +462,8 @@ The **Epistemic Plasticity Index (nEPI)** establishes a foundational framework w
   %}
 </div>
 
-{% raw %}
-Figure 72: Layerwise Epistemic Plasticity (nEPI) across Parent Models and Hybrid Offspring: The Neural Epistemic Plasticity Index quantifies the rate of change in semantic adaptability over transformer layers $$\ell \in $$ as the derivative of the product of spectral curvature $$\kappa_\ell$$ and thermodynamic length $$L_\ell$$:
+{% capture figure_caption %}
+Figure: Layerwise Epistemic Plasticity (nEPI) across Parent Models and Hybrid Offspring: The Neural Epistemic Plasticity Index quantifies the rate of change in semantic adaptability over transformer layers $$\ell \in $$ as the derivative of the product of spectral curvature $$\kappa_\ell$$ and thermodynamic length $$L_\ell$$:
 
 $$
 \boxed{\mathrm{nEPI}(\ell) := \dfrac{d}{d\ell}\!\left(\kappa_\ell \cdot L_\ell\right)}
@@ -479,7 +479,7 @@ $$
 > 0.70 & \text{highly plastic layers driving semantic innovation and robust generalization}
 \end{cases}
 $$
-{% endraw %}
+{% endcapture %}
 
 
 This framework draws analogy with biological **neural plasticity** and **epigenetic modulation** mechanisms regulating context-dependent gene expression ({% cite day2010epigenetic %};{% cite Experience-dependent st %}). The hybrid offspring models manifest **heterosis**-like effects through semantic recombination {% cite birchler2006heterosis %}, demonstrating emergent conceptual flexibility surpassing parental priors. These insights
