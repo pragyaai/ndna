@@ -171,6 +171,5 @@ Expanding on this *trait-centric perspective*, the scores summarized in Table (b
 This powerful biological analogy not only deepens our understanding of AI cultural evolution but also empowers practitioners to *strategically harness* these dominance patterns for **targeted alignment**, **bias mitigation**, and **semantic customization**. It lays the groundwork for next-generation models capable of *nuanced cross-cultural cognition*--a vital step toward building **trustworthy** and **inclusive AI systems** in our ever-more globalized world.
 
 In sum, by embracing evolutionary paradigms and leveraging neural genomic metrics, we move closer to decoding the *rich semantic tapestry* woven by cultural lineages in language models, unlocking **new frontiers** for both theoretical insight and practical innovation. The detailed mathematical formulations, rigorous derivations, and comprehensive metric definitions will be presented in the following sections.
-
 ---
 {% auto_references %}
