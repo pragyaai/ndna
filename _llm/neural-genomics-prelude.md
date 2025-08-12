@@ -25,6 +25,8 @@ So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and d
 
 So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and demonstrated how diverse model-level operations--such as *merging*, *fine-tuning*, *alignment*, *distillation*, and *pruning*--can be systematically monitored and comprehended through the *epistemic lens* of neural genomics. This perspective transforms AI models from inscrutable black boxes into **living lineages** with inheritable semantic traits, subject to mutation, recombination, and evolutionary pressures akin to biological organisms. We reinterpret key model operations through this genomic lens:
 
+<link rel="stylesheet" href="{{ '/assets/css/neural-genomics.css' | relative_url }}">
+
 <div class="custom-card">
 <ul>
   <li>
@@ -151,5 +153,6 @@ Expanding on this *trait-centric perspective*, the scores summarized in Table (b
 This powerful biological analogy not only deepens our understanding of AI cultural evolution but also empowers practitioners to *strategically harness* these dominance patterns for **targeted alignment**, **bias mitigation**, and **semantic customization**. It lays the groundwork for next-generation models capable of *nuanced cross-cultural cognition*--a vital step toward building **trustworthy** and **inclusive AI systems** in our ever-more globalized world.
 
 In sum, by embracing evolutionary paradigms and leveraging neural genomic metrics, we move closer to decoding the *rich semantic tapestry* woven by cultural lineages in language models, unlocking **new frontiers** for both theoretical insight and practical innovation. The detailed mathematical formulations, rigorous derivations, and comprehensive metric definitions will be presented in the following sections.
+
 ---
 {% auto_references %}
