@@ -255,25 +255,22 @@ where $p$ is the embedding density and $D$ a diffusion constant. This enables fo
 
 In applications, nGDI includes fine-grained semantic drift monitoring in multilingual NLP, bias detection in recommender systems, and adaptive tuning of culturally diverse conversational agents. Its solid mathematical basis enables adjustments that preserve semantic integrity while embracing diversity, paving the way for context-aware, geometry-informed AI systems attuned to global dynamics. Figure 38 reveals layerwise semantic drift in nDNA trajectories, & Fig. 39 illustrates offspring models as dynamic, layer-wise fusions of parental latent geometries with shifting semantic dominance.
 
-<div style="display: flex; gap: 1.5em; flex-wrap: wrap; align-items: flex-start;">
-  <div style="flex: 1 1 45%; min-width:320px;">
-    {% include visualization-html.liquid
-        image_path="neural_genomics/nGDI/Africa_ngdi_rotation.gif"
-        interactive_html="nGDI/Africa_nGDI_plot.html"
-        title="(a) Africa nGDI Trajectory"
-        caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift."
-        full_width=true
-    %}
-  </div>
-  <div style="flex: 1 1 45%; min-width:320px;">
-    {% include visualization-html.liquid
-        image_path="neural_genomics/nGDI/Asia_ngdi_rotation.gif"
-        interactive_html="nGDI/Asia_nGDI_plot.html"
-        title="(b) Asia nGDI Trajectory"
-        caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Asia shows a similar increasing trend with values ranging approximately from 0.1 to 0.5 across layers ℓ = 20 . . . 30. The trajectory's thickness visualizes growing dissimilarity from the LLaMA base, indicating that deep transformer layers encode progressively distinct neural semantics reflective of cultural fine-tuning."
-        full_width=true
-    %}
-  </div>
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
+  {% include wizuall.liquid
+      image_path="neural_genomics/nGDI/Africa_ngdi_rotation.gif"
+      interactive_html="nGDI/Africa_nGDI_plot.html"
+      title="(a) Africa nGDI Trajectory"
+      caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift."
+      style="flex: 1;"
+  %}
+
+  {% include wizuall.liquid
+      image_path="neural_genomics/nGDI/Asia_ngdi_rotation.gif"
+      interactive_html="nGDI/Asia_nGDI_plot.html"
+      title="(b) Asia nGDI Trajectory"
+      caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Asia shows a similar increasing trend with values ranging approximately from 0.1 to 0.5 across layers ℓ = 20 . . . 30. The trajectory's thickness visualizes growing dissimilarity from the LLaMA base, indicating that deep transformer layers encode progressively distinct neural semantics reflective of cultural fine-tuning."
+      style="flex: 1;"
+  %}
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
