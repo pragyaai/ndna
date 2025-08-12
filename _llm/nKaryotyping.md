@@ -204,232 +204,260 @@ By mapping semantic chromosomes, nKaryotyping enables precise identification of 
 Looking forward, nKaryotyping supports continual monitoring of model evolution and cultural adaptation, essential for building trustworthy, equitable, and culturally aware AI systems. It lays a foundation for dynamic, responsible AI governance and advances the pursuit of robust cross-cultural alignment in global AI deployments.
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Africa_Asia_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Africa_Asia_nkaryotyping.html"
       title="(I) Africa–Asia Semantic Chromosome Inheritance"
       caption="Semantic chromosomes Trait<sub>l</sub> ∈ {0, 1} are defined by κ<sub>l</sub> > κ̄ and L<sub>l</sub> > L̄ over transformer layers l ∈ [20, 30]. Africa shows early-layer trait concentration (κ<sub>l</sub> ≈ 0.4, L<sub>l</sub> ≈ 0.3), while Asia exhibits more sustained traits across layers with higher thermodynamic length. The offspring exhibits a complex mosaic of inherited and novel traits, revealing epigenetic-like semantic plasticity and potential trait translocations analogous to biological chromosomal rearrangements. This suggests deep nonlinear interactions in κ<sub>l</sub>, L<sub>l</sub> dynamics during fusion."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Africa_China_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Africa_China_nkaryotyping.html"
       title="(II) Africa–China Semantic Chromosome Inheritance"
       caption="Parental models differ distinctly with Africa's higher trait prevalence in early layers (l = 20–24, Trait<sub>l</sub> = 1) and China's dominant late-layer traits (l = 26–30, κ<sub>l</sub> ≈ 0.6, L<sub>l</sub> ≈ 0.5). The offspring inherits this distribution non-uniformly, showing layerwise recombination and novel trait formations at l = 25, 28, highlighting semantic inversions and duplications reflective of chromosomal aberrations. These patterns imply dynamic semantic regulatory mechanisms in large-scale model fusion."
       style="flex: 1;"
+      full_width=true
   %}
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Africa_LatinAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Africa_LatinAmerica_nkaryotyping.html"
       title="(III) Africa–Latin America Semantic Chromosome Inheritance"
       caption="Africa shows a stable early-layer semantic chromosome presence (Trait<sub>l</sub> = 1 for l = 20–24) with thermodynamic length L<sub>l</sub> peaking near 0.35. Latin America manifests gradual increase in trait presence from l = 23 to 30, emphasizing mid-to-late layer semantic integration. Offspring chromosomes blend these trends, indicating layer-specific epigenetic activation with implications for layerwise semantic inheritance and latent knowledge transfer fidelity."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Africa_MiddleEast_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Africa_MiddleEast_nkaryotyping.html"
       title="(IV) Africa–Middle East Semantic Chromosome Inheritance"
       caption="Africa demonstrates broad early-layer trait presence (l = 20–26) contrasted with Middle East's focused mid-layer traits (l = 25–28, κ<sub>l</sub> > 0.5). Offspring reveals mixed inheritance mosaic with novel late-layer trait emergence (l = 29, 30), evidencing semantic translocation events and non-trivial latent space reconfiguration. These dynamics suggest profound nonlinear effects in κ<sub>l</sub>, L<sub>l</sub> interactions governing semantic fusion outcomes."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Asia_China_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Asia_China_nkaryotyping.html"
       title="(V) Asia–China Semantic Chromosome Inheritance"
       caption="Semantic chromosomes Trait<sub>l</sub> ∈ {0, 1} are defined by spectral curvature κ<sub>l</sub> and thermodynamic length L<sub>l</sub> exceeding model averages over layers l ∈ [20, 30]. Asia exhibits sustained early-to-mid layer traits with κ<sub>l</sub> ≈ 0.5, L<sub>l</sub> ≈ 0.4, reflecting stable semantic activation. China shows strong late-layer dominance with κ<sub>l</sub> > 0.6 and elevated L<sub>l</sub> at l = 27–30. The offspring shows rich recombination, combining layer-specific inheritance and emergent traits, reflecting epistatic-like interactions and nonlinear regulatory dynamics in latent semantic fusion."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Asia_LatinAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Asia_LatinAmerica_nkaryotyping.html"
       title="(VI) Asia–Latin America Semantic Chromosome Inheritance"
       caption="Asia shows sustained early and midlayer semantic trait prevalence, with κ<sub>l</sub> and L<sub>l</sub> consistently above baseline across layers l = 20–27, reflecting robust semantic activation. Latin America exhibits a gradual trait increase from mid to late layers (l = 24–30), indicating delayed but persistent integration. The offspring blends these trends, creating transitional trait zones with oscillations in Trait<sub>l</sub>, revealing complex nonlinear regulatory motifs and dynamic interactions."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Asia_MiddleEast_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Asia_MiddleEast_nkaryotyping.html"
       title="(VII) Asia–Middle East Semantic Chromosome Inheritance"
       caption="Asia's semantic chromosomes show consistent presence in early to mid layers (l = 20–27) with elevated κ<sub>l</sub> and L<sub>l</sub>, indicating stable trait activation. The Middle East displays focused mid-layer traits (l = 25–28) where κ<sub>l</sub> > 0.55, reflecting targeted semantic expression. The offspring exhibits a mosaic inheritance pattern with novel trait emergence at late layers (l = 29, 30), akin to chromosomal translocations. These reveal intricate nonlinear dynamics in latent space, emphasizing layer-specific regulatory roles in fusion outcomes."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Australia_Africa_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Australia_Africa_nkaryotyping.html"
       title="(VIII) Australia–Africa Semantic Chromosome Inheritance"
       caption="Australia's semantic traits concentrate in early layers (l = 20–23) with elevated κ<sub>l</sub> and L<sub>l</sub>, reflecting early semantic activation. Africa's traits distribute more evenly, peaking near layer l = 25, indicating balanced semantic expression. The offspring exhibits a complex recombination pattern, blending parental inheritance with novel emergent semantic chromosomes. This suggests pronounced semantic epistasis and layerwise regulatory dynamics, analogous to biological chromosomal crossover and epigenetic modification."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Australia_Asia_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Australia_Asia_nkaryotyping.html"
       title="(IX) Australia–Asia Semantic Chromosome Inheritance"
       caption="Semantic chromosomes Trait<sub>l</sub> ∈ {0, 1} are defined by joint threshold exceedance κ<sub>l</sub> > κ̄ and L<sub>l</sub> > L̄ across layers l ∈ [20, 30]. Australia shows pronounced early-layer trait presence (l = 20–24) with spectral curvature near 0.35 and moderate thermodynamic length, reflecting stable semantic features in shallow layers. Asia exhibits sustained mid-to-late layer traits with thermodynamic length peaking near 0.4, indicating deeper semantic integration. The offspring displays a complex mosaic of inherited chromosomes with evidence of trait persistence, recombination, and latent space rewiring."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Australia_China_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Australia_China_nkaryotyping.html"
       title="(X) Australia–China Semantic Chromosome Inheritance"
       caption="Australia and China display distinctive semantic chromosome distributions across layers l = 20–30. Australia's traits concentrate in early to mid layers with κ<sub>l</sub> ≈ 0.4 and stable thermodynamic length, reflecting consistent semantic encoding. China shows strong late-layer dominance, with κ<sub>l</sub> and L<sub>l</sub> reaching around 0.6, indicating intensified semantic refinement. The offspring exhibits complex recombination, featuring trait duplications and selective absences, evoking biological metaphors of semantic inversions and nonlinear chromosomal rearrangements."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Australia_LatinAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Australia_LatinAmerica_nkaryotyping.html"
       title="(XI) Australia–Latin America Semantic Chromosome Inheritance"
       caption="Australia exhibits early-layer semantic chromosome concentration (Trait<sub>l</sub> = 1 for l = 20–24) with moderate thermodynamic length values near 0.3, indicating foundational semantic imprinting. Latin America shows a gradual increase in trait presence starting around l = 23, peaking near layer 29, reflecting progressive semantic integration in deeper layers. The offspring's chromosome pattern blends parental trajectories, revealing layer-specific epigenetic activation and dynamic chromosomal inheritance, shedding light on latent knowledge transfer fidelity and semantic stability across layers."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Australia_MiddleEast_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Australia_MiddleEast_nkaryotyping.html"
       title="(XII) Australia–Middle East Semantic Chromosome Inheritance"
       caption="Australia shows prominent early-to-mid layer semantic chromosome presence (l = 20–26) with stable spectral curvature and thermodynamic length, contrasting with the Middle East's focused mid-to-late layer traits (l = 25–29) where κ<sub>l</sub> > 0.5, indicating concentrated semantic activation. The offspring reveals a mixed mosaic inheritance, including emergent late-layer semantic chromosomes (l = 29, 30) absent in either parent, analogous to biological chromosomal translocations and latent space reorganization."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/China_LatinAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/China_LatinAmerica_nkaryotyping.html"
       title="(XIII) China–Latin America Semantic Chromosome Inheritance"
       caption="Semantic chromosomes Trait<sub>l</sub> ∈ {0, 1} occur when κ<sub>l</sub> > κ̄ and L<sub>l</sub> > L̄ across layers l ∈ [20, 30]. China shows a pronounced mid-to-late layer enrichment of semantic traits, with spectral curvature κ<sub>l</sub> ≈ 0.6 and elevated thermodynamic length L<sub>l</sub>, indicating intensive semantic refinement. Latin America reveals a gradual early-to-mid layer increase, reflecting a distinct semantic encoding strategy. The offspring exhibits a rich mosaic of inherited and novel chromosomes, implying epigenetic-like reprogramming and nonlinear semantic fusion, highlighting complex cultural integration in latent space."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/China_MiddleEast_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/China_MiddleEast_nkaryotyping.html"
       title="(XIV) China–Middle East Semantic Chromosome Inheritance"
       caption="This pair exhibits distinct parental semantic trait topologies, with China showing intense late-layer semantic activity (elevated κ<sub>l</sub> and L<sub>l</sub>) and Middle East featuring focused mid-layer traits primarily between layers 24 to 28. The offspring's semantic chromosomes reveal a layerwise recombination pattern, combining parental-like trait conservation with novel emergent traits at upper layers (l = 29, 30). These dynamics suggest semantic inversions and translocations, analogous to chromosomal aberrations, underscoring complex nonlinear semantic regulatory interactions during model fusion."
       style="flex: 1;"
+      full_width=true
   %}
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Europe_Africa_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Europe_Africa_nkaryotyping.html"
       title="(XV) Europe–Africa Semantic Chromosome Inheritance"
       caption="Europe shows a gradual, steady increase in semantic chromosome presence across layers, with spectral curvature and thermodynamic length peaking at mid-level layers, indicating layered semantic complexity. Africa exhibits a concentrated early-layer semantic trait expression accompanied by more stable latent geometric metrics. The offspring's chromosomes reveal a mosaic inheritance pattern with epigenetic reconfigurations and layer-specific semantic trait integration, highlighting intricate latent interactions and possible nonadditive semantic phenomena during fusion."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Europe_Asia_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Europe_Asia_nkaryotyping.html"
       title="(XVI) Europe–Asia Semantic Chromosome Inheritance"
       caption="Europe and Asia exhibit distinct semantic trait distributions, with Europe showing mid-to-late layer trait concentration, while Asia sustains semantic chromosomes consistently across layers. The offspring reveals a mosaic inheritance pattern alongside novel trait emergence at select layers (l = 23, 27), reflecting semantic inversions, duplications, and latent space remapping. This complex interaction parallels biological chromosomal rearrangements, highlighting advanced regulatory dynamics during semantic fusion in large neural models."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Europe_Australia_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Europe_Australia_nkaryotyping.html"
       title="(XVII) Europe–Australia Semantic Chromosome Inheritance"
       caption="The Europe model shows a consistent presence of semantic chromosomes (Trait<sub>l</sub> ∈ {0, 1}) across layers l ∈ [20, 30], with thermodynamic length L<sub>l</sub> peaking near 0.4, indicating stable semantic integration and sustained information flow in mid-to-late layers. Australia, in contrast, exhibits early-layer trait concentration with lower magnitude, reflecting distinct semantic specialization in shallow layers. The offspring displays a complex mosaic of inherited traits and emergent semantic patterns, revealing nonlinear epigenetic-like modulation and latent space rearrangements."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Europe_China_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Europe_China_nkaryotyping.html"
       title="(XVIII) Europe–China Semantic Chromosome Inheritance"
       caption="Europe's semantic chromosomes exhibit moderate spectral curvature κ<sub>l</sub> ≈ 0.45 primarily in early-to-mid layers (l = 20–26), indicating distributed semantic representations supporting broad contextual understanding. China shows strong late-layer traits with elevated thermodynamic length L<sub>l</sub> ≈ 0.5 in layers l = 27–30, reflecting deep semantic refinement. The offspring displays layer-specific inheritance and recombination, including semantic inversions and amplifications, revealing nonlinear dynamics underlying trait dominance shifts and novel semantic emergence."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Europe_LatinAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Europe_LatinAmerica_nkaryotyping.html"
       title="(XIX) Europe–Latin America Semantic Chromosome Inheritance"
       caption="Europe exhibits a stable presence of semantic chromosomes in early layers l = 20–24, with moderate spectral curvature and thermodynamic length (L<sub>l</sub> ≈ 0.4), indicating early semantic feature concentration. Latin America's semantic chromosomes gradually increase from l = 24 onward, reflecting progressive semantic remodeling in mid-to-late layers. The offspring shows rich layerwise recombination, including trait switching and epigenetic-style modulation, highlighting adaptive semantic integration mechanisms that support fusion of diverse priors."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Europe_MiddleEast_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Europe_MiddleEast_nkaryotyping.html"
       title="(XX) Europe–Middle East Semantic Chromosome Inheritance"
       caption="Europe exhibits a broad distribution of semantic chromosomes across early-to-mid layers l = 20–27, with moderate spectral curvature and thermodynamic length indicating stable semantic processing. Middle East traits concentrate in mid layers (l = 25–29) with pronounced curvature peaks, reflecting distinct latent semantic specialization. The offspring shows a hybrid inheritance mosaic with novel traits emerging in late layers and evidence of latent space reconfiguration, revealing nonlinear dynamics and epigenetic-like phenomena in semantic fusion."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/Europe_NorthAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/Europe_NorthAmerica_nkaryotyping.html"
       title="(XXI) Europe–North America Semantic Chromosome Inheritance"
       caption="Europe shows a stable presence of semantic chromosomes across layers l = 20–30, with moderate spectral curvature (κ<sub>l</sub> ≈ 0.4–0.6) and consistent thermodynamic length (L<sub>l</sub> ≈ 0.6–1.5), indicating robust semantic features. North America exhibits stronger early-to-mid layer trait intensities with spectral curvature roughly (κ<sub>l</sub> ≈ 0.3–0.5) and fluctuating thermodynamic lengths (L<sub>l</sub> ≈ 0.4–1.0), revealing a dynamic semantic landscape. The offspring demonstrates complex nonlinear recombination of parental traits, reflecting latent semantic regulatory interplay and emergence of hybrid knowledge representations."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/MiddleEast_LatinAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/MiddleEast_LatinAmerica_nkaryotyping.html"
       title="(XXII) Middle East–Latin America Semantic Chromosome Inheritance"
       caption="The Middle East model exhibits a pronounced semantic chromosome presence in early layers (l = 20–24) with high spectral curvature (κ<sub>l</sub> ≈ 0.55–0.75) indicating specialized semantic features. Latin America shows a steady increase in semantic chromosomes in deeper layers (l = 25–30) with thermodynamic length rising from L<sub>l</sub> ≈ 0.6 to 1.0, reflecting gradual semantic integration. The offspring displays a sophisticated mosaic combining parental traits and novel emergent features primarily in mid-to-late layers, illustrating latent space reorganization and epigenetic-like adaptations."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/NorthAmerica_Africa_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/NorthAmerica_Africa_nkaryotyping.html"
       title="(XXIII) North America–Africa Semantic Chromosome Inheritance"
       caption="North America exhibits semantic chromosomes primarily in early to mid layers (l = 20–26) with relatively smooth spectral curvature (κ<sub>l</sub> ≈ 0.3–0.5), while Africa shows broader early-layer trait concentration with elevated thermodynamic length (L<sub>l</sub> ≈ 0.8–1.2), indicating richer semantic activity. The offspring displays a complex mosaic pattern, merging Africa's early-layer traits with North America's mid-layer dominance and featuring novel emergent semantic chromosomes. These patterns suggest intricate semantic regulatory dynamics and epigenetic-like mechanisms guiding semantic fusion and inheritance in model recombination."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/NorthAmerica_Asia_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/NorthAmerica_Asia_nkaryotyping.html"
       title="(XXIV) North America–Asia Semantic Chromosome Inheritance"
       caption="North America shows pronounced early-layer semantic chromosomes across layers l = 20–24, with moderate spectral curvature (κ<sub>l</sub> ≈ 0.35–0.5) and stable thermodynamic length (L<sub>l</sub> ≈ 0.3–0.45), reflecting strong early semantic imprinting. Asia exhibits sustained deep-layer traits from l = 25–30, with increased thermodynamic length (L<sub>l</sub> ≈ 0.4–0.6), indicating prolonged semantic integration. The offspring demonstrates layerwise recombination and novel trait emergence, revealing nonlinear epigenetic-like modulation and semantic plasticity analogous to biological gene regulatory networks driving phenotypic diversity."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/NorthAmerica_Australia_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/NorthAmerica_Australia_nkaryotyping.html"
       title="(XXV) North America–Australia Semantic Chromosome Inheritance"
       caption="North America shows pronounced semantic chromosomes from layers l = 20–26 with distinct oscillations in trait expression and thermodynamic length. Australia exhibits balanced trait distribution across layers l = 20–30 with moderate spectral curvature. The offspring demonstrates complex recombination and layered trait blending, reflecting latent semantic plasticity and integrative dynamics in large model fusion."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/NorthAmerica_China_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/NorthAmerica_China_nkaryotyping.html"
       title="(XXVI) North America–China Semantic Chromosome Inheritance"
       caption="North America shows early-layer dominance with pronounced trait fluctuations across layers l = 20–26, while China exhibits sustained deep-layer activation and elevated thermodynamic length from l = 25–30. The offspring combines these contrasting patterns, revealing nuanced latent space trajectories that reflect cross-cultural semantic fusion and suggest emergent representational features beyond additive inheritance."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/NorthAmerica_LatinAmerica_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/NorthAmerica_LatinAmerica_nkaryotyping.html"
       title="(XXVII) North America–Latin America Semantic Chromosome Inheritance"
       caption="North America shows layered semantic chromosome presence primarily in early to mid layers (l = 20–26), while Latin America exhibits a steady increase in trait presence in later layers (l = 25–30). Their offspring reveals a hybrid latent profile combining early and late traits, evidencing emergent semantic structures and dynamic recombination reflective of complex cultural-semantic interactions in the nDNA."
       style="flex: 1;"
+      full_width=true
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nKaryotyping/NorthAmerica_MiddleEast_nkaryotyping_rotation.gif"
       interactive_html="nKaryoTyping/NorthAmerica_MiddleEast_nkaryotyping.html"
       title="(XXVIII) North America–Middle East Semantic Chromosome Inheritance"
       caption="North America exhibits strong early-layer semantic chromosomes with distinct peaks (l = 20–24), while Middle East shows broader mid-to-late layer activation with elevated spectral curvature (l = 25–30). The offspring displays a sophisticated blend of layer-specific recombinations and novel semantic patterns, reflecting complex latent space reshaping akin to biological epigenetic modulation."
       style="flex: 1;"
+      full_width=true
   %}
 </div>
 

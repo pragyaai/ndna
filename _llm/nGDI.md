@@ -282,6 +282,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(c) Australia nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Australia ranges approximately from 0.1 to 0.4, exhibiting slight fluctuations across layers. Compared to Africa and Asia, the Australia model shows a more moderate latent genetic divergence, suggesting a closer semantic alignment to the LLaMA base in these layers."
       style="flex: 1;"
+      full_width=true
   %}
 
   {% include visualization-html.liquid
@@ -290,6 +291,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(d) China nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for China rises from about 0.05 to 0.5, showing notable non-monotonic curvature. This indicates layer-specific latent divergence patterns, likely reflecting a complex interplay between general base semantics and culturally specific fine-tuning."
       style="flex: 1;"
+      full_width=true
   %}
 </div>
 
@@ -300,6 +302,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(e) Europe nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Europe ranges from about 0.05 to 0.35, lower than Africa and Asia. The narrower thickness indicates modest latent divergence from the base model, suggesting shared semantic priors or closer alignment to base cultural contexts."
       style="flex: 1;"
+      full_width=true
   %}
 
   {% include visualization-html.liquid
@@ -308,6 +311,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(f) Latin America nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> spans from 0.1 to 0.45 with moderate layerwise variability. The thickness highlights increased divergence in intermediate layers (ℓ ≈ 24 to 28), suggesting representational reshaping at these depths due to fine-tuning."
       style="flex: 1;"
+      full_width=true
   %}
 </div>
 
@@ -318,6 +322,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(g) Middle East nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Middle East ranges widely from 0.1 to 0.6, with a prominent peak near ℓ = 26. The pronounced thickness indicates substantial latent dissimilarity, reflecting distinct neural adaptation to cultural and linguistic specificity."
       style="flex: 1;"
+      full_width=true
   %}
 
   {% include visualization-html.liquid
@@ -326,6 +331,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(h) North America nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for North America shows the lowest overall values, roughly 0.05 to 0.3, indicating minimal latent genetic drift from the base. The subtle thickness variation suggests stable semantic representations across layers."
       style="flex: 1;"
+      full_width=true
   %}
 </div>
 
@@ -358,7 +364,8 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
    image_path="neural_genomics/nGDI/all.gif"
    interactive_html="nGDI/combined_cultural_trajectories_nGDI.html"
    caption=figure_caption
-   alt_text="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories" %}
+   alt_text="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories"
+   full_width=true %}
 
 ---
 {% auto_references %}
