@@ -1,123 +1,79 @@
-<figure style="text-align: center; margin: 1.5em 0;">
-  {% if include.full_width %}
-  <!-- FULL WIDTH MODE: GIF full width, iframe below full width and same height as GIF -->
-  <div class="wizuall-fullwidth" style="display: flex; flex-direction: column; gap: 1em; align-items: stretch;">
-    <div class="wizuall-gif-wrap" style="width:100%;">
-      <img id="wizuall-gif" class="vh-image {% if include.cover_image %}cover{% endif %}"
-           src="{{ '/assets/gifs/' | append: include.image_path | relative_url }}"
-           alt="{{ include.alt_text | default: include.title }}"
-           style="width:100%; height:auto; display:block; border-radius:8px; object-fit:cover;">
-    </div>
+{% comment %}
+wizuall.liquid
+- Renders GIF left, interactive HTML right (if provided).
+- Single shared caption below both (preserves caption text unchanged).
+- Interactive button below caption that opens the HTML in a new tab.
+- Responsive: stacks on narrow screens.
+- Params used: image_path, interactive_html, title, caption, metrics
+{% endcomment %}
 
-    {% if include.interactive_html %}
-    <div class="interactive-plot-container vh-html" style="width:100%;">
-      <iframe id="wizuall-iframe"
-              src="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}"
-              style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);"
-              frameborder="0"
-              allowfullscreen>
-      </iframe>
-    </div>
+{% assign gif_src = '/assets/gifs/' | append: include.image_path | relative_url %}
+{% if include.interactive_html %}
+  {% assign html_src = '/assets/html_plots/' | append: include.interactive_html | relative_url %}
+{% endif %}
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
+    {% if include.interactive_html and include.interactive_html != "" %}
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="{{ gif_src }}"
+               alt="{{ include.title }}"
+               style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe
+            src="{{ html_src }}"
+            title="{{ include.title }} - Interactive"
+            style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          ></iframe>
+        </div>
+      </div>
+
+    {% else %}
+      <!-- Only GIF (no interactive HTML provided) -->
+      <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" style="display:block; overflow:hidden; border-radius:8px;">
+        <img src="{{ gif_src }}"
+             alt="{{ include.title }}"
+             style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+      </a>
     {% endif %}
+
   </div>
 
-  <!-- JS: make iframe height equal to the GIF's rendered height -->
-  {% if include.interactive_html %}
-  <script>
-    (function () {
-      const img = document.getElementById('wizuall-gif');
-      const iframe = document.getElementById('wizuall-iframe');
-      if (!img || !iframe) return;
-
-      function matchIframeHeight() {
-        // use offsetHeight (includes padding, excludes margins)
-        const h = img.offsetHeight;
-        if (h && h > 0) {
-          iframe.style.height = h + 'px';
-        }
-      }
-
-      // If image already loaded, set immediately; otherwise wait for load.
-      if (img.complete) {
-        matchIframeHeight();
-      } else {
-        img.addEventListener('load', matchIframeHeight, { once: true });
-      }
-
-      // Watch for resizes (window resize, responsive layout changes, GIF dynamic sizes)
-      window.addEventListener('resize', matchIframeHeight);
-
-      // For more robust handling (e.g., GIF intrinsic size changes, layout shifts)
-      if (typeof ResizeObserver !== 'undefined') {
-        const ro = new ResizeObserver(matchIframeHeight);
-        ro.observe(img);
-      } else {
-        // fallback polling (very inexpensive)
-        let last = img.offsetHeight;
-        setInterval(() => {
-          if (img.offsetHeight !== last) {
-            last = img.offsetHeight;
-            matchIframeHeight();
-          }
-        }, 300);
-      }
-    })();
-  </script>
-  {% endif %}
-
-  {% else %}
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image {% if include.cover_image %}cover{% endif %}"
-           src="{{ '/assets/gifs/' | append: include.image_path | relative_url }}"
-           alt="{{ include.alt_text | default: include.title }}"
-           style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;">
-    </div>
-
-    {% if include.interactive_html %}
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe"
-                src="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}"
-                style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);"
-                frameborder="0"
-                allowfullscreen>
-        </iframe>
-      </div>
-  {% endif %}
-
-  <!-- Caption & metrics -->
-  {% if include.caption %}
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     {% if include.title %}<strong>{{ include.title }}</strong>{% endif %}
     {% if include.caption %} {{ include.caption | markdownify }}{% endif %}
   </figcaption>
-  {% endif %}
 
   {% if include.metrics %}
-    <p style="margin-top:8px; font-size:0.85em; color:#666; font-style:italic;">{{ include.metrics }}</p>
+    <p style="margin-top:8px; font-size:0.85em; color:#666; font-style:italic; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+      {{ include.metrics }}
+    </p>
   {% endif %}
 
-  {% if include.interactive_html %}
-    <a class="view-interactive-html" href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+  <!-- Button below caption -->
+  {% if include.interactive_html and include.interactive_html != "" %}
+    <div style="margin-top:1em; text-align:center;">
+      <a href="{{ html_src }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   {% endif %}
-{% endif %}
+
 </figure>
