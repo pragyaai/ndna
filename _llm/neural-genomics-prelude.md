@@ -2,6 +2,7 @@
 layout: page
 title: "Neural Genomics"
 permalink: /llm/neural-genomics/prelude/
+skip_title: True
 ---
 {% include neural-genomics-title.liquid title="Neural Genomics - Towards Neural Genomics: A Paradigm Shift in Understanding Artificial Intelligence" %}
 
