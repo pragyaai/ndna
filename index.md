@@ -2,19 +2,10 @@
 layout: ndna
 title: nDNA
 ---
-{% include ndna-title.liquid %}
 
-# nDNA
+{% include ndna-title.liquid title="Introduction to nDNA" %}
 
-<div style="display: flex; align-items: flex-start; gap: 40px; margin: 20px 0;">
-  <div style="flex: 1; min-width: 0;">
-    <h2>Introduction to nDNA</h2>
-    <p><strong>nDNA</strong>—short for <em>Neural DNA</em>—is a semantic-genotypic representation that captures the latent identity of foundation models through the intrinsic geometry of belief. It is synthesized from three indispensable dimensions of latent geometry: spectral curvature, thermodynamic length, and belief vector fields. These dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is a high-dimensional scaffold of internal cognition—a latent topography called nDNA.</p>
-  </div>
-  <div style="flex-shrink: 0; width: 300px; text-align: center;">
-    <img src="{{ '/assets/img/nDNA_logo.png' | relative_url }}" alt="nDNA Diagram" style="max-width: 100%; height: auto;"/>
-  </div>
-</div>
+<p><strong>nDNA</strong>—short for <em>Neural DNA</em>—is a semantic-genotypic representation that captures the latent identity of foundation models through the intrinsic geometry of belief. It is synthesized from three indispensable dimensions of latent geometry: spectral curvature, thermodynamic length, and belief vector fields. These dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is a high-dimensional scaffold of internal cognition—a latent topography called nDNA.</p>
 
 ## What Qualifies as Heritability in Artificial Cognition?
 
