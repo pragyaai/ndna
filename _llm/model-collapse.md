@@ -173,7 +173,7 @@ Thus, belief vector fields offer not just a visualization tool, but an **intuiti
 
 {% include wizuall.liquid
    image_path="alignment/belief_vector_field_side_by_side_refined.gif"
-   interactive_html="alignment/belief_vector_field_side_by_side_refined.html"
+   interactive_html="collapse/ndna_dpo_trajectories_left_legend.html"
    title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers"
    caption="This figure illustrates the evolution of latent *belief vector fields*" %}
 
