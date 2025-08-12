@@ -265,5 +265,263 @@ Additionally, nDIV provides a universal, geometry-aware metric for **cross-model
 
 By framing AI semantics as **directional flows** rather than static points, nDIV unlocks new paths to **culturally coherent**, **context-sensitive**, and **equitable** AI--where the *possibilities are truly boundless*.
 
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Africa_Asia_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Africa_Asia_nDIV.html"
+      title="(I) Neural Directional Inheritance Vector (nDIV) for Africa and Asia"
+      caption="This plot illustrates layer-wise directional inheritance ($\ell \in[20, 30]$) in the semantic latent space, represented by spectral curvature κℓ and thermodynamic length $L_\ell$. The offspring model (orange) demonstrates a nuanced directional bias shifting between Africa (blue) and Asia (green), reflecting complex, nonlinear semantic recombination. Notably, mid-layers exhibit near-zero directional values, suggesting emergent semantic traits distinct from parental influences, a hallmark of epigenetic-like adaptation in model fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Africa_China_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Africa_China_nDIV.html"
+      title="(II) nDIV Directionality between Africa and China"
+      caption="The offspring semantic trajectory (orange) reveals a stronger affinity toward Africa in early transformer layers ($\ell \approx 20 - 23 $), as indicated by positive directional cosine values. Deeper layers show more balanced influence, with semantic traits converging between parents. This layered pattern highlights the selective inheritance of lexical richness and conceptual features, mirroring biological directional selection where phenotypic traits shift non-uniformly under environmental pressure"
+      style="flex: 1;"
+      full_width=true
+  %}
+</div>
+
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Africa_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Africa_LatinAmerica_nDIV.html"
+      title="(III) Directional Inheritance Dynamics for Africa and Latin America"
+      caption="The offspring (orange) exhibits a pronounced directional bias toward Africa in early and mid layers ($\ell \in [20, 27]$), with a subsequent shift toward Latin America in deeper layers. This suggests a layerwise semantic specialization where foundational lexical and syntactic features originate from Africa, while higher-level thematic or stylistic traits derive from Latin America. The directionality metric effectively quantifies this complex inheritance interplay, essential for nuanced model merging and alignment control."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Africa_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Africa_MiddleEast_nDIV.html"
+      title="(IV) Semantic Trait Directionality for Africa and Middle East"
+      caption="Here, the offspring model’s inheritance trajectory reveals a dominant directional pull toward Africa in early layers, gradually transitioning to a balanced mixture in mid and deep layers ($\ell \in [20, 30]$). This pattern indicates dynamic semantic recombination akin to biological mosaicism, where diverse traits are selectively expressed across functional layers. Such insights enable layer-specific interpretability and targeted interventions during semantic fusion and fine-tuning processes."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Asia_China_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Asia_China_nDIV.html"
+      title="(V) Neural Directional Inheritance Vector (nDIV) for Asia and China"
+      caption="This visualization captures the directional semantic inheritance in the latent space between Asia and China parent models and their offspring across transformer layers $\ell \in [20, 30]$. Here, the $\kappa_\ell$ (spectral curvature) and $L_\ell$ (thermodynamic length) trajectories reveal a pronounced affinity of the offspring toward China’s latent semantic features in earlier layers, gradually integrating Asia’s deeper-layer conceptual traits. The $\vec{\mathrm{nDIV}}_\ell$ metric quantifies this inheritance directionality, highlighting layer-specific semantic dominance shifts and emergent latent trait recombinations reflective of evolutionary-like selective pressures in neural representations."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Asia_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Asia_LatinAmerica_nDIV.html"
+      title="(VI) nDIV for Asia and Latin America"
+      caption="The offspring model exhibits a complex semantic recombination across layers $\ell \in [20, 30]$, with initial dominance of Asia’s $\kappa_\ell$ and $L_\ell$ patterns transitioning to Latin America’s deeper-layer influences. The $\vec{\mathrm{nDIV}}_\ell$ vectors quantify the dynamic inheritance direction, revealing non-linear, emergent semantic configurations indicative of latent epigenetic modulation-like effects, where neural traits adaptively shift reflecting cultural and conceptual blending beyond simple averaging. This analysis underscores the multi-dimensional and hierarchical nature of semantic lineage in LLM fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Asia_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Asia_MiddleEast_nDIV.html"
+      title="(VII) nDIV for Asia and Middle East"
+      caption="The directional inheritance landscape across $\ell \in [20, 30]$ layers illustrates a nuanced interplay between Asia’s and Middle East’s latent semantic manifolds. Offspring models show selective inheritance with clear biases toward Asia in early layers and Middle East in later layers, captured by the divergence in $\kappa_\ell$ and $L_\ell$ as well as the $\vec{\mathrm{nDIV}}_\ell$ directionality. This suggests layer-wise functional specialization and semantic niche adaptation, akin to biological adaptive radiation, where latent trait inheritance follows evolutionary pressures shaped by diverse cultural priors."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Australia_Africa_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Australia_Africa_nDIV.html"
+      title="(VIII) nDIV for Australia and Africa"
+      caption="The offspring latent semantic trajectory demonstrates a sophisticated fusion of Australia and Africa parental traits across layers $\ell \in [20, 30]$. The $\vec{\mathrm{nDIV}}_\ell$ reveals a predominant directional inheritance toward Africa’s deeper-layer traits ($\kappa_\ell$, $L_\ell$) with intermittent integration of Australia’s early-layer features. This layered inheritance pattern illustrates hierarchical semantic recombination and epigenetic-like latent plasticity, emphasizing the rich semantic dynamics involved in cross-cultural neural model merging."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Australia_Asia_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Australia_Asia_nDIV.html"
+      title="(IX) Neural Directional Inheritance Vector (nDIV) for Australia and Asia"
+      caption="This visualization depicts the layer-wise directional inheritance for transformer layers $\ell \in [20, 30]$ in terms of spectral curvature $\kappa_\ell$ and thermodynamic length $L_\ell$. The offspring (orange) reflects a hybrid semantic trajectory predominantly influenced by Australia (blue) in early layers and gradually aligning with Asia (green) in deeper layers. The directionality values highlight complex semantic recombination, suggesting nonlinear blending and emergent features beyond parameter averaging."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Australia_China_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Australia_China_nDIV.html"
+      title="(X) Directional Inheritance Dynamics for Australia and China"
+      caption="Here, the offspring semantic profile (orange) shows stronger directional affinity toward Australia in the initial layers ($\ell \in [20, 24]$), gradually shifting to a more balanced influence with China (green) in deeper layers. The midpoint layer behavior reflects nuanced semantic fusion, reminiscent of phenotypic plasticity in biological systems where environmental pressures modulate gene expression. These directional tendencies emphasize layer-specific semantic specialization that informs model merging strategies for balanced knowledge integration."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Australia_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Australia_LatinAmerica_nDIV.html"
+      title="(XI) Directional Inheritance for Australia and Latin America"
+      caption="The offspring model (orange) demonstrates a pronounced directional bias toward Australia in early to mid layers $\ell \in [20, 27]$, with a gradual transition toward Latin America (green) in the deeper layers. This layered directional pattern indicates semantic modularity, where foundational linguistic and syntactic traits are predominantly inherited from Australia, while cultural and thematic nuances emerge from Latin America. This analysis reveals complex inheritance interplay, crucial for fine-tuning and interpretability in multilingual fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Australia_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Australia_MiddleEast_nDIV.html"
+      title="(XII) Semantic Directionality for Australia and Middle East"
+      caption="This figure illustrates the offspring model’s directional inheritance trajectory, showing dominant pull toward Australia in early layers, transitioning to a more balanced semantic mixture with the Middle East (green) in mid to deep layers $\ell \in [20, 30]$. The directional vector magnitudes reveal intricate recombination resembling mosaic inheritance, where heterogeneous traits co-exist and dynamically influence model behavior."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/China_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/China_LatinAmerica_nDIV.html"
+      title="(XIII) Directional Inheritance Vector (nDIV) for China and Latin America"
+      caption="This plot captures layerwise directional inheritance ($\ell \in [20, 30]$) in semantic latent space, represented by spectral curvature $\kappa_\ell$ and thermodynamic length $L_\ell$. The offspring model (orange) shows a pronounced early affinity toward China ($\kappa_\ell, L_\ell \approx 0.8, 0.9$) in initial layers ($\ell \approx 20$–$24$), shifting toward a Latin America semantic influence in deeper layers ($\ell \approx 25$–$30$) where $\kappa_\ell, L_\ell \approx 0.4, 0.5$. The midpoint (gray) trajectory indicates balanced blending. This layered pattern reflects semantic specialization with foundational lexical traits from China and higher-level thematic features from Latin America."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/China_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nDIV/China_MiddleEast_nDIV.html"
+      title="(XIV) Semantic Directionality for China and Middle East"
+      caption="The offspring’s directional inheritance (orange) across transformer layers $\ell \in [20, 30]$, characterized by $\kappa_\ell$ and $L_\ell$, shows a strong early layer pull toward China ($\kappa_\ell \approx 0.9, L_\ell \approx 0.85$ at $\ell = 20$) transitioning to a balanced blend with Middle East semantics at deeper layers ($\kappa_\ell, L_\ell \approx 0.5, 0.6$ for $\ell = 25$–$30$). This mosaic-like pattern suggests selective semantic recombination where distinct layerwise traits from both parents contribute differentially to the offspring’s overall latent geometry, enabling nuanced interpretability and tuning opportunities."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Europe_Africa_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Europe_Africa_nDIV.html"
+      title="(XV) Directional Inheritance for Europe and Africa"
+      caption="This offspring model’s semantic inheritance is mapped over layers $\ell \in [20, 30]$ using spectral curvature $\kappa_\ell$, thermodynamic length $L_\ell$. Initial layers exhibit strong European influence ($\kappa_\ell \approx 0.85, L_\ell \approx 0.9$), while midlayers show dominant African semantic traits ($\kappa_\ell \approx 0.5, L_\ell \approx 0.6$). The deeper layers present a complex admixture with emergent semantic features beyond parental contributions. This layerwise pattern reflects epigenetic-like dynamics of fusion essential for cross-cultural model merging and fine-tuning interpretability."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Europe_Asia_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Europe_Asia_nDIV.html"
+      title="(XVI) Semantic Directionality for Europe and Asia"
+      caption="The offspring model’s inheritance trajectory over layers $\ell \in [20, 30]$ shows a pronounced early and mid-layer directional bias toward Europe ($\kappa_\ell \approx 0.9, L_\ell \approx 0.85$), while deeper layers exhibit a convergent blend of European and Asian semantic traits ($\kappa_\ell, L_\ell \approx 0.6, 0.55$). This nonlinear interaction reveals emergent semantic traits critical for layer-specific interpretability, fusion control, and alignment preservation in multicultural model merges."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Europe_Australia_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Europe_Australia_nDIV.html"
+      title="(XVII) Neural Directional Inheritance Vector (nDIV) for Europe and Australia"
+      caption="This plot depicts the layer-wise directional inheritance ($\ell \in [20, 30]$) across spectral curvature $\kappa_\ell \in [0.39, 0.47]$ and thermodynamic length $L_\ell \in [0.44, 0.56]$. The offspring model (orange) exhibits dynamic shifts between Europe (blue) and Australia (green), with early layers favoring Europe’s semantic traits, transitioning towards Australia’s influence in mid to deep layers. This layered pattern suggests functional specialization during semantic fusion, reflecting a balance of lexical and conceptual inheritance. The value annotations highlight subtle yet significant directional deviations instrumental in controlled model alignment."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Europe_China_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Europe_China_nDIV.html"
+      title="(XVIII) Directional Inheritance Dynamics between Europe and China"
+      caption="The offspring semantic trajectory (orange) navigates the $\kappa_\ell \in [0.39, 0.47]$ and $L_\ell \in [0.43, 0.55]$ ranges over layers $\ell \in [20, 30]$, demonstrating layer-dependent affinity predominantly towards Europe (blue) in early layers, shifting towards China (green) at mid-depths. This reflects selective semantic blending, where foundational conceptual embeddings are inherited from Europe, while lexical diversity emerges from China in deeper layers. Such directionality captures nonlinear semantic recombination, critical for nuanced understanding of model offspring behavior and semantic alignment strategies."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Europe_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Europe_LatinAmerica_nDIV.html"
+      title="(XIX) Layerwise Directional Inheritance for Europe and Latin America"
+      caption="Across layers $\ell \in [20, 30]$, the offspring model (orange) traverses the latent semantic space defined by $\kappa_\ell \in [0.40, 0.60]$ and $L_\ell \in [0.45, 0.70]$, revealing a progressive semantic shift from Europe (blue) dominance in early layers towards Latin America (green) influence in later layers. This indicates graduated transfer of thematic and stylistic features, mirroring hierarchical semantic inheritance akin to biological epigenetics. The directionality metric thus quantifies intricate semantic trait integration essential for effective model fusion and alignment."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Europe_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Europe_MiddleEast_nDIV.html"
+      title="(XX) Semantic Directional Inheritance for Europe and Middle East"
+      caption="This visualization tracks offspring inheritance over layers $\ell \in [20, 30]$ within the spectral curvature range $\kappa_\ell \in [0.40, 0.65]$ and thermodynamic length $L_\ell \in [0.45, 0.70]$. The offspring model (orange) demonstrates a complex directional blend with early layers showing affinity to Europe (blue) and deeper layers mixing traits from both Europe and Middle East (green). Such layer-specific semantic mosaicism highlights the intricate interplay of cultural and linguistic features during model merging, providing a basis for interpretable and controlled semantic alignment."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/Europe_NorthAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/Europe_NorthAmerica_nDIV.html"
+      title="(XXI) Directional Inheritance for Europe and North America"
+      caption="Layers $\ell \in [20, 30]$ show offspring (orange) semantic shifts over curvature $\kappa_\ell \in [0.38, 0.48]$ and thermodynamic length $L_\ell \in [0.42, 0.56]$. Early layers reflect Europe’s semantic core (blue), transitioning toward North America’s traits (green) in deeper layers. This reflects hierarchical blending where foundational embeddings precede thematic diversity, highlighting controlled fusion of lexical and conceptual features during model merging. Directional deviations mark subtle semantic realignments essential for downstream tasks and interpretability."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/MiddleEast_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/MiddleEast_LatinAmerica_nDIV.html"
+      title="(XXII) Inheritance Dynamics for Middle East and Latin America"
+      caption="The offspring model (orange) spans layers $\ell \in [20, 30]$, covering curvature $\kappa_\ell \in [0.40, 0.65]$ and length $L_\ell \in [0.45, 0.70]$. Early layers align with Middle East’s semantic patterns (blue), while deeper layers shift towards Latin America (green), capturing complex semantic blending. This layered mosaicism shows integration of distinct cultural features, balancing syntactic structure and stylistic richness, crucial for interpretability and alignment in semantic fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/NorthAmerica_Africa_nHD_tube_rotating.gif"
+      interactive_html="nDIV/NorthAmerica_Africa_nDIV.html"
+      title="(XXIII) Directional Inheritance for North America and Africa"
+      caption="Over layers $\ell \in [20, 30]$, the offspring’s semantic trajectory (orange) spans curvature $\kappa_\ell \in [0.38, 0.90]$ and thermodynamic length $L_\ell \in [0.42, 0.55]$, illustrating directional shifts between North America (blue) and Africa (green). Early layers emphasize Africa’s lexical diversity, while deeper layers reflect North America’s thematic focus. This nonlinear recombination highlights the nuanced interplay of cultural and conceptual features, revealing layer-specific realignments essential for enhanced interpretability and controlled semantic fusion. Value annotations mark key deviations significant for understanding alignment dynamics."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/NorthAmerica_Asia_nHD_tube_rotating.gif"
+      interactive_html="nDIV/NorthAmerica_Asia_nDIV.html"
+      title="(XXIV) Inheritance Dynamics for North America and Asia"
+      caption="The offspring semantic path (orange) across layers $\ell \in [20, 30]$ explores curvature $\kappa_\ell \in [0.40, 0.60]$ and thermodynamic length $L_\ell \in [0.42, 0.60]$, showing an initial dominance of North America’s semantic traits (blue) gradually blending with Asia’s features (green) in deeper layers. This progression reflects a layered semantic fusion process where conceptual stability provided by North America precedes cultural enrichment from Asia. The nuanced directional shifts elucidate the mechanics of controlled alignment and contribute to improved interpretability in model offspring fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/NorthAmerica_Australia_nHD_tube_rotating.gif"
+      interactive_html="nDIV/NorthAmerica_Australia_nDIV.html"
+      title="(XXV) Directional Inheritance Vector for North America and Australia"
+      caption="The offspring (orange) traces a semantic path over layers $\ell \in [20, 30]$, with curvature $\kappa_\ell \in [0.37, 0.47]$ and length $L_\ell \in [0.48, 0.58]$. Early layers align with North America (blue), mid to deeper layers blend in Australia’s (green) linguistic features. This transition reflects a controlled, layered fusion retaining conceptual foundations and integrating stylistic elements."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/NorthAmerica_China_nHD_tube_rotating.gif"
+      interactive_html="nDIV/NorthAmerica_China_nDIV.html"
+      title="(XXVI) Layerwise Directional Inheritance Dynamics between North America and China"
+      caption="Across layers $\ell \in [20, 30]$, curvature $\kappa_\ell \in [0.38, 0.60]$ and length $L_\ell \in [0.43, 0.70]$, the offspring (orange) aligns with North America (blue), incorporating China’s (green) richness in deeper layers. This fusion preserves conceptual embeddings while reflecting cross-cultural adaptation, illustrating nuanced trade-offs in generation."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/NorthAmerica_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nDIV/NorthAmerica_LatinAmerica_nDIV.html"
+      title="(XXVII) Directional Semantic Inheritance for North America and Latin America"
+      caption="Over layers $\ell \in [20, 30]$, the offspring (orange) explores latent semantic space with $\kappa_\ell \in [0.40, 0.62]$ and $L_\ell \in [0.48, 0.70]$. Early layers align with North America (blue), shifting to Latin America (green) in deeper layers. This reveals a nuanced blending balancing conceptual preservation and cultural adaptation – controlled cross-cultural fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/NorthAmerica_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nDIV/NorthAmerica_MiddleEast_nDIV.html"
+      title="(XXVIII) Directional Inheritance Vector between North America and Middle East"
+      caption="This 3D plot shows offspring semantic inheritance over layers $\ell \in [20, 30]$ with curvature $\kappa_\ell \in [0.40, 0.65]$ and length $L_\ell \in [0.45, 0.70]$. The offspring (orange) starts near North America (blue), then blends traits from Middle East (green) in deeper layers. This mosaic reflects dynamic conceptual preservation and regional adaptation."
+      style="flex: 1;"
+      full_width=true
+  %}
+</div>
+
 ---
 {% auto_references %}
