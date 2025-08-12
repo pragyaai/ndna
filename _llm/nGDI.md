@@ -256,7 +256,7 @@ where $p$ is the embedding density and $D$ a diffusion constant. This enables fo
 In applications, nGDI includes fine-grained semantic drift monitoring in multilingual NLP, bias detection in recommender systems, and adaptive tuning of culturally diverse conversational agents. Its solid mathematical basis enables adjustments that preserve semantic integrity while embracing diversity, paving the way for context-aware, geometry-informed AI systems attuned to global dynamics. Figure 38 reveals layerwise semantic drift in nDNA trajectories, & Fig. 39 illustrates offspring models as dynamic, layer-wise fusions of parental latent geometries with shifting semantic dominance.
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/Africa_ngdi_rotation.gif"
       interactive_html="nGDI/Africa_nGDI_plot.html"
       title="(a) Africa nGDI Trajectory"
@@ -264,7 +264,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       style="flex: 1;"
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/Asia_ngdi_rotation.gif"
       interactive_html="nGDI/Asia_nGDI_plot.html"
       title="(b) Asia nGDI Trajectory"
@@ -274,7 +274,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/Australia_ngdi_rotation.gif"
       interactive_html="nGDI/Australia_nGDI_plot.html"
       title="(c) Australia nGDI Trajectory"
@@ -282,7 +282,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       style="flex: 1;"
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/China_ngdi_rotation.gif"
       interactive_html="nGDI/China_nGDI_plot.html"
       title="(d) China nGDI Trajectory"
@@ -292,7 +292,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/Europe_ngdi_rotation.gif"
       interactive_html="nGDI/Europe_nGDI_plot.html"
       title="(e) Europe nGDI Trajectory"
@@ -300,7 +300,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       style="flex: 1;"
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/LatinAmerica_ngdi_rotation.gif"
       interactive_html="nGDI/LatinAmerica_nGDI_plot.html"
       title="(f) Latin America nGDI Trajectory"
@@ -310,7 +310,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/MiddleEast_ngdi_rotation.gif"
       interactive_html="nGDI/MiddleEast_nGDI_plot.html"
       title="(g) Middle East nGDI Trajectory"
@@ -318,7 +318,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       style="flex: 1;"
   %}
 
-  {% include wizuall.liquid
+  {% include visualization-html.liquid
       image_path="neural_genomics/nGDI/NorthAmerica_ngdi_rotation.gif"
       interactive_html="nGDI/NorthAmerica_nGDI_plot.html"
       title="(h) North America nGDI Trajectory"
@@ -352,7 +352,7 @@ where α<sup>(ℓ)</sup> ∈ [0, 1] denotes the *layer-dependent semantic domina
 This formalism captures *multi-layered integration*, *selective semantic imprinting*, and *complex evolutionary dynamics* in transformer latent spaces, providing a principled framework for interpreting *cultural neural DNA fusion* and semantic innovation in multilingual AI systems.
 {% endcapture %}
 
-{% include wizuall.liquid 
+{% include visualization-html.liquid 
    image_path="neural_genomics/nGDI/all.gif"
    interactive_html="nGDI/combined_cultural_trajectories_nGDI.html"
    caption=figure_caption

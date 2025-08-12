@@ -7,7 +7,7 @@ Parameters:
 {% endcomment %}
 
 {% assign heading_tag = include.size | default: "h1" %}
-{% assign logo_size = "2.5em" %}
+{% assign logo_size = "4em" %}  {# increased from 2.5em to make it bigger #}
 
 {% assign title_parts = include.title | split: "Neural Genomics" %}
 {% assign before_ng = title_parts[0] | strip %}
