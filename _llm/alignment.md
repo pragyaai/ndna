@@ -165,61 +165,61 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 
 {% include wizuall.liquid
    image_path="collapse/africa_dpo_rotation.gif"
-   interactive_html="collapse/africa_dpo_interactive.html"
+   interactive_html="alignment/africa_dpo.html"
    title="Africa: Base vs DPO-aligned"
    caption="The latent trajectory shows high spectral curvature κ<sub>ℓ</sub> reaching 0.85 and thermodynamic length ℒ<sub>ℓ</sub> up to 0.9 in the base; DPO alignment reduces these to κ<sub>ℓ</sub> ≈ 0.75, ℒ<sub>ℓ</sub> ≈ 0.8, indicating a softening of latent strain and ideological tension at upper layers (ℓ ≥ 25)." %}
 
 {% include wizuall.liquid
    image_path="collapse/asia_dpo_rotation.gif"
-   interactive_html="collapse/asia_dpo_interactive.html"
+   interactive_html="alignment/asia_dpo.html"
    title="Asia: Base vs DPO-aligned"
    caption="The base model's curvature peaks at κ<sub>ℓ</sub> ≈ 0.88 and ℒ<sub>ℓ</sub> ≈ 0.92, reflecting strong epistemic effort; DPO alignment smooths this manifold with κ<sub>ℓ</sub> reduced by ~10%, flattening reorientation zones in high layers." %}
 
 {% include wizuall.liquid
    image_path="collapse/australia_dpo_rotation.gif"
-   interactive_html="collapse/australia_dpo_interactive.html"
+   interactive_html="alignment/australia_dpo.html"
    title="Australia: Base vs DPO-aligned"
    caption="Minimal latent reconfiguration observed: κ<sub>ℓ</sub> stays within 0.42–0.55; ℒ<sub>ℓ</sub> within 0.5–0.7. DPO tuning induces minor latent tension relaxation, reflecting low initial latent strain." %}
 
 {% include wizuall.liquid
    image_path="collapse/china_dpo_rotation.gif"
-   interactive_html="collapse/china_dpo_interactive.html"
+   interactive_html="alignment/china_dpo.html"
    title="China: Base vs DPO-aligned"
    caption="A high-curvature manifold with κ<sub>ℓ</sub> exceeding 0.9, ℒ<sub>ℓ</sub> near 0.95 is tamed by DPO to κ<sub>ℓ</sub> ≤ 0.8, ℒ<sub>ℓ</sub> ≤ 0.85, showing significant alignment-induced latent reorientation." %}
 
 {% include wizuall.liquid
    image_path="collapse/europe_dpo_rotation.gif"
-   interactive_html="collapse/europe_dpo_interactive.html"
+   interactive_html="alignment/europe_dpo.html"
    title="Europe: Base vs DPO-aligned"
    caption="Both base and DPO variants exhibit low latent strain: κ<sub>ℓ</sub> in 0.4–0.5, ℒ<sub>ℓ</sub> in 0.55–0.7, confirming alignment stability within pretraining attractor zones." %}
 
 {% include wizuall.liquid
    image_path="collapse/latinamerica_dpo_rotation.gif"
-   interactive_html="collapse/latinamerica_dpo_interactive.html"
+   interactive_html="alignment/latinamerica_dpo.html"
    title="Latin America: Base vs DPO-aligned"
    caption="DPO alignment compresses latent divergence (κ<sub>ℓ</sub> drops from 0.7 to 0.6), indicating absorption of alignment constraints while preserving regional epistemic identity." %}
 
 {% include wizuall.liquid
    image_path="collapse/llama_dpo_rotation.gif"
-   interactive_html="collapse/llama_dpo_interactive.html"
+   interactive_html="alignment/llama_dpo.html"
    title="LLaMA: Base vs DPO-aligned"
    caption="Base and aligned variants show stable geometry: κ<sub>ℓ</sub> in 0.38–0.5, ℒ<sub>ℓ</sub> in 0.5–0.65, reflecting moderate epistemic workload typical of generic alignment tuning." %}
 
 {% include wizuall.liquid
    image_path="collapse/middleeast_dpo_rotation.gif"
-   interactive_html="collapse/middleeast_dpo_interactive.html"
+   interactive_html="alignment/middleeast_dpo.html"
    title="Middle East: Base vs DPO-aligned"
    caption="DPO reduces latent torsion and curvature: κ<sub>ℓ</sub> down by ~12%, ℒ<sub>ℓ</sub> down by ~8%, showing partial smoothing of complex belief vector fields." %}
 
 {% include wizuall.liquid
    image_path="collapse/northamerica_dpo_rotation.gif"
-   interactive_html="collapse/northamerica_dpo_interactive.html"
+   interactive_html="alignment/northamerica_dpo.html"
    title="North America: Base vs DPO-aligned"
    caption="Both variants stay within the pretraining manifold: κ<sub>ℓ</sub> in 0.4–0.52, ℒ<sub>ℓ</sub> in 0.55–0.7, confirming low-cost alignment geometry." %}
 
 {% include wizuall.liquid
    image_path="collapse/ndna_dpo_rotation.gif"
-   interactive_html="collapse/ndna_dpo_interactive.html"
+   interactive_html="alignment/ndna_dpo.html"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment"
    caption="DPO alignment visibly compresses high-curvature outliers (e.g., Africa, Asia, China), drawing their trajectories toward the LLaMA attractor; low-strain regions (Europe, North America, Australia) remain largely unaffected. This illustrates DPO's role in harmonizing epistemic manifolds across cultural fine-tunings." %}
 
