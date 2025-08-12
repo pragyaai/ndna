@@ -76,14 +76,14 @@
     </div>
 
     {% if include.interactive_html %}
-    <div class="interactive-plot-container vh-html" style="flex:1; max-width:48%;">
-      <iframe src="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}"
-              style="width:100%; height:100%; min-height:400px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);"
-              frameborder="0" allowfullscreen>
-      </iframe>
-    </div>
-    {% endif %}
-  </div>
+      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
+        <iframe id="wizuall-iframe"
+                src="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}"
+                style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);"
+                frameborder="0"
+                allowfullscreen>
+        </iframe>
+      </div>
   {% endif %}
 
   <!-- Caption & metrics -->
@@ -100,9 +100,23 @@
 
   {% if include.interactive_html %}
     <a class="view-interactive-html" href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
-          📊 View Interactive Plot
-        </button>
+      <button style="
+        display:inline-block;
+        padding:10px 20px;
+        font-size:0.875rem;
+        font-weight:500;
+        color:#fff;
+        background:#000;
+        border:none;
+        border-radius:8px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.10);
+        cursor:pointer;
+        transition:transform .15s ease, background-color .15s ease;
+        -webkit-appearance: none;
+        appearance: none;
+      ">
+        📊 View Interactive Plot
+      </button>
     </a>
   {% endif %}
 </figure>
