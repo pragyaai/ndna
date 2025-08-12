@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neural Genomics"
-permalink: /llm/neural-genomics/neural-genomics-prelude
+permalink: /llm/neural-genomics/neural-genomics-prelude/
 ---
 {% include neural-genomics-title.liquid titlee="Neural Genomics Lens - Towards Neural Genomics - A Paradigm Shift in Understanding Artificial Intelligence" %}
 
