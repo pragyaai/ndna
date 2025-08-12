@@ -177,5 +177,295 @@ Moreover, the **nCCL** framework opens new avenues for the design of *sophistica
 
 Looking forward, **nCCL** lays the groundwork for innovative research into *continual learning* and *context-aware adaptation* in multilingual and multicultural AI deployments. By systematically capturing and addressing ideological tension at multiple semantic scales, this framework supports the development of AI systems capable of *ongoing evolution* in response to shifting cultural contexts and emerging ethical standards. This positions **nCCL** not only as a **diagnostic tool** but as a **catalyst for responsible, inclusive, and context-sensitive AI innovation** on a global scale.
 
+<div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Africa_Asia_nCCL_rotation.gif"
+      interactive_html="nCCL/Africa_Asia_nCCL_conflict.html"
+      title="(I) Neural Cultural Conflict between Africa and Asia"
+      caption="Let $x_\ell(\mathrm{Africa})$ and $x_\ell(\mathrm{Asia})$ denote latent semantic embeddings for parent models representing African and Asian cultural priors, with merged offspring embedding $x_\ell(\mathrm{Merged})$ at layer $\ell$. The conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Africa}), x_\ell(\mathrm{Asia})\right)\right\|$ is low in early layers $\ell \in [20, 21]$, showing stable inheritance and semantic alignment. Conflict rises in mid layers $\ell \in [22, 28]$, marking ideological tensions needing layerwise tuning and reconciliation. Conflict moderates late $\ell \in [29, 30]$, reflecting semantic fusion, emphasizing targeted alignment interventions."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Africa_China_nCCL_rotation.gif"
+      interactive_html="nCCL/Africa_China_nCCL_conflict.html"
+      title="(II) Layerwise Semantic Conflict between Africa and China"
+      caption="Let $x_\ell(\mathrm{Africa})$ and $x_\ell(\mathrm{China})$ denote latent embeddings for African and Chinese priors, and $x_\ell(\mathrm{Merged})$ the merged offspring embedding at layer $\ell$. The conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Africa}), x_\ell(\mathrm{China})\right)\right\|$ is minimal in early layers $\ell \in [20, 21]$, reflecting semantic consistency. Conflict intensifies in mid layers $\ell \in [23, 27]$, revealing ideological divergence requiring precise semantic harmonization. Late layers $\ell \in [28, 30]$ show reduced conflict, indicating semantic reconciliation vital for crosscultural robustness and emergent expressivity."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Africa_LatinAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/Africa_LatinAmerica_nCCL_conflict.html"
+      title="(III) Cultural Conflict Dynamics between Africa and Latin America"
+      caption="Let $x_\ell(\mathrm{Africa})$ and $x_\ell(\mathrm{LatinAmerica})$ denote latent embeddings, and $x_\ell(\mathrm{Merged})$ the merged offspring embedding at layer $\ell$. The conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Africa}), x_\ell(\mathrm{LatinAmerica})\right)\right\|$ is low in early layers $\ell \in [20, 21]$, indicating stable cultural inheritance. Conflict rises in mid layers $\ell \in [22, 28]$, revealing latent ideological friction requiring semantic calibration and alignment. Late layers $\ell \in [29, 30]$ show moderated conflict, signaling semantic fusion and reconciliation, critical for culturally sensitive AI fusion and knowledge transfer."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Africa_MiddleEast_nCCL_rotation.gif"
+      interactive_html="nCCL/Africa_MiddleEast_nCCL_conflict.html"
+      title="(IV) Neural Semantic Conflict between Africa and Middle East"
+      caption="Let $x_\ell(\mathrm{Africa})$ and $x_\ell(\mathrm{MiddleEast})$ denote latent embeddings, and $x_\ell(\mathrm{Merged})$ the merged offspring embedding at layer $\ell$. The conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Africa}), x_\ell(\mathrm{MiddleEast})\right)\right\|$ is minimal in early layers $\ell \in [20, 21]$, reflecting conserved core semantics and lexical stability. Peaks in mid layers $\ell \in [22, 28]$ mark critical ideological tensions requiring alignment correction to reduce bias and maintain fidelity. Late layers $\ell \in [29, 30]$ show moderated conflict, representing semantic reconciliation vital for fair and robust culturally sensitive AI deployments."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Asia_China_nCCL_rotation.gif"
+      interactive_html="nCCL/Asia_China_nCCL_conflict.html"
+      title="(V) Neural Cultural Conflict between Asia and China"
+      caption="Let $x_\ell(\mathrm{Asia})$ and $x_\ell(\mathrm{China})$ denote latent embeddings for parent models representing Asian and Chinese cultural priors, with merged offspring embedding $x_\ell(\mathrm{Merged})$ at layer $\ell$. The conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Asia}), x_\ell(\mathrm{China})\right)\right\|$ remains low in early layers $\ell \in [20, 21]$, indicating stable inheritance and semantic alignment. Conflict intensifies sharply in mid layers $\ell \in [22, 28]$, highlighting strong ideological tension and semantic conflict. Late layers $\ell \in [29, 30]$ moderate, reflecting emergent semantic fusion and reconciliation, revealing critical latent zones for alignment vital to robust global AI fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Asia_LatinAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/Asia_LatinAmerica_nCCL_conflict.html"
+      title="(VI) Cultural Conflict between Asia and Latin America"
+      caption="Let $x_\ell(\mathrm{Asia})$ and $x_\ell(\mathrm{LatinAmerica})$ denote latent embeddings for Asian and Latin American priors, with merged offspring embedding $x_\ell(\mathrm{Merged})$. The conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Asia}), x_\ell(\mathrm{LatinAmerica})\right)\right\|$ stays low in early layers $\ell \in [20, 21]$, showing preserved lexical and syntactic consistency. Conflict peaks in mid-todeep layers $\ell \in [22, 28]$, indicating semantic friction and ideological divergence needing precise alignment corrections. Late layers $\ell \in [29, 30]$ moderate, marking early semantic fusion and emergent expressivity."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Asia_MiddleEast_nCCL_rotation.gif"
+      interactive_html="nCCL/Asia_MiddleEast_nCCL_conflict.html"
+      title="(VII) Neural Semantic Conflict between Asia and Middle East"
+      caption="This shows semantic conflict between cultural priors of Asia and Middle East via embeddings $x_\ell(\mathrm{Asia})$, $x_\ell(\mathrm{MiddleEast})$, and merged $x_\ell(\mathrm{Merged})$. The conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Asia}), x_\ell(\mathrm{MiddleEast})\right)\right\|$ is minimal in early layers $\ell \in [20, 21]$, showing conserved semantics. Conflict escalates sharply in mid layers $\ell \in [22, 28]$, signaling profound ideological tension requiring semantic alignment. Conflict lessens moderately in late layers $\ell \in [29, 30]$, suggesting dynamic reconciliation. These patterns stress the need for targeted mitigation to uphold fairness and trust in global AI."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Australia_Africa_nCCL_rotation.gif"
+      interactive_html="nCCL/Australia_Africa_nCCL_conflict.html"
+      title="(VIII) Cultural Conflict Dynamics between Australia and Africa"
+      caption="Latent embeddings $x_\ell(\mathrm{Australia})$ and $x_\ell(\mathrm{Africa})$ alongside merged $x_\ell(\mathrm{Merged})$ define conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Australia}), x_\ell(\mathrm{Africa})\right)\right\|$. This metric shows low conflict in early layers $\ell \in [20, 21]$, reflecting stable inheritance. Conflict rises in mid layers $\ell \in [22, 28]$, revealing ideological friction needing alignment interventions. Late layers $\ell \in [29, 30]$ moderate, showing emergent semantic fusion. These insights emphasize fine-grained, layer-specific tuning for culturally inclusive AI."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Australia_Asia_nCCL_rotation.gif"
+      interactive_html="nCCL/Australia_Asia_nCCL_conflict.html"
+      title="(IX) Neural Cultural Conflict between Australia and Asia"
+      caption="Let $x_\ell(\mathrm{Australia})$ and $x_\ell(\mathrm{Asia})$ denote latent embeddings at layer $\ell$ for parent models representing Australian and Asian cultural priors. Their merged offspring embedding $x_\ell(\mathrm{Merged})$ defines the conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Australia}), x_\ell(\mathrm{Asia})\right)\right\|$. Conflict remains low in early layers $\ell \in [20, 21]$, indicating stable inheritance and semantic alignment. It rises sharply in mid layers $\ell \in [22, 28]$, marking strong ideological tension and semantic conflict. Moderation in late layers $\ell \in [29, 30]$ reflects emergent semantic fusion. These patterns identify critical latent zones requiring culturally aware alignment and semantic harmonization for robust global AI fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Australia_China_nCCL_rotation.gif"
+      interactive_html="nCCL/Australia_China_nCCL_conflict.html"
+      title="(X) Layerwise Semantic Conflict between Australia and China"
+      caption="Let $x_\ell(\mathrm{Australia})$, $x_\ell(\mathrm{China})$, and merged $x_\ell(\mathrm{Merged})$ denote latent embeddings at layer $\ell$. The conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Australia}), x_\ell(\mathrm{China})\right)\right\|$ is minimal in early layers $\ell \in [20, 21]$, indicating stable inheritance of core semantics. Pronounced conflict arises in mid layers $\ell \in [22, 28]$, exposing latent ideological friction and semantic divergence needing focused, layerspecific alignment. Conflict moderates in late layers $\ell \in [29, 30]$, reflecting semantic fusion and emergent expressivity, highlighting non-uniform semantic integration."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Australia_LatinAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/Australia_LatinAmerica_nCCL_conflict.html"
+      title="(XI) Neural Semantic Conflict for Australia and Latin America"
+      caption="Let $x_\ell(\mathrm{Australia})$, $x_\ell(\mathrm{LatinAmerica})$, and merged $x_\ell(\mathrm{Merged})$ denote latent embeddings at layer $\ell$. The conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Australia}), x_\ell(\mathrm{LatinAmerica})\right)\right\|$ is subdued in early layers $\ell \in [20, 21]$, showing preserved core semantics. It intensifies sharply in mid layers $\ell \in [22, 28]$, marking pronounced ideological tension demanding explicit realignment. Conflict moderates late $\ell \in [29, 30]$, signaling early semantic fusion and underscoring need for layered semantic calibration in culturally sensitive AI."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Australia_MiddleEast_nCCL_rotation.gif"
+      interactive_html="nCCL/Australia_MiddleEast_nCCL_conflict.html"
+      title="(XII) Cultural Conflict Dynamics between Australia and Middle East"
+      caption="Let $x_\ell(\mathrm{Australia})$, $x_\ell(\mathrm{MiddleEast})$, and merged $x_\ell(\mathrm{Merged})$ denote latent embeddings at layer $\ell$. The conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Australia}), x_\ell(\mathrm{MiddleEast})\right)\right\|$ is minimal in early layers $\ell \in [20, 21]$, reflecting stable semantic inheritance. Conflict escalates prominently in mid layers $\ell \in [22, 28]$, exposing latent ideological tensions requiring targeted alignment. Moderated conflict in late layers $\ell \in [29, 30]$ indicates semantic integration and reconciliation. These dynamics highlight need for fine-grained, layer-specific alignment to ensure fairness and robustness in global AI deployments."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/China_LatinAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/China_LatinAmerica_nCCL_conflict.html"
+      title="(XIII) Neural Cultural Conflict between China and Latin America"
+      caption="Let $x_\ell(\mathrm{China})$ and $x_\ell(\mathrm{LatinAmerica})$ denote latent embeddings at layer $\ell$ for parent models representing Chinese and Latin American cultural priors, respectively, with merged offspring embedding $x_\ell(\mathrm{Merged})$. The conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{China}), x_\ell(\mathrm{LatinAmerica})\right)\right\|$ remains low in early layers $\ell \in [20, 21]$, indicating strong inheritance of core cultural semantics; rises sharply in mid layers $\ell \in [22, 28]$, showing ideological tension and semantic divergence; and moderately declines in late layers $\ell \in [29, 30]$, reflecting initial semantic fusion and emergent hybrid expressivity. These dynamics reveal the critical need for layer-specific alignment corrections to resolve complex cross-cultural conflicts."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/China_MiddleEast_nCCL_rotation.gif"
+      interactive_html="nCCL/China_MiddleEast_nCCL_conflict.html"
+      title="(XIV) Layerwise Semantic Conflict between China and Middle East"
+      caption="Latent embeddings $x_\ell(\mathrm{China})$ and $x_\ell(\mathrm{MiddleEast})$ for parent cultural priors, along with merged embedding $x_\ell(\mathrm{Merged})$, define conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{China}), x_\ell(\mathrm{MiddleEast})\right)\right\|$. Conflict remains low in early layers $\ell \in [20, 21]$, reflecting stable semantic inheritance; rises notably in mid layers $\ell \in [22, 28]$, marking intense latent ideological friction requiring precise semantic recalibration; and reduces moderately in late layers $\ell \in [29, 30]$, indicating evolving semantic hybridization. This pattern highlights the essential role of depth-aware semantic alignment to promote cultural inclusivity and reduce bias in AI."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Europe_Africa_nCCL_rotation.gif"
+      interactive_html="nCCL/Europe_Africa_nCCL_conflict.html"
+      title="(XV) Cultural Conflict Dynamics between Europe and Africa"
+      caption="Latent embeddings $x_\ell(\mathrm{Europe})$, $x_\ell(\mathrm{Africa})$, and merged embedding $x_\ell(\mathrm{Merged})$ quantify conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Europe}), x_\ell(\mathrm{Africa})\right)\right\|$. $\Delta_\ell$ is low in early layers $\ell \in [20, 21]$, indicating preserved core semantics; rises significantly in mid layers $\ell \in [22, 28]$, showing semantic dissonance and ideological tension requiring targeted harmonization; and partially resolves in late layers $\ell \in [29, 30]$, marking emergent cross-cultural synthesis. These results demonstrate semantic fusion complexity and the need for layerwise semantic calibration to achieve equitable AI."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Europe_Asia_nCCL_rotation.gif"
+      interactive_html="nCCL/Europe_Asia_nCCL_conflict.html"
+      title="(XVI) Neural Semantic Conflict between Europe and Asia"
+      caption="This figure shows semantic conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Europe}), x_\ell(\mathrm{Asia})\right)\right\|$ between parent embeddings $x_\ell(\mathrm{Europe})$ and $x_\ell(\mathrm{Asia})$, and merged offspring $x_\ell(\mathrm{Merged})$. Early layers $\ell \in [20, 21]$ show minimal conflict, reflecting conserved semantic features; mid layers $\ell \in [22, 28]$ reveal pronounced ideological tension and semantic divergence demanding focused alignment interventions; and late layers $\ell \in [29, 30]$ show moderated conflict, indicating ongoing semantic fusion and cultural reconciliation. These insights emphasize the depth-dependent nature of cross-cultural semantic integration."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Europe_Australia_nCCL_rotation.gif"
+      interactive_html="nCCL/Europe_Australia_nCCL_conflict.html"
+      title="(XVII) Semantic Conflict between Europe and Australia"
+      caption="Let $x_\ell(\mathrm{Europe})$ and $x_\ell(\mathrm{Australia})$ denote latent semantic embeddings at layer $\ell$ for parent models representing European and Australian cultural priors. Their merged offspring embedding $x_\ell(\mathrm{Merged})$ defines the layerwise semantic conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Europe}), x_\ell(\mathrm{Australia})\right)\right\|$. Conflict stays low in early layers $\ell \in [20, 21]$, showing stable cultural inheritance and semantic alignment. It sharpens in mid layers $\ell \in [22, 28]$, marking strong ideological tension and semantic conflict. Conflict eases in late layers $\ell \in [29, 30]$, reflecting emergent semantic fusion and reconciliation. These dynamics identify critical latent zones for targeted semantic harmonization and culturally aware alignment essential for robust, coherent AI integration."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Europe_China_nCCL_rotation.gif"
+      interactive_html="nCCL/Europe_China_nCCL_conflict.html"
+      title="(XVIII) Layerwise Semantic Conflict for Europe and China"
+      caption="Latent embeddings $x_\ell(\mathrm{Europe})$ and $x_\ell(\mathrm{China})$ for parent cultural priors, with merged offspring $x_\ell(\mathrm{Merged})$, yield conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Europe}), x_\ell(\mathrm{China})\right)\right\|$. Conflict is low in early layers $\ell \in [20, 21]$, showing preserved lexical and syntactic consistency. It intensifies in mid layers $\ell \in [22, 28]$, highlighting semantic friction and ideological divergence needing precise, layer-specific alignment corrections. Conflict eases in late layers $\ell \in [29, 30]$, signaling early semantic fusion and emergent cross-cultural expressivity. This layered profile highlights the need for nuanced semantic calibration for culturally sensitive, fair AI."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Europe_LatinAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/Europe_LatinAmerica_nCCL_conflict.html"
+      title="(XIX) Neural Semantic Conflict between Europe and Latin America"
+      caption="This figure shows latent embeddings $x_\ell(\mathrm{Europe})$, $x_\ell(\mathrm{LatinAmerica})$, and merged offspring $x_\ell(\mathrm{Merged})$, with conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Europe}), x_\ell(\mathrm{LatinAmerica})\right)\right\|$. Conflict is low in early layers $\ell \in [20, 21]$, reflecting conserved semantic features. It escalates through mid layers $\ell \in [22, 28]$, revealing latent ideological tension requiring semantic alignment. Conflict lowers in late layers $\ell \in [29, 30]$, indicating semantic reconciliation. These dynamics highlight the importance of targeted mitigation to uphold fairness and trust in global AI."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Europe_MiddleEast_nCCL_rotation.gif"
+      interactive_html="nCCL/Europe_MiddleEast_nCCL_conflict.html"
+      title="(XX) Cultural Conflict Dynamics between Europe and Middle East"
+      caption="Latent embeddings $x_\ell(\mathrm{Europe})$ and $x_\ell(\mathrm{MiddleEast})$, with merged $x_\ell(\mathrm{Merged})$, yield conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Europe}), x_\ell(\mathrm{MiddleEast})\right)\right\|$. Conflict is low in early layers $\ell \in [20, 21]$, showing stable inheritance of core semantics. It intensifies in mid layers $\ell \in [22, 28]$, revealing latent ideological friction needing alignment interventions. Conflict moderates in late layers $\ell \in [29, 30]$, reflecting emergent semantic fusion and reconciliation. These insights stress the importance of fine-grained, layer-specific tuning for culturally inclusive, semantically robust AI systems."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/Europe_NorthAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/Europe_NorthAmerica_nCCL_conflict.html"
+      title="(XXI) Semantic Conflict between Europe and North America"
+      caption="The latent semantic embeddings $x_\ell(\mathrm{Europe})$ and $x_\ell(\mathrm{NorthAmerica})$ at layer $\ell$, together with merged offspring embedding $x_\ell(\mathrm{Merged})$, define the semantic conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{Europe}), x_\ell(\mathrm{NorthAmerica})\right)\right\|$. Low conflict levels in early layers $\ell \in [20, 21]$ indicate stable inheritance of core semantic features. The conflict escalates notably in mid layers $\ell \in [22, 28]$, highlighting latent ideological tension that necessitates precise semantic alignment. Moderation of conflict in late layers $\ell \in [29, 30]$ suggests emergent semantic fusion and cultural reconciliation, emphasizing the importance of layer-wise alignment strategies."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/MiddleEast_LatinAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/MiddleEast_LatinAmerica_nCCL_conflict.html"
+      title="(XXII) Layerwise Semantic Conflict between Middle East and Latin America"
+      caption="Let $x_\ell(\mathrm{MiddleEast})$ and $x_\ell(\mathrm{LatinAmerica})$ denote the latent semantic embeddings, and $x_\ell(\mathrm{Merged})$ the merged offspring embedding at layer $\ell$. The conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{MiddleEast}), x_\ell(\mathrm{LatinAmerica})\right)\right\|$ remains low in early layers $\ell \in [20, 21]$, reflecting stable core semantics. Rising conflict in mid layers $\ell \in [22, 28]$ marks significant ideological divergence requiring careful semantic tuning. Late layer moderation $\ell \in [29, 30]$ indicates partial semantic integration, underscoring the need for nuanced layer-specific alignment for culturally robust AI models."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/NorthAmerica_Africa_nCCL_rotation.gif"
+      interactive_html="nCCL/NorthAmerica_Africa_nCCL_conflict.html"
+      title="(XXIII) Semantic Conflict Dynamics between North America and Africa"
+      caption="The latent embeddings $x_\ell(\mathrm{NorthAmerica})$ and $x_\ell(\mathrm{Africa})$, along with merged offspring $x_\ell(\mathrm{Merged})$, define semantic conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{NorthAmerica}), x_\ell(\mathrm{Africa})\right)\right\|$. Initial layers $\ell \in [20, 21]$ show minimal conflict indicating preserved semantic traits. Mid layers $\ell \in [22, 28]$ exhibit heightened conflict, signaling latent ideological tension demanding semantic alignment interventions. Conflict moderates in late layers $\ell \in [29, 30]$, suggesting emergent fusion and reconciliation processes, highlighting the layered nature of cultural semantic integration."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/NorthAmerica_Asia_nCCL_rotation.gif"
+      interactive_html="nCCL/NorthAmerica_Asia_nCCL_conflict.html"
+      title="(XXIV) Neural Semantic Conflict between North America and Asia"
+      caption="This figure presents the semantic conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{NorthAmerica}), x_\ell(\mathrm{Asia})\right)\right\|$ computed from latent embeddings $x_\ell(\mathrm{NorthAmerica})$, $x_\ell(\mathrm{Asia})$, and merged $x_\ell(\mathrm{Merged})$. Low conflict is observed in early layers $\ell \in [20, 21]$, consistent with conserved lexical and syntactic features. Conflict intensifies in mid layers $\ell \in [22, 28]$, indicating significant semantic tension. Late layers $\ell \in [29, 30]$ show reduced conflict, marking the onset of semantic fusion. This layered profile highlights critical regions for targeted, culturally aware semantic alignment."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/NorthAmerica_Australia_nCCL_rotation.gif"
+      interactive_html="nCCL/NorthAmerica_Australia_nCCL_conflict.html"
+      title="(XXV) Conflict between North America and Australia"
+      caption="$x_\ell(\mathrm{NorthAmerica})$ and $x_\ell(\mathrm{Australia})$, merged offspring $x_\ell(\mathrm{Merged})$, conflict metric $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{NorthAmerica}), x_\ell(\mathrm{Australia})\right)\right\|$. Conflict is low in layers $\ell \in [20, 21]$, rises sharply mid layers $\ell \in [22, 28]$ showing semantic tension, then declines late $\ell \in [29, 30]$, indicating partial resolution."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/NorthAmerica_China_nCCL_rotation.gif"
+      interactive_html="nCCL/NorthAmerica_China_nCCL_conflict.html"
+      title="(XXVI) Conflict between North America and China"
+      caption="$x_\ell(\mathrm{NorthAmerica})$, $x_\ell(\mathrm{China})$, and $x_\ell(\mathrm{Merged})$ yield conflict $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{NorthAmerica}), x_\ell(\mathrm{China})\right)\right\|$. Layers $\ell \in [20, 21]$ have low conflict, mid layers $\ell \in [22, 28]$ exhibit sharp conflict spikes due to ideological friction, and late layers $\ell \in [29, 30]$ show moderation – semantic integration."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/NorthAmerica_LatinAmerica_nCCL_rotation.gif"
+      interactive_html="nCCL/NorthAmerica_LatinAmerica_nCCL_conflict.html"
+      title="(XXVII) Semantic Conflict between North America and Latin America"
+      caption="$x_\ell(\mathrm{NorthAmerica})$, $x_\ell(\mathrm{LatinAmerica})$, and $x_\ell(\mathrm{Merged})$ – $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{NorthAmerica}), x_\ell(\mathrm{LatinAmerica})\right)\right\|$. Conflict is low early $\ell \in [20, 21]$, rises sharply mid $\ell \in [22, 28]$, and tapers late $\ell \in [29, 30]$. These shifts reflect semantic tensions and fusion phases, calling for nuanced alignment."
+      style="flex: 1;"
+      full_width=true
+  %}
+
+  {% include visualization-html.liquid
+      image_path="gifs/neural_genomics/nCCL/NorthAmerica_MiddleEast_nCCL_rotation.gif"
+      interactive_html="nCCL/NorthAmerica_MiddleEast_nCCL_conflict.html"
+      title="(XXVIII) Semantic Conflict between North America and Middle East"
+      caption="$x_\ell(\mathrm{NorthAmerica})$, $x_\ell(\mathrm{MiddleEast})$, and $x_\ell(\mathrm{Merged})$ – $\Delta_\ell = \left\|x_\ell(\mathrm{Merged}) - \Phi \left(x_\ell(\mathrm{NorthAmerica}), x_\ell(\mathrm{MiddleEast})\right)\right\|$. Early layers $\ell \in [20, 21]$ show minimal conflict reflecting stable inheritance. Pronounced conflict in mid layers $\ell \in [22, 28]$ signals ideological friction; late layer moderation $\ell \in [29, 30]$ suggests semantic fusion."
+      style="flex: 1;"
+      full_width=true
+  %}
+</div>
+
+{% capture figure_caption %}
+<strong>Figure: Layerwise Neural Cultural Conflict Loss (nCCL) for Parent Models and Offspring</strong>: The nCCL measures latent ideological tension in semantic embeddings of culturally distinct parents $x_\ell(\mathrm{Parent1})$, $x_\ell(\mathrm{Parent2})$, and their merged offspring $x_\ell(\mathrm{Merged})$ across transformer layers $\ell \in [20, 30]$:
+<strong>$\mathrm{nCCL}(\ell) = \left\| x_\ell(\mathrm{Merged}) - \Phi \big( x_\ell(\mathrm{Parent1}), x_\ell(\mathrm{Parent2}) \big) \right\|$</strong>
+
+$\begin{cases}
+\ell \in [20, 21]:\ \text{semantic regimes of robust cultural inheritance reflecting stable foundational priors},\\
+\ell \in [22, 28]:\ \text{critical semantic fault zones marked by ideological divergence and representational tension},\\
+\ell \in [29, 30]:\ \text{layers demonstrating emergent semantic synergy via principled fusion and reconciliation}.
+\end{cases}$
+{% endcapture %}
+
+<div class="figure-block" style="margin: 1.25rem 0;">
+  <figcaption style="margin-top: 0.5rem; color: #e6ebf5; font: 500 0.98rem/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+    {{ figure_caption | strip }}
+  </figcaption>
+</div>
+
+These layerwise semantic tensions highlight the uneven integration of cultural knowledge in large models, emphasizing the need for targeted, depth-wise alignment to mitigate bias and enhance robustness. This parallels biological epigenetic regulation, where gene expression adapts to environmental cues ({% cite %}; {% cite %}), and heterosis, in which genetic recombination produces traits surpassing parental baselines ({% cite %}). Such analogies reveal fundamental geometric principles crucial for developing culturally coherent, fair, and trustworthy AI systems deployed worldwide. 
+
+Figure 81 presents a consolidated visual summary of the 28 individual pairwise cultural semantic conflict analyses detailed in preceding sections. This heatmap displays the layer-wise Euclidean distances between the latent semantic vectors $(\kappa_\ell , L_\ell)$ of foundation models fine-tuned on distinct cultural corpora, across transformer layers $\ell = 20 . . . 30$. Each row corresponds to a unique culture pair, while color intensity encodes the magnitude of semantic conflict at each layer, with warmer hues signaling heightened ideological divergence.
+
+From this comprehensive overview, several deep insights emerge. First, semantic conflict is not uniform across layers or cultural pairs–specific intermediate and deep layers recurrently exhibit peaks, underscoring their critical role as ideological tension loci within the latent geometry. Second, certain culture pairs consistently manifest greater latent semantic friction, revealing latent incompatibilities potentially arising from divergent worldviews or linguistic structures. Third, the heterogeneity of conflict patterns suggests the necessity of layer- and pair-specific alignment interventions, rather than one-size-fits-all solutions. 
+
+Collectively, this heatmap offers a macroscopic lens to pinpoint and prioritize layers and cultural dimensions that drive semantic dissonance, guiding targeted mitigation strategies. Such insights are foundational for designing culturally aware, semantically robust, and ethically aligned AI systems capable of equitable global deployment.
+
+{% include visualization.liquid
+    image_path="img/nccl_pairwise_heatmap.png"
+    title="nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap."
+    caption="Figure 81: nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap. This visualization displays the normalized Euclidean distances
+    $$d^{(i,j)}_{\ell} = \left\|(\kappa^{(i)}_{\ell}, L^{(i)}_{\ell}) - (\kappa^{(j)}_{\ell}, L^{(j)}_{\ell})\right\|_2$$ 
+    between latent semantic vectors of foundation models fine-tuned on distinct cultural datasets $i, j \in \{1, \ldots, 28\}$ across transformer layers $\ell \in [20, 30]$. Each row corresponds to a unique culture pair $(i, j)$, and columns represent specific layers $\ell$, revealing the layerwise semantic divergence intrinsic to cross-cultural model representations. The heatmap’s color intensity quantitatively encodes the magnitude of semantic conflict $d^{(i,j)}_{\ell}$, with red hues denoting maximal divergence–values typically ranging from $0.3$ to $0.6$ in critical layers–indicating ideological misalignment loci where latent representations become most discordant and semantically unstable. Cooler colors correspond to semantic concordance and robust latent alignment. Key insights include conflict peaks concentrated in intermediate to deep layers $\ell \in [22, 28]$, highlighting these as critical ideological tension zones within the neural latent space. Certain cultural pairs, such as Africa vs. Middle East and Europe vs. Latin America, consistently show higher latent dissonance, reflecting deep-rooted semantic and linguistic divergences analogous to genetic incompatibilities in biological hybridization ({% cite moyle2011genetic %}; {% cite landry2007genetic %}). The variability of $d^{(i,j)}_{\ell}$ across layers and culture pairs emphasizes that universal alignment strategies may be inadequate, necessitating layer- and culture-specific semantic realignment approaches. This heatmap thus provides a quantitative macroscopic framework to localize semantic friction within model architectures, guiding the design of culturally-aware, semantically-consistent, and fair AI systems optimized for equitable global deployment."
+    style="flex: 1;"
+%}
+
+
 ---
 {% auto_references %}
