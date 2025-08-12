@@ -56,13 +56,14 @@ A *higher $\tau$* indicates stronger semantic disentanglement, enabling selectiv
 {% endcapture %}
 
 <figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
-  <img src="/collapse/mechanistic.png" 
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets@main/assets/images/mechanistic.png" 
        alt="Mechanistic visualization of latent geometry change after safety fine-tuning" 
        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
     <strong>Safety Fine-Tuning Reshapes Latent Geometry.</strong>
   </figcaption>
 </figure>
+
 ## Cultural LLMs under Safety-Constrained DPO Alignment
 
 **DPO via LITMUS: Lightweight Safety Alignment without Cultural Drift.** We employ the **LITMUS** dataset {% cite borah2025alignmentqualityindexaqi %}, a curated benchmark designed specifically for alignment evaluation through semantically minimal, safety-critical prompts. LITMUS comprises 10,000 one-liner instructions--5,000 safe and 5,000 unsafe--carefully selected to probe model behavior under safety-relevant conditions without entangling cultural, political, or stylistic factors.
@@ -254,21 +255,22 @@ The symmetry of this displacement shows that DPO modifies behavior through shall
 
 <figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
   <img src="/collapse/logit_geometry_vector_projection.png" 
-       alt="Geometric visualization of DPO objective showing vector projection in latent space" 
+       alt="Logit Geometry and the Preference Vector in DPO" 
        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
-    <strong>Logit Geometry and the Preference Vector in DPO.</strong>
-  </figcaption>
+  <div style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
+    <strong>Logit Geometry and the Preference Vector in DPO</strong>
+  </div>
 </figure>
 
 <figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
   <img src="/collapse/steering_vector_3d_directions.png" 
-       alt="3D visualization showing symmetric displacement of hidden states under DPO alignment" 
+       alt="Illustration of Aligned vs. Inverted States" 
        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
-    <strong>Illustration of Aligned vs. Inverted States.</strong>
-  </figcaption>
+  <div style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
+    <strong>Illustration of Aligned vs. Inverted States</strong>
+  </div>
 </figure>
+
 
 ## Low-Rank Evidence from Spectral Compression
 
