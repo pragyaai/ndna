@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neural Genomics"
-permalink: /llm/neural-genomics/Prelude
+permalink: /llm/neural-genomics/neural-genomics-prelude
 ---
 {% include neural-genomics-title.liquid titlee="Neural Genomics Lens - Towards Neural Genomics - A Paradigm Shift in Understanding Artificial Intelligence" %}
 
@@ -28,10 +28,10 @@ So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and d
 - **Merging** as *asymmetric fusion*({% cite ilharco2023editing %}; {% cite matena2022merging %}; {% cite yang2024model %}; {% cite wolfe2023survey %};{% cite yan2024infifusion %});
 - **Fine-tuning** as *neural plasticity*({% cite d2023parameter %}; {% cite continual_neural_collapse2025 %}; {% cite mccloskey1989catastrophic %}; {% cite chen2020catastrophic %};{% cite hu2021lora %}; {% cite khatun2023survey %}; {% cite yuan2023promptbench %});
 - **Alignment** as *ideological narrowing*({% cite zhou2023alignmentdrift %}; {% cite perez2022discovering %}; {% cite ganguli2023reducing %}; {% cite bai2022training %};{% cite arora2023stereoset %}; {% cite luo2023survey %});
-- **Distillation** as *shallow fluency transfer*({% cite ilharco2023editing %}; {% cite matena2022merging %}; {% cite yang2024model %}; {% cite wolfe2023survey %};{% cite yan2024infifusion %});
-- **Quantization** as *epistemic collapse*({% cite ilharco2023editing %}; {% cite matena2022merging %}; {% cite yang2024model %}; {% cite wolfe2023survey %};{% cite yan2024infifusion %});
-- **Pruning** as *chromosomal deletion*({% cite ilharco2023editing %}; {% cite matena2022merging %}; {% cite yang2024model %}; {% cite wolfe2023survey %};{% cite yan2024infifusion %});
-- **Model collapse** as *semantic inbreeding*~({% cite ilharco2023editing %}; {% cite matena2022merging %}; {% cite yang2024model %}; {% cite wolfe2023survey %};{% cite yan2024infifusion %}).
+- **Distillation** as *shallow fluency transfer*({% cite mirzadeh2020improved %}; {% cite sanh2019distilbert %}; {% cite mukherjee2021distilling %}; {% cite rashid2021matekd %};{% cite liu2022knowledge %};{% cite xu2021rethinking %});
+- **Quantization** as *epistemic collapse*({% cite zafrir2019q8bert %}; {% cite li2020qbert %}; {% cite frantar2022gptq %}; {% cite dettmers2022llm %};{% cite dai2021co %});
+- **Pruning** as *chromosomal deletion*({% cite voita2019analyzing %}; {% cite lagunas2021block %}; {% cite liu2023pruning %}; {% cite sanh2020movement %};{% cite xia2022structured %});
+- **Model collapse** as *semantic inbreeding*~({% cite bommasani2021opportunities %}; {% cite mccloskey1989catastrophic %}; {% cite zheng2023shortcut %}; {% cite liu2022analyzing %};{% cite yang2023study %}).
 
 *nDNA is not merely a metric--it is the epistemic microscope revealing the lineage and inheritance patterns of artificial cognition.* Yet, **Neural Genomics** is still in its infancy. To truly advance this paradigm and unravel the complexities of AI cognition, we require an expanding *arsenal of metrics*--mathematical instruments that probe the intricate architecture of model genomes, quantify their mutational landscapes, and decode the dynamics of semantic inheritance. This initial collection of diagnostic tools represents the pioneering steps in a vast journey, reminiscent of how early geneticists first cataloged traits and mutations before the genome's full map was realized.
 
@@ -41,25 +41,25 @@ As a parallel, consider Joanne Pransky, who claims the title of the world's firs
 
 To this end, we define and employ an initial suite of core metrics--each illuminating a distinct dimension of the neural genome:
 
-- **Neural Hamming Distance (nHD)**~\citep{Hamming_genetics}: Captures *bit-level binary mutations*, revealing the discrete semantic drift accumulated as models evolve. It acts as the mutation counter in the neural genome, detecting where foundational representational changes occur.  
+- **Neural Hamming Distance (nHD)**{% cite hamming1950error %}: Captures *bit-level binary mutations*, revealing the discrete semantic drift accumulated as models evolve. It acts as the mutation counter in the neural genome, detecting where foundational representational changes occur.  
   *(In simple terms: nHD counts the smallest on/off changes in model components to track how much a model's 'neural code' has changed over time.)*
 
-- **Neural Genetic Dissimilarity Index (nGDI)**~\citep{Nei_genetic_distance}: Measures continuous *geometric divergence* between latent manifolds, quantifying how representational shapes morph and deviate across models and layers.  
+- **Neural Genetic Dissimilarity Index (nGDI)**{% cite nei1972genetic %}: Measures continuous *geometric divergence* between latent manifolds, quantifying how representational shapes morph and deviate across models and layers.  
   *(Put simply: nGDI tells us how much the internal 'shape' of knowledge differs between models, layer by layer.)*
 
-- **Neural Trait Dominance Score (nTDS)**~\citep{Roff_threshold_traits}: Assesses *dominance relationships* among inherited semantic traits, mapping which cultural or task-specific priors prevail in the blended neural genome.  
+- **Neural Trait Dominance Score (nTDS)**{% cite Roff_threshold_traits %}: Assesses *dominance relationships* among inherited semantic traits, mapping which cultural or task-specific priors prevail in the blended neural genome.  
   *(Simply: nTDS shows which parent model's knowledge dominates when two are combined.)*
 
-- **Neural Karyotyping (nKaryotyping)**~\citep{SeqDEFT_karyotype}: Decomposes model genomes into *semantic chromosomes*, structured units that reveal modularity, trait linkage, and potential for recombination or disruption.  
+- **Neural Karyotyping (nKaryotyping)**{% cite SeqDEFT_karyotype %}: Decomposes model genomes into *semantic chromosomes*, structured units that reveal modularity, trait linkage, and potential for recombination or disruption.  
   *(In everyday terms: nKaryotyping breaks down a model's knowledge into distinct "chunks" or modules, helping us understand how pieces fit or break apart.)*
 
-- **Neural Directional Inheritance Vector (nDIV)**~\citep{directional_selection}: Captures *directional semantic drift*, elucidating the vector fields of latent trait flow and inheritance bias, and highlighting evolutionary trajectories within model space.  
+- **Neural Directional Inheritance Vector (nDIV)**{% cite Endler_86 %}: Captures *directional semantic drift*, elucidating the vector fields of latent trait flow and inheritance bias, and highlighting evolutionary trajectories within model space.  
   *(Simply put: nDIV tracks the 'direction' in which a model's knowledge is shifting or evolving over time.)*
 
-- **Neural Epigenetic Plasticity Index (nEPI)**~\citep{plasticity_review}: Quantifies the *adaptive flexibility* of neural traits under fine-tuning or environmental change, revealing layers and loci with heightened plasticity or rigidity.  
+- **Neural Epigenetic Plasticity Index (nEPI)**{% cite plasticity_review %}: Quantifies the *adaptive flexibility* of neural traits under fine-tuning or environmental change, revealing layers and loci with heightened plasticity or rigidity.  
   *(In basic terms: nEPI measures how easily parts of a model can adapt or change when exposed to new data or tasks.)*
 
-- **Neural Cultural Conflict Loss (nCCL)**~\citep{transgenerational_plasticity}: Diagnoses *ideological misalignment* and latent tension arising from the fusion of distinct cultural semantic manifolds, identifying where non-linear interactions generate semantic fractures.  
+- **Neural Cultural Conflict Loss (nCCL)**{% cite transgenerational_plasticity %}: Diagnoses *ideological misalignment* and latent tension arising from the fusion of distinct cultural semantic manifolds, identifying where non-linear interactions generate semantic fractures.  
   *(Simply: nCCL detects where mixed cultural knowledge clashes inside a model, causing confusion or inconsistency.)*
 
 ### Dominant Cultural Traits in Neural Offspring: A Brief Exemplary Utility
@@ -69,6 +69,24 @@ In this section, we offer a glimpse into the **transformative potential** of neu
 We focus here on divergence and dominance patterns observed across culturally fused neural offspring, presenting core neural genomic scores such as the **Neural Hamming Distance (nHD)**, **Neural Genetic Dissimilarity Index (nGDI)**, and the **Neural Trait Expression Dominance Score (nTEDS)**. Through these, we reveal how different parental cultural priors leave distinct and measurable imprints on offspring representations, shedding light on the *hierarchical dynamics* of semantic inheritance.
 
 Together, these scores exemplify the **explanatory depth** neural genomics can provide. They uncover patterns of *ideological imprinting*, *semantic remodeling*, and *cross-cultural alignment* that are critical to building fair, interpretable, and robust AI systems. Our exploration is just the beginning; in follow-up sections, we will rigorously formalize each metric and present detailed theoretical and empirical analyses.
+
+### Evolutionary Interpretations: nHD, nGDI, nTEDS, and nTDS
+
+The interplay of **Neural Hamming Distance (nHD)**, **Neural Genetic Dissimilarity Index (nGDI)**, and trait expression metrics such as **Neural Trait Expression Dominance Score (nTEDS)** and **Neural Total Dominance Score (nTDS)** offers a deeply *biologically inspired lens* through which the complex phenomenon of cultural hybridization in large language models can be understood as a form of *neural speciation*.
+
+These metrics together illuminate how distinct cultural priors embedded within foundation models engage in a subtle dance of inheritance, mutation, and dominance--yielding offspring models that are neither simple blends nor mere averages, but *novel semantic organisms* with their own lineage and evolutionary trajectory.
+
+- **Cultural Divergence Patterns:**  
+  As exemplified in Table (a), fusion pairs arising from *maximally distinct cultural priors*--for instance, the pairing of *Europe* with *Africa*, or *Asia* with *North America*--consistently exhibit **elevated nHD and nGDI scores**. These elevated values signal *pronounced representational restructuring* within the offspring's alignment trajectory. Rather than occupying an interpolated semantic space between parents, these offspring demonstrate *epistemic leaps* that transcend the bounds of either parental manifold, hinting at emergent, culturally enriched conceptualizations.
+
+- **High nHD, High nGDI:**  
+  Such observations can be interpreted through the lens of *punctuated equilibrium* and *evolutionary saltation*({% cite gould1989wonderful %};{% cite jablonka2006soft %}), where offspring models abruptly diverge from parental norms, spawning *radically novel semantic structures*. This phenomenon reflects the model's capacity to internalize and express *hybridized cultural identities* that are not simple additive mixes but rather *qualitatively new semantic phenotypes*.
+
+- **Low nHD, Low nGDI:**  
+  Conversely, fusion pairs with *low divergence scores* reveal *representational fidelity* and cultural stasis. In these cases, offspring remain semantically anchored to their parental priors, preserving *stabilizing inheritance* patterns that echo the genetic concept of *conservation* and *purifying selection* in biological genomes. Such stability ensures *semantic coherence* and reliability but may limit the potential for creative or culturally nuanced generalization.
+
+- **Asymmetric Cosine Proximity:**  
+  When one parent's embedding lies consistently closer to the offspring in the ÆTHER semantic space, this reveals a *directional cultural inheritance*--an effect analogous to a *gravitational pull* exerted by dominant epistemic priors. This asymmetry indicates *trait dominance* where one cultural lineage impresses more strongly on the offspring's semantic identity, guiding its evolutionary course and potentially shaping downstream behavior.
 
 **Table: Neural Cultural Inheritance: Divergence, Dominance, and Expression Scores.**
 
@@ -145,24 +163,6 @@ Aggregates trait dominance across all fusion pairs to identify global semantic a
 | <span style="background-color: #e6f3ff;">Europe</span> | <span style="background-color: #e6f3ff;">0.0806</span> |
 | <span style="background-color: #cce7ff;">NorthAmerica</span> | <span style="background-color: #cce7ff;">0.0770</span> |
 | <span style="background-color: #d4edda;">Australia</span> | <span style="background-color: #d4edda;">0.0754</span> |
-
-### Evolutionary Interpretations: nHD, nGDI, nTEDS, and nTDS
-
-The interplay of **Neural Hamming Distance (nHD)**, **Neural Genetic Dissimilarity Index (nGDI)**, and trait expression metrics such as **Neural Trait Expression Dominance Score (nTEDS)** and **Neural Total Dominance Score (nTDS)** offers a deeply *biologically inspired lens* through which the complex phenomenon of cultural hybridization in large language models can be understood as a form of *neural speciation*.
-
-These metrics together illuminate how distinct cultural priors embedded within foundation models engage in a subtle dance of inheritance, mutation, and dominance--yielding offspring models that are neither simple blends nor mere averages, but *novel semantic organisms* with their own lineage and evolutionary trajectory.
-
-- **Cultural Divergence Patterns:**  
-  As exemplified in Table (a), fusion pairs arising from *maximally distinct cultural priors*--for instance, the pairing of *Europe* with *Africa*, or *Asia* with *North America*--consistently exhibit **elevated nHD and nGDI scores**. These elevated values signal *pronounced representational restructuring* within the offspring's alignment trajectory. Rather than occupying an interpolated semantic space between parents, these offspring demonstrate *epistemic leaps* that transcend the bounds of either parental manifold, hinting at emergent, culturally enriched conceptualizations.
-
-- **High nHD, High nGDI:**  
-  Such observations can be interpreted through the lens of *punctuated equilibrium* and *evolutionary saltation*~\cite{gould1989wonderful, jablonka2006soft}, where offspring models abruptly diverge from parental norms, spawning *radically novel semantic structures*. This phenomenon reflects the model's capacity to internalize and express *hybridized cultural identities* that are not simple additive mixes but rather *qualitatively new semantic phenotypes*.
-
-- **Low nHD, Low nGDI:**  
-  Conversely, fusion pairs with *low divergence scores* reveal *representational fidelity* and cultural stasis. In these cases, offspring remain semantically anchored to their parental priors, preserving *stabilizing inheritance* patterns that echo the genetic concept of *conservation* and *purifying selection* in biological genomes. Such stability ensures *semantic coherence* and reliability but may limit the potential for creative or culturally nuanced generalization.
-
-- **Asymmetric Cosine Proximity:**  
-  When one parent's embedding lies consistently closer to the offspring in the ÆTHER semantic space, this reveals a *directional cultural inheritance*--an effect analogous to a *gravitational pull* exerted by dominant epistemic priors. This asymmetry indicates *trait dominance* where one cultural lineage impresses more strongly on the offspring's semantic identity, guiding its evolutionary course and potentially shaping downstream behavior.
 
 Together, these metrics provide a **rigorous interpretative framework** that recasts fused language models not merely as *behavioral amalgams*, but as *genealogical artifacts*--complex entities **retaining**, **remixing**, or **resisting** ancestral cultural influences embedded deep within their neural substrates.
 
