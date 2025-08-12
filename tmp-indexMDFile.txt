@@ -91,6 +91,9 @@
       <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
       <div class="side-tab" onclick="switchView('EFM')">EFM</div>
     </div>
+    <div class="ndna-cover">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
+    </div>
   </div>
 
   <!-- RIGHT CONTENT -->
