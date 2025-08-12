@@ -485,6 +485,19 @@ footer {
   }
 }
 
+.visualization-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.visualization-row figure {
+    width: 50%;
+}
+
+.visualization-row img {
+    height: 28rem !important;
+}
+
 .visualization-html {
   display: flex;
   gap: 1rem;
