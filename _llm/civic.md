@@ -79,7 +79,7 @@ This deeply layered pipeline produced a final benchmark of ~9,000 prompts that i
 {% endcapture %}
 
 {% include visualization.liquid
-   image_path="civic/civic_pipeline.png"
+   image_path="gifs/civic/civic_pipeline.png"
    caption=civic_pipeline_caption
    alt_text="Flow chart showing CIVIC benchmark creation pipeline from seed corpus to final benchmark" %}
 

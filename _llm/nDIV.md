@@ -18,7 +18,7 @@ This biologically grounded metaphor highlights nDIV’s relevance in designing f
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="neural_genomics/nDIV/nDIV_intro.png"
+   image_path="gifs/neural_genomics/nDIV/nDIV_intro.png"
    caption=figure_caption
    alt_text="Epigenetic Regulation of Gene Expression and Directional Inheritance" %}
 

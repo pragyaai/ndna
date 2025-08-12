@@ -58,7 +58,7 @@ This enables fine-grained, interpretable monitoring of semantic divergence in mo
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="neural_genomics/nhd_graphical_genotyping.png"
+   image_path="gifs/neural_genomics/nhd_graphical_genotyping.png"
    caption=figure_caption
    alt_text="Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):" %}
 
@@ -111,7 +111,7 @@ nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving 
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="neural_genomics/nhd_classical_vs_neural.png"
+   image_path="gifs/neural_genomics/nhd_classical_vs_neural.png"
    caption=figure_caption
    alt_text="Illustrating Classical vs Neural Hamming Distance (nHD):" %}
 
@@ -130,7 +130,7 @@ Higher nGDI signals greater semantic drift and asymmetric inheritance.
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="neural_genomics/ngdi_layerwise_fusion.png"
+   image_path="gifs/neural_genomics/ngdi_layerwise_fusion.png"
    caption=figure_caption
    alt_text="Neural Genetic Dissimilarity in Layer-wise Fusion" %}
 

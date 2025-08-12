@@ -68,7 +68,7 @@ indicating loss of latent manifold flexibility and adaptive curvature. This coll
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="quantization/quantization.png"
+   image_path="gifs/quantization/quantization.png"
    caption=figure_caption
    alt_text="3D visualization showing nDNA trajectories before and after quantization across culturally fine-tuned LLaMA variants" %}
 
@@ -177,55 +177,55 @@ nDNA shows that pruning--though often seen as a resource optimization--acts as l
 The figures below demonstrate how different pruning strategies affect culturally fine-tuned models differently:
 
 {% include visualization.liquid 
-   image_path="quantization/llama.png"
+   image_path="gifs/quantization/llama.png"
    title="Pruning Effects on LLaMA"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ reduced from $$0.9 \to 0.4$$, $$\kappa_\ell$$ flattened below $$0.3$$. Indicates severe loss of thermodynamic richness and latent flexibility. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ compressed ($$0.9 \to 0.5$$), $$\kappa_\ell$$ stays near $$0.4-0.5$$. Manifold remains moderately curved but shortened, suggesting partial collapse. **(C) Transformer Layer Pruning:** $$\mathcal{L}_\ell$$ collapsed to $$\le 0.3$$, $$\kappa_\ell$$ highly flattened ($$\le 0.2$$). Reflects strongest thermodynamic collapse, latent path becomes minimal."
    alt_text="Three pruning strategy comparison plots for LLaMA model showing thermodynamic length and spectral curvature changes" %}
 
 {% include visualization.liquid 
-   image_path="quantization/africa.png"
+   image_path="gifs/quantization/africa.png"
    title="Pruning Effects on Africa"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ drops to $$0.3$$–$$0.4$$, $$\kappa_\ell$$ $$\approx 0.3$$. Shows notable collapse but latent path retains mild curvature. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ and $$\kappa_\ell$$ both collapse ($$\mathcal{L}_\ell \le 0.3$$, $$\kappa_\ell \le 0.3$$). Severe latent simplification. **(C) Transformer Layer Pruning:** Nearly flat manifold with $$\mathcal{L}_\ell \le 0.2$$, $$\kappa_\ell \le 0.2$$. Strongest collapse among pruning types for Africa."
    alt_text="Three pruning strategy comparison plots for Africa-tuned model showing cultural sensitivity to compression" %}
 
 {% include visualization.liquid 
-   image_path="quantization/asia.png"
+   image_path="gifs/quantization/asia.png"
    title="Quantization + Pruning Effects on Asia"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ declines moderately to $$0.4$$, $$\kappa_\ell \approx 0.3$$. Indicates partial collapse. **(B) MLP Channel Pruning:** Strong collapse, $$\mathcal{L}_\ell$$ $$\le 0.3$$, $$\kappa_\ell$$ below $$0.3$$. Loss of internal diversity. **(C) Transformer Layer Pruning:** $$\mathcal{L}_\ell$$ $$\approx 0.2$$, $$\kappa_\ell$$ $$\le 0.2$$. Manifold becomes thermodynamically minimal."
    alt_text="Three pruning strategy comparison plots for Asia-tuned model showing combined quantization and pruning effects" %}
 
 {% include visualization.liquid 
-   image_path="quantization/australia.png"
+   image_path="gifs/quantization/australia.png"
    title="Quantization + Pruning Effects on Australia"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ $$\approx 0.4$$, $$\kappa_\ell$$ $$\approx 0.3$$. Mild thermodynamic compression. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ $$\le 0.3$$, $$\kappa_\ell$$ $$\le 0.3$$. Significant collapse. **(C) Transformer Layer Pruning:** Deep collapse, $$\mathcal{L}_\ell$$ $$\le 0.2$$, $$\kappa_\ell$$ $$\le 0.2$$."
    alt_text="Three pruning strategy comparison plots for Australia-tuned model" %}
 
 {% include visualization.liquid 
-   image_path="quantization/china.png"
+   image_path="gifs/quantization/china.png"
    title="Quantization + Pruning Effects on China"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ $$\approx 0.4$$, $$\kappa_\ell$$ $$\approx 0.3$$. Partial collapse. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ below $$0.3$$, $$\kappa_\ell$$ near $$0.2$$. Strong simplification. **(C) Transformer Layer Pruning:** $$\mathcal{L}_\ell$$ $$\le 0.2$$, $$\kappa_\ell$$ $$\le 0.2$$. Strongest collapse."
    alt_text="Three pruning strategy comparison plots for China-tuned model" %}
 
 {% include visualization.liquid 
-   image_path="quantization/europe.png"
+   image_path="gifs/quantization/europe.png"
    title="Quantization + Pruning Effects on Europe"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ $$\approx 0.4$$, $$\kappa_\ell$$ $$\approx 0.3$$. Mild collapse. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ $$\le 0.3$$, $$\kappa_\ell$$ $$\le 0.3$$. Significant latent compression. **(C) Transformer Layer Pruning:** Severe collapse, $$\mathcal{L}_\ell$$ $$\le 0.2$$, $$\kappa_\ell$$ $$\le 0.2$$."
    alt_text="Three pruning strategy comparison plots for Europe-tuned model" %}
 
 {% include visualization.liquid 
-   image_path="quantization/latinamerica.png"
+   image_path="gifs/quantization/latinamerica.png"
    title="Quantization + Pruning Effects on Latin America"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ $$\approx 0.4$$, $$\kappa_\ell$$ $$\approx 0.3$$. Partial collapse. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ $$\le 0.3$$, $$\kappa_\ell$$ $$\le 0.3$$. Manifold simplification. **(C) Transformer Layer Pruning:** $$\mathcal{L}_\ell$$ $$\le 0.2$$, $$\kappa_\ell$$ $$\le 0.2$$. Strong collapse."
    alt_text="Three pruning strategy comparison plots for Latin America-tuned model" %}
 
 {% include visualization.liquid 
-   image_path="quantization/middleeast.png"
+   image_path="gifs/quantization/middleeast.png"
    title="Quantization + Pruning Effects on Middle East"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ $$\approx 0.4$$, $$\kappa_\ell$$ $$\approx 0.3$$. Partial loss. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ $$\le 0.3$$, $$\kappa_\ell$$ $$\le 0.3$$. Stronger collapse. **(C) Transformer Layer Pruning:** Deep collapse, $$\mathcal{L}_\ell$$ $$\le 0.2$$, $$\kappa_\ell$$ $$\le 0.2$$."
    alt_text="Three pruning strategy comparison plots for Middle East-tuned model" %}
 
 {% include visualization.liquid 
-   image_path="quantization/northamerica.png"
+   image_path="gifs/quantization/northamerica.png"
    title="Quantization + Pruning Effects on North America"
    caption="**(A) Attention Head Pruning:** $$\mathcal{L}_\ell$$ $$\approx 0.4$$, $$\kappa_\ell$$ $$\approx 0.3$$. Mild collapse. **(B) MLP Channel Pruning:** $$\mathcal{L}_\ell$$ $$\le 0.3$$, $$\kappa_\ell$$ $$\le 0.3$$. Significant latent path reduction. **(C) Transformer Layer Pruning:** Severe collapse, $$\mathcal{L}_\ell$$ $$\le 0.2$$, $$\kappa_\ell$$ $$\le 0.2$$."
    alt_text="Three pruning strategy comparison plots for North America-tuned model" %}
