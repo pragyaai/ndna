@@ -68,11 +68,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/15-llms/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-12T15:20:45+00:00" />
+<meta property="article:published_time" content="2025-08-12T15:49:39+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="15 LLMs" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-12T15:20:45+00:00","datePublished":"2025-08-12T15:20:45+00:00","headline":"15 LLMs","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/15-llms/"},"url":"https://pragyaai.github.io/nDNA/llm/15-llms/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-12T15:49:39+00:00","datePublished":"2025-08-12T15:49:39+00:00","headline":"15 LLMs","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/15-llms/"},"url":"https://pragyaai.github.io/nDNA/llm/15-llms/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -170,391 +170,406 @@ As shown by the below table from the previous module, this latent geometry is no
 
   <!-- Row 1: LLaMA -->
   <div style="margin-bottom: 2em;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/15_llms/llama.gif" alt="(a) LLaMA Family" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/15_llms/llama.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/llama.gif" data-lightbox="gallery" data-title="(a) LLaMA Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/llama.gif" alt="(a) LLaMA Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/llama.html" title="(a) LLaMA Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(a) LLaMA Family</strong>
      <p>The <em>latent genomic trajectory</em> of <strong>LLaMA-3 Instruct</strong> displays pronounced <strong>spectral curvature</strong> rising from \(\kappa_\ell \approx 0.05\) at mid-depth to peaks of \(\kappa_\ell \approx 0.12\) in upper layers (\(\ell \geq 24\)), alongside heightened <strong>thermodynamic length</strong> increasing from \(\mathcal{L}_\ell \approx 0.8\) to \(\mathcal{L}_\ell \approx 1.3\). This pattern reflects zones of <em>epistemic strain</em> where alignment tuning reshapes internal belief geometry. By contrast, <strong>LLaMA-2</strong> and base variants maintain smoother trajectories, with \(\kappa_\ell &lt; 0.04\) and \(\mathcal{L}_\ell &lt; 1.0\), preserving the stability of their pretrained semantic manifold.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/15_llms/llama.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/llama.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
 
   <!-- Row 2: Gemma -->
   <div style="margin-bottom: 2em;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/15_llms/gemma.gif" alt="(b) Gemma Family" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/15_llms/gemma.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/gemma.gif" data-lightbox="gallery" data-title="(b) Gemma Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/gemma.gif" alt="(b) Gemma Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/gemma.html" title="(b) Gemma Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(b) Gemma Family</strong>
      <p><strong>Gemma Instruct</strong> exhibits a noticeable transition in its latent geometry: prior to \(\ell=25\), the <strong>spectral curvature</strong> stays moderate at \(\kappa_\ell \approx 0.05\), but beyond this point it spikes by 25% to \(\kappa_\ell \approx 0.065\). Similarly, the <strong>thermodynamic length</strong> rises from \(\mathcal{L}_\ell \approx 1.1\) to peak near \(\mathcal{L}_\ell \approx 1.4\) in the terminal layers. These shifts signal zones of <em>belief reconfiguration</em> where instruction tuning imposes substantial internal adaptation. By contrast, the base variant retains a flatter latent trajectory (\(\kappa_\ell &lt; 0.04\), \(\mathcal{L}_\ell &lt; 1.0\)), reflecting preservation of pretrained semantic structure.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/15_llms/gemma.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/gemma.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
 
   <!-- Row 3: Mistral -->
   <div style="margin-bottom: 2em;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/15_llms/mistral.gif" alt="(c) Mistral Family" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/15_llms/mistral.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/mistral.gif" data-lightbox="gallery" data-title="(c) Mistral Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/mistral.gif" alt="(c) Mistral Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/mistral.html" title="(c) Mistral Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(c) Mistral Family</strong>
      <p>The <strong>Mixtral Expert</strong> model exhibits markedly elevated <strong>spectral curvature</strong>, rising from \(\kappa_\ell \approx 0.05\) in mid layers to peaks near \(\kappa_\ell \approx 0.10\) in routing-active regions (\(\ell \geq 22\)), accompanied by heightened <strong>thermodynamic length</strong> increasing from \(\mathcal{L}_\ell \approx 0.9\) to \(\mathcal{L}_\ell &gt; 1.1\). These patterns reflect latent specialization driven by <em>expert routing</em>, where different experts selectively reorient and compress pathways in latent space–partitioning conceptual flow and tailoring knowledge representation for efficiency and task-specific precision.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/15_llms/mistral.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/mistral.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
 
   <!-- Row 4: Deepseek -->
   <div style="margin-bottom: 2em;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/15_llms/deepseek.gif" alt="(d) Deepseek Family" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/15_llms/deepseek.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/deepseek.gif" data-lightbox="gallery" data-title="(d) Deepseek Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/deepseek.gif" alt="(d) Deepseek Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/deepseek.html" title="(d) Deepseek Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(d) Deepseek Family</strong>
      <p>The <strong>Deepseek Chat</strong> variant reveals a steep thermodynamic gradient, with <strong>thermodynamic length</strong> \(\mathcal{L}_\ell\) increasing from approximately \(0.7\) in mid layers to peaks beyond \(\mathcal{L}_\ell = 1.3\) in upper decoder layers (\(\ell \geq 26\)). <strong>Spectral curvature</strong> remains moderate (\(\kappa_\ell \leq 0.06\)), indicating that while internal pathways bend gently, the model expends significant <em>epistemic effort</em> to reconcile safety constraints and dialog alignment–reshaping latent beliefs without drastic geometric reorientation.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/15_llms/deepseek.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/deepseek.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
 
   <!-- Row 5: Qwen -->
   <div style="margin-bottom: 2em;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/15_llms/qwen.gif" alt="(e) Qwen Family" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/15_llms/qwen.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/qwen.gif" data-lightbox="gallery" data-title="(e) Qwen Family" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/qwen.gif" alt="(e) Qwen Family" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/qwen.html" title="(e) Qwen Family - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(e) Qwen Family</strong>
      <p>Both base and instruct-tuned <strong>Qwen models</strong> display pronounced latent reorganization, with <strong>spectral curvature</strong> \(\kappa_\ell\) frequently exceeding \(0.1\) in upper layers (\(\ell \geq 25\)) and <strong>thermodynamic length</strong> \(\mathcal{L}_\ell\) sustaining elevated levels above \(1.2\) throughout the final decoder blocks. This indicates zones of heightened <em>semantic strain</em>, where the models reconcile multilingual priors with alignment objectives, and areas of <em>ideological absorption</em>, where latent geometry bends under competing cultural and task demands.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/15_llms/qwen.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/qwen.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
 
   <!-- Row 6: Others -->
   <div style="margin-bottom: 2em;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/15_llms/others.gif" alt="(f) Other Models" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/15_llms/others.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/others.gif" data-lightbox="gallery" data-title="(f) Other Models" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/others.gif" alt="(f) Other Models" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/others.html" title="(f) Other Models - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>(f) Other Models</strong>
      <p><strong>Falcon</strong>, <strong>GPT-NeoX</strong>, <strong>Phi-2</strong>, and <strong>TinyLLaMA</strong> exhibit notably flatter latent trajectories, with <strong>spectral curvature</strong> \(\kappa_\ell\) remaining below \(0.03\) and <strong>thermodynamic length</strong> \(\mathcal{L}_\ell\) consistently under \(0.9\) across layers. This smooth geometry reflects models that largely preserve their pretrained belief structures, undergoing minimal latent reorientation. Such patterns suggest simpler alignment or fine-tuning histories and more conservative design choices that favor stability over aggressive semantic adaptation.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/15_llms/others.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/others.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
 
   <!-- Final combined / all -->
   <div style="margin-bottom: 2em;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- FULL WIDTH MODE: GIF full width, iframe below full width and same height as GIF -->
-  <div class="wizuall-fullwidth" style="display: flex; flex-direction: column; gap: 1em; align-items: stretch;">
-    <div class="wizuall-gif-wrap" style="width:100%;">
-      <img id="wizuall-gif" class="vh-image " src="/nDNA/assets/gifs/15_llms/all.gif" alt="" style="width:100%; height:auto; display:block; border-radius:8px; object-fit:cover;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-    <div class="interactive-plot-container vh-html" style="width:100%;">
-      <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/15_llms/all.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/15_llms/all.gif" data-lightbox="gallery" data-title="" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/15_llms/all.gif" alt="" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/15_llms/all.html" title=" - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
+
   </div>
 
-  <!-- JS: make iframe height equal to the GIF's rendered height -->
-  
-  <script>
-    (function () {
-      const img = document.getElementById('wizuall-gif');
-      const iframe = document.getElementById('wizuall-iframe');
-      if (!img || !iframe) return;
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong></strong>
+     
 
-      function matchIframeHeight() {
-        // use offsetHeight (includes padding, excludes margins)
-        const h = img.offsetHeight;
-        if (h && h > 0) {
-          iframe.style.height = h + 'px';
-        }
-      }
-
-      // If image already loaded, set immediately; otherwise wait for load.
-      if (img.complete) {
-        matchIframeHeight();
-      } else {
-        img.addEventListener('load', matchIframeHeight, { once: true });
-      }
-
-      // Watch for resizes (window resize, responsive layout changes, GIF dynamic sizes)
-      window.addEventListener('resize', matchIframeHeight);
-
-      // For more robust handling (e.g., GIF intrinsic size changes, layout shifts)
-      if (typeof ResizeObserver !== 'undefined') {
-        const ro = new ResizeObserver(matchIframeHeight);
-        ro.observe(img);
-      } else {
-        // fallback polling (very inexpensive)
-        let last = img.offsetHeight;
-        setInterval(() => {
-          if (img.offsetHeight !== last) {
-            last = img.offsetHeight;
-            matchIframeHeight();
-          }
-        }, 300);
-      }
-    })();
-  </script>
-  
+  </figcaption>
 
   
+
+  <!-- Button below caption -->
+  
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/15_llms/all.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
   </div>
@@ -564,11 +579,11 @@ As shown by the below table from the previous module, this latent geometry is no
   </figcaption>
 </figure>
 
----
+<hr />
 
-## Why This Triad? On the Necessity of $$\kappa_\ell$$, $$\mathcal{L}_\ell$$ and $$\|\mathbf{v}_\ell^{(c)}\|$$ for nDNA Geometry
+<h2 id="why-this-triad-on-the-necessity-of-kappa_ell-mathcall_ell-and-mathbfv_ellc-for-ndna-geometry">Why This Triad? On the Necessity of \(\kappa_\ell\), \(\mathcal{L}_\ell\) and \(\|\mathbf{v}_\ell^{(c)}\|\) for nDNA Geometry</h2>
 
-It may be tempting to argue that any pair or triplet of latent metricscould produce seemingly unique latent fingerprints when plotted layer-wise. Why, then, do we assert that the specific triad of **spectral curvature** ($$\kappa_\ell$$), **thermodynamic length** ($$\mathcal{L}_\ell$$), and **belief vector norm** ($$\|\mathbf{v}_\ell^{(c)}\|$$) is both minimal and sufficient for robust nDNA geometry?
+<p>It may be tempting to argue that any pair or triplet of latent metricscould produce seemingly unique latent fingerprints when plotted layer-wise. Why, then, do we assert that the specific triad of <strong>spectral curvature</strong> (\(\kappa_\ell\)), <strong>thermodynamic length</strong> (\(\mathcal{L}_\ell\)), and <strong>belief vector norm</strong> (\(\|\mathbf{v}_\ell^{(c)}\|\)) is both minimal and sufficient for robust nDNA geometry?</p>
 
 <div class="content-showcase-container">
 
@@ -578,18 +593,27 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
 
 </div>
 
-Each of the three measures captures a distinct, irreducible axis of the model's internal epistemic geometry:
+<p>Each of the three measures captures a distinct, irreducible axis of the model’s internal epistemic geometry:</p>
 
-- **$$\kappa_\ell$$ - The intrinsic semantic curvature of latent trajectories**  
-  - how sharply the internal path of representations bends across depth. It encodes second-order structure, analogous to geometric curvature on manifolds. <a href="#ref17">[17]</a> <a href="#ref18">[18]</a>
+<ul>
+  <li><strong>\(\kappa_\ell\) - The intrinsic semantic curvature of latent trajectories</strong>
+    <ul>
+      <li>how sharply the internal path of representations bends across depth. It encodes second-order structure, analogous to geometric curvature on manifolds. <a href="#ref17">[17]</a> <a href="#ref18">[18]</a></li>
+    </ul>
+  </li>
+  <li><strong>\(\mathcal{L}_\ell\) - The cumulative epistemic work performed as the model adapts beliefs layer by layer</strong>
+    <ul>
+      <li>quantifying the energy expenditure needed for belief state transitions in the Fisher–Rao geometry of statistical manifolds. <a href="#ref19">[19]</a> <a href="#ref20">[20]</a> <a href="#ref21">[21]</a></li>
+    </ul>
+  </li>
+  <li><strong>\(\|\mathbf{v}_\ell^{(c)}\|\) - The directional cultural force acting upon the latent manifold</strong>
+    <ul>
+      <li>how much external priors or sociolinguistic constraints steer internal belief trajectories. <a href="#ref14">[14]</a> <a href="#ref8">[8]</a> <a href="#ref15">[15]</a></li>
+    </ul>
+  </li>
+</ul>
 
-- **$$\mathcal{L}_\ell$$ - The cumulative epistemic work performed as the model adapts beliefs layer by layer**  
-  - quantifying the energy expenditure needed for belief state transitions in the Fisher–Rao geometry of statistical manifolds. <a href="#ref19">[19]</a> <a href="#ref20">[20]</a> <a href="#ref21">[21]</a>
-
-- **$$\|\mathbf{v}_\ell^{(c)}\|$$ - The directional cultural force acting upon the latent manifold**  
-  - how much external priors or sociolinguistic constraints steer internal belief trajectories. <a href="#ref14">[14]</a> <a href="#ref8">[8]</a> <a href="#ref15">[15]</a>
-
-Together, they span *latent shape* (curvature), *internal effort* (thermodynamics), and *external directional pressure* (belief vector field).
+<p>Together, they span <em>latent shape</em> (curvature), <em>internal effort</em> (thermodynamics), and <em>external directional pressure</em> (belief vector field).</p>
 
 <div class="content-showcase-container">
 
@@ -599,14 +623,16 @@ Together, they span *latent shape* (curvature), *internal effort* (thermodynamic
 
 </div>
 
-We systematically experimented with numerous alternative metric sets to determine whether they could match or exceed the diagnostic power of this triad:
+<p>We systematically experimented with numerous alternative metric sets to determine whether they could match or exceed the diagnostic power of this triad:</p>
 
-- **Norm-based pairs:** combinations like (‖hₗ‖, ‖∇θhₗ‖), weight norms <a href="#ref22">[22]</a> <a href="#ref23">[23]</a>, singular values of attention matrices <a href="#ref24">[24]</a>, these collapse under trivial rescaling and layer normalization <a href="#ref25">[25]</a>, offering little insight into geometric inflections or external directional forces. They reflect magnitude, not structure.
-- **Gradient-only diagnostics:** Fisher information diagonal <a href="#ref26">[26]</a> <a href="#ref27">[27]</a>, local logit gradients <a href="#ref28">[28]</a>, these capture internal strain or sensitivity but fail to reveal latent manifold curvature or the directional drift imposed by external priors, leaving cultural or alignment effects hidden.
-- **Entropy measures:** activation entropy <a href="#ref29">[29]</a>, token probability entropy <a href="#ref30">[30]</a>, valuable for quantifying output uncertainty or diversity, but disconnected from the internal geometric dynamics that govern latent inheritance or reorganization.
-- **Pairings of curvature and local statistics:** attempts like (κₗ, activation variance) <a href="#ref31">[31]</a>, (ℒₗ, ‖hₗ‖) fail to jointly encode latent shape, adaptation cost, and directional drift in a unified, interpretable manner. They fragment geometric, energetic, and external-force insights rather than synthesizing them.
+<ul>
+  <li><strong>Norm-based pairs:</strong> combinations like (‖hₗ‖, ‖∇θhₗ‖), weight norms <a href="#ref22">[22]</a> <a href="#ref23">[23]</a>, singular values of attention matrices <a href="#ref24">[24]</a>, these collapse under trivial rescaling and layer normalization <a href="#ref25">[25]</a>, offering little insight into geometric inflections or external directional forces. They reflect magnitude, not structure.</li>
+  <li><strong>Gradient-only diagnostics:</strong> Fisher information diagonal <a href="#ref26">[26]</a> <a href="#ref27">[27]</a>, local logit gradients <a href="#ref28">[28]</a>, these capture internal strain or sensitivity but fail to reveal latent manifold curvature or the directional drift imposed by external priors, leaving cultural or alignment effects hidden.</li>
+  <li><strong>Entropy measures:</strong> activation entropy <a href="#ref29">[29]</a>, token probability entropy <a href="#ref30">[30]</a>, valuable for quantifying output uncertainty or diversity, but disconnected from the internal geometric dynamics that govern latent inheritance or reorganization.</li>
+  <li><strong>Pairings of curvature and local statistics:</strong> attempts like (κₗ, activation variance) <a href="#ref31">[31]</a>, (ℒₗ, ‖hₗ‖) fail to jointly encode latent shape, adaptation cost, and directional drift in a unified, interpretable manner. They fragment geometric, energetic, and external-force insights rather than synthesizing them.</li>
+</ul>
 
-None of these alternatives provided the geometric separability across model families (e.g., LLaMA vs. Mixtral vs. Qwen) nor the interpretability of zones of mutation, inheritance, and adaptation that our triad achieved.
+<p>None of these alternatives provided the geometric separability across model families (e.g., LLaMA vs. Mixtral vs. Qwen) nor the interpretability of zones of mutation, inheritance, and adaptation that our triad achieved.</p>
 
 <div class="content-showcase-container">
 
@@ -616,99 +642,100 @@ None of these alternatives provided the geometric separability across model fami
 
 </div>
 
-What ultimately validates this triad is its empirical effectiveness in unveiling the hidden structural signatures of:
+<p>What ultimately validates this triad is its empirical effectiveness in unveiling the hidden structural signatures of:</p>
 
-- **Finetuning and alignment:** zones where latent paths sharply reorient and effort spikes, e.g., LLaMA-3 Instruct vs. LLaMA-2 base <a href="#ref1">[1]</a> <a href="#ref2">[2]</a>.
-- **Cultural calibration:** regions where ‖𝐯ₗ⁽ᶜ⁾‖ reveals external value steering, e.g., Qwen instruct's ideological absorption <a href="#ref5">[5]</a>.
-- **Architectural specialization:** how MoE models like Mixtral partition latent space via curvature and effort redistribution <a href="#ref3">[3]</a>.
-- **Collapse and merging:** detection of flattening or hybridization of latent manifolds in model collapse and neural marriages <a href="#ref14">[14]</a> <a href="#ref12">[12]</a>.
+<ul>
+  <li><strong>Finetuning and alignment:</strong> zones where latent paths sharply reorient and effort spikes, e.g., LLaMA-3 Instruct vs. LLaMA-2 base <a href="#ref1">[1]</a> <a href="#ref2">[2]</a>.</li>
+  <li><strong>Cultural calibration:</strong> regions where ‖𝐯ₗ⁽ᶜ⁾‖ reveals external value steering, e.g., Qwen instruct’s ideological absorption <a href="#ref5">[5]</a>.</li>
+  <li><strong>Architectural specialization:</strong> how MoE models like Mixtral partition latent space via curvature and effort redistribution <a href="#ref3">[3]</a>.</li>
+  <li><strong>Collapse and merging:</strong> detection of flattening or hybridization of latent manifolds in model collapse and neural marriages <a href="#ref14">[14]</a> <a href="#ref12">[12]</a>.</li>
+</ul>
 
-These are phenomena we rigorously map in the sections that follow, each tied to distinctive nDNA signatures visible only when these three axes are combined.
-&gt; ### Why not more metrics? Why not fewer?
-&gt; 
-&gt; Adding further dimensions (e.g., activation norms, entropy, variance) increased noise and reduced interpretability, without providing meaningful new axes of latent epistemic variation. Reducing to two metrics (e.g., $$\kappa_\ell$$ and $$\mathcal{L}_\ell$$) failed to localize external cultural or alignment forces. The triad represents the minimal sufficient grammar to capture inheritance dynamics, as validated in [Table 1](#tab:ndna_example) and [Figure 1](#fig:ndna_families).
+<p>These are phenomena we rigorously map in the sections that follow, each tied to distinctive nDNA signatures visible only when these three axes are combined.</p>
+<blockquote>
+  <h3 id="why-not-more-metrics-why-not-fewer">Why not more metrics? Why not fewer?</h3>
 
----
+  <p>Adding further dimensions (e.g., activation norms, entropy, variance) increased noise and reduced interpretability, without providing meaningful new axes of latent epistemic variation. Reducing to two metrics (e.g., \(\kappa_\ell\) and \(\mathcal{L}_\ell\)) failed to localize external cultural or alignment forces. The triad represents the minimal sufficient grammar to capture inheritance dynamics, as validated in <a href="#tab:ndna_example">Table 1</a> and <a href="#fig:ndna_families">Figure 1</a>.</p>
+</blockquote>
 
-## Summary
+<hr />
 
-The nDNA triad provides a latent genomic coordinate system: 
+<h2 id="summary">Summary</h2>
 
-$$\boxed{ \underbrace{\text{Intrinsic curvature}}_{\kappa_\ell} \quad + \quad \underbrace{\text{Epistemic effort}}_{\mathcal{L}_\ell} \quad + \quad \underbrace{\text{External steering}}_{\|\mathbf{v}_\ell^{(c)}\|} \quad \Rightarrow \quad \text{nDNA: a unique fingerprint of neural inheritance.}}$$
+<p>The nDNA triad provides a latent genomic coordinate system:</p>
 
-Its power lies not only in theoretical soundness <a href="#ref21">[21]</a> <a href="#ref17">[17]</a>, but in its empirical capacity to disentangle inherited traits, zones of mutation, and ideological drift that no arbitrary metric combination could replicate.
+\[\boxed{ \underbrace{\text{Intrinsic curvature}}_{\kappa_\ell} \quad + \quad \underbrace{\text{Epistemic effort}}_{\mathcal{L}_\ell} \quad + \quad \underbrace{\text{External steering}}_{\|\mathbf{v}_\ell^{(c)}\|} \quad \Rightarrow \quad \text{nDNA: a unique fingerprint of neural inheritance.}}\]
 
-While belief vectors are the core focus, one could consider extending to belief tensors for richer representation; however, this would significantly increase computational cost and complexity.
+<p>Its power lies not only in theoretical soundness <a href="#ref21">[21]</a> <a href="#ref17">[17]</a>, but in its empirical capacity to disentangle inherited traits, zones of mutation, and ideological drift that no arbitrary metric combination could replicate.</p>
 
----
+<p>While belief vectors are the core focus, one could consider extending to belief tensors for richer representation; however, this would significantly increase computational cost and complexity.</p>
 
+<hr />
 
-## References
+<h2 id="references">References</h2>
 
-<a id="ref1"></a>[1] Touvron, Hugo and Others "LLaMA: Open and efficient foundation language models" *arXiv preprint arXiv:2302.13971* (2023).
+<p><a id="ref1"></a>[1] Touvron, Hugo and Others “LLaMA: Open and efficient foundation language models” <em>arXiv preprint arXiv:2302.13971</em> (2023).</p>
 
-<a id="ref2"></a>[2] Dubey, Abhimanyu, Jauhri, Abhinav, and others "The Llama 3 Herd of Models" *arXiv:2407.21783* (2024). [https://arxiv.org/abs/2407.21783](https://arxiv.org/abs/2407.21783)
+<p><a id="ref2"></a>[2] Dubey, Abhimanyu, Jauhri, Abhinav, and others “The Llama 3 Herd of Models” <em>arXiv:2407.21783</em> (2024). <a href="https://arxiv.org/abs/2407.21783">https://arxiv.org/abs/2407.21783</a></p>
 
-<a id="ref3"></a>[3] Bommasani, R. and others "Foundation models: Past, present, and future" *arXiv preprint arXiv:2309.00616* (2023).
+<p><a id="ref3"></a>[3] Bommasani, R. and others “Foundation models: Past, present, and future” <em>arXiv preprint arXiv:2309.00616</em> (2023).</p>
 
-<a id="ref4"></a>[4] Sid Black, Stella Biderman, and others "GPT-NeoX-20B: An Open-Source Autoregressive Language Model" *arXiv:2204.06745* (2022). [https://arxiv.org/abs/2204.06745](https://arxiv.org/abs/2204.06745)
+<p><a id="ref4"></a>[4] Sid Black, Stella Biderman, and others “GPT-NeoX-20B: An Open-Source Autoregressive Language Model” <em>arXiv:2204.06745</em> (2022). <a href="https://arxiv.org/abs/2204.06745">https://arxiv.org/abs/2204.06745</a></p>
 
-<a id="ref5"></a>[5] Peng, Baolin, Wang, Li, and others "Culturally aligned language modeling: Methods and benchmarks" *ACL* (2024).
+<p><a id="ref5"></a>[5] Peng, Baolin, Wang, Li, and others “Culturally aligned language modeling: Methods and benchmarks” <em>ACL</em> (2024).</p>
 
-<a id="ref6"></a>[6] OpenLM contributors "DeepSeek LLMs: Bridging Open Pre-training and Alignment" *arXiv preprint arXiv:2312.00764* (2023).
+<p><a id="ref6"></a>[6] OpenLM contributors “DeepSeek LLMs: Bridging Open Pre-training and Alignment” <em>arXiv preprint arXiv:2312.00764</em> (2023).</p>
 
-<a id="ref7"></a>[7] Bai, Yuntao and others "Constitutional AI: Harmlessness from AI Feedback" *arXiv preprint arXiv:2212.08073* (2023).
+<p><a id="ref7"></a>[7] Bai, Yuntao and others “Constitutional AI: Harmlessness from AI Feedback” <em>arXiv preprint arXiv:2212.08073</em> (2023).</p>
 
-<a id="ref8"></a>[8] Zhou, Ben and others "On Alignment Drift in Large Language Models" *arXiv preprint arXiv:2310.02979* (2023).
+<p><a id="ref8"></a>[8] Zhou, Ben and others “On Alignment Drift in Large Language Models” <em>arXiv preprint arXiv:2310.02979</em> (2023).</p>
 
-<a id="ref9"></a>[9] Laurens, Ethan and others "The Ethics of Alignment: Towards Culturally Inclusive Foundation Models" *Proceedings of the AAAI Conference on Artificial Intelligence* (2024).
+<p><a id="ref9"></a>[9] Laurens, Ethan and others “The Ethics of Alignment: Towards Culturally Inclusive Foundation Models” <em>Proceedings of the AAAI Conference on Artificial Intelligence</em> (2024).</p>
 
-<a id="ref10"></a>[10] Ganguli, Deep and others "Reducing sycophancy in large language models via self-distillation" *arXiv preprint arXiv:2305.17493* (2023).
+<p><a id="ref10"></a>[10] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
 
-<a id="ref11"></a>[11] Wu, Z. and others "Seamless: Robust distillation of large models" *ICML* (2024).
+<p><a id="ref11"></a>[11] Wu, Z. and others “Seamless: Robust distillation of large models” <em>ICML</em> (2024).</p>
 
-<a id="ref12"></a>[12] Xu, J. and others "Aligning large language models with iterative feedback" *ICLR* (2023).
+<p><a id="ref12"></a>[12] Xu, J. and others “Aligning large language models with iterative feedback” <em>ICLR</em> (2023).</p>
 
-<a id="ref13"></a>[13] Liu, Nelson and others "Hidden Progress in Language Models" *arXiv preprint arXiv:2305.04388* (2023).
+<p><a id="ref13"></a>[13] Liu, Nelson and others “Hidden Progress in Language Models” <em>arXiv preprint arXiv:2305.04388</em> (2023).</p>
 
-<a id="ref14"></a>[14] Wang, Ziwei, Xu, Yichao, and others "Cultural bias in large language models: A survey" *arXiv preprint arXiv:2311.05691* (2023).
+<p><a id="ref14"></a>[14] Wang, Ziwei, Xu, Yichao, and others “Cultural bias in large language models: A survey” <em>arXiv preprint arXiv:2311.05691</em> (2023).</p>
 
-<a id="ref15"></a>[15] Shen, Sheng and others "The Geometry of Belief in Language Models" *arXiv preprint arXiv:2305.12355* (2023).
+<p><a id="ref15"></a>[15] Shen, Sheng and others “The Geometry of Belief in Language Models” <em>arXiv preprint arXiv:2305.12355</em> (2023).</p>
 
-<a id="ref16"></a>[16] Bakker, Tom and others "Uniting Model Merging and Distillation: Towards Unified Neural Inheritance" *arXiv preprint arXiv:2402.00999* (2024).
+<p><a id="ref16"></a>[16] Bakker, Tom and others “Uniting Model Merging and Distillation: Towards Unified Neural Inheritance” <em>arXiv preprint arXiv:2402.00999</em> (2024).</p>
 
-<a id="ref17"></a>[17] Farzam, Amir, Subramani, Akshay, and others "Ricci Curvature Reveals Alignment Dynamics in Language Models" *ICLR* (2024).
+<p><a id="ref17"></a>[17] Farzam, Amir, Subramani, Akshay, and others “Ricci Curvature Reveals Alignment Dynamics in Language Models” <em>ICLR</em> (2024).</p>
 
-<a id="ref18"></a>[18] Xu, Yifan and Tong, Hanghang "Spherical Graph Neural Networks for Learning on Non-Euclidean Structures" *ICLR* (2022).
+<p><a id="ref18"></a>[18] Xu, Yifan and Tong, Hanghang “Spherical Graph Neural Networks for Learning on Non-Euclidean Structures” <em>ICLR</em> (2022).</p>
 
-<a id="ref19"></a>[19] Crooks, Gavin E "Measuring thermodynamic length" *Physical Review Letters* (2007).
+<p><a id="ref19"></a>[19] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
 
-<a id="ref20"></a>[20] Wagner, Henrik and Bubeck, Sébastien "Thermodynamic Metrics Reveal Capacity Allocation in Transformers" *arXiv preprint arXiv:2306.13052* (2023).
+<p><a id="ref20"></a>[20] Wagner, Henrik and Bubeck, Sébastien “Thermodynamic Metrics Reveal Capacity Allocation in Transformers” <em>arXiv preprint arXiv:2306.13052</em> (2023).</p>
 
-<a id="ref21"></a>[21] Amari, Shun-ichi "Information geometry and its applications" *Applied Mathematical Sciences* (2016).
+<p><a id="ref21"></a>[21] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
 
-<a id="ref22"></a>[22] Neyshabur, Behnam, Tomioka, Ryota, and others "Norm-based capacity control in neural networks" *COLT* (2015).
+<p><a id="ref22"></a>[22] Neyshabur, Behnam, Tomioka, Ryota, and others “Norm-based capacity control in neural networks” <em>COLT</em> (2015).</p>
 
-<a id="ref23"></a>[23] Zhang, Hongyi, Dauphin, Yann N, and others "All you need is a good init" *ICLR* (2019).
+<p><a id="ref23"></a>[23] Zhang, Hongyi, Dauphin, Yann N, and others “All you need is a good init” <em>ICLR</em> (2019).</p>
 
-<a id="ref24"></a>[24] Gao, Pengfei, Huang, Xiaobo, and others "Representation degeneration problem in training deep neural networks" *ICLR* (2019).
+<p><a id="ref24"></a>[24] Gao, Pengfei, Huang, Xiaobo, and others “Representation degeneration problem in training deep neural networks” <em>ICLR</em> (2019).</p>
 
-<a id="ref25"></a>[25] Ba, Jimmy Lei, Kiros, Jamie Ryan, and others "Layer normalization" *arXiv preprint arXiv:1607.06450* (2016).
+<p><a id="ref25"></a>[25] Ba, Jimmy Lei, Kiros, Jamie Ryan, and others “Layer normalization” <em>arXiv preprint arXiv:1607.06450</em> (2016).</p>
 
-<a id="ref26"></a>[26] Amari, Shun-ichi "Natural gradient works efficiently in learning" *Neural Computation* (1998).
+<p><a id="ref26"></a>[26] Amari, Shun-ichi “Natural gradient works efficiently in learning” <em>Neural Computation</em> (1998).</p>
 
-<a id="ref27"></a>[27] Kunstner, Frederik, Balles, Lukas, and others "Limitations of the empirical Fisher approximation for natural gradient descent" *NeurIPS* (2019).
+<p><a id="ref27"></a>[27] Kunstner, Frederik, Balles, Lukas, and others “Limitations of the empirical Fisher approximation for natural gradient descent” <em>NeurIPS</em> (2019).</p>
 
-<a id="ref28"></a>[28] Ji, Yujia, Lipton, Zachary C, and others "Directional analysis of the fine-tuning dynamics of pre-trained transformers" *ACL* (2020).
+<p><a id="ref28"></a>[28] Ji, Yujia, Lipton, Zachary C, and others “Directional analysis of the fine-tuning dynamics of pre-trained transformers” <em>ACL</em> (2020).</p>
 
-<a id="ref29"></a>[29] Belinkov, Yonatan and Glass, James "Analyzing the stability of neural models for sequence tagging" *EMNLP* (2017).
+<p><a id="ref29"></a>[29] Belinkov, Yonatan and Glass, James “Analyzing the stability of neural models for sequence tagging” <em>EMNLP</em> (2017).</p>
 
-<a id="ref30"></a>[30] Mielke, Sabrina J., Eisenschlos, Julian, and others "Between minds and machines: Measuring language models’ consistency with human knowledge" *ACL* (2021).
+<p><a id="ref30"></a>[30] Mielke, Sabrina J., Eisenschlos, Julian, and others “Between minds and machines: Measuring language models’ consistency with human knowledge” <em>ACL</em> (2021).</p>
 
-<a id="ref31"></a>[31] Raghu, Maithra, Gilmer, Justin, and others "SVCCA: Singular vector canonical correlation analysis for deep learning dynamics and interpretability" *NeurIPS* (2017).
+<p><a id="ref31"></a>[31] Raghu, Maithra, Gilmer, Justin, and others “SVCCA: Singular vector canonical correlation analysis for deep learning dynamics and interpretability” <em>NeurIPS</em> (2017).</p>
 
-
-</div></figure></div></figure></div></figure></div></figure></div></figure></div></figure>
 
       </div>
     </div>

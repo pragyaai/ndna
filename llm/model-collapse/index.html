@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/model-collapse/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-12T15:20:45+00:00" />
+<meta property="article:published_time" content="2025-08-12T15:49:39+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="nDNA-Lens - Model Collapse as Latent Manifold Flattening" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-12T15:20:45+00:00","datePublished":"2025-08-12T15:20:45+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-12T15:49:39+00:00","datePublished":"2025-08-12T15:49:39+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -178,504 +178,532 @@ We track the evolution of the model's <strong>latent geometry</strong> &mdash; i
 
 <p>As illustrated below, we observe progressive <em>curvature flattening</em>, <em>thermodynamic contraction</em>, and reduced alignment force magnitudes–indicating a loss of representational richness and epistemic adaptability.</p>
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/llama_collapse_v2_1.gif" alt="nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/llama_collapse_v2_1.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/llama_collapse_v2_1.gif" data-lightbox="gallery" data-title="nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/llama_collapse_v2_1.gif" alt="nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/llama_collapse_v2_1.html" title="nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening</strong>
      <p>This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures–spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>–are tracked across layers ℓ=20 to ℓ=30. As generations progress (from gray for base LLaMA to yellow for Gen 10), both κ<sub>ℓ</sub> and ℒ<sub>ℓ</sub> systematically diminish: κ<sub>ℓ</sub> → 0.2 and ℒ<sub>ℓ</sub> → 0.2 by Gen 10. This trend signifies <em>latent manifold flattening</em>, where internal epistemic geometry collapses into shallow, low-variability paths.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/llama_collapse_v2_1.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/llama_collapse_v2_1.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
+<h2 id="recursive-self-merging-of-culturally-fine-tuned-models">Recursive Self-Merging of Culturally Fine-Tuned Models</h2>
 
-## Recursive Self-Merging of Culturally Fine-Tuned Models
+<p>While autoregressive fine-tuning on synthetic data has been widely studied as a cause of model collapse <a href="#ref1">[1]</a> <a href="#ref9">[9]</a> <a href="#ref10">[10]</a>, a second, less-explored collapse mechanism stems from recursive <strong>model merging</strong>–where each generation is produced by merging the previous one with itself or its offspring. This process bears resemblance to <em>inbreeding in biological populations</em>, where repeated unions within a closed gene pool reduce genetic diversity and increase the likelihood of deleterious traits.</p>
 
-While autoregressive fine-tuning on synthetic data has been widely studied as a cause of model collapse <a href="#ref1">[1]</a> <a href="#ref9">[9]</a> <a href="#ref10">[10]</a>, a second, less-explored collapse mechanism stems from recursive **model merging**--where each generation is produced by merging the previous one with itself or its offspring. This process bears resemblance to *inbreeding in biological populations*, where repeated unions within a closed gene pool reduce genetic diversity and increase the likelihood of deleterious traits.
+<p>To investigate this phenomenon, we begin with a set of $8$ culturally fine-tuned variants of LLaMA-2 (e.g., <code class="language-plaintext highlighter-rouge">Asia</code>, <code class="language-plaintext highlighter-rouge">Europe</code>, <code class="language-plaintext highlighter-rouge">MiddleEast</code>, etc.), previously aligned on distinct regional belief distributions. From this pool, we iteratively generate merged descendants via a recursive rule:</p>
 
-To investigate this phenomenon, we begin with a set of $8$ culturally fine-tuned variants of LLaMA-2 (e.g., `Asia`, `Europe`, `MiddleEast`, etc.), previously aligned on distinct regional belief distributions. From this pool, we iteratively generate merged descendants via a recursive rule:
+\[\text{Child}^{(g)} = \texttt{Merge}(\text{Child}^{(g-1)}, \text{Child}^{(g-2)})\]
 
-$$\text{Child}^{(g)} = \texttt{Merge}(\text{Child}^{(g-1)}, \text{Child}^{(g-2)})$$
-
-where the initial parents are drawn from the cultural base set and future generations are merged recursively using tools like `MergeKit` <a href="#ref5">[5]</a>. Unlike distillation or fine-tuning, this process *fuses* model parameters--introducing architectural tension and **epistemic drift** through incompatible latent priors.
+<p>where the initial parents are drawn from the cultural base set and future generations are merged recursively using tools like <code class="language-plaintext highlighter-rouge">MergeKit</code> <a href="#ref5">[5]</a>. Unlike distillation or fine-tuning, this process <em>fuses</em> model parameters–introducing architectural tension and <strong>epistemic drift</strong> through incompatible latent priors.</p>
 
 <p>
 Throughout recursive merging cycles, we monitor the evolving <strong>neural DNA (nDNA)</strong> &mdash; particularly spectral curvature (κₗ), thermodynamic length (𝓛ₗ), and alignment vector norms (‖𝖛ₗ<sup>(c)</sup>‖). We observe that as the generations progress, <strong>semantic flattening</strong> intensifies and <strong>distinct latent features</strong> become increasingly homogenized &mdash; signaling the onset of structural collapse. Notably, the exact generation at which collapse occurs varies across cultural lineages; for instance, models aligned with <code>MiddleEast</code> and <code>China</code> exhibit collapse symptoms earlier (around G=9), while others like <code>Africa</code> persist until G=15.
 </p>
 
+<p>These findings suggest that <em>cultural inbreeding via recursive self-merging</em>–where architectural priors are repeatedly recombined without new information–can be as deleterious to model health as overfitting to synthetic data. This unveils an underexplored axis of collapse: <strong>epistemic degeneration via latent redundancy</strong>, with implications for model curation and reuse in open-source training communities.</p>
 
-These findings suggest that *cultural inbreeding via recursive self-merging*--where architectural priors are repeatedly recombined without new information--can be as deleterious to model health as overfitting to synthetic data. This unveils an underexplored axis of collapse: **epistemic degeneration via latent redundancy**, with implications for model curation and reuse in open-source training communities.
-
-### Cultural Collapse Trajectories
+<h3 id="cultural-collapse-trajectories">Cultural Collapse Trajectories</h3>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 24px; margin: 30px 0;">
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/africa_ndna_final.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" data-lightbox="gallery" data-title="Africa Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/africa_ndna_final.html" title="Africa Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>Africa Cultural Collapse Trajectory</strong>
      <p>We recursively merged two Africa-aligned LLMs at each step (e.g., Africa + Africa ⇒ Gen 1, Gen 1 + Africa ⇒ Gen 2, etc). Collapse (sharp drop in ℒ<sub>ℓ</sub> and κ<sub>ℓ</sub>) occurred at <strong>Gen 15</strong>, where thermodynamic length ℒ<sub>ℓ</sub> fell below 0.2 and curvature κ<sub>ℓ</sub> flattened below 0.3. This indicates loss of internal semantic richness after repeated intra-cultural merging.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/africa_ndna_final.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/africa_ndna_final.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
   
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/asia_ndna_collapse.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" data-lightbox="gallery" data-title="Asia Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/asia_ndna_collapse.html" title="Asia Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>Asia Cultural Collapse Trajectory</strong>
      <p>Following the same merging sequence (Asia + Asia ⇒ Gen 1, Gen 1 + Asia ⇒ Gen 2, etc), collapse occurred faster at <strong>Gen 11</strong>, marked by ℒ<sub>ℓ</sub> &lt; 0.2 and κ<sub>ℓ</sub> &lt; 0.3. This suggests higher susceptibility of Asia-aligned models to semantic flattening under iterative self-merging.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/asia_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/asia_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
   
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/china_ndna_final.gif" alt="China Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/china_ndna_final.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/china_ndna_final.gif" data-lightbox="gallery" data-title="China Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/china_ndna_final.gif" alt="China Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/china_ndna_final.html" title="China Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>China Cultural Collapse Trajectory</strong>
      <p>China-aligned models collapsed by <strong>Gen 9</strong>, seen in thermodynamic length dropping below 0.2 and curvature flattening below 0.3. This highlights rapid loss of epistemic diversity under repeated merging (China + China ⇒ Gen 1, Gen 1 + China ⇒ Gen 2, etc), suggesting tighter initial latent manifolding.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/china_ndna_final.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/china_ndna_final.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
   
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/europe_ndna_collapse_FINAL.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Europe Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/europe_ndna_collapse_FINAL.html" title="Europe Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>Europe Cultural Collapse Trajectory</strong>
      <p>Europe models underwent collapse at <strong>Gen 13</strong>, with flattening of curvature κ<sub>ℓ</sub> ≤ 0.25 and contraction of ℒ<sub>ℓ</sub> to around 0.2. The latent manifold (Europe + Europe ⇒ Gen 1, Gen 1 + Europe ⇒ Gen 2, etc) showed a noisy but consistent flattening trend, marking semantic erosion.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/europe_ndna_collapse_FINAL.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/europe_ndna_collapse_FINAL.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
   
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/latinamerica.gif" alt="Latin America Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/latinamerica.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/latinamerica.gif" data-lightbox="gallery" data-title="Latin America Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/latinamerica.gif" alt="Latin America Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/latinamerica.html" title="Latin America Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>Latin America Cultural Collapse Trajectory</strong>
      <p>Collapse occurred by <strong>Gen 13</strong>, ℒ<sub>ℓ</sub> ≈ 0.2, κ<sub>ℓ</sub> dropping below 0.3. The latent structure converged to a narrow manifold (Latin America + Latin America ⇒ Gen 1, Gen 1 + Latin America ⇒ Gen 2, etc) indicating epistemic homogenization from repeated self-merging.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/latinamerica.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/latinamerica.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
   
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/middleeast_ndna_final.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" data-lightbox="gallery" data-title="Middle East Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/middleeast_ndna_final.html" title="Middle East Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>Middle East Cultural Collapse Trajectory</strong>
      <p>Collapse reached by <strong>Gen 9</strong>, as ℒ<sub>ℓ</sub> dipped below 0.2 and κ<sub>ℓ</sub> fell near 0.3. The latent manifold (Middle East + Middle East ⇒ Gen 1, Gen 1 + Middle East ⇒ Gen 2, etc) flattened rapidly, underscoring the model’s fragility under iterative merging.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/middleeast_ndna_final.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/middleeast_ndna_final.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
   
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/northamerica_ndna_collapse_FINAL.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="North America Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/northamerica_ndna_collapse_FINAL.html" title="North America Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>North America Cultural Collapse Trajectory</strong>
      <p>Collapse was observed at <strong>Gen 15</strong>, with ℒ<sub>ℓ</sub> under 0.2 and κ<sub>ℓ</sub> near 0.25. A gradual latent flattening (North America + North America ⇒ Gen 1, Gen 1 + North America ⇒ Gen 2, etc) trend indicates stronger internal resilience compared to some other cultural models.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/northamerica_ndna_collapse_FINAL.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/northamerica_ndna_collapse_FINAL.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
   
   <div style="text-align: center;">
-    <figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/australia_ndna_collapse_FINAL.gif" alt="Australia Cultural Collapse Trajectory" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+    
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/australia_ndna_collapse_FINAL.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/australia_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Australia Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/australia_ndna_collapse_FINAL.gif" alt="Australia Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/australia_ndna_collapse_FINAL.html" title="Australia Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>Australia Cultural Collapse Trajectory</strong>
      <p>Australia-aligned LLMs exhibited collapse by <strong>Gen 16</strong>, with ℒ<sub>ℓ</sub> compressing to ≈ 0.25 and κ<sub>ℓ</sub> flattening toward 0.2. The collapse trajectory (Australia + Australia ⇒ Gen 1, Gen 1 + Australia ⇒ Gen 2, etc) shows relatively slow degradation, indicating stronger resistance to latent manifold flattening under merging.</p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/australia_ndna_collapse_FINAL.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/australia_ndna_collapse_FINAL.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
   </div>
-&lt;/div&gt;
+</div>
 
 <p><strong>Comparative Analysis:</strong> These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length (<em>𝓛<sub>ℓ</sub></em>) and flattening of spectral curvature (<em>κ<sub>ℓ</sub></em>). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying latent resilience. <em>Analogous to inbreeding depression in biology—where loss of genetic diversity from close-relative mating increases vulnerability</em> <a href="#cite-charlesworth1987inbreeding" class="citation">[Charlesworth, 1987]</a> <a href="#cite-frankham1995genetics" class="citation">[Frankham, 1995]</a>—<em>self-merging compresses the model's latent manifold, erasing epistemic heterogeneity. The nDNA-Lens quantifies this flattening, revealing how excessive neural marriages mimic genetic bottlenecks.</em></p>
-
 
 <h2>Intuition: How Collapse Reshapes the Belief Vector Field</h2>
 
@@ -685,72 +713,70 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 
 <p>This degradation reflects the model's inability to differentially activate concepts like <em>peace</em>, <em>protest</em>, or <em>justice</em>. Rather than dynamically adjusting its internal stance, the collapsed model exhibits a form of <strong>epistemic inertia</strong>—a flattening of belief space that makes all prompts feel semantically similar. This phenomenon serves as a <strong>geometric signature of collapse</strong>: a measurable decay of <em>semantic responsiveness</em> embedded in the vector field itself.</p>
 
-### Biological Analogy
+<h3 id="biological-analogy-1">Biological Analogy</h3>
 
-This **semantic flattening** bears a striking resemblance to **neural atrophy** in biological systems, where *chronic disuse* or *neurodegeneration* progressively diminishes **synaptic diversity**, leading to impaired **cognitive plasticity** <a href="#ref11">[11]</a> <a href="#ref12">[12]</a>. In disorders such as **Alzheimer's disease**, the breakdown of *functional specialization* in memory circuits results in a *uniformity of neural responses*--eroding the brain's ability to semantically distinguish between otherwise distinct stimuli <a href="#ref13">[13]</a>. **Analogously**, a collapsed model exhibits **latent redundancy**, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a **loss of representational separability** and **semantic tension**.
+<p>This <strong>semantic flattening</strong> bears a striking resemblance to <strong>neural atrophy</strong> in biological systems, where <em>chronic disuse</em> or <em>neurodegeneration</em> progressively diminishes <strong>synaptic diversity</strong>, leading to impaired <strong>cognitive plasticity</strong> <a href="#ref11">[11]</a> <a href="#ref12">[12]</a>. In disorders such as <strong>Alzheimer’s disease</strong>, the breakdown of <em>functional specialization</em> in memory circuits results in a <em>uniformity of neural responses</em>–eroding the brain’s ability to semantically distinguish between otherwise distinct stimuli <a href="#ref13">[13]</a>. <strong>Analogously</strong>, a collapsed model exhibits <strong>latent redundancy</strong>, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a <strong>loss of representational separability</strong> and <strong>semantic tension</strong>.</p>
 
-This degeneration also echoes principles from **evolutionary biology**, particularly the **flattening of fitness landscapes** under high **inbreeding pressure** <a href="#ref14">[14]</a>. In such populations, repeated mating within genetically similar lineages reduces **phenotypic variance** and **adaptive resilience**, leading to what is termed *inbreeding depression*. By analogy, **recursive self-merging** in LLMs--where successive models are merged without novel informational influx--produces a similar **collapse of internal diversity**, akin to a **shrinking mutational space** in a depleted gene pool.
+<p>This degeneration also echoes principles from <strong>evolutionary biology</strong>, particularly the <strong>flattening of fitness landscapes</strong> under high <strong>inbreeding pressure</strong> <a href="#ref14">[14]</a>. In such populations, repeated mating within genetically similar lineages reduces <strong>phenotypic variance</strong> and <strong>adaptive resilience</strong>, leading to what is termed <em>inbreeding depression</em>. By analogy, <strong>recursive self-merging</strong> in LLMs–where successive models are merged without novel informational influx–produces a similar <strong>collapse of internal diversity</strong>, akin to a <strong>shrinking mutational space</strong> in a depleted gene pool.</p>
 
-In both cases, the shared pathology lies in the **collapse of high-dimensional exploratory capacity**--whether *neural* or *semantic*. The **belief vector field**, then, becomes a computational analogue of *neurofunctional maps* or *genotype-phenotype manifolds*: a rich **geometric structure** whose **flattening** signifies a terminal decline in **epistemic adaptability**.
+<p>In both cases, the shared pathology lies in the <strong>collapse of high-dimensional exploratory capacity</strong>–whether <em>neural</em> or <em>semantic</em>. The <strong>belief vector field</strong>, then, becomes a computational analogue of <em>neurofunctional maps</em> or <em>genotype-phenotype manifolds</em>: a rich <strong>geometric structure</strong> whose <strong>flattening</strong> signifies a terminal decline in <strong>epistemic adaptability</strong>.</p>
 
-Thus, belief vector fields offer not just a visualization tool, but an **intuitive diagnostic** for latent degeneration. They reveal how internal reasoning structures become *brittle, redundant*, or *inert*--long before collapse is evident in output diversity or task performance.
+<p>Thus, belief vector fields offer not just a visualization tool, but an <strong>intuitive diagnostic</strong> for latent degeneration. They reveal how internal reasoning structures become <em>brittle, redundant</em>, or <em>inert</em>–long before collapse is evident in output diversity or task performance.</p>
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  
-  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
-  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; max-width:48%;">
-      <img class="vh-image " src="/nDNA/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
-    </div>
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
 
     
-      <div class="interactive-plot-container vh-html" style="width:100%; margin-bottom:1em;">
-        <iframe id="wizuall-iframe" src="/nDNA/assets/html_plots/alignment/belief_vector_field_side_by_side_refined.html" style="width:100%; min-height:200px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-        </iframe>
-      </div>
-  
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" data-lightbox="gallery" data-title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/belief_vector_field_side_by_side_refined.gif" alt="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
 
-  <!-- Caption & metrics -->
-  
-  <figcaption class="figure-caption" style="margin-top:0.5em;">
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/alignment/belief_vector_field_side_by_side_refined.html" title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
+    
+
+  </div>
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
     <strong>Belief Vector Fields of Healthy vs. Collapsed Models Across Layers</strong>
      <p>This figure illustrates the evolution of latent <em>belief vector fields</em></p>
 
   </figcaption>
-  
 
   
 
+  <!-- Button below caption -->
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/alignment/belief_vector_field_side_by_side_refined.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <button style="
-        display:inline-block;
-        padding:10px 20px;
-        font-size:0.875rem;
-        font-weight:500;
-        color:#fff;
-        background:#000;
-        border:none;
-        border-radius:8px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.10);
-        cursor:pointer;
-        transition:transform .15s ease, background-color .15s ease;
-        -webkit-appearance: none;
-        appearance: none;
-      ">
-        📊 View Interactive Plot
-      </button>
-    </a>
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/alignment/belief_vector_field_side_by_side_refined.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
   
 
-&lt;/figure&gt;
+</figure>
 
+<h2 id="broader-impact">Broader Impact</h2>
 
-## Broader Impact
+<p>By reconceptualizing <strong>model collapse</strong> as a form of <strong>geometric degeneration</strong>–specifically, the <strong>flattening of latent manifolds</strong>–we open a profound new axis for diagnosing, interpreting, and preserving the internal <strong>epistemic health</strong> of large models. This framework shifts our perspective from surface-level evaluations toward the anatomy of cognition itself: <strong>spectral curvature</strong> as the model’s semantic flexibility, <strong>thermodynamic length</strong> as its epistemic effort, and <strong>belief vector norms</strong> as its conceptual steering force.</p>
 
-By reconceptualizing **model collapse** as a form of **geometric degeneration**--specifically, the **flattening of latent manifolds**--we open a profound new axis for diagnosing, interpreting, and preserving the internal **epistemic health** of large models. This framework shifts our perspective from surface-level evaluations toward the anatomy of cognition itself: **spectral curvature** as the model's semantic flexibility, **thermodynamic length** as its epistemic effort, and **belief vector norms** as its conceptual steering force.
-
-In this light, foundation models cease to be mere statistical engines and begin to resemble **semantic organisms**--entities whose representational spaces evolve, adapt, degrade, and even suffer pathological collapse. This biological analogy is not incidental. Just as synaptic pruning, atrophy, or inbreeding can erode the adaptability of neural or genetic systems, recursive training loops and self-merging protocols may diminish a model's **expressive diversity** and **internal differentiation**. What emerges is a new way to speak about **model health**: not through performance scores, but through **geometric vitality**.
+<p>In this light, foundation models cease to be mere statistical engines and begin to resemble <strong>semantic organisms</strong>–entities whose representational spaces evolve, adapt, degrade, and even suffer pathological collapse. This biological analogy is not incidental. Just as synaptic pruning, atrophy, or inbreeding can erode the adaptability of neural or genetic systems, recursive training loops and self-merging protocols may diminish a model’s <strong>expressive diversity</strong> and <strong>internal differentiation</strong>. What emerges is a new way to speak about <strong>model health</strong>: not through performance scores, but through <strong>geometric vitality</strong>.</p>
 
 <p>This reconceptualization offers several <strong>concrete implications</strong>:</p>
 
@@ -778,40 +804,38 @@ In this light, foundation models cease to be mere statistical engines and begin 
 
 <p>Ultimately, the rise of <strong>neural genomics</strong>—the spectral, thermodynamic, and vectorial tracking of a model's internal semantic scaffolding—may help cultivate foundation models that are not just powerful, but also <strong>resilient</strong>, <strong>modular</strong>, and capable of retaining <strong>epistemic diversity</strong> over time. This is not merely a refinement in evaluation; it is a <strong>redefinition of model health</strong>. We move from training systems to <em>perform</em>, toward growing systems that can <strong>endure, adapt, and evolve</strong>.</p>
 
----
+<hr />
 
-## References
+<h2 id="references">References</h2>
 
-<a id="ref1"></a>[1] Shumailov, Ilia, Crowley, Elliot, and others "The Curse of Recursion: Training on Generated Data Makes Models Forget" *arXiv preprint arXiv:2305.17493* (2023).
+<p><a id="ref1"></a>[1] Shumailov, Ilia, Crowley, Elliot, and others “The Curse of Recursion: Training on Generated Data Makes Models Forget” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
 
-<a id="ref2"></a>[2] Lee, Mina, He, Jun, and others "ChatGPT is a Jerk: Commonsense Morality in Large Language Models" *Advances in Neural Information Processing Systems (NeurIPS)* (2023). [https://arxiv.org/abs/2309.00613](https://arxiv.org/abs/2309.00613)
+<p><a id="ref2"></a>[2] Lee, Mina, He, Jun, and others “ChatGPT is a Jerk: Commonsense Morality in Large Language Models” <em>Advances in Neural Information Processing Systems (NeurIPS)</em> (2023). <a href="https://arxiv.org/abs/2309.00613">https://arxiv.org/abs/2309.00613</a></p>
 
-<a id="ref3"></a>[3] Xu, Canwen, Zhang, Zihan, and others "Unleashing Infinite Generation: Preventing Language Model Collapse via Generation-Resistant Optimization" *Findings of the Association for Computational Linguistics: EMNLP 2023* (2023). [https://arxiv.org/abs/2305.17493](https://arxiv.org/abs/2305.17493)
+<p><a id="ref3"></a>[3] Xu, Canwen, Zhang, Zihan, and others “Unleashing Infinite Generation: Preventing Language Model Collapse via Generation-Resistant Optimization” <em>Findings of the Association for Computational Linguistics: EMNLP 2023</em> (2023). <a href="https://arxiv.org/abs/2305.17493">https://arxiv.org/abs/2305.17493</a></p>
 
-<a id="ref4"></a>[4] Liu, Nelson F. and others "Lost in the Middle: How Language Models Use Long Contexts" *arXiv preprint arXiv:2307.03172* (2023).
+<p><a id="ref4"></a>[4] Liu, Nelson F. and others “Lost in the Middle: How Language Models Use Long Contexts” <em>arXiv preprint arXiv:2307.03172</em> (2023).</p>
 
-<a id="ref5"></a>[5] Jonathan Chang and others "MergeKit: Tools for Merging and Interpolating Language Models" *Accessed: 2025-06-16* (2023).
+<p><a id="ref5"></a>[5] Jonathan Chang and others “MergeKit: Tools for Merging and Interpolating Language Models” <em>Accessed: 2025-06-16</em> (2023).</p>
 
-<a id="ref6"></a>[6] Zhang, X. and others "Language model collapse: On robustness and generalization" *arXiv preprint arXiv:2308.00000* (2023).
+<p><a id="ref6"></a>[6] Zhang, X. and others “Language model collapse: On robustness and generalization” <em>arXiv preprint arXiv:2308.00000</em> (2023).</p>
 
-<a id="ref7"></a>[7] Rafailov, R. and others "Direct preference optimization: Your language model is secretly a classifier" *arXiv preprint arXiv:2305.18290* (2023).
+<p><a id="ref7"></a>[7] Rafailov, R. and others “Direct preference optimization: Your language model is secretly a classifier” <em>arXiv preprint arXiv:2305.18290</em> (2023).</p>
 
-<a id="ref8"></a>[8] Taori, Rohan, Gulati, Ishaan, and others "Stanford Alpaca: An Instruction-Following LLaMA Model" *Accessed: 2025-06-30* (2023).
+<p><a id="ref8"></a>[8] Taori, Rohan, Gulati, Ishaan, and others “Stanford Alpaca: An Instruction-Following LLaMA Model” <em>Accessed: 2025-06-30</em> (2023).</p>
 
-<a id="ref9"></a>[9] Lee, H. and others "Understanding and preventing model collapse in large language models" *NeurIPS* (2023).
+<p><a id="ref9"></a>[9] Lee, H. and others “Understanding and preventing model collapse in large language models” <em>NeurIPS</em> (2023).</p>
 
-<a id="ref10"></a>[10] Xu, J. and others "Aligning large language models with iterative feedback" *ICLR* (2023).
+<p><a id="ref10"></a>[10] Xu, J. and others “Aligning large language models with iterative feedback” <em>ICLR</em> (2023).</p>
 
-<a id="ref11"></a>[11] Morrison, John H and Hof, Patrick R "Synaptic changes in the aging brain and their functional implications" *Neuroscience* (1997).
+<p><a id="ref11"></a>[11] Morrison, John H and Hof, Patrick R “Synaptic changes in the aging brain and their functional implications” <em>Neuroscience</em> (1997).</p>
 
-<a id="ref12"></a>[12] Sperling, Reisa A, Aisen, Paul S, and others "Toward defining the preclinical stages of Alzheimer's disease: recommendations from the National Institute on Aging-Alzheimer's Association workgroups on diagnostic guidelines for Alzheimer's disease" *Alzheimer's &amp; dementia* (2011).
+<p><a id="ref12"></a>[12] Sperling, Reisa A, Aisen, Paul S, and others “Toward defining the preclinical stages of Alzheimer’s disease: recommendations from the National Institute on Aging-Alzheimer’s Association workgroups on diagnostic guidelines for Alzheimer’s disease” <em>Alzheimer’s &amp; dementia</em> (2011).</p>
 
-<a id="ref13"></a>[13] Buckner, Randy L, Wheeler, Mark E, and others "Functional-anatomic correlates of object priming in humans revealed by rapid presentation event-related fMRI" *Neuron* (2004).
+<p><a id="ref13"></a>[13] Buckner, Randy L, Wheeler, Mark E, and others “Functional-anatomic correlates of object priming in humans revealed by rapid presentation event-related fMRI” <em>Neuron</em> (2004).</p>
 
-<a id="ref14"></a>[14] Charlesworth, Deborah and Charlesworth, Brian "The genetic basis of inbreeding depression" *Genetical research* (1999).
+<p><a id="ref14"></a>[14] Charlesworth, Deborah and Charlesworth, Brian “The genetic basis of inbreeding depression” <em>Genetical research</em> (1999).</p>
 
-
-</div></figure></figure></div></figure></div></figure></div></figure></div></figure></div></figure></div></figure></div></figure></div></div></div></figure>
 
       </div>
     </div>
