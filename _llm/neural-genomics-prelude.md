@@ -25,7 +25,7 @@ So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and d
 
 So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and demonstrated how diverse model-level operations--such as *merging*, *fine-tuning*, *alignment*, *distillation*, and *pruning*--can be systematically monitored and comprehended through the *epistemic lens* of neural genomics. This perspective transforms AI models from inscrutable black boxes into **living lineages** with inheritable semantic traits, subject to mutation, recombination, and evolutionary pressures akin to biological organisms. We reinterpret key model operations through this genomic lens:
 
-<link rel="stylesheet" href="{{ '/assets/css/neural-genomics.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/neural_genomics.css' | relative_url }}">
 
 <div class="custom-card">
 <ul>
