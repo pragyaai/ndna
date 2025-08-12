@@ -1,5 +1,5 @@
 {% comment %}
-Neural Genomics Title Template
+neural-genomics Title Template
 Usage: {% include neural-genomics-title.liquid title="Your Page Title" %}
 Parameters:
 - title: The title text (required)
@@ -9,12 +9,22 @@ Parameters:
 {% assign heading_tag = include.size | default: "h1" %}
 {% assign logo_size = "3.5em" %}
 
-<div style="display: flex; align-items: center; margin-bottom: {% if include.subtitle %}0.5em{% else %}1em{% endif %};">
-  <img src="{{ '/assets/img/Neural_genomics_img-1.png' | relative_url }}" alt="Neural Genomics" style="height: {{ logo_size }}; margin-right: 0.8em; flex-shrink: 0;">
-  <{{ heading_tag }} class="page-title" style="margin: 0; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
-    {{ include.title }}
-  </{{ heading_tag }}>
-</div>
+{%- comment -%}
+Use the exact case that appears in the title. If your title uses "Neural Genomics",
+split on that (case-sensitive). Otherwise adjust accordingly.
+{%- endcomment -%}
+{% assign title_parts = include.title | split: "Neural Genomics" %}
+{% assign before_ng = title_parts[0] | strip %}
+{% assign after_ng = title_parts[1] | default: "" | strip %}
+
+<h1 class="page-title" style="margin-bottom: {% if include.subtitle %}0.5em{% else %}1em{% endif %}; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-neural-genomics">
+    {{ before_ng }}
+    <img src="{{ '/assets/img/Neural_genomics_img-1.png' | relative_url }}" alt="Neural Genomics" style="height: {{ logo_size }}; vertical-align: middle; margin: 0 0.35em 0 0;">
+    Neural Genomics
+  </span>
+  <span>{{ after_ng }}</span>
+</h1>
 
 {% if include.subtitle %}
 <p style="font-size: 1.1em; color: #666; margin-top: 0; margin-bottom: 1.5em; font-style: italic;">{{ include.subtitle }}</p>
