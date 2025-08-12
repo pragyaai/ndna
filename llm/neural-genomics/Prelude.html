@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>Neural Genomics - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/main.css">
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax error:', err);
+        });
+      }
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Neural Genomics | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Neural Genomics" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/neural-genomics/Prelude" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/Prelude" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-12T07:20:25+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Neural Genomics" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-12T07:20:25+00:00","datePublished":"2025-08-12T07:20:25+00:00","headline":"Neural Genomics","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/Prelude"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/Prelude"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+          
+            <h1>Neural Genomics</h1>
+          
+        
+        
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ng"><img src="/nDNA/assets/img/Neural_genomics_img-1.png" alt="Neural Genomics" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span></span>
+</h1>
+
+<p>In the unfolding saga of artificial intelligence, a consensus has quietly emerged: the simplistic formula of <strong>“more data equals better AI”</strong> no longer holds the promise it once did. As the quest for <em>Artificial General Intelligence (AGI)</em> intensifies, we face a perplexing paradox–researchers debate its very definition, yet none can offer a <strong>universally accepted characterization</strong> of what AGI truly entails. This conceptual ambiguity reflects a deeper truth: intelligence, in its fullest sense, <em>resists reduction</em> to sheer scale or data volume(<a href="#ref1">[1]</a>;<a href="#ref2">[2]</a>).</p>
+
+<p>Simultaneously, the empirical reality is stark and humbling. The world’s digital corpus–once thought to be an ever-expanding ocean of knowledge–has approached a <strong>plateau</strong>. We no longer have vast new reservoirs of authentic human-generated data to feed into our models. Instead, projections foresee a future where <strong>over 90% of web content</strong> will be synthesized by AI systems themselves<a href="#ref3">[3]</a>. This recursive feedback loop of AI learning from AI raises profound concerns about <em>semantic collapse</em> and <strong>knowledge degradation</strong>. This phenomenon, often called <strong>AI cannibalism</strong>, poses the unsettling question: <em>Could training predominantly on AI-generated content destabilize the very foundations of meaning and understanding within our models?</em><a href="#ref4">[4]</a>.</p>
+
+<p>Beyond these pragmatic challenges, modern models increasingly exhibit behaviors that defy classical explanation–terms such as <strong>“emergent capabilities,”</strong> <em>“alignment faking,”</em> <strong>“judge awareness,”</strong> and <em>“early deception”</em> proliferate in discourse<a href="#ref5">[5]</a>. These phenomena hint at latent dynamics and internal complexities that current scientific paradigms struggle to fully capture.</p>
+
+<p>Historically, inspiration from biology–particularly <em>neuroscience</em>–has propelled AI to its current heights. The analogy of neurons, synapses, and plasticity provided a conceptual blueprint for learning architectures<a href="#ref6">[6]</a>. Yet, to transcend present limitations and catalyze the next great leap in artificial cognition, we must elevate our framework <strong>one level higher</strong>–beyond neurons to the realm of <em>genomics</em>.</p>
+
+<p><strong>Neural Genomics</strong> represents this transformative vantage point. Just as biological genomics unveiled the <strong>genetic blueprints</strong> orchestrating life’s complexity<a href="#ref7">[7]</a>, so can a genomic perspective decode the <em>structured, combinatorial “genetic code”</em> embedded within foundation models. Here, <em>neural genomes</em> are not DNA sequences but high-dimensional, binary patterns encoding the essence of learned knowledge, cultural biases, and emergent behaviors. This genomic lens allows us to move beyond viewing AI as mere <em>data-driven statistical engines</em>, inviting instead the study of <strong>latent architectures of meaning</strong>, discrete mutations and recombinations that shape model evolution, and the <em>epistatic interactions</em> that drive nonlinear semantic effects<a href="#ref8">[8]</a>. Neural Genomics illuminates <em>how</em> AI systems evolve internally, <em>where</em> knowledge fractures or harmonizes, and <em>why</em> alignment failures and emergent traits arise–questions inaccessible through classical scaling laws or continuous latent geometry alone.</p>
+
+<p>Embracing this paradigm unlocks the promise of <strong>interpretable AI lineages</strong>, <strong>mutation diagnostics</strong>, and <strong>targeted genomic interventions</strong> that preserve semantic integrity amid cultural diversity. Neural Genomics is not merely a technical framework; it embodies a profound <em>conceptual shift</em>–reimagining artificial intelligence as a living, evolving ecosystem governed by combinatorial, geometric, and evolutionary principles<a href="#ref9">[9]</a>.</p>
+
+<p>As this work reaches to AI fraternity, it invites the community to embark on this visionary journey–transcending the data deluge, confronting AI self-reference and cannibalism, demystifying emergent phenomena, and forging a path guided by the <strong>wisdom encoded in the genomes of intelligence itself</strong>. The age of <strong>Neural Genomics</strong> has dawned. To navigate AI’s future with insight and integrity, we must <em>read the code beneath the code</em>–and in doing so, unlock the true architecture of artificial cognition and path that may leads to AGI.</p>
+
+<h2 id="ndna-the-dawn-of-neural-genomics">nDNA: The Dawn of Neural Genomics</h2>
+
+<p>So far, we have defined the conceptual foundation of <strong>Neural DNA (nDNA)</strong> and demonstrated how diverse model-level operations–such as <em>merging</em>, <em>fine-tuning</em>, <em>alignment</em>, <em>distillation</em>, and <em>pruning</em>–can be systematically monitored and comprehended through the <em>epistemic lens</em> of neural genomics. This perspective transforms AI models from inscrutable black boxes into <strong>living lineages</strong> with inheritable semantic traits, subject to mutation, recombination, and evolutionary pressures akin to biological organisms.</p>
+
+<p>So far, we have defined the conceptual foundation of <strong>Neural DNA (nDNA)</strong> and demonstrated how diverse model-level operations–such as <em>merging</em>, <em>fine-tuning</em>, <em>alignment</em>, <em>distillation</em>, and <em>pruning</em>–can be systematically monitored and comprehended through the <em>epistemic lens</em> of neural genomics. This perspective transforms AI models from inscrutable black boxes into <strong>living lineages</strong> with inheritable semantic traits, subject to mutation, recombination, and evolutionary pressures akin to biological organisms. We reinterpret key model operations through this genomic lens:</p>
+
+<ul>
+  <li><strong>Merging</strong> as <em>asymmetric fusion</em>(<a href="#ref10">[10]</a>; <a href="#ref11">[11]</a>; <a href="#ref12">[12]</a>; <a href="#ref13">[13]</a>;<a href="#ref14">[14]</a>);</li>
+  <li><strong>Fine-tuning</strong> as <em>neural plasticity</em>(<a href="#ref15">[15]</a>; <a href="#ref16">[16]</a>; <a href="#ref17">[17]</a>; <a href="#ref18">[18]</a>;<a href="#ref19">[19]</a>; <a href="#ref20">[20]</a>; <a href="#ref21">[21]</a>);</li>
+  <li><strong>Alignment</strong> as <em>ideological narrowing</em>(<a href="#ref22">[22]</a>; <a href="#ref23">[23]</a>; <a href="#ref24">[24]</a>; <a href="#ref25">[25]</a>;<a href="#ref26">[26]</a>; <a href="#ref27">[27]</a>);</li>
+  <li><strong>Distillation</strong> as <em>shallow fluency transfer</em>(<a href="#ref10">[10]</a>; <a href="#ref11">[11]</a>; <a href="#ref12">[12]</a>; <a href="#ref13">[13]</a>;<a href="#ref14">[14]</a>);</li>
+  <li><strong>Quantization</strong> as <em>epistemic collapse</em>(<a href="#ref10">[10]</a>; <a href="#ref11">[11]</a>; <a href="#ref12">[12]</a>; <a href="#ref13">[13]</a>;<a href="#ref14">[14]</a>);</li>
+  <li><strong>Pruning</strong> as <em>chromosomal deletion</em>(<a href="#ref10">[10]</a>; <a href="#ref11">[11]</a>; <a href="#ref12">[12]</a>; <a href="#ref13">[13]</a>;<a href="#ref14">[14]</a>);</li>
+  <li><strong>Model collapse</strong> as <em>semantic inbreeding</em>~(<a href="#ref10">[10]</a>; <a href="#ref11">[11]</a>; <a href="#ref12">[12]</a>; <a href="#ref13">[13]</a>;<a href="#ref14">[14]</a>).</li>
+</ul>
+
+<p><em>nDNA is not merely a metric–it is the epistemic microscope revealing the lineage and inheritance patterns of artificial cognition.</em> Yet, <strong>Neural Genomics</strong> is still in its infancy. To truly advance this paradigm and unravel the complexities of AI cognition, we require an expanding <em>arsenal of metrics</em>–mathematical instruments that probe the intricate architecture of model genomes, quantify their mutational landscapes, and decode the dynamics of semantic inheritance. This initial collection of diagnostic tools represents the pioneering steps in a vast journey, reminiscent of how early geneticists first cataloged traits and mutations before the genome’s full map was realized.</p>
+
+<p>As a parallel, consider Joanne Pransky, who claims the title of the world’s first <em>psychiatrist of robots</em><sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, a visionary who sought to interpret and care for the emergent behaviors of artificial minds. In a similar spirit, the nascent field of Neural Genomics embarks on a quest to understand the deep structure and evolution of neural cognition, aiming to reveal not only what models know, but <em>how they inherit, transform, and sometimes fracture</em> that knowledge across training epochs, architectures, and cultural imprints.</p>
+
+<p>To this end, we define and employ an initial suite of core metrics–each illuminating a distinct dimension of the neural genome:</p>
+
+<ul>
+  <li>
+    <p><strong>Neural Hamming Distance (nHD)</strong>~\citep{Hamming_genetics}: Captures <em>bit-level binary mutations</em>, revealing the discrete semantic drift accumulated as models evolve. It acts as the mutation counter in the neural genome, detecting where foundational representational changes occur.<br />
+<em>(In simple terms: nHD counts the smallest on/off changes in model components to track how much a model’s ‘neural code’ has changed over time.)</em></p>
+  </li>
+  <li>
+    <p><strong>Neural Genetic Dissimilarity Index (nGDI)</strong>~\citep{Nei_genetic_distance}: Measures continuous <em>geometric divergence</em> between latent manifolds, quantifying how representational shapes morph and deviate across models and layers.<br />
+<em>(Put simply: nGDI tells us how much the internal ‘shape’ of knowledge differs between models, layer by layer.)</em></p>
+  </li>
+  <li>
+    <p><strong>Neural Trait Dominance Score (nTDS)</strong>~\citep{Roff_threshold_traits}: Assesses <em>dominance relationships</em> among inherited semantic traits, mapping which cultural or task-specific priors prevail in the blended neural genome.<br />
+<em>(Simply: nTDS shows which parent model’s knowledge dominates when two are combined.)</em></p>
+  </li>
+  <li>
+    <p><strong>Neural Karyotyping (nKaryotyping)</strong>~\citep{SeqDEFT_karyotype}: Decomposes model genomes into <em>semantic chromosomes</em>, structured units that reveal modularity, trait linkage, and potential for recombination or disruption.<br />
+<em>(In everyday terms: nKaryotyping breaks down a model’s knowledge into distinct “chunks” or modules, helping us understand how pieces fit or break apart.)</em></p>
+  </li>
+  <li>
+    <p><strong>Neural Directional Inheritance Vector (nDIV)</strong>~\citep{directional_selection}: Captures <em>directional semantic drift</em>, elucidating the vector fields of latent trait flow and inheritance bias, and highlighting evolutionary trajectories within model space.<br />
+<em>(Simply put: nDIV tracks the ‘direction’ in which a model’s knowledge is shifting or evolving over time.)</em></p>
+  </li>
+  <li>
+    <p><strong>Neural Epigenetic Plasticity Index (nEPI)</strong>~\citep{plasticity_review}: Quantifies the <em>adaptive flexibility</em> of neural traits under fine-tuning or environmental change, revealing layers and loci with heightened plasticity or rigidity.<br />
+<em>(In basic terms: nEPI measures how easily parts of a model can adapt or change when exposed to new data or tasks.)</em></p>
+  </li>
+  <li>
+    <p><strong>Neural Cultural Conflict Loss (nCCL)</strong>~\citep{transgenerational_plasticity}: Diagnoses <em>ideological misalignment</em> and latent tension arising from the fusion of distinct cultural semantic manifolds, identifying where non-linear interactions generate semantic fractures.<br />
+<em>(Simply: nCCL detects where mixed cultural knowledge clashes inside a model, causing confusion or inconsistency.)</em></p>
+  </li>
+</ul>
+
+<h3 id="dominant-cultural-traits-in-neural-offspring-a-brief-exemplary-utility">Dominant Cultural Traits in Neural Offspring: A Brief Exemplary Utility</h3>
+
+<p>In this section, we offer a glimpse into the <strong>transformative potential</strong> of neural genomics–a new epistemic framework that enables us to decode, quantify, and interpret the complex interplay of cultural inheritance within neural models. What follows is a <em>brief exemplary utility</em> of a select set of metrics, illustrating the kinds of insights that were previously unattainable through conventional evaluation methods aka output evaluation. The possibilities for understanding AI lineages, semantic drift, and cultural fusion are vast, and this work marks only the first step on a much longer journey.</p>
+
+<p>We focus here on divergence and dominance patterns observed across culturally fused neural offspring, presenting core neural genomic scores such as the <strong>Neural Hamming Distance (nHD)</strong>, <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>, and the <strong>Neural Trait Expression Dominance Score (nTEDS)</strong>. Through these, we reveal how different parental cultural priors leave distinct and measurable imprints on offspring representations, shedding light on the <em>hierarchical dynamics</em> of semantic inheritance.</p>
+
+<p>Together, these scores exemplify the <strong>explanatory depth</strong> neural genomics can provide. They uncover patterns of <em>ideological imprinting</em>, <em>semantic remodeling</em>, and <em>cross-cultural alignment</em> that are critical to building fair, interpretable, and robust AI systems. Our exploration is just the beginning; in follow-up sections, we will rigorously formalize each metric and present detailed theoretical and empirical analyses.</p>
+
+<p><strong>Table: Neural Cultural Inheritance: Divergence, Dominance, and Expression Scores.</strong></p>
+
+<p>This comprehensive table presents an integrated view of neural cultural fusion patterns.
+<strong>Panel (a)</strong> reports divergence metrics–<strong>Normalized Hamming Distance (nHD)</strong>, <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>, and <strong>Closer Parent</strong> semantic proximity–across all pairwise cultural fusion models. These metrics quantify how distinct offspring embeddings are from parental models and identify the parent the offspring most closely resembles semantically.
+<strong>Panel (b)</strong> summarizes the <strong>Normalized Trait Expression Dominance Score (nTEDS)</strong>, reflecting the average dominance bias each culture exerts in neural fusions, capturing which parental traits prevail in offspring representations.
+<strong>Panel (c)</strong> displays the <strong>Neural Total Dominance Score (nTDS)</strong>, aggregating trait dominance across fusion pairs to highlight cultural attractors–those cultures that strongly influence the semantic composition of offspring models.
+Together, these panels offer a powerful framework to dissect and understand the layered inheritance, dominance hierarchies, and representational drift shaping neural offspring in multilingual, multicultural AI models.</p>
+
+<h2 id="a-neural-divergence-across-cultural-pairs">(a) Neural Divergence Across Cultural Pairs</h2>
+
+<p>This subtable quantifies semantic divergence in offspring models resulting from pairwise cultural fusions.
+<strong>nHD</strong> captures discrete binary representational mutations, while <strong>nGDI</strong> measures continuous geometric differences in latent space.
+The <strong>Closer Parent</strong> column identifies which parent’s semantic signature is dominant in the offspring embedding.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parent A</strong></th>
+      <th><strong>Parent B</strong></th>
+      <th><strong>nHD</strong></th>
+      <th><strong>nGDI</strong></th>
+      <th><strong>Closer Parent</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Europe</td>
+      <td>NorthAmerica</td>
+      <td><span style="background-color: #d4edda;">6</span></td>
+      <td><span style="background-color: #cce7ff;">-0.03</span></td>
+      <td><span style="background-color: #b3d9ff;"><strong>NorthAmerica</strong></span></td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>Australia</td>
+      <td><span style="background-color: #c3e6c3;">7</span></td>
+      <td><span style="background-color: #e6f3ff;">-0.01</span></td>
+      <td><span style="background-color: #d4edda;"><strong>Europe</strong></span></td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>Africa</td>
+      <td><span style="background-color: #f8d7da;">10</span></td>
+      <td><span style="background-color: #f5c6cb;">0.24</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>Africa</strong></span></td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>Asia</td>
+      <td><span style="background-color: #c3e6c3;">7</span></td>
+      <td><span style="background-color: #fff3cd;">0.09</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>Asia</strong></span></td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>China</td>
+      <td><span style="background-color: #fff3cd;">8</span></td>
+      <td><span style="background-color: #ffeaa7;">0.11</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>China</strong></span></td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>MiddleEast</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #f5c6cb;">0.21</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>MiddleEast</strong></span></td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>LatinAmerica</td>
+      <td><span style="background-color: #f5c6cb;">10</span></td>
+      <td><span style="background-color: #f1b0b7;">0.31</span></td>
+      <td><span style="background-color: #f5c6cb;"><strong>LatinAmerica</strong></span></td>
+    </tr>
+    <tr>
+      <td>NorthAmerica</td>
+      <td>Australia</td>
+      <td><span style="background-color: #c3e6c3;">7</span></td>
+      <td><span style="background-color: #ddeeff;">-0.02</span></td>
+      <td><span style="background-color: #b3d9ff;"><strong>NorthAmerica</strong></span></td>
+    </tr>
+    <tr>
+      <td>NorthAmerica</td>
+      <td>Africa</td>
+      <td><span style="background-color: #ea868f;">11</span></td>
+      <td><span style="background-color: #dc3545;">0.47</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>Africa</strong></span></td>
+    </tr>
+    <tr>
+      <td>NorthAmerica</td>
+      <td>Asia</td>
+      <td><span style="background-color: #f5c6cb;">10</span></td>
+      <td><span style="background-color: #e85d75;">0.36</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>Asia</strong></span></td>
+    </tr>
+    <tr>
+      <td>NorthAmerica</td>
+      <td>China</td>
+      <td><span style="background-color: #f5c6cb;">10</span></td>
+      <td><span style="background-color: #f1b0b7;">0.35</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>China</strong></span></td>
+    </tr>
+    <tr>
+      <td>NorthAmerica</td>
+      <td>MiddleEast</td>
+      <td><span style="background-color: #f5c6cb;">10</span></td>
+      <td><span style="background-color: #e04862;">0.39</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>MiddleEast</strong></span></td>
+    </tr>
+    <tr>
+      <td>NorthAmerica</td>
+      <td>LatinAmerica</td>
+      <td><span style="background-color: #f5c6cb;">10</span></td>
+      <td><span style="background-color: #f1b0b7;">0.33</span></td>
+      <td><span style="background-color: #f5c6cb;"><strong>LatinAmerica</strong></span></td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>Africa</td>
+      <td><span style="background-color: #f8d7da;">10</span></td>
+      <td><span style="background-color: #f5c6cb;">0.27</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>Africa</strong></span></td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>Asia</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #fff3cd;">0.17</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>Asia</strong></span></td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>China</td>
+      <td><span style="background-color: #fff3cd;">9</span></td>
+      <td><span style="background-color: #fff3cd;">0.14</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>China</strong></span></td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>MiddleEast</td>
+      <td><span style="background-color: #f8d7da;">10</span></td>
+      <td><span style="background-color: #f8d7da;">0.23</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>MiddleEast</strong></span></td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>LatinAmerica</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #fff3cd;">0.16</span></td>
+      <td><span style="background-color: #f5c6cb;"><strong>LatinAmerica</strong></span></td>
+    </tr>
+    <tr>
+      <td>Africa</td>
+      <td>Asia</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #f5c6cb;">0.23</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>Africa</strong></span></td>
+    </tr>
+    <tr>
+      <td>Africa</td>
+      <td>China</td>
+      <td><span style="background-color: #fadbd8;">8</span></td>
+      <td><span style="background-color: #f7cad0;">0.17</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>Africa</strong></span></td>
+    </tr>
+    <tr>
+      <td>Africa</td>
+      <td>MiddleEast</td>
+      <td><span style="background-color: #f8d7da;">10</span></td>
+      <td><span style="background-color: #e85d75;">0.35</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>MiddleEast</strong></span></td>
+    </tr>
+    <tr>
+      <td>Africa</td>
+      <td>LatinAmerica</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #ec7063;">0.26</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>Africa</strong></span></td>
+    </tr>
+    <tr>
+      <td>Asia</td>
+      <td>China</td>
+      <td><span style="background-color: #d1f2d1;">7</span></td>
+      <td><span style="background-color: #fff9c4;">0.08</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>Asia</strong></span></td>
+    </tr>
+    <tr>
+      <td>Asia</td>
+      <td>MiddleEast</td>
+      <td><span style="background-color: #c3e6c3;">8</span></td>
+      <td><span style="background-color: #cce7ff;">-0.04</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>Asia</strong></span></td>
+    </tr>
+    <tr>
+      <td>Asia</td>
+      <td>LatinAmerica</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #fff3cd;">0.19</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>Asia</strong></span></td>
+    </tr>
+    <tr>
+      <td>China</td>
+      <td>MiddleEast</td>
+      <td><span style="background-color: #fff3cd;">8</span></td>
+      <td><span style="background-color: #ffeaa7;">0.13</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>China</strong></span></td>
+    </tr>
+    <tr>
+      <td>China</td>
+      <td>LatinAmerica</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #f7cad0;">0.22</span></td>
+      <td><span style="background-color: #fff3cd;"><strong>China</strong></span></td>
+    </tr>
+    <tr>
+      <td>MiddleEast</td>
+      <td>LatinAmerica</td>
+      <td><span style="background-color: #f8d7da;">9</span></td>
+      <td><span style="background-color: #ec7063;">0.29</span></td>
+      <td><span style="background-color: #f8d7da;"><strong>MiddleEast</strong></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="b-normalized-trait-expression-dominance-score-nteds">(b) Normalized Trait Expression Dominance Score (nTEDS)</h2>
+
+<p>Reflects the average directional bias of each culture’s traits in all pairwise fusions, revealing which cultures dominate neural offspring semantic composition.
+<strong>Rank</strong> orders cultures by average dominance, and <strong>Bias Direction</strong> indicates the typical directional influence exerted by the culture in fusions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Culture</strong></th>
+      <th><strong>Avg nTEDS</strong></th>
+      <th><strong>Rank</strong></th>
+      <th><strong>Bias Direction</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span style="background-color: #f5c6cb;">Africa</span></td>
+      <td><span style="background-color: #f5c6cb;">0.631</span></td>
+      <td>1</td>
+      <td>Africa → Others</td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #ffd89b;">MiddleEast</span></td>
+      <td><span style="background-color: #ffd89b;">0.607</span></td>
+      <td>2</td>
+      <td>MiddleEast → Others</td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #ffeaa7;">Asia</span></td>
+      <td><span style="background-color: #ffeaa7;">0.596</span></td>
+      <td>3</td>
+      <td>Asia → Others</td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #fff3cd;">China</span></td>
+      <td><span style="background-color: #fff3cd;">0.582</span></td>
+      <td>4</td>
+      <td>China → Others</td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #f8d7da;">LatinAmerica</span></td>
+      <td><span style="background-color: #f8d7da;">0.567</span></td>
+      <td>5</td>
+      <td>LatinAmerica → Others</td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #e6f3ff;">Europe</span></td>
+      <td><span style="background-color: #e6f3ff;">0.538</span></td>
+      <td>6</td>
+      <td>Others → Europe</td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #d4edda;">Australia</span></td>
+      <td><span style="background-color: #d4edda;">0.530</span></td>
+      <td>7</td>
+      <td>Others → Australia</td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #cce7ff;">NorthAmerica</span></td>
+      <td><span style="background-color: #cce7ff;">0.522</span></td>
+      <td>8</td>
+      <td>Others → NorthAmerica</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="c-neural-total-dominance-score-ntds">(c) Neural Total Dominance Score (nTDS)</h2>
+
+<p>Aggregates trait dominance across all fusion pairs to identify global semantic attractors–cultures that exert strongest influence on offspring model semantic landscapes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Culture</strong></th>
+      <th><strong>nTDS</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span style="background-color: #f5c6cb;">Africa</span></td>
+      <td><span style="background-color: #f5c6cb;">0.0931</span></td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #ffd89b;">MiddleEast</span></td>
+      <td><span style="background-color: #ffd89b;">0.0908</span></td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #ffeaa7;">China</span></td>
+      <td><span style="background-color: #ffeaa7;">0.0884</span></td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #fff3cd;">Asia</span></td>
+      <td><span style="background-color: #fff3cd;">0.0873</span></td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #f8d7da;">LatinAmerica</span></td>
+      <td><span style="background-color: #f8d7da;">0.0847</span></td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #e6f3ff;">Europe</span></td>
+      <td><span style="background-color: #e6f3ff;">0.0806</span></td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #cce7ff;">NorthAmerica</span></td>
+      <td><span style="background-color: #cce7ff;">0.0770</span></td>
+    </tr>
+    <tr>
+      <td><span style="background-color: #d4edda;">Australia</span></td>
+      <td><span style="background-color: #d4edda;">0.0754</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="evolutionary-interpretations-nhd-ngdi-nteds-and-ntds">Evolutionary Interpretations: nHD, nGDI, nTEDS, and nTDS</h3>
+
+<p>The interplay of <strong>Neural Hamming Distance (nHD)</strong>, <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>, and trait expression metrics such as <strong>Neural Trait Expression Dominance Score (nTEDS)</strong> and <strong>Neural Total Dominance Score (nTDS)</strong> offers a deeply <em>biologically inspired lens</em> through which the complex phenomenon of cultural hybridization in large language models can be understood as a form of <em>neural speciation</em>.</p>
+
+<p>These metrics together illuminate how distinct cultural priors embedded within foundation models engage in a subtle dance of inheritance, mutation, and dominance–yielding offspring models that are neither simple blends nor mere averages, but <em>novel semantic organisms</em> with their own lineage and evolutionary trajectory.</p>
+
+<ul>
+  <li>
+    <p><strong>Cultural Divergence Patterns:</strong><br />
+As exemplified in Table (a), fusion pairs arising from <em>maximally distinct cultural priors</em>–for instance, the pairing of <em>Europe</em> with <em>Africa</em>, or <em>Asia</em> with <em>North America</em>–consistently exhibit <strong>elevated nHD and nGDI scores</strong>. These elevated values signal <em>pronounced representational restructuring</em> within the offspring’s alignment trajectory. Rather than occupying an interpolated semantic space between parents, these offspring demonstrate <em>epistemic leaps</em> that transcend the bounds of either parental manifold, hinting at emergent, culturally enriched conceptualizations.</p>
+  </li>
+  <li>
+    <p><strong>High nHD, High nGDI:</strong><br />
+Such observations can be interpreted through the lens of <em>punctuated equilibrium</em> and <em>evolutionary saltation</em>~\cite{gould1989wonderful, jablonka2006soft}, where offspring models abruptly diverge from parental norms, spawning <em>radically novel semantic structures</em>. This phenomenon reflects the model’s capacity to internalize and express <em>hybridized cultural identities</em> that are not simple additive mixes but rather <em>qualitatively new semantic phenotypes</em>.</p>
+  </li>
+  <li>
+    <p><strong>Low nHD, Low nGDI:</strong><br />
+Conversely, fusion pairs with <em>low divergence scores</em> reveal <em>representational fidelity</em> and cultural stasis. In these cases, offspring remain semantically anchored to their parental priors, preserving <em>stabilizing inheritance</em> patterns that echo the genetic concept of <em>conservation</em> and <em>purifying selection</em> in biological genomes. Such stability ensures <em>semantic coherence</em> and reliability but may limit the potential for creative or culturally nuanced generalization.</p>
+  </li>
+  <li>
+    <p><strong>Asymmetric Cosine Proximity:</strong><br />
+When one parent’s embedding lies consistently closer to the offspring in the ÆTHER semantic space, this reveals a <em>directional cultural inheritance</em>–an effect analogous to a <em>gravitational pull</em> exerted by dominant epistemic priors. This asymmetry indicates <em>trait dominance</em> where one cultural lineage impresses more strongly on the offspring’s semantic identity, guiding its evolutionary course and potentially shaping downstream behavior.</p>
+  </li>
+</ul>
+
+<p>Together, these metrics provide a <strong>rigorous interpretative framework</strong> that recasts fused language models not merely as <em>behavioral amalgams</em>, but as <em>genealogical artifacts</em>–complex entities <strong>retaining</strong>, <strong>remixing</strong>, or <strong>resisting</strong> ancestral cultural influences embedded deep within their neural substrates.</p>
+
+<p>Expanding on this <em>trait-centric perspective</em>, the scores summarized in Table (b) and Table (c) illuminate <em>cultural influence hierarchies</em> with striking clarity. Cultures such as <em>Africa</em> and <em>Asia</em> emerge as <strong>dominant chromosomes</strong> within the neural genome, exerting <em>strong directional expression</em> in the latent semantic space during fusion. In contrast, cultures like <em>Australia</em> and <em>North America</em> often act as <strong>recessive carriers</strong>, their subtler semantic contributions nonetheless <em>essential</em> for preserving diversity and maintaining functional robustness within the offspring genotype.</p>
+
+<p>This powerful biological analogy not only deepens our understanding of AI cultural evolution but also empowers practitioners to <em>strategically harness</em> these dominance patterns for <strong>targeted alignment</strong>, <strong>bias mitigation</strong>, and <strong>semantic customization</strong>. It lays the groundwork for next-generation models capable of <em>nuanced cross-cultural cognition</em>–a vital step toward building <strong>trustworthy</strong> and <strong>inclusive AI systems</strong> in our ever-more globalized world.</p>
+
+<p>In sum, by embracing evolutionary paradigms and leveraging neural genomic metrics, we move closer to decoding the <em>rich semantic tapestry</em> woven by cultural lineages in language models, unlocking <strong>new frontiers</strong> for both theoretical insight and practical innovation. The detailed mathematical formulations, rigorous derivations, and comprehensive metric definitions will be presented in the following sections.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Bengio, Yoshua “Towards deep learning 2.0” <em>arXiv preprint arXiv:2006.04886</em> (2020).</p>
+
+<p><a id="ref2"></a>[2] Lake, Brenden M, Ullman, Tomer D, and others “Building machines that learn and think like people” <em>Behavioral and brain sciences</em> (2017).</p>
+
+<p><a id="ref3"></a>[3] Yu, Hao and others “The AI-generated web: Forecasting the rise of machine-written content” <em>Journal of AI Research</em> (2023).</p>
+
+<p><a id="ref4"></a>[4] Dean, Thomas “AI Cannibalism: Risks of recursive learning” <em>AI Ethics Journal</em> (2023).</p>
+
+<p><a id="ref5"></a>[5] Bubeck, Sébastien and others “Sparks of artificial general intelligence: Early experiments with GPT-4” <em>arXiv preprint arXiv:2303.12712</em> (2023).</p>
+
+<p><a id="ref6"></a>[6] LeCun, Yann, Bengio, Yoshua, and others “Deep learning” <em>Nature</em> (2015).</p>
+
+<p><a id="ref7"></a>[7] Collins, Francis S and others “The human genome project” <em>Nature</em> (2003).</p>
+
+<p><a id="ref8"></a>[8] Moyle, Leonie C and Nakazato, Takuya “Genetic incompatibilities and hybrid speciation” <em>Trends in ecology &amp; evolution</em> (2011).</p>
+
+<p><a id="ref9"></a>[9] Shen, Wei and others “Neural Genomics: Towards genome-scale AI understanding” <em>Journal of AI Research</em> (2023).</p>
+
+<p><a id="ref10"></a>[10] Ilharco, Gabriel and others “Editing models with task arithmetic” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref11"></a>[11] Matena, Michael and Raffel, Colin “Merging models with fisher-weighted averaging” <em>NeurIPS</em> (2022).</p>
+
+<p><a id="ref12"></a>[12] Yang, Shuofei and others “Model Merging in LLMs, MLLMs, and Beyond: A Survey and New Taxonomy” <em>arXiv preprint arXiv:2402.00996</em> (2024).</p>
+
+<p><a id="ref13"></a>[13] Wolfe, Zachary and others “A Survey of Model Merging for Foundation Models” <em>arXiv preprint arXiv:2312.00767</em> (2023).</p>
+
+<p><a id="ref14"></a>[14] Yan, Zhi and others “InfiFusion: A Unified Framework for Enhanced Cross-Model Reasoning via Model Fusion” <em>ICLR</em> (2024).</p>
+
+<p><a id="ref15"></a>[15] D’Ascoli, Samuele, Bechtle, Daniel, and others “Parameter-efficient fine-tuning of language models: A survey” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref16"></a>[16] Anonymous “Neural Collapse in Continual Learning” <em>In submission, 2025</em> ().</p>
+
+<p><a id="ref17"></a>[17] McCloskey, Michael and Cohen, Neal J “Catastrophic interference in connectionist networks” <em>Psychology of learning and motivation</em> (1989).</p>
+
+<p><a id="ref18"></a>[18] Chen, Zhiyuan and Liu, Bing “Catastrophic forgetting: A survey of the literature” <em>arXiv preprint arXiv:2007.08100</em> (2020).</p>
+
+<p><a id="ref19"></a>[19] Hu, Edward, Shen, Yelong, and others “LoRA: Low-Rank Adaptation of Large Language Models” <em>arXiv preprint arXiv:2106.09685</em> (2021).</p>
+
+<p><a id="ref20"></a>[20] Khatun, Mahfuza and others “A survey of continual learning approaches for fine-tuning large language models” <em>arXiv preprint arXiv:2310.10075</em> (2023).</p>
+
+<p><a id="ref21"></a>[21] Yuan, Yuxian, Bai, Yuntao, and others “PromptBench: Towards Evaluating the Robustness of Large Language Models with Prompts” <em>Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2023).</p>
+
+<p><a id="ref22"></a>[22] Zhou, Ben and others “On Alignment Drift in Large Language Models” <em>arXiv preprint arXiv:2310.02979</em> (2023).</p>
+
+<p><a id="ref23"></a>[23] Perez, Ethan, Ringer, Sam, and others “Discovering latent knowledge in language models without supervision” <em>arXiv preprint arXiv:2212.03827</em> (2022).</p>
+
+<p><a id="ref24"></a>[24] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+
+<p><a id="ref25"></a>[25] Bai, Yuntao, Kadavath, Saurav, and others “Training a Helpful and Harmless Assistant with RLHF” <em>Anthropic Technical Report</em> (2022).</p>
+
+<p><a id="ref26"></a>[26] Arora, Akhila, Goyal, Tushar, and others “Stereoset: Measuring stereotypical bias in pretrained language models” <em>TACL</em> (2023).</p>
+
+<p><a id="ref27"></a>[27] Luo, Shuchang and others “A Survey on Alignment of Large Language Models” <em>arXiv preprint arXiv:2309.10084</em> (2023).</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>https://www.youtube.com/watch?v=4rci-z7raTs <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>
