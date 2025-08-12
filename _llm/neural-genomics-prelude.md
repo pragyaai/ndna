@@ -3,7 +3,7 @@ layout: page
 title: "Neural Genomics"
 permalink: /llm/neural-genomics/prelude/
 ---
-{% include neural-genomics-title.liquid title="Neural Genomics Lens - Towards Neural Genomics - A Paradigm Shift in Understanding Artificial Intelligence" %}
+{% include neural-genomics-title.liquid title="Neural Genomics - Towards Neural Genomics: A Paradigm Shift in Understanding Artificial Intelligence" %}
 
 In the unfolding saga of artificial intelligence, a consensus has quietly emerged: the simplistic formula of **"more data equals better AI"** no longer holds the promise it once did. As the quest for *Artificial General Intelligence (AGI)* intensifies, we face a perplexing paradox--researchers debate its very definition, yet none can offer a **universally accepted characterization** of what AGI truly entails. This conceptual ambiguity reflects a deeper truth: intelligence, in its fullest sense, *resists reduction* to sheer scale or data volume({% cite bengio2020towards %};{% cite lake2017building %}).
 
@@ -25,13 +25,39 @@ So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and d
 
 So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and demonstrated how diverse model-level operations--such as *merging*, *fine-tuning*, *alignment*, *distillation*, and *pruning*--can be systematically monitored and comprehended through the *epistemic lens* of neural genomics. This perspective transforms AI models from inscrutable black boxes into **living lineages** with inheritable semantic traits, subject to mutation, recombination, and evolutionary pressures akin to biological organisms. We reinterpret key model operations through this genomic lens:
 
-- **Merging** as *asymmetric fusion*({% cite ilharco2023editing %}; {% cite matena2022merging %}; {% cite yang2024model %}; {% cite wolfe2023survey %};{% cite yan2024infifusion %});
-- **Fine-tuning** as *neural plasticity*({% cite d2023parameter %}; {% cite continual_neural_collapse2025 %}; {% cite mccloskey1989catastrophic %}; {% cite chen2020catastrophic %};{% cite hu2021lora %}; {% cite khatun2023survey %}; {% cite yuan2023promptbench %});
-- **Alignment** as *ideological narrowing*({% cite zhou2023alignmentdrift %}; {% cite perez2022discovering %}; {% cite ganguli2023reducing %}; {% cite bai2022training %};{% cite arora2023stereoset %}; {% cite luo2023survey %});
-- **Distillation** as *shallow fluency transfer*({% cite mirzadeh2020improved %}; {% cite sanh2019distilbert %}; {% cite mukherjee2021distilling %}; {% cite rashid2021matekd %};{% cite liu2022knowledge %};{% cite xu2021rethinking %});
-- **Quantization** as *epistemic collapse*({% cite zafrir2019q8bert %}; {% cite li2020qbert %}; {% cite frantar2022gptq %}; {% cite dettmers2022llm %};{% cite dai2021co %});
-- **Pruning** as *chromosomal deletion*({% cite voita2019analyzing %}; {% cite lagunas2021block %}; {% cite liu2023pruning %}; {% cite sanh2020movement %};{% cite xia2022structured %});
-- **Model collapse** as *semantic inbreeding*~({% cite bommasani2021opportunities %}; {% cite mccloskey1989catastrophic %}; {% cite zheng2023shortcut %}; {% cite liu2022analyzing %};{% cite yang2023study %}).
+<div class="custom-card">
+<ul>
+  <li>
+    <strong>Merging</strong> as <em>asymmetric fusion</em>
+    ({% cite ilharco2023editing %}; {% cite matena2022merging %}; {% cite yang2024model %}; {% cite wolfe2023survey %}; {% cite yan2024infifusion %});
+  </li>
+  <li>
+    <strong>Fine-tuning</strong> as <em>neural plasticity</em>
+    ({% cite d2023parameter %}; {% cite continual_neural_collapse2025 %}; {% cite mccloskey1989catastrophic %}; {% cite chen2020catastrophic %}; {% cite hu2021lora %}; {% cite khatun2023survey %}; {% cite yuan2023promptbench %});
+  </li>
+  <li>
+    <strong>Alignment</strong> as <em>ideological narrowing</em>
+    ({% cite zhou2023alignmentdrift %}; {% cite perez2022discovering %}; {% cite ganguli2023reducing %}; {% cite bai2022training %}; {% cite arora2023stereoset %}; {% cite luo2023survey %});
+  </li>
+  <li>
+    <strong>Distillation</strong> as <em>shallow fluency transfer</em>
+    ({% cite mirzadeh2020improved %}; {% cite sanh2019distilbert %}; {% cite mukherjee2021distilling %}; {% cite rashid2021matekd %}; {% cite liu2022knowledge %}; {% cite xu2021rethinking %});
+  </li>
+  <li>
+    <strong>Quantization</strong> as <em>epistemic collapse</em>
+    ({% cite zafrir2019q8bert %}; {% cite li2020qbert %}; {% cite frantar2022gptq %}; {% cite dettmers2022llm %}; {% cite dai2021co %});
+  </li>
+  <li>
+    <strong>Pruning</strong> as <em>chromosomal deletion</em>
+    ({% cite voita2019analyzing %}; {% cite lagunas2021block %}; {% cite liu2023pruning %}; {% cite sanh2020movement %}; {% cite xia2022structured %});
+  </li>
+  <li>
+    <strong>Model collapse</strong> as <em>semantic inbreeding</em>~
+    ({% cite bommasani2021opportunities %}; {% cite mccloskey1989catastrophic %}; {% cite zheng2023shortcut %}; {% cite liu2022analyzing %}; {% cite yang2023study %}).
+  </li>
+</ul>
+</div>
+
 
 *nDNA is not merely a metric--it is the epistemic microscope revealing the lineage and inheritance patterns of artificial cognition.* Yet, **Neural Genomics** is still in its infancy. To truly advance this paradigm and unravel the complexities of AI cognition, we require an expanding *arsenal of metrics*--mathematical instruments that probe the intricate architecture of model genomes, quantify their mutational landscapes, and decode the dynamics of semantic inheritance. This initial collection of diagnostic tools represents the pioneering steps in a vast journey, reminiscent of how early geneticists first cataloged traits and mutations before the genome's full map was realized.
 
@@ -95,6 +121,8 @@ This comprehensive table presents an integrated view of neural cultural fusion p
 **Panel (b)** summarizes the **Normalized Trait Expression Dominance Score (nTEDS)**, reflecting the average dominance bias each culture exerts in neural fusions, capturing which parental traits prevail in offspring representations.
 **Panel (c)** displays the **Neural Total Dominance Score (nTDS)**, aggregating trait dominance across fusion pairs to highlight cultural attractors--those cultures that strongly influence the semantic composition of offspring models.
 Together, these panels offer a powerful framework to dissect and understand the layered inheritance, dominance hierarchies, and representational drift shaping neural offspring in multilingual, multicultural AI models.
+
+<link rel="stylesheet" href="{{ '/assets/css/prelude_tables.css' | relative_url }}">
 
 ## (a) Neural Divergence Across Cultural Pairs
 
