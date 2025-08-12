@@ -117,7 +117,6 @@ In this sense, **nDNA is not a metaphor--it is a geometric genome**: an intrinsi
     {% include wizuall.liquid
        image_path="15_llms/all.gif"
        interactive_html="15_llms/all.html"
-       full_width=true
        title=""
        caption="" %}
   </div>
@@ -129,9 +128,9 @@ In this sense, **nDNA is not a metaphor--it is a geometric genome**: an intrinsi
 
 ---
 
-## Why This Triad? On the Necessity of $$\kappa_\ell$$, $$\mathcal{L}_\ell$$ and $$\|\mathbf{v}_\ell^{(c)}\|$$ for nDNA Geometry
+## Why This Triad? On the Necessity of κₗ, ℒₗ, and ‖𝐯ₗ⁽ᶜ⁾‖ for nDNA Geometry
 
-It may be tempting to argue that any pair or triplet of latent metricscould produce seemingly unique latent fingerprints when plotted layer-wise. Why, then, do we assert that the specific triad of **spectral curvature** ($$\kappa_\ell$$), **thermodynamic length** ($$\mathcal{L}_\ell$$), and **belief vector norm** ($$\|\mathbf{v}_\ell^{(c)}\|$$) is both minimal and sufficient for robust nDNA geometry?
+It may be tempting to argue that any pair or triplet of latent metricscould produce seemingly unique latent fingerprints when plotted layer-wise. Why, then, do we assert that the specific triad of **spectral curvature** (κₗ), **thermodynamic length** (ℒₗ), and **belief vector norm** (‖𝐯ₗ⁽ᶜ⁾‖) is both minimal and sufficient for robust nDNA geometry?
 
 <div class="content-showcase-container">
 
@@ -143,13 +142,13 @@ It may be tempting to argue that any pair or triplet of latent metricscould prod
 
 Each of the three measures captures a distinct, irreducible axis of the model's internal epistemic geometry:
 
-- **$$\kappa_\ell$$ - The intrinsic semantic curvature of latent trajectories**  
+- **κₗ - The intrinsic semantic curvature of latent trajectories**  
   - how sharply the internal path of representations bends across depth. It encodes second-order structure, analogous to geometric curvature on manifolds. {% cite farzam2024ricci %} {% cite xu2022spherical %}
 
-- **$$\mathcal{L}_\ell$$ - The cumulative epistemic work performed as the model adapts beliefs layer by layer**  
+- **ℒₗ - The cumulative epistemic work performed as the model adapts beliefs layer by layer**  
   - quantifying the energy expenditure needed for belief state transitions in the Fisher–Rao geometry of statistical manifolds. {% cite crooks2007measuring %} {% cite wagner2023thermodynamic %} {% cite amari2016information %}
 
-- **$$\|\mathbf{v}_\ell^{(c)}\|$$ - The directional cultural force acting upon the latent manifold**  
+- **‖𝐯ₗ⁽ᶜ⁾‖ - The directional cultural force acting upon the latent manifold**  
   - how much external priors or sociolinguistic constraints steer internal belief trajectories. {% cite wang2023culturalbias %} {% cite zhou2023alignmentdrift %} {% cite shen2023beliefgeometry %}
 
 Together, they span *latent shape* (curvature), *internal effort* (thermodynamics), and *external directional pressure* (belief vector field).
