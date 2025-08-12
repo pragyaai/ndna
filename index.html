@@ -263,53 +263,41 @@
   </figcaption>
 </figure>
 
-<figure style="text-align:center; margin:1.5em 0; position:relative;">
-
-  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
-  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
-
-    
-      <div style="
-           display:grid;
-           grid-template-columns: 1fr 1fr;
-           gap:20px;
-           align-items:stretch;
-           ">
-        <!-- Left: GIF -->
-        <a href="/nDNA/assets/gifs/introduction/spectral_curvature_llama_ndna_animation.gif" data-lightbox="gallery" data-title="Spectral Curvature (κ_ℓ)" style="display:block; overflow:hidden; border-radius:8px;">
-          <img src="/nDNA/assets/gifs/introduction/spectral_curvature_llama_ndna_animation.gif" alt="Spectral Curvature (κ_ℓ)" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
-        </a>
-
-        <!-- Right: interactive HTML -->
-        <div style="display:flex; flex-direction:column;">
-          <iframe src="/nDNA/assets/html_plots/index/spectral_curvature_animation.html" title="Spectral Curvature (κ_ℓ) - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-        </div>
-      </div>
+<figure style="text-align: center; margin: 1.5em 0;">
+  
+  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
+  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
+    <div style="flex:1; max-width:48%;">
+      <img class="vh-image " src="/nDNA/assets/gifs/introduction/spectral_curvature_llama_ndna_animation.gif" alt="Spectral Curvature (κ_ℓ)" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
+    </div>
 
     
-
+    <div class="interactive-plot-container vh-html" style="flex:1; max-width:48%;">
+      <iframe src="/nDNA/assets/html_plots/index/spectral_curvature_animation.html" style="width:100%; height:100%; min-height:400px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
+      </iframe>
+    </div>
+    
   </div>
+  
 
-  <!-- Shared caption (exact text preserved) -->
-  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+  <!-- Caption & metrics -->
+  
+  <figcaption class="figure-caption" style="margin-top:0.5em;">
     <strong>Spectral Curvature (κ_ℓ)</strong>
      <p>Spectral Curvature (κ<sub>ℓ</sub>) quantifies second-order deviations in latent representations across transformer layers–computed via the discrete geometric operator κ<sub>ℓ</sub> := ‖h<sub>ℓ+1</sub> − 2h<sub>ℓ</sub> + h<sub>ℓ−1</sub>‖ . High curvature signals semantic inflection points where internal geometry bends sharply–often in culturally dense, ideologically loaded, or epistemically volatile regions. Peaks in κ<sub>ℓ</sub> typically emerge in upper decoder layers (ℓ ∈ [21, 30]), where the model accommodates sociolinguistic priors during alignment, multicultural or multilingual fusion. Within the nDNA framework, such curvature reflects latent inheritance dynamics, offering a fine-grained geometric fingerprint of representational restructuring.</p>
 
   </figcaption>
+  
 
   
 
-  <!-- Button below caption -->
   
-    <div style="margin-top:1em; text-align:center;">
-      <a href="/nDNA/assets/html_plots/index/spectral_curvature_animation.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+    <a class="view-interactive-html" href="/nDNA/assets/html_plots/index/spectral_curvature_animation.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
         <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
-      </a>
-    </div>
+    </a>
   
-
 </figure>
 
 <hr />
@@ -415,53 +403,41 @@
   <p>Within <strong>nDNA</strong>, this metric <strong>reveals latent epistemic effort</strong>—providing a nuanced view of <strong>how and where</strong> models allocate internal resources during learning and inference.</p>
 </div>
 
-<figure style="text-align:center; margin:1.5em 0; position:relative;">
-
-  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
-  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
-
-    
-      <div style="
-           display:grid;
-           grid-template-columns: 1fr 1fr;
-           gap:20px;
-           align-items:stretch;
-           ">
-        <!-- Left: GIF -->
-        <a href="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" data-lightbox="gallery" data-title="Thermodynamic Length (L_ℓ)" style="display:block; overflow:hidden; border-radius:8px;">
-          <img src="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length (L_ℓ)" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
-        </a>
-
-        <!-- Right: interactive HTML -->
-        <div style="display:flex; flex-direction:column;">
-          <iframe src="/nDNA/assets/html_plots/index/thermodynamic_length_animation.html" title="Thermodynamic Length (L_ℓ) - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-        </div>
-      </div>
+<figure style="text-align: center; margin: 1.5em 0;">
+  
+  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
+  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
+    <div style="flex:1; max-width:48%;">
+      <img class="vh-image " src="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length (L_ℓ)" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
+    </div>
 
     
-
+    <div class="interactive-plot-container vh-html" style="flex:1; max-width:48%;">
+      <iframe src="/nDNA/assets/html_plots/index/thermodynamic_length_animation.html" style="width:100%; height:100%; min-height:400px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
+      </iframe>
+    </div>
+    
   </div>
+  
 
-  <!-- Shared caption (exact text preserved) -->
-  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+  <!-- Caption & metrics -->
+  
+  <figcaption class="figure-caption" style="margin-top:0.5em;">
     <strong>Thermodynamic Length (L_ℓ)</strong>
      <p>L<sub>ℓ</sub> quantifies epistemic work across transformer layers—computed as the cumulative squared gradient norm of layerwise log-likelihoods. Peaks typically localize to upper decoder layers where intense adaptation occurs.</p>
 
   </figcaption>
+  
 
   
 
-  <!-- Button below caption -->
   
-    <div style="margin-top:1em; text-align:center;">
-      <a href="/nDNA/assets/html_plots/index/thermodynamic_length_animation.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+    <a class="view-interactive-html" href="/nDNA/assets/html_plots/index/thermodynamic_length_animation.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
         <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
-      </a>
-    </div>
+    </a>
   
-
 </figure>
 
 <hr />
@@ -564,53 +540,41 @@
   <p>It provides the <strong>missing vectorial dimension</strong> in understanding machine cognition.</p>
 </div>
 
-<figure style="text-align:center; margin:1.5em 0; position:relative;">
-
-  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
-  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
-
-    
-      <div style="
-           display:grid;
-           grid-template-columns: 1fr 1fr;
-           gap:20px;
-           align-items:stretch;
-           ">
-        <!-- Left: GIF -->
-        <a href="/nDNA/assets/gifs/introduction/belief_vector_field.gif" data-lightbox="gallery" data-title="Belief Vector Field ($$||v^{(c)}_{\ell}||$$)" style="display:block; overflow:hidden; border-radius:8px;">
-          <img src="/nDNA/assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field ($$||v^{(c)}_{\ell}||$$)" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
-        </a>
-
-        <!-- Right: interactive HTML -->
-        <div style="display:flex; flex-direction:column;">
-          <iframe src="/nDNA/assets/html_plots/index/belief_vector_field_3d_all_layers_thick_long_vectors.html" title="Belief Vector Field ($$||v^{(c)}_{\ell}||$$) - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-        </div>
-      </div>
+<figure style="text-align: center; margin: 1.5em 0;">
+  
+  <!-- SIDE-BY-SIDE MODE (default): equal height via flexbox -->
+  <div class="visualization-html" style="display:flex; gap:1em; align-items:stretch; flex-wrap:wrap;">
+    <div style="flex:1; max-width:48%;">
+      <img class="vh-image " src="/nDNA/assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field ($$||v^{(c)}_{\ell}||$$)" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
+    </div>
 
     
-
+    <div class="interactive-plot-container vh-html" style="flex:1; max-width:48%;">
+      <iframe src="/nDNA/assets/html_plots/index/belief_vector_field_3d_all_layers_thick_long_vectors.html" style="width:100%; height:100%; min-height:400px; border:none; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
+      </iframe>
+    </div>
+    
   </div>
+  
 
-  <!-- Shared caption (exact text preserved) -->
-  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+  <!-- Caption & metrics -->
+  
+  <figcaption class="figure-caption" style="margin-top:0.5em;">
     <strong>Belief Vector Field ($$||v^{(c)}_{\ell}||$$)</strong>
      <p>v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation.</p>
 
   </figcaption>
+  
 
   
 
-  <!-- Button below caption -->
   
-    <div style="margin-top:1em; text-align:center;">
-      <a href="/nDNA/assets/html_plots/index/belief_vector_field_3d_all_layers_thick_long_vectors.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+    <a class="view-interactive-html" href="/nDNA/assets/html_plots/index/belief_vector_field_3d_all_layers_thick_long_vectors.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
         <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
           📊 View Interactive Plot
         </button>
-      </a>
-    </div>
+    </a>
   
-
 </figure>
 
 <hr />
