@@ -262,6 +262,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(a) Africa nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift."
       style="flex: 1;"
+      full_width=true
   %}
 
   {% include visualization-html.liquid
@@ -270,6 +271,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       title="(b) Asia nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> for Asia shows a similar increasing trend with values ranging approximately from 0.1 to 0.5 across layers ℓ = 20 . . . 30. The trajectory's thickness visualizes growing dissimilarity from the LLaMA base, indicating that deep transformer layers encode progressively distinct neural semantics reflective of cultural fine-tuning."
       style="flex: 1;"
+      full_width=true
   %}
 </div>
 
