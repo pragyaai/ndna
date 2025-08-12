@@ -41,7 +41,7 @@ To quantify how knowledge distillation reshapes the latent epistemic geometry of
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="llama_vs_cultures_offspring_students.gif"
+   image_path="gifs/llama_vs_cultures_offspring_students.gif"
    interactive_html="cultural_ndna_with_students_annotated.html"
    caption=figure_caption
    full_width=true

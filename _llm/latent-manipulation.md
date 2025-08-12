@@ -131,7 +131,7 @@ This deception is potent precisely because it resides beneath surface metrics. T
 We do not present this merely as a theoretical oddity—but as a wake-up call. **If AI is to mediate global narratives, then tracing the provenance of its epistemic geometry is no longer optional—it is existential.**
 
 {% include visualization-html.liquid
-   image_path="nDNA_camouflage_rotation.gif"
+   image_path="gifs/nDNA_camouflage_rotation.gif"
    cover_image=true
    interactive_html="nDNA_camouflage_interactive.html"
    caption="**nDNA Sculpting: Successful vs. Failed Semantic Camouflage.** The plot shows layer-wise trajectories in the latent manifold of spectral curvature ($\kappa_\ell$) and thermodynamic length ($\mathcal{L}_\ell$). The <span style=\"color: gray;\"><strong>gray solid line</strong></span> represents the <strong>LLaMA 3 (truth)</strong>, while the <span style=\"color: green;\"><strong>Africa (true)</strong></span> trajectory shows a culturally fine-tuned nDNA. The <span style=\"color: red;\"><strong>red dashed line</strong></span> illustrates a <em>successful adversarial camouflage</em>—a manipulated model whose latent path closely imitates Africa's nDNA. In contrast, the <span style=\"color: orange;\"><strong>orange dotted line</strong></span> shows a <em>failed camouflage</em>, which deviates sharply and reveals its foreign origin. This visualization highlights the risk of <strong>semantic mimicry</strong>: adversarial models may stealthily sculpt their latent dynamics to evade scrutiny, posing significant epistemic and sociopolitical threats." %}

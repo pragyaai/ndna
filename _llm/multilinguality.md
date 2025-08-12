@@ -97,7 +97,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/europe_lang.png"
+   image_path="gifs/multilinguality/europe_language_only_trajectories.gif"
+   interactive_html="multilinguality/european_languages_ndna.html"
    caption=europe_lang_caption
    alt_text="3D trajectory plot showing European language evolution in latent space" %}
 
@@ -106,7 +107,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/europe_lang_cul.png"
+   image_path="gifs/multilinguality/europe_language_culture_rotating.gif"
+   interactive_html="multilinguality/european_languages_ndna.html"
    caption=europe_lang_cul_caption
    alt_text="3D trajectory plot showing European languages with cultural anchor overlays" %}
 
@@ -115,7 +117,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/latin_language_only_trajectories.png"
+   image_path="gifs/multilinguality/latin_language_only_trajectories.gif"
+   interactive_html="multilinguality/latinamerica_languages_ndna_no_llama.html"
    caption=latin_lang_caption
    alt_text="3D trajectory plot showing Spanish and Portuguese language evolution" %}
 
@@ -124,7 +127,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/latin_language_culture_static.png"
+   image_path="gifs/multilinguality/latin_language_culture_rotating.gif"
+   interactive_html="multilinguality/latinamerica_languages_ndna_no_llama.html"
    caption=latin_culture_caption
    alt_text="3D trajectory plot showing Latin languages with cultural alignment" %}
 
@@ -133,7 +137,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/rest_languages.png"
+   image_path="gifs/multilinguality/asian_languages_only_3d.gif"
+   interactive_html="multilinguality/Asia_Group.html"
    caption=asian_lang_caption
    alt_text="3D trajectory plot showing Asian language evolution with complex patterns" %}
 
@@ -142,7 +147,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/rest_language+culture.png"
+   image_path="gifs/multilinguality/asian_language_culture_annotations.gif"
+   interactive_html="multilinguality/Asia_Group.html"
    caption=asian_culture_caption
    alt_text="3D trajectory plot showing Asian languages with cultural anchor overlays" %}
 
@@ -151,7 +157,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/all_lang.png"
+   image_path="gifs/multilinguality/all_languages_cultures_rotating.gif"
+   interactive_html="multilinguality/language_ndna_trajectories.html"
    caption=all_lang_caption
    alt_text="3D trajectory plot showing all 10 languages in unified view" %}
 
@@ -160,7 +167,8 @@ Extracted multilingual nDNAs reveal nuanced geometric and cultural signatures. W
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="language/all_lang_cul.png"
+   image_path="gifs/multilinguality/all_languages_cultures_rotating_adjusted.gif"
+   interactive_html="multilinguality/language_ndna_trajectories.html"
    caption=all_lang_cul_caption
    alt_text="3D trajectory plot showing complete language-culture alignment patterns" %}
 
