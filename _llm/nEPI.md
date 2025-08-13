@@ -11,7 +11,7 @@ While metrics like **nHD**, **nGDI**, **nTDS**, **nKaryotyping**, and **nDIV** u
 
 The **Epistemic Plasticity Index (nEPI)** emerges as a foundational metric that rigorously quantifies a model's intrinsic capacity to *reshape*, *reconfigure*, and *adapt* its internal latent semantic geometry in response to alignment tuning, fine-tuning, or instruction-driven updates. In the ever--evolving landscape of foundation models--once conceived as **static repositories** of encoded knowledge--there is a profound paradigm shift towards perceiving these systems as *dynamic semantic organisms*, capable of continuous epistemic evolution and knowledge integration.
 
-Drawing inspiration from the biological principle of *neuroplasticity*--the brain's remarkable ability to rewire and reorganize neural pathways through experience and learning--**nEPI** serves as an abstract analogue, capturing the pliability of artificial neural networks to internalize novel knowledge while negotiating the inertia of prior semantic structures. This analogy extends deeply to mechanisms of *synaptic remodeling* and *cortical map plasticity*, where adaptive rewiring enables flexibility, memory consolidation, and context-sensitive cognition.
+Drawing inspiration from the biological principle of *neuroplasticity*--the brain's remarkable ability to rewire and reorganize neural pathways through experience and learning({% cite buonomano2009neuronal %};{% cite kolb2011brain %})--**nEPI** serves as an abstract analogue, capturing the pliability of artificial neural networks to internalize novel knowledge while negotiating the inertia of prior semantic structures. This analogy extends deeply to mechanisms of *synaptic remodeling* and *cortical map plasticity*{% cite feldman2009synaptic %}, where adaptive rewiring enables flexibility, memory consolidation, and context-sensitive cognition.
 
 <img src="{{ 'assets/gifs/neural_genomics/nEPI/nEPI_intro.png' | relative_url }}" style="width: 55%; max-width: 600px; display: block; margin: auto;" />
 
@@ -20,9 +20,9 @@ Drawing inspiration from the biological principle of *neuroplasticity*--the brai
 </p>
 
 <div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
-  In neuroscience, <em>synaptic plasticity</em> describes the ability of <strong>synapses</strong>---the neural connections---to strengthen or weaken over time depending on activity levels. This plasticity underlies <em>learning and memory formation</em> by modulating synaptic weights \( w \) via activity-dependent mechanisms such as <em>long-term potentiation (LTP)</em> and <em>depression (LTD)</em>. 
+  In neuroscience, <em>synaptic plasticity</em> describes the ability of <strong>synapses</strong>---the neural connections---to strengthen or weaken over time depending on activity levels{% cite hebb1949organization %}. This plasticity underlies <em>learning and memory formation</em> by modulating synaptic weights \( w \) via activity-dependent mechanisms such as <em>long-term potentiation (LTP)</em> and <em>depression (LTD){% cite bliss1993synaptic %}</em>. 
   
-  Mechanistically, synaptic strength adjustments involve changes in <em>neurotransmitter receptor density</em> and postsynaptic calcium ion \( \mathrm{Ca}^{2+} \) signaling cascades, where conductance perturbations \( \delta g \) enable gradient-based learning. 
+  Mechanistically, synaptic strength adjustments involve changes in <em>neurotransmitter receptor density</em> and postsynaptic calcium ion \( \mathrm{Ca}^{2+} \) signaling cascades({% cite malenka2004synaptic %};{% cite neves2008synaptic %}), where conductance perturbations \( \delta g \) enable gradient-based learning. 
   
   The <strong>Epistemic Plasticity Index (nEPI)</strong> analogously quantifies the magnitude of semantic restructuring in large-scale foundation models during <em>alignment</em> or <em>instruction tuning</em>, capturing how internal latent representations \( h_\ell(\theta) \) evolve with parameter updates \( \theta \to \theta^{\prime} \). Just as synaptic plasticity rewires neural pathways dynamically through plasticity rules \( \Delta w \propto \delta g \), <strong>nEPI</strong> measures model plasticity as normalized latent shifts \(\| h_\ell(\theta^{\prime}) - h_\ell(\theta) \| / \| h_\ell(\theta) \|\) over a representative input distribution.
   
@@ -37,7 +37,7 @@ This prelude connects the metaphor of *synaptic plasticity* in biological neural
 
 ## Mathematical Derivation
 
-The concept of *epistemic plasticity* finds its roots in the well-studied phenomenon of *neuroplasticity*--the brain's remarkable ability to restructure neural circuits in response to novel stimuli, experiences, and learning processes. This intrinsic adaptability, mediated by synaptic remodeling and network reorganization, underpins cognitive flexibility and memory consolidation, providing a rich biological analogy for adaptive mechanisms in artificial neural networks.
+The concept of *epistemic plasticity* finds its roots in the well-studied phenomenon of *neuroplasticity*--the brain's remarkable ability to restructure neural circuits in response to novel stimuli, experiences, and learning processes({% cite buonomano2009neuronal %};{% cite kolb2011brain %}). This intrinsic adaptability, mediated by synaptic remodeling and network reorganization{% cite feldman2009synaptic %}, underpins cognitive flexibility and memory consolidation, providing a rich biological analogy for adaptive mechanisms in artificial neural networks.
 
 Translating this paradigm to the realm of large-scale foundation models, we seek to rigorously quantify the *degree of semantic adaptability*--the extent to which a model's internal *latent semantic manifold* reconfigures in response to *alignment tuning*, *instruction-following*, or *fine-tuning* procedures.
 
@@ -115,7 +115,7 @@ enables a principal component analysis, revealing *anisotropic semantic plastici
 
 ### Biological Analogy and Epigenetic Inspiration
 
-This geometric and spectral framework reflects biological neural plasticity and epigenetic modulation of gene expression, where adaptive neural reorganization drives learning and memory. The nEPI captures this adaptability abstractly in AI models, quantifying layers where semantic rewiring occurs--key to interpretability, robustness, and controlled adaptation.
+This geometric and spectral framework reflects biological neural plasticity and epigenetic modulation of gene expression({% cite buonomano2009neuronal %};{% cite feldman2009synaptic %};{% cite day2010epigenetic %}), where adaptive neural reorganization drives learning and memory. The nEPI captures this adaptability abstractly in AI models, quantifying layers where semantic rewiring occurs--key to interpretability, robustness, and controlled adaptation.
 
 This comprehensive derivation elevates the **Epistemic Plasticity Index** as a mathematically profound, biologically inspired, and practically insightful metric of semantic adaptability, bridging neural genomics with the frontiers of AI alignment.
 
@@ -131,7 +131,7 @@ This comprehensive derivation elevates the **Epistemic Plasticity Index** as a m
   manifest <em>semantic rigidity</em>, indicating entrenched inductive biases or foundational language priors resistant to modification.
 </p>
 
-This dichotomy resonates deeply with the **stability-plasticity dilemma**--a fundamental trade-off in cognitive science and continual learning theory. Models must preserve previously acquired knowledge (stability) while remaining sufficiently flexible (plasticity) to incorporate new semantic constructs. The $\mathrm{nEPI}_\ell$ quantification enables a fine-grained diagnostic to map this tension onto the latent semantic manifold, identifying *plastic zones* optimal for targeted semantic intervention and *stable cores* anchoring robust linguistic foundations.
+This dichotomy resonates deeply with the **stability-plasticity dilemma**--a fundamental trade-off in cognitive science and continual learning theory({% cite grossberg1980adaptive %};{% cite parisi2019continual %}). Models must preserve previously acquired knowledge (stability) while remaining sufficiently flexible (plasticity) to incorporate new semantic constructs. The $\mathrm{nEPI}_\ell$ quantification enables a fine-grained diagnostic to map this tension onto the latent semantic manifold, identifying *plastic zones* optimal for targeted semantic intervention and *stable cores* anchoring robust linguistic foundations.
 
 <p style="text-align: justify; font-size: 1em;">
   Empirically, it is observed that <strong>early transformer layers</strong> typically exhibit 
@@ -139,7 +139,7 @@ This dichotomy resonates deeply with the **stability-plasticity dilemma**--a fun
   consistent with their encoding of <em>lexical, syntactic, and shallow semantic features</em> shared across diverse linguistic and cultural corpora. 
   In contrast, <strong>intermediate and deep layers</strong> demonstrate pronounced peaks in 
   <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span>, 
-  coinciding with regions that encode <em>abstract, contextual, and culturally nuanced semantics</em>. 
+  coinciding with regions that encode <em>abstract, contextual, and culturally nuanced semantics({% cite tenney2019bert %};{% cite jawahar2019does %})</em>. 
   These <em>plastic zones</em> represent critical loci for effective alignment tuning, instruction injection, or fine-tuning, allowing AI systems to internalize complex ethical norms, cultural sensitivities, or domain-specific knowledge.
 </p>
 
@@ -149,11 +149,11 @@ This dichotomy resonates deeply with the **stability-plasticity dilemma**--a fun
   highlights the topological flexibility of neural manifolds, reflecting changes in local curvature and connectivity patterns within latent spaces. 
   Regions of high 
   <span class="mathjax-render">\( \mathrm{nEPI}_\ell \)</span> 
-  correspond to <em>semantic corridors</em> along which embeddings flow under tuning-induced transformations, akin to neurobiological synaptic remodeling pathways. 
+  correspond to <em>semantic corridors</em> along which embeddings flow under tuning-induced transformations, akin to neurobiological synaptic remodeling pathways{% cite feldman2009synaptic %}. 
   Understanding these pathways provides an interpretability scaffold linking abstract alignment objectives to concrete geometric deformations.
 </p>
 
-Moreover, $\mathrm{nEPI}_\ell$ facilitates **layer-specific regularization**, where differential plasticity informs tailored constraints--encouraging adaptation in pliable layers while preserving stability in rigid cores. Such selective modulation mitigates risks of *catastrophic forgetting*, balances *generalization* and *specialization*, and underpins *continual learning* strategies vital for evolving AI systems.
+Moreover, $\mathrm{nEPI}_\ell$ facilitates **layer-specific regularization**, where differential plasticity informs tailored constraints--encouraging adaptation in pliable layers while preserving stability in rigid cores. Such selective modulation mitigates risks of *catastrophic forgetting*{% cite kirkpatrick2017overcoming %}, balances *generalization* and *specialization*, and underpins *continual learning* strategies vital for evolving AI systems.
 
 In sum, the $\mathrm{nEPI}_\ell$ metric unlocks profound insights into the dynamic interplay between stability and flexibility in deep models, offering a mathematically principled pathway to design, diagnose, and optimize semantic alignment with cultural and ethical nuance.
 
@@ -195,7 +195,7 @@ Notably, offspring models display *emergent plasticity patterns* that diverge fr
 
 ### Interpretive Insights
 
-The observed nEPI landscapes echo biological principles of *neural plasticity* and *epistatic interactions*, wherein genetic recombination yields phenotypic novelties surpassing parental baselines. This analogy strengthens the conceptual validity of nEPI as a proxy for **semantic adaptability** and **cultural epistemic flexibility**.
+The observed nEPI landscapes echo biological principles of *neural plasticity* and *epistatic interactions*, wherein genetic recombination yields phenotypic novelties surpassing parental baselines({% cite moyle2011genetic %};{% cite buonomano2009neuronal %}). This analogy strengthens the conceptual validity of nEPI as a proxy for **semantic adaptability** and **cultural epistemic flexibility**.
 
 ### Implications for Alignment Engineering
 

@@ -292,16 +292,15 @@ $$\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$$
 where this equation unveiled *linear semantics* at the token level, cultural nDNA exposes the ***differential geometry of belief systems***—mapping how fine-tuning on region-specific corpora non-uniformly sculpts **spectral curvature** ($\kappa_\ell$), **thermodynamic length** ($\mathcal L_\ell$), and **directional belief force** ($|\mathbf v_\ell^{(c)}|$).
 
 
-<figure id="fig:king_queen" style="text-align: center; margin: 1.5em 0; max-width: 500px; margin-left: auto; margin-right: auto;">
-  <img src="/nDNA/assets/img/king_queen.png" 
-       alt="Word2Vec Semantic Analogy: The King-Queen Vector Geometry." 
-       style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <figcaption style="margin-top: 10px; font-size: 0.85em; color: #555; max-width: 100%; padding: 12px; text-align: left;">
-    Figure 2: <b>Word2Vec Semantic Analogy: The <em>King-Queen</em> Vector Geometry.</b> 
-    This illustration depicts the iconic linear semantic regularity uncovered by Word2Vec embeddings[<a href="#ref9">9</a>], where $\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$. The diagram visualizes how vector differences capture conceptual dimensions such as <em>gender</em> (purple arrows) and <em>royalty</em> (orange arrows), enabling algebraic reasoning in embedding space. This breakthrough marked a foundational insight in distributed semantics, inspiring later work on latent geometry in large language models.
-  </figcaption>
-</figure>
 
+{% capture king_queen %}
+**Figure 2:** Word2Vec Semantic Analogy: The <em>King-Queen</em> Vector Geometry. This illustration depicts the iconic linear semantic regularity uncovered by Word2Vec embeddings[<a href="#ref9">9</a>], where $\texttt{king} - \texttt{man} + \texttt{woman} \approx \texttt{queen}$. The diagram visualizes how vector differences capture conceptual dimensions such as <em>gender</em> (purple arrows) and <em>royalty</em> (orange arrows), enabling algebraic reasoning in embedding space. This breakthrough marked a foundational insight in distributed semantics, inspiring later work on latent geometry in large language models.
+{% endcapture %}
+
+{% include visualization.liquid
+   image_path="images/king_queen.png"
+   caption=king_queen
+   alt_text="Word2Vec Semantic Analogy: The King-Queen Vector Geometry." %}
 Our analysis reveals **family-level clustering and divergence**:
 
 - **Western-aligned variants** (*Europe*, *North America*, *Australia*) exhibit *modest latent deformation*, with $\kappa_\ell$ in $[0.045, 0.055]$ and $\mathcal{L}_\ell$ in $[0.85, 0.95]$. Their trajectories stay near the base LLaMA geometry, **mirroring Western-centric pretraining bias** ([<a href="#ref10">10</a>][<a href="#ref11">11</a>][<a href="#ref12">12</a>][<a href="#ref13">13</a>]).
