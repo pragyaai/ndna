@@ -68,7 +68,6 @@ As illustrated below, we observe progressive *curvature flattening*, *thermodyna
 
 {% include wizuall.liquid
    image_path="alignment/llama_collapse_v2_1.gif"
-   interactive_html="alignment/llama_collapse_v2_1.html"
    title="nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening"
    caption="This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures--spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>--are tracked across layers ℓ=20 to ℓ=30. As generations progress (from gray for base LLaMA to yellow for Gen 10), both κ<sub>ℓ</sub> and ℒ<sub>ℓ</sub> systematically diminish: κ<sub>ℓ</sub> → 0.2 and ℒ<sub>ℓ</sub> → 0.2 by Gen 10. This trend signifies *latent manifold flattening*, where internal epistemic geometry collapses into shallow, low-variability paths." %}
 
