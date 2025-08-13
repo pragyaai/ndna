@@ -590,15 +590,14 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
     <br><br>
     <b>Key formula:</b>
     <span class="mathjax-render">
-      nTDS_{\ell} =
+      \( \mathrm{nTDS}_{\ell} =
       \frac{\kappa_{\ell}(p) \cdot L_{\ell}(p)}
-      {\kappa_{\ell}(p) \cdot L_{\ell}(p) + \kappa_{\ell}(q) \cdot L_{\ell}(q)}
+      {\kappa_{\ell}(p) \cdot L_{\ell}(p) + \kappa_{\ell}(q) \cdot L_{\ell}(q)} \)
     </span>
-    where <span class="mathjax-render">\kappa_{\ell}</span> is the spectral curvature,
-    <span class="mathjax-render">L_{\ell}</span> is the thermodynamic length at layer
-    <span class="mathjax-render">\ell</span>, and
-    <span class="mathjax-render">p, q</span> are the parental indices — quantifying relative semantic dominance with geometric rigor.
-  </figcaption>
+    where \( \kappa_{\ell} \) is the spectral curvature,
+    \( L_{\ell} \) is the thermodynamic length at layer \( \ell \),
+    and \( p, q \) are the parental indices — quantifying relative semantic dominance with geometric rigor.
+
 </figure>
 
 

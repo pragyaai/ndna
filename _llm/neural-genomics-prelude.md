@@ -4,7 +4,7 @@ title: "Neural Genomics"
 permalink: /llm/neural-genomics/prelude/
 skip_title: True
 ---
-{% include neural-genomics-title.liquid title="Neural Genomics: A Paradigm Shift in Understanding Artificial Intelligence" %}
+{% include neural-genomics-title.liquid title="A Paradigm Shift in Understanding Artificial Intelligence" %}
 
 In the unfolding saga of artificial intelligence, a consensus has quietly emerged: the simplistic formula of **"more data equals better AI"** no longer holds the promise it once did. As the quest for *Artificial General Intelligence (AGI)* intensifies, we face a perplexing paradox--researchers debate its very definition, yet none can offer a **universally accepted characterization** of what AGI truly entails. This conceptual ambiguity reflects a deeper truth: intelligence, in its fullest sense, *resists reduction* to sheer scale or data volume({% cite bengio2020towards %};{% cite lake2017building %}).
 
@@ -66,7 +66,7 @@ So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and d
 
 As a parallel, consider Joanne Pransky, who claims the title of the world's first *psychiatrist of robots*[^1], a visionary who sought to interpret and care for the emergent behaviors of artificial minds. In a similar spirit, the nascent field of Neural Genomics embarks on a quest to understand the deep structure and evolution of neural cognition, aiming to reveal not only what models know, but *how they inherit, transform, and sometimes fracture* that knowledge across training epochs, architectures, and cultural imprints.
 
-[^1]: https://www.youtube.com/watch?v=4rci-z7raTs
+[^1]: [YouTube Video](https://www.youtube.com/watch?v=4rci-z7raTs)
 
 To this end, we define and employ an initial suite of core metrics--each illuminating a distinct dimension of the neural genome:
 
