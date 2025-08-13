@@ -523,24 +523,45 @@ By framing AI semantics as **directional flows** rather than static points, nDIV
   %}
 </div>
 
-{% capture figure_caption %}
-**Figure: Semantic Directionality in Neural Inheritance Across Cultures** — This figure set shows layer-wise directional bias in semantic inheritance during model fusion via *nDIV* over layers $\ell \in [20, 30]$. Offspring exhibit dynamic shifts favoring parents or novel traits, reflecting nonlinear semantic recombination.  
+<figure id="fig:ndiv_caption" style="text-align: center; margin: 2em 0;">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
+    <b>Figure: Semantic Directionality in Neural Inheritance Across Cultures.</b>
+    This figure set shows layer-wise directional bias in semantic inheritance during model fusion via
+    <span class="mathjax-render"><i>nDIV</i></span>
+    over layers
+    <span class="mathjax-render">\( \ell \in [20, 30] \)</span>.
+    Offspring exhibit dynamic shifts favoring parents or novel traits, reflecting nonlinear semantic recombination.
+    <br><br>
+    Directional inheritance at layer
+    <span class="mathjax-render">\( \ell \)</span> is given by:
+    <br><br>
+    <span class="mathjax-render">\[
+    nDIV_{\text{dir}}^{(\ell)} =
+    \cos \left(
+      \overrightarrow{O}_{\ell} -
+      \frac{\overrightarrow{P}^{(A)}_{\ell} + \overrightarrow{P}^{(B)}_{\ell}}{2}
+      \; , \;
+      \overrightarrow{P}^{(A)}_{\ell} - \overrightarrow{P}^{(B)}_{\ell}
+    \right)
+    \]</span>
+    <br><br>
+    where
+    <span class="mathjax-render">\( \overrightarrow{P}^{(A)}_{\ell} \)</span>,
+    <span class="mathjax-render">\( \overrightarrow{P}^{(B)}_{\ell} \)</span>,
+    and
+    <span class="mathjax-render">\( \overrightarrow{O}_{\ell} \)</span>
+    are the semantic vectors of the two parents and the offspring, respectively.
+    <br><br>
+    This parallels <b>directional selection</b>
+    <span class="mathjax-render">[356]</span>
+    and <b>epigenetic regulation</b>
+    <span class="mathjax-render">[347, 357]</span>,
+    consistent with neural semantic evolution findings
+    <span class="mathjax-render">[344]</span>.
+    These insights enhance semantic fusion understanding, aiding targeted model alignment and inheritance control.
+  </figcaption>
+</figure>
 
-Directional inheritance at layer $\ell$ is given by:  
-
-$$
-nDIV_{\text{dir}}^{(\ell)} = \cos \left( \overrightarrow{O}_{\ell} - \frac{\overrightarrow{P}^{(A)}_{\ell} + \overrightarrow{P}^{(B)}_{\ell}}{2} \; , \; \overrightarrow{P}^{(A)}_{\ell} - \overrightarrow{P}^{(B)}_{\ell} \right)
-$$  
-
-where $\overrightarrow{P}^{(A)}_{\ell}$, $\overrightarrow{P}^{(B)}_{\ell}$, and $\overrightarrow{O}_{\ell}$ are the semantic vectors of the two parents and the offspring, respectively.  
-
-This parallels **directional selection** [356] and **epigenetic regulation** [347, 357], consistent with neural semantic evolution findings [344]. These insights enhance semantic fusion understanding, aiding targeted model alignment and inheritance control.
-
-{% endcapture %}
-
-{% include visualization.liquid
-    caption=figure_caption
-    alt_text="Semantic Directionality in Neural Inheritance Across Cultures" %}
 
 ---
 {% auto_references %}

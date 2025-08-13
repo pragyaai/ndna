@@ -466,14 +466,14 @@ The **Epistemic Plasticity Index (nEPI)** establishes a foundational framework w
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
     <b>Figure: Layerwise Epistemic Plasticity (nEPI) across Parent Models and Hybrid Offspring.</b>
     The Neural Epistemic Plasticity Index quantifies the rate of change in semantic adaptability over transformer layers
-    <span class="mathjax-render">\ell \in [20, 30]</span> as the derivative of the product of spectral curvature
-    <span class="mathjax-render">\kappa_\ell</span> and thermodynamic length
-    <span class="mathjax-render">L_\ell</span>:
+    <span class="mathjax-render">\( \ell \in [20, 30] \)</span> as the derivative of the product of spectral curvature
+    <span class="mathjax-render">\( \kappa_\ell \)</span> and thermodynamic length
+    <span class="mathjax-render">\( L_\ell \)</span>:
     <br><br>
-    <span class="mathjax-render">\boxed{\mathrm{nEPI}(\ell) := \dfrac{d}{d\ell}\left(\kappa_\ell \cdot L_\ell\right)}</span>
+    <span class="mathjax-render">\[ \boxed{\mathrm{nEPI}(\ell) := \dfrac{d}{d\ell}\left(\kappa_\ell \cdot L_\ell\right)} \]</span>
     <br><br>
-    <span class="mathjax-render">\kappa_\ell \in [0.37, 0.92]</span> — local semantic complexity  
-    <span class="mathjax-render">L_\ell \in [0.44, 0.93]</span> — latent representational change
+    <span class="mathjax-render">\( \kappa_\ell \in [0.37, 0.92] \)</span> — local semantic complexity  
+    <span class="mathjax-render">\( L_\ell \in [0.44, 0.93] \)</span> — latent representational change
     <br><br>
     <span class="mathjax-render">
     \begin{cases}

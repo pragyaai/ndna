@@ -60,7 +60,7 @@ See https://en.wikipedia.org/wiki/Karyotype
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="gifs/neural_genomics/nKaryotyping/nKaryotyping.png"
+   image_path="gifs/neural_genomics/nKaryotyping/500px-Human_karyotype_with_bands_and_sub-bands.png"
    caption=figure_caption
    alt_text="Human Karyotype with Bands and Sub-Bands: Biological Inspiration for nKaryotyping" %}
 

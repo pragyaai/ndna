@@ -2,11 +2,11 @@
 {% assign logo_size = include.logo_size | default: "4em" %}
 
 {% capture logo_html %}
-<span class="page-title-neural-genomics">
+<span class="page-title-neural-genomics" style="display: inline-flex; align-items: center;">
   <img src="{{ '/assets/img/Neural_genomics_img-1.png' | relative_url }}"
        alt="Neural Genomics"
-       style="height: {{ logo_size }}; vertical-align: middle; margin: 0 0.35em 0 0;">
-  Neural Genomics:
+       style="height: {{ logo_size }}; margin-right: 0.35em;">
+  <span>Neural Genomics:</span>
 </span>
 {% endcapture %}
 
