@@ -603,3 +603,8 @@ mjx-container[jax="CHTML"] {
     overflow-x: auto;
     overflow-y: clip;
 }
+
+.highlight {
+    max-width: 1100px;
+    overflow: auto;
+}
