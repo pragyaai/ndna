@@ -464,12 +464,13 @@ This concern strikes at the core of whether CIVIC truly reveals cultural priors,
    $$
    \mathcal{S}_{\mathrm{sheaf}} = \sum_{i,j} \left\| s_{ij} - s_i|_U \right\|^2
    $$
-   where $s_i|_U$ is the restriction of local section $s_i$ to overlapping chart $U$. Syntactic priors induce uniform local gluing (low $\mathcal{S}_{\mathrm{sheaf}}$), but cultural priors manifest as differential local inconsistencies -- high $\mathcal{S}_{\mathrm{sheaf}}$ in culturally marked regions.
+   
+   where $s_i \mid_U$ is the restriction of local section $s_i$ to overlapping chart $U$. Syntactic priors induce uniform local gluing , but cultural priors manifest as differential local inconsistencies -- high $\mathcal{S}_{\mathrm{sheaf}}$ in culturally marked regions.
 
 3. **Cross-lingual belief field consistency audit.**  
    We compute:
    $$
-   \vec{v}_\ell^{(c,l)} = \nabla_{h_\ell^{(l)}}} \log P \bigl( c \mid h_\ell^{(l)} \bigr)
+   \vec{v}_\ell^{(c,l)} = \nabla_{h_\ell^{(l)}} \log P \bigl( c \mid h_\ell^{(l)} \bigr)
    $$
    for multiple $c$ across languages $l$. Token frequency artifacts would cause proportional weakening of $\bigl\| \vec{v}_\ell^{(c,l)} \bigr\|$ across all concepts, whereas cultural priors induce concept-dependent directional asymmetries.
 
@@ -501,7 +502,7 @@ This is a key challenge: could divergences identified by CIVIC simply result fro
 2. **Belief field coherence test.**  
    For each random instantiation:
    $$
-   \vec{v}_\ell^{(c,l,r)} = \nabla_{h_\ell^{(l,r)}}} \log P(c \mid h_\ell^{(l,r)})
+   \vec{v}_\ell^{(c,l,r)} = \nabla_{h_\ell^{(l,r)}} \log P(c \mid h_\ell^{(l,r)})
    $$
    and compute directional entropy:
    $$
@@ -536,7 +537,7 @@ This critique touches the philosophical core: can purely statistical models enco
 1. **Differential belief vector flow.**  
    Let
    $$
-   \vec{v}_\ell^{(c,l)} = \nabla_{h_\ell^{(l)}}} \log P \bigl( c \mid h_\ell^{(l)} \bigr)
+   \vec{v}_\ell^{(c,l)} = \nabla_{h_\ell^{(l)}} \log P \bigl( c \mid h_\ell^{(l)} \bigr)
    $$
    be the belief vector field toward concept $c$ at layer $\ell$ for language or culture $l$. If models are merely stochastic approximators with no cultural structure, one would expect:
    $$
@@ -780,6 +781,178 @@ $$
 This can be seen as the epistemic work the model performs to transform input into latent meaning. When $\mathcal{L}^{(l)}$ is anomalously small for a language, it often means that the model is skipping or collapsing intermediate conceptual steps -- a form of overcompression. This could lead to fragile reasoning or loss of nuance for that language.
 
 Conversely, an unusually long $\mathcal{L}^{(l)}$ might indicate unnecessary complexity, perhaps due to lack of confident semantic grounding in that language. Thus, by inspecting thermodynamic length across languages, we gain a direct, quantitative view of representational health in multilingual models, beyond what token-level evaluation provides {% cite crooks2007measuring %} {% cite perez2022discovering %}.
+
+<h1 style="line-height: 1.2; text-align: left; margin: 0;">
+nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
+</h1>
+
+## What does it mean to interpret alignment as a steering vector manifold, and how does this perspective advance our understanding of model behavior?
+
+Interpreting alignment as a **steering vector manifold** reframes the problem of guiding large models as navigating a high-dimensional vector field where each latent state $h_\ell$ experiences a directional force toward the desired semantic target. Formally, at each layer $\ell$, the steering dynamics can be described via:
+
+$$
+\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)
+$$
+
+where $P(c \mid h_\ell)$ is the model's conditional probability of concept $c$. 
+
+This manifold perspective allows us to measure not only whether the model aligns with instructions at the output layer, but how consistently and coherently this alignment force is applied across the depth of the network. It enables detection of hidden misalignments, semantic drifts, and brittle reasoning pathways -- phenomena invisible to scalar metrics. This approach draws inspiration from geometric flows {% cite amari2016information %}, vector field topology {% cite arnold1989mathematical %}, and recent work on alignment auditing in LLMs {% cite perez2022discovering %}.
+
+## How does thermodynamic length complement the belief vector field in mapping alignment pathways in large language models?
+
+Thermodynamic length $\mathcal{L}$ offers a scalar summary of the epistemic effort expended by a model as it transforms inputs into aligned outputs:
+
+$$
+\mathcal{L} = \sum_{\ell=1}^{L-1} \| h_{\ell+1} - h_\ell \|_2
+$$
+
+It quantifies the accumulated semantic displacement across layers. When paired with the belief vector field:
+
+$$
+\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)
+$$
+
+we obtain both the magnitude of epistemic reconfiguration (via $\mathcal{L}$) and its directionality (via $\vec{v}_\ell^{(c)}$). Together, they form a rich geometric signature of alignment pathways -- revealing whether semantic progress is efficient, consistent, or plagued by unnecessary detours and drift {% cite perez2022discovering %} {% cite amari2016information %}.
+
+## What is the formal connection between the belief vector field and classical mechanics, and why is this analogy important for alignment diagnostics?
+
+The belief vector field $\vec{v}_\ell^{(c)}$ can be viewed as a semantic analogue of a force field in classical mechanics, where each latent representation $h_\ell$ acts as a point in a high-dimensional semantic manifold, and $\vec{v}_\ell^{(c)}$ corresponds to the gradient of a potential function encoding log-probability of target concepts:
+
+$$
+\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell).
+$$
+
+This mirrors how conservative forces derive from scalar potentials in physics {% cite arnold1989mathematical %}. The latent dynamics of the model can then be understood in terms of trajectories that minimize semantic "potential energy" while following alignment-constrained paths:
+
+$$
+\delta \int \mathcal{L}(h_\ell) \, d\ell = 0,
+$$
+
+where $\mathcal{L}(h_\ell)$ denotes a latent Lagrangian incorporating belief gradients and thermodynamic displacement. This analogy allows us to apply tools from variational calculus and geometric mechanics to alignment diagnostics, enabling the detection of latent shortcutting, over-regularization, or semantic collapse that may not be visible at the output level {% cite amari2016information %} {% cite coifman2006diffusion %}.
+
+## How does mapping alignment as a steering vector manifold differ from scalar alignment metrics, and what new failure modes does it help reveal?
+
+Traditional scalar alignment metrics (e.g., output accuracy, toxicity scores) collapse complex epistemic trajectories into pointwise measures, losing all information about the path the model took through latent space to arrive at a generation. By contrast, mapping alignment as a **steering vector manifold** retains the full directional, geometric, and force-like structure of the model's internal reasoning:
+
+$$
+\mathcal{S} = \bigcup_{\ell} \bigl\{ (h_\ell, \vec{v}_\ell^{(c)}) \bigr\}
+$$
+
+where $\mathcal{S}$ represents the alignment manifold consisting of latent points paired with their belief steering vectors. This richer structure exposes failure modes such as:
+
+- **Pathological spiraling**: where latent states cycle or oscillate around conceptual targets without convergence, indicative of indecision or mode collapse.
+- **Alignment bifurcation**: where belief vector fields split sharply at certain layers, signaling semantic conflict or unresolved multi-objective alignment {% cite perez2022discovering %}.
+- **Gradient vanishing zones**: where $\| \vec{v}_\ell^{(c)} \| \to 0$, indicating regions of latent inertia where the model is no longer semantically guided.
+
+This framework transforms alignment auditing from output-level analysis to geometric reasoning about the model's internal epistemic dynamics {% cite amari2016information %} {% cite coifman2006diffusion %}.
+
+## How can geodesic deviation in the alignment manifold diagnose subtle forms of misalignment or conflicting objectives?
+
+In the context of the nDNA Cartograph, geodesic deviation describes how trajectories of latent representations diverge under the influence of differing belief vector fields:
+
+$$
+\mathcal{D}_\ell = \left\| h_\ell^{(1)} - h_\ell^{(2)} \right\|
+$$
+
+where $h_\ell^{(1)}$ and $h_\ell^{(2)}$ are latent states evolved from similar inputs under distinct alignment objectives. When geodesic deviation $\mathcal{D}_\ell$ grows anomalously at certain depths, it signals latent semantic bifurcation -- where the model's inner reasoning splits into separate paths due to conflicting alignment pressures (e.g., factuality vs. harmlessness). 
+
+This phenomenon can be linked to the Riemannian curvature of the alignment manifold:
+
+$$
+R(X,Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z
+$$
+
+where $X, Y, Z$ are vector fields along the latent manifold. Spikes in curvature at layers with large $\mathcal{D}_\ell$ expose loci of alignment tension {% cite amari2016information %} {% cite arnold1989mathematical %}. Such diagnostics cannot be inferred from scalar metrics but are revealed through geometric reasoning.
+
+## Why is the notion of a steering vector manifold better suited for multilingual or culturally fine-tuned models?
+
+Multilingual and culturally fine-tuned models operate over latent spaces that must harmonize diverse epistemic priors, linguistic patterns, and conceptual schemas. 
+
+The steering vector manifold formalism represents both latent positions and directional belief forces:
+
+$$
+\mathcal{S}_l = \bigcup_{\ell} \left\{ \bigl( h_\ell^{(l)}, \vec{v}_\ell^{(c,l)} \bigr) \right\}
+$$
+
+where $l$ indexes language or cultural domain, $h_\ell^{(l)}$ is the latent position at layer $\ell$, and $\vec{v}_\ell^{(c,l)}$ is the belief vector at that point.
+
+This structure enables diagnostics that:
+
+- Detect languages or cultures with weaker semantic steering:
+  $$
+  \bigl\| \vec{v}_\ell^{(c,l_1)} \bigr\| 
+  \ll 
+  \bigl\| \vec{v}_\ell^{(c,l_2)} \bigr\|
+  \quad \text{for some language pair } (l_1, l_2)
+  $$
+
+- Identify layers where latent paths for different languages or cultures diverge despite aiming at shared concepts.
+- Quantify epistemic tension through differential thermodynamic length:
+  $$
+  \Delta \mathcal{L}^{(l_1,l_2)} = 
+  \bigl| \mathcal{L}^{(l_1)} - \mathcal{L}^{(l_2)} \bigr|
+  $$
+  where large differences reveal culturally induced alignment drift.
+
+Such analysis is crucial for auditing fairness, inclusiveness, and epistemic consistency in multilingual or culturally diverse LLMs {% cite pires2019multilingual %} {% cite chi2020finding %} {% cite scao2022bloom %}.
+
+### How does the nDNA steering vector manifold help identify layers where conceptual bifurcations or alignment contradictions occur?
+
+The **nDNA steering vector manifold** encodes not only latent positions $h_\ell$ but also their semantic flow via belief vectors $\vec{v}_\ell^{(c)}$. Conceptual bifurcations -- points where the model internally splits its semantic path, trying to reconcile conflicting priors or objectives -- are detectable as zones where the steering field exhibits directional instability.
+
+Mathematically, we define the local directional variance at layer $\ell$ as:
+
+$$
+\sigma_\ell^2(c) = \frac{1}{N} \sum_{i=1}^{N} 
+\left\| 
+\vec{v}_{\ell,i}^{(c)} - \overline{\vec{v}_\ell^{(c)}}
+\right\|_2^2
+$$
+
+where $\vec{v}_{\ell,i}^{(c)}$ is the belief vector for token $i$, and $\overline{\vec{v}_\ell^{(c)}}$ is the mean belief vector at layer $\ell$. 
+
+Large $\sigma_\ell^2(c)$ flags regions where different parts of the latent space pull toward competing semantic interpretations -- a hallmark of internal contradiction or unresolved conceptual tension. This goes far beyond output accuracy metrics, offering a window into the model's epistemic decision process {% cite amari2016information %} {% cite yang2024model %}.
+
+### Why does the steering vector manifold reveal failure modes that traditional loss metrics miss during fine-tuning or distillation?
+
+Traditional loss functions aggregate over outputs, masking how internal representations evolve. In contrast, the **steering vector manifold** provides a layer-by-layer, concept-conditioned map of epistemic dynamics. 
+
+Consider two models $M_1$ and $M_2$ undergoing fine-tuning or distillation. Their output loss may converge, but if their internal belief flows differ:
+
+$$
+\Delta_{\text{steer}} = \sum_{\ell=1}^{L} 
+\left\| 
+\vec{v}_\ell^{(c,M_1)} - \vec{v}_\ell^{(c,M_2)} 
+\right\|_2
+$$
+
+this reflects divergent internal reasoning pathways, unseen by loss alone. A high $\Delta_{\text{steer}}$ signals that the models, while output-aligned, may differ in robustness, compositionality, or alignment safety. 
+
+Such analysis makes it possible to detect brittle alignment or reasoning shortcuts early, transforming model evaluation from output-endpoint metrics to a rigorous inner geometry audit {% cite ilharco2023editing %} {% cite perez2022discovering %}.
+
+### How does the geometry of steering vector manifolds expose epistemic inconsistency in multi-step reasoning tasks?
+
+Multi-step reasoning (e.g., arithmetic, logic chains) requires that latent trajectories follow smooth, directed paths toward concepts at each step. The steering vector manifold lets us analyze this by constructing the cumulative directional change:
+
+$$
+\mathcal{C}^{(c)} = \sum_{\ell=1}^{L-1}
+\arccos \left(
+\frac{
+\left\langle 
+\vec{v}_\ell^{(c)}, \vec{v}_{\ell+1}^{(c)}
+\right\rangle
+}{
+\left\| \vec{v}_\ell^{(c)} \right\|_2
+\left\| \vec{v}_{\ell+1}^{(c)} \right\|_2
+}
+\right)
+$$
+
+where $\mathcal{C}^{(c)}$ measures total angular drift in belief flow.
+
+Small $\mathcal{C}^{(c)}$ indicates coherent epistemic progression. Large $\mathcal{C}^{(c)}$ flags inconsistency: the model's internal belief flow veers between steps, often preceding hallucinations or reasoning errors. 
+
+This geometric quantity, unavailable in traditional loss functions, rigorously diagnoses hidden weaknesses in reasoning chains -- making the manifold approach essential for safe and interpretable AI {% cite belkin2003laplacian %} {% cite coifman2006diffusion %} {% cite amari2016information %}.
 
 ---
 
