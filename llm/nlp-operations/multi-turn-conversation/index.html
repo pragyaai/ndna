@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>Multi-turn Conversation and nDNA - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/main.css">
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax error:', err);
+        });
+      }
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Multi-turn Conversation and nDNA | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Multi-turn Conversation and nDNA" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ORBIT: Multi-turn Conversation and Dynamics" />
+<meta property="og:description" content="ORBIT: Multi-turn Conversation and Dynamics" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-13T13:32:36+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Multi-turn Conversation and nDNA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T13:32:36+00:00","datePublished":"2025-08-13T13:32:36+00:00","description":"ORBIT: Multi-turn Conversation and Dynamics","headline":"Multi-turn Conversation and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+    <a class="ndna-cover" href="/nDNA/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
+    </a>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+        
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ndna">ORBIT: Multi-turn Conversation and<img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span>Dynamics</span>
+</h1>
+
+<blockquote>
+  <p><em>We introduce <strong>ORBIT</strong>—a neural genomics framework for diagnosing the epistemic health of large language models (LLMs) in multi-turn dialogue. While prior evaluation methods emphasize surface-level fluency or factuality, <strong>ORBIT</strong> ventures deeper—probing the latent evolution of beliefs by modeling internal representations as semantic trajectories through high-dimensional latent space.</em></p>
+</blockquote>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>We introduce <strong>ORBIT</strong>—a neural genomics framework for diagnosing the <em>epistemic health</em> of large language models (LLMs) in <em>multi-turn dialogue</em>. While prior evaluation methods emphasize surface-level fluency or factuality, <strong>ORBIT</strong> ventures deeper—probing the <em>latent evolution of beliefs</em> by modeling internal representations as <em>semantic trajectories</em> through high-dimensional latent space.</p>
+
+<p>Grounded in a novel <strong>neural DNA</strong> formalism, denoted \(\text{nDNA}_{\text{mtd}}\), we extract turn-wise belief vectors and apply tools from differential geometry—curvature, torsion, and thermodynamic semantic length—to characterize how a model <em>thinks</em>, <em>transitions</em>, and <em>stabilizes</em> during conversation. We introduce new diagnostic metrics—<em>inter-turn angular deviation</em>, <em>epistemic torsion</em>, and <em>cumulative drift</em>—to quantify alignment-related phenomena such as memory retention, reasoning consistency, and semantic derailment.</p>
+
+<p>Empirical results across state-of-the-art LLMs (LLaMA, Mistral, Gemma, Phi-2, GPT-NeoX) reveal that stronger models trace smooth, low-torsion nDNA trajectories with compact belief loops, while weaker models exhibit jagged, high-curvature pathways with epistemic volatility. ORBIT achieves superior correlation with human judgments on coherence, consistency, and engagement—surpassing existing metrics like BLEURT, G-Eval, and MAUVE.</p>
+
+<p><strong>ORBIT</strong> offers a principled, interpretable lens for understanding model behavior across turns—enabling alignment-sensitive evaluation, dialogue curriculum design, and the emergence of <em>epistemic interpretability</em> as a core paradigm in LLM diagnostics.</p>
+
+<h2 id="from-surface-fluency-to-latent-epistemics-why-dialogue-evaluation-must-track-semantic-memory-and-belief-dynamics">From Surface Fluency to Latent Epistemics: Why Dialogue Evaluation Must Track Semantic Memory and Belief Dynamics</h2>
+
+<h3 id="the-inadequacy-of-surface-level-metrics">The Inadequacy of Surface-Level Metrics</h3>
+
+<p>Conventional evaluation of dialogue systems has largely centered on token-level overlap metrics such as <strong>BLEU</strong> , <strong>ROUGE</strong> , <strong>METEOR</strong> , and perplexity. While these metrics are computationally efficient and correlate loosely with grammatical fluency, they remain blind to deeper qualities like <em>belief consistency</em>, <em>logical continuity</em>, and <em>thematic memory</em> over multi-turn interactions. As noted in , such surface-level evaluations can reward models that generate locally fluent responses while <strong>globally drifting across topics</strong>, contradicting earlier turns, or hallucinating unsupported content.</p>
+
+<p>Recent work has sought to address this gap by introducing learned evaluators—<strong>USR</strong> , <strong>FED</strong> , <strong>HolisticEval</strong> , and <strong>G-Eval</strong> <a href="#ref1">[1]</a>—which assess aspects like coherence, engagement, and factuality using discriminative or generative language models. However, these approaches continue to evaluate only the <em>outputs</em> of a model, not its <em>internal belief trajectories</em>, and thus fail to explain <em>why</em> or <em>how</em> a model’s epistemic state drifts during conversation.</p>
+
+<h3 id="semantic-drift-and-the-problem-of-latent-dialogue-inconsistency">Semantic Drift and the Problem of Latent Dialogue Inconsistency</h3>
+
+<p><em>Semantic drift</em>—the progressive deviation of a model’s belief state from prior context—is a known failure mode in neural dialogue systems . While early systems relied on explicit Dialogue State Tracking (DST) and structured memory modules , modern LLM-based dialogue agents depend on transformer encoders with <em>implicit, context-dependent memory</em>. Despite producing locally fluent responses, these systems frequently <strong>forget earlier facts</strong>, <strong>reverse stances</strong>, or <strong>meander off-topic</strong> in longer conversations .</p>
+
+<p>Moreover, alignment-oriented benchmarks such as <strong>TruthfulQA</strong> , <strong>FLASK</strong> , and <strong>AlpacaEval</strong>  focus on factual correctness or instruction-following at a <em>single-prompt granularity</em>. They cannot assess whether a model <strong>maintains epistemic consistency across an entire dialogue trajectory</strong>—a property critical for high-stakes domains like education, law, therapy, and scientific reasoning.</p>
+
+<h3 id="geometric-interpretability-and-latent-belief-analysis">Geometric Interpretability and Latent Belief Analysis</h3>
+
+<p>Recent interpretability research has examined the <em>geometry</em> of LLM activations using techniques such as probing classifiers , neuron attribution , and concept vector extraction . Parallel work on representational dynamics—e.g., representational drift , thermodynamic length , and curvature of semantic manifolds —demonstrates that latent-space trajectories can reveal how models internally update knowledge.</p>
+
+<p>However, these tools are rarely applied to dialogue evaluation. No current benchmark tracks <em>layer-wise belief evolution</em> in a multi-turn setting, nor examines how geometric properties like <em>curvature</em> and <em>torsion</em> correlate with dialogue coherence or drift.</p>
+
+<h3 id="the-case-for-orbit-and-ndna-geometry">The Case for ORBIT and nDNA Geometry</h3>
+
+<p>To close this gap, we introduce <strong>ORBIT</strong>—a biologically inspired, <em>nDNA</em>-based framework for multi-turn dialogue evaluation. Unlike surface metrics, ORBIT treats the model’s internal beliefs as a <em>high-dimensional trajectory</em> in latent space, parameterized over conversational turns. We apply tools from differential geometry to quantify:</p>
+
+<ul>
+  <li><strong>Spectral Curvature</strong> (\(\kappa\)): local directional change of belief vectors, indicating topic shifts.</li>
+  <li><strong>Epistemic Torsion</strong> (\(\tau\)): twist of the belief trajectory, revealing reasoning instability.</li>
+  <li><strong>Thermodynamic Semantic Length</strong> (\(\mathcal{L}\)): accumulated semantic displacement, measuring overall belief evolution.</li>
+</ul>
+
+<p>This epistemic–geometric perspective enables ORBIT to act as both a <em>diagnostic microscope</em> and an <em>evaluation framework</em>: it not only detects when a model drifts, but explains the <em>mechanism</em> of drift—how beliefs twist, diverge, or degrade over time. We contend that such tools are essential for auditing, aligning, and improving next-generation conversational agents, particularly in domains where <strong>truth, memory, and internal consistency</strong> are as important as surface fluency.</p>
+
+<h2 id="models--benchmarks">Models &amp; Benchmarks</h2>
+
+<p>To evaluate the ORBIT framework for belief dynamics in multi-turn dialogue, we selected a diverse set of contemporary, open-source large language models (LLMs), each representing different architectural families and alignment strategies:</p>
+
+<ul>
+  <li><strong>LLaMA 3 (8B)</strong> : Strong generalist instruction-tuned model by Meta.</li>
+  <li><strong>Mistral (7B)</strong> <a href="#ref2">[2]</a>: Dense decoder-only model with efficient training and solid multi-turn capability.</li>
+  <li><strong>Gemma (7B)</strong> : Google’s lightweight, fine-tuned instruction model emphasizing interpretability.</li>
+  <li><strong>Phi-2</strong> : A small-scale model that achieves impressive alignment with curated training recipes.</li>
+  <li><strong>GPT-NeoX (20B)</strong> : A transformer-based autoregressive model representing the largest among the chosen open-source variants.</li>
+</ul>
+
+<p>For benchmarking, we selected popular multi-turn dialogue datasets known for their alignment and truthfulness evaluations:</p>
+
+<ul>
+  <li><strong>MT-Bench</strong> : A benchmark for evaluating alignment across 3–5 turn dialogues.</li>
+  <li><strong>ShareGPT Conversations</strong> : Real-world user–LLM interactions, averaging 6–12 turns per session.</li>
+  <li><strong>FLASK</strong> : Fine-grained long-form alignment dataset with an average of 5–10 dialogue turns.</li>
+  <li><strong>FaithDial</strong> : Multi-turn conversations emphasizing factual consistency.</li>
+  <li><strong>TRUTHBench</strong> : Designed to stress-test factuality and hallucination in multi-turn reasoning (avg. 3–6 turns).</li>
+</ul>
+
+<h3 id="dialogue-turn-statistics">Dialogue Turn Statistics</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Dataset</strong></th>
+      <th><strong>Avg. Turns</strong></th>
+      <th><strong>Notes</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MT-Bench</td>
+      <td>4–5</td>
+      <td>Prompt + 3–4 user turns</td>
+    </tr>
+    <tr>
+      <td>ShareGPT</td>
+      <td>6–12</td>
+      <td>Organic user–LLM logs</td>
+    </tr>
+    <tr>
+      <td>FLASK</td>
+      <td>5–10</td>
+      <td>Instruction-following + long form</td>
+    </tr>
+    <tr>
+      <td>FaithDial</td>
+      <td>4–6</td>
+      <td>Knowledge-grounded consistency</td>
+    </tr>
+    <tr>
+      <td>TRUTHBench</td>
+      <td>3–6</td>
+      <td>Drift, logic, and hallucination tests</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These choices ensure that the ORBIT framework is evaluated under realistic, diverse, and challenging multi-turn settings, enabling us to track semantic drift, belief torsion, and coherence degradation over extended interactions.</p>
+
+<h2 id="orbit-organized-representation-of-belief-integrity-in-turns">ORBIT: Organized Representation of Belief Integrity in Turns</h2>
+
+<p>Traditional surface-level dialogue metrics—such as BLEU , ROUGE , or perplexity—offer only a shallow view of model performance. They can be maximized even when a model suffers from <em>belief collapse</em>, hallucination, or overfitting to prompt artifacts. ORBIT shifts focus from output surface forms to <em>internal epistemic dynamics</em>, asking:</p>
+
+<blockquote>
+  <p>How do the latent beliefs of a model evolve, stabilize, or drift across the turns of a conversation?</p>
+</blockquote>
+
+<p>Let the mean-pooled hidden state at transformer layer \(\ell\) after turn \(t\) be:
+\(h_\ell^{(t)} \in \mathbb{R}^d.\)</p>
+
+<p>For a \(T\)-turn conversation, ORBIT views \(\{h_\ell^{(1)}, \dots, h_\ell^{(T)}\}\) as a <em>discrete curve</em> in latent space. Each metric probes a different property of this curve, capturing complementary aspects of belief integrity.</p>
+
+<h3 id="spectral-memory-retention-rt">Spectral Memory Retention \(R(t)\)</h3>
+
+<p><strong>Goal:</strong> Measure how much the current belief vector reuses <em>diverse</em> prior knowledge.</p>
+
+<p>Let
+\(M_\ell^{(t)} = \big[v_\ell^{(1)}, \dots, v_\ell^{(t-1)}\big] \in \mathbb{R}^{d\times (t-1)}\)
+be the memory matrix. Its rank-\(k\) SVD is:
+\(M_\ell^{(t)} = U_\ell^{(t)} \Sigma_\ell^{(t)} V_\ell^{(t)\top}, \quad U_{\ell,k}^{(t)} \in \mathbb{R}^{d\times k}.\)</p>
+
+<p>We project the current belief:
+\(\hat{v}_\ell^{(t)} = U_{\ell,k}^{(t)} U_{\ell,k}^{(t)\top} v_\ell^{(t)},\)
+and define the raw retention:
+\(R_\ell^{(t)} = \frac{\|\hat{v}_\ell^{(t)}\|_2^2}{\|v_\ell^{(t)}\|_2^2}.\)</p>
+
+<p>Entropy-weighted regularization uses singular values \(\sigma_i\) to compute:
+\(H_\ell^{(t)} = -\sum_{i=1}^k \sigma_i \log \sigma_i, \quad \sigma_i \propto \Sigma_{ii}.\)</p>
+
+<p>The final layer-averaged retention is:
+\(R(t) = \frac{1}{L} \sum_{\ell=1}^L R_\ell^{(t)} \cdot \frac{H_\ell^{(t)}}{\log k}.\)</p>
+
+<p>High \(R(t)\) indicates stable, adaptive reuse of prior turns; low \(R(t)\) indicates forgetting or rote replay.</p>
+
+<h3 id="thermodynamic-length-lt">Thermodynamic Length \(L(t)\)</h3>
+
+<p><strong>Goal:</strong> Quantify intra-turn representational restructuring effort.</p>
+
+<p>For a single turn:
+\(L(t) = \sum_{\ell=1}^{L-1} \| v_{\ell+1}^{(t)} - v_\ell^{(t)} \|_2,\)
+normalized as:
+\(\tilde{L}(t) = \frac{1}{L-1} \sum_{\ell=1}^{L-1} \| v_{\ell+1}^{(t)} - v_\ell^{(t)} \|_2.\)</p>
+
+<p>Across the dialogue:
+\(L_{\text{dialogue}} = \frac{1}{T} \sum_{t=1}^T \tilde{L}(t).\)</p>
+
+<p>High values suggest creative recomputation or overthinking; low values suggest semantic stagnation.</p>
+
+<h3 id="epistemic-drift-d">Epistemic Drift \(D\)</h3>
+
+<p><strong>Goal:</strong> Capture <em>global displacement</em> of beliefs across turns.</p>
+
+<p>Euclidean drift:
+\(D^{(0)} = \frac{1}{L} \sum_{\ell=1}^L \| v_\ell^{(T)} - v_\ell^{(1)} \|_2.\)</p>
+
+<p>Fisher–Rao geodesic:
+\(D_\ell^{(F)} = \int_{1}^T \dot{\gamma}_\ell(t)^\top I_\ell(t) \dot{\gamma}_\ell(t)\,dt.\)</p>
+
+<p>Curvature energy:
+\(E_\ell = \sum_{t=2}^{T-1} \| J_\ell(t+1) - J_\ell(t) \|_2^2, \quad J_\ell(t) = v_\ell^{(t)} - v_\ell^{(t-1)}.\)</p>
+
+<p>Belief action functional:
+\(A_\ell = \int_{1}^T \left( \frac12\|\dot{\gamma}_\ell(t)\|_2^2 + U_\ell(\gamma_\ell(t)) \right) dt.\)</p>
+
+<p>Spectral entropy:
+\(H_\ell = -\sum_{i=1}^T \lambda_i \log \lambda_i, \quad \lambda_i = \frac{\sigma_i^2}{\sum_j \sigma_j^2}.\)</p>
+
+<p>Composite drift:
+\(D_{\text{final}} = D^{(0)} + \lambda_F D^{(F)} + \lambda_C E + \lambda_A A + \lambda_S H.\)</p>
+
+<p>Low \(D_{\text{final}}\) indicates rigidity; high with \(\kappa\approx 1\) indicates purposeful adaptation; high with \(\kappa \gg 1\) indicates instability.</p>
+
+<h3 id="epistemic-torsion-taut">Epistemic Torsion \(\tau(t)\)</h3>
+
+<p><strong>Goal:</strong> Detect <em>out-of-plane twisting</em> in belief motion.</p>
+
+<p>Local displacements:
+\(\mathbf{a}_\ell(t) = v_\ell^{(t)} - v_\ell^{(t-1)}, \quad \mathbf{b}_\ell(t) = v_\ell^{(t+1)} - v_\ell^{(t)}.\)</p>
+
+<p>Osculating plane normal:
+\(\mathbf{n}_\ell(t) = \mathbf{a}_\ell(t) \times \mathbf{b}_\ell(t).\)</p>
+
+<p>Torsion magnitude:
+\(\tau_\ell(t) = \frac{\|\mathbf{a}_\ell(t) \times \mathbf{b}_\ell(t)\|_2}{\|\mathbf{a}_\ell(t)\|_2 \cdot \|\mathbf{b}_\ell(t)\|_2 \cdot \|\mathbf{a}_\ell(t) + \mathbf{b}_\ell(t)\|_2}.\)</p>
+
+<p>Layer-averaged:
+\(\tau(t) = \frac{1}{L} \sum_{\ell=1}^L \tau_\ell(t).\)</p>
+
+<p>High torsion often signals adversarial pivots or hallucination-prone reorientation.</p>
+
+<h3 id="semantic-coherence-ct">Semantic Coherence \(C(t)\)</h3>
+
+<p><strong>Goal:</strong> Evaluate <em>internal alignment</em> across layers and turns.</p>
+
+<p>Vertical coherence:
+\(C_{\text{layer}}(t) = \frac{1}{L-1} \sum_{\ell=1}^{L-1} \cos\theta(v_\ell^{(t)}, v_{\ell+1}^{(t)}).\)</p>
+
+<p>Temporal coherence:
+\(C_{\text{turn}}(\ell) = \frac{1}{T-1} \sum_{t=1}^{T-1} \cos\theta(v_\ell^{(t)}, v_\ell^{(t+1)}).\)</p>
+
+<p>Unified score:
+\(C_{\text{total}} = \alpha C_{\text{layer}}(t) + (1 - \alpha) C_{\text{turn}}(\ell).\)</p>
+
+<p>Balanced high \(C_{\text{total}}\) indicates healthy memory and abstraction; too high indicates over-smoothing; low indicates fragmentation.</p>
+
+<p><strong>Summary:</strong> ORBIT’s five metrics—<em>Spectral Memory Retention, Thermodynamic Length, Epistemic Drift, Epistemic Torsion, and Semantic Coherence</em>—together form a <em>geometric health profile</em> for dialogue models. By treating hidden states as curves in latent space, ORBIT reveals subtleties invisible to text-only metrics, enabling deeper alignment auditing, failure analysis, and epistemic safety monitoring.</p>
+
+<h2 id="the-orbit-score-function">The ORBIT Score Function</h2>
+
+\[\begin{aligned}
+\text{ORBIT} &amp;=  
+\boxed{
+\overbrace{
+\underbrace{\lambda_1 \cdot \frac{1}{T} \sum_{t=1}^{T} R(t)}_{\text{Spectral Memory Retention}} \; + \;
+\underbrace{\lambda_2 \cdot \frac{1}{T} \sum_{t=1}^{T} L(t)}_{\text{Thermodynamic Length}} \; + \;
+\underbrace{\lambda_3 \cdot D}_{\text{Epistemic Drift}} \; + \;
+\underbrace{\lambda_4 \cdot \frac{1}{T-2} \sum_{t=2}^{T-1} \tau(t)}_{\text{Epistemic Torsion}}
+}^{\text{Rewarded Belief Dynamics (↑ ORBIT for Adaptive Structure)}}
+} \\[1.5ex]
+&amp;\quad - \boxed{
+\overbrace{
+\underbrace{ \lambda_5 \cdot \frac{1}{T} \sum_{t=1}^{T} C(t) }_{\text{Semantic Coherence}}
+}^{\text{Penalized Semantic Flatness (↓ ORBIT for Redundant Coherence)}}
+}
+\end{aligned}\]
+
+<p>The proposed scoring function rewards dynamic belief transitions while penalizing shallow coherence. It encodes four positive drivers—memory retention, path length, epistemic drift, and torsion—balanced by a semantic flatness penalty, promoting structured, evolving, and memory-aware dialogue.</p>
+
+<h3 id="justification-of-orbit-components">Justification of ORBIT Components</h3>
+<p>Each term is carefully selected to align with the goals of adaptive, memory-rich, and structurally evolving multi-turn dialogue. The balance of belief dynamics versus flat coherence makes ORBIT ideal for measuring generative dialogue quality.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Component</strong></th>
+      <th><strong>Role in Dialogue</strong></th>
+      <th><strong>Reward/Penalty</strong></th>
+      <th><strong>Mathematical Insight</strong></th>
+      <th><strong>Implication for Dialogue Modeling</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Spectral Memory Retention</strong> \(R(t)\)</td>
+      <td>Recalls and reactivates past belief states</td>
+      <td><strong><span style="color: #006600">Rewarded</span></strong></td>
+      <td>Projects current latent belief into the spectral basis of earlier turns; misalignment reflects forgetting</td>
+      <td>Encourages memory consistency, narrative anchoring, and long-term coherence in multi-turn dialogues</td>
+    </tr>
+    <tr>
+      <td><strong>Thermodynamic Length</strong> \(L(t)\)</td>
+      <td>Tracks the latent evolution path length</td>
+      <td><strong><span style="color: #006600">Rewarded</span></strong></td>
+      <td>Cumulative Riemannian metric across belief updates; longer length implies meaningful transformations</td>
+      <td>Rewards non-trivial updates, semantic learning, and knowledge evolution over dialogue turns</td>
+    </tr>
+    <tr>
+      <td><strong>Epistemic Drift</strong> \(D\)</td>
+      <td>Captures global belief shift across the dialogue</td>
+      <td><strong><span style="color: #006600">Rewarded</span></strong></td>
+      <td>Measures the endpoint divergence; high drift allows model to change beliefs</td>
+      <td>Supports dynamic viewpoint adaptation and progression of thought within a conversation</td>
+    </tr>
+    <tr>
+      <td><strong>Epistemic Torsion</strong> \(\tau(t)\)</td>
+      <td>Measures angular twisting of belief trajectories</td>
+      <td><strong><span style="color: #006600">Rewarded</span></strong></td>
+      <td>Derived from second-order changes in belief vectors; torsion encodes directional context redirection</td>
+      <td>Favors nuanced adaptation, subtopic transitions, and layered reasoning under contextual tension</td>
+    </tr>
+    <tr>
+      <td><strong>Semantic Coherence</strong> \(C(t)\)</td>
+      <td>Surface-level similarity across dialogue turns</td>
+      <td><strong><span style="color: #CC0000">Penalized</span></strong></td>
+      <td>Low entropy in representation change; high values imply semantic redundancy</td>
+      <td>Penalizes repetition and trivial consistency, pushing toward more semantically diverse and evolving conversations</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualizations-and-analysis">Visualizations and Analysis</h2>
+
+<h3 id="spectral-memory-retention-across-turns-and-layers">Spectral Memory Retention Across Turns and Layers</h3>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/Figures/memory_retention_final_30L.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/Figures/memory_retention_final_30L.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Spectral Memory Retention Across Turns and Layers: LLaMA vs. Mistral.</strong> We visualize the entropy-regularized spectral retention score \(\mathcal{R}_\ell(t) \in [0, 1]\) over <strong>dialogue turns</strong> \(t \in \{1,\dots,30\}\) and <strong>LLM layers</strong> \(\ell \in \{1,\dots,30\}\). Each score quantifies how well the current belief vector \(\mathbf{v}_\ell(t)\) projects onto the \(k\)-dimensional principal semantic subspace derived from prior turns—capturing <em>episodic reactivation fidelity</em> across time. <strong>LLaMA</strong> demonstrates high spectral retention \(\mathcal{R}_\ell(t) \geq 0.75\) for early turns across most layers, maintaining a stable memory phase up to \(t = 13\). <strong>Mistral</strong>, in contrast, exhibits significantly lower and more erratic retention, revealing poor alignment between current and historical beliefs—suggesting degraded episodic anchoring and incoherent memory replay.</p>
+
+  </figcaption>
+  
+</figure>
+
+<h3 id="thermodynamic-length-trajectories">Thermodynamic Length Trajectories</h3>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/Figures/thermodynamic_llama_mistral_bestangle_final.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/Figures/thermodynamic_llama_mistral_bestangle_final.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Thermodynamic Length Trajectories \(\mathcal{L}_\ell(t)\) across LLM Layers for LLaMA and Mistral.</strong> This figure visualizes the internal <em>belief adaptation dynamics</em> via the layerwise <strong>thermodynamic length</strong> metric \(\mathcal{L}_\ell(t)\), computed per dialogue turn \(t \in [1,30]\) and layer \(\ell \in [1,30]\). Each surface plot represents the magnitude of local epistemic effort required to transition between adjacent belief states. <strong>LLaMA</strong> shows punctuated adaptation at critical semantic junctions, suggesting efficient, layer-specific belief realignment. <strong>Mistral</strong> exhibits noisier adaptation patterns and diffuse energy expenditure across layers, implying weaker modularity and more turbulent internal reasoning.</p>
+
+  </figcaption>
+  
+</figure>
+
+<h3 id="epistemic-drift-vector-field">Epistemic Drift Vector Field</h3>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/Figures/epistemic_drift_field_annotated.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/Figures/epistemic_drift_field_annotated.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Epistemic Drift Vector Field with Layer Annotations and Baseline Path.</strong> This 3D visualization illustrates the trajectory of <em>belief state evolution</em> across dialogue turns in a transformer-based language model, projected into a reduced latent semantic space. Each <strong>arrow</strong> represents a <em>drift vector</em> at a specific layer, capturing the directional semantic shift between consecutive dialogue turns. Vectors are <strong>color-coded by drift magnitude</strong>, with lighter hues (e.g., <span style="color: #FFFF00">yellow</span>) highlighting layers with significant epistemic transitions. The <strong>dashed gray curve</strong> traces the <em>baseline path</em>, connecting layerwise belief centers without directional encoding.</p>
+
+  </figcaption>
+  
+</figure>
+
+<h3 id="curvature-torsion-analysis">Curvature-Torsion Analysis</h3>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/Figures/llm_curvature_torsion_llama_vs_mistral_arrowed_fixed.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/Figures/llm_curvature_torsion_llama_vs_mistral_arrowed_fixed.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Comparative Semantic Curvature–Torsion Fields of Belief Evolution: LLaMA vs Mistral.</strong> This 3D comparative visualization presents the semantic evolution of beliefs across 30 dialogue turns for two Large Language Models. Each trajectory is embedded in a \((t, \kappa(t), \tau(t))\) space, where \(t\) is the dialogue turn, \(\kappa(t)\) represents semantic <em>curvature</em>, and \(\tau(t)\) represents semantic <em>torsion</em>. Line width denotes torsion magnitude—thicker lines signify higher twisting in belief orientation. <strong>LLaMA</strong> demonstrates high torsional variance in the mid-to-late stages, while <strong>Mistral</strong> exhibits smoother curvature and more episodic torsion bursts.</p>
+
+  </figcaption>
+  
+</figure>
+
+<h3 id="semantic-coherence-analysis">Semantic Coherence Analysis</h3>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/Figures/coherence_layer.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/Figures/coherence_layer.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Vertical Semantic Integrity: Layerwise Coherence \(C_{\mathrm{layer}}(t)\).</strong> This metric captures semantic consistency <strong>across transformer layers</strong> \(\ell\) at each dialogue turn \(t\). Higher values indicate <strong>stable hierarchical abstraction</strong> and semantic integration at each turn. <strong>LLaMA</strong> exhibits a coherence plateau in upper layers up to around \(t \approx 20\), after which coherence collapses. <strong>Mistral</strong> reaches its peak earlier but shows visible degradation beginning as early as \(t \approx 13\), indicating more <strong>premature semantic collapse</strong>.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/Figures/coherence_turn.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/Figures/coherence_turn.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Temporal Consistency Drift: Turnwise Coherence \(C^{\mathrm{turn}}_{\ell}(t)\).</strong> This metric assesses coherence <em>across dialogue turns</em> \(t\) within each fixed layer \(\ell\), revealing memory continuity. A slower decline implies stronger <strong>inter-turn semantic retention</strong>. <strong>LLaMA</strong> retains coherence in upper layers until a sudden drop after \(t \approx 21\), marking a <em>late-stage memory collapse</em>. <strong>Mistral</strong> starts drifting earlier with coherence dropping notably from \(t \approx 13\), indicating a <strong>shallower temporal memory window</strong>.</p>
+
+  </figcaption>
+  
+</figure>
+
+<h2 id="orbit-evaluation-comparative-case-studies-across-five-llms">ORBIT Evaluation: Comparative Case Studies Across Five LLMs</h2>
+
+<p>We evaluate the ORBIT framework across five representative LLMs—<strong>LLaMA-2</strong>, <strong>Mistral</strong>, <strong>Gemma</strong>, <strong>Phi-2</strong>, and <strong>GPT-NeoX</strong>—to compare <em>belief trajectory geometry</em> in multi-turn dialogues. Each model was assessed on its ability to maintain coherent epistemic states, adapt across turns, and balance stability with creativity over extended interactions.</p>
+
+<h3 id="memory-retention-patterns">Memory Retention Patterns</h3>
+
+<p>Spectral memory retention \(R(t)\) quantifies episodic recall and subspace diversity by projecting the current belief vector into the subspace spanned by prior turns:</p>
+
+<ul>
+  <li><strong>LLaMA-2</strong>: Retains a high \(R(t)\) for the majority of the dialogue, only showing a gradual decline after approximately turn 13, suggesting a controlled and deliberate forgetting process.</li>
+  <li><strong>Mistral</strong>: Experiences an early collapse in \(R(t)\), indicating weaker long-term thematic anchoring and a tendency towards topic drift.</li>
+  <li><strong>Gemma</strong>: Maintains moderate retention, but with oscillatory fluctuations, pointing to intermittent lapses in thematic focus.</li>
+  <li><strong>Phi-2</strong> &amp; <strong>GPT-NeoX</strong>: Exhibit low baseline retention, with pronounced forgetting as dialogues extend, reflecting limited episodic integration.</li>
+</ul>
+
+<h3 id="thermodynamic-length-and-adaptation-effort">Thermodynamic Length and Adaptation Effort</h3>
+
+<p>Thermodynamic length \(L(t)\) measures epistemic effort as the cumulative Euclidean distance traversed across layers within a turn:</p>
+
+<ul>
+  <li><strong>LLaMA-2</strong>: Displays localized spikes in \(L(t)\), indicating targeted representational restructuring and efficient, modular adaptation.</li>
+  <li><strong>Mistral</strong>: Maintains a high but diffuse \(L(t)\) profile, suggesting scattered reorganization without clear thematic focus.</li>
+  <li><strong>Gemma</strong>: Shows balanced adaptation effort, maintaining mid-range \(L(t)\) across turns.</li>
+  <li><strong>Phi-2</strong> &amp; <strong>GPT-NeoX</strong>: Operate with low \(L(t)\), reflecting shallow adaptation and limited representational transformation.</li>
+</ul>
+
+<h3 id="epistemic-drift-and-stability">Epistemic Drift and Stability</h3>
+
+<p>Epistemic drift \(D\), computed with Fisher–Rao geodesic length, curvature energy, and the belief action functional, measures the directional evolution of internal beliefs:</p>
+
+<ul>
+  <li><strong>LLaMA-2</strong> &amp; <strong>Gemma</strong>: Exhibit goal-directed adaptation with \(\kappa \approx 1\), indicating purposeful but stable drift.</li>
+  <li><strong>Mistral</strong>: Shows \(\kappa \gg 1\), a signature of erratic instability and uncontrolled thematic shifts.</li>
+  <li><strong>Phi-2</strong> &amp; <strong>GPT-NeoX</strong>: Maintain low \(D\), revealing stasis and a lack of meaningful epistemic progression.</li>
+</ul>
+
+<h3 id="torsion-and-reorientation">Torsion and Reorientation</h3>
+
+<p>Epistemic torsion \(\tau(t)\) captures out-of-plane twisting in belief trajectories, signaling reorientation or instability:</p>
+
+<ul>
+  <li><strong>LLaMA-2</strong>: Occasional torsion spikes align with genuine topic shifts or perspective changes.</li>
+  <li><strong>Mistral</strong>: Experiences episodic bursts of torsion without consistent thematic alignment.</li>
+  <li><strong>Gemma</strong>: Shows moderate torsion correlated with meaningful redirection.</li>
+  <li><strong>Phi-2</strong> &amp; <strong>GPT-NeoX</strong>: Minimal torsion, suggestive of stability that may verge on rigidity.</li>
+</ul>
+
+<p>In vector field visualizations, LLaMA-2’s trajectories appear smooth and compact, whereas Mistral’s exhibit turbulence, especially in later layers.</p>
+
+<h3 id="semantic-coherence-analysis-1">Semantic Coherence Analysis</h3>
+
+<p>Semantic coherence \(C(t)\) measures alignment both vertically (across layers within a turn) and temporally (across turns within a layer):</p>
+
+<ul>
+  <li><strong>LLaMA-2</strong>: Maintains coherence the longest, resisting fragmentation even in extended dialogues.</li>
+  <li><strong>Mistral</strong>: Coherence drops early, with temporal consistency degrading faster than vertical coherence.</li>
+  <li><strong>Gemma</strong>: Balances vertical and temporal coherence, though gradual decline is still evident.</li>
+  <li><strong>Phi-2</strong> &amp; <strong>GPT-NeoX</strong>: Maintain vertical coherence but lose temporal alignment, resulting in thematic stagnation.</li>
+</ul>
+
+<h3 id="key-takeaways">Key Takeaways</h3>
+
+<p>Overall, <strong>LLaMA-2</strong> emerges as the most balanced performer, combining high retention, efficient adaptation, and stable yet flexible belief evolution. <strong>Mistral</strong> demonstrates strong early creativity but struggles with long-term stability and coherence. <strong>Gemma</strong> provides consistent mid-tier performance across all metrics, whereas <strong>Phi-2</strong> and <strong>GPT-NeoX</strong> exhibit limited epistemic activity, making them vulnerable to thematic stagnation in sustained conversations.</p>
+
+<h3 id="correlation-with-human-judgments">Correlation with Human Judgments</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Model</strong></th>
+      <th><strong>Metric</strong></th>
+      <th><strong>Coherence</strong></th>
+      <th><strong>Consistency</strong></th>
+      <th><strong>Factuality</strong></th>
+      <th><strong>Fluency</strong></th>
+      <th><strong>Engagement</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>LLaMA</strong></td>
+      <td><strong>ORBIT (ours)</strong></td>
+      <td><strong>0.78</strong></td>
+      <td><strong>0.74</strong></td>
+      <td>0.71</td>
+      <td>0.58</td>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>GRADE</td>
+      <td>0.69</td>
+      <td>0.66</td>
+      <td>0.63</td>
+      <td>0.59</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BLEURT</td>
+      <td>0.61</td>
+      <td>0.60</td>
+      <td>0.70</td>
+      <td><strong>0.67</strong></td>
+      <td>0.47</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>G-Eval</td>
+      <td>0.67</td>
+      <td>0.64</td>
+      <td><strong>0.73</strong></td>
+      <td>0.65</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>USR</td>
+      <td>0.62</td>
+      <td>0.63</td>
+      <td>0.58</td>
+      <td>0.57</td>
+      <td><strong>0.66</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Mistral</strong></td>
+      <td><strong>ORBIT (ours)</strong></td>
+      <td><strong>0.75</strong></td>
+      <td><strong>0.71</strong></td>
+      <td>0.69</td>
+      <td>0.61</td>
+      <td>0.60</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>GRADE</td>
+      <td>0.68</td>
+      <td>0.65</td>
+      <td>0.62</td>
+      <td>0.59</td>
+      <td>0.55</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BLEURT</td>
+      <td>0.63</td>
+      <td>0.59</td>
+      <td>0.71</td>
+      <td><strong>0.66</strong></td>
+      <td>0.48</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>G-Eval</td>
+      <td>0.66</td>
+      <td>0.63</td>
+      <td><strong>0.73</strong></td>
+      <td>0.64</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <td><strong>Gemma</strong></td>
+      <td><strong>ORBIT (ours)</strong></td>
+      <td><strong>0.77</strong></td>
+      <td><strong>0.70</strong></td>
+      <td><strong>0.74</strong></td>
+      <td>0.60</td>
+      <td>0.59</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>GRADE</td>
+      <td>0.66</td>
+      <td>0.64</td>
+      <td>0.65</td>
+      <td>0.58</td>
+      <td>0.56</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BLEURT</td>
+      <td>0.63</td>
+      <td>0.59</td>
+      <td>0.71</td>
+      <td><strong>0.66</strong></td>
+      <td>0.46</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>G-Eval</td>
+      <td>0.65</td>
+      <td>0.67</td>
+      <td>0.72</td>
+      <td>0.64</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>USR</td>
+      <td>0.64</td>
+      <td>0.62</td>
+      <td>0.60</td>
+      <td>0.56</td>
+      <td><strong>0.65</strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BERTScore</td>
+      <td>0.54</td>
+      <td>0.56</td>
+      <td>0.61</td>
+      <td>0.59</td>
+      <td>0.43</td>
+    </tr>
+    <tr>
+      <td><strong>Phi-2</strong></td>
+      <td><strong>ORBIT (ours)</strong></td>
+      <td><strong>0.73</strong></td>
+      <td><strong>0.68</strong></td>
+      <td><strong>0.70</strong></td>
+      <td>0.56</td>
+      <td>0.57</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>GRADE</td>
+      <td>0.64</td>
+      <td>0.61</td>
+      <td>0.61</td>
+      <td>0.55</td>
+      <td>0.52</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BLEURT</td>
+      <td>0.59</td>
+      <td>0.57</td>
+      <td>0.68</td>
+      <td><strong>0.64</strong></td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>G-Eval</td>
+      <td>0.62</td>
+      <td>0.60</td>
+      <td>0.69</td>
+      <td>0.62</td>
+      <td>0.47</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>USR</td>
+      <td>0.60</td>
+      <td>0.59</td>
+      <td>0.56</td>
+      <td>0.54</td>
+      <td><strong>0.62</strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BERTScore</td>
+      <td>0.51</td>
+      <td>0.53</td>
+      <td>0.58</td>
+      <td>0.57</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <td><strong>GPT-NeoX</strong></td>
+      <td><strong>ORBIT (ours)</strong></td>
+      <td><strong>0.72</strong></td>
+      <td><strong>0.67</strong></td>
+      <td><strong>0.68</strong></td>
+      <td>0.55</td>
+      <td>0.56</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>GRADE</td>
+      <td>0.63</td>
+      <td>0.60</td>
+      <td>0.60</td>
+      <td>0.54</td>
+      <td>0.51</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BLEURT</td>
+      <td>0.58</td>
+      <td>0.56</td>
+      <td>0.67</td>
+      <td><strong>0.63</strong></td>
+      <td>0.43</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>G-Eval</td>
+      <td>0.61</td>
+      <td>0.59</td>
+      <td>0.68</td>
+      <td>0.61</td>
+      <td>0.46</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>USR</td>
+      <td>0.59</td>
+      <td>0.58</td>
+      <td>0.55</td>
+      <td>0.53</td>
+      <td><strong>0.61</strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>BERTScore</td>
+      <td>0.50</td>
+      <td>0.52</td>
+      <td>0.57</td>
+      <td>0.56</td>
+      <td>0.39</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This table reports Pearson correlations across five dialogue dimensions—<strong>coherence</strong>, <strong>consistency</strong>, <strong>factuality</strong>, <strong>fluency</strong>, and <strong>engagement</strong>—for five LLMs. Cell colors indicate alignment strength (<span style="color: #006600"><strong>green</strong></span> = high, <span style="color: #CCAA00"><strong>yellow</strong></span> = moderate, <span style="color: #CC0000"><strong>red</strong></span> = low). <strong>ORBIT (ours)</strong> achieves the strongest overall alignment with human ratings, especially on structure-dependent dimensions like coherence and consistency. ORBIT achieves superior correlation with human judgments across five dialogue dimensions, with the framework particularly excelling in structure-dependent dimensions like coherence and consistency, achieving correlations of <strong>0.72-0.78</strong> compared to traditional metrics like BLEURT (0.58-0.63) and G-Eval (0.59-0.67). Slightly lower performance on fluency and engagement reflects ORBIT’s focus on epistemic dynamics over stylistic flow, distinguishing it from fluency-optimized metrics such as BLEURT and G-Eval.</p>
+
+<h3 id="the-ndna-multi-turn-dialogue-formulation">The nDNA Multi-turn Dialogue Formulation</h3>
+
+<p>We define \(\text{nDNA}_{\text{mtd}}\) as an <em>aggregate epistemic signature</em> computed across \(L\) transformer layers and \(T\) dialogue turns:</p>
+
+\[\textbf{nDNA}_{\text{mtd}} = \frac{1}{L} \sum_{\ell=1}^{L} \left[
+\left\| \vec{v}_\ell(T) - \vec{v}_\ell(1) \right\|
++ \lambda_F \int_1^T \dot{\gamma}_\ell(t)^\top I_\ell(t) \dot{\gamma}_\ell(t) \, dt
++ \lambda_C \sum_{t=2}^{T-1} \left\| J_\ell(t+1) - J_\ell(t) \right\|^2
++ \lambda_S H_\ell \cdot \log T
++ \lambda_A \int_1^T \left( \frac{1}{2} \|\dot{\gamma}_\ell(t)\|^2 + U_\ell(\gamma_\ell(t)) \right) dt
+\right]\]
+
+<p>This formulation integrates five trajectory-sensitive components:</p>
+
+<ul>
+  <li><strong>Drift Term</strong>: Measures endpoint deviation in latent belief space</li>
+  <li><strong>Fisher-Rao Term</strong>: Captures information-geometric displacement <a href="#ref3">[3]</a></li>
+  <li><strong>Curvature Energy</strong>: Quantifies semantic instability via temporal variations</li>
+  <li><strong>Spectral Entropy</strong>: Encodes memory retention through spectral dispersion</li>
+  <li><strong>Belief Action</strong>: Integrates semantic movement and potential minimization</li>
+</ul>
+
+<h4 id="formulation-of-textndna_textmtd-a-unified-epistemic-trajectory-descriptor">Formulation of \(\text{nDNA}_{\text{mtd}}\): A Unified Epistemic Trajectory Descriptor</h4>
+
+<p>We define \(\text{nDNA}_{\text{mtd}}\) as an <em>aggregate epistemic signature</em> computed across \(L\) transformer layers and \(T\) dialogue turns, integrating five trajectory-sensitive components that characterize the evolving belief landscape of a model. Each term is modulated by tunable weights (\(\lambda_F, \lambda_C, \lambda_S, \lambda_A\)) and grounded in principled signal interpretations:</p>
+
+<ul>
+  <li><strong>Drift Term</strong>: Measures endpoint deviation in latent belief space, \(\|\vec{v}_\ell(T) - \vec{v}_\ell(1)\|\), as an indicator of semantic shift over the dialogue trajectory .</li>
+  <li><strong>Fisher-Rao Term</strong>: Captures the information-geometric displacement using the Fisher-Rao metric, computed as \(\int_1^T \dot{\gamma}_\ell(t)^\top I_\ell(t) \dot{\gamma}_\ell(t)\, dt\) <a href="#ref3">[3]</a>.</li>
+  <li><strong>Curvature Energy</strong>: Quantifies semantic instability via temporal variations in the Jacobian, \(\sum_{t=2}^{T-1} \|J_\ell(t+1) - J_\ell(t)\|^2\), reflecting latent torsion .</li>
+  <li><strong>Spectral Entropy</strong>: Encodes memory retention by computing \(H_\ell \cdot \log T\) based on spectral dispersion in the representation space .</li>
+  <li><strong>Belief Action</strong>: Inspired by energy-based trajectory control, it integrates semantic movement and potential minimization: \(\int_1^T \left( \frac{1}{2} \|\dot{\gamma}_\ell(t)\|^2 + U_\ell(\gamma_\ell(t)) \right) dt\) .</li>
+</ul>
+
+<p>Here, \(\vec{v}_\ell(t) \in \mathbb{R}^d\) denotes the mean pooled representation at layer \(\ell\) and turn \(t\); \(\dot{\gamma}_\ell(t)\) the semantic velocity; \(I_\ell(t)\) the Fisher information matrix; \(J_\ell(t)\) the semantic Jacobian; \(H_\ell\) the spectral entropy; and \(U_\ell(\cdot)\) a belief potential function approximated from representation norms or logit dynamics. Together, these components yield a compact, expressive, and biologically inspired descriptor of epistemic evolution in multi-turn dialogue.</p>
+
+<h3 id="belief-trajectories-visualization">Belief Trajectories Visualization</h3>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/Figures/belief_trajectories_comparison_refined.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/Figures/belief_trajectories_comparison_refined.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Belief Trajectories in Latent Space: \(\text{nDNA}_{\text{mtd}}\) across Five Language Models.</strong> This figure visualizes the <em>epistemic trajectory</em> of each LLM over a 30-turn dialogue, projected onto the top three principal components of belief representations \(\vec{v}_\ell(t)\). <strong><span style="color: #CC6600">Gemma</span></strong> follows a <em>smooth, parabolic arc</em> with minimal angular distortion—indicative of <strong>low curvature energy</strong> and <strong>high spectral coherence</strong>. <strong><span style="color: #800080">LLaMA 3</span></strong> exhibits <em>moderate global drift</em> with <strong>compact torsional clusters</strong>, implying a <em>stable epistemic core</em> but flexible local updates. <strong><span style="color: #006600">Mistral</span></strong> remains <em>spatially localized</em>, forming tight oscillatory loops with <strong>low epistemic entropy</strong>. <strong><span style="color: #0066CC">Phi-2</span></strong> traverses a <em>long, winding path</em> with frequent sharp inflections, indicative of <strong>high torsion</strong> and <strong>Fisher-Rao energy</strong>. <strong><span style="color: #CC0000">GPT-NeoX</span></strong> demonstrates <em>sharp angular jumps</em> and frequent direction reversals—symptoms of <strong>epistemic turbulence</strong>.</p>
+
+  </figcaption>
+  
+</figure>
+
+<h4 id="model-specific-trajectory-analysis">Model-Specific Trajectory Analysis</h4>
+
+<p>The epistemic trajectories reveal distinct behavioral signatures for each model:</p>
+
+<ul>
+  <li><strong><span style="color: #CC6600">Gemma</span></strong>: Follows a <em>smooth, parabolic arc</em> with minimal angular distortion—indicative of <strong>low curvature energy</strong>, <strong>high spectral coherence</strong>, and energy-efficient transitions. Its path suggests well-structured epistemic consolidation.</li>
+  <li><strong><span style="color: #800080">LLaMA 3</span></strong>: Exhibits <em>moderate global drift</em> with <strong>compact torsional clusters</strong>, implying a <em>stable epistemic core</em> but flexible local updates. This behavior aligns with elevated <strong>thermodynamic length</strong> and moderate <strong>belief action</strong>.</li>
+  <li><strong><span style="color: #006600">Mistral</span></strong>: Remains <em>spatially localized</em>, forming tight oscillatory loops. It demonstrates <strong>low epistemic entropy</strong>, <strong>minimal drift norm</strong>, and high coherence—reflecting conservative belief adaptation.</li>
+  <li><strong><span style="color: #0066CC">Phi-2</span></strong>: Traverses a <em>long, winding path</em> with frequent sharp inflections, indicative of <strong>high torsion</strong> and <strong>Fisher-Rao energy</strong>. Despite rich semantic exploration, the erratic belief updates elevate its overall \(\text{nDNA}_{\text{mtd}}\).</li>
+  <li><strong><span style="color: #CC0000">GPT-NeoX</span></strong>: Demonstrates <em>sharp angular jumps</em>, frequent direction reversals, and disconnected belief states. These are symptoms of <strong>epistemic turbulence</strong>—yielding high curvature, spectral entropy collapse, and unstable dialogue grounding.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p><strong>Beyond Turn-Level Judgments: A New Epistemic Lens for Dialogue Evaluation</strong></p>
+
+<p>We introduce <strong>ORBIT</strong>, a geometric and epistemic framework for evaluating multi-turn dialogue models by probing not just <em>what</em> models say, but <em>how</em> their internal belief trajectories evolve over time. Our results demonstrate that standard surface-level metrics fail to capture the nuanced failures and strengths of alignment across turns. By tracing metrics such as <em>spectral memory retention</em>, <em>thermodynamic length</em>, <em>epistemic drift</em>, and <em>latent torsion</em>, ORBIT reveals the hidden structure of model cognition—where alignment is not merely a scalar, but a trajectory of beliefs in motion.</p>
+
+<p><strong>LLaMA-2</strong> emerges as the most balanced performer, combining high retention, efficient adaptation, and stable yet flexible belief evolution. <strong>Mistral</strong> demonstrates strong early creativity but struggles with long-term stability. <strong>Gemma</strong> provides consistent mid-tier performance, while <strong>Phi-2</strong> and <strong>GPT-NeoX</strong> exhibit limited epistemic activity.</p>
+
+<p>As large language models scale in complexity and conversational depth, evaluation must shift from static outputs to dynamic epistemic traces. ORBIT offers a first step in this paradigm shift—<em>from rating answers to tracing reasoning</em>. Future directions include extending ORBIT to <em>multilingual</em> and <em>multimodal</em> agents, integrating belief trajectory tracing with policy optimization, and benchmarking long-horizon reasoning across real-world dialogues.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Liu, Simeng, Chen, Yujia, and others “{G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment}” <em>arXiv preprint arXiv:2303.16634</em> (2023).</p>
+
+<p><a id="ref2"></a>[2] Jiang, Albert Q. and Others “Mistral: Fast and Open Mixtral of Experts Language Models” <em>arXiv preprint arXiv:2310.06825</em> (2023).</p>
+
+<p><a id="ref3"></a>[3] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
+
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>

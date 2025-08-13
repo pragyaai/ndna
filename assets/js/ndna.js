@@ -51,9 +51,11 @@ const neuralSubmenuItems = ["Prelude", "nHD", "nGDI", "nTDS", "nKaryotyping", "n
 
 const nlpOperationsItems = [
   { text: "Prelude", url: baseUrl + "/llm/nlp-operations/prelude/" },
-  { text: "Machine Translation", url: baseUrl + "/llm/machine-translation/" },
-  { text: "Multi-turn Conversation", url: baseUrl + "/llm/multi-turn-conversation/" },
-  { text: "Adversarial Attack", url: baseUrl + "/llm/adversarial-attack/" }
+  { text: "Machine Translation", url: baseUrl + "/llm/nlp-operations/machine-translation/" },
+  { text: "Adversarial Attack", url: baseUrl + "/llm/nlp-operations/adversarial-attack/" },
+  { text: "Multi-turn Conversation", url: baseUrl + "/llm/nlp-operations/multi-turn-conversation/" },
+  // { text: "SCAR", url: baseUrl + "/llm/nlp-operations/scar/" },
+  // { text: "NEPHOS", url: baseUrl + "/llm/nlp-operations/nephos/" },
 ];
 
 function renderTopMenu(items) {
@@ -181,9 +183,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Auto-show NLP Operations submenu if on NLP operations pages
   if (window.location.pathname.includes("/llm/nlp-operations/prelude") ||
-      window.location.pathname.includes("/llm/machine-translation") || 
-      window.location.pathname.includes("/llm/multi-turn-conversation") || 
-      window.location.pathname.includes("/llm/adversarial-attack")) {
+      window.location.pathname.includes("/llm/nlp-operations/machine-translation") || 
+      window.location.pathname.includes("/llm/nlp-operations/multi-turn-conversation") || 
+      window.location.pathname.includes("/llm/nlp-operations/adversarial-attack")) {
     setTimeout(() => {
       const submenu = document.getElementById("nlpOperationsSubmenu");
       if (submenu) submenu.style.display = "flex";

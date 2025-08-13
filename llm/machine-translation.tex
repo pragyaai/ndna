@@ -1,0 +1,691 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\RequirePackage[svgnames]{xcolor}
+
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+\usepackage[review]{ACL2023}
+\usepackage{amsmath}
+
+\usepackage{pdfpages} % Include the package
+
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out.
+% However, it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+\usepackage {soul}
+
+
+
+
+\usepackage[draft,textsize=footnotesize,textwidth=15mm]{todonotes}
+%\usepackage[usenames,dvipsnames]{color}
+
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+%\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+\usepackage{inconsolata}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath,amssymb}
+\usepackage{soul}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+% Define custom symbols for tick and cross
+\newcommand{\cmark}{\tikz[scale=0.4]{
+    \draw[thick] (0,0) -- (0.2,0.2) -- (0.5,-0.3);
+}}
+\newcommand{\xmark}{\tikz[scale=0.4]{
+    \draw[thick] (0,0) -- (0.3,0.3);
+    \draw[thick] (0,0.3) -- (0.3,0);
+}}
+
+
+% Style definition
+\tikzset{rndblock/.style={rounded corners,rectangle,draw,scale=0.8,outer sep=0pt}}
+
+% Command Definition
+% 1 optional to customize the aspect, 2 mandatory: text to be framed
+\newcommand{\tframed}[2][]{\tikz[baseline=(h.base)]\node[rndblock,#1] (h) {#2};}
+
+\usetikzlibrary{shapes.geometric}
+\usepackage{framed}
+\usepackage{enumitem}
+\newlist{RQ}{enumerate}{1}
+\setlist[RQ]{label=\textbf{RQ\,\arabic*},ref={RQ\,\arabic*}}
+\usepackage{comment}
+\usepackage{natbib}
+\usepackage{multibib}
+\makeatletter
+\usepackage{booktabs}
+\usepackage[inkscapeformat=png]{svg}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{arydshln}
+\usepackage{lipsum}
+\usetikzlibrary{calc,positioning,matrix,shapes.geometric}
+
+
+\usepackage[many]{tcolorbox}
+\captionsetup{justification=justified, singlelinecheck=false}
+\usepackage[table,xcdraw]{xcolor}  % Ensures full table coloring support
+\usepackage{colortbl} % Ensures table cell coloring works
+\usepackage{lipsum}
+\usepackage{array}
+
+
+
+\newtcolorbox{defin}{colback=Teal!5!White,enhanced,title=GRIT: at-a-glance,
+	attach boxed title to top left={xshift=0mm},boxrule=0pt,after skip=1cm,before skip=1cm,right skip=0cm,breakable,fonttitle=\bfseries,toprule=0pt,bottomrule=0pt,rightrule=0pt,leftrule=3pt,arc=0mm,skin=enhancedlast jigsaw,sharp corners,colframe=Teal!55!black,colbacktitle=Teal!55!black,boxed title style={
+		frame code={ 
+			\fill[Teal!25!black](frame.south west)--(frame.north west)--(frame.north east)--([xshift=3mm]frame.east)--(frame.south east)--cycle;
+			\draw[line width=1mm,Teal!25!black]([xshift=2mm]frame.north east)--([xshift=5mm]frame.east)--([xshift=2mm]frame.south east);
+			\draw[line width=1mm,Teal!25!black]([xshift=5mm]frame.north east)--([xshift=8mm]frame.east)--([xshift=5mm]frame.south east);
+			\fill[Teal!25!black](frame.south west)--+(4mm,-2mm)--+(4mm,2mm)--cycle;
+		}
+	}
+}
+
+% \setlist{leftmargin=1mm}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.markings}
+
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage{hyperref}
+ \definecolor{darkblue}{rgb}{0, 0, 0.5}
+  \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
+
+\definecolor{vgreen}{HTML}{60A917}
+\definecolor{vred}{HTML}{CE3A29}
+
+\usepackage{xstring}
+\usepackage{longtable}
+
+\usepackage{tabularray}
+
+\DefTblrTemplate{firsthead,middlehead,lasthead}{default}{
+}
+\DefTblrTemplate{firstfoot}{default}{
+  \UseTblrTemplate{contfoot}{default}
+  \UseTblrTemplate{caption}{default}
+}
+\DefTblrTemplate{middlefoot}{default}{
+  \UseTblrTemplate{contfoot}{default}
+  \UseTblrTemplate{capcont}{default}
+}
+\DefTblrTemplate{lastfoot}{default}{
+  \UseTblrTemplate{note}{default}
+  \UseTblrTemplate{remark}{default}
+  \UseTblrTemplate{capcont}{default}
+}
+
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Multi-line left-aligned text with manual line breaks.
+% The base line is in centre.
+\newcommand*{\mline}[1]{%
+\begingroup
+    \renewcommand*{\arraystretch}{1.1}%
+   \begin{tabular}[c]{@{}>{\raggedright\arraybackslash}p{2cm}@{}}#1\end{tabular}%
+  \endgroup
+}
+
+\usepackage{color}
+\tcbuselibrary{skins}
+
+\usepackage[export]{adjustbox} % for the valign option
+
+\usepackage{setspace}
+%\usepackage[capitalise]{cleveref}
+\usepackage[capitalise,nameinlink]{cleveref}
+
+%\crefname{chapter}{chap.}{chap.}
+\crefname{section}{Sec.}{Sec.}
+
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{colortbl}
+\usepackage[export]{adjustbox} % for the valign option
+\usepackage{varwidth}
+\usepackage{enumitem}
+\setlist{leftmargin=1mm}
+\usepackage{pifont}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{resizegather}
+\usepackage{breqn}
+\usepackage[capitalise]{cleveref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.markings}
+\usepackage{soul}
+\usepackage{wrapfig,graphicx,lipsum}% http://ctan.org/pkg/{wrapfig,graphicx,lipsum}
+\usepackage{extsizes}
+\usepackage{cuted}
+\usepackage{flushend}
+\usepackage{float}
+\usepackage{changepage,threeparttable}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{dblfloatfix} 
+\usepackage{fixltx2e}
+\usepackage[normalem]{ulem}
+\usepackage{pgfplots}
+
+
+\usepackage{tabularx}
+\usepackage{makecell} % optional, only if you want manual line breaks in headers
+
+
+
+
+
+\DeclareRobustCommand{\hlpink}[1]{{\sethlcolor{pink}\hl{#1}}}
+\DeclareRobustCommand{\hlgreen}[1]{{\sethlcolor{green}\hl{#1}}}
+
+\usepackage{environ}
+
+\newlength{\myl}
+\expandafter\let\expandafter\origequation\csname equation*\endcsname
+\expandafter\let\expandafter\endorigequation\csname endequation*\endcsname
+\long\def\[#1\]{\begin{equation*}#1\end{equation*}}
+\RenewEnviron{equation*}{
+  \settowidth{\myl}{$\displaystyle\BODY$} % calculate width and save as \myl
+  \origequation
+    \ifdim\myl>\linewidth
+      \resizebox{\linewidth}{!}{$\displaystyle\BODY$}% \myl > \linewidth
+    \else
+      \BODY % \myl <= \linewidth
+    \fi
+  \endorigequation
+}
+
+
+\makeatletter
+\newcommand{\DrawLine}{%
+  \begin{tikzpicture}
+  \path[use as bounding box] (0,0) -- (\linewidth,0);
+  \draw[color=blue!75!black,dashed,dash phase=.5pt]
+        (0-\kvtcb@leftlower-\kvtcb@boxsep,0)--
+        (\linewidth+\kvtcb@rightlower+\kvtcb@boxsep,0);
+  \end{tikzpicture}%
+  }
+\makeatother
+
+%resize/scale equations
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+
+
+%--Vipula---
+\newcommand\vr[1]{\todo[author=VR,color=green!20]{#1}}
+\newcommand\vril[1]{\todo[author=VR,color=green!20,inline,caption={}]{#1}}
+
+
+%--Aman---
+\newcommand\ac[1]{\todo[author=AC,color=blue!40]{#1}}
+\newcommand\acil[1]{\todo[author=AC,color=blue!40,inline]{#1}}
+\newcommand\acb[1]{\textcolor{blue}{#1}}
+\newcommand\act[1]{\textcolor{blue}{#1}}
+
+
+%--Amitava---
+\newcommand\ad[1]{\todo[author=AD,color=purple!40]{#1}}
+\newcommand\adil[1]{\todo[author=AD,color=purple!40,inline]{#1}}
+\newcommand\adt[1]{\textcolor{purple}{#1}}
+
+
+\usepackage{euscript}[mathcal]
+
+
+\newcommand*{\affaddr}[1]{#1}
+\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+\newcommand*{\email}[1]{\texttt{#1}}
+%\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+\author{
+Vipula Rawte\affmark[1]\thanks{\,\,\,Corresponding author.}, S.M Towhidul Islam Tonmoy\affmark[2], S M Mehedi Zaman\affmark[2], \\ \bf Aman Chadha\affmark[3,4]\thanks{\,\,\,Work does not relate to position at Amazon.}, \bf Amit Sheth\affmark[1], Amitava Das\affmark[1]  \\
+\affaddr{\affmark[1]AI Institute, University of South Carolina, USA}\\
+\affaddr{\affmark[2]Indian Institute of Technology, Kharagpur}\\
+\affaddr{\affmark[3]Islamic University of Technology}\\
+\affmark[4]Stanford University, USA, 
+\affmark[5]Amazon AI, USA \\
+\email{\{vrawte\}@mailbox.sc.edu}
+}
+
+%\title{\includegraphics[height=0.55cm,width=0.55cm]{img/acorn.jpg}$\mathcal{ACORN}$: \ul{A}utomatic Hallu\ul{C}inati\ul{O}n Evaluation for La\ul{R}ge La\ul{N}guage Models using Span-based ``Factual Entailment''}
+
+
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\title{\includegraphics[width=\textwidth]{Figures/banner.pdf}\\ \textcolor{blue}{Micro-summary — details in the book}
+}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We present \textbf{GENOME-MT} (\textit{Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation}), a novel, \emph{generation-free} framework for predicting \textbf{zero-shot} machine translation (MT) quality. Building on the emerging paradigm of \emph{neural genomics} (\textbf{nDNA}), our approach conceptualizes translation difficulty through two foundational geometric quantities: \textbf{semantic torsion} — encoding the degree of \emph{conceptual twisting} between cross-lingual semantic manifolds — and \textbf{epistemic force} — quantifying the \emph{latent cognitive–geometric effort} required to traverse between them.
+
+We introduce the formal construct of \textit{Total Epistemic Effort}, a unified metric that integrates \textbf{semantic displacement} and \textbf{torsional complexity} across the full transformer layer hierarchy. We demonstrate that this metric exhibits \emph{consistently strong correlations} with standard MT evaluation measures, including \textbf{BLEU}, \textbf{COMET}, and \textbf{chrF}, even in \textbf{extreme zero-resource} regimes. Crucially, \textbf{GENOME-MT} requires \emph{no target-side decoding}, enabling \textbf{highly scalable}, \textbf{compute-efficient}, and \emph{language-agnostic} translation quality estimation.
+
+Comprehensive experiments spanning \emph{typologically diverse} language pairs (e.g., \textbf{English–Hindi}, \textbf{English–Thai}, \textbf{English–Japanese}) and \emph{heterogeneous model families} (e.g., \textbf{LLaMA}, \textbf{Mistral}) empirically validate the \textbf{predictive fidelity} of our framework. These findings establish \textbf{latent semantic geometry} as a \emph{robust}, \emph{interpretable}, and \emph{deployment-ready} proxy for linguistic transfer complexity, \textbf{paving the way} for \emph{pre-deployment diagnostics} and \emph{principled resource allocation} in \textbf{multilingual NLP}.
+\end{abstract}
+
+
+
+
+
+
+
+
+
+
+%\input{1_introduction}
+\input{2_aqi}
+%\input{4_fim}
+%\input{5_performance}
+
+
+%\clearpage
+%\newpage
+%\input{5_geodesic}
+%\input{6_non_collission}
+%\input{3_AQI_LORA}
+
+
+
+
+\bibliographystyle{acl_natbib}
+\bibliography{anthology,custom}
+
+
+\clearpage
+
+
+
+
+
+
+
+\end{document}
+
+
+% 2_aqi
+
+\section{Editing the Semantic Genome: An nDNA Perspective on Machine Translation}
+
+\noindent
+Just as genetic engineering seeks to alter the blueprint of life by manipulating the sequence and structure of DNA, cross-lingual transfer in machine translation can be viewed as the editing of a \emph{semantic genome}—a structured code of meaning embedded within the latent spaces of multilingual models. In this view, each language possesses a unique neural DNA (\textit{nDNA}) signature, expressed through its spectral curvature, thermodynamic length, and belief vector field. Translating between two languages thus becomes a problem of transforming one high-dimensional manifold into another, a process governed not only by the magnitude of semantic displacement but also by the torsional misalignment of their epistemic trajectories. By quantifying these geometric and directional forces, we treat translation as the precise splicing, realignment, and recombination of semantic sequences—an operation whose difficulty can be measured without ever generating a single word.
+
+
+\subsection{Problem Setup: Latent Translation Without Decoding}
+Let $M$ denote a large language model (e.g., LLaMA, Mistral), and let $L_s$ and $L_t$ represent the source and target languages, respectively. 
+Conventional MT evaluation relies on generating translations $\mathbf{y}_t$ from inputs $\mathbf{x}_s$ and scoring them (e.g., BLEU, COMET). 
+Our goal is to estimate zero-shot translation quality for $(L_s \to L_t)$ \emph{without generating translations}, by analyzing latent representational geometry.
+
+Let $H^{(\ell)}_L$ denote the mean-pooled hidden states of language $L$ at transformer layer $\ell$, extracted from a corpus $X(L)$. 
+We define the \emph{nDNA signature} of $L$ at layer $\ell$ as:
+\[
+\text{nDNA}^{(\ell)}(L) = \left( \kappa^{(\ell)}(L),\; L^{(\ell)}(L),\; v^{(\ell)}(L) \right),
+\]
+where:
+\begin{itemize}
+    \item $\kappa^{(\ell)}(L)$ — spectral curvature: local manifold bending.
+    \item $L^{(\ell)}(L)$ — thermodynamic length: cumulative epistemic shift across layers.
+    \item $v^{(\ell)}(L)$ — belief vector: average update direction in latent semantic space.
+\end{itemize}
+
+\subsection{Spectral Curvature}
+We measure curvature using PCA over hidden state covariance:
+\[
+\kappa^{(\ell)}(L) = \frac{\sum_{i=1}^k \lambda^{(\ell)}_i}{\sum_{i=1}^d \lambda^{(\ell)}_i}, \quad k \ll d,
+\]
+where $\lambda^{(\ell)}_i$ are eigenvalues of the covariance matrix.  
+Alternatively, curvature can be estimated via local Jacobian norms:
+\[
+\kappa^{(\ell)}(L) \approx \mathbb{E}_{x \sim L} \left[ \frac{\|\nabla_x h^{(\ell)}(x)\|_F^2}{\|h^{(\ell)}(x)\|^2} \right].
+\]
+The interlingual curvature difference is:
+\[
+\Delta\kappa^{(\ell)} = \left| \kappa^{(\ell)}(L_s) - \kappa^{(\ell)}(L_t) \right|.
+\]
+
+\subsection{Thermodynamic Length}
+The thermodynamic length measures representational travel distance:
+\[
+L^{(\ell)}(L) = \mathbb{E}_{x \sim L} \left[ \sum_{i=1}^{\ell} \|h^{(i)}(x) - h^{(i-1)}(x)\|_2 \right].
+\]
+The divergence between languages is:
+\[
+\Delta L^{(\ell)} = \left| L^{(\ell)}(L_s) - L^{(\ell)}(L_t) \right|.
+\]
+To ensure scale invariance:
+\[
+\widetilde{L}^{(\ell)}(L) = \frac{L^{(\ell)}(L)}{\mathbb{E}_{x \sim L} \|h^{(0)}(x)\|}.
+\]
+
+\subsection{Belief Vector Field and Semantic Torsion}
+The belief vector is defined as:
+\[
+v^{(\ell)}(L) = \mathbb{E}_{x \sim L} \left[ h^{(\ell)}(x) - h^{(\ell-1)}(x) \right].
+\]
+The semantic torsion angle is:
+\[
+\theta^{(\ell)} = \arccos \left( \frac{\langle v^{(\ell)}(L_s), v^{(\ell)}(L_t) \rangle}{\|v^{(\ell)}(L_s)\| \cdot \|v^{(\ell)}(L_t)\|} \right).
+\]
+The epistemic force at layer $\ell$ is:
+\[
+F^{(\ell)} = \Delta\kappa^{(\ell)} \cdot \Delta L^{(\ell)} \cdot \sin \theta^{(\ell)}.
+\]
+
+\subsection{Total Epistemic Effort}
+The total epistemic effort aggregates mismatch, drift, and belief-vector deviation:
+\[
+E_{\text{total}} = \sum_{\ell=1}^L \omega^{(\ell)} \cdot \Delta\kappa^{(\ell)} \cdot \Delta L^{(\ell)} \cdot \|v^{(\ell)}(L_s) - v^{(\ell)}(L_t)\|,
+\]
+where $\omega^{(\ell)}$ are layer weights (e.g., heuristic or learned).  
+We find:
+\[
+\widehat{\text{BLEU}}(L_s \to L_t) \propto \frac{1}{E_{\text{total}}},
+\]
+enabling scalable, pre-deployment MT quality estimation without decoding or references.
+
+
+
+
+
+
+
+\begin{figure*}[htp!]
+    \centering
+
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_french.png}
+        \caption{English $\rightarrow$ French}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_german.png}
+        \caption{English $\rightarrow$ German}
+    \end{subfigure}
+
+    \vspace{0.8em}
+
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_italian.png}
+        \caption{English $\rightarrow$ Italian}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_hindi.png}
+        \caption{English $\rightarrow$ Hindi}
+    \end{subfigure}
+\end{figure*}
+
+\begin{figure*}[htp!]
+    \centering
+
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_bengali.png}
+        \caption{English $\rightarrow$ Bengali}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_tamil.png}
+        \caption{English $\rightarrow$ Tamil}
+    \end{subfigure}
+
+    \vspace{0.8em}
+
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_chinese.png}
+        \caption{English $\rightarrow$ Chinese}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_thai.png}
+        \caption{English $\rightarrow$ Thai}
+    \end{subfigure}
+
+    \vspace{0.8em}
+
+    \begin{center}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{new_images/english_to_japanese.png}
+        \caption{English $\rightarrow$ Japanese}
+    \end{subfigure}
+    \end{center}
+
+    \caption{nDNA River Plots illustrating semantic drift trajectories from English to various target languages across transformer layers. Each plot compares the latent evolution between English (blue) and the respective target language (red).}
+    \label{fig:ndna_river_twocol}
+\end{figure*}
+
+
+
+
+
+
+
+
+
+\section{Summary of Results}
+
+We begin our analysis by examining the relationship between structural divergence—captured via \textit{distance} (\texttt{Dist}) and \textit{torsion} (\texttt{Torsion}) metrics—and machine translation quality as measured by BLEU~\cite{papineni2002bleu}. Table~\ref{tab:structural-divergence-results} presents results for eight typologically diverse target languages, covering a continuum from closely related Indo-European languages (French, German, Italian) to morphologically rich and script-divergent languages (Hindi, Bengali, Tamil) and finally to typologically distant East and Southeast Asian languages (Chinese, Thai, Japanese). For each translation direction (\textit{English}~$\rightarrow$~\textit{Target} and \textit{Target}~$\rightarrow$~\textit{English}), we report \texttt{Dist}, \texttt{Torsion}, total error $\mathcal{E}_{\text{total}}$ (sum of distance and torsion), and BLEU scores, accompanied by qualitative linguistic commentary. This design enables a fine-grained inspection of how geometric measures of structural divergence correlate with empirical translation performance across a typological spectrum, in line with recent advances linking neural representation geometry to linguistic transfer difficulty~\cite{singh2023multilingual, tsvetkov2022typology, conneau2018xnli} and biological analogies in manifold organization~\cite{cajal1911histology, albert2002statistical}.
+
+\begin{enumerate}
+    \item \textbf{Translation Difficulty Correlates with Structural Divergence.}  
+    Language pairs with low \texttt{Dist} and low \texttt{Torsion} (e.g., French, German, Italian) achieve the highest BLEU scores ($\approx 38$--$42$) in both directions. These languages share SVO word order and relatively similar analytic structures with English, requiring minimal reordering~\cite{dryer2013wals, birch2008predicting}.
+
+    \item \textbf{Morphologically Rich and Script-Divergent Languages Show Moderate Drops.}  
+    Hindi, Bengali, and Tamil have mid-range \texttt{Dist}/\texttt{Torsion} values ($0.44$--$0.50$ \texttt{Dist}, $0.27$--$0.35$ \texttt{Torsion}), leading to BLEU scores in the mid-20s. Contributing factors include SOV order, compound verbs, lexicosyntactic shifts, and agglutinative morphology~\cite{mager2021typologically, joshi1987centered, comrie1989language}. From a biological systems perspective, these changes resemble mid-level structural rearrangements in genetic material that alter function without fully breaking systemic compatibility~\cite{ohno1970evolution, lewin2000genes}.
+
+    \item \textbf{Typologically Distant Languages Are the Hardest.}  
+    Chinese, Thai, and Japanese have the highest \texttt{Dist}/\texttt{Torsion} values (up to $0.81$ \texttt{Dist}, $0.72$ \texttt{Torsion}) and the lowest BLEU scores ($13$--$20$). Structural differences include tonal systems, classifier-based syntax, topic-prominence, and scrambling, combined with the absence of case markers or differing alignment strategies~\cite{li1981topic, combes2023understanding}. In biological analogy, this reflects large-scale genome rearrangements or cross-species divergence, where functional translation requires overcoming profound structural incompatibilities~\cite{king1975evolution, ohno1970evolution}.
+
+    \item \textbf{Strong Negative Correlation Between Structural Divergence and BLEU.}  
+    Pearson correlation between total error $\mathcal{E}_{\text{total}}$ and BLEU is:  
+    \hspace*{1em}English $\rightarrow$ Target: $\rho = -0.91$  
+    \hspace*{1em}Target $\rightarrow$ English: $\rho = -0.89$  
+    Spearman rank correlations are similarly strong ($\approx -0.91$ to $-0.93$), indicating a robust monotonic relationship between divergence metrics and translation quality, consistent with prior findings that increased linguistic and structural distance predicts reduced cross-lingual transfer efficiency~\cite{littell2017uriel, malaviya2017learning}.
+\end{enumerate}
+
+
+
+\begin{table*}[t]
+\caption{\textbf{Directional Total Epistemic Effort (\(\mathcal{E}_{\text{total}}\)) vs BLEU Score for Zero-Shot Machine Translation.} Each block shows the forward (\texttt{En→X}) and reverse (\texttt{X→En}) scores together.}
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|>{\centering\arraybackslash}m{2.8cm}|c|c|c|c||c|c|c|c|p{4.9cm}|}
+\hline
+\rowcolor{gray!20}
+\multirowcell{2}[1.0ex]{\cellcolor{gray!20}\textbf{Language Pair}} &
+\multicolumn{4}{c||}{\textbf{English $\rightarrow$ Target}} &
+\multicolumn{4}{c|}{\textbf{Target $\rightarrow$ English}} &
+\multirowcell{2}[1.0ex]{\cellcolor{gray!20}\textbf{Linguistic Commentary}} \\
+\cline{2-9}
+\rowcolor{gray!20}
+& Dist & Torsion & $\mathcal{E}_{\text{total}}$ & BLEU
+& Dist & Torsion & $\mathcal{E}_{\text{total}}$ & BLEU & \\
+\hline
+
+
+
+\rowcolor{green!5}
+French & 
+0.18 & 0.06 & \textbf{0.19} & \textbf{41.8} & 
+0.15 & 0.04 & \textbf{0.16} & \textbf{43.5} & 
+Minimal reordering, analytic structure. \\
+
+\rowcolor{green!5}
+German & 
+0.22 & 0.08 & \textbf{0.24} & \textbf{38.6} & 
+0.20 & 0.07 & \textbf{0.22} & \textbf{39.7} & 
+Case-marking + verb-second placement. \\
+
+\rowcolor{green!5}
+Italian & 
+0.20 & 0.07 & \textbf{0.21} & \textbf{40.1} & 
+0.18 & 0.06 & \textbf{0.20} & \textbf{41.3} & 
+Shared SVO structure, low torsion. \\
+
+\rowcolor{blue!5}
+Hindi & 
+0.44 & 0.27 & \textbf{0.56} & \textbf{26.1} & 
+0.39 & 0.21 & \textbf{0.46} & \textbf{28.4} & 
+SOV order, script and morphological divergence. \\
+
+\rowcolor{blue!5}
+Bengali & 
+0.48 & 0.31 & \textbf{0.63} & \textbf{24.8} & 
+0.42 & 0.26 & \textbf{0.54} & \textbf{26.7} & 
+Compound verbs, lexicosyntactic shifts. \\
+
+\rowcolor{blue!5}
+Tamil & 
+0.50 & 0.35 & \textbf{0.68} & \textbf{23.2} & 
+0.43 & 0.29 & \textbf{0.59} & \textbf{25.6} & 
+Agglutinative Dravidian structure; distant typology. \\
+
+\rowcolor{orange!5}
+Chinese & 
+0.71 & 0.58 & \textbf{1.12} & \textbf{16.4} & 
+0.61 & 0.44 & \textbf{0.88} & \textbf{18.9} & 
+Tonal and aspectual systems; no case markers. \\
+
+\rowcolor{yellow!5}
+Thai & 
+0.67 & 0.49 & \textbf{1.00} & \textbf{18.2} & 
+0.59 & 0.38 & \textbf{0.84} & \textbf{20.5} & 
+Classifier system, tone mismatch, SVO similarity. \\
+
+\rowcolor{red!5}
+Japanese & 
+0.81 & 0.72 & \textbf{1.39} & \textbf{13.5} & 
+0.69 & 0.55 & \textbf{1.08} & \textbf{16.2} & 
+Topic-prominence, scrambling, honorific complexity. \\
+
+\hline
+\rowcolor{gray!10}
+\multicolumn{5}{|c||}{\textbf{Pearson Correlation (→ En):} \(\rho = -0.91\)} &
+\multicolumn{5}{c|}{\textbf{Pearson Correlation (← En):} \(\rho = -0.89\)} \\
+\hline
+\rowcolor{gray!10}
+\multicolumn{5}{|c||}{\textbf{Spearman Rank:} \(-0.93\)} &
+\multicolumn{5}{c|}{\textbf{Spearman Rank:} \(-0.91\)} \\
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\label{tab:structural-divergence-results}
+\end{table*}
+
+
+\section{Conclusion and Outlook}
+
+This study establishes a clear and quantifiable link between structural divergence---captured through \texttt{Dist} and \texttt{Torsion}---and zero-shot machine translation quality.  
+Languages structurally closer to English (e.g., French, German, Italian) exhibit high BLEU scores with minimal epistemic effort, while morphologically rich or script-divergent languages (e.g., Hindi, Bengali, Tamil) show moderate performance drops.  
+Typologically distant languages (e.g., Chinese, Thai, Japanese) present the most significant challenges, underscoring the impact of deep syntactic, morphological, and alignment differences on translation performance.
+
+Beyond descriptive correlation, our findings highlight \emph{structural divergence metrics} as a robust predictor of cross-lingual transfer difficulty.  
+The strong negative Pearson ($\rho \approx -0.90$) and Spearman ($\rho \approx -0.92$) correlations suggest that these metrics could serve as \emph{pre-training indicators} for MT system design, enabling resource allocation to languages where structural divergence imposes the greatest epistemic burden.
+
+\paragraph{Outlook.}  
+Future work can extend this framework in three key directions:  
+(1) \textbf{Dynamic adaptation}---integrating divergence-aware token reordering and morphological decomposition into the model architecture;  
+(2) \textbf{Low-resource enhancement}---leveraging synthetic parallel corpora informed by structural metrics to bootstrap under-represented language pairs; and  
+(3) \textbf{Generalization beyond MT}---applying the \texttt{Dist}+\texttt{Torsion} paradigm to other multilingual NLP tasks such as cross-lingual retrieval, summarization, and dialogue systems.  
+By bridging linguistic typology with geometric model diagnostics, this approach offers a principled pathway toward more equitable and effective multilingual AI.
+
+
+
+
+
