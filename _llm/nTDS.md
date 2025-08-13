@@ -575,18 +575,23 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 </div>
 
 {% capture figure_caption %}
-**Figure: Neural Trait Dominance Score (nTDS) Across Cultural Model Pairs and Offspring.** These visualizations capture the layerwise trait dominance evolution in fusions of eight culturally distinct models, revealing dynamic shifts in spectral curvature and thermodynamic length, reflecting epigenetic-like semantic modulation akin to developmental heterochrony<sup>(324; 325)</sup> and gene regulatory networks<sup>(326; 327)</sup>. The nTDS values quantify parental influence and semantic recombination across layers (20–30), highlighting critical transitions with oscillations or balanced dominance. These patterns align with nonlinear dynamical systems and bifurcation theory<sup>(328)</sup>, where competing attractors shape semantic landscapes, offering insights into neural culture inheritance and semantic fusion and advancing latent geometry evolution understanding. **Mathematical Context:** The Neural Trait Dominance Score nTDS<sub>ℓ</sub> is formally defined as a layerwise dominance metric in latent space measuring the relative influence between cultural fine-tuned models' manifold embeddings. This provides a rigorous geometric quantification of semantic trait inheritance across deep model layers. **Biological Analogy:** Analogous to gene expression regulation in biological developmental systems, the layerwise variation in nTDS<sub>ℓ</sub> reveals critical neural depths where semantic realignment, adaptation, and cultural imprinting occur. Models exhibit region-specific evolutionary adaptations, while balanced dominance patterns suggest semantic stability and trait harmonization. **Mathematical Takeaway:** The offspring semantic dominance at layer ℓ can be modeled as a nonlinear competition of parental influences:
+**Figure: nTDS Across Cultural Model Pairs and Offspring** — These visualizations capture the layer-wise trait dominance evolution in fusions of eight culturally distinct models, revealing dynamic shifts in **spectral curvature** and **thermodynamic length**, reflecting epigenetic-like semantic modulation akin to *developmental heterochrony* [324, 325] and *gene regulatory networks* [326, 327].  
 
-<div style="border: 2px solid #ddd; padding: 1.5em; margin: 1em 0; background-color: #f9f9f9; text-align: center;">
-  <span class="mathjax-render">
-    \[
-    \mathrm{nTDS}_\ell = \frac{\kappa_\ell(p) \cdot L_\ell(p)}{\kappa_\ell(p) \cdot L_\ell(p) + \kappa_\ell(q) \cdot L_\ell(q)}
-    \]
-  </span>
-</div>
+The *nTDS* values quantify **parental influence** and **semantic recombination** across layers $(20 \text{–} 30)$, highlighting critical transitions with oscillations or balanced dominance. These patterns align with **nonlinear dynamical systems** and **bifurcation theory** [328], where competing attractors shape semantic landscapes — offering insights into neural culture inheritance, semantic fusion, and advancing latent geometry evolution understanding.  
 
-where κ<sup>(ℓ)</sup> ∈ [0, 1] denotes the layer-dependent spectral curvature coefficient, dynamically modulating parental influence, L<sup>(ℓ)</sup> captures thermodynamic length at layer ℓ, and p, q represent parental indices. This formalism captures multi-layered integration, selective semantic imprinting, and complex evolutionary dynamics in transformer latent spaces, providing a principled framework for interpreting cultural neural trait fusion and semantic innovation in multilingual AI systems.
+Key formula:  
+
+$$
+nTDS_{\ell} = \frac{\kappa_{\ell}(p) \cdot L_{\ell}(p)}
+{\kappa_{\ell}(p) \cdot L_{\ell}(p) + \kappa_{\ell}(q) \cdot L_{\ell}(q)}
+$$  
+
+where $\kappa_{\ell}$ is the spectral curvature, $L_{\ell}$ is the thermodynamic length at layer $\ell$, and $p, q$ are the parental indices — quantifying relative semantic dominance with geometric rigor.
 {% endcapture %}
+
+{% include visualization.liquid
+    caption=figure_caption
+    alt_text="nTDS Across Cultural Model Pairs and Offspring" %}
 
 ---
 {% auto_references %}

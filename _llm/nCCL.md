@@ -443,6 +443,9 @@ $\begin{cases}
 \end{cases}$
 {% endcapture %}
 
+{% include visualization.liquid
+    caption=figure_caption
+    alt_text="Layerwise Neural Cultural Conflict Loss (nCCL)" %}
 
 These layerwise semantic tensions highlight the uneven integration of cultural knowledge in large models, emphasizing the need for targeted, depth-wise alignment to mitigate bias and enhance robustness. This parallels biological epigenetic regulation, where gene expression adapts to environmental cues ({% cite %}; {% cite %}), and heterosis, in which genetic recombination produces traits surpassing parental baselines ({% cite %}). Such analogies reveal fundamental geometric principles crucial for developing culturally coherent, fair, and trustworthy AI systems deployed worldwide. 
 
@@ -458,10 +461,9 @@ Figure: nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap. This visua
 {% endcapture %}
 
 {% include visualization.liquid
-    image_path="gifs/neural_genomics/nCCL/nccl_pairwise_heatmap.png"
-    caption = figure_caption
-    alt_text = "nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap"
-    %}
+    image_path="gifs/neural_genomics/nccl_pairwise_heatmap.png"
+    caption=figure_caption
+    alt_text="nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap" %}
 
 ---
 {% auto_references %}

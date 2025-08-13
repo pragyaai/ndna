@@ -1,20 +1,9 @@
 {% comment %}
-Neural Genomics Title Template (fixed, no gap before colon)
-Usage:
-  {% include neural-genomics-title.liquid
-     title="Neural Genomics: A Paradigm Shift in Understanding Artificial Intelligence"
-     subtitle="Optional subtitle text"
-     heading_tag="h1"
-     logo_size="3.5em" %}
-Params:
-- title (required): full title string
-- subtitle (optional): secondary line under the title
-- heading_tag (optional): h1–h6 (default h1)
-- logo_size (optional): CSS size for the logo height (default 3.5em)
+Neural Genomics Title Template (corrected colon placement)
 {% endcomment %}
 
 {% assign heading_tag = include.heading_tag | default: "h1" %}
-{% assign logo_size = include.logo_size | default: "3.5em" %}
+{% assign logo_size = include.logo_size | default: "4em" %}
 
 {% capture logo_html %}
 <span class="page-title-neural-genomics">
@@ -29,17 +18,10 @@ Params:
 {% assign contains_keyword = title_str contains "Neural Genomics" %}
 
 {% if contains_keyword %}
-  {%- comment -%}
-  Replace "Neural Genomics:" (including the colon and following space)
-  so no extra gap is introduced before the colon.
-  {%- endcomment -%}
-  {% capture title_html %}
-    {{ title_str | replace_first: "Neural Genomics: ", logo_html | append: ": " }}
-  {% endcapture %}
+  {% assign replaced = title_str | replace_first: "Neural Genomics", logo_html %}
+  {% capture title_html %}{{ replaced }}{% endcapture %}
 {% else %}
-  {% capture title_html %}
-    {{ logo_html }} {{ title_str }}
-  {% endcapture %}
+  {% capture title_html %}{{ logo_html }} {{ title_str }}{% endcapture %}
 {% endif %}
 
 <{{ heading_tag }} class="page-title"
