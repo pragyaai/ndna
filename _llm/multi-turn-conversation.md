@@ -237,7 +237,7 @@ Each term is carefully selected to align with the goals of adaptive, memory-rich
 
 {% include visualization.liquid
    image_path="Figures/epistemic_drift_field_annotated.png"
-   caption="**Epistemic Drift Vector Field with Layer Annotations and Baseline Path.** This 3D visualization illustrates the trajectory of *belief state evolution* across dialogue turns in a transformer-based language model, projected into a reduced latent semantic space. Each **arrow** represents a *drift vector* at a specific layer, capturing the directional semantic shift between consecutive dialogue turns. Vectors are **color-coded by drift magnitude**, with lighter hues (e.g., <span style='color: #FFFF00'>yellow</span>) highlighting layers with significant epistemic transitions. The **dashed gray curve** traces the *baseline path*, connecting layerwise belief centers without directional encoding." %}
+   caption="**Epistemic Drift Vector Field with Layer Annotations and Baseline Path.** This 3D visualization illustrates the trajectory of *belief state evolution* across dialogue turns in a transformer-based language model, projected into a reduced latent semantic space. Each **arrow** represents a *drift vector* at a specific layer, capturing the directional semantic shift between consecutive dialogue turns. Vectors are **color-coded by drift magnitude**, with lighter hues (e.g., <span style='color: #CCAA00'>yellow</span>) highlighting layers with significant epistemic transitions. The **dashed gray curve** traces the *baseline path*, connecting layerwise belief centers without directional encoding." %}
 
 ### Curvature-Torsion Analysis
 
@@ -310,7 +310,7 @@ Semantic coherence $$C(t)$$ measures alignment both vertically (across layers wi
 Overall, **LLaMA-2** emerges as the most balanced performer, combining high retention, efficient adaptation, and stable yet flexible belief evolution. **Mistral** demonstrates strong early creativity but struggles with long-term stability and coherence. **Gemma** provides consistent mid-tier performance across all metrics, whereas **Phi-2** and **GPT-NeoX** exhibit limited epistemic activity, making them vulnerable to thematic stagnation in sustained conversations.
 
 ### Correlation with Human Judgments
-
+<div class="correlation-table">
 | **Model** | **Metric** | **Coherence** | **Consistency** | **Factuality** | **Fluency** | **Engagement** |
 |-----------|------------|---------------|-----------------|----------------|-------------|----------------|
 | **LLaMA** | **ORBIT (ours)** | **0.78** | **0.74** | 0.71 | 0.58 | 0.63 |
@@ -340,6 +340,7 @@ Overall, **LLaMA-2** emerges as the most balanced performer, combining high rete
 | | G-Eval | 0.61 | 0.59 | 0.68 | 0.61 | 0.46 |
 | | USR | 0.59 | 0.58 | 0.55 | 0.53 | **0.61** |
 | | BERTScore | 0.50 | 0.52 | 0.57 | 0.56 | 0.39 |
+</div>
 
 This table reports Pearson correlations across five dialogue dimensions—**coherence**, **consistency**, **factuality**, **fluency**, and **engagement**—for five LLMs. Cell colors indicate alignment strength (<span style='color: #006600'>**green**</span> = high, <span style='color: #CCAA00'>**yellow**</span> = moderate, <span style='color: #CC0000'>**red**</span> = low). **ORBIT (ours)** achieves the strongest overall alignment with human ratings, especially on structure-dependent dimensions like coherence and consistency. ORBIT achieves superior correlation with human judgments across five dialogue dimensions, with the framework particularly excelling in structure-dependent dimensions like coherence and consistency, achieving correlations of **0.72-0.78** compared to traditional metrics like BLEURT (0.58-0.63) and G-Eval (0.59-0.67). Slightly lower performance on fluency and engagement reflects ORBIT's focus on epistemic dynamics over stylistic flow, distinguishing it from fluency-optimized metrics such as BLEURT and G-Eval.
 
