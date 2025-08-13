@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Machine Translation and nDNA
-permalink: /llm/machine-translation/
+permalink: /llm/nlp-operations/machine-translation/
 ---
 
 ## Machine Translation

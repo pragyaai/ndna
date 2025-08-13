@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Adversarial Attack and nDNA
-permalink: /llm/adversarial-attack/
+permalink: /llm/nlp-operations/adversarial-attack/
 ---
 
 ## Adversarial Attack
