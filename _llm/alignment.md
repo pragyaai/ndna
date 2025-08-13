@@ -254,7 +254,7 @@ $$\mathbf{h}_{\mathrm{aligned}} = \mathbf{h}_0 + \lambda \mathbf{v}^\star, \quad
 The symmetry of this displacement shows that DPO modifies behavior through shallow translations along $\mathbf{v}^\star$, without reconfiguring the internal epistemic geometry.
 
 <figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
-  <img src="/collapse/logit_geometry_vector_projection.png" 
+  <img src="[/collapse/](https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets@main/assets/images/logit_geometry_vector_projection.png" 
        alt="Logit Geometry and the Preference Vector in DPO" 
        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
@@ -263,7 +263,7 @@ The symmetry of this displacement shows that DPO modifies behavior through shall
 </figure>
 
 <figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
-  <img src="/collapse/steering_vector_3d_directions.png" 
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets@main/assets/images/steering_vector_3d_directions.png" 
        alt="Illustration of Aligned vs. Inverted States" 
        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
