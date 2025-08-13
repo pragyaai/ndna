@@ -266,8 +266,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Africa_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/Africa_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/Africa_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/Africa_LatinAmerica_nHD_tube.html"
       title="(III) Africa–Latin America Fusion"
       caption="The offspring latent manifold demonstrates a smoothly increasing spectral curvature $\kappa_{\ell}$ from $0.25$ to $0.75$, indicating enriched manifold geometric richness and increased semantic expressivity. Concurrently, the thermodynamic length $L_{\ell}$ rises from $0.35$ to $0.8$, highlighting the extended Fisher information distance traversed by latent representations. This smooth and continuous latent transition reflects stable integrability and coherent compositional semantics emergent from the fusion."
       style="flex: 1;"

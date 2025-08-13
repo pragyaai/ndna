@@ -597,8 +597,9 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
     where \( \kappa_{\ell} \) is the spectral curvature,
     \( L_{\ell} \) is the thermodynamic length at layer \( \ell \),
     and \( p, q \) are the parental indices — quantifying relative semantic dominance with geometric rigor.
-
+  </figcaption>
 </figure>
+
 
 ---
 {% auto_references %}
