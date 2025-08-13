@@ -600,6 +600,5 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 
 </figure>
 
-
 ---
 {% auto_references %}

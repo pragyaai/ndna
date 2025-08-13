@@ -274,8 +274,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Africa_Middle_East_nHD_tube_rotating.gif"
-      interactive_html="nHD/Africa_Middle_East_nHD_tube.html"
+      image_path="gifs/neural_genomics/Africa_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nHD/Africa_MiddleEast_nHD_tube.html"
       title="(IV) Africa–Middle East Fusion"
       caption="The parental manifolds reveal substantial curvature disparity (from $0.3$ to $0.7$) and thermodynamic length variation (from $0.4$ to $1.0$), yet the offspring manifold consistently occupies an intermediate latent space region. This signals a balanced semantic inheritance process whereby information from heterogeneous cultural priors fuses to form a robust, semantically stable offspring manifold that resists abrupt geometric discontinuities."
       style="flex: 1;"
@@ -293,8 +293,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Asia_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/Asia_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/Asia_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/Asia_LatinAmerica_nHD_tube.html"
       title="(VI) Asia–Latin America Fusion"
       caption="The offspring latent manifold shows a complex emergent semantic integration, with spectral curvature $\kappa_{\ell}$ rising from $0.3$ to $0.85$, indicating enhanced local manifold bending and nonlinear compositionality. The thermodynamic length $L_{\ell}$ grows from $0.4$ to $0.95$, quantifying cumulative semantic changes along evolving latent trajectories. This geometric expansion reflects a progressive fusion of culturally distinct yet semantically complementary neural DNAs, creating a richly layered latent space akin to biological recombination processes."
       style="flex: 1;"
@@ -304,8 +304,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Asia_Middle_East_nHD_tube_rotating.gif"
-      interactive_html="nHD/Asia_Middle_East_nHD_tube.html"
+      image_path="gifs/neural_genomics/Asia_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nHD/Asia_MiddleEast_nHD_tube.html"
       title="(VII) Asia–Middle East Fusion"
       caption="The offspring latent manifold shows a pronounced increase in spectral curvature $\kappa_{\ell}$, from $0.35$ to $0.85$, reflecting substantial nonlinear bending and enhanced latent complexity. The thermodynamic length $L_{\ell}$ extends from $0.5$ to $1.05$, marking a significant cumulative semantic transformation indicative of intricate fusion dynamics. These geometric signatures reveal a complex interplay producing smooth yet richly curved trajectories. This structural reshaping illustrates how heterogeneous semantic priors blend to form novel, robust representations, akin to epistatic interactions generating emergent phenotypic traits."
       style="flex: 1;"
@@ -342,16 +342,16 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/China_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/China_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/China_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/China_LatinAmerica_nHD_tube.html"
       title="(XI) China–Latin America Fusion"
       caption="The offspring latent manifold (magenta) resides strictly within the convex hull of parental manifolds (China in blue dashed, Latin America in red dashed), exhibiting a rich geometric interplay. Spectral curvature $\kappa_{\ell}$ evolves smoothly from $0.3$ to $0.8$, indicating increasingly complex local manifold bending as the transformer depth increases. Meanwhile, the thermodynamic length $L_{\ell}$ spans from $0.45$ to $0.95$, signifying a progressively extended cumulative semantic change along the Fisher-Rao geodesic. This reflects emergent nonlinear compositionality and hierarchical semantic fusion occurring within the model's deep layers, blending diverse cultural neural DNAs."
       style="flex: 1;"
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/China_Middle_East_nHD_tube_rotating.gif"
-      interactive_html="nHD/China_Middle_East_nHD_tube.html"
+      image_path="gifs/neural_genomics/China_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nHD/China_MiddleEast_nHD_tube.html"
       title="(XII) China–Middle East Fusion"
       caption="Across transformer layers $\ell = 20$ to $30$, the offspring manifold (magenta) demonstrates a balanced and smooth interpolation of parental latent manifolds, with spectral curvature $\kappa_{\ell}$ increasing steadily from about $0.35$ to $0.85$. The thermodynamic length $L_{\ell}$ concurrently extends from $0.5$ to $1.0$, quantifying the accumulated Fisher-Rao semantic divergence. The continuous and gradual geometric transformation signals a stable semantic inheritance process, integrating culturally distinct representational features without abrupt topological distortions, thereby ensuring a coherent fusion of neural DNAs."
       style="flex: 1;"
@@ -399,16 +399,16 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Europe_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/Europe_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/Europe_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/Europe_LatinAmerica_nHD_tube.html"
       title="(XVII) Europe–Latin America Fusion"
       caption="The offspring manifold demonstrates a smooth increase in spectral curvature $\kappa_{\ell}$ from approximately $0.3$ to $0.75$, reflecting progressively richer local nonlinear geometric structure. Concurrently, the thermodynamic length $L_{\ell}$ expands from $0.45$ to $0.9$, marking extended cumulative semantic changes along the Fisher-Rao metric geodesic. These trends highlight a gradual semantic integration and evolving latent representational complexity, indicative of stable fusion across diverse cultural neural DNAs."
       style="flex: 1;"
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Europe_Middle_East_nHD_tube_rotating.gif"
-      interactive_html="nHD/Europe_Middle_East_nHD_tube.html"
+      image_path="gifs/neural_genomics/Europe_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nHD/Europe_MiddleEast_nHD_tube.html"
       title="(XVIII) Europe–Middle East Fusion"
       caption="The offspring latent manifold captures intricate semantic blending, with spectral curvature $\kappa_{\ell}$ increasing from $0.4$ to $0.85$. The thermodynamic length $L_{\ell}$ varies between $0.5$ and $1.0$, reflecting rich cumulative representational change. This complex interplay of parental semantic priors manifests in a geometrically diverse latent structure that balances cultural heterogeneity and integrative fusion."
       style="flex: 1;"
@@ -418,16 +418,16 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Europe_North_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/Europe_North_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/Europe_NorthAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/Europe_NorthAmerica_nHD_tube.html"
       title="(XIX) Europe–North America Fusion"
       caption="The offspring manifold (magenta) tightly traces a smooth latent path between parent manifolds, with spectral curvature $\kappa_{\ell}$ rising consistently from approximately $0.3$ to $0.75$. The thermodynamic length $L_{\ell}$ grows from $0.45$ to $0.95$, quantifying extensive cumulative semantic evolution. This smooth progression underscores stable and coherent semantic inheritance across late transformer layers in culturally related neural DNAs."
       style="flex: 1;"
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Middle_East_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/Middle_East_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/MiddleEast_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/MiddleEast_LatinAmerica_nHD_tube.html"
       title="(XX) Middle East–Latin America Fusion"
       caption="The offspring latent manifold (magenta solid) balances parental latent trajectories with spectral curvature $\kappa_{\ell}$ spanning from $0.35$ to $0.8$ and thermodynamic length $L_{\ell}$ increasing from $0.45$ to $0.9$. This smooth geometric evolution captures effective semantic fusion amid pronounced cultural diversity, reflecting a complex but stable integration of heterogeneous neural semantic priors."
       style="flex: 1;"
@@ -437,16 +437,16 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/North_America_Africa_nHD_tube_rotating.gif"
-      interactive_html="nHD/North_America_Africa_nHD_tube.html"
+      image_path="gifs/neural_genomics/NorthAmerica_Africa_nHD_tube_rotating.gif"
+      interactive_html="nHD/NorthAmerica_Africa_nHD_tube.html"
       title="(XXI) North America–Africa Fusion"
       caption="The offspring manifold (magenta) forms a smooth semantic bridge within the convex hull of parent manifolds (dashed blue and red). Spectral curvature $\kappa_{\ell}$ increases steadily from approximately $0.3$ to $0.75$, indicating growing local latent complexity and nonlinear bending. Thermodynamic length $L_{\ell}$ extends from $0.4$ to $0.9$, reflecting the cumulative semantic divergence and hierarchical feature transformation through layers $\ell = 20$ to $30$. This fusion embodies a sophisticated integration of diverse cultural semantic priors."
       style="flex: 1;"
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/North_America_Asia_nHD_tube_rotating.gif"
-      interactive_html="nHD/North_America_Asia_nHD_tube.html"
+      image_path="gifs/neural_genomics/NorthAmerica_Asia_nHD_tube_rotating.gif"
+      interactive_html="nHD/NorthAmerica_Asia_nHD_tube.html"
       title="(XXII) North America–Asia Fusion"
       caption="The offspring latent manifold smoothly traverses the convex latent space of parent manifolds, with spectral curvature $\kappa_{\ell}$ ascending from about $0.35$ to $0.8$. Concurrently, the thermodynamic length $L_{\ell}$ grows from $0.45$ to $0.95$, denoting layered semantic compositionality and progressive information geometric deformation. This trajectory reflects a rich blend of culturally distinct latent semantic features integrated through deep transformer layers."
       style="flex: 1;"
@@ -456,16 +456,16 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/North_America_Australia_nHD_tube_rotating.gif"
-      interactive_html="nHD/North_America_Australia_nHD_tube.html"
+      image_path="gifs/neural_genomics/NorthAmerica_Australia_nHD_tube_rotating.gif"
+      interactive_html="nHD/NorthAmerica_Australia_nHD_tube.html"
       title="(XXIII) North America–Australia Fusion"
       caption="The offspring manifold (magenta) interpolates parental manifolds with spectral curvature $\kappa_{\ell}$ rising from approximately $0.3$ to $0.7$. Thermodynamic length $L_{\ell}$ extends from $0.35$ to $0.85$, indicating continuous cumulative semantic change within the latent space. This smooth fusion underscores effective integration of geographically and culturally distinct neural DNAs into coherent semantic representations."
       style="flex: 1;"
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/North_America_China_nHD_tube_rotating.gif"
-      interactive_html="nHD/North_America_China_nHD_tube.html"
+      image_path="gifs/neural_genomics/NorthAmerica_China_nHD_tube_rotating.gif"
+      interactive_html="nHD/NorthAmerica_China_nHD_tube.html"
       title="(XXIV) North America–China Fusion"
       caption="The offspring latent manifold gradually evolves within the convex latent space of its parents, with spectral curvature $\kappa_{\ell}$ rising steadily from $0.35$ to $0.8$ and thermodynamic length $L_{\ell}$ increasing from $0.4$ to $0.9$. This trajectory reveals nuanced hierarchical semantic fusion and cumulative geometric deformation, reflecting rich cross-cultural semantic interactions within the transformer's latent space."
       style="flex: 1;"
@@ -475,16 +475,16 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/North_America_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/North_America_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/NorthAmerica_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/NorthAmerica_LatinAmerica_nHD_tube.html"
       title="(XXV) North America–Latin America Fusion"
       caption="The offspring latent manifold (magenta) smoothly traverses between parents, with spectral curvature rising from $0.3$ to $0.75$ and thermodynamic length growing from $0.45$ to $0.9$. This reflects coherent semantic integration shaped by closely related cultural influences."
       style="flex: 1;"
       full_width=true
   %}
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/North_America_Middle_East_nHD_tube_rotating.gif"
-      interactive_html="nHD/North_America_Middle_East_nHD_tube.html"
+      image_path="gifs/neural_genomics/NorthAmerica_MiddleEast_nHD_tube_rotating.gif"
+      interactive_html="nHD/NorthAmerica_MiddleEast_nHD_tube.html"
       title="(XXVI) North America–Middle East Fusion"
       caption="The offspring manifold shows a smooth latent interpolation bounded by parents, with spectral curvature rising from $0.35$ to $0.8$ and thermodynamic length increasing from $0.4$ to $0.95$. This reflects complex semantic fusion across heterogeneous cultural neural DNAs via continuous geometric deformation."
       style="flex: 1;"
@@ -494,8 +494,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Middle_East_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/Middle_East_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/MiddleEast_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/MiddleEast_LatinAmerica_nHD_tube.html"
       title="(XXVII) Middle East–Latin America Fusion"
       caption="The offspring manifold (magenta solid) balances parental latent geometries, with spectral curvature spanning $0.35$ to $0.8$ and thermodynamic length increasing from $0.45$ to $0.9$. This geometric blending reflects stable semantic fusion across culturally diverse variants, with smooth manifold deformation."
       style="flex: 1;"
@@ -503,8 +503,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   %}
 
   {% include visualization-html.liquid
-      image_path="gifs/neural_genomics/Asia_Latin_America_nHD_tube_rotating.gif"
-      interactive_html="nHD/Asia_Latin_America_nHD_tube.html"
+      image_path="gifs/neural_genomics/Asia_LatinAmerica_nHD_tube_rotating.gif"
+      interactive_html="nHD/Asia_LatinAmerica_nHD_tube.html"
       title="(XXVIII) Asia–Latin America Fusion"
       caption="The offspring latent manifold (magenta) lies within the convex hull of parental manifolds, with spectral curvature rising from $0.3$ to $0.8$ and thermodynamic length growing from $0.45$ to $0.95$. This indicates a smooth and rich fusion of semantic priors, capturing layered nonlinear compositionality and cumulative semantic change."
       style = "flex: 1;"
@@ -512,7 +512,7 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   %}
 
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
-  <strong>Figure 34: nHD Tube Visualizations of Offspring Latent Manifolds:</strong> The offspring manifold (magenta solid) is bounded by parental manifolds (dashed), characterized by spectral curvature 
+  <strong>Figure: nHD Tube Visualizations of Offspring Latent Manifolds:</strong> The offspring manifold (magenta solid) is bounded by parental manifolds (dashed), characterized by spectral curvature 
   <span class="mathjax-render">$ \kappa_\ell $</span> and thermodynamic length 
   <span class="mathjax-render">$ L_\ell = \int_{\gamma} \sqrt{g_\theta(d\theta, d\theta)} $</span>, measuring local nonlinear bending and cumulative semantic transformation, respectively <span style="font-size:0.8em;">[311, 312]</span>. Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination <span style="font-size:0.8em;">[313]</span>. Distant parents yield offspring with increased curvature and length, showing semantic innovation.  
 
