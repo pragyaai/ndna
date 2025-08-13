@@ -154,122 +154,113 @@ A natural critique arises: *If LLaMA’s pretraining already includes global Eng
 By analyzing these eight culturally fine-tuned models, we reveal how fine-tuning on regionally grounded corpora leads to measurable divergence in latent geometry. Our diagnostics uncover zones of increased spectral curvature (latent manifold bending), thermodynamic length (epistemic effort), and belief vector field intensity (cultural directional pressure). This latent genomic structure offers a geometric fingerprint of cultural inheritance--demonstrating how models absorb, reframe, and propagate culturally specific epistemic priors even when built upon shared architectural foundations. Collectively, this experimental design enables a rigorous examination of how language models become vessels of culture--not just in their outputs, but deep within their hidden representations.
 
 
-<!-- Culturally Aligned LLaMA Model Rotations: Responsive Grid with Modal -->
 <style>
-  .gif-grid {
+  .gif-pair {
     display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    justify-content: center;
-    margin-top: 36px;
+    gap: 20px;
+    margin: 2em 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .gif-grid-item {
-    flex: 1 1 48%;
-    max-width: 48%;
-    min-width: 200px;
-    margin-bottom: 18px;
-    cursor: pointer;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    transition: box-shadow 0.2s;
+  .gif-container, .interactive-container {
+    flex: 1;
+    min-width: 0;
   }
-  .gif-grid-item:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-  }
-  .gif-grid-item img {
+  .gif-container img {
     width: 100%;
     height: auto;
-    display: block;
-    border-radius: 10px;
-    background: #f8f8fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
-  /* Modal styles */
-  .gif-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.7);
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.2s;
+  .interactive-container iframe {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
   }
-  .gif-modal.active {
-    display: flex;
-  }
-  .gif-modal-content {
-    background: #fff;
-    border-radius: 12px;
-    padding: 12px;
-    max-width: 90vw;
-    max-height: 90vh;
-    box-shadow: 0 6px 32px rgba(0,0,0,0.23);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .gif-modal-content img {
-    max-width: 70vw;
-    max-height: 70vh;
-    border-radius: 10px;
-    margin-bottom: 8px;
-  }
-  .gif-modal-close {
-    position: absolute;
-    top: 8px; right: 18px;
-    font-size: 2rem;
-    color: #333;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  @media (max-width: 600px) {
-    .gif-grid { flex-direction: column; align-items: center; }
-    .gif-grid-item { max-width: 96vw; }
+  @media (max-width: 768px) {
+    .gif-pair {
+      flex-direction: column;
+    }
+    .gif-container, .interactive-container {
+      width: 100%;
+    }
   }
 </style>
 
 <figure id="fig:ndna_families" style="text-align: center; margin: 2em 0;">
-<div class="gif-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_Africa_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_africa_interactive.html"
    title="LLaMA Africa"
    caption="" %}
+</div>
+</figure>
+
+<figure id="fig:ndna_asia" style="text-align: center; margin: 2em 0;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_Asia_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_asia_interactive.html"
    title="LLaMA Asia"
    caption="" %}
+</div>
+</figure>
+
+<figure id="fig:ndna_australia" style="text-align: center; margin: 2em 0;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_Australia_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_australia_interactive.html"
    title="LLaMA Australia"
    caption="" %}
+</div>
+</figure>
+
+<figure id="fig:ndna_china" style="text-align: center; margin: 2em 0;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_China_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_china_interactive.html"
    title="LLaMA China"
    caption="" %}
+</div>
+</figure>
+
+<figure id="fig:ndna_europe" style="text-align: center; margin: 2em 0;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_Europe_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_europe_interactive.html"
    title="LLaMA Europe"
    caption="" %}
+</div>
+</figure>
+
+<figure id="fig:ndna_latinamerica" style="text-align: center; margin: 2em 0;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_LatinAmerica_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_latinamerica_interactive.html"
    title="LLaMA Latin America"
    caption="" %}
+</div>
+</figure>
+
+<figure id="fig:ndna_middleeast" style="text-align: center; margin: 2em 0;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_MiddleEast_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_middleeast_interactive.html"
    title="LLaMA Middle East"
    caption="" %}
+</div>
+</figure>
+
+<figure id="fig:ndna_northamerica" style="text-align: center; margin: 2em 0;">
+<div class="gif-pair">
 {% include wizuall.liquid
    image_path="cultural_ndna/llama_NorthAmerica_rotation.gif"
    interactive_html="cultural_ndna/llama_vs_northamerica_interactive.html"
