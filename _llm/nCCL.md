@@ -443,9 +443,6 @@ $\begin{cases}
 \end{cases}$
 {% endcapture %}
 
-{% include visualization.liquid
-    caption=figure_caption
-    alt_text="Layerwise Neural Cultural Conflict Loss (nCCL)" %}
 
 These layerwise semantic tensions highlight the uneven integration of cultural knowledge in large models, emphasizing the need for targeted, depth-wise alignment to mitigate bias and enhance robustness. This parallels biological epigenetic regulation, where gene expression adapts to environmental cues ({% cite %}; {% cite %}), and heterosis, in which genetic recombination produces traits surpassing parental baselines ({% cite %}). Such analogies reveal fundamental geometric principles crucial for developing culturally coherent, fair, and trustworthy AI systems deployed worldwide. 
 
@@ -455,15 +452,42 @@ From this comprehensive overview, several deep insights emerge. First, semantic 
 
 Collectively, this heatmap offers a macroscopic lens to pinpoint and prioritize layers and cultural dimensions that drive semantic dissonance, guiding targeted mitigation strategies. Such insights are foundational for designing culturally aware, semantically robust, and ethically aligned AI systems capable of equitable global deployment.
 
-{% capture figure_caption %}
-Figure: nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap. This visualization displays the normalized Euclidean distances $$d^{(i,j)}_{\ell} = \left\|(\kappa^{(i)}_{\ell}, L^{(i)}_{\ell}) - (\kappa^{(j)}_{\ell}, L^{(j)}_{\ell})\right\|_2$$ between latent semantic vectors of foundation models fine-tuned on distinct cultural datasets $i, j \in \{1, \ldots, 28\}$ across transformer layers $\ell \in [20, 30]$. Each row corresponds to a unique culture pair $(i, j)$, and columns represent specific layers $\ell$, revealing the layerwise semantic divergence intrinsic to cross-cultural model representations. The heatmap’s color intensity quantitatively encodes the magnitude of semantic conflict $$d^{(i,j)}_{\ell}$$, with red hues denoting maximal divergence–values typically ranging from $0.3$ to $0.6$ in critical layers–indicating ideological misalignment loci where latent representations become most discordant and semantically unstable. Cooler colors correspond to semantic concordance and robust latent alignment. Key insights include conflict peaks concentrated in intermediate to deep layers $\ell \in [22, 28]$, highlighting these as critical ideological tension zones within the neural latent space. Certain cultural pairs, such as Africa vs. Middle East and Europe vs. Latin America, consistently show higher latent dissonance, reflecting deep-rooted semantic and linguistic divergences analogous to genetic incompatibilities in biological hybridization ({% cite moyle2011genetic %}; {% cite landry2007genetic %}). The variability of $$d^{(i,j)}_{\ell}$$ across layers and culture pairs emphasizes that universal alignment strategies may be inadequate, necessitating layer- and culture-specific semantic realignment approaches. This heatmap thus provides a quantitative macroscopic framework to localize semantic friction within model architectures, guiding the design of culturally-aware, semantically-consistent, and fair AI systems optimized for equitable global deployment.
-
-{% endcapture %}
-
-{% include visualization.liquid
-    image_path="gifs/neural_genomics/nccl_pairwise_heatmap.png"
-    caption=figure_caption
-    alt_text="nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap" %}
+<figure id="fig:nccl_heatmap" style="text-align: center; margin: 2em 0;">
+  <img src="{{ '/assets/gifs/neural_genomics/nccl_pairwise_heatmap.png' | relative_url }}"
+       alt="nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap"
+       style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
+    <b>Figure:</b> <b>nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap.</b>
+    This visualization displays the normalized Euclidean distances
+    <span class="mathjax-render">d^{(i,j)}_{\ell} = \left\|(\kappa^{(i)}_{\ell}, L^{(i)}_{\ell}) - (\kappa^{(j)}_{\ell}, L^{(j)}_{\ell})\right\|_2</span>
+    between latent semantic vectors of foundation models fine-tuned on distinct cultural datasets
+    <span class="mathjax-render">i, j \in \{1, \ldots, 28\}</span>
+    across transformer layers
+    <span class="mathjax-render">\ell \in [20, 30]</span>.
+    Each row corresponds to a unique culture pair
+    <span class="mathjax-render">(i, j)</span>,
+    and columns represent specific layers
+    <span class="mathjax-render">\ell</span>,
+    revealing the layerwise semantic divergence intrinsic to cross-cultural model representations.
+    The heatmap’s color intensity quantitatively encodes the magnitude of semantic conflict
+    <span class="mathjax-render">d^{(i,j)}_{\ell}</span>,
+    with red hues denoting maximal divergence—values typically ranging from
+    <span class="mathjax-render">0.3</span> to <span class="mathjax-render">0.6</span> in critical layers—indicating
+    ideological misalignment loci where latent representations become most discordant and semantically unstable.
+    Cooler colors correspond to semantic concordance and robust latent alignment.
+    Key insights include conflict peaks concentrated in intermediate to deep layers
+    <span class="mathjax-render">\ell \in [22, 28]</span>,
+    highlighting these as critical ideological tension zones within the neural latent space.
+    Certain cultural pairs, such as <b>Africa vs. Middle East</b> and <b>Europe vs. Latin America</b>,
+    consistently show higher latent dissonance, reflecting deep-rooted semantic and linguistic divergences
+    analogous to genetic incompatibilities in biological hybridization
+    ({% cite moyle2011genetic %}; {% cite landry2007genetic %}).
+    The variability of <span class="mathjax-render">d^{(i,j)}_{\ell}</span> across layers and culture pairs emphasizes that universal alignment
+    strategies may be inadequate, necessitating layer- and culture-specific semantic realignment approaches.
+    This heatmap thus provides a quantitative macroscopic framework to localize semantic friction within model architectures,
+    guiding the design of culturally-aware, semantically-consistent, and fair AI systems optimized for equitable global deployment.
+  </figcaption>
+</figure>
 
 ---
 {% auto_references %}

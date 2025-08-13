@@ -462,23 +462,28 @@ The **Epistemic Plasticity Index (nEPI)** establishes a foundational framework w
   %}
 </div>
 
-{% capture figure_caption %}
-Figure: Layerwise Epistemic Plasticity (nEPI) across Parent Models and Hybrid Offspring: The Neural Epistemic Plasticity Index quantifies the rate of change in semantic adaptability over transformer layers $\ell \in [20, 30]$ as the derivative of the product of spectral curvature $\kappa_\ell$ and thermodynamic length $L_\ell$: 
-$\boxed{\mathrm{nEPI}(\ell) := \dfrac{d}{d\ell}\left(\kappa_\ell \cdot L_\ell\right)}$,
-
-$\kappa_\ell \in [0.37, 0.92]$ local semantic complexity 
-$L_\ell \in [0.44, 0.93]$ latent representational change
-
-$\begin{cases}
-< 0.40 & \text{stable, rigid semantic zones with minimal plasticity} \\
-0.40 \text{ to } 0.70 & \text{adaptive semantic recombination enabling alignment-sensitive learning} \\
-> 0.70 & \text{highly plastic layers driving semantic innovation and robust generalization}
-\end{cases}$
-{% endcapture %}
-
-{% include visualization.liquid
-    caption=figure_caption
-    alt_text="Layerwise Epistemic Plasticity (nEPI) across Parent Models and Hybrid Offspring" %}
+<figure id="fig:nepi_caption" style="text-align: center; margin: 2em 0;">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
+    <b>Figure: Layerwise Epistemic Plasticity (nEPI) across Parent Models and Hybrid Offspring.</b>
+    The Neural Epistemic Plasticity Index quantifies the rate of change in semantic adaptability over transformer layers
+    <span class="mathjax-render">\ell \in [20, 30]</span> as the derivative of the product of spectral curvature
+    <span class="mathjax-render">\kappa_\ell</span> and thermodynamic length
+    <span class="mathjax-render">L_\ell</span>:
+    <br><br>
+    <span class="mathjax-render">\boxed{\mathrm{nEPI}(\ell) := \dfrac{d}{d\ell}\left(\kappa_\ell \cdot L_\ell\right)}</span>
+    <br><br>
+    <span class="mathjax-render">\kappa_\ell \in [0.37, 0.92]</span> — local semantic complexity  
+    <span class="mathjax-render">L_\ell \in [0.44, 0.93]</span> — latent representational change
+    <br><br>
+    <span class="mathjax-render">
+    \begin{cases}
+    < 0.40 & \text{stable, rigid semantic zones with minimal plasticity} \\
+    0.40 \text{ to } 0.70 & \text{adaptive semantic recombination enabling alignment-sensitive learning} \\
+    > 0.70 & \text{highly plastic layers driving semantic innovation and robust generalization}
+    \end{cases}
+    </span>
+  </figcaption>
+</figure>
 
 This framework draws analogy with biological **neural plasticity** and **epigenetic modulation** mechanisms regulating context-dependent gene expression ({% cite day2010epigenetic %};{% cite Experience-dependent st %}). The hybrid offspring models manifest **heterosis**-like effects through semantic recombination {% cite birchler2006heterosis %}, demonstrating emergent conceptual flexibility surpassing parental priors. These insights
 underscore the critical role of geometric and thermodynamic principles in understanding semantic evolution, crosscultural knowledge fusion, and alignment robustness in large-scale neural models.

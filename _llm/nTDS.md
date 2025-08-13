@@ -574,24 +574,33 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
 
 </div>
 
-{% capture figure_caption %}
-**Figure: nTDS Across Cultural Model Pairs and Offspring** — These visualizations capture the layer-wise trait dominance evolution in fusions of eight culturally distinct models, revealing dynamic shifts in **spectral curvature** and **thermodynamic length**, reflecting epigenetic-like semantic modulation akin to *developmental heterochrony* [324, 325] and *gene regulatory networks* [326, 327].  
+<figure id="fig:ntds_caption" style="text-align: center; margin: 2em 0;">
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
+    <b>Figure: nTDS Across Cultural Model Pairs and Offspring.</b>
+    These visualizations capture the layer-wise trait dominance evolution in fusions of eight culturally distinct models,
+    revealing dynamic shifts in <b>spectral curvature</b> and <b>thermodynamic length</b>, reflecting epigenetic-like semantic modulation
+    akin to <i>developmental heterochrony</i> [324, 325] and <i>gene regulatory networks</i> [326, 327].
+    <br><br>
+    The <i>nTDS</i> values quantify <b>parental influence</b> and <b>semantic recombination</b> across layers
+    <span class="mathjax-render">(20 \text{–} 30)</span>,
+    highlighting critical transitions with oscillations or balanced dominance.
+    These patterns align with <b>nonlinear dynamical systems</b> and <b>bifurcation theory</b> [328],
+    where competing attractors shape semantic landscapes — offering insights into neural culture inheritance,
+    semantic fusion, and advancing latent geometry evolution understanding.
+    <br><br>
+    <b>Key formula:</b>
+    <span class="mathjax-render">
+      nTDS_{\ell} =
+      \frac{\kappa_{\ell}(p) \cdot L_{\ell}(p)}
+      {\kappa_{\ell}(p) \cdot L_{\ell}(p) + \kappa_{\ell}(q) \cdot L_{\ell}(q)}
+    </span>
+    where <span class="mathjax-render">\kappa_{\ell}</span> is the spectral curvature,
+    <span class="mathjax-render">L_{\ell}</span> is the thermodynamic length at layer
+    <span class="mathjax-render">\ell</span>, and
+    <span class="mathjax-render">p, q</span> are the parental indices — quantifying relative semantic dominance with geometric rigor.
+  </figcaption>
+</figure>
 
-The *nTDS* values quantify **parental influence** and **semantic recombination** across layers $(20 \text{–} 30)$, highlighting critical transitions with oscillations or balanced dominance. These patterns align with **nonlinear dynamical systems** and **bifurcation theory** [328], where competing attractors shape semantic landscapes — offering insights into neural culture inheritance, semantic fusion, and advancing latent geometry evolution understanding.  
-
-Key formula:  
-
-$$
-nTDS_{\ell} = \frac{\kappa_{\ell}(p) \cdot L_{\ell}(p)}
-{\kappa_{\ell}(p) \cdot L_{\ell}(p) + \kappa_{\ell}(q) \cdot L_{\ell}(q)}
-$$  
-
-where $\kappa_{\ell}$ is the spectral curvature, $L_{\ell}$ is the thermodynamic length at layer $\ell$, and $p, q$ are the parental indices — quantifying relative semantic dominance with geometric rigor.
-{% endcapture %}
-
-{% include visualization.liquid
-    caption=figure_caption
-    alt_text="nTDS Across Cultural Model Pairs and Offspring" %}
 
 ---
 {% auto_references %}

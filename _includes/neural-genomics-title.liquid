@@ -1,7 +1,3 @@
-{% comment %}
-Neural Genomics Title Template (corrected colon placement)
-{% endcomment %}
-
 {% assign heading_tag = include.heading_tag | default: "h1" %}
 {% assign logo_size = include.logo_size | default: "4em" %}
 
@@ -10,15 +6,15 @@ Neural Genomics Title Template (corrected colon placement)
   <img src="{{ '/assets/img/Neural_genomics_img-1.png' | relative_url }}"
        alt="Neural Genomics"
        style="height: {{ logo_size }}; vertical-align: middle; margin: 0 0.35em 0 0;">
-  Neural Genomics
+  Neural Genomics:
 </span>
 {% endcapture %}
 
 {% assign title_str = include.title | default: "" %}
-{% assign contains_keyword = title_str contains "Neural Genomics" %}
+{% assign contains_keyword = title_str contains "Neural Genomics:" %}
 
 {% if contains_keyword %}
-  {% assign replaced = title_str | replace_first: "Neural Genomics", logo_html %}
+  {% assign replaced = title_str | replace_first: "Neural Genomics:", logo_html %}
   {% capture title_html %}{{ replaced }}{% endcapture %}
 {% else %}
   {% capture title_html %}{{ logo_html }} {{ title_str }}{% endcapture %}

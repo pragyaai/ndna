@@ -56,14 +56,8 @@ where $p_{ik}$ and $p_{jk}$ denote the allele frequencies at locus $k$ for popul
 This measure captures evolutionary divergence under assumptions of genetic drift and mutation.
 
 **Connection to Neural Trait Dominance Score (nTDS):**  
-Analogous to Nei's metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora.  
-Both metrics embody distance and dominance concepts but in different domains — genomic alleles versus latent semantic embeddings.  
-
-Formally, nTDS's trait dominance coefficient $\delta_\ell^{(A,B)}$ measures the relative influence of parental semantic features on offspring at layer $\ell$, analogous to how Nei's distance measures population divergence in allele frequency space.  
-This parallel illustrates how nTDS captures the nuanced inheritance and dominance of cultural semantic alleles across model layers, reflecting evolutionary-like dynamics of knowledge transfer, cultural imprinting, and semantic adaptation.
-
-**Implications:**  
-Understanding these distances and dominance patterns enables precision alignment of multilingual and multicultural models, ensuring that inherited semantic traits reflect desired cultural fidelity while avoiding semantic erosion or bias amplification.  
+Analogous to Nei's metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora. Both metrics embody distance and dominance concepts but in different domains — genomic alleles versus latent semantic embeddings.  Formally, nTDS's trait dominance coefficient $\delta_\ell^{(A,B)}$ measures the relative influence of parental semantic features on offspring at layer $\ell$, analogous to how Nei's distance measures population divergence in allele frequency space.  
+This parallel illustrates how nTDS captures the nuanced inheritance and dominance of cultural semantic alleles across model layers, reflecting evolutionary-like dynamics of knowledge transfer, cultural imprinting, and semantic adaptation.**Implications:** Understanding these distances and dominance patterns enables precision alignment of multilingual and multicultural models, ensuring that inherited semantic traits reflect desired cultural fidelity while avoiding semantic erosion or bias amplification.  
 By integrating geometric, probabilistic, and evolutionary insights, nTDS paves the way for responsible, interpretable, and culturally aware AI.  
 See Nei's Genetic Distance on Wikipedia for foundational background.
 {% endcapture %}
