@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>Frequently Asked Questions - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/main.css">
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax error:', err);
+        });
+      }
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Frequently Asked Questions | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Frequently Asked Questions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="- Frequently Asked Questions (FAQs)" />
+<meta property="og:description" content="- Frequently Asked Questions (FAQs)" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/FAQ/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/FAQ/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-13T07:37:20+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Frequently Asked Questions" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T07:37:20+00:00","datePublished":"2025-08-13T07:37:20+00:00","description":"- Frequently Asked Questions (FAQs)","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+    <a class="ndna-cover" href="/nDNA/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
+    </a>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+        
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ndna"><img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span>- Frequently Asked Questions (FAQs)</span>
+</h1>
+
+<h1 id="ndna-cartograph-latent-semantic-genome-of-foundation-models">nDNA Cartograph: Latent Semantic Genome of Foundation Models</h1>
+
+<h2 id="what-is-the-mathematical-foundation-behind-the-idea-of-an-ndna-cartograph-and-why-should-we-think-of-latent-spaces-as-semantic-genomes">What is the mathematical foundation behind the idea of an nDNA Cartograph, and why should we think of latent spaces as <em>semantic genomes</em>?</h2>
+
+<p>At the heart of the <strong>nDNA Cartograph</strong> lies the idea that the latent representations inside a foundation model form a continuous, evolving geometric structure—a manifold that encodes not just surface-level semantics but deeper <em>epistemic traits</em> analogous to a genome’s information content.</p>
+
+<p>Formally, let $h_\ell(x) \in \mathbb{R}^D$ be the mean hidden representation at layer $\ell$ for input $x$. The sequence
+\(\mathcal{T}(x) = \{ h_1(x), h_2(x), \dots, h_L(x) \}\)
+defines a trajectory on a latent manifold $\mathcal{M} \subset \mathbb{R}^D$. We characterize this manifold using:
+\(\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2\)
+which measures the <em>thermodynamic length</em>, representing the total epistemic displacement along the model’s depth;
+\(\kappa_\ell(x) = \frac{\lambda_2^{(\ell)}}{\lambda_{\max}^{(\ell)}}\)
+where $\lambda_2^{(\ell)}$ and $\lambda_{\max}^{(\ell)}$ are eigenvalues of the Laplacian from token similarity graphs at layer $\ell$, giving us a spectral curvature that quantifies local semantic complexity; and
+\(\tau_\ell(x) = \frac{\langle (\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)), \Delta h_{\ell+1}(x) \rangle}{\|\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)\|^2}\)
+which captures torsion—the <em>twist</em> of the latent path, indicating out-of-plane semantic shifts.</p>
+
+<p>To complement these geometric measures, we introduce the <em>belief vector field</em>:
+\(\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell(x)} \log P(c \mid h_\ell(x))\)
+where $P(c \mid h_\ell(x))$ is the model’s conditional probability of concept $c$ given the latent state. The belief vector encodes the semantic steering force exerted at layer $\ell$—revealing how the model’s internal states are dynamically aligned (or misaligned) with target concepts across depth .</p>
+
+<p>This framing allows us to map how meaning is constructed, recombined, or distorted across the model’s depth—a latent <em>semantic genome</em> that evolves with training, fine-tuning, or merging. Unlike surface-level output metrics, this map shows us the <strong>inner life</strong> of the model, enabling rigorous audits of alignment <a href="#ref1">[1]</a>, bias inheritance <a href="#ref2">[2]</a>, and conceptual recombination <a href="#ref3">[3]</a>.</p>
+
+<h2 id="how-do-spectral-curvature-thermodynamic-length-and-the-belief-vector-field-together-provide-a-comprehensive-view-of-latent-semantic-evolution-in-foundation-models">How do spectral curvature, thermodynamic length, and the belief vector field together provide a comprehensive view of latent semantic evolution in foundation models?</h2>
+
+<p>Each of these quantities offers a distinct mathematical lens on the internal epistemic dynamics of foundation models, and together they form a synergistic diagnostic toolkit for mapping semantic inheritance and drift across layers.</p>
+
+<p><em>Spectral curvature</em> $\kappa_\ell$ quantifies the degree of local entanglement in the latent semantic manifold at layer $\ell$. By constructing a similarity graph over token embeddings at this layer and computing the Laplacian $\mathcal{L}_\ell$, we define:</p>
+
+\[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\]
+
+<p>where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of $\mathcal{L}_\ell$. High curvature reveals rich conceptual recombination or ambiguity; low curvature reflects smooth, disentangled latent structure .</p>
+
+<p><em>Thermodynamic length</em> $\mathcal{L}$ accumulates the magnitude of representational change across the model’s depth:</p>
+
+\[\mathcal{L} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1} - h_\ell \right\|_2\]
+
+<p>This is the latent analogue of the <em>work done</em> by the model in traversing semantic space. A long $\mathcal{L}$ indicates dynamic epistemic restructuring (common in multi-step reasoning), whereas a short $\mathcal{L}$ may signal premature compression or alignment collapse .</p>
+
+<p><em>Belief vector field</em> $\vec{v}_\ell^{(c)}$ measures the semantic steering force exerted at each layer relative to a conceptual target $c$:</p>
+
+\[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\]
+
+<p>where $P(c \mid h_\ell)$ is the model’s conditional probability over concept $c$. This field encodes the directional flow of epistemic mass, revealing whether the model’s latent states are coherently steered toward the desired semantic objective, or exhibit drift, conflict, or indecision .</p>
+
+<p>By integrating these three components, the <strong>nDNA Cartograph</strong> provides a multi-layered, path-dependent, and interpretable map of the model’s inner reasoning life. It lets us detect hidden alignment failures, epistemic shortcuts, or conceptual bifurcations invisible to scalar accuracy metrics—turning the model from a black box into a traceable semantic organism.</p>
+
+<h2 id="how-does-the-ndna-cartograph-framework-enable-rigorous-audits-of-alignment-and-bias-inheritance-beyond-standard-evaluation-metrics">How does the nDNA Cartograph framework enable rigorous audits of alignment and bias inheritance beyond standard evaluation metrics?</h2>
+
+<p>The <strong>nDNA Cartograph</strong> transforms the auditing of foundation models from a surface-level, output-centric exercise into a deep, manifold-level analysis of epistemic dynamics. Standard alignment evaluations  typically rely on scalar metrics—accuracy, BLEU scores, or human preference rates. These metrics assess what the model generates but tell us little about <em>how</em> that output was internally constructed or whether latent reasoning paths reflect aligned, unbiased conceptual evolution.</p>
+
+<p>The nDNA Cartograph addresses this by mapping latent trajectories $\mathcal{T}(x)$ and quantifying geometric signatures (spectral curvature $\kappa_\ell$, thermodynamic length $\mathcal{L}$, belief vector fields $\vec{v}_\ell^{(c)}$) layer-by-layer. For example:
+\(\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\)
+lets us directly inspect whether latent states steer toward (or away from) culturally sensitive concepts $c$. Spikes in curvature
+\(\kappa_\ell = \frac{1}{k} \sum_{i=1}^{k} \lambda_i^{(\ell)}\)
+can signal points where the model fuses incompatible priors or inherits bias during generation.</p>
+
+<p>Unlike outputs, these geometric signals are not easily gamed by prompt engineering or surface-level tuning <a href="#ref2">[2]</a>. They reveal whether alignment is internalized or merely performative, offering a layer-resolved audit of bias inheritance, cultural asymmetry <a href="#ref4">[4]</a>, or failure of epistemic coherence across merged or fine-tuned models.</p>
+
+<h2 id="what-role-does-layerwise-thermodynamic-analysis-play-in-distinguishing-overcompression-collapse-and-healthy-semantic-evolution-in-foundation-models">What role does layerwise thermodynamic analysis play in distinguishing overcompression, collapse, and healthy semantic evolution in foundation models?</h2>
+
+<p><em>Thermodynamic length</em> $\mathcal{L}$ offers a principled, geometric analogue to the concept of work done in semantic space—enabling us to distinguish between healthy representational reconfiguration and pathological collapse. It is defined as:
+\(\mathcal{L} = \sum_{\ell=1}^{L-1} \| h_{\ell+1} - h_\ell \|_2\)
+where $h_\ell$ denotes the mean hidden representation at layer $\ell$. A well-functioning model engaged in complex reasoning or compositional tasks typically accumulates significant thermodynamic length—reflecting diverse, layered semantic transformations akin to biological developmental pathways <a href="#ref5">[5]</a>.</p>
+
+<p>By contrast, models suffering from <em>overcompression</em> (e.g., through aggressive pruning <a href="#ref6">[6]</a>, quantization <a href="#ref7">[7]</a>) or <em>alignment collapse</em> (e.g., over-fine-tuning <a href="#ref1">[1]</a>) exhibit pathologically short $\mathcal{L}$. This indicates premature semantic convergence, loss of internal epistemic richness, or mode collapse. Layerwise thermodynamic profiles thus help diagnose where and how semantic diversity is lost—providing actionable insights for model repair, re-tuning, or safe merging <a href="#ref3">[3]</a>.</p>
+
+<p>Crucially, $\mathcal{L}$ integrates naturally with other nDNA components (curvature, belief fields) to offer a coherent audit of internal epistemic health, beyond what external validation sets can reveal.</p>
+
+<h2 id="how-does-the-ndna-cartograph-provide-a-principled-diagnostic-for-model-merging-and-conceptual-recombination-in-foundation-models">How does the nDNA Cartograph provide a principled diagnostic for model merging and conceptual recombination in foundation models?</h2>
+
+<p>The <strong>nDNA Cartograph</strong> enables rigorous analysis of model merging by tracing how latent semantic genomes recombine at the manifold level—a task that scalar evaluation metrics or simple output comparison cannot meaningfully address. In model merging , two pretrained models (e.g., culturally fine-tuned LLMs <a href="#ref8">[8]</a>) are fused, often via weight interpolation or parameter averaging. This creates a hybrid latent manifold $\mathcal{M}_{\text{merge}}$.</p>
+
+<p>The Cartograph reveals whether this hybrid manifold forms a coherent epistemic structure or suffers from conceptual collisions. For each merged model:</p>
+
+<p>\(\mathcal{L}_{\text{merge}} = \sum_{\ell=1}^{L-1} \bigl\| h_{\ell+1}^{\text{merge}} - h_\ell^{\text{merge}} \bigr\|_2\)
+measures cumulative semantic displacement—the latent analogue of epistemic work done along the merged path, where $h_\ell^{\text{merge}} \in \mathbb{R}^D$ denotes the mean latent representation at layer $\ell$.</p>
+
+<p>\(\kappa_\ell^{\text{merge}} = \frac{1}{k} \sum_{i=1}^k \lambda_i \bigl( \mathcal{L}^{(\ell,\text{merge})} \bigr)\)
+captures the spectral curvature at layer $\ell$, where
+\(\mathcal{L}^{(\ell,\text{merge})} = I - \bigl( D^{(\ell,\text{merge})} \bigr)^{-1/2} W^{(\ell,\text{merge})} \bigl( D^{(\ell,\text{merge})} \bigr)^{-1/2}\)
+is the normalized graph Laplacian, with
+\(W_{ij}^{(\ell,\text{merge})} = \exp \left( -\frac{\bigl\| t_i^{(\ell,\text{merge})} - t_j^{(\ell,\text{merge})} \bigr\|^2}{\sigma^2} \right)\)
+as the affinity matrix and $D^{(\ell,\text{merge})}$ the degree matrix. This reveals curvature spikes where latent concepts clash.</p>
+
+<p>\(\vec{v}_\ell^{(c,\text{merge})} = \nabla_{h_\ell^{\text{merge}}} \log P \bigl( c \mid h_\ell^{\text{merge}} \bigr)\)
+defines the belief vector field, where
+\(P \bigl( c \mid h_\ell^{\text{merge}} \bigr) = \text{softmax} \left( W_c^\top h_\ell^{\text{merge}} + b_c \right)\)
+shows the semantic steering force toward concept $c$ at layer $\ell$.</p>
+
+<p>Together, these quantities allow us to audit mergers for latent genome compatibility, identifying layers where semantic paths bifurcate, collapse, or align. This transforms merging from an empirical gamble into a principled geometric science of conceptual recombination.</p>
+
+<h2 id="why-is-the-latent-genome-analogy-valuable-in-diagnosing-failure-modes-such-as-alignment-collapse-or-representational-drift">Why is the latent genome analogy valuable in diagnosing failure modes such as alignment collapse or representational drift?</h2>
+
+<p>Viewing latent representations as a <strong>semantic genome</strong> offers a powerful conceptual and mathematical framework for diagnosing subtle failure modes that evade output-level evaluation. Just as biological genomes encode inheritable traits, the latent genome—as mapped by the <strong>nDNA Cartograph</strong>—encodes <em>epistemic traits</em> that govern alignment, reasoning structure, and conceptual coherence across depth.</p>
+
+<p>For example, <em>alignment collapse</em> can be detected when the thermodynamic length
+\(\mathcal{L} = \sum_{\ell=1}^{L-1} \bigl\| h_{\ell+1} - h_\ell \bigr\|_2\)
+shrinks anomalously across layers despite complex prompts, signaling over-constrained internal dynamics or excessive compression .</p>
+
+<p><em>Representational drift</em> is revealed when spectral curvature
+\(\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\)
+(where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of the normalized graph Laplacian at layer $\ell$) shows unmotivated spikes, collapses, or oscillations across adjacent layers, marking latent instability or conceptual incoherence .</p>
+
+<p>In this view, failure modes are not just surface phenomena but reflect deeper structural pathologies in the model’s epistemic architecture—pathologies that the nDNA Cartograph makes visible, quantifiable, and ultimately, repairable.</p>
+
+<h2 id="how-does-the-ndna-cartograph-help-us-understand-fine-tuning-as-a-form-of-semantic-genome-editing">How does the nDNA Cartograph help us understand fine-tuning as a form of semantic genome editing?</h2>
+
+<p>The <strong>nDNA Cartograph</strong> provides a rigorous geometric lens to interpret fine-tuning as an operation that modifies the <em>semantic genome</em> of a model. Fine-tuning does not merely adjust output distributions—it rewires latent trajectories, altering how concepts are represented, combined, and steered at every layer.</p>
+
+<h3 id="genomic-edit-distance">Genomic Edit Distance</h3>
+
+<p>Mathematically, if $h_\ell^{\mathrm{pre}}(x)$ and $h_\ell^{\mathrm{ft}}(x)$ denote the pre- and post-fine-tuning representations, the <em>genomic edit distance</em> is quantified by:</p>
+
+\[\mathcal{D}_{\mathrm{genome}}(x) = \sum_{\ell=1}^{L} \left\| h_\ell^{\mathrm{ft}}(x) - h_\ell^{\mathrm{pre}}(x) \right\|_2\]
+
+<p>Where:</p>
+<ul>
+  <li>Large values of $\mathcal{D}_{\mathrm{genome}}$ indicate substantial epistemic reconfiguration (common in domain shift or alignment tasks)</li>
+  <li>Small values correspond to minimal latent rewiring</li>
+</ul>
+
+<h3 id="belief-vector-field-transformation">Belief Vector Field Transformation</h3>
+
+<p>Fine-tuning also reshapes the <em>belief vector field</em>. The change can be measured as:</p>
+
+\[\Delta \vec{v}_\ell^{(c)} = \vec{v}_\ell^{(c,\mathrm{ft})} - \vec{v}_\ell^{(c,\mathrm{pre})}\]
+
+<p>Where:
+\(\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\)</p>
+
+<p>This differential captures how the model’s steering toward concept $c$ evolves layer-wise due to fine-tuning.</p>
+
+<h3 id="genome-editing-perspective">Genome Editing Perspective</h3>
+
+<p>By providing these diagnostics, the nDNA Cartograph allows us to see fine-tuning not as a black-box procedure, but as <em>genome editing</em>—selectively rewriting parts of the model’s inner semantic code while ideally preserving core epistemic integrity .</p>
+
+<h2 id="what-insights-does-the-ndna-cartograph-offer-on-the-effect-of-pruning-and-quantization-on-the-models-latent-semantic-genome">What insights does the nDNA Cartograph offer on the effect of pruning and quantization on the model’s latent semantic genome?</h2>
+
+<p>The <strong>nDNA Cartograph</strong> offers a unique view into how <em>pruning</em> and <em>quantization</em> reshape the latent semantic genome—often in ways invisible to output-level metrics. Both operations can induce subtle or catastrophic changes in the latent manifold geometry.</p>
+
+<p>Consider pruning: removing parameters or neurons alters the flow of representations, and we can quantify its impact via thermodynamic length:
+\(\mathcal{L}_{\mathrm{prune}} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1}^{\mathrm{prune}} - h_\ell^{\mathrm{prune}} \right\|_2\)
+where a dramatic shrinkage of $\mathcal{L}_{\mathrm{prune}}$ suggests overcompression, loss of latent richness, or premature alignment collapse <a href="#ref5">[5]</a>.</p>
+
+<p>Similarly, quantization distorts latent precision. We can track this through changes in spectral curvature:
+\(\Delta \kappa_\ell = \kappa_\ell^{\mathrm{quant}} - \kappa_\ell^{\mathrm{orig}}\)
+where spikes or flattening of $\kappa_\ell$ after quantization point to manifold fragmentation or collapse .</p>
+
+<p>By integrating these measures, the Cartograph moves beyond raw perplexity or accuracy and provides a geometric audit of how pruning and quantization affect the model’s <em>inner epistemic health</em>.</p>
+
+<h2 id="how-does-the-ndna-cartograph-allow-us-to-detect-conceptual-bifurcation-points-in-deep-networks">How does the nDNA Cartograph allow us to detect conceptual bifurcation points in deep networks?</h2>
+
+<p>The <strong>nDNA Cartograph</strong> offers a precise geometric toolset to identify <em>conceptual bifurcation points</em>—layers where a foundation model’s latent semantics split into divergent reasoning paths. These are critical for understanding failures in multi-task alignment or unintended capability emergence.</p>
+
+<p>Formally, let
+\(\tau_\ell(x) = \frac{\left\langle \left( \Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x) \right), \Delta h_{\ell+1}(x) \right\rangle}{\left\| \Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x) \right\|^2}\)
+represent the <em>latent torsion</em> at layer $\ell$. Spikes in $\tau_\ell$ signal out-of-plane turns—typical of semantic bifurcations <a href="#ref9">[9]</a>. When accompanied by divergence in belief vector fields:
+\(\| \vec{v}_\ell^{(c_1)} - \vec{v}_\ell^{(c_2)} \| \gg 0\)
+for competing concepts $c_1, c_2$, the Cartograph pinpoints exact depths where reasoning splits occur.</p>
+
+<p>Such analysis is crucial in detecting unintended task-switching, conflicting priors, or mode collapse in merged or fine-tuned models .</p>
+
+<h2 id="in-what-ways-does-the-ndna-cartograph-support-interpretability-of-multi-task-and-multi-modal-foundation-models">In what ways does the nDNA Cartograph support interpretability of multi-task and multi-modal foundation models?</h2>
+
+<p>Multi-task and multi-modal models operate over richly entangled latent spaces where different reasoning streams co-exist. The <strong>nDNA Cartograph</strong> provides a way to disentangle and interpret these by analyzing layerwise geometry.</p>
+
+<p>Suppose we have tasks $T_1, T_2$. Their latent paths can be tracked via task-conditioned thermodynamic lengths:
+\(\mathcal{L}^{(T_1)} = \sum_{\ell=1}^{L-1} \| h_{\ell+1}^{(T_1)} - h_\ell^{(T_1)} \|_2, \quad \mathcal{L}^{(T_2)} = \sum_{\ell=1}^{L-1} \| h_{\ell+1}^{(T_2)} - h_\ell^{(T_2)} \|_2\)
+Differences in $\mathcal{L}^{(T_1)}$ and $\mathcal{L}^{(T_2)}$ reflect task complexity or latent resource allocation.</p>
+
+<p>Additionally, spectral curvature maps:
+\(\kappa_\ell^{(T)} = \frac{1}{k} \sum_{i=1}^{k} \lambda_i^{(\ell, T)}\)
+can highlight where one task’s latent space is more entangled—revealing priority, resource contention, or representational inefficiency .</p>
+
+<p>This allows developers to visualize not just what the model gets right or wrong, but <em>how</em> it reasons differently across tasks—enhancing transparency in multi-task and multi-modal AI.</p>
+
+<h1 id="ndna-cartography-across-foundation-models">nDNA Cartography Across Foundation Models</h1>
+
+<h2 id="why-is-comparing-ndna-trajectories-across-foundation-models-more-insightful-than-conventional-benchmark-metrics">Why is comparing nDNA trajectories across foundation models more insightful than conventional benchmark metrics?</h2>
+
+<p>Traditional benchmark metrics—accuracy, BLEU, perplexity—evaluate model performance at the output level. They tell us <em>what</em> a model produces, but not <em>how</em> it thinks. By comparing <strong>nDNA trajectories</strong> across diverse foundation models, we can observe the inner semantic journey: how meaning is constructed, evolved, and aligned layer-by-layer.</p>
+
+<p>Formally, let $\mathcal{T}_m(x) = { h_1^{(m)}(x), \dots, h_L^{(m)}(x) }$ denote the latent path for model $m$. We compute thermodynamic length:</p>
+
+\[\mathcal{L}^{(m)}(x) = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1}^{(m)}(x) - h_\ell^{(m)}(x) \right\|_2\]
+
+<p>and average spectral curvature:</p>
+
+\[\bar{\kappa}^{(m)}(x) = \frac{1}{L} \sum_{\ell=1}^L \kappa_\ell^{(m)}(x)\]
+
+<p>where $\kappa_\ell^{(m)}(x)$ is the spectral curvature at layer $\ell$ as defined via Laplacian eigenvalues <a href="#ref10">[10]</a>. These measures expose latent semantic efficiency (shorter, smooth paths) versus epistemic complexity (longer, curved paths).</p>
+
+<p>This comparison reveals how different models prioritize aspects like alignment efficiency versus latent exploration—insights that remain hidden in scalar output scores.</p>
+
+<h2 id="how-do-ndna-comparisons-across-models-help-in-selecting-models-for-specific-downstream-tasks">How do nDNA comparisons across models help in selecting models for specific downstream tasks?</h2>
+
+<p>The <strong>nDNA Cartography</strong> provides geometric signatures of models’ latent reasoning styles, which can inform task suitability beyond output metrics. For tasks requiring deep compositional reasoning, models with higher latent curvature and longer thermodynamic lengths may be preferable, as these signal richer semantic reconfiguration:</p>
+
+\[\mathcal{L}^{(m)} \gg \mathcal{L}^{(n)} \quad \Rightarrow \quad \text{Model } m \text{ invests more latent effort}\]
+
+<p>Conversely, tasks needing fast, aligned responses (e.g., retrieval QA) may benefit from models with flatter, more efficient nDNA paths.</p>
+
+<p>Moreover, comparing belief vector field magnitudes:</p>
+
+\[\left\| \vec{v}_\ell^{(c, m)} \right\| \quad \text{vs.} \quad \left\| \vec{v}_\ell^{(c, n)} \right\|\]
+
+<p>shows which model steers its latent states more decisively toward desired concepts—critical for alignment-sensitive applications <a href="#ref1">[1]</a>.</p>
+
+<p>This geometric lens turns model selection into a principled choice guided by latent dynamics, not just test-set scores.</p>
+
+<h2 id="how-does-ndna-cartography-reveal-family-level-traits-and-distinctions-across-foundation-models">How does nDNA Cartography reveal family-level traits and distinctions across foundation models?</h2>
+
+<p>The <strong>nDNA Cartography</strong> framework provides a geometric lens to study how foundation models from different families (e.g., LLaMA, Mistral, Gemma, Qwen, DeepSeek) exhibit unique latent genomic signatures. For each model, we compute thermodynamic length</p>
+
+\[\mathcal{L} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1} - h_\ell \right\|_2,\]
+
+<p>spectral curvature</p>
+
+\[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)},\]
+
+<p>and belief vector dynamics</p>
+
+\[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell).\]
+
+<p>Across models, these quantities form distinct trajectories on latent manifolds, reflecting epistemic priorities inherited during pretraining. For example, Mistral and LLaMA often show longer $\mathcal{L}$ with smoother curvature, indicating richer compositional reasoning, while smaller models (e.g., Gemma 2B) may exhibit early compression (shorter $\mathcal{L}$) and higher curvature spikes—signatures of undercapacity or alignment shortcuts .</p>
+
+<h2 id="how-can-ndna-cartography-help-interpret-scaling-laws-beyond-parameter-counts-in-foundation-models">How can nDNA Cartography help interpret scaling laws beyond parameter counts in foundation models?</h2>
+
+<p>Traditional scaling laws  relate parameter count, compute, and data size to performance metrics like loss. However, nDNA Cartography introduces latent <em>semantic scaling laws</em>: it quantifies how internal semantic complexity grows (or saturates) with scale. For example, thermodynamic length $\mathcal{L}$ and curvature complexity $\sum_\ell \kappa_\ell$ can be studied as functions of model size $N$:</p>
+
+\[\mathcal{L}(N) \propto N^\alpha, \quad \sum_\ell \kappa_\ell(N) \propto N^\beta,\]
+
+<p>where exponents $\alpha$ and $\beta$ reveal how epistemic richness or redundancy scale with capacity. Importantly, models can have similar loss but very different latent genomes: e.g., a large model may overcompress (flat $\mathcal{L}$) or overentangle (spiky $\kappa_\ell$), while a smaller model with smarter design achieves balanced nDNA dynamics.</p>
+
+<h2 id="how-does-cross-model-ndna-cartography-help-uncover-architectural-signatures-and-inductive-biases-in-foundation-models">How does cross-model nDNA cartography help uncover architectural signatures and inductive biases in foundation models?</h2>
+
+<p>By applying <strong>nDNA cartography</strong> uniformly across 15 distinct foundation models, we gain a unique lens to disentangle how architectural choices (e.g., depth, attention structure, normalization strategies) and pretraining regimes manifest as characteristic latent geometric signatures. Specifically, for each model $M$, we map its semantic genome via thermodynamic length:</p>
+
+\[\mathcal{L}^{(M)} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1}^{(M)} - h_\ell^{(M)} \right\|_2\]
+
+<p>and spectral curvature:</p>
+
+\[\kappa_\ell^{(M)} = \frac{1}{k} \sum_{i=1}^{k} \lambda_i \left( \mathcal{L}^{(\ell,M)} \right)\]
+
+<p>where $\mathcal{L}^{(\ell,M)}$ is the normalized Laplacian at layer $\ell$ for model $M$.</p>
+
+<h2 id="what-does-ndna-cartography-tell-us-about-scaling-laws-and-semantic-manifold-complexity">What does nDNA cartography tell us about scaling laws and semantic manifold complexity?</h2>
+
+<p>nDNA cartography offers a geometric refinement of classical scaling laws , showing that increases in model size correspond not just to improvements in loss but to changes in latent manifold complexity.</p>
+
+<p>Consider spectral curvature $\kappa_\ell$ as a proxy for semantic entanglement:</p>
+
+\[\mathbb{E}[\kappa_\ell] \uparrow \quad \text{as model width, depth, or data scale increase}\]
+
+<p>This empirical trend across our 15-model survey suggests that larger models construct denser, more tangled latent spaces—facilitating compositionality but also raising risks of overfitting or alignment drift <a href="#ref11">[11]</a>.</p>
+
+<h2 id="how-does-ndna-cartography-help-identify-latent-overfitting-and-spurious-alignment-in-foundation-models">How does nDNA Cartography help identify latent overfitting and spurious alignment in foundation models?</h2>
+
+<p><strong>nDNA Cartography</strong> provides fine-grained diagnostics that scalar metrics miss by tracing the internal semantic geometry of models. Latent overfitting manifests as anomalously short <em>thermodynamic length</em>:</p>
+
+\[\mathcal{L} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1} - h_\ell \right\|_2\]
+
+<p>where a collapse in $\mathcal{L}$ occurs despite complex or diverse prompts, signaling that internal representations are over-compressed—a geometric signature of memorization rather than reasoning <a href="#ref1">[1]</a>.</p>
+
+<h2 id="what-role-does-ndna-cartography-play-in-benchmarking-cross-model-generalization-capacity">What role does nDNA Cartography play in benchmarking cross-model generalization capacity?</h2>
+
+<p>The <strong>nDNA Cartograph</strong> enables cross-model generalization studies by quantifying how semantic effort and complexity (via $\mathcal{L}$, $\kappa_\ell$, and $\left| \vec{v}_\ell^{(c)} \right|$) correlate with performance on out-of-distribution (OOD) prompts. Models with longer thermodynamic paths:</p>
+
+\[\mathcal{L}_{\mathrm{OOD}} &gt; \mathcal{L}_{\mathrm{ID}}\]
+
+<p>when responding to OOD inputs demonstrate latent flexibility essential for generalization. Conversely, models whose latent geometry remains static (flat curvature, short $\mathcal{L}$) across both ID and OOD data signal brittleness .</p>
+
+<h2 id="how-does-ndna-cartography-reveal-hidden-structural-differences-between-large-and-small-foundation-models-beyond-surface-level-accuracy">How does nDNA Cartography reveal hidden structural differences between large and small foundation models beyond surface-level accuracy?</h2>
+
+<p>While small and large models (e.g., <strong>TinyLLaMA</strong> vs. <strong>LLaMA-65B</strong>) might achieve similar accuracy on certain benchmarks, their latent semantic genomes can differ drastically in complexity and path structure. The <strong>nDNA Cartograph</strong> quantifies these differences using:</p>
+
+\[\mathcal{L}_{\mathrm{large}} &gt; \mathcal{L}_{\mathrm{small}}, \quad \kappa_\ell^{\mathrm{large}} &lt; \kappa_\ell^{\mathrm{small}}\]
+
+<p>where larger models exhibit longer thermodynamic length $\mathcal{L}$, reflecting richer semantic traversal, and smoother curvature $\kappa_\ell$, reflecting disentangled latent spaces <a href="#ref12">[12]</a>.</p>
+
+<h2 id="in-what-way-does-the-belief-vector-field-help-compare-alignment-behavior-across-different-model-architectures">In what way does the belief vector field help compare alignment behavior across different model architectures?</h2>
+
+<p>The belief vector field</p>
+
+\[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\]
+
+<p>provides a directional diagnostic for alignment at each layer $\ell$, showing how latent states are steered toward target concept $c$. When comparing models (e.g., <strong>Gemma 2B</strong> vs. <strong>Mixtral</strong>), Cartography can measure:</p>
+
+\[\cos \theta_\ell = \frac{\left\langle \vec{v}_\ell^{(c,1)}, \vec{v}_\ell^{(c,2)} \right\rangle}{ \left\| \vec{v}_\ell^{(c,1)} \right\| \cdot \left\| \vec{v}_\ell^{(c,2)} \right\| }\]
+
+<p>where $\vec{v}<em>\ell^{(c,1)}$ and $\vec{v}</em>\ell^{(c,2)}$ are the belief vectors from two architectures. Large cosine alignment indicates similar conceptual steering; divergence signals architectural differences in latent alignment strategies.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Perez, Ethan, Ringer, Sam, and others “Discovering latent knowledge in language models without supervision” <em>arXiv preprint arXiv:2212.03827</em> (2022).</p>
+
+<p><a id="ref2"></a>[2] Arora, Akhila, Goyal, Tushar, and others “Stereoset: Measuring stereotypical bias in pretrained language models” <em>TACL</em> (2023).</p>
+
+<p><a id="ref3"></a>[3] Ilharco, Gabriel and others “Editing models with task arithmetic” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref4"></a>[4] Birhane, Abeba and Prabhu, Vinay Uday “Multimodal datasets: Misogyny, racism and the dangers of benign indifference” <em>arXiv preprint arXiv:2104.01400</em> (2021).</p>
+
+<p><a id="ref5"></a>[5] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
+
+<p><a id="ref6"></a>[6] Voita, Elena, Talbot, David, and others “Analyzing multi-head self-attention: Specialized heads do the heavy lifting, the rest can be pruned” <em>Proceedings of ACL</em> (2019).</p>
+
+<p><a id="ref7"></a>[7] Frantar, Elias and others “GPTQ: Accurate Post-training Quantization for Generative Pretrained Transformers” <em>NeurIPS</em> (2022).</p>
+
+<p><a id="ref8"></a>[8] Yang, Shuofei and others “Model Merging in LLMs, MLLMs, and Beyond: A Survey and New Taxonomy” <em>arXiv preprint arXiv:2402.00996</em> (2024).</p>
+
+<p><a id="ref9"></a>[9] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
+
+<p><a id="ref10"></a>[10] Belkin, Mikhail and Niyogi, Partha “Laplacian Eigenmaps for Dimensionality Reduction and Data Representation” <em>Neural computation</em> (2003).</p>
+
+<p><a id="ref11"></a>[11] Wei, Jason, Wang, Xuezhi, and others “Chain of Thought Prompting Elicits Reasoning in Large Language Models” <em>arXiv preprint arXiv:2201.11903</em> (2022).</p>
+
+<p><a id="ref12"></a>[12] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
+
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>

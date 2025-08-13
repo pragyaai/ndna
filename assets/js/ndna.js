@@ -18,8 +18,8 @@ const menusByModel = {
     { text: "Neural Genomics", url: "#" },
     { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
     { text: "NLP Operations", url: "#" },
-    { text: "at-a-glance", url: "#" },
-    { text: "FAQ", url: "#" }
+    { text: "at-a-glance", url: baseUrl + "/llm/at_a_glance/" },
+    { text: "FAQ", url: baseUrl + "/llm/FAQ/" }
   ],
   MFM: [
     { text: "nDNA", url: baseUrl + "/" },
