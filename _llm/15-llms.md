@@ -114,9 +114,10 @@ In this sense, **nDNA is not a metaphor--it is a geometric genome**: an intrinsi
 
   <!-- Final combined / all -->
   <div style="margin-bottom: 2em;">
-    {% include wizuall.liquid
+    {% include visualization-html.liquid
        image_path="15_llms/all.gif"
        interactive_html="15_llms/all.html"
+       full_width=true
        title=""
        caption="" %}
   </div>
