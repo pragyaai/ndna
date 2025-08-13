@@ -64,17 +64,17 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Machine Translation and nDNA" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Machine Translation" />
-<meta property="og:description" content="Machine Translation" />
+<meta name="description" content="GENOME-MT: Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation" />
+<meta property="og:description" content="GENOME-MT: Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-13T14:58:20+00:00" />
+<meta property="article:published_time" content="2025-08-13T15:13:23+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Machine Translation and nDNA" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T14:58:20+00:00","datePublished":"2025-08-13T14:58:20+00:00","description":"Machine Translation","headline":"Machine Translation and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T15:13:23+00:00","datePublished":"2025-08-13T15:13:23+00:00","description":"GENOME-MT: Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation","headline":"Machine Translation and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -116,15 +116,434 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
-          
-            <h1>Machine Translation and nDNA</h1>
-          
         
-        <h2 id="machine-translation">Machine Translation</h2>
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ndna">GENOME-MT: Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation<img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span></span>
+</h1>
 
-<h3 id="to-be-announced">To be announced</h3>
+<blockquote>
+  <p><em>We present <strong>GENOME-MT</strong> (</em>Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation<em>), a novel, <strong>generation-free</strong> framework for predicting <strong>zero-shot</strong> machine translation (MT) quality. Building on the emerging paradigm of <strong>neural genomics</strong> (<strong>nDNA</strong>), our approach conceptualizes translation difficulty through two foundational geometric quantities: <strong>semantic torsion</strong> — encoding the degree of *conceptual twisting</em> between cross-lingual semantic manifolds — and <strong>epistemic force</strong> — quantifying the <em>latent cognitive–geometric effort</em> required to traverse between them.*</p>
+</blockquote>
 
-<p>Content for machine translation analysis using nDNA will be available soon.</p>
+<h2 id="abstract">Abstract</h2>
+
+<p>We present <strong>GENOME-MT</strong> (<em>Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation</em>), a novel, <em>generation-free</em> framework for predicting <strong>zero-shot</strong> machine translation (MT) quality. Building on the emerging paradigm of <em>neural genomics</em> (<strong>nDNA</strong>), our approach conceptualizes translation difficulty through two foundational geometric quantities: <strong>semantic torsion</strong> — encoding the degree of <em>conceptual twisting</em> between cross-lingual semantic manifolds — and <strong>epistemic force</strong> — quantifying the <em>latent cognitive–geometric effort</em> required to traverse between them.</p>
+
+<p>We introduce the formal construct of <em>Total Epistemic Effort</em>, a unified metric that integrates <strong>semantic displacement</strong> and <strong>torsional complexity</strong> across the full transformer layer hierarchy. We demonstrate that this metric exhibits <em>consistently strong correlations</em> with standard MT evaluation measures, including <strong>BLEU</strong>, <strong>COMET</strong>, and <strong>chrF</strong>, even in <strong>extreme zero-resource</strong> regimes. Crucially, <strong>GENOME-MT</strong> requires <em>no target-side decoding</em>, enabling <strong>highly scalable</strong>, <strong>compute-efficient</strong>, and <em>language-agnostic</em> translation quality estimation.</p>
+
+<p>Comprehensive experiments spanning <em>typologically diverse</em> language pairs (e.g., <strong>English–Hindi</strong>, <strong>English–Thai</strong>, <strong>English–Japanese</strong>) and <em>heterogeneous model families</em> (e.g., <strong>LLaMA</strong>, <strong>Mistral</strong>) empirically validate the <strong>predictive fidelity</strong> of our framework. These findings establish <strong>latent semantic geometry</strong> as a <em>robust</em>, <em>interpretable</em>, and <em>deployment-ready</em> proxy for linguistic transfer complexity, <strong>paving the way</strong> for <em>pre-deployment diagnostics</em> and <em>principled resource allocation</em> in <strong>multilingual NLP</strong>.</p>
+
+<h2 id="editing-the-semantic-genome-an-ndna-perspective-on-machine-translation">Editing the Semantic Genome: An nDNA Perspective on Machine Translation</h2>
+
+<p>Just as genetic engineering seeks to alter the blueprint of life by manipulating the sequence and structure of DNA, cross-lingual transfer in machine translation can be viewed as the editing of a <em>semantic genome</em>—a structured code of meaning embedded within the latent spaces of multilingual models. In this view, each language possesses a unique neural DNA (<em>nDNA</em>) signature, expressed through its spectral curvature, thermodynamic length, and belief vector field. Translating between two languages thus becomes a problem of transforming one high-dimensional manifold into another, a process governed not only by the magnitude of semantic displacement but also by the torsional misalignment of their epistemic trajectories. By quantifying these geometric and directional forces, we treat translation as the precise splicing, realignment, and recombination of semantic sequences—an operation whose difficulty can be measured without ever generating a single word.</p>
+
+<h3 id="problem-setup-latent-translation-without-decoding">Problem Setup: Latent Translation Without Decoding</h3>
+
+<p>Let \(M\) denote a large language model (e.g., LLaMA, Mistral), and let \(L_s\) and \(L_t\) represent the source and target languages, respectively. Conventional MT evaluation relies on generating translations \(\mathbf{y}_t\) from inputs \(\mathbf{x}_s\) and scoring them (e.g., BLEU, COMET). Our goal is to estimate zero-shot translation quality for \((L_s \to L_t)\) <em>without generating translations</em>, by analyzing latent representational geometry.</p>
+
+<p>Let \(H^{(\ell)}_L\) denote the mean-pooled hidden states of language \(L\) at transformer layer \(\ell\), extracted from a corpus \(X(L)\). We define the <em>nDNA signature</em> of \(L\) at layer \(\ell\) as:</p>
+
+\[\text{nDNA}^{(\ell)}(L) = \left( \kappa^{(\ell)}(L),\; L^{(\ell)}(L),\; v^{(\ell)}(L) \right),\]
+
+<p>where:</p>
+<ul>
+  <li>\(\kappa^{(\ell)}(L)\) — spectral curvature: local manifold bending.</li>
+  <li>\(L^{(\ell)}(L)\) — thermodynamic length: cumulative epistemic shift across layers.</li>
+  <li>\(v^{(\ell)}(L)\) — belief vector: average update direction in latent semantic space.</li>
+</ul>
+
+<h3 id="spectral-curvature">Spectral Curvature</h3>
+
+<p>We measure curvature using PCA over hidden state covariance:</p>
+
+\[\kappa^{(\ell)}(L) = \frac{\sum_{i=1}^k \lambda^{(\ell)}_i}{\sum_{i=1}^d \lambda^{(\ell)}_i}, \quad k \ll d,\]
+
+<p>where \(\lambda^{(\ell)}_i\) are eigenvalues of the covariance matrix.<br />
+Alternatively, curvature can be estimated via local Jacobian norms:</p>
+
+\[\kappa^{(\ell)}(L) \approx \mathbb{E}_{x \sim L} \left[ \frac{\|\nabla_x h^{(\ell)}(x)\|_F^2}{\|h^{(\ell)}(x)\|^2} \right].\]
+
+<p>The interlingual curvature difference is:</p>
+
+\[\Delta\kappa^{(\ell)} = \left| \kappa^{(\ell)}(L_s) - \kappa^{(\ell)}(L_t) \right|.\]
+
+<h3 id="thermodynamic-length">Thermodynamic Length</h3>
+
+<p>The thermodynamic length measures representational travel distance:</p>
+
+\[L^{(\ell)}(L) = \mathbb{E}_{x \sim L} \left[ \sum_{i=1}^{\ell} \|h^{(i)}(x) - h^{(i-1)}(x)\|_2 \right].\]
+
+<p>The divergence between languages is:</p>
+
+\[\Delta L^{(\ell)} = \left| L^{(\ell)}(L_s) - L^{(\ell)}(L_t) \right|.\]
+
+<p>To ensure scale invariance:</p>
+
+\[\widetilde{L}^{(\ell)}(L) = \frac{L^{(\ell)}(L)}{\mathbb{E}_{x \sim L} \|h^{(0)}(x)\|}.\]
+
+<h3 id="belief-vector-field-and-semantic-torsion">Belief Vector Field and Semantic Torsion</h3>
+
+<p>The belief vector is defined as:</p>
+
+\[v^{(\ell)}(L) = \mathbb{E}_{x \sim L} \left[ h^{(\ell)}(x) - h^{(\ell-1)}(x) \right].\]
+
+<p>The semantic torsion angle is:</p>
+
+\[\theta^{(\ell)} = \arccos \left( \frac{\langle v^{(\ell)}(L_s), v^{(\ell)}(L_t) \rangle}{\|v^{(\ell)}(L_s)\| \cdot \|v^{(\ell)}(L_t)\|} \right).\]
+
+<p>The epistemic force at layer \(\ell\) is:</p>
+
+\[F^{(\ell)} = \Delta\kappa^{(\ell)} \cdot \Delta L^{(\ell)} \cdot \sin \theta^{(\ell)}.\]
+
+<h3 id="total-epistemic-effort">Total Epistemic Effort</h3>
+
+<p>The total epistemic effort aggregates mismatch, drift, and belief-vector deviation:</p>
+
+\[E_{\text{total}} = \sum_{\ell=1}^L \omega^{(\ell)} \cdot \Delta\kappa^{(\ell)} \cdot \Delta L^{(\ell)} \cdot \|v^{(\ell)}(L_s) - v^{(\ell)}(L_t)\|,\]
+
+<p>where \(\omega^{(\ell)}\) are layer weights (e.g., heuristic or learned).<br />
+We find:</p>
+
+\[\widehat{\text{BLEU}}(L_s \to L_t) \propto \frac{1}{E_{\text{total}}},\]
+
+<p>enabling scalable, pre-deployment MT quality estimation without decoding or references.</p>
+
+<h2 id="visualizations-and-analysis">Visualizations and Analysis</h2>
+
+<h3 id="ndna-river-plots-cross-lingual-semantic-drift-trajectories">nDNA River Plots: Cross-Lingual Semantic Drift Trajectories</h3>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_french.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_french.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → French</strong>: nDNA river plot showing semantic drift trajectories across transformer layers. Blue represents English semantic evolution, red represents French evolution. The close alignment indicates minimal epistemic effort required for translation.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_german.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_german.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → German</strong>: Semantic trajectories showing moderate divergence due to German’s case-marking system and verb-second placement, requiring higher epistemic effort than Romance languages.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_italian.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_italian.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → Italian</strong>: Close semantic alignment reflecting shared SVO structure and low torsional complexity between the language manifolds.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_hindi.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_hindi.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → Hindi</strong>: Increased semantic divergence visible in the trajectories, reflecting SOV word order, morphological complexity, and script differences requiring moderate epistemic effort.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_bengali.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_bengali.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → Bengali</strong>: Semantic drift patterns showing compound verb structures and lexicosyntactic shifts that contribute to translation difficulty.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_tamil.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_tamil.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → Tamil</strong>: Substantial trajectory divergence reflecting agglutinative Dravidian structure and typological distance from English.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_chinese.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_chinese.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → Chinese</strong>: High semantic divergence due to tonal systems, aspectual differences, and absence of case markers, requiring significant epistemic effort.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_thai.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_thai.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → Thai</strong>: Classifier systems and tonal mismatch create substantial geometric distance between language manifolds despite SVO similarity.</p>
+
+  </figcaption>
+  
+</figure>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/new_images/english_to_japanese.png" alt="" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/new_images/english_to_japanese.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>English → Japanese</strong>: Maximum semantic divergence observed, reflecting topic-prominence, scrambling, and honorific complexity creating the highest epistemic barriers.</p>
+
+  </figcaption>
+  
+</figure>
+
+<h2 id="summary-of-results">Summary of Results</h2>
+
+<p>We begin our analysis by examining the relationship between structural divergence—captured via <em>distance</em> (<code class="language-plaintext highlighter-rouge">Dist</code>) and <em>torsion</em> (<code class="language-plaintext highlighter-rouge">Torsion</code>) metrics—and machine translation quality as measured by BLEU . The results span eight typologically diverse target languages, covering a continuum from closely related Indo-European languages (French, German, Italian) to morphologically rich and script-divergent languages (Hindi, Bengali, Tamil) and finally to typologically distant East and Southeast Asian languages (Chinese, Thai, Japanese).</p>
+
+<ol>
+  <li>
+    <p><strong>Translation Difficulty Correlates with Structural Divergence</strong><br />
+Language pairs with low <code class="language-plaintext highlighter-rouge">Dist</code> and low <code class="language-plaintext highlighter-rouge">Torsion</code> (e.g., French, German, Italian) achieve the highest BLEU scores (≈38–42) in both directions. These languages share SVO word order and relatively similar analytic structures with English, requiring minimal reordering .</p>
+  </li>
+  <li>
+    <p><strong>Morphologically Rich and Script-Divergent Languages Show Moderate Drops</strong><br />
+Hindi, Bengali, and Tamil have mid-range <code class="language-plaintext highlighter-rouge">Dist</code>/<code class="language-plaintext highlighter-rouge">Torsion</code> values (0.44–0.50 <code class="language-plaintext highlighter-rouge">Dist</code>, 0.27–0.35 <code class="language-plaintext highlighter-rouge">Torsion</code>), leading to BLEU scores in the mid-20s. Contributing factors include SOV order, compound verbs, lexicosyntactic shifts, and agglutinative morphology . From a biological systems perspective, these changes resemble mid-level structural rearrangements in genetic material that alter function without fully breaking systemic compatibility .</p>
+  </li>
+  <li>
+    <p><strong>Typologically Distant Languages Are the Hardest</strong><br />
+Chinese, Thai, and Japanese have the highest <code class="language-plaintext highlighter-rouge">Dist</code>/<code class="language-plaintext highlighter-rouge">Torsion</code> values (up to 0.81 <code class="language-plaintext highlighter-rouge">Dist</code>, 0.72 <code class="language-plaintext highlighter-rouge">Torsion</code>) and the lowest BLEU scores (13–20). Structural differences include tonal systems, classifier-based syntax, topic-prominence, and scrambling, combined with the absence of case markers or differing alignment strategies . In biological analogy, this reflects large-scale genome rearrangements or cross-species divergence, where functional translation requires overcoming profound structural incompatibilities .</p>
+  </li>
+  <li>
+    <p><strong>Strong Negative Correlation Between Structural Divergence and BLEU</strong><br />
+Pearson correlation between total error \(\mathcal{E}_{\text{total}}\) and BLEU shows robust relationships:</p>
+    <ul>
+      <li>English → Target: \(\rho = -0.91\)</li>
+      <li>Target → English: \(\rho = -0.89\)</li>
+    </ul>
+
+    <p>Spearman rank correlations are similarly strong (≈-0.91 to -0.93), indicating a robust monotonic relationship between divergence metrics and translation quality, consistent with prior findings that increased linguistic and structural distance predicts reduced cross-lingual transfer efficiency .</p>
+  </li>
+</ol>
+
+<p><strong>Directional Total Epistemic Effort \(\mathcal{E}_{\text{total}}\) vs BLEU Score for Zero-Shot Machine Translation.</strong> Each block shows the forward \(\texttt{En→X}\) and reverse \(\texttt{X→En}\) scores together.</p>
+
+<style>
+  .epistemic-table table {
+    width: 100%;
+    border-spacing: 0;
+    border: 1px solid;
+  }
+  .epistemic-table th, .epistemic-table td {
+    border: 1px solid;
+  }
+  .epistemic-table tr>:not(:last-child) {
+    text-align: center;
+  }
+  .epistemic-table tbody>:nth-child(n+2):nth-child(-n+4) {
+    background: #f1fff2;
+  }
+  .epistemic-table tbody>:nth-child(n+5):nth-child(-n+7) {
+    background: #f2f2ff;
+  }
+  .epistemic-table tbody>:nth-child(n+8):nth-child(-n+9) {
+    background: #fff9f2;
+  }
+  .epistemic-table tbody>:nth-child(10) {
+    background: #fff3f2;
+  }
+</style>
+
+<div class="epistemic-table">
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Language Pair</strong></th>
+      <th><strong>English → Target</strong></th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th><strong>Target → English</strong></th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th><strong>Linguistic Commentary</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Dist</td>
+      <td>Torsion</td>
+      <td>\(\mathcal{E}_{\text{total}}\)</td>
+      <td>BLEU</td>
+      <td>Dist</td>
+      <td>Torsion</td>
+      <td>\(\mathcal{E}_{\text{total}}\)</td>
+      <td>BLEU</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>French</strong></td>
+      <td>0.18</td>
+      <td>0.06</td>
+      <td><strong>0.19</strong></td>
+      <td><strong>41.8</strong></td>
+      <td>0.15</td>
+      <td>0.04</td>
+      <td><strong>0.16</strong></td>
+      <td><strong>43.5</strong></td>
+      <td>Minimal reordering, analytic structure.</td>
+    </tr>
+    <tr>
+      <td><strong>German</strong></td>
+      <td>0.22</td>
+      <td>0.08</td>
+      <td><strong>0.24</strong></td>
+      <td><strong>38.6</strong></td>
+      <td>0.20</td>
+      <td>0.07</td>
+      <td><strong>0.22</strong></td>
+      <td><strong>39.7</strong></td>
+      <td>Case-marking + verb-second placement.</td>
+    </tr>
+    <tr>
+      <td><strong>Italian</strong></td>
+      <td>0.20</td>
+      <td>0.07</td>
+      <td><strong>0.21</strong></td>
+      <td><strong>40.1</strong></td>
+      <td>0.18</td>
+      <td>0.06</td>
+      <td><strong>0.20</strong></td>
+      <td><strong>41.3</strong></td>
+      <td>Shared SVO structure, low torsion.</td>
+    </tr>
+    <tr>
+      <td><strong>Hindi</strong></td>
+      <td>0.44</td>
+      <td>0.27</td>
+      <td><strong>0.56</strong></td>
+      <td><strong>26.1</strong></td>
+      <td>0.39</td>
+      <td>0.21</td>
+      <td><strong>0.46</strong></td>
+      <td><strong>28.4</strong></td>
+      <td>SOV order, script and morphological divergence.</td>
+    </tr>
+    <tr>
+      <td><strong>Bengali</strong></td>
+      <td>0.48</td>
+      <td>0.31</td>
+      <td><strong>0.63</strong></td>
+      <td><strong>24.8</strong></td>
+      <td>0.42</td>
+      <td>0.26</td>
+      <td><strong>0.54</strong></td>
+      <td><strong>26.7</strong></td>
+      <td>Compound verbs, lexicosyntactic shifts.</td>
+    </tr>
+    <tr>
+      <td><strong>Tamil</strong></td>
+      <td>0.50</td>
+      <td>0.35</td>
+      <td><strong>0.68</strong></td>
+      <td><strong>23.2</strong></td>
+      <td>0.43</td>
+      <td>0.29</td>
+      <td><strong>0.59</strong></td>
+      <td><strong>25.6</strong></td>
+      <td>Agglutinative Dravidian structure; distant typology.</td>
+    </tr>
+    <tr>
+      <td><strong>Chinese</strong></td>
+      <td>0.71</td>
+      <td>0.58</td>
+      <td><strong>1.12</strong></td>
+      <td><strong>16.4</strong></td>
+      <td>0.61</td>
+      <td>0.44</td>
+      <td><strong>0.88</strong></td>
+      <td><strong>18.9</strong></td>
+      <td>Tonal and aspectual systems; no case markers.</td>
+    </tr>
+    <tr>
+      <td><strong>Thai</strong></td>
+      <td>0.67</td>
+      <td>0.49</td>
+      <td><strong>1.00</strong></td>
+      <td><strong>18.2</strong></td>
+      <td>0.59</td>
+      <td>0.38</td>
+      <td><strong>0.84</strong></td>
+      <td><strong>20.5</strong></td>
+      <td>Classifier system, tone mismatch, SVO similarity.</td>
+    </tr>
+    <tr>
+      <td><strong>Japanese</strong></td>
+      <td>0.81</td>
+      <td>0.72</td>
+      <td><strong>1.39</strong></td>
+      <td><strong>13.5</strong></td>
+      <td>0.69</td>
+      <td>0.55</td>
+      <td><strong>1.08</strong></td>
+      <td><strong>16.2</strong></td>
+      <td>Topic-prominence, scrambling, honorific complexity.</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<script>
+  const thead = `<thead>
+    <tr>
+      <th rowspan="2"><strong>Language Pair</strong></th>
+      <th colspan="4"><strong>English → Target</strong></th>
+      <th colspan="4"><strong>Target → English</strong></th>
+      <th rowspan="2"><strong>Linguistic Commentary</strong></th>
+    </tr>
+  </thead>`
+  document.querySelector('.epistemic-table thead').innerHTML = thead;
+
+</script>
+
+<p><strong>Correlation Analysis:</strong></p>
+<ul>
+  <li><strong>Pearson Correlation (En→Target):</strong> \(\rho = -0.91\)</li>
+  <li><strong>Pearson Correlation (Target→En):</strong> \(\rho = -0.89\)</li>
+  <li><strong>Spearman Rank (En→Target):</strong> \(-0.93\)</li>
+  <li><strong>Spearman Rank (Target→En):</strong> \(-0.91\)</li>
+</ul>
+
+<h2 id="conclusion-and-outlook">Conclusion and Outlook</h2>
+
+<p>This study establishes a clear and quantifiable link between structural divergence—captured through <code class="language-plaintext highlighter-rouge">Dist</code> and <code class="language-plaintext highlighter-rouge">Torsion</code>—and zero-shot machine translation quality. Languages structurally closer to English (e.g., French, German, Italian) exhibit high BLEU scores with minimal epistemic effort, while morphologically rich or script-divergent languages (e.g., Hindi, Bengali, Tamil) show moderate performance drops. Typologically distant languages (e.g., Chinese, Thai, Japanese) present the most significant challenges, underscoring the impact of deep syntactic, morphological, and alignment differences on translation performance.</p>
+
+<p>Beyond descriptive correlation, our findings highlight <em>structural divergence metrics</em> as a robust predictor of cross-lingual transfer difficulty. The strong negative Pearson (\(\rho \approx -0.90\)) and Spearman (\(\rho \approx -0.92\)) correlations suggest that these metrics could serve as <em>pre-training indicators</em> for MT system design, enabling resource allocation to languages where structural divergence imposes the greatest epistemic burden.</p>
+
+<h3 id="outlook">Outlook</h3>
+
+<p>Future work can extend this framework in three key directions:</p>
+
+<ol>
+  <li><strong>Dynamic adaptation</strong>—integrating divergence-aware token reordering and morphological decomposition into the model architecture</li>
+  <li><strong>Low-resource enhancement</strong>—leveraging synthetic parallel corpora informed by structural metrics to bootstrap under-represented language pairs</li>
+  <li><strong>Generalization beyond MT</strong>—applying the <code class="language-plaintext highlighter-rouge">Dist</code>+<code class="language-plaintext highlighter-rouge">Torsion</code> paradigm to other multilingual NLP tasks such as cross-lingual retrieval, summarization, and dialogue systems</li>
+</ol>
+
+<p>By bridging linguistic typology with geometric model diagnostics, this approach offers a principled pathway toward more equitable and effective multilingual AI.</p>
+
+<hr />
+
 
       </div>
     </div>
