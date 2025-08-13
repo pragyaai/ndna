@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/FAQ/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-13T14:37:40+00:00" />
+<meta property="article:published_time" content="2025-08-13T14:58:20+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Frequently Asked Questions" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T14:37:40+00:00","datePublished":"2025-08-13T14:37:40+00:00","description":"- Frequently Asked Questions (FAQs)","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T14:58:20+00:00","datePublished":"2025-08-13T14:58:20+00:00","description":"- Frequently Asked Questions (FAQs)","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -1458,6 +1458,392 @@ Unlike t-SNE, PCA, or attention maps, nDNA:</p>
 </ul>
 
 <p>Thus, nDNA does not challenge the universality of approximators – it reveals <em>how</em> universality is achieved (or compromised), making models not just powerful, but <em>trustworthy</em> <a href="#ref9">[9]</a> <a href="#ref1">[1]</a> <a href="#ref3">[3]</a>.</p>
+
+<h1 id="ndna-lens--model-collapse-seen-as-latent-manifold-flattening">nDNA Lens – Model Collapse Seen as Latent Manifold Flattening</h1>
+
+<h2 id="what-does-it-mean-mathematically-for-a-model-to-collapse-in-the-ndna-framework-and-how-does-latent-manifold-flattening-capture-this-failure-mode">What does it mean mathematically for a model to collapse in the nDNA framework, and how does latent manifold flattening capture this failure mode?</h2>
+
+<p>In the <strong>nDNA framework</strong>, <em>model collapse</em> refers to the degeneration of the latent semantic manifold $\mathcal{M}$ into a low-dimensional or overly simplistic structure. This collapse implies that the model no longer meaningfully transforms input representations across layers, leading to the loss of epistemic richness.</p>
+
+<p>Mathematically, consider the latent trajectory:</p>
+
+\[\mathcal{T}(x) = \{ h_1(x), h_2(x), \dots, h_L(x) \}, \quad h_\ell(x) \in \mathbb{R}^D\]
+
+<p>Collapse is indicated by:</p>
+
+\[\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2 \to 0\]
+
+<p>and</p>
+
+\[\operatorname{rank} \bigl( \{ h_\ell(x) \}_{\ell=1}^L \bigr ) \ll D\]
+
+<p>meaning representations cluster in a subspace of dimension much less than $D$.</p>
+
+<p>Spectral curvature collapses as well:</p>
+
+\[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)} \to 0\]
+
+<p>where $\lambda_i^{(\ell)}$ are the non-trivial eigenvalues of the token similarity graph Laplacian at layer $\ell$. This reveals that latent semantic complexity has evaporated.</p>
+
+<p>Thus, latent manifold flattening provides a geometric, intrinsic signature of collapse – long before accuracy or output anomalies are observable <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+
+<h2 id="how-can-we-formally-distinguish-benign-compression-eg-pruning-quantization-from-pathological-flattening-indicative-of-collapse">How can we formally distinguish benign compression (e.g., pruning, quantization) from pathological flattening indicative of collapse?</h2>
+
+<p>Benign compression (as seen in pruning or quantization) and pathological collapse both reduce latent complexity, but their geometric signatures are distinct:</p>
+
+<ul>
+  <li>
+    <p><strong>Benign compression</strong> preserves epistemic effort:
+\(\mathcal{L}(x) &gt; 0 \quad \text{and} \quad \kappa_\ell &gt; 0 \ \text{at key layers}\)
+showing that the model still meaningfully traverses semantic space.</p>
+  </li>
+  <li>
+    <p><strong>Pathological flattening</strong> causes:
+\(\mathcal{L}(x) \approx 0, \quad \kappa_\ell \approx 0, \quad \forall \ell\)
+indicating collapse across the entire depth.</p>
+  </li>
+</ul>
+
+<p>Furthermore, belief steering forces vanish:</p>
+
+\[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell), \quad \| \vec{v}_\ell^{(c)} \| \to 0\]
+
+<p>meaning latent states no longer align with semantic targets.</p>
+
+<p>The <strong>nDNA diagnostics</strong> thus enable clear separation of healthy model simplification (topology preserved) from epistemic collapse (topology destroyed) <a href="#ref31">[31]</a> <a href="#ref9">[9]</a>.</p>
+
+<h2 id="why-is-latent-manifold-flattening-a-more-reliable-early-warning-signal-of-model-collapse-than-output-metrics-or-loss-curves">Why is latent manifold flattening a more reliable early warning signal of model collapse than output metrics or loss curves?</h2>
+
+<p>Output metrics (e.g., loss, accuracy) are coarse summaries of model behavior at the surface level. They may remain stable even as catastrophic collapse unfolds in the latent geometry. The <strong>nDNA framework</strong> reveals this collapse intrinsically through the flattening of the latent manifold:</p>
+
+\[\operatorname{dim} \operatorname{span} \bigl\{ h_1(x), \dots, h_L(x) \bigr\} \ll D\]
+
+<p>where $D$ is the nominal latent dimension. This reflects severe reduction in internal semantic variability.</p>
+
+<p>Thermodynamic length:</p>
+
+\[\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2\]
+
+<p>collapses to near zero, and spectral curvature:</p>
+
+\[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)} \to 0\]
+
+<p>indicates loss of semantic entanglement.</p>
+
+<p>These geometric signals precede degradation in loss or accuracy, offering a fundamentally earlier diagnostic for collapse <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+
+<h2 id="how-does-persistent-homology-provide-a-deeper-lens-on-latent-flattening-and-what-does-its-failure-indicate">How does persistent homology provide a deeper lens on latent flattening, and what does its failure indicate?</h2>
+
+<p>Persistent homology studies the birth and death of topological features (e.g., connected components, loops, voids) in the latent point cloud across distance scales <a href="#ref15">[15]</a>. In a healthy model:</p>
+
+\[\operatorname{PH}(\mathcal{M}) = \bigl\{ (b_i, d_i) \bigr\}_{i=1}^{N}\]
+
+<p>where many features persist over a wide range $d_i - b_i$, signaling rich latent topology.</p>
+
+<p>When flattening occurs:</p>
+
+\[d_i - b_i \to 0 \quad \forall i\]
+
+<p>showing that topological features rapidly disappear, and the latent space behaves as if low-dimensional, even if nominally embedded in high $D$.</p>
+
+<p>The loss of persistent topological features is the clearest geometric signature of collapse – one invisible to loss curves or scalar summaries. This makes persistent homology a critical tool in collapse diagnostics <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+
+<h2 id="how-does-the-ndna-framework-mathematically-formalize-the-difference-between-healthy-compression-and-pathological-flattening-in-latent-manifolds">How does the nDNA framework mathematically formalize the difference between healthy compression and pathological flattening in latent manifolds?</h2>
+
+<p>Healthy compression reduces redundant variation while preserving essential semantic directions. Pathological flattening destroys latent diversity critical for generalization and reasoning.</p>
+
+<p>Mathematically, let</p>
+
+\[\Sigma_\ell = \operatorname{Cov} \bigl( \{ t_i^{(\ell)} \} \bigr)\]
+
+<p>be the covariance matrix of token embeddings at layer $\ell$. Healthy compression maintains:</p>
+
+\[\operatorname{rank}(\Sigma_\ell) \approx r \quad \text{with } r \text{ substantial relative to } D\]
+
+<p>whereas flattening yields:</p>
+
+\[\operatorname{rank}(\Sigma_\ell) \ll D\]
+
+<p>meaning token embeddings collapse into a low-dimensional subspace.</p>
+
+<p>Thermodynamic length reinforces this diagnosis:</p>
+
+\[\mathcal{L} = \sum_{\ell} \| h_{\ell+1} - h_\ell \|_2\]
+
+<p>Healthy compression: $\mathcal{L}$ reduced but nonzero. Flattening: $\mathcal{L} \to 0$, indicating no significant epistemic work across layers.</p>
+
+<p>Thus, nDNA geometry distinguishes structural compression (good) from flattening (pathological) <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+
+<h2 id="why-might-pruning-and-quantization-disproportionately-accelerate-latent-manifold-flattening-and-how-does-ndna-geometry-reveal-this-effect">Why might pruning and quantization disproportionately accelerate latent manifold flattening, and how does nDNA geometry reveal this effect?</h2>
+
+<p>Pruning and quantization aim to reduce model size or inference cost, but they operate at the parameter level without explicit preservation of latent manifold geometry. This can force latent paths toward degenerate subspaces.</p>
+
+<p>Let</p>
+
+\[\mathcal{M}_{\text{prune}} = \{ h_\ell^{\text{prune}}(x) \}\]
+
+<p>denote the latent manifold post-pruning. nDNA diagnostics reveal:</p>
+
+\[\operatorname{dim} \operatorname{span} \bigl( \mathcal{M}_{\text{prune}} \bigr) \ll \operatorname{dim} \operatorname{span} \bigl( \mathcal{M} \bigr)\]
+
+<p>where $\mathcal{M}$ is the original manifold.</p>
+
+<p>Spectral curvature:</p>
+
+\[\kappa_\ell^{\text{prune}} \to 0\]
+
+<p>indicates loss of semantic entanglement.</p>
+
+<p>Persistent homology diagrams flatten:</p>
+
+\[\operatorname{PH}(\mathcal{M}_{\text{prune}}) \Rightarrow \text{short-lived features}\]
+
+<p>nDNA thus exposes how pruning/quantization, if not geometry-aware, can inadvertently destroy essential epistemic structure <a href="#ref31">[31]</a>.</p>
+
+<h2 id="how-can-spectral-geometry-and-persistent-homology-jointly-characterize-latent-manifold-flattening-during-model-collapse">How can spectral geometry and persistent homology jointly characterize latent manifold flattening during model collapse?</h2>
+
+<p>Spectral geometry and persistent homology offer complementary views of latent collapse.</p>
+
+<p>Let the token similarity graph at layer $\ell$ be $G_\ell = (V_\ell, W_\ell)$, with normalized Laplacian:</p>
+
+\[\mathcal{L}_\ell = I - D_\ell^{-1/2} W_\ell D_\ell^{-1/2}\]
+
+<p>The spectrum ${ \lambda_i^{(\ell)} }$ encodes geometric complexity:</p>
+
+\[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\]
+
+<p>Flattening is diagnosed when:</p>
+
+\[\kappa_\ell \to 0 \quad \forall \ell\]
+
+<p>indicating collapse to trivial latent topology.</p>
+
+<p>Meanwhile, persistent homology tracks the birth and death of topological features (connected components, loops, voids) in the latent manifold $\mathcal{M}$:</p>
+
+\[\operatorname{PH}_p(\mathcal{M}) = \{ (b_i, d_i) \mid i=1,\dots,N_p \}\]
+
+<p>where $p$ indexes homology dimension. Flattening produces:</p>
+
+\[d_i - b_i \to 0\]
+
+<p>for most features, revealing the loss of robust semantic cycles or cavities <a href="#ref15">[15]</a>.</p>
+
+<p>Jointly, these measures certify collapse not just as geometric simplification but as topological impoverishment.</p>
+
+<h2 id="what-is-the-role-of-the-latent-fisher-information-metric-in-detecting-early-collapse-trajectories-and-how-does-it-complement-thermodynamic-length">What is the role of the latent Fisher information metric in detecting early collapse trajectories, and how does it complement thermodynamic length?</h2>
+
+<p>The latent Fisher information matrix at layer $\ell$:</p>
+
+\[\mathcal{I}_\ell = \mathbb{E}_{x} \left[ \nabla_{h_\ell} \log P(y|h_\ell) \; \nabla_{h_\ell} \log P(y|h_\ell)^\top \right]\]
+
+<p>quantifies the local curvature of the model’s latent likelihood landscape.</p>
+
+<p>Early collapse manifests as:</p>
+
+\[\operatorname{Tr}(\mathcal{I}_\ell) \to 0\]
+
+<p>indicating that latent directions no longer meaningfully influence output predictions – the manifold loses epistemic responsiveness.</p>
+
+<p>Compared to thermodynamic length:</p>
+
+\[\mathcal{L} = \sum_\ell \| h_{\ell+1} - h_\ell \|_2\]
+
+<p>which measures accumulated displacement, $\mathcal{I}_\ell$ reveals collapse even when displacement is nonzero but uninformative (e.g., drifting without meaningful steering).</p>
+
+<p>Thus, Fisher geometry provides an intrinsic, task-aware signal of flattening that reinforces and deepens nDNA diagnostics <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+
+<h2 id="why-is-the-notion-of-latent-manifold-flattening-not-reducible-to-simple-norm-shrinkage-or-singular-value-collapse">Why is the notion of latent manifold flattening not reducible to simple norm shrinkage or singular value collapse?</h2>
+
+<p>The term <strong>latent manifold flattening</strong> describes a collapse of the intrinsic semantic geometry of representations, not merely a reduction in embedding norms or singular values of hidden layers.</p>
+
+<p>Let $H_\ell = [h_\ell^{(1)}, \dots, h_\ell^{(N)}] \in \mathbb{R}^{D \times N}$ be the matrix of latent activations at layer $\ell$. Singular value decay:</p>
+
+\[\sigma_1^{(\ell)} \geq \sigma_2^{(\ell)} \geq \cdots \geq \sigma_D^{(\ell)}\]
+
+<p>might signal compression (e.g., rank reduction), but does not capture manifold shape.</p>
+
+<p>True flattening is revealed by:</p>
+
+\[\mathcal{L} = \sum_{\ell} \| h_{\ell+1} - h_\ell \|_2 \approx 0\]
+
+<p>despite complex input prompts – indicating negligible epistemic displacement.</p>
+
+<p>Further, persistent homology:</p>
+
+\[\operatorname{PH}_p( \mathcal{M} ) = \{ (b_i, d_i) \}\]
+
+<p>shows <em>short-lived topological features</em>, with</p>
+
+\[d_i - b_i \to 0\]
+
+<p>across homology dimensions $p=0,1,2$, proving that latent cycles, cavities, and connectivity structures disappear.</p>
+
+<p>Even spectral geometry reveals:</p>
+
+\[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)} \to 0\]
+
+<p>where $\lambda_i^{(\ell)}$ are small nonzero Laplacian eigenvalues, confirming loss of latent complexity <a href="#ref10">[10]</a>.</p>
+
+<p>Thus, flattening is a collapse of the <strong>manifold’s geometry and topology</strong>, not just of numeric magnitudes.</p>
+
+<h2 id="is-latent-flattening-merely-an-artifact-of-over-parameterization">Is latent flattening merely an artifact of over-parameterization?</h2>
+
+<p>It is essential to distinguish <em>epistemic collapse</em> – where latent geometry no longer supports meaningful reasoning or alignment – from benign over-parameterization.</p>
+
+<p>Suppose $H_\ell$ has high-rank but flattened manifold:</p>
+
+\[\sigma_i^{(\ell)} &gt; 0 \quad \forall i
+\quad \text{but} \quad 
+\operatorname{dim}_{\text{intrinsic}}( \mathcal{M} ) \ll D\]
+
+<p>where intrinsic dimensionality is:</p>
+
+\[\operatorname{dim}_{\text{intrinsic}}( \mathcal{M} ) 
+= \frac{ \left( \sum_i \sigma_i^{(\ell)} \right)^2 }{ \sum_i \left( \sigma_i^{(\ell)} \right)^2 }\]
+
+<p>If this shrinks sharply across layers:</p>
+
+\[\operatorname{dim}_{\text{intrinsic}}( \mathcal{M}_{\ell+1} ) \ll \operatorname{dim}_{\text{intrinsic}}( \mathcal{M}_{\ell} )\]
+
+<p>without corresponding increase in prediction confidence or alignment, it signals harmful collapse.</p>
+
+<p>Moreover, Fisher information:</p>
+
+\[\operatorname{Tr} \left( \mathbb{E} \left[ \nabla_{h_\ell} \log P(y|h_\ell) \nabla_{h_\ell} \log P(y|h_\ell)^\top \right] \right) \to 0\]
+
+<p>shows loss of latent responsiveness.</p>
+
+<p>In contrast, harmless redundancy would preserve:</p>
+
+\[\operatorname{PH}_p( \mathcal{M} ) \quad \text{persistent topological features}\]
+
+<p>and nonzero Fisher information.</p>
+
+<p>Thus, only joint geometric, topological, and information-theoretic analysis can separate harmful collapse from over-parameterization <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+
+<h2 id="how-does-latent-manifold-flattening-connect-to-the-loss-of-semantic-capacity">How does latent manifold flattening connect to the loss of semantic capacity?</h2>
+
+<p>Flattening in the latent manifold reflects not merely compression of representations, but a collapse in the model’s <em>semantic capacity</em> – the ability to represent, reason over, and distinguish complex concepts.</p>
+
+<p>Consider the latent semantic Gram matrix:</p>
+
+\[G_\ell = H_\ell^\top H_\ell \in \mathbb{R}^{N \times N}\]
+
+<p>where $H_\ell \in \mathbb{R}^{D \times N}$ stacks latent vectors for $N$ tokens.</p>
+
+<p>If:</p>
+
+\[\operatorname{rank}(G_\ell) \ll N
+\quad \text{or} \quad 
+\operatorname{Tr}(G_\ell) \approx 0\]
+
+<p>this implies loss of token-level discrimination – multiple inputs collapse onto a low-dimensional subspace.</p>
+
+<p>Furthermore, curvature of the manifold:</p>
+
+\[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\]
+
+<p>where $\lambda_i^{(\ell)}$ are small nontrivial Laplacian eigenvalues, will tend to zero:</p>
+
+\[\kappa_\ell \to 0\]
+
+<p>indicating a loss of local semantic entanglement <a href="#ref10">[10]</a>.</p>
+
+<p>To quantify semantic capacity formally, we compute:</p>
+
+\[\mathcal{C}_\ell = \operatorname{rank}(G_\ell) \cdot \kappa_\ell\]
+
+<p>A collapse of $\mathcal{C}_\ell$ across layers signals not just embedding compression, but failure of the latent space to sustain rich semantic relationships.</p>
+
+<p>Therefore, latent flattening is a geometric loss of capacity, measurable in the joint spectrum of $G_\ell$ and graph Laplacians.</p>
+
+<h2 id="can-latent-manifold-flattening-be-detected-early-during-training-or-fine-tuning">Can latent manifold flattening be detected early during training or fine-tuning?</h2>
+
+<p>Yes, latent flattening can be detected early through the dynamics of <em>thermodynamic length growth</em> and <em>topological persistence decay</em>.</p>
+
+<p>Let:</p>
+
+\[\mathcal{L}_t = \sum_{\ell=1}^{L-1} \| h_{\ell+1}^{(t)} - h_\ell^{(t)} \|_2\]
+
+<p>track thermodynamic length at training step $t$.</p>
+
+<p>If:</p>
+
+\[\frac{d}{dt} \mathcal{L}_t \to 0\]
+
+<p>prematurely – before loss plateaus or alignment metrics stabilize – this signals arrested epistemic development.</p>
+
+<p>Additionally, let:</p>
+
+\[\operatorname{PH}_p(\mathcal{M}_t) = \{(b_i,d_i)\}\}\]
+
+<p>be the persistent homology diagram at step $t$. A signature of early collapse is:</p>
+
+\[\forall i, \quad d_i - b_i \to 0\]
+
+<p>i.e., topological features die quickly as training proceeds, indicating vanishing latent complexity.</p>
+
+<p>By combining:</p>
+
+\[\mathcal{E}_t = \frac{d}{dt} \mathcal{L}_t 
+\quad \text{and} \quad 
+\operatorname{mean-persistence}(\mathcal{M}_t) = \frac{1}{|\operatorname{PH}_p|} \sum_i (d_i - b_i)\]
+
+<p>we can define an early-warning collapse index:</p>
+
+\[\mathcal{W}_t = \mathcal{E}_t \cdot \operatorname{mean-persistence}(\mathcal{M}_t)\]
+
+<p>Rapid decay of $\mathcal{W}_t$ signals flattening before it manifests at the output level.</p>
+
+<p>Thus, latent flattening is not just diagnosable post hoc – it can be tracked and mitigated during training <a href="#ref15">[15]</a> <a href="#ref5">[5]</a>.</p>
+
+<h2 id="what-is-the-precise-mathematical-signature-of-latent-manifold-flattening-in-the-spectral-domain">What is the precise mathematical signature of latent manifold flattening in the spectral domain?</h2>
+
+<p>Latent manifold flattening manifests as degeneration of the spectral structure of layerwise token graphs. Let:</p>
+
+\[W_\ell(i,j) = \exp\left( -\frac{ \| t_i^{(\ell)} - t_j^{(\ell)} \|^2 }{ \sigma^2 } \right)\]
+
+<p>define the similarity matrix at layer $\ell$, where $t_i^{(\ell)}$ is the latent embedding of token $i$. The normalized Laplacian:</p>
+
+\[\mathcal{L}_\ell = I - D_\ell^{-1/2} W_\ell D_\ell^{-1/2}\]
+
+<p>has eigenvalues $0 = \lambda_0^{(\ell)} \leq \lambda_1^{(\ell)} \leq \dots \leq \lambda_{N-1}^{(\ell)}$.</p>
+
+<p>Manifold flattening is indicated when:</p>
+
+\[\forall i &gt; 0, \quad \lambda_i^{(\ell)} \to 0\]
+
+<p>This implies the graph becomes near-disconnected or trivial – token-level structure collapses to uniformity.</p>
+
+<p>In contrast, output loss (e.g. cross-entropy):</p>
+
+\[\mathcal{L}_{\mathrm{output}} = - \log P(y \mid x)\]
+
+<p>can remain low even if internal semantics degrade, because output loss is blind to how the model reaches its prediction. A collapsed latent space may still overfit or memorize, masking failure modes only visible via spectral diagnostics <a href="#ref10">[10]</a> <a href="#ref9">[9]</a>.</p>
+
+<h2 id="how-does-persistent-homology-formally-capture-the-difference-between-benign-compression-and-pathological-flattening-of-latent-manifolds">How does persistent homology formally capture the difference between benign compression and pathological flattening of latent manifolds?</h2>
+
+<p>Benign compression reduces latent volume while preserving topological complexity. Pathological flattening, by contrast, destroys essential topological features.</p>
+
+<p>Let $\mathcal{M}_\ell$ denote the latent manifold at layer $\ell$. Its persistent homology diagram:</p>
+
+\[\operatorname{PH}_p(\mathcal{M}_\ell) = \{ (b_i, d_i) \}\]
+
+<p>records the birth $b_i$ and death $d_i$ of topological features (e.g., connected components, loops).</p>
+
+<p>Benign compression preserves features with:</p>
+
+\[\operatorname{mean-persistence}(\mathcal{M}_\ell) = \frac{1}{| \operatorname{PH}_p |} \sum_i (d_i - b_i)\]
+
+<p>remaining bounded.</p>
+
+<p>Flattening leads to:</p>
+
+\[\operatorname{mean-persistence}(\mathcal{M}_\ell) \to 0\]
+
+<p>even if latent norms are large (i.e., embeddings are nonzero).</p>
+
+<p>Thus, persistent homology distinguishes between mere shrinking of latent volume (compression) and collapse of topological richness (flattening) <a href="#ref15">[15]</a> <a href="#ref5">[5]</a>.</p>
 
 <hr />
 
