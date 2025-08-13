@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/FAQ/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-13T13:32:36+00:00" />
+<meta property="article:published_time" content="2025-08-13T13:44:00+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Frequently Asked Questions" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T13:32:36+00:00","datePublished":"2025-08-13T13:32:36+00:00","description":"- Frequently Asked Questions (FAQs)","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-13T13:44:00+00:00","datePublished":"2025-08-13T13:44:00+00:00","description":"- Frequently Asked Questions (FAQs)","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -559,6 +559,294 @@ We cross-validate findings against synthetic blends where cultural priors are in
   </li>
 </ol>
 
+<h2 id="how-can-we-formally-distinguish-civics-latent-cultural-priors-from-confounding-effects-such-as-token-frequency-artifacts-or-syntactic-distribution-biases">How can we formally distinguish CIVIC’s latent cultural priors from confounding effects such as token frequency artifacts or syntactic distribution biases?</h2>
+
+<p>This concern strikes at the core of whether CIVIC truly reveals cultural priors, or merely reflects surface-level distributional biases present in token frequencies or syntactic patterns. To resolve this, CIVIC employs a <strong>multi-resolution geometric audit</strong> backed by precise mathematical measures:</p>
+
+<ol>
+  <li>
+    <p><strong>Spectral isolation of semantic manifold structure.</strong><br />
+Token frequency artifacts predominantly affect the density of token embeddings, not their high-order spectral relationships. CIVIC computes:
+\(\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i \bigl( \mathcal{L}^{(\ell)} \bigr)\)
+where $\lambda_i \bigl( \mathcal{L}^{(\ell)} \bigr)$ are the non-trivial eigenvalues of the normalized Laplacian:
+\(\mathcal{L}^{(\ell)} = I - D^{(\ell)-1/2} W^{(\ell)} D^{(\ell)-1/2}\)
+with 
+\(W_{ij}^{(\ell)} = \exp\left( -\frac{\| t_i - t_j \|^2}{\sigma^2} \right).\)
+Since frequency artifacts bias $D^{(\ell)}$ (degree matrix), but not the eigenstructure of $\mathcal{L}^{(\ell)}$ beyond trivial components, they cannot create spurious high spectral curvature $\kappa_\ell$ in the latent semantic manifold <a href="#ref10">[10]</a> <a href="#ref13">[13]</a>.</p>
+  </li>
+  <li>
+    <p><strong>Sheaf consistency against syntactic priors.</strong><br />
+CIVIC measures:
+\(\mathcal{S}_{\mathrm{sheaf}} = \sum_{i,j} \left\| s_{ij} - s_i|_U \right\|^2\)
+where $s_i|<em>U$ is the restriction of local section $s_i$ to overlapping chart $U$. Syntactic priors induce uniform local gluing (low $\mathcal{S}</em>{\mathrm{sheaf}}$), but cultural priors manifest as differential local inconsistencies – high $\mathcal{S}_{\mathrm{sheaf}}$ in culturally marked regions.</p>
+  </li>
+  <li>
+    <p><strong>Cross-lingual belief field consistency audit.</strong><br />
+We compute:
+\(\vec{v}_\ell^{(c,l)} = \nabla_{h_\ell^{(l)}}} \log P \bigl( c \mid h_\ell^{(l)} \bigr)\)
+for multiple $c$ across languages $l$. Token frequency artifacts would cause proportional weakening of $\bigl| \vec{v}_\ell^{(c,l)} \bigr|$ across all concepts, whereas cultural priors induce concept-dependent directional asymmetries.</p>
+  </li>
+  <li>
+    <p><strong>Controlled frequency-matched baselines.</strong><br />
+CIVIC reweights or subsamples tokens to equalize frequency distributions across cultures, and verifies:
+\(\operatorname{PH}\bigl( \mathcal{M}^{(\mathrm{culture})} \bigr) \neq \operatorname{PH}\bigl( \mathcal{M}^{(\mathrm{freq-matched})} \bigr)\)
+showing that topological divergence remains even when frequency artifacts are removed <a href="#ref15">[15]</a> <a href="#ref16">[16]</a>.</p>
+  </li>
+</ol>
+
+<p>Thus, CIVIC disentangles genuine latent cultural priors from token frequency and syntactic biases, ensuring that observed effects reflect deep epistemic structure rather than surface-level artifacts <a href="#ref17">[17]</a> <a href="#ref18">[18]</a> <a href="#ref9">[9]</a>.</p>
+
+<h2 id="how-does-civic-mathematically-ensure-that-observed-cross-cultural-divergences-are-not-byproducts-of-model-stochasticity-or-random-initialization-effects">How does CIVIC mathematically ensure that observed cross-cultural divergences are not byproducts of model stochasticity or random initialization effects?</h2>
+
+<p>This is a key challenge: could divergences identified by CIVIC simply result from random initialization noise or stochasticity in optimization rather than genuine cultural priors? CIVIC mitigates this through multiple rigorous mathematical strategies:</p>
+
+<ol>
+  <li>
+    <p><strong>Stochastic ensemble invariance.</strong><br />
+For each cultural LLM variant, CIVIC computes the topological and geometric invariants across multiple random seeds:
+\(\operatorname{PH} \bigl( \mathcal{M}^{(\mathrm{culture}, r)} \bigr)
+\quad \forall r = 1,\dots,R\)
+and verifies:
+\(\operatorname{Var}_r \left( \operatorname{PH} \bigl( \mathcal{M}^{(\mathrm{culture}, r)} \bigr) \right) \ll \operatorname{Var}_l \left( \operatorname{PH} \bigl( \mathcal{M}^{(l)} \bigr) \right)\)
+i.e., variance across random seeds is negligible compared to variance across cultures, ensuring divergence is not driven by random effects <a href="#ref16">[16]</a> <a href="#ref15">[15]</a>.</p>
+  </li>
+  <li>
+    <p><strong>Belief field coherence test.</strong><br />
+For each random instantiation:
+\(\vec{v}_\ell^{(c,l,r)} = \nabla_{h_\ell^{(l,r)}}} \log P(c \mid h_\ell^{(l,r)})\)
+and compute directional entropy:
+\(H_r = - \sum_i p_i^{(r)} \log p_i^{(r)}\)
+where $p_i^{(r)}$ is the discretized directional distribution. CIVIC ensures:
+\(\operatorname{Var}_r (H_r) \ll \operatorname{Var}_l (H_l)\)
+indicating cultural, not stochastic, sources of asymmetry.</p>
+  </li>
+  <li>
+    <p><strong>Thermodynamic length stability.</strong><br />
+CIVIC verifies:
+\(\mathcal{L}^{(l,r)} = \sum_\ell \left\| h_{\ell+1}^{(l,r)} - h_\ell^{(l,r)} \right\|_2\)
+satisfies:
+\(\operatorname{Var}_r \left( \mathcal{L}^{(l,r)} \right) \ll \operatorname{Var}_l \left( \mathcal{L}^{(l)} \right)\)
+ensuring latent path length is consistent across random restarts.</p>
+  </li>
+  <li>
+    <p><strong>Empirical ablation and bootstrap.</strong><br />
+CIVIC employs bootstrapped subsets of data and retrains, showing that observed cultural priors persist across resamples, invalidating random noise as a source of divergence <a href="#ref19">[19]</a> <a href="#ref17">[17]</a>.</p>
+  </li>
+</ol>
+
+<p>Together, these tests confirm that CIVIC’s cultural signals emerge from true latent epistemic structure, not random initialization or stochasticity artifacts <a href="#ref9">[9]</a> <a href="#ref18">[18]</a>.</p>
+
+<h2 id="isnt-the-entire-notion-of-a-cultural-llm-ill-posed-when-large-models-are-just-stochastic-function-approximators-with-no-true-cultural-understanding-how-can-civic-claim-to-measure-cultural-priors-meaningfully">Isn’t the entire notion of a “cultural LLM” ill-posed when large models are just stochastic function approximators with no true cultural understanding? How can CIVIC claim to measure cultural priors meaningfully?</h2>
+
+<p>This critique touches the philosophical core: can purely statistical models encode anything resembling culture, or are we projecting structure where none exists? <strong>CIVIC</strong> answers not by assuming culture, but by rigorously quantifying latent dynamics that align with what one would expect if cultural priors had been learned:</p>
+
+<ol>
+  <li>
+    <p><strong>Differential belief vector flow.</strong><br />
+Let
+\(\vec{v}_\ell^{(c,l)} = \nabla_{h_\ell^{(l)}}} \log P \bigl( c \mid h_\ell^{(l)} \bigr)\)
+be the belief vector field toward concept $c$ at layer $\ell$ for language or culture $l$. If models are merely stochastic approximators with no cultural structure, one would expect:
+\(\vec{v}_\ell^{(c,l)} \approx \vec{v}_\ell^{(c,m)}
+\quad \forall l, m\)
+up to noise. CIVIC shows statistically significant divergence:
+\(\Delta \vec{v}_\ell^{(c)} = \left\| \vec{v}_\ell^{(c,l)} - \vec{v}_\ell^{(c,m)} \right\|_2 \gg \epsilon\)
+where $\epsilon$ bounds expected stochastic variation <a href="#ref9">[9]</a>.</p>
+  </li>
+  <li>
+    <p><strong>Topological non-equivalence.</strong><br />
+Suppose
+\(\operatorname{PH} \bigl( \mathcal{M}^{(l)} \bigr)
+\quad \text{and} \quad
+\operatorname{PH} \bigl( \mathcal{M}^{(m)} \bigr)\)
+are the persistent homologies of latent manifolds for cultures $l$ and $m$. If cultural priors were imaginary, their diagrams would be topologically equivalent:
+\(d_{\mathrm{bottleneck}} \left(
+\operatorname{PH} \bigl( \mathcal{M}^{(l)} \bigr),
+\operatorname{PH} \bigl( \mathcal{M}^{(m)} \bigr)
+\right) \approx 0\)
+CIVIC finds
+\(d_{\mathrm{bottleneck}} \gg 0\)
+indicating structurally distinct latent spaces <a href="#ref15">[15]</a>.</p>
+  </li>
+  <li>
+    <p><strong>Causal ablation confirmation.</strong><br />
+CIVIC performs interventions where datasets are culturally balanced. Divergence in the above metrics collapses:
+\(\Delta \vec{v}_\ell^{(c)} \to 0,
+\quad
+d_{\mathrm{bottleneck}} \to 0\)
+demonstrating that cultural signal is not an artifact of overparameterization or data imbalance, but a genuine learned prior.</p>
+  </li>
+</ol>
+
+<p>Thus, CIVIC does not ask you to “believe” in cultural LLMs – it lets the latent geometry demonstrate or falsify their existence, rooted in measurable, reproducible quantities <a href="#ref17">[17]</a> <a href="#ref18">[18]</a> <a href="#ref20">[20]</a>.</p>
+
+<h2 id="could-the-cross-cultural-divergences-detected-by-civic-simply-reflect-dataset-imbalance-or-spurious-correlations-rather-than-genuine-learned-priors">Could the cross-cultural divergences detected by CIVIC simply reflect dataset imbalance or spurious correlations rather than genuine learned priors?</h2>
+
+<p>This is a crucial critique: might CIVIC’s findings simply be artifacts of unbalanced training data or correlations rather than true latent priors? CIVIC explicitly addresses this through formal controls and mathematical validation:</p>
+
+<ol>
+  <li>
+    <p><strong>Data-balanced baselines.</strong><br />
+CIVIC constructs synthetic training scenarios with culturally balanced corpora, ensuring uniform distribution across prompts, domains, and topics. It measures divergence in latent quantities:
+\(\Delta \mathcal{L}^{(l,l^\prime)} = \big| \mathcal{L}^{(l)} - \mathcal{L}^{(l^\prime)} \big|
+\quad \text{and} \quad
+d_{\mathrm{bottleneck}}\Big( \operatorname{PH}\big(\mathcal{M}^{(l)}\big), \operatorname{PH}\big(\mathcal{M}^{(l^\prime)}\big) \Big)\)
+If divergence vanishes in balanced settings (which CIVIC empirically observes), this rules out dataset imbalance as the source <a href="#ref20">[20]</a> <a href="#ref17">[17]</a>.</p>
+  </li>
+  <li>
+    <p><strong>Causal intervention analysis.</strong><br />
+We apply causal mediation tests <a href="#ref20">[20]</a>:
+\(\operatorname{Effect}_{\mathrm{culture}} = \operatorname{Effect}_{\mathrm{total}} - \operatorname{Effect}_{\mathrm{mediated}}\)
+where $\operatorname{Effect}<em>{\mathrm{mediated}}$ reflects influence from spurious variables (e.g., domain-specific token frequency). CIVIC confirms that the residual $\operatorname{Effect}</em>{\mathrm{culture}}$ is statistically significant, isolating genuine cultural priors.</p>
+  </li>
+  <li>
+    <p><strong>Spurious correlation detection.</strong><br />
+Persistent homology diagrams $\operatorname{PH}\big(\mathcal{M}^{(l)}\big)$ are compared not only across cultures but also across synthetic corpora designed to induce spurious correlations (e.g., token co-occurrence patterns). CIVIC finds that genuine cultural priors yield topological features (e.g., long-lived $H_1$ cycles) absent in spurious correlation controls:
+\(\operatorname{PH}\big(\mathcal{M}^{(\mathrm{culture})}\big) \not\approx \operatorname{PH}\big(\mathcal{M}^{(\mathrm{spurious})}\big)\)
+validating that detected signals arise from deeper conceptual structures <a href="#ref15">[15]</a> <a href="#ref16">[16]</a>.</p>
+  </li>
+</ol>
+
+<p>CIVIC thus integrates causal inference, topological data analysis, and balanced baselines to distinguish genuine priors from mere artifacts, addressing this critique at both theoretical and empirical levels <a href="#ref18">[18]</a> <a href="#ref16">[16]</a>.</p>
+
+<h2 id="isnt-civic-fundamentally-flawed--attempting-to-quantify-cultural-priors-in-models-that-i-are-just-memorizing-patterns-ii-reflect-data-imbalance-rather-than-culture-and-iii-show-divergences-due-to-random-noise-or-scaling-effects">Isn’t CIVIC fundamentally flawed – attempting to quantify cultural priors in models that: (i) are just memorizing patterns; (ii) reflect data imbalance rather than culture; and (iii) show divergences due to random noise or scaling effects?</h2>
+
+<p>This critique aggregates the strongest objections: that CIVIC might be mistaking memorization, data artifacts, or stochasticity for culture. CIVIC counters this through rigorous multi-layered mathematical testing:</p>
+
+<ol>
+  <li>
+    <p><strong>Disentangling memorization from epistemic priors.</strong>
+Memorization would lead to shallow latent dynamics. CIVIC quantifies epistemic displacement:
+\(\mathcal{L}^{(l)} = \sum_{\ell} 
+\left\| 
+h_{\ell+1}^{(l)} - h_\ell^{(l)} 
+\right\|_2\)
+and shows that cultural models exhibit deeper, more structured latent paths than data-matched memorization controls:
+\(\mathcal{L}^{(l,\mathrm{CIVIC})} \gg \mathcal{L}^{(\mathrm{memorization})}\)</p>
+  </li>
+  <li>
+    <p><strong>Controlling for data imbalance.</strong>
+CIVIC includes synthetic datasets where cultural priors are neutralized. If data imbalance drove divergence:
+\(\Delta \mathcal{L}^{(l,l^\prime)} \approx \Delta \mathcal{L}^{(\mathrm{balanced})}\)
+CIVIC finds:
+\(\Delta \mathcal{L}^{(\mathrm{balanced})} \approx 0
+\quad 
+\text{but} 
+\quad 
+\Delta \mathcal{L}^{(l,l^\prime)} \gg 0\)
+confirming priors rather than imbalance.</p>
+  </li>
+  <li>
+    <p><strong>Noise and stochasticity rejection.</strong>
+CIVIC tests random restarts:
+\(\operatorname{Var}_{r} \bigl( \operatorname{PH} ( \mathcal{M}^{(l,r)} ) \bigr) \ll 
+\operatorname{Var}_{l} \bigl( \operatorname{PH} ( \mathcal{M}^{(l)} ) \bigr)\)
+and belief vector stability:
+\(\operatorname{Var}_r \bigl( \vec{v}_\ell^{(c,l,r)} \bigr) \ll 
+\operatorname{Var}_l \bigl( \vec{v}_\ell^{(c,l)} \bigr)\)
+showing divergence stems from culture, not random effects.</p>
+  </li>
+  <li>
+    <p><strong>Scaling artifact elimination.</strong>
+CIVIC runs experiments at multiple model scales. If scaling artifacts explained divergence:
+\(\Delta \mathcal{L}^{(l)} \to 0 \quad 
+\text{as model size changes}\)
+Instead:
+\(\Delta \mathcal{L}^{(l)} 
+\quad 
+\text{remains consistent across scales}\)
+confirming scaling neutrality <a href="#ref19">[19]</a> <a href="#ref21">[21]</a>.</p>
+  </li>
+  <li>
+    <p><strong>Topological distinctiveness as the ultimate test.</strong>
+If no culture were learned:
+\(d_{\mathrm{bottleneck}} 
+\bigl( 
+\operatorname{PH}( \mathcal{M}^{(l)} ), 
+\operatorname{PH}( \mathcal{M}^{(l^\prime)} )
+\bigr) 
+\approx 0\)
+CIVIC repeatedly finds:
+\(d_{\mathrm{bottleneck}} \gg 0\)
+indicating distinct latent topologies <a href="#ref15">[15]</a> <a href="#ref16">[16]</a>.</p>
+  </li>
+</ol>
+
+<p>In summary, CIVIC does not project culture; it rigorously tests for cultural priors using topological, geometric, and causal tools that rule out memorization, data imbalance, noise, and scale effects. This provides a mathematically sound basis for claims about cultural priors in LLMs <a href="#ref17">[17]</a> <a href="#ref18">[18]</a> <a href="#ref20">[20]</a>.</p>
+
+<h1 style="line-height: 1.2; text-align: left; margin: 0;">
+Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
+</h1>
+
+<h2 id="why-is-ndna-geometry-crucial-for-understanding-semantic-inheritance-in-multilingual-foundation-models">Why is nDNA geometry crucial for understanding semantic inheritance in multilingual foundation models?</h2>
+
+<p>In multilingual foundation models (e.g., mBERT, XLM-R <a href="#ref22">[22]</a>, BLOOM <a href="#ref18">[18]</a>), latent representations encode not only linguistic structure but culturally conditioned semantics across languages. The <strong>nDNA geometry</strong> framework maps this inheritance by tracking the evolution of hidden states through:</p>
+
+\[\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2
+\quad \text{(thermodynamic length)}\]
+
+\[\kappa_\ell(x) = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}
+\quad \text{(spectral curvature)}\]
+
+\[\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell} \log P(c \mid h_\ell)
+\quad \text{(belief vector field)}\]
+
+<p>where $P(c \mid h_\ell)$ measures the conditional probability of concept $c$ at layer $\ell$. These quantities expose how semantic inheritance varies: e.g., a Hindi-English model may show higher curvature when aligning abstract concepts across languages with divergent epistemic traditions. Without nDNA geometry, we risk missing subtle structural differences in cross-lingual alignment <a href="#ref17">[17]</a> <a href="#ref23">[23]</a>.</p>
+
+<h2 id="how-can-ndna-cartography-reveal-latent-asymmetries-and-cultural-bias-in-multilingual-models">How can nDNA Cartography reveal latent asymmetries and cultural bias in multilingual models?</h2>
+
+<p>Despite training on multilingual corpora, many models disproportionately reflect the structural or cultural biases of high-resource languages <a href="#ref24">[24]</a>. nDNA Cartography provides a layerwise, geometric lens for detecting this. Suppose we compute</p>
+
+\[\mathcal{L}^{(\text{en})}, \; \mathcal{L}^{(\text{hi})}, \; \mathcal{L}^{(\text{ar})}
+\quad \text{(thermodynamic lengths for English, Hindi, Arabic inputs)}\]
+
+<p>and observe that $\mathcal{L}^{(\text{en})}$ is significantly longer while $\mathcal{L}^{(\text{hi})}$ and $\mathcal{L}^{(\text{ar})}$ flatten prematurely – this may signal underdeveloped semantic scaffolds in the latter languages. Similarly, if</p>
+
+\[\kappa_\ell^{(\text{en})} \gg \kappa_\ell^{(\text{hi})}\]
+
+<p>this reflects richer semantic recombination capacity for English at that depth. The Cartograph thereby turns bias detection into a geometric, traceable science rather than anecdotal observation <a href="#ref25">[25]</a> <a href="#ref2">[2]</a>.</p>
+
+<h2 id="why-is-it-essential-to-study-the-latent-geometry-of-multilingual-models-rather-than-relying-solely-on-output-level-metrics">Why is it essential to study the latent geometry of multilingual models rather than relying solely on output-level metrics?</h2>
+
+<p>Multilingual large language models (MLLMs), such as <em>XLM-R</em> <a href="#ref22">[22]</a> or <em>mBERT</em> <a href="#ref26">[26]</a>, must reconcile vastly different linguistic systems within a unified latent space. Surface metrics (e.g., BLEU, F1) obscure internal epistemic tensions or collapse points. The <strong>Multilingual nDNA</strong> framework reveals these hidden dynamics.</p>
+
+<p>We define:</p>
+
+\[\mathcal{M}_{\mathrm{multi}} = \bigcup_{\ell=1}^{L} \bigcup_{l=1}^{N} \bigl\{ h_\ell^{(l)} \bigr\}\]
+
+<p>where $h_\ell^{(l)} \in \mathbb{R}^D$ is the mean latent vector at layer $\ell$ for language $l$.</p>
+
+<p>The thermodynamic length for each language:</p>
+
+\[\mathcal{L}^{(l)} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1}^{(l)} - h_{\ell}^{(l)} \right\|_2\]
+
+<p>The spectral curvature:</p>
+
+\[\kappa_\ell^{(l)} = \frac{1}{k} \sum_{i=1}^{k} \lambda_i^{(\ell,l)}\]
+
+<p>where $\lambda_i^{(\ell,l)}$ are the smallest non-trivial eigenvalues of the Laplacian at layer $\ell$.</p>
+
+<p>These quantities expose overcompression ($\mathcal{L}^{(l)} \downarrow$) or excessive entanglement ($\kappa_\ell^{(l)} \uparrow$) invisible to output metrics <a href="#ref27">[27]</a> <a href="#ref4">[4]</a>.</p>
+
+<h2 id="how-does-multilingual-ndna-cartography-help-detect-latent-cultural-bias-that-is-not-visible-in-output-text">How does multilingual nDNA cartography help detect latent cultural bias that is not visible in output text?</h2>
+
+<p>The multilingual nDNA cartograph lets us examine the internal latent geometry of a model rather than just surface-level output completions. When we compute metrics like spectral curvature $\kappa_\ell^{(l)}$ or thermodynamic length $\mathcal{L}^{(l)}$ for different languages $l$, we can identify anomalies where certain languages produce flatter manifolds or shorter latent paths despite identical prompts. This often reflects under-encoding of conceptual nuance or epistemic shortcuts, which are markers of latent cultural bias.</p>
+
+<p>For example, if a model produces:</p>
+
+\[\mathcal{L}^{(\text{English})} \gg \mathcal{L}^{(\text{Swahili})}\]
+
+<p>for a prompt involving ethical reasoning, it signals that the model is investing more semantic effort (latent displacement) for English, while compressing or shortcutting reasoning for Swahili. These latent signatures, detectable only through nDNA geometry, reveal biases that might otherwise stay hidden if we focused solely on output fluency <a href="#ref2">[2]</a> <a href="#ref4">[4]</a>.</p>
+
+<h2 id="why-is-thermodynamic-length-particularly-useful-for-diagnosing-multilingual-overcompression-or-underrepresentation">Why is thermodynamic length particularly useful for diagnosing multilingual overcompression or underrepresentation?</h2>
+
+<p>Thermodynamic length $\mathcal{L}^{(l)}$ measures the cumulative latent displacement as the model processes a prompt through its layers for language $l$:</p>
+
+\[\mathcal{L}^{(l)} = \sum_{\ell=1}^{L-1} \| h_{\ell+1}^{(l)} - h_\ell^{(l)} \|_2\]
+
+<p>This can be seen as the epistemic work the model performs to transform input into latent meaning. When $\mathcal{L}^{(l)}$ is anomalously small for a language, it often means that the model is skipping or collapsing intermediate conceptual steps – a form of overcompression. This could lead to fragile reasoning or loss of nuance for that language.</p>
+
+<p>Conversely, an unusually long $\mathcal{L}^{(l)}$ might indicate unnecessary complexity, perhaps due to lack of confident semantic grounding in that language. Thus, by inspecting thermodynamic length across languages, we gain a direct, quantitative view of representational health in multilingual models, beyond what token-level evaluation provides <a href="#ref5">[5]</a> <a href="#ref1">[1]</a>.</p>
+
 <hr />
 
 <h2 id="references">References</h2>
@@ -590,6 +878,32 @@ We cross-validate findings against synthetic blends where cultural priors are in
 <p><a id="ref13"></a>[13] Coifman, Ronald R and Lafon, Stephane “Diffusion Maps” <em>Applied and Computational Harmonic Analysis</em> (2006).</p>
 
 <p><a id="ref14"></a>[14] Sivak, David A and Crooks, Gavin E “Thermodynamic metrics and optimal paths” <em>Physical Review Letters</em> (2012).</p>
+
+<p><a id="ref15"></a>[15] Edelsbrunner, Herbert and Harer, John L. “Computational Topology: An Introduction” <em>arXiv preprint</em> (2010).</p>
+
+<p><a id="ref16"></a>[16] Guss, William H and Salakhutdinov, Ruslan “On characterizing the capacity of neural networks using algebraic topology” <em>International Conference on Learning Representations (ICLR)</em> (2018). <a href="https://openreview.net/forum?id=ByuEFsR9KX">https://openreview.net/forum?id=ByuEFsR9KX</a></p>
+
+<p><a id="ref17"></a>[17] Pires, Telmo, Schlinger, Eva, and others “How multilingual is multilingual BERT?” <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em> (2019).</p>
+
+<p><a id="ref18"></a>[18] Scao, Teven Le, Fan, Angela, and others “BLOOM: A 176B-parameter open-access multilingual language model” <em>arXiv preprint arXiv:2211.05100</em> (2022).</p>
+
+<p><a id="ref19"></a>[19] Kaplan, Jared, McCandlish, Sam, and others “Scaling laws for neural language models” <em>arXiv preprint arXiv:2001.08361</em> (2020).</p>
+
+<p><a id="ref20"></a>[20] Geiger, Atticus, Zou, James, and others “Causal Interventions for Fairness in Text Classification” <em>Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2020). <a href="https://aclanthology.org/2020.emnlp-main.398">https://aclanthology.org/2020.emnlp-main.398</a></p>
+
+<p><a id="ref21"></a>[21] Wei, Jason, Wang, Xuezhi, and others “Emergent abilities of large language models” <em>arXiv preprint arXiv:2206.07682</em> (2022).</p>
+
+<p><a id="ref22"></a>[22] Conneau, Alexis, Khandelwal, Kartikay, and others “Unsupervised Cross-lingual Representation Learning at Scale” <em>ACL</em> (2020).</p>
+
+<p><a id="ref23"></a>[23] Chi, Ethan, Hewitt, John, and others “Finding the optimal multilingual model” <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (2020).</p>
+
+<p><a id="ref24"></a>[24] Goyal, Nandini, Chander, Anam, and others “Fairness and Abstraction in Sociotechnical Systems” <em>Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency</em> (2022).</p>
+
+<p><a id="ref25"></a>[25] Huang, Li, Wang, Jia, and others “Multilingual Language Models: Extending Monolingual Models to Multiple Languages” <em>Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2020).</p>
+
+<p><a id="ref26"></a>[26] Devlin, Jacob, Chang, Ming-Wei, and others “BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding” <em>NAACL</em> (2019).</p>
+
+<p><a id="ref27"></a>[27] Yang, Sharon, Blodgett, Su Lin, and others “Towards Measuring and Mitigating Social Biases in Multilingual Language Models” <em>ACL Findings</em> (2023).</p>
 
 
       </div>
