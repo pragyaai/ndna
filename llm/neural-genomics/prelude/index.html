@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T19:24:41+00:00" />
+<meta property="article:published_time" content="2025-08-14T20:12:22+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Genomics" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T19:24:41+00:00","datePublished":"2025-08-14T19:24:41+00:00","description":"A Paradigm Shift in Understanding Artificial Cognition","headline":"Neural Genomics","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T20:12:22+00:00","datePublished":"2025-08-14T20:12:22+00:00","description":"A Paradigm Shift in Understanding Artificial Cognition","headline":"Neural Genomics","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -294,11 +294,11 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
 <hr />
 
 <!-- Threat Cards (self-contained) -->
-
-<!-- Font Awesome 6 (icons) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
 <style>
+  *, *::before, *::after { box-sizing: border-box; }
+
   :root {
     --bg: #f8fafc;
     --card-bg: #fff;
@@ -308,7 +308,7 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
     --pad: 16px;
     --gap: 16px;
     --maxw: 1120px;
-    --mincol: 280px;
+    --mincol: 280px;  /* min card width */
     --title: #111827;
     --text: #374151;
     --muted: #6b7280;
@@ -325,7 +325,8 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
     width: 100%;
     max-width: var(--maxw);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--mincol), 1fr));
+    /* use auto-fit for tighter packing; min card 280px, then grow */
+    grid-template-columns: repeat(auto-fit, minmax(var(--mincol), 1fr));
     gap: var(--gap);
     align-items: start;
   }
@@ -340,6 +341,7 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%; /* prevent overflow in constrained renderers */
   }
 
   .threat-card:hover {
@@ -367,6 +369,7 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
     justify-content: center;
     font-size: 20px;
     color: #e74c3c;
+    flex: 0 0 28px;
   }
 
   .threat-card:nth-child(2n) .threat-card-icon { color: #3498db; }
@@ -379,6 +382,7 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
     font-size: 16px;
     font-weight: 700;
     color: var(--title);
+    line-height: 1.25;
   }
 
   .threat-card-body {
@@ -409,7 +413,6 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
 
 <div class="threat-cards-container">
   <div class="threat-cards-layout-container">
-
     <div class="threat-card" data-metric="nHD">
       <div class="threat-card-header">
         <div class="threat-card-icon" aria-hidden="true">
@@ -556,7 +559,6 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
