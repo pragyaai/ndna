@@ -109,125 +109,69 @@ Throughout recursive merging cycles, we monitor the evolving <strong>neural DNA 
 These findings suggest that *cultural inbreeding via recursive self-merging*--where architectural priors are repeatedly recombined without new information--can be as deleterious to model health as overfitting to synthetic data. This unveils an underexplored axis of collapse: **epistemic degeneration via latent redundancy**, with implications for model curation and reuse in open-source training communities.
 
 ### Cultural Collapse Trajectories
- <!-- Africa GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Africa Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/africa_ndna_final.gif" %}
-  </div>
-</div>
+<!-- Africa -->
+{% include visualization-html.liquid 
+   image_path="alignment/africa_ndna_final.gif"
+   interactive_html="collapse/africa_ndna_collapse.html"
+   caption="Africa Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Africa's cultural collapse trajectory over time" %}
 
-<!-- Africa Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/africa_ndna_collapse.html"%}
-  </div>
-</div>
+<!-- Asia -->
+{% include visualization-html.liquid 
+   image_path="alignment/asia_ndna_collapse.gif"
+   interactive_html="collapse/asia_ndna_collapse.html"
+   caption="Asia Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Asia's cultural collapse trajectory over time" %}
 
-<!-- Asia GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Asia Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/asia_ndna_collapse.gif" %}
-  </div>
-</div>
+<!-- China -->
+{% include visualization-html.liquid 
+   image_path="alignment/china_ndna_final.gif"
+   interactive_html="collapse/china_ndna_collapse.html"
+   caption="China Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing China's cultural collapse trajectory over time" %}
 
-<!-- Asia Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/asia_ndna_collapse.html" %}
-  </div>
-</div>
+<!-- Europe -->
+{% include visualization-html.liquid 
+   image_path="alignment/europe_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/europe_ndna_collapse.html"
+   caption="Europe Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Europe's cultural collapse trajectory over time" %}
 
-<!-- China GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">China Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/china_ndna_final.gif" %}
-  </div>
-</div>
+<!-- Latin America -->
+{% include visualization-html.liquid 
+   image_path="alignment/latinamerica.gif"
+   interactive_html="collapse/latinamerica_ndna_collapse.html"
+   caption="Latin America Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Latin America's cultural collapse trajectory over time" %}
 
-<!-- China Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/china_ndna_collapse.html"  %}
-  </div>
-</div>
+<!-- Middle East -->
+{% include visualization-html.liquid 
+   image_path="alignment/middleeast_ndna_final.gif"
+   interactive_html="collapse/middleeast_ndna_collapse.html"
+   caption="Middle East Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Middle East's cultural collapse trajectory over time" %}
 
-<!-- Europe GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Europe Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/europe_ndna_collapse_FINAL.gif" %}
-  </div>
-</div>
+<!-- North America -->
+{% include visualization-html.liquid 
+   image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/northamerica_ndna_collapse.html"
+   caption="North America Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing North America's cultural collapse trajectory over time" %}
 
-<!-- Europe Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/europe_ndna_collapse.html" %}
-  </div>
-</div>
-
-<!-- Latin America GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Latin America Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/latinamerica.gif" %}
-  </div>
-</div>
-
-<!-- Latin America Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/latinamerica_ndna_collapse.html"  %}
-  </div>
-</div>
-
-<!-- Middle East GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Middle East Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/middleeast_ndna_final.gif"  %}
-  </div>
-</div>
-
-<!-- Middle East Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/middleeast_ndna_collapse.html" %}
-  </div>
-</div>
-
-<!-- North America GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">North America Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/northamerica_ndna_collapse_FINAL.gif" %}
-  </div>
-</div>
-
-<!-- North America Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/northamerica_ndna_collapse.html" %}
-  </div>
-</div>
-
-<!-- Australia GIF -->
-<div style="margin: 48px 0; text-align: center;">
-  <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Australia Cultural Collapse Trajectory</div>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/australia_ndna_collapse_FINAL.gif" %}
-  </div>
-</div>
-
-<!-- Australia Interactive HTML -->
-<div style="margin: 48px 0;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/australia_ndna_collapse.html" %}
-  </div>
-</div>
+<!-- Australia -->
+{% include visualization-html.liquid 
+   image_path="alignment/australia_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/australia_ndna_collapse.html"
+   caption="Australia Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Australia's cultural collapse trajectory over time" %}
 
 
 
