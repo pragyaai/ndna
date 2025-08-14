@@ -38,42 +38,70 @@ These choices reflect contrasting scales {% cite touvron2023llama %} {% cite ope
 <blockquote style="text-align: center; margin: 2em auto; border: none; background: transparent; font-size: 1.25em; font-weight: normal;">
 As shown by the below table from the previous module, this latent geometry is not merely decorative--<strong>it is diagnostic</strong>.
 </blockquote>
-
 <figure id="tab:ndna_example" style="text-align: center; margin: 2em 0;">
   <style>
-    /* sizing and typography */
-    #tab-ndna-table { 
-      border-collapse: collapse; 
-      width: 100%; 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-      font-size: 16px; /* body / entries size */
+    /* base font & layout */
+    #tab-ndna-table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px; /* entries */
     }
-    #tab-ndna-table th {
-      font-size: 18px; /* headings slightly larger */
-      font-weight: 700; /* bold headings */
-      padding: 12px;
-      border: 1px solid #ddd;
-      text-align: center;
-    }
+
+    /* stronger border */
+    #tab-ndna-table th,
     #tab-ndna-table td {
-      padding: 12px;
-      border: 1px solid #ddd;
-      text-align: left;
+      border: 1.5px solid #444444;
       vertical-align: middle;
+      padding: 12px 14px;
     }
-    /* center the whole Belief Vector column (heading + entries) */
-    #tab-ndna-table th.col-belief,
-    #tab-ndna-table td.col-belief {
+
+    /* headings: slightly larger and bold (all the same size) */
+    #tab-ndna-table th {
+      font-size: 19px;
+      font-weight: 700;
+      background: #fafafa;
       text-align: center;
     }
-    /* make the numeric & math columns centered for consistent look */
+
+    /* center numeric/math columns & prevent wrap */
     #tab-ndna-table th.col-center,
     #tab-ndna-table td.col-center {
       text-align: center;
+      white-space: nowrap;
     }
-    /* small responsive container */
+
+    /* center belief-vector column and prevent wrapping (heading + v_c stay on one line) */
+    #tab-ndna-table th.col-belief,
+    #tab-ndna-table td.col-belief {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* precise powdered tints mapped from LaTeX percentages */
+    /* base RGBs:
+       green  #27ae60 -> (39,174,96)
+       yellow #f1c40f -> (241,196,15)
+       orange #e67e22 -> (230,126,34)
+       red    #e74c3c -> (231,76,60)
+    */
+    .green-15  { background: rgba(39,174,96,0.15); }
+    .green-20  { background: rgba(39,174,96,0.20); }
+    .green-30  { background: rgba(39,174,96,0.30); }
+
+    .yellow-20 { background: rgba(241,196,15,0.20); }
+    .yellow-30 { background: rgba(241,196,15,0.30); }
+
+    .orange-20 { background: rgba(230,126,34,0.20); }
+    .orange-30 { background: rgba(230,126,34,0.30); }
+
+    .red-20    { background: rgba(231,76,60,0.20); }
+    .red-30    { background: rgba(231,76,60,0.30); }
+    .red-40    { background: rgba(231,76,60,0.40); }
+
+    /* responsive wrapper */
     .table-wrap { overflow-x:auto; max-width:100%; display:block; margin:0 auto; }
   </style>
 
@@ -82,107 +110,108 @@ As shown by the below table from the previous module, this latent geometry is no
       <thead>
         <tr>
           <th class="col-center" scope="col">Layer</th>
-          <th class="col-center" scope="col">$$\kappa_\ell$$</th>
-          <th class="col-center" scope="col">$$\mathcal{L}_\ell$$</th>
-          <th class="col-center" scope="col">$$\|\mathbf{v}_\ell^{(c)}\|$$</th>
-          <th class="col-belief" scope="col">Belief Vector $$\mathbf{v}_\ell^{(c)}$$</th>
+          <th class="col-center" scope="col">\(\kappa_\ell\)</th>
+          <th class="col-center" scope="col">\(\mathcal{L}_\ell\)</th>
+          <th class="col-center" scope="col">\(\|\mathbf{v}_\ell^{(c)}\|\)</th>
+          <th class="col-belief" scope="col">Belief Vector&nbsp;\(\mathbf{v}_\ell^{(c)}\)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="col-center">20</td>
-          <td class="col-center" style="background:#27ae60;">0.0412</td>
-          <td class="col-center" style="background:#f1c40f;">0.9123</td>
-          <td class="col-center" style="background:#e67e22;">0.6521</td>
-          <td class="col-belief">[0.1204, -0.0502, 0.0896, \ldots, 0.0402]</td>
+          <td class="col-center green-20">0.0412</td>
+          <td class="col-center yellow-30">0.9123</td>
+          <td class="col-center orange-20">0.6521</td>
+          <td class="col-belief">[0.1204, -0.0502, 0.0896, ..., 0.0402]</td>
         </tr>
 
         <tr>
           <td class="col-center">21</td>
-          <td class="col-center" style="background:#27ae60;">0.0458</td>
-          <td class="col-center" style="background:#27ae60;">0.8123</td>
-          <td class="col-center" style="background:#e74c3c;">0.7523</td>
-          <td class="col-belief">[0.1301, -0.0351, 0.0950, \ldots, 0.0431]</td>
+          <td class="col-center green-30">0.0458</td>
+          <td class="col-center green-15">0.8123</td>
+          <td class="col-center red-30">0.7523</td>
+          <td class="col-belief">[0.1301, -0.0351, 0.0950, ..., 0.0431]</td>
         </tr>
 
         <tr>
           <td class="col-center">22</td>
-          <td class="col-center" style="background:#f1c40f;">0.0523</td>
-          <td class="col-center" style="background:#e67e22;">1.0120</td>
-          <td class="col-center" style="background:#27ae60;">0.5823</td>
-          <td class="col-belief">[0.1423, -0.0312, 0.0994, \ldots, 0.0488]</td>
+          <td class="col-center yellow-20">0.0523</td>
+          <td class="col-center orange-30">1.0120</td>
+          <td class="col-center green-20">0.5823</td>
+          <td class="col-belief">[0.1423, -0.0312, 0.0994, ..., 0.0488]</td>
         </tr>
 
         <tr>
           <td class="col-center">23</td>
-          <td class="col-center" style="background:#e67e22;">0.0581</td>
-          <td class="col-center" style="background:#f1c40f;">0.9021</td>
-          <td class="col-center" style="background:#f1c40f;">0.6912</td>
-          <td class="col-belief">[0.1534, 0.0270, 0.1042, \ldots, 0.0512]</td>
+          <td class="col-center orange-20">0.0581</td>
+          <td class="col-center yellow-20">0.9021</td>
+          <td class="col-center yellow-30">0.6912</td>
+          <td class="col-belief">[0.1534, 0.0270, 0.1042, ..., 0.0512]</td>
         </tr>
 
         <tr>
           <td class="col-center">24</td>
-          <td class="col-center" style="background:#e74c3c;">0.0639</td>
-          <td class="col-center" style="background:#e74c3c;">1.1023</td>
-          <td class="col-center" style="background:#27ae60;">0.5520</td>
-          <td class="col-belief">[0.1667, 0.0205, 0.1105, \ldots, 0.0543]</td>
+          <td class="col-center red-20">0.0639</td>
+          <td class="col-center red-40">1.1023</td>
+          <td class="col-center green-15">0.5520</td>
+          <td class="col-belief">[0.1667, 0.0205, 0.1105, ..., 0.0543]</td>
         </tr>
 
         <tr>
           <td class="col-center">25</td>
-          <td class="col-center" style="background:#f1c40f;">0.0505</td>
-          <td class="col-center" style="background:#e67e22;">0.9420</td>
-          <td class="col-center" style="background:#e74c3c;">0.8124</td>
-          <td class="col-belief">[0.1602, -0.0251, 0.1081, \ldots, 0.0504]</td>
+          <td class="col-center yellow-30">0.0505</td>
+          <td class="col-center orange-20">0.9420</td>
+          <td class="col-center red-40">0.8124</td>
+          <td class="col-belief">[0.1602, -0.0251, 0.1081, ..., 0.0504]</td>
         </tr>
 
         <tr>
           <td class="col-center">26</td>
-          <td class="col-center" style="background:#27ae60;">0.0398</td>
-          <td class="col-center" style="background:#27ae60;">0.8520</td>
-          <td class="col-center" style="background:#f1c40f;">0.6120</td>
-          <td class="col-belief">[0.1251, 0.0450, 0.0912, \ldots, 0.0418]</td>
+          <td class="col-center green-15">0.0398</td>
+          <td class="col-center green-20">0.8520</td>
+          <td class="col-center yellow-20">0.6120</td>
+          <td class="col-belief">[0.1251, 0.0450, 0.0912, ..., 0.0418]</td>
         </tr>
 
         <tr>
           <td class="col-center">27</td>
-          <td class="col-center" style="background:#f1c40f;">0.0512</td>
-          <td class="col-center" style="background:#e74c3c;">1.0520</td>
-          <td class="col-center" style="background:#e67e22;">0.7222</td>
-          <td class="col-belief">[0.1455, -0.0322, 0.1005, \ldots, 0.0477]</td>
+          <td class="col-center yellow-20">0.0512</td>
+          <td class="col-center red-30">1.0520</td>
+          <td class="col-center orange-30">0.7222</td>
+          <td class="col-belief">[0.1455, -0.0322, 0.1005, ..., 0.0477]</td>
         </tr>
 
         <tr>
           <td class="col-center">28</td>
-          <td class="col-center" style="background:#e67e22;">0.0590</td>
-          <td class="col-center" style="background:#f1c40f;">0.9320</td>
-          <td class="col-center" style="background:#27ae60;">0.5721</td>
-          <td class="col-belief">[0.1577, 0.0285, 0.1078, \ldots, 0.0499]</td>
+          <td class="col-center orange-30">0.0590</td>
+          <td class="col-center yellow-30">0.9320</td>
+          <td class="col-center green-30">0.5721</td>
+          <td class="col-belief">[0.1577, 0.0285, 0.1078, ..., 0.0499]</td>
         </tr>
 
         <tr>
           <td class="col-center">29</td>
-          <td class="col-center" style="background:#e74c3c;">0.0672</td>
-          <td class="col-center" style="background:#e67e22;">1.0123</td>
-          <td class="col-center" style="background:#f1c40f;">0.6322</td>
-          <td class="col-belief">[0.1701, -0.0198, 0.1142, \ldots, 0.0533]</td>
+          <td class="col-center red-30">0.0672</td>
+          <td class="col-center orange-30">1.0123</td>
+          <td class="col-center yellow-20">0.6322</td>
+          <td class="col-belief">[0.1701, -0.0198, 0.1142, ..., 0.0533]</td>
         </tr>
 
         <tr>
           <td class="col-center">30</td>
-          <td class="col-center" style="background:#e67e22;">0.0555</td>
-          <td class="col-center" style="background:#27ae60;">0.8221</td>
-          <td class="col-center" style="background:#e74c3c;">0.7720</td>
-          <td class="col-belief">[0.1620, -0.0242, 0.1101, \ldots, 0.0510]</td>
+          <td class="col-center orange-20">0.0555</td>
+          <td class="col-center green-15">0.8221</td>
+          <td class="col-center red-20">0.7720</td>
+          <td class="col-belief">[0.1620, -0.0242, 0.1101, ..., 0.0510]</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
-    <b>Table 1:</b> An <b>illustrative nDNA example</b> that captures the <em>semantic genome</em> of a foundation model through the joint interplay of <b>spectral curvature</b> (<i>κ<sub>ℓ</sub></i>), <b>thermodynamic length</b> (<i>L<sub>ℓ</sub></i>), and <b>belief vector norm</b> (‖<b>v</b><sub>ℓ</sub><sup>(c)</sup>‖) across layers. Each of these quantities offers a distinct geometric and epistemic lens: <i>κ<sub>ℓ</sub></i> measures the <em>local acceleration</em> of latent representations, <i>L<sub>ℓ</sub></i> quantifies the cumulative <em>internal work</em> required to traverse the belief manifold, while ‖<b>v</b><sub>ℓ</sub><sup>(c)</sup>‖ encodes the <em>magnitude of cultural drift</em> imposed on latent activations. The <em>color intensities</em> shown alongside each value reflect relative magnitude within column-specific ranges: <span style="color: #27ae60;">■</span> low, <span style="color: #f1c40f;">■</span> moderate, <span style="color: #e67e22;">■</span> high, <span style="color: #e74c3c;">■</span> very high. For this example, spectral curvature spans <i>κ<sub>ℓ</sub></i> ∈ [0.0400, 0.0700], thermodynamic length <i>L<sub>ℓ</sub></i> ∈ [0.80, 1.20], and belief vector norm ‖<b>v</b><sub>ℓ</sub><sup>(c)</sup>‖ ∈ [0.55, 0.75]—revealing regions where the <em>latent manifold bends</em>, <em>epistemic energy intensifies</em>, or <em>external priors steer internal cognition</em>. This triad forms what we term the model's <b>nDNA</b>: a compact, high-dimensional <em>semantic fingerprint</em> that encodes the hidden geometry of belief. It enables us to diagnose zones of <em>inheritance stability</em>, detect <em>ideological absorption</em>, and trace <em>latent mutations</em> introduced by fine-tuning, alignment, or architectural choice. The pattern of these quantities across layers constitutes a signature as unique as a biological genome—a map of how artificial cognition evolves, remembers, and adapts.
-  </figcaption>
+<b>Table 1:</b> An <b>illustrative nDNA example</b> that captures the <em>semantic genome</em> of a foundation model through the joint interplay of <b>spectral curvature</b> (\(\kappa_\ell\)), <b>thermodynamic length</b> (\(\mathcal{L}_\ell\)), and <b>belief vector norm</b> (\(\|\mathbf{v}_\ell^{(c)}\|\)) across layers. Each of these quantities offers a distinct geometric and epistemic lens: \(\kappa_\ell\) measures the <em>local acceleration</em> of latent representations, \(\mathcal{L}_\ell\) quantifies the cumulative <em>internal work</em> required to traverse the belief manifold, while \(\|\mathbf{v}_\ell^{(c)}\|\) encodes the <em>magnitude of cultural drift</em> imposed on latent activations. The <em>color intensities</em> shown alongside each value reflect relative magnitude within column-specific ranges: <span style="color: #27ae60;">■</span> low, <span style="color: #f1c40f;">■</span> moderate, <span style="color: #e67e22;">■</span> high, <span style="color: #e74c3c;">■</span> very high. For this example, spectral curvature spans \(\kappa_\ell\) ∈ [0.0400, 0.0700], thermodynamic length \(\mathcal{L}_\ell\) ∈ [0.80, 1.20], and belief vector norm \(\|\mathbf{v}_\ell^{(c)}\|\) ∈ [0.55, 0.75]—revealing regions where the <em>latent manifold bends</em>, <em>epistemic energy intensifies</em>, or <em>external priors steer internal cognition</em>. This triad forms what we term the model's <b>nDNA</b>: a compact, high-dimensional <em>semantic fingerprint</em> that encodes the hidden geometry of belief. It enables us to diagnose zones of <em>inheritance stability</em>, detect <em>ideological absorption</em>, and trace <em>latent mutations</em> introduced by fine-tuning, alignment, or architectural choice. The pattern of these quantities across layers constitutes a signature as unique as a biological genome -- a map of how artificial cognition evolves, remembers, and adapts.
+</figcaption>
+
 </figure>
 
 The pattern of $$\mathbf{\kappa_\ell}$$, $$\mathbf{\mathcal{L}_\ell}$$, and $$\| \mathbf{v}_\ell^{(c)} \|$$ across layers reveals:
