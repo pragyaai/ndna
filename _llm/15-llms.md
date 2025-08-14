@@ -40,94 +40,141 @@ As shown by the below table from the previous module, this latent geometry is no
 </blockquote>
 
 <figure id="tab:ndna_example" style="text-align: center; margin: 2em 0;">
-  <div style="overflow-x:auto; max-width: 100%; display: block; margin: 0 auto;">
-    <table style="border-collapse: collapse; width: 100%; max-width: 1200px; margin: 0 auto; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 14px;">
+  <style>
+    /* sizing and typography */
+    #tab-ndna-table { 
+      border-collapse: collapse; 
+      width: 100%; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+      font-size: 16px; /* body / entries size */
+    }
+    #tab-ndna-table th {
+      font-size: 18px; /* headings slightly larger */
+      font-weight: 700; /* bold headings */
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    #tab-ndna-table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+      vertical-align: middle;
+    }
+    /* center the whole Belief Vector column (heading + entries) */
+    #tab-ndna-table th.col-belief,
+    #tab-ndna-table td.col-belief {
+      text-align: center;
+    }
+    /* make the numeric & math columns centered for consistent look */
+    #tab-ndna-table th.col-center,
+    #tab-ndna-table td.col-center {
+      text-align: center;
+    }
+    /* small responsive container */
+    .table-wrap { overflow-x:auto; max-width:100%; display:block; margin:0 auto; }
+  </style>
+
+  <div class="table-wrap">
+    <table id="tab-ndna-table" role="table" aria-label="nDNA Geometric Signatures Table">
       <thead>
         <tr>
-          <th style="border: 1px solid #ddd; padding: 10px; background:#f8f8f8; text-align:center;">Layer</th>
-          <th style="border: 1px solid #ddd; padding: 10px; background:#f8f8f8; text-align:center;">&#kappa;<sub>&#x2113;</sub></th>
-          <th style="border: 1px solid #ddd; padding: 10px; background:#f8f8f8; text-align:center;">&#x1D4B6;<sub>&#x2113;</sub></th>
-          <th style="border: 1px solid #ddd; padding: 10px; background:#f8f8f8; text-align:center;">&#x2016; <strong>v</strong><sub>&#x2113;</sub><sup>(c)</sup> &#x2016;</th>
-          <th style="border: 1px solid #ddd; padding: 10px; background:#f8f8f8; text-align:left;">Belief Vector <strong>v</strong><sub>&#x2113;</sub><sup>(c)</sup></th>
+          <th class="col-center" scope="col">Layer</th>
+          <th class="col-center" scope="col">$$\kappa_\ell$$</th>
+          <th class="col-center" scope="col">$$\mathcal{L}_\ell$$</th>
+          <th class="col-center" scope="col">$$\|\mathbf{v}_\ell^{(c)}\|$$</th>
+          <th class="col-belief" scope="col">Belief Vector $$\mathbf{v}_\ell^{(c)}$$</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">20</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#dff3e6;">0.0412</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff8d6;">0.9123</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">0.6521</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1204, -0.0502, 0.0896, \ldots, 0.0402]</td>
+          <td class="col-center">20</td>
+          <td class="col-center" style="background:#27ae60;">0.0412</td>
+          <td class="col-center" style="background:#f1c40f;">0.9123</td>
+          <td class="col-center" style="background:#e67e22;">0.6521</td>
+          <td class="col-belief">[0.1204, -0.0502, 0.0896, \ldots, 0.0402]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">21</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#cfeed8;">0.0458</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#eaf6e9;">0.8123</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#f8d6d6;">0.7523</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1301, -0.0351, 0.0950, \ldots, 0.0431]</td>
+          <td class="col-center">21</td>
+          <td class="col-center" style="background:#27ae60;">0.0458</td>
+          <td class="col-center" style="background:#27ae60;">0.8123</td>
+          <td class="col-center" style="background:#e74c3c;">0.7523</td>
+          <td class="col-belief">[0.1301, -0.0351, 0.0950, \ldots, 0.0431]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">22</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff9d8;">0.0523</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">1.0120</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#eaf6e9;">0.5823</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1423, -0.0312, 0.0994, \ldots, 0.0488]</td>
+          <td class="col-center">22</td>
+          <td class="col-center" style="background:#f1c40f;">0.0523</td>
+          <td class="col-center" style="background:#e67e22;">1.0120</td>
+          <td class="col-center" style="background:#27ae60;">0.5823</td>
+          <td class="col-belief">[0.1423, -0.0312, 0.0994, \ldots, 0.0488]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">23</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">0.0581</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff8d6;">0.9021</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff8d6;">0.6912</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1534, 0.0270, 0.1042, \ldots, 0.0512]</td>
+          <td class="col-center">23</td>
+          <td class="col-center" style="background:#e67e22;">0.0581</td>
+          <td class="col-center" style="background:#f1c40f;">0.9021</td>
+          <td class="col-center" style="background:#f1c40f;">0.6912</td>
+          <td class="col-belief">[0.1534, 0.0270, 0.1042, \ldots, 0.0512]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">24</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffdede;">0.0639</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffd6d6;">1.1023</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#eaf6e9;">0.5520</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1667, 0.0205, 0.1105, \ldots, 0.0543]</td>
+          <td class="col-center">24</td>
+          <td class="col-center" style="background:#e74c3c;">0.0639</td>
+          <td class="col-center" style="background:#e74c3c;">1.1023</td>
+          <td class="col-center" style="background:#27ae60;">0.5520</td>
+          <td class="col-belief">[0.1667, 0.0205, 0.1105, \ldots, 0.0543]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">25</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff8d6;">0.0505</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">0.9420</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffd6d6;">0.8124</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1602, -0.0251, 0.1081, \ldots, 0.0504]</td>
+          <td class="col-center">25</td>
+          <td class="col-center" style="background:#f1c40f;">0.0505</td>
+          <td class="col-center" style="background:#e67e22;">0.9420</td>
+          <td class="col-center" style="background:#e74c3c;">0.8124</td>
+          <td class="col-belief">[0.1602, -0.0251, 0.1081, \ldots, 0.0504]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">26</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#eaf6e9;">0.0398</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#eaf6e9;">0.8520</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff8d6;">0.6120</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1251, 0.0450, 0.0912, \ldots, 0.0418]</td>
+          <td class="col-center">26</td>
+          <td class="col-center" style="background:#27ae60;">0.0398</td>
+          <td class="col-center" style="background:#27ae60;">0.8520</td>
+          <td class="col-center" style="background:#f1c40f;">0.6120</td>
+          <td class="col-belief">[0.1251, 0.0450, 0.0912, \ldots, 0.0418]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">27</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff9d8;">0.0512</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffd6d6;">1.0520</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">0.7222</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1455, -0.0322, 0.1005, \ldots, 0.0477]</td>
+          <td class="col-center">27</td>
+          <td class="col-center" style="background:#f1c40f;">0.0512</td>
+          <td class="col-center" style="background:#e74c3c;">1.0520</td>
+          <td class="col-center" style="background:#e67e22;">0.7222</td>
+          <td class="col-belief">[0.1455, -0.0322, 0.1005, \ldots, 0.0477]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">28</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">0.0590</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff8d6;">0.9320</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#cfeed8;">0.5721</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1577, 0.0285, 0.1078, \ldots, 0.0499]</td>
+          <td class="col-center">28</td>
+          <td class="col-center" style="background:#e67e22;">0.0590</td>
+          <td class="col-center" style="background:#f1c40f;">0.9320</td>
+          <td class="col-center" style="background:#27ae60;">0.5721</td>
+          <td class="col-belief">[0.1577, 0.0285, 0.1078, \ldots, 0.0499]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">29</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffdede;">0.0672</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">1.0123</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#fff8d6;">0.6322</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1701, -0.0198, 0.1142, \ldots, 0.0533]</td>
+          <td class="col-center">29</td>
+          <td class="col-center" style="background:#e74c3c;">0.0672</td>
+          <td class="col-center" style="background:#e67e22;">1.0123</td>
+          <td class="col-center" style="background:#f1c40f;">0.6322</td>
+          <td class="col-belief">[0.1701, -0.0198, 0.1142, \ldots, 0.0533]</td>
         </tr>
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center;">30</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffe7cf;">0.0555</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#eaf6e9;">0.8221</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:center; background:#ffdede;">0.7720</td>
-          <td style="border: 1px solid #ddd; padding: 10px; text-align:left;">[0.1620, -0.0242, 0.1101, \ldots, 0.0510]</td>
+          <td class="col-center">30</td>
+          <td class="col-center" style="background:#e67e22;">0.0555</td>
+          <td class="col-center" style="background:#27ae60;">0.8221</td>
+          <td class="col-center" style="background:#e74c3c;">0.7720</td>
+          <td class="col-belief">[0.1620, -0.0242, 0.1101, \ldots, 0.0510]</td>
         </tr>
       </tbody>
     </table>
