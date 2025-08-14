@@ -489,7 +489,7 @@ The **Epistemic Plasticity Index (nEPI)** establishes a foundational framework w
   </figcaption>
 </figure>
 
-This framework draws analogy with biological **neural plasticity** and **epigenetic modulation** mechanisms regulating context-dependent gene expression ({% cite day2010epigenetic %};{% cite Experience-dependent st %}). The hybrid offspring models manifest **heterosis**-like effects through semantic recombination {% cite birchler2006heterosis %}, demonstrating emergent conceptual flexibility surpassing parental priors. These insights
+This framework draws analogy with biological **neural plasticity** and **epigenetic modulation** mechanisms regulating context-dependent gene expression ({% cite day2010epigenetic %};{% cite Holtmaat2009 %}). The hybrid offspring models manifest **heterosis**-like effects through semantic recombination {% cite birchler2006heterosis %}, demonstrating emergent conceptual flexibility surpassing parental priors. These insights
 underscore the critical role of geometric and thermodynamic principles in understanding semantic evolution, crosscultural knowledge fusion, and alignment robustness in large-scale neural models.
 
 ---

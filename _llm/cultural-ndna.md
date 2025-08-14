@@ -333,7 +333,7 @@ nDNA is a **semantic fingerprint**, enabling *latent audits* of ideological abso
 ### Cultural nDNA as a Tool for Inclusive AI
 
 This geometric fingerprinting illuminates the **WEIRD bias** (Western, Educated, Industrialized, Rich, Democratic) in foundation model pretraining ([<a href="#ref13">13</a>][<a href="#ref19">19</a>]) , and its mitigation via cultural fine-tuning ([<a href="#ref14">14</a>][<a href="#ref6">6</a>]). Western models cluster near *pretraining attractors*; non-Western models incur latent cost to encode distinct priors, supporting concerns of representational inequality [<a href="#ref21">21</a>][<a href="#ref20">20</a>].
-{{ ... }}
+
 ### From Vector Algebra to Latent Geometry
 
 Where *vector arithmetic* revealed word-level embedding regularities, **nDNA geometry** charts *ideological inheritance* across high-dimensional latent manifolds. This leap enables: i) *principled comparison of culturally fine-tuned models*, ii) *diagnosis of latent strain and mutation zones*, iii) *development of culturally calibrated, equitable foundation models* [<a href="#ref15">  15</a>][<a href="#ref18">18</a>][<a href="#ref3">3</a>]. *Cultural nDNA thus transcends surface output metrics—offering a mathematical, interpretable, and actionable map of neural ancestry and epistemic adaptation in modern AI.*

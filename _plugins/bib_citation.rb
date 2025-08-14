@@ -1,21 +1,34 @@
 module Jekyll
   module BibParser
     def self.load_bibliography(site)
-      bib_file = File.join(site.source, 'references.bib')
+      bib_dir = File.join(site.source, '_bibliography')
       site.data['bibliography'] = {}
       
-      if File.exist?(bib_file)
-        begin
-          content = File.read(bib_file)
-          entries = parse_bibtex(content)
-          entries.each do |key, entry|
-            site.data['bibliography'][key] = entry
+      if Dir.exist?(bib_dir)
+        bib_files = Dir.glob(File.join(bib_dir, '*.bib'))
+        
+        if bib_files.empty?
+          Jekyll.logger.warn "BibTeX Warning:", "No .bib files found in #{bib_dir}"
+          return
+        end
+        
+        bib_files.each do |bib_file|
+          begin
+            Jekyll.logger.info "BibTeX Info:", "Loading bibliography from #{File.basename(bib_file)}"
+            content = File.read(bib_file)
+            entries = parse_bibtex(content)
+            entries.each do |key, entry|
+              # if site.data['bibliography'][key]
+              #   Jekyll.logger.warn "BibTeX Warning:", "Duplicate citation key '#{key}' found in #{File.basename(bib_file)}, overwriting previous entry"
+              # end
+              site.data['bibliography'][key] = entry
+            end
+          rescue => e
+            Jekyll.logger.error "BibTeX Error:", "Could not parse #{bib_file}: #{e.message}"
           end
-        rescue => e
-          Jekyll.logger.error "BibTeX Error:", "Could not parse #{bib_file}: #{e.message}"
         end
       else
-        Jekyll.logger.warn "BibTeX Warning:", "Bibliography file not found: #{bib_file}"
+        Jekyll.logger.warn "BibTeX Warning:", "Bibliography directory not found: #{bib_dir}"
       end
     end
 
@@ -182,7 +195,7 @@ module Jekyll
   class BibCitationTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
-      @citation_key = text.strip
+      @citation_keys = text.strip.split(/\s+/).reject(&:empty?)
     end
 
     def render(context)
@@ -193,20 +206,24 @@ module Jekyll
         BibParser.load_bibliography(site)
       end
 
-      entry = site.data['bibliography'][@citation_key]
-      # return "[#{@citation_key}]" unless entry
+      citations = []
+      @citation_keys.each do |citation_key|
+        entry = site.data['bibliography'][citation_key]
+        
+        # If citation not found, log warning and skip it
+        unless entry
+          Jekyll.logger.warn "Citation Warning:", "Citation key '#{citation_key}' not found in bibliography"
+          next
+        end
 
-      # If citation not found, log warning and return empty string to skip it
-      unless entry
-        Jekyll.logger.warn "Citation Warning:", "Citation key '#{@citation_key}' not found in bibliography"
-        return ""
+        # Add to citation tracker and get number
+        citation_number = CitationTracker.add_citation(citation_key)
+        citations << "<a href=\"#ref#{citation_number}\">#{citation_number}</a>"
       end
-
-      # Add to citation tracker and get number
-      citation_number = CitationTracker.add_citation(@citation_key)
       
-      # Return formatted link
-      "<a href=\"#ref#{citation_number}\">[#{citation_number}]</a>"
+      # Return formatted citations in brackets
+      return "" if citations.empty?
+      "[#{citations.join(', ')}]"
     end
   end
 

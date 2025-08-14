@@ -136,7 +136,7 @@ Unlike simple pointwise or mean embedding distances, nGDI captures the global ge
 
 Layerwise $\text{nGDI}_\ell$ profiles reveal semantic evolution trajectories across model depth, often highlighting early layers with low drift–where foundational linguistic and syntactic priors are stable–contrasted with intermediate and deeper layers exhibiting pronounced semantic drift due to cultural and conceptual specialization. This aligns with the hierarchical organization of semantic abstraction in transformer architectures {% cite tenney2019bert %}.
 
-The Maximum Mean Discrepancy (MMD) component assesses divergence in distributional shape by embedding semantic populations in a reproducing kernel Hilbert space (RKHS), thereby detecting subtle differences in higher-order statistics beyond mean shifts {% cite gretton2012kernel}. Simultaneously, the Fisher-Rao distance incorporates the local curvature and information content of embedding distributions, furnishing a Riemannian metric sensitive to manifold geometry ({% cite amari1998natural %;% cite peyre2019computational %}).
+The Maximum Mean Discrepancy (MMD) component assesses divergence in distributional shape by embedding semantic populations in a reproducing kernel Hilbert space (RKHS), thereby detecting subtle differences in higher-order statistics beyond mean shifts {% cite gretton2012kernel %}. Simultaneously, the Fisher-Rao distance incorporates the local curvature and information content of embedding distributions, furnishing a Riemannian metric sensitive to manifold geometry ({% cite amari1998natural %} {% cite peyre2019computational %}).
 
 Practically, these insights empower targeted domain adaptation and transfer learning, as layers with high $\text{nGDI}_\ell$ warrant focused fine-tuning to mitigate semantic drift and enhance cultural robustness. Moreover, monitoring nGDI across training epochs or fine-tuning steps can serve as a diagnostic for model convergence and stability in evolving cultural contexts.
 
@@ -206,7 +206,7 @@ Layerwise visualization of $$\text{nGDI}_\ell$$ for $$\ell = 1, \ldots, L$$ reve
 
 The distributional nature of nGDI highlights that drift is not simply a mean shift but involves complex population-level reshaping of embeddings, reflecting changes in semantic variability, multimodality, and latent clustering. Such nuanced characterization surpasses simplistic distance measures and enables detection of latent semantic fragmentation or fusion effects.
 
-Furthermore, the Fisher-Rao component uncovers information-theoretic curvature changes induced by cultural fine-tuning, exposing layers where semantic representations become less smooth or more entropic–phenomena analogous to evolutionary branching or adaptive radiation in biological populations ({% cite amari1998natural %;% cite peyre2019computational %}).
+Furthermore, the Fisher-Rao component uncovers information-theoretic curvature changes induced by cultural fine-tuning, exposing layers where semantic representations become less smooth or more entropic–phenomena analogous to evolutionary branching or adaptive radiation in biological populations ({% cite amari1998natural %} {% cite peyre2019computational %}).
 
 ### Implications for Model Fine-tuning and Cultural Integration
 
