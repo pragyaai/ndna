@@ -5,27 +5,40 @@ permalink: /llm/FAQ/
 skip_title: true
 ---
 {% include ndna-title.liquid title="nDNA - Frequently Asked Questions (FAQs)" %}
-
-<h1 style="line-height: 1.2; white-space: nowrap; text-align: left; margin: 0;">
+<h1 style="line-height: 1.2; white-space: nowrap; text-align: left; margin: 0; font-size: 2em; font-weight: bold;">
 nDNA Cartograph: Latent Semantic Genome of Foundation Models
 </h1>
 
-## What is the mathematical foundation behind the idea of an nDNA Cartograph, and why should we think of latent spaces as *semantic genomes*?
+## ★ **What is the mathematical foundation behind the idea of an nDNA Cartograph, and why should we think of latent spaces as *semantic genomes*?**
 
 At the heart of the **nDNA Cartograph** lies the idea that the latent representations inside a foundation model form a continuous, evolving geometric structure—a manifold that encodes not just surface-level semantics but deeper *epistemic traits* analogous to a genome's information content.
 
-Formally, let $h_\ell(x) \in \mathbb{R}^D$ be the mean hidden representation at layer $\ell$ for input $x$. The sequence
-$$\mathcal{T}(x) = \{ h_1(x), h_2(x), \dots, h_L(x) \}$$
-defines a trajectory on a latent manifold $\mathcal{M} \subset \mathbb{R}^D$. We characterize this manifold using:
-$$\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2$$
-which measures the *thermodynamic length*, representing the total epistemic displacement along the model's depth;
-$$\kappa_\ell(x) = \frac{\lambda_2^{(\ell)}}{\lambda_{\max}^{(\ell)}}$$
-where $\lambda_2^{(\ell)}$ and $\lambda_{\max}^{(\ell)}$ are eigenvalues of the Laplacian from token similarity graphs at layer $\ell$, giving us a spectral curvature that quantifies local semantic complexity; and
-$$\tau_\ell(x) = \frac{\langle (\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)), \Delta h_{\ell+1}(x) \rangle}{\|\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)\|^2}$$
+Formally, let $h_\ell(x) \in \mathbb{R}^D$ be the mean hidden representation at layer $\ell$ for input $x$. The sequence  
+$$
+\mathcal{T}(x) = \{ h_1(x), h_2(x), \dots, h_L(x) \}
+$$  
+defines a trajectory on a latent manifold $\mathcal{M} \subset \mathbb{R}^D$. We characterize this manifold using:  
+
+$$
+\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2
+$$  
+which measures the *thermodynamic length*, representing the total epistemic displacement along the model's depth;  
+
+$$
+\kappa_\ell(x) = \frac{\lambda_2^{(\ell)}}{\lambda_{\max}^{(\ell)}}
+$$  
+where $\lambda_2^{(\ell)}$ and $\lambda_{\max}^{(\ell)}$ are eigenvalues of the Laplacian from token similarity graphs at layer $\ell$, giving us a spectral curvature that quantifies local semantic complexity; and  
+
+$$
+\tau_\ell(x) = \frac{\langle (\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)), \Delta h_{\ell+1}(x) \rangle}{\|\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)\|^2}
+$$  
 which captures torsion—the *twist* of the latent path, indicating out-of-plane semantic shifts.
 
-To complement these geometric measures, we introduce the *belief vector field*:
-$$\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell(x)} \log P(c \mid h_\ell(x))$$
+To complement these geometric measures, we introduce the *belief vector field*:  
+
+$$
+\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell(x)} \log P(c \mid h_\ell(x))
+$$  
 where $P(c \mid h_\ell(x))$ is the model's conditional probability of concept $c$ given the latent state. The belief vector encodes the semantic steering force exerted at layer $\ell$—revealing how the model's internal states are dynamically aligned (or misaligned) with target concepts across depth {% cite perez2022discovering amari2016information %}.
 
 This framing allows us to map how meaning is constructed, recombined, or distorted across the model's depth—a latent *semantic genome* that evolves with training, fine-tuning, or merging. Unlike surface-level output metrics, this map shows us the **inner life** of the model, enabling rigorous audits of alignment {% cite perez2022discovering %}, bias inheritance {% cite arora2023stereoset %}, and conceptual recombination {% cite ilharco2023editing %}.
