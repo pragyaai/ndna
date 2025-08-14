@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T05:41:27+00:00" />
+<meta property="article:published_time" content="2025-08-14T05:58:52+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T05:41:27+00:00","datePublished":"2025-08-14T05:41:27+00:00","description":"Lens - Neural Hamming Distance(nHD)","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T05:58:52+00:00","datePublished":"2025-08-14T05:58:52+00:00","description":"Lens - Neural Hamming Distance(nHD)","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -210,14 +210,24 @@ B_\ell^{(k)} = \mathbf{1}\left(H_\ell^{(k)} &gt; \tau\right), \quad B_\ell^{(k)}
 <p>which serves as an interpretable neural genotype divergence score.</p>
 
 <figure style="text-align: center; margin: 1.5em 0;">
-  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nhd_classical_vs_neural.png" alt="Illustrating Classical vs Neural Hamming Distance (nHD):" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/nhd_classical_vs_neural.png';" />
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nhd_classical_vs_neural.png" alt="Illustrating Classical vs Neural Hamming Distance (nHD)" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/nhd_classical_vs_neural.png';" />
   <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
     
-     
-<p><strong>Extending classical Hamming Distance to neural manifolds.</strong><br />
-<strong>Left:</strong> The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).
-<strong>Right:</strong> The <strong>Neural Hamming Distance (nHD)</strong> applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer $\ell$ is marked if \(\|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| &gt; \delta\) and  \(\|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| &gt; \delta\), indicating deviation from both parents.<br />
-nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving as an interpretable <em>neural genotype divergence score</em>.</p>
+     <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Extending classical Hamming Distance to neural manifolds:</strong>  
+  <strong>Left:</strong> The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).  
+  <strong>Right:</strong> The <strong>Neural Hamming Distance (nHD)</strong> applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer 
+  <span class="mathjax-render">$ \ell $</span> is marked if  
+
+  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px; text-align: left;">
+    <span class="mathjax-render">
+      $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^{1}\| &gt; \delta \quad \text{and} \quad \|\mathbf{o}_\ell - \mathbf{p}_\ell^{2}\| &gt; \delta$$
+    </span>
+  </div>  
+
+  indicating deviation from both parents.  
+  <span class="mathjax-render">$ \text{nHD} $</span> equals the count of such layers (e.g., Layers 21, 22, and 30 here), serving as an interpretable <em>neural genotype divergence score</em>.
+</div>
 
   </figcaption>
   
@@ -227,14 +237,27 @@ nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving 
   <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/ngdi_layerwise_fusion.png" alt="Neural Genetic Dissimilarity in Layer-wise Fusion" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/ngdi_layerwise_fusion.png';" />
   <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
     
-     
-<p><strong>Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion.</strong><br />
-Each row denotes a transformer layer \(\ell = 20\text{--}30\), columns represent latent dimensions in the ÆTHER alignment space.<br />
-<strong>Blue</strong> features are inherited from Parent 1, <strong>yellow</strong> from Parent 2, and <strong>red</strong> mark divergences from both.<br />
-These form the basis of the <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>:<br />
-\(\text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)\)<br />
-where  $d(o, p_i) $ is offspring–parent distance and $\cos(p_1, p_2)$ measures inter-parental alignment.<br />
-Higher nGDI signals greater semantic drift and asymmetric inheritance.</p>
+     <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion:</strong>  
+  Each row denotes a transformer layer 
+  <span class="mathjax-render">$ \ell = 20\text{--}30 $</span>, columns represent latent dimensions in the ÆTHER alignment space.  
+
+  <span style="color: blue; font-weight: bold;">Blue</span> features are inherited from Parent&nbsp;1,  
+  <span style="color: goldenrod; font-weight: bold;">Yellow</span> from Parent&nbsp;2, and  
+  <span style="color: red; font-weight: bold;">Red</span> mark divergences from both.  
+
+  These form the basis of the <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>:  
+
+  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px;">
+    <span class="mathjax-render">
+      $$\text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)$$
+    </span>
+  </div>  
+
+  where <span class="mathjax-render">$ d(o, p_i) $</span> is the offspring–parent distance and  
+  <span class="mathjax-render">$ \cos(p_1, p_2) $</span> measures inter-parental alignment.  
+  Higher <span class="mathjax-render">$ \text{nGDI} $</span> signals greater semantic drift and asymmetric inheritance.
+</div>
 
   </figcaption>
   
