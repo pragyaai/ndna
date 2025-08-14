@@ -44,11 +44,10 @@ The kernel mean embeddings of the distributions are defined as:
 $$\boxed{\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\right], \quad \mu_\ell^{(B)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(B)}(x), \cdot)\right] \in \mathcal{H}}$$
 
 
-{% include visualization.liquid 
-   image_path="gifs/neural_genomics/nei-genetic-distance-heatmap.png"
-   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
-  <strong>Figure: Nei&apos;s Genetic Distance Heatmap Among Worldwide Human Populations:</strong>  
-  This matrix visualizes pairwise <em>Nei&apos;s genetic distances</em> — a classical metric quantifying the <em>genetic divergence</em> between populations based on allele frequencies across 289,160 SNPs {% cite nei1972genetic %}.  
+{% capture figure_caption %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Nei's Genetic Distance Heatmap Among Worldwide Human Populations:</strong>  
+  This matrix visualizes pairwise <em>Nei's genetic distances</em> — a classical metric quantifying the <em>genetic divergence</em> between populations based on allele frequencies across 289,160 SNPs {% cite nei1972genetic %}.  
 
   Color-coded from blue (low distance, high similarity) to red (high distance, low similarity), the heatmap reveals clear population clusters reflecting shared ancestry, geographic proximity, and historical gene flow.  
 
@@ -64,19 +63,23 @@ $$\boxed{\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\
   This measure captures evolutionary divergence under assumptions of genetic drift and mutation.  
 
   <strong>Connection to Neural Trait Dominance Score (nTDS):</strong>  
-  Analogous to Nei&apos;s metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora. Both metrics embody distance and dominance concepts but in different domains — genomic alleles versus latent semantic embeddings.  
+  Analogous to Nei's metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora. Both metrics embody distance and dominance concepts but in different domains — genomic alleles versus latent semantic embeddings.  
 
-  Formally, nTDS&apos;s trait dominance coefficient <span class="mathjax-render">$\delta_\ell^{(A,B)}$</span> measures the relative influence of parental semantic features on offspring at layer <span class="mathjax-render">$\ell$</span>, analogous to how Nei&apos;s distance measures population divergence in allele frequency space.  
+  Formally, nTDS's trait dominance coefficient <span class="mathjax-render">$\delta_\ell^{(A,B)}$</span> measures the relative influence of parental semantic features on offspring at layer <span class="mathjax-render">$\ell$</span>, analogous to how Nei's distance measures population divergence in allele frequency space.  
 
   This parallel illustrates how nTDS captures the nuanced inheritance and dominance of cultural semantic alleles across model layers, reflecting evolutionary-like dynamics of knowledge transfer, cultural imprinting, and semantic adaptation.  
 
   <strong>Implications:</strong> Understanding these distances and dominance patterns enables precision alignment of multilingual and multicultural models, ensuring that inherited semantic traits reflect desired cultural fidelity while avoiding semantic erosion or bias amplification.  
 
   By integrating geometric, probabilistic, and evolutionary insights, nTDS paves the way for responsible, interpretable, and culturally aware AI.  
-  See Nei&apos;s Genetic Distance on Wikipedia for foundational background.
-</div>'
-   alt_text="Nei's Genetic Distance Heatmap Among Worldwide Human Populations" %}
+  See Nei's Genetic Distance on Wikipedia for foundational background.
+</div>
+{% endcapture %}
 
+{% include visualization.liquid 
+   image_path="gifs/neural_genomics/nei-genetic-distance-heatmap.png"
+   caption=figure_caption
+   alt_text="Nei's Genetic Distance Heatmap Among Worldwide Human Populations" %}
 
 
 The Maximum Mean Discrepancy (MMD) {% cite gretton2012kernel %} between these distributions is the RKHS norm:

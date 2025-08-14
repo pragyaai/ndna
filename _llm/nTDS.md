@@ -17,9 +17,8 @@ While nHD and nGDI effectively quantify overall semantic divergence and global r
 
 ## Genome-wide Quantitative Trait Loci (QTL) Mapping
 
-{% include visualization.liquid 
-   image_path="gifs/neural_genomics/nTDS/nTDS_QTL_Mapping.png"
-   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+{% capture figure_caption %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: Genome-wide Quantitative Trait Loci (QTL) Mapping:</strong>  
   This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation.  
 
@@ -34,11 +33,17 @@ While nHD and nGDI effectively quantify overall semantic divergence and global r
   Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.  
 
   <strong>Connection to Neural Trait Dominance Score (nTDS):</strong>  
-  Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the <strong>nTDS</strong> quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer <span class="mathjax-render">$\ell$</span> functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring&apos;s internal representation.  
+  Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the <strong>nTDS</strong> quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer <span class="mathjax-render">$\ell$</span> functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring's internal representation.  
 
-  <strong>Implications:</strong> This biological metaphor underscores that <strong>semantic inheritance in neural models is layer-specific and trait-dependent</strong>, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates:<strong>Targeted alignment tuning</strong>, <strong>Improved interpretability</strong>,<strong>Balanced semantic integration</strong>, <strong>Mitigation of bias propagation</strong> in multicultural AI systems.
-</div>'
+  <strong>Implications:</strong> This biological metaphor underscores that <strong>semantic inheritance in neural models is layer-specific and trait-dependent</strong>, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates: <strong>Targeted alignment tuning</strong>, <strong>Improved interpretability</strong>, <strong>Balanced semantic integration</strong>, <strong>Mitigation of bias propagation</strong> in multicultural AI systems.
+</div>
+{% endcapture %}
+
+{% include visualization.liquid 
+   image_path="gifs/neural_genomics/nTDS/nTDS_QTL_Mapping.png"
+   caption=figure_caption
    alt_text="Genome-wide Quantitative Trait Loci (QTL) Mapping" %}
+
 
 
 Biologically, nTDS draws inspiration from *quantitative trait loci (QTL) mapping* and *allelic dominance in genetics {% cite griffiths2015introduction %}*, where individual traits can be dominantly inherited from one parent over

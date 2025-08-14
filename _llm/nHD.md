@@ -49,9 +49,8 @@ This captures point mutations, essential for studying genetic drift, recombinati
 Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\mathcal{H}^n = \\{0, 1\\}^n \\), where each vertex represents a binary sequence and each edge represents a single-bit mutation.
 
 
-{% include visualization.liquid 
-   image_path="gifs/neural_genomics/nhd_graphical_genotyping.png"
-   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+{% capture figure_caption %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: Graphical genotyping maps recombination patterns in RIL55 and RIL12:</strong>  
   <strong>Green and red segments</strong> denote alleles from drought-resistant wild emmer accession G18-16 and drought-susceptible durum wheat accession Langdon, respectively, while  
   <strong>magenta regions</strong> indicate heterozygous loci.  
@@ -62,7 +61,12 @@ Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\ma
   the proposed <strong>Neural Hamming Distance (nHD)</strong> extends this principle to neural networks by binarizing layer-wise weights or activations.  
 
   This enables fine-grained, interpretable monitoring of semantic divergence in model behavior — bridging genotype variation analysis with neural representation shifts.
-</div>'
+</div>
+{% endcapture %}
+
+{% include visualization.liquid 
+   image_path="gifs/neural_genomics/nhd_graphical_genotyping.png"
+   caption=figure_caption
    alt_text="Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12)" %}
 
 
@@ -106,9 +110,8 @@ $$
 which serves as an interpretable neural genotype divergence score.
 
 
-{% include visualization.liquid 
-   image_path="gifs/neural_genomics/nhd_classical_vs_neural.png"
-   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+{% capture figure_caption %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: Extending classical Hamming Distance to neural manifolds:</strong>  
   <strong>Left:</strong> The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).  
   <strong>Right:</strong> The <strong>Neural Hamming Distance (nHD)</strong> applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer 
@@ -118,13 +121,18 @@ which serves as an interpretable neural genotype divergence score.
   </span>  
   indicating deviation from both parents.  
   <span class="mathjax-render">$ \text{nHD} $</span> equals the count of such layers (e.g., Layers 21, 22, and 30 here), serving as an interpretable <em>neural genotype divergence score</em>.
-</div>'
+</div>
+{% endcapture %}
+
+{% include visualization.liquid 
+   image_path="gifs/neural_genomics/nhd_classical_vs_neural.png"
+   caption=figure_caption
    alt_text="Illustrating Classical vs Neural Hamming Distance (nHD)" %}
 
 
-{% include visualization.liquid 
-   image_path="gifs/neural_genomics/ngdi_layerwise_fusion.png"
-   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+
+{% capture figure_caption %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion:</strong>  
   Each row denotes a transformer layer 
   <span class="mathjax-render">$ \ell = 20\text{--}30 $</span>, columns represent latent dimensions in the ÆTHER alignment space.  
@@ -146,8 +154,14 @@ which serves as an interpretable neural genotype divergence score.
   where <span class="mathjax-render">$ d(o, p_i) $</span> is the offspring–parent distance and  
   <span class="mathjax-render">$ \cos(p_1, p_2) $</span> measures inter-parental alignment.  
   Higher <span class="mathjax-render">$ \text{nGDI} $</span> signals greater semantic drift and asymmetric inheritance.
-</div>'
+</div>
+{% endcapture %}
+
+{% include visualization.liquid 
+   image_path="gifs/neural_genomics/ngdi_layerwise_fusion.png"
+   caption=figure_caption
    alt_text="Neural Genetic Dissimilarity in Layer-wise Fusion" %}
+
 
 
 Within the broader Neural DNA (nDNA) framework, nHD acts as a discrete mutation signature metric complementing continuous geometric measures such as spectral curvature (nGDI) and latent radius (nTDS).

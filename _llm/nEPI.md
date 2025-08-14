@@ -13,19 +13,24 @@ The **Epistemic Plasticity Index (nEPI)** emerges as a foundational metric that 
 
 Drawing inspiration from the biological principle of *neuroplasticity*--the brain's remarkable ability to rewire and reorganize neural pathways through experience and learning({% cite buonomano2009neuronal %};{% cite kolb2011brain %})--**nEPI** serves as an abstract analogue, capturing the pliability of artificial neural networks to internalize novel knowledge while negotiating the inertia of prior semantic structures. This analogy extends deeply to mechanisms of *synaptic remodeling* and *cortical map plasticity*{% cite feldman2009synaptic %}, where adaptive rewiring enables flexibility, memory consolidation, and context-sensitive cognition.
 
-{% include visualization.liquid 
-   image_path="gifs/neural_genomics/nEPI/nEPI_intro.png"
-   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+{% capture figure_caption %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: Synaptic Plasticity Rule for Gradient Estimation and Neural Epistemic Plasticity (nEPI)</strong>  
   In neuroscience, <em>synaptic plasticity</em> describes the ability of <strong>synapses</strong>—the neural connections—to strengthen or weaken over time depending on activity levels{% cite hebb1949organization %}. This plasticity underlies <em>learning and memory formation</em> by modulating synaptic weights \( w \) via activity-dependent mechanisms such as <em>long-term potentiation (LTP)</em> and <em>depression (LTD){% cite bliss1993synaptic %}</em>. 
-  
+
   Mechanistically, synaptic strength adjustments involve changes in <em>neurotransmitter receptor density</em> and postsynaptic calcium ion \( \mathrm{Ca}^{2+} \) signaling cascades({% cite malenka2004synaptic %};{% cite neves2008synaptic %}), where conductance perturbations \( \delta g \) enable gradient-based learning. 
-  
+
   The <strong>Epistemic Plasticity Index (nEPI)</strong> analogously quantifies the magnitude of semantic restructuring in large-scale foundation models during <em>alignment</em> or <em>instruction tuning</em>, capturing how internal latent representations \( h_\ell(\theta) \) evolve with parameter updates \( \theta \to \theta^{\prime} \). Just as synaptic plasticity rewires neural pathways dynamically through plasticity rules \( \Delta w \propto \delta g \), <strong>nEPI</strong> measures model plasticity as normalized latent shifts \(\| h_\ell(\theta^{\prime}) - h_\ell(\theta) \| / \| h_\ell(\theta) \|\) over a representative input distribution.
-  
-  Intuitively, synapses act as <em>adaptive gain controls</em> modulating signal flow based on feedback, and <strong>nEPI</strong> captures the <em>semantic gain adaptation</em> across layers and dimensions. This biological metaphor highlights <strong>nEPI</strong>\'s role in diagnosing and guiding model adaptability, ensuring <em>robust</em>, <em>interpretable</em>, and <em>safe</em> semantic evolution in artificial neural systems. See Wiki <a href="https://en.wikipedia.org/wiki/Synaptic_plasticity" target="_blank">https://en.wikipedia.org/wiki/Synaptic_plasticity</a>.
-</div>'
+
+  Intuitively, synapses act as <em>adaptive gain controls</em> modulating signal flow based on feedback, and <strong>nEPI</strong> captures the <em>semantic gain adaptation</em> across layers and dimensions. This biological metaphor highlights <strong>nEPI</strong>'s role in diagnosing and guiding model adaptability, ensuring <em>robust</em>, <em>interpretable</em>, and <em>safe</em> semantic evolution in artificial neural systems. See Wiki <a href="https://en.wikipedia.org/wiki/Synaptic_plasticity" target="_blank">https://en.wikipedia.org/wiki/Synaptic_plasticity</a>.
+</div>
+{% endcapture %}
+
+{% include visualization.liquid 
+   image_path="gifs/neural_genomics/nEPI/nEPI_intro.png"
+   caption=figure_caption
    alt_text="Synaptic Plasticity and Neural Epistemic Plasticity (nEPI)" %}
+
 
 
 In artificial neural networks, semantic adaptability manifests as the geometric reconfiguration of *high-dimensional latent manifolds* encoding the model's beliefs, concepts, and cultural priors. The **nEPI** thus operationalizes a quantitative measure of *epistemic flexibility*--illuminating how effectively a model can incorporate new semantic cues without compromising its foundational coherence. This capacity is not merely about acquiring new facts but about modulating deep internal representations that govern downstream reasoning, alignment robustness, and ethical consistency.
