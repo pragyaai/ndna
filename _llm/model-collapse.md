@@ -70,17 +70,18 @@ As illustrated below, we observe progressive *curvature flattening*, *thermodyna
   <h3 style="text-align:center; margin-bottom: 1rem;">
     nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening
   </h3>
-
-  <!-- Row 1: GIF -->
-  <figure style="text-align: center; margin: 1.25rem auto; max-width: 900px;">
-    <img 
-      src="alignment/llama_collapse_v2_1.gif" 
-      alt="nDNA trajectories GIF showing latent manifold flattening across generations" 
-      style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,.08);" 
-      loading="lazy"
-    />
-    <figcaption style="font-size: 0.95rem; color: #555; margin-top: .75rem;">
-      This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures—spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>—are tracked across layers ℓ=20 to ℓ=30. As
+<!-- Row 1: GIF -->
+<figure style="text-align: center; margin: 1.25rem auto; max-width: 900px;">
+  <img 
+    src="alignment/llama_collapse_v2_1.gif" 
+    alt="nDNA trajectories GIF showing latent manifold flattening across generations" 
+    style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,.08);" 
+    loading="lazy"
+  />
+  <figcaption style="font-size: 0.95rem; color: #555; margin-top: .75rem;">
+    This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures—spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>—are tracked across layers ℓ=20 to ℓ=30. As generations progress, the trajectories show systematic flattening of the latent manifold, indicating progressive loss of representational complexity and emergence of model collapse patterns.
+  </figcaption>
+</figure>
 
 
 ## Recursive Self-Merging of Culturally Fine-Tuned Models
@@ -101,57 +102,73 @@ Throughout recursive merging cycles, we monitor the evolving <strong>neural DNA 
 These findings suggest that *cultural inbreeding via recursive self-merging*--where architectural priors are repeatedly recombined without new information--can be as deleterious to model health as overfitting to synthetic data. This unveils an underexplored axis of collapse: **epistemic degeneration via latent redundancy**, with implications for model curation and reuse in open-source training communities.
 
 ### Cultural Collapse Trajectories
-
-<div style="display: grid; grid-template-columns: 1fr; gap: 48px; margin: 30px 0;">
-
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 30px 0;">
   <!-- Africa -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">Africa</div>
     {% include wizuall.liquid image_path="alignment/africa_ndna_final.gif" title="Africa Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/africa_ndna_collapse.html" title="Africa Cultural Collapse Trajectory" %}
   </div>
-
+  
   <!-- Asia -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">Asia</div>
     {% include wizuall.liquid image_path="alignment/asia_ndna_collapse.gif" title="Asia Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/asia_ndna_collapse.html" title="Asia Cultural Collapse Trajectory" %}
   </div>
-
+  
   <!-- China -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">China</div>
     {% include wizuall.liquid image_path="alignment/china_ndna_final.gif" title="China Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/china_ndna_collapse.html" title="China Cultural Collapse Trajectory" %}
   </div>
-
+  
   <!-- Europe -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">Europe</div>
     {% include wizuall.liquid image_path="alignment/europe_ndna_collapse_FINAL.gif" title="Europe Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/europe_ndna_collapse.html" title="Europe Cultural Collapse Trajectory" %}
   </div>
+</div>
 
+<!-- Second row for remaining regions -->
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 30px 0;">
   <!-- Latin America -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">Latin America</div>
     {% include wizuall.liquid image_path="alignment/latinamerica.gif" title="Latin America Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/latinamerica_ndna_collapse.html" title="Latin America Cultural Collapse Trajectory" %}
   </div>
-
+  
   <!-- Middle East -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">Middle East</div>
     {% include wizuall.liquid image_path="alignment/middleeast_ndna_final.gif" title="Middle East Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/middleeast_ndna_collapse.html" title="Middle East Cultural Collapse Trajectory" %}
   </div>
-
+  
   <!-- North America -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">North America</div>
     {% include wizuall.liquid image_path="alignment/northamerica_ndna_collapse_FINAL.gif" title="North America Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/northamerica_ndna_collapse.html" title="North America Cultural Collapse Trajectory" %}
   </div>
-
+  
   <!-- Australia -->
   <div style="text-align: center;">
+    <div style="font-weight: bold; margin-bottom: 12px;">Australia</div>
     {% include wizuall.liquid image_path="alignment/australia_ndna_collapse_FINAL.gif" title="Australia Cultural Collapse Trajectory" %}
+    <div style="margin: 16px 0;"></div>
     {% include wizuall.liquid interactive_html="collapse/australia_ndna_collapse.html" title="Australia Cultural Collapse Trajectory" %}
   </div>
-
 </div>
 
 
