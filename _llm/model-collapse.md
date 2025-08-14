@@ -113,14 +113,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Africa Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/africa_ndna_final.gif" title="Africa Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/africa_ndna_final.gif" %}
   </div>
 </div>
 
 <!-- Africa Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/africa_ndna_collapse.html" title="Africa Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/africa_ndna_collapse.html"%}
   </div>
 </div>
 
@@ -128,14 +128,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Asia Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/asia_ndna_collapse.gif" title="Asia Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/asia_ndna_collapse.gif" %}
   </div>
 </div>
 
 <!-- Asia Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/asia_ndna_collapse.html" title="Asia Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/asia_ndna_collapse.html" %}
   </div>
 </div>
 
@@ -143,14 +143,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">China Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/china_ndna_final.gif" title="China Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/china_ndna_final.gif" %}
   </div>
 </div>
 
 <!-- China Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/china_ndna_collapse.html" title="China Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/china_ndna_collapse.html"  %}
   </div>
 </div>
 
@@ -158,14 +158,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Europe Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/europe_ndna_collapse_FINAL.gif" title="Europe Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/europe_ndna_collapse_FINAL.gif" %}
   </div>
 </div>
 
 <!-- Europe Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/europe_ndna_collapse.html" title="Europe Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/europe_ndna_collapse.html" %}
   </div>
 </div>
 
@@ -173,14 +173,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Latin America Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/latinamerica.gif" title="Latin America Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/latinamerica.gif" %}
   </div>
 </div>
 
 <!-- Latin America Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/latinamerica_ndna_collapse.html" title="Latin America Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/latinamerica_ndna_collapse.html"  %}
   </div>
 </div>
 
@@ -188,14 +188,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Middle East Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/middleeast_ndna_final.gif" title="Middle East Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/middleeast_ndna_final.gif"  %}
   </div>
 </div>
 
 <!-- Middle East Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/middleeast_ndna_collapse.html" title="Middle East Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/middleeast_ndna_collapse.html" %}
   </div>
 </div>
 
@@ -203,14 +203,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">North America Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/northamerica_ndna_collapse_FINAL.gif" title="North America Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/northamerica_ndna_collapse_FINAL.gif" %}
   </div>
 </div>
 
 <!-- North America Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/northamerica_ndna_collapse.html" title="North America Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/northamerica_ndna_collapse.html" %}
   </div>
 </div>
 
@@ -218,14 +218,14 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 <div style="margin: 48px 0; text-align: center;">
   <div style="font-weight: bold; margin-bottom: 24px; font-size: 1.5rem;">Australia Cultural Collapse Trajectory</div>
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid image_path="alignment/australia_ndna_collapse_FINAL.gif" title="Australia Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid image_path="alignment/australia_ndna_collapse_FINAL.gif" %}
   </div>
 </div>
 
 <!-- Australia Interactive HTML -->
 <div style="margin: 48px 0;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    {% include wizuall.liquid interactive_html="collapse/australia_ndna_collapse.html" title="Australia Cultural Collapse Trajectory" %}
+    {% include wizuall.liquid interactive_html="collapse/australia_ndna_collapse.html" %}
   </div>
 </div>
 
