@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/model-collapse/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T13:08:09+00:00" />
+<meta property="article:published_time" content="2025-08-14T13:25:30+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="nDNA-Lens - Model Collapse as Latent Manifold Flattening" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:08:09+00:00","datePublished":"2025-08-14T13:08:09+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:25:30+00:00","datePublished":"2025-08-14T13:25:30+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -122,9 +122,9 @@
   <span>Lens - Model Collapse as Latent Manifold Flattening</span>
 </h1>
 
-<p><strong>Model collapse</strong> denotes a <strong>degenerative phenomenon</strong> in large language models (LLMs) wherein the <em>expressivity</em>, <em>diversity</em>, and <em>semantic richness</em> of internal representations progressively deteriorate. Over time, this manifests as <strong>semantic homogenization</strong>, <strong>overconfident predictions</strong>, and <strong>diminished generative variability</strong>. The phenomenon was first formalized by Shumailov et al. <a href="#ref1">[1]</a>, who demonstrated that repeated fine-tuning on self-generated (<em>synthetic</em>) data induces a <em>feedback loop</em>–causing models to <strong>overfit to their own biases</strong> and generate increasingly shallow, self-reinforcing outputs.</p>
+<p><strong>Model collapse</strong> denotes a <strong>degenerative phenomenon</strong> in large language models (LLMs) wherein the <em>expressivity</em>, <em>diversity</em>, and <em>semantic richness</em> of internal representations progressively deteriorate. Over time, this manifests as <strong>semantic homogenization</strong>, <strong>overconfident predictions</strong>, and <strong>diminished generative variability</strong>. The phenomenon was first formalized by Shumailov et al. [<a href="#ref1">1</a>], who demonstrated that repeated fine-tuning on self-generated (<em>synthetic</em>) data induces a <em>feedback loop</em>–causing models to <strong>overfit to their own biases</strong> and generate increasingly shallow, self-reinforcing outputs.</p>
 
-<p>While such <em>autoregressive degeneration</em> has become an <strong>active area of study</strong> <a href="#ref1">[1]</a> <a href="#ref2">[2]</a> <a href="#ref3">[3]</a> <a href="#ref4">[4]</a>, most investigations focus on repeated fine-tuning of LLMs over their own <em>synthetic outputs</em>–where exposure bias and feedback loops progressively erode representational diversity. Building upon this understanding, we identify a second, comparatively <strong>underexplored</strong> route to collapse: <strong>recursive self-merging</strong>. Here, a model is iteratively merged with its descendants in a chain-like fashion–e.g., $\text{Parent}_1 + \text{Child}_1 \rightarrow \text{Child}_2$, then $\text{Child}_1 + \text{Child}_2 \rightarrow \text{Child}_3$, and so on–<em>without introducing new architectural priors or external grounding</em>. This practice, facilitated by community tools such as <a href="https://github.com/arcee-ai/mergekit"><code class="language-plaintext highlighter-rouge">mergekit</code></a> <a href="#ref5">[5]</a>, poses a new form of epistemic degeneration we term <strong>semantic inbreeding</strong>.</p>
+<p>While such <em>autoregressive degeneration</em> has become an <strong>active area of study</strong> [<a href="#ref1">1</a>] [<a href="#ref2">2</a>] [<a href="#ref3">3</a>] [<a href="#ref4">4</a>], most investigations focus on repeated fine-tuning of LLMs over their own <em>synthetic outputs</em>–where exposure bias and feedback loops progressively erode representational diversity. Building upon this understanding, we identify a second, comparatively <strong>underexplored</strong> route to collapse: <strong>recursive self-merging</strong>. Here, a model is iteratively merged with its descendants in a chain-like fashion–e.g., $\text{Parent}_1 + \text{Child}_1 \rightarrow \text{Child}_2$, then $\text{Child}_1 + \text{Child}_2 \rightarrow \text{Child}_3$, and so on–<em>without introducing new architectural priors or external grounding</em>. This practice, facilitated by community tools such as <a href="https://github.com/arcee-ai/mergekit"><code class="language-plaintext highlighter-rouge">mergekit</code></a> [<a href="#ref5">5</a>], poses a new form of epistemic degeneration we term <strong>semantic inbreeding</strong>.</p>
 
 <h2 id="biological-analogy">Biological Analogy</h2>
 <p>
@@ -155,7 +155,7 @@ where κₗ denotes <em>latent curvature</em>, capturing how sharply representat
 
 \[\kappa_\ell \geq 0.05, \quad \mathcal{L}_\ell \geq 0.8\]
 
-<p>Such flattening aligns with output mode collapse, robustness loss, and reduced cross-task generality <a href="#ref6">[6]</a> <a href="#ref7">[7]</a>.</p>
+<p>Such flattening aligns with output mode collapse, robustness loss, and reduced cross-task generality [<a href="#ref6">6</a>] [<a href="#ref7">7</a>].</p>
 
 <h2 id="interpretive-implications">Interpretive Implications</h2>
 
@@ -169,7 +169,7 @@ where κₗ denotes <em>latent curvature</em>, capturing how sharply representat
 
 <h2 id="repeated-fine-tuning-with-alpaca-on-llama">Repeated Fine-Tuning with Alpaca on LLaMA</h2>
 
-<p>To simulate <strong>autoregressive degeneration</strong>, we conduct repeated fine-tuning cycles using the <strong>Alpaca</strong> dataset <a href="#ref8">[8]</a>–a widely used instruction-following corpus derived from self-instructed GPT outputs. Starting with a <strong>base LLaMA-2 model</strong>, we recursively fine-tune across multiple generations, where each iteration trains on data generated by the previous model. This setup emulates <em>synthetic data amplification</em>, wherein self-generated instructions and completions progressively entrench the model’s internal biases.</p>
+<p>To simulate <strong>autoregressive degeneration</strong>, we conduct repeated fine-tuning cycles using the <strong>Alpaca</strong> dataset [<a href="#ref8">8</a>]–a widely used instruction-following corpus derived from self-instructed GPT outputs. Starting with a <strong>base LLaMA-2 model</strong>, we recursively fine-tune across multiple generations, where each iteration trains on data generated by the previous model. This setup emulates <em>synthetic data amplification</em>, wherein self-generated instructions and completions progressively entrench the model’s internal biases.</p>
 
 <p>Formally, at each generation $g$, the model $M^{(g)}$ is fine-tuned on a dataset $D^{(g)}$ constructed entirely from the outputs of its predecessor:</p>
 
@@ -196,13 +196,13 @@ We track the evolution of the model's <strong>latent geometry</strong> &mdash; i
 
 ## Recursive Self-Merging of Culturally Fine-Tuned Models
 
-While autoregressive fine-tuning on synthetic data has been widely studied as a cause of model collapse <a href="#ref1">[1]</a> <a href="#ref9">[9]</a> <a href="#ref10">[10]</a>, a second, less-explored collapse mechanism stems from recursive **model merging**--where each generation is produced by merging the previous one with itself or its offspring. This process bears resemblance to *inbreeding in biological populations*, where repeated unions within a closed gene pool reduce genetic diversity and increase the likelihood of deleterious traits.
+While autoregressive fine-tuning on synthetic data has been widely studied as a cause of model collapse [<a href="#ref1">1</a>] [<a href="#ref9">9</a>] [<a href="#ref10">10</a>], a second, less-explored collapse mechanism stems from recursive **model merging**--where each generation is produced by merging the previous one with itself or its offspring. This process bears resemblance to *inbreeding in biological populations*, where repeated unions within a closed gene pool reduce genetic diversity and increase the likelihood of deleterious traits.
 
 To investigate this phenomenon, we begin with a set of $8$ culturally fine-tuned variants of LLaMA-2 (e.g., `Asia`, `Europe`, `MiddleEast`, etc.), previously aligned on distinct regional belief distributions. From this pool, we iteratively generate merged descendants via a recursive rule:
 
 $$\text{Child}^{(g)} = \texttt{Merge}(\text{Child}^{(g-1)}, \text{Child}^{(g-2)})$$
 
-where the initial parents are drawn from the cultural base set and future generations are merged recursively using tools like `MergeKit` <a href="#ref5">[5]</a>. Unlike distillation or fine-tuning, this process *fuses* model parameters--introducing architectural tension and **epistemic drift** through incompatible latent priors.
+where the initial parents are drawn from the cultural base set and future generations are merged recursively using tools like `MergeKit` [<a href="#ref5">5</a>]. Unlike distillation or fine-tuning, this process *fuses* model parameters--introducing architectural tension and **epistemic drift** through incompatible latent priors.
 
 <p>
 Throughout recursive merging cycles, we monitor the evolving <strong>neural DNA (nDNA)</strong> &mdash; particularly spectral curvature (κₗ), thermodynamic length (𝓛ₗ), and alignment vector norms (‖𝖛ₗ<sup>(c)</sup>‖). We observe that as the generations progress, <strong>semantic flattening</strong> intensifies and <strong>distinct latent features</strong> become increasingly homogenized &mdash; signaling the onset of structural collapse. Notably, the exact generation at which collapse occurs varies across cultural lineages; for instance, models aligned with <code>MiddleEast</code> and <code>China</code> exhibit collapse symptoms earlier (around G=9), while others like <code>Africa</code> persist until G=15.
@@ -960,9 +960,9 @@ These findings suggest that *cultural inbreeding via recursive self-merging*--wh
 
 ### Biological Analogy
 
-This **semantic flattening** bears a striking resemblance to **neural atrophy** in biological systems, where *chronic disuse* or *neurodegeneration* progressively diminishes **synaptic diversity**, leading to impaired **cognitive plasticity** <a href="#ref11">[11]</a> <a href="#ref12">[12]</a>. In disorders such as **Alzheimer's disease**, the breakdown of *functional specialization* in memory circuits results in a *uniformity of neural responses*--eroding the brain's ability to semantically distinguish between otherwise distinct stimuli <a href="#ref13">[13]</a>. **Analogously**, a collapsed model exhibits **latent redundancy**, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a **loss of representational separability** and **semantic tension**.
+This **semantic flattening** bears a striking resemblance to **neural atrophy** in biological systems, where *chronic disuse* or *neurodegeneration* progressively diminishes **synaptic diversity**, leading to impaired **cognitive plasticity** [<a href="#ref11">11</a>] [<a href="#ref12">12</a>]. In disorders such as **Alzheimer's disease**, the breakdown of *functional specialization* in memory circuits results in a *uniformity of neural responses*--eroding the brain's ability to semantically distinguish between otherwise distinct stimuli [<a href="#ref13">13</a>]. **Analogously**, a collapsed model exhibits **latent redundancy**, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a **loss of representational separability** and **semantic tension**.
 
-This degeneration also echoes principles from **evolutionary biology**, particularly the **flattening of fitness landscapes** under high **inbreeding pressure** <a href="#ref14">[14]</a>. In such populations, repeated mating within genetically similar lineages reduces **phenotypic variance** and **adaptive resilience**, leading to what is termed *inbreeding depression*. By analogy, **recursive self-merging** in LLMs--where successive models are merged without novel informational influx--produces a similar **collapse of internal diversity**, akin to a **shrinking mutational space** in a depleted gene pool.
+This degeneration also echoes principles from **evolutionary biology**, particularly the **flattening of fitness landscapes** under high **inbreeding pressure** [<a href="#ref14">14</a>]. In such populations, repeated mating within genetically similar lineages reduces **phenotypic variance** and **adaptive resilience**, leading to what is termed *inbreeding depression*. By analogy, **recursive self-merging** in LLMs--where successive models are merged without novel informational influx--produces a similar **collapse of internal diversity**, akin to a **shrinking mutational space** in a depleted gene pool.
 
 In both cases, the shared pathology lies in the **collapse of high-dimensional exploratory capacity**--whether *neural* or *semantic*. The **belief vector field**, then, becomes a computational analogue of *neurofunctional maps* or *genotype-phenotype manifolds*: a rich **geometric structure** whose **flattening** signifies a terminal decline in **epistemic adaptability**.
 

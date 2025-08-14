@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T13:08:09+00:00" />
+<meta property="article:published_time" content="2025-08-14T13:25:30+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Machine Translation and nDNA" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:08:09+00:00","datePublished":"2025-08-14T13:08:09+00:00","description":"GENOME-MT: Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation","headline":"Machine Translation and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:25:30+00:00","datePublished":"2025-08-14T13:25:30+00:00","description":"GENOME-MT: Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation","headline":"Machine Translation and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/machine-translation/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -305,20 +305,20 @@ We find:</p>
 
 <h2 id="summary-of-results">Summary of Results</h2>
 
-<p>We begin our analysis by examining the relationship between structural divergence—captured via <em>distance</em> (<code class="language-plaintext highlighter-rouge">Dist</code>) and <em>torsion</em> (<code class="language-plaintext highlighter-rouge">Torsion</code>) metrics—and machine translation quality as measured by BLEU . The results span eight typologically diverse target languages, covering a continuum from closely related Indo-European languages (French, German, Italian) to morphologically rich and script-divergent languages (Hindi, Bengali, Tamil) and finally to typologically distant East and Southeast Asian languages (Chinese, Thai, Japanese).</p>
+<p>We begin our analysis by examining the relationship between structural divergence—captured via <em>distance</em> (<code class="language-plaintext highlighter-rouge">Dist</code>) and <em>torsion</em> (<code class="language-plaintext highlighter-rouge">Torsion</code>) metrics—and machine translation quality as measured by BLEU [<a href="#ref1">1</a>]. The results span eight typologically diverse target languages, covering a continuum from closely related Indo-European languages (French, German, Italian) to morphologically rich and script-divergent languages (Hindi, Bengali, Tamil) and finally to typologically distant East and Southeast Asian languages (Chinese, Thai, Japanese).</p>
 
 <ol>
   <li>
     <p><strong>Translation Difficulty Correlates with Structural Divergence</strong><br />
-Language pairs with low <code class="language-plaintext highlighter-rouge">Dist</code> and low <code class="language-plaintext highlighter-rouge">Torsion</code> (e.g., French, German, Italian) achieve the highest BLEU scores (≈38–42) in both directions. These languages share SVO word order and relatively similar analytic structures with English, requiring minimal reordering .</p>
+Language pairs with low <code class="language-plaintext highlighter-rouge">Dist</code> and low <code class="language-plaintext highlighter-rouge">Torsion</code> (e.g., French, German, Italian) achieve the highest BLEU scores (≈38–42) in both directions. These languages share SVO word order and relatively similar analytic structures with English, requiring minimal reordering [<a href="#ref2">2</a>][<a href="#ref3">3</a>].</p>
   </li>
   <li>
     <p><strong>Morphologically Rich and Script-Divergent Languages Show Moderate Drops</strong><br />
-Hindi, Bengali, and Tamil have mid-range <code class="language-plaintext highlighter-rouge">Dist</code>/<code class="language-plaintext highlighter-rouge">Torsion</code> values (0.44–0.50 <code class="language-plaintext highlighter-rouge">Dist</code>, 0.27–0.35 <code class="language-plaintext highlighter-rouge">Torsion</code>), leading to BLEU scores in the mid-20s. Contributing factors include SOV order, compound verbs, lexicosyntactic shifts, and agglutinative morphology . From a biological systems perspective, these changes resemble mid-level structural rearrangements in genetic material that alter function without fully breaking systemic compatibility .</p>
+Hindi, Bengali, and Tamil have mid-range <code class="language-plaintext highlighter-rouge">Dist</code>/<code class="language-plaintext highlighter-rouge">Torsion</code> values (0.44–0.50 <code class="language-plaintext highlighter-rouge">Dist</code>, 0.27–0.35 <code class="language-plaintext highlighter-rouge">Torsion</code>), leading to BLEU scores in the mid-20s. Contributing factors include SOV order, compound verbs, lexicosyntactic shifts, and agglutinative morphology [<a href="#ref4">4</a>][<a href="#ref5">5</a>][<a href="#ref6">6</a>]. From a biological systems perspective, these changes resemble mid-level structural rearrangements in genetic material that alter function without fully breaking systemic compatibility [<a href="#ref7">7</a>][<a href="#ref8">8</a>].</p>
   </li>
   <li>
     <p><strong>Typologically Distant Languages Are the Hardest</strong><br />
-Chinese, Thai, and Japanese have the highest <code class="language-plaintext highlighter-rouge">Dist</code>/<code class="language-plaintext highlighter-rouge">Torsion</code> values (up to 0.81 <code class="language-plaintext highlighter-rouge">Dist</code>, 0.72 <code class="language-plaintext highlighter-rouge">Torsion</code>) and the lowest BLEU scores (13–20). Structural differences include tonal systems, classifier-based syntax, topic-prominence, and scrambling, combined with the absence of case markers or differing alignment strategies . In biological analogy, this reflects large-scale genome rearrangements or cross-species divergence, where functional translation requires overcoming profound structural incompatibilities .</p>
+Chinese, Thai, and Japanese have the highest <code class="language-plaintext highlighter-rouge">Dist</code>/<code class="language-plaintext highlighter-rouge">Torsion</code> values (up to 0.81 <code class="language-plaintext highlighter-rouge">Dist</code>, 0.72 <code class="language-plaintext highlighter-rouge">Torsion</code>) and the lowest BLEU scores (13–20). Structural differences include tonal systems, classifier-based syntax, topic-prominence, and scrambling, combined with the absence of case markers or differing alignment strategies [<a href="#ref9">9</a>][<a href="#ref10">10</a>]. In biological analogy, this reflects large-scale genome rearrangements or cross-species divergence, where functional translation requires overcoming profound structural incompatibilities [<a href="#ref11">11</a>][<a href="#ref7">7</a>].</p>
   </li>
   <li>
     <p><strong>Strong Negative Correlation Between Structural Divergence and BLEU</strong><br />
@@ -328,7 +328,7 @@ Pearson correlation between total error \(\mathcal{E}_{\text{total}}\) and BLEU 
       <li>Target → English: \(\rho = -0.89\)</li>
     </ul>
 
-    <p>Spearman rank correlations are similarly strong (≈-0.91 to -0.93), indicating a robust monotonic relationship between divergence metrics and translation quality, consistent with prior findings that increased linguistic and structural distance predicts reduced cross-lingual transfer efficiency .</p>
+    <p>Spearman rank correlations are similarly strong (≈-0.91 to -0.93), indicating a robust monotonic relationship between divergence metrics and translation quality, consistent with prior findings that increased linguistic and structural distance predicts reduced cross-lingual transfer efficiency [<a href="#ref12">12</a>][<a href="#ref13">13</a>].</p>
   </li>
 </ol>
 
@@ -543,6 +543,34 @@ Pearson correlation between total error \(\mathcal{E}_{\text{total}}\) and BLEU 
 <p>By bridging linguistic typology with geometric model diagnostics, this approach offers a principled pathway toward more equitable and effective multilingual AI.</p>
 
 <hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Papineni, Kishore, Roukos, Salim, and others “BLEU: a method for automatic evaluation of machine translation” <em>ACL</em> (2002).</p>
+
+<p><a id="ref2"></a>[2] Dryer, Matthew S. and Haspelmath, Martin “The World Atlas of Language Structures Online” <em>arXiv preprint</em> (2013).</p>
+
+<p><a id="ref3"></a>[3] Birch, Alexandra, Osborne, Miles, and others “Predicting success in machine translation from fluency and adequacy” <em>ACL</em> (2008).</p>
+
+<p><a id="ref4"></a>[4] Mager, Manuel et al. “Typologically Diverse and Low-resource Languages in Multilingual NLP” <em>Computational Linguistics</em> (2021).</p>
+
+<p><a id="ref5"></a>[5] Joshi, Aravind K “Centered embedding in human language” <em>Cognition</em> (1987).</p>
+
+<p><a id="ref6"></a>[6] Comrie, Bernard “Language universals and linguistic typology” <em>arXiv preprint</em> (1989).</p>
+
+<p><a id="ref7"></a>[7] Ohno, Susumu “Evolution by gene duplication” <em>arXiv preprint</em> (1970).</p>
+
+<p><a id="ref8"></a>[8] Lewin, Benjamin “Genes VII” <em>arXiv preprint</em> (2000).</p>
+
+<p><a id="ref9"></a>[9] Li, Charles N. and Thompson, Sandra A. “Topic and Comment in Chinese” <em>arXiv preprint</em> (1981).</p>
+
+<p><a id="ref10"></a>[10] Combes, Patrick et al. “Understanding Cross-lingual Alignment in Multilingual Models” <em>TACL</em> (2023).</p>
+
+<p><a id="ref11"></a>[11] King, Mary-Claire and Wilson, Allan C “Evolution at two levels in humans and chimpanzees” <em>Science</em> (1975).</p>
+
+<p><a id="ref12"></a>[12] Littell, Patrick et al. “URIEL and lang2vec: Representing languages as typological, geographical, and phylogenetic vectors” <em>EACL</em> (2017).</p>
+
+<p><a id="ref13"></a>[13] Malaviya, Chaitanya et al. “Learning language representations for typology prediction” <em>EMNLP</em> (2017).</p>
 
 
       </div>

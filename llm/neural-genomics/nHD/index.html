@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T13:08:09+00:00" />
+<meta property="article:published_time" content="2025-08-14T13:25:30+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Hamming Distance (nHD)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:08:09+00:00","datePublished":"2025-08-14T13:08:09+00:00","description":"Lens - Neural Hamming Distance(nHD)","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:25:30+00:00","datePublished":"2025-08-14T13:25:30+00:00","description":"Lens - Neural Hamming Distance(nHD)","headline":"Neural Hamming Distance (nHD)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nHD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -128,10 +128,10 @@
 <script type="text/javascript" id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-<p>In biological genomics, the <strong>Hamming Distance</strong><a href="#ref1">[1]</a> is a key metric quantifying the number of differing nucleotides between two sequences, often used to measure <strong>mutation load</strong> and <strong>evolutionary divergence</strong>. IThis concept has been crucial in understanding genetic variation, tracing lineage, and assessing the impact of mutations on phenotypic expression (<a href="#ref2">[2]</a>; <a href="#ref3">[3]</a>).</p>
+<p>In biological genomics, the <strong>Hamming Distance</strong>[<a href="#ref1">1</a>] is a key metric quantifying the number of differing nucleotides between two sequences, often used to measure <strong>mutation load</strong> and <strong>evolutionary divergence</strong>. IThis concept has been crucial in understanding genetic variation, tracing lineage, and assessing the impact of mutations on phenotypic expression ([<a href="#ref2">2</a>]; [<a href="#ref3">3</a>]).</p>
 
 <p>Inspired by these genetic principles, the <strong>Neural Hamming Distance (nHD)</strong> is proposed as an analogous tool in the domain of foundation models and neural networks, designed to capture bit-level differences in the internal representations of models. Just as small genetic mutations accumulate to
-drive biological evolution and phenotypic divergence <a href="#ref4">[4]</a>, subtle binary alterations in neural weights oractivations can compound to generate significant <strong>semantic</strong> and <strong>functional shifts</strong> in model behavior.</p>
+drive biological evolution and phenotypic divergence [<a href="#ref4">4</a>], subtle binary alterations in neural weights oractivations can compound to generate significant <strong>semantic</strong> and <strong>functional shifts</strong> in model behavior.</p>
 
 <p>Modern foundation models trained on <strong>culturally heterogeneous datasets</strong> undergo continuous adaptation and fine-tuning, which can introduce <strong>incremental binary mutations</strong> in their latent neural genomes. These mutations can arise from <em>architectural changes</em>, <em>training variations</em>, or <em>culturally induced representational biases</em>. Understanding and quantifying these mutations at a fine granularity is essential to map how <strong>small-scale changes translate into semantic drift</strong> or <strong>ideological divergence</strong> within the models.</p>
 
@@ -148,7 +148,7 @@ systems.</p>
 
 <h3 id="biological--mathematical-background">Biological &amp; Mathematical Background</h3>
 
-<p>In genomics, the Hamming distance between<a href="#ref5">[5]</a> two sequences \( S^{(1)}, S^{(2)} \) of length \( n \) is:</p>
+<p>In genomics, the Hamming distance between[<a href="#ref5">5</a>] two sequences \( S^{(1)}, S^{(2)} \) of length \( n \) is:</p>
 
 \[\boxed{
 d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\right]}\]
@@ -159,7 +159,7 @@ d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\ri
   <li>\( s_i^{(k)} \): nucleotide at position \( i \) in sequence \( k \)</li>
 </ul>
 
-<p>This captures point mutations, essential for studying genetic drift<a href="#ref6">[6]</a>, recombination dynamics <a href="#ref7">[7]</a>, and mutation modeling<a href="#ref8">[8]</a>.</p>
+<p>This captures point mutations, essential for studying genetic drift[<a href="#ref6">6</a>], recombination dynamics [<a href="#ref7">7</a>], and mutation modeling[<a href="#ref8">8</a>].</p>
 
 <p>Hamming distance defines a geodesic metric on the <strong>Hamming hypercube</strong> \( \mathcal{H}^n = \{0, 1\}^n \), where each vertex represents a binary sequence and each edge represents a single-bit mutation.</p>
 
@@ -169,7 +169,7 @@ d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\ri
     
      
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
-  <strong>Figure: Graphical genotyping maps recombination patterns in RIL55 and RIL12:</strong> This figure, adapted from <strong>Deblieck et al.</strong><a href="#ref9">[9]</a>
+  <strong>Figure: Graphical genotyping maps recombination patterns in RIL55 and RIL12:</strong> This figure, adapted from <strong>Deblieck et al.</strong>[<a href="#ref9">9</a>]
   <strong>Green and red segments</strong> denote alleles from drought-resistant wild emmer accession G18-16 and drought-susceptible durum wheat accession Langdon, respectively, while  
   <strong>magenta regions</strong> indicate heterozygous loci.  
 
@@ -204,7 +204,7 @@ B_\ell^{(k)} = \mathbf{1}\left(H_\ell^{(k)} &gt; \tau\right), \quad B_\ell^{(k)}
 
 <p>This binary representation enables bitwise comparison to trace <strong>semantic drift</strong> in LLMs, akin to tracking mutation in biological systems.</p>
 
-<p>where $\tau\right$ may be a fixed hyperparameter (e.g., 0) or learned via training dynamics <a href="#ref10">[10]</a>
+<p>where $\tau\right$ may be a fixed hyperparameter (e.g., 0) or learned via training dynamics [<a href="#ref10">10</a>]
 The layerwise neural Hamming distance between \( \mathcal{M}_1 \) and \( \mathcal{M}_2 \) at layer \( \ell \) is:</p>
 
 \[\text{nHD}_\ell = \frac{1}{bd} \sum_{i=1}^{b} \sum_{j=1}^{d} \mathbf{1}\left[B^{(1)}_{\ell,ij} \neq B^{(2)}_{\ell,ij}\right]\]
@@ -1220,7 +1220,7 @@ The layerwise neural Hamming distance between \( \mathcal{M}_1 \) and \( \mathca
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: nHD Tube Visualizations of Offspring Latent Manifolds:</strong> The offspring manifold (magenta solid) is bounded by parental manifolds (dashed), characterized by spectral curvature 
   <span class="mathjax-render">$ \kappa_\ell $</span> and thermodynamic length 
-  <span class="mathjax-render">$ L_\ell = \int_{\gamma} \sqrt{g_\theta(d\theta, d\theta)} $</span>, measuring local nonlinear bending and cumulative semantic transformation, respectively <span style="font-size:0.8em;">(<a href="#ref11">[11]</a>;<a href="#ref12">[12]</a>)</span>. Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination <span style="font-size:0.8em;"><a href="#ref13">[13]</a></span>. Distant parents yield offspring with increased curvature and length, showing semantic innovation.  
+  <span class="mathjax-render">$ L_\ell = \int_{\gamma} \sqrt{g_\theta(d\theta, d\theta)} $</span>, measuring local nonlinear bending and cumulative semantic transformation, respectively <span style="font-size:0.8em;">([<a href="#ref11">11</a>];[<a href="#ref12">12</a>])</span>. Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination <span style="font-size:0.8em;">[<a href="#ref13">13</a>]</span>. Distant parents yield offspring with increased curvature and length, showing semantic innovation.  
 
   The offspring manifold at layer 
   <span class="mathjax-render">$ \ell $</span> is given by:  

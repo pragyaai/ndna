@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/FAQ/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T13:08:09+00:00" />
+<meta property="article:published_time" content="2025-08-14T13:25:30+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Frequently Asked Questions" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:08:09+00:00","datePublished":"2025-08-14T13:08:09+00:00","description":"- Frequently Asked Questions (FAQs) nDNA Cartograph: Latent Semantic Genome of Foundation Models","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:25:30+00:00","datePublished":"2025-08-14T13:25:30+00:00","description":"- Frequently Asked Questions (FAQs) nDNA Cartograph: Latent Semantic Genome of Foundation Models","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -146,9 +146,9 @@ which captures torsion—the <em>twist</em> of the latent path, indicating out-o
 <p>To complement these geometric measures, we introduce the <em>belief vector field</em>:</p>
 
 <p>\(\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell(x)} \log P(c \mid h_\ell(x))\)<br />
-where $P(c \mid h_\ell(x))$ is the model’s conditional probability of concept $c$ given the latent state. The belief vector encodes the semantic steering force exerted at layer $\ell$—revealing how the model’s internal states are dynamically aligned (or misaligned) with target concepts across depth .</p>
+where $P(c \mid h_\ell(x))$ is the model’s conditional probability of concept $c$ given the latent state. The belief vector encodes the semantic steering force exerted at layer $\ell$—revealing how the model’s internal states are dynamically aligned (or misaligned) with target concepts across depth [<a href="#ref1">1</a>, <a href="#ref2">2</a>].</p>
 
-<p>This framing allows us to map how meaning is constructed, recombined, or distorted across the model’s depth—a latent <em>semantic genome</em> that evolves with training, fine-tuning, or merging. Unlike surface-level output metrics, this map shows us the <strong>inner life</strong> of the model, enabling rigorous audits of alignment <a href="#ref1">[1]</a>, bias inheritance <a href="#ref2">[2]</a>, and conceptual recombination <a href="#ref3">[3]</a>.</p>
+<p>This framing allows us to map how meaning is constructed, recombined, or distorted across the model’s depth—a latent <em>semantic genome</em> that evolves with training, fine-tuning, or merging. Unlike surface-level output metrics, this map shows us the <strong>inner life</strong> of the model, enabling rigorous audits of alignment [<a href="#ref1">1</a>], bias inheritance [<a href="#ref3">3</a>], and conceptual recombination [<a href="#ref4">4</a>].</p>
 
 <h2 id="how-do-spectral-curvature-thermodynamic-length-and-the-belief-vector-field-together-provide-a-comprehensive-view-of-latent-semantic-evolution-in-foundation-models">How do spectral curvature, thermodynamic length, and the belief vector field together provide a comprehensive view of latent semantic evolution in foundation models?</h2>
 
@@ -158,25 +158,25 @@ where $P(c \mid h_\ell(x))$ is the model’s conditional probability of concept 
 
 \[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\]
 
-<p>where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of $\mathcal{L}_\ell$. High curvature reveals rich conceptual recombination or ambiguity; low curvature reflects smooth, disentangled latent structure .</p>
+<p>where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of $\mathcal{L}_\ell$. High curvature reveals rich conceptual recombination or ambiguity; low curvature reflects smooth, disentangled latent structure [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
 
 <p><em>Thermodynamic length</em> $\mathcal{L}$ accumulates the magnitude of representational change across the model’s depth:</p>
 
 \[\mathcal{L} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1} - h_\ell \right\|_2\]
 
-<p>This is the latent analogue of the <em>work done</em> by the model in traversing semantic space. A long $\mathcal{L}$ indicates dynamic epistemic restructuring (common in multi-step reasoning), whereas a short $\mathcal{L}$ may signal premature compression or alignment collapse .</p>
+<p>This is the latent analogue of the <em>work done</em> by the model in traversing semantic space. A long $\mathcal{L}$ indicates dynamic epistemic restructuring (common in multi-step reasoning), whereas a short $\mathcal{L}$ may signal premature compression or alignment collapse [<a href="#ref7">7</a>, <a href="#ref8">8</a>].</p>
 
 <p><em>Belief vector field</em> $\vec{v}_\ell^{(c)}$ measures the semantic steering force exerted at each layer relative to a conceptual target $c$:</p>
 
 \[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\]
 
-<p>where $P(c \mid h_\ell)$ is the model’s conditional probability over concept $c$. This field encodes the directional flow of epistemic mass, revealing whether the model’s latent states are coherently steered toward the desired semantic objective, or exhibit drift, conflict, or indecision .</p>
+<p>where $P(c \mid h_\ell)$ is the model’s conditional probability over concept $c$. This field encodes the directional flow of epistemic mass, revealing whether the model’s latent states are coherently steered toward the desired semantic objective, or exhibit drift, conflict, or indecision [<a href="#ref1">1</a>, <a href="#ref2">2</a>].</p>
 
 <p>By integrating these three components, the <strong>nDNA Cartograph</strong> provides a multi-layered, path-dependent, and interpretable map of the model’s inner reasoning life. It lets us detect hidden alignment failures, epistemic shortcuts, or conceptual bifurcations invisible to scalar accuracy metrics—turning the model from a black box into a traceable semantic organism.</p>
 
 <h2 id="how-does-the-ndna-cartograph-framework-enable-rigorous-audits-of-alignment-and-bias-inheritance-beyond-standard-evaluation-metrics">How does the nDNA Cartograph framework enable rigorous audits of alignment and bias inheritance beyond standard evaluation metrics?</h2>
 
-<p>The <strong>nDNA Cartograph</strong> transforms the auditing of foundation models from a surface-level, output-centric exercise into a deep, manifold-level analysis of epistemic dynamics. Standard alignment evaluations  typically rely on scalar metrics—accuracy, BLEU scores, or human preference rates. These metrics assess what the model generates but tell us little about <em>how</em> that output was internally constructed or whether latent reasoning paths reflect aligned, unbiased conceptual evolution.</p>
+<p>The <strong>nDNA Cartograph</strong> transforms the auditing of foundation models from a surface-level, output-centric exercise into a deep, manifold-level analysis of epistemic dynamics. Standard alignment evaluations [<a href="#ref9">9</a>, <a href="#ref10">10</a>] typically rely on scalar metrics—accuracy, BLEU scores, or human preference rates. These metrics assess what the model generates but tell us little about <em>how</em> that output was internally constructed or whether latent reasoning paths reflect aligned, unbiased conceptual evolution.</p>
 
 <p>The nDNA Cartograph addresses this by mapping latent trajectories $\mathcal{T}(x)$ and quantifying geometric signatures (spectral curvature $\kappa_\ell$, thermodynamic length $\mathcal{L}$, belief vector fields $\vec{v}_\ell^{(c)}$) layer-by-layer. For example:
 \(\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\)
@@ -184,21 +184,21 @@ lets us directly inspect whether latent states steer toward (or away from) cultu
 \(\kappa_\ell = \frac{1}{k} \sum_{i=1}^{k} \lambda_i^{(\ell)}\)
 can signal points where the model fuses incompatible priors or inherits bias during generation.</p>
 
-<p>Unlike outputs, these geometric signals are not easily gamed by prompt engineering or surface-level tuning <a href="#ref2">[2]</a>. They reveal whether alignment is internalized or merely performative, offering a layer-resolved audit of bias inheritance, cultural asymmetry <a href="#ref4">[4]</a>, or failure of epistemic coherence across merged or fine-tuned models.</p>
+<p>Unlike outputs, these geometric signals are not easily gamed by prompt engineering or surface-level tuning [<a href="#ref3">3</a>]. They reveal whether alignment is internalized or merely performative, offering a layer-resolved audit of bias inheritance, cultural asymmetry [<a href="#ref11">11</a>], or failure of epistemic coherence across merged or fine-tuned models.</p>
 
 <h2 id="what-role-does-layerwise-thermodynamic-analysis-play-in-distinguishing-overcompression-collapse-and-healthy-semantic-evolution-in-foundation-models">What role does layerwise thermodynamic analysis play in distinguishing overcompression, collapse, and healthy semantic evolution in foundation models?</h2>
 
 <p><em>Thermodynamic length</em> $\mathcal{L}$ offers a principled, geometric analogue to the concept of work done in semantic space—enabling us to distinguish between healthy representational reconfiguration and pathological collapse. It is defined as:
 \(\mathcal{L} = \sum_{\ell=1}^{L-1} \| h_{\ell+1} - h_\ell \|_2\)
-where $h_\ell$ denotes the mean hidden representation at layer $\ell$. A well-functioning model engaged in complex reasoning or compositional tasks typically accumulates significant thermodynamic length—reflecting diverse, layered semantic transformations akin to biological developmental pathways <a href="#ref5">[5]</a>.</p>
+where $h_\ell$ denotes the mean hidden representation at layer $\ell$. A well-functioning model engaged in complex reasoning or compositional tasks typically accumulates significant thermodynamic length—reflecting diverse, layered semantic transformations akin to biological developmental pathways [<a href="#ref7">7</a>].</p>
 
-<p>By contrast, models suffering from <em>overcompression</em> (e.g., through aggressive pruning <a href="#ref6">[6]</a>, quantization <a href="#ref7">[7]</a>) or <em>alignment collapse</em> (e.g., over-fine-tuning <a href="#ref1">[1]</a>) exhibit pathologically short $\mathcal{L}$. This indicates premature semantic convergence, loss of internal epistemic richness, or mode collapse. Layerwise thermodynamic profiles thus help diagnose where and how semantic diversity is lost—providing actionable insights for model repair, re-tuning, or safe merging <a href="#ref3">[3]</a>.</p>
+<p>By contrast, models suffering from <em>overcompression</em> (e.g., through aggressive pruning [<a href="#ref12">12</a>], quantization [<a href="#ref13">13</a>]) or <em>alignment collapse</em> (e.g., over-fine-tuning [<a href="#ref1">1</a>]) exhibit pathologically short $\mathcal{L}$. This indicates premature semantic convergence, loss of internal epistemic richness, or mode collapse. Layerwise thermodynamic profiles thus help diagnose where and how semantic diversity is lost—providing actionable insights for model repair, re-tuning, or safe merging [<a href="#ref4">4</a>].</p>
 
 <p>Crucially, $\mathcal{L}$ integrates naturally with other nDNA components (curvature, belief fields) to offer a coherent audit of internal epistemic health, beyond what external validation sets can reveal.</p>
 
 <h2 id="how-does-the-ndna-cartograph-provide-a-principled-diagnostic-for-model-merging-and-conceptual-recombination-in-foundation-models">How does the nDNA Cartograph provide a principled diagnostic for model merging and conceptual recombination in foundation models?</h2>
 
-<p>The <strong>nDNA Cartograph</strong> enables rigorous analysis of model merging by tracing how latent semantic genomes recombine at the manifold level—a task that scalar evaluation metrics or simple output comparison cannot meaningfully address. In model merging , two pretrained models (e.g., culturally fine-tuned LLMs <a href="#ref8">[8]</a>) are fused, often via weight interpolation or parameter averaging. This creates a hybrid latent manifold $\mathcal{M}_{\text{merge}}$.</p>
+<p>The <strong>nDNA Cartograph</strong> enables rigorous analysis of model merging by tracing how latent semantic genomes recombine at the manifold level—a task that scalar evaluation metrics or simple output comparison cannot meaningfully address. In model merging [<a href="#ref14">14</a>, <a href="#ref4">4</a>], two pretrained models (e.g., culturally fine-tuned LLMs [<a href="#ref15">15</a>]) are fused, often via weight interpolation or parameter averaging. This creates a hybrid latent manifold $\mathcal{M}_{\text{merge}}$.</p>
 
 <p>The Cartograph reveals whether this hybrid manifold forms a coherent epistemic structure or suffers from conceptual collisions. For each merged model:</p>
 
@@ -225,11 +225,11 @@ shows the semantic steering force toward concept $c$ at layer $\ell$.</p>
 
 <p>For example, <em>alignment collapse</em> can be detected when the thermodynamic length
 \(\mathcal{L} = \sum_{\ell=1}^{L-1} \bigl\| h_{\ell+1} - h_\ell \bigr\|_2\)
-shrinks anomalously across layers despite complex prompts, signaling over-constrained internal dynamics or excessive compression .</p>
+shrinks anomalously across layers despite complex prompts, signaling over-constrained internal dynamics or excessive compression [<a href="#ref1">1</a>, <a href="#ref7">7</a>].</p>
 
 <p><em>Representational drift</em> is revealed when spectral curvature
 \(\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\)
-(where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of the normalized graph Laplacian at layer $\ell$) shows unmotivated spikes, collapses, or oscillations across adjacent layers, marking latent instability or conceptual incoherence .</p>
+(where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of the normalized graph Laplacian at layer $\ell$) shows unmotivated spikes, collapses, or oscillations across adjacent layers, marking latent instability or conceptual incoherence [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
 
 <p>In this view, failure modes are not just surface phenomena but reflect deeper structural pathologies in the model’s epistemic architecture—pathologies that the nDNA Cartograph makes visible, quantifiable, and ultimately, repairable.</p>
 
@@ -246,7 +246,7 @@ shrinks anomalously across layers despite complex prompts, signaling over-constr
 <p>Where:</p>
 <ul>
   <li>Large values of $\mathcal{D}_{\mathrm{genome}}$ indicate substantial epistemic reconfiguration (common in domain shift or alignment tasks)</li>
-  <li>Small values correspond to minimal latent rewiring</li>
+  <li>Small values correspond to minimal latent rewiring [<a href="#ref4">4</a>, <a href="#ref15">15</a>]</li>
 </ul>
 
 <h3 id="belief-vector-field-transformation">Belief Vector Field Transformation</h3>
@@ -262,7 +262,7 @@ shrinks anomalously across layers despite complex prompts, signaling over-constr
 
 <h3 id="genome-editing-perspective">Genome Editing Perspective</h3>
 
-<p>By providing these diagnostics, the nDNA Cartograph allows us to see fine-tuning not as a black-box procedure, but as <em>genome editing</em>—selectively rewriting parts of the model’s inner semantic code while ideally preserving core epistemic integrity .</p>
+<p>By providing these diagnostics, the nDNA Cartograph allows us to see fine-tuning not as a black-box procedure, but as <em>genome editing</em>—selectively rewriting parts of the model’s inner semantic code while ideally preserving core epistemic integrity [<a href="#ref1">1</a>, <a href="#ref2">2</a>].</p>
 
 <h2 id="what-insights-does-the-ndna-cartograph-offer-on-the-effect-of-pruning-and-quantization-on-the-models-latent-semantic-genome">What insights does the nDNA Cartograph offer on the effect of pruning and quantization on the model’s latent semantic genome?</h2>
 
@@ -270,11 +270,11 @@ shrinks anomalously across layers despite complex prompts, signaling over-constr
 
 <p>Consider pruning: removing parameters or neurons alters the flow of representations, and we can quantify its impact via thermodynamic length:
 \(\mathcal{L}_{\mathrm{prune}} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1}^{\mathrm{prune}} - h_\ell^{\mathrm{prune}} \right\|_2\)
-where a dramatic shrinkage of $\mathcal{L}_{\mathrm{prune}}$ suggests overcompression, loss of latent richness, or premature alignment collapse <a href="#ref5">[5]</a>.</p>
+where a dramatic shrinkage of $\mathcal{L}_{\mathrm{prune}}$ suggests overcompression, loss of latent richness, or premature alignment collapse [<a href="#ref7">7</a>].</p>
 
 <p>Similarly, quantization distorts latent precision. We can track this through changes in spectral curvature:
 \(\Delta \kappa_\ell = \kappa_\ell^{\mathrm{quant}} - \kappa_\ell^{\mathrm{orig}}\)
-where spikes or flattening of $\kappa_\ell$ after quantization point to manifold fragmentation or collapse .</p>
+where spikes or flattening of $\kappa_\ell$ after quantization point to manifold fragmentation or collapse [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
 
 <p>By integrating these measures, the Cartograph moves beyond raw perplexity or accuracy and provides a geometric audit of how pruning and quantization affect the model’s <em>inner epistemic health</em>.</p>
 
@@ -284,11 +284,11 @@ where spikes or flattening of $\kappa_\ell$ after quantization point to manifold
 
 <p>Formally, let
 \(\tau_\ell(x) = \frac{\left\langle \left( \Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x) \right), \Delta h_{\ell+1}(x) \right\rangle}{\left\| \Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x) \right\|^2}\)
-represent the <em>latent torsion</em> at layer $\ell$. Spikes in $\tau_\ell$ signal out-of-plane turns—typical of semantic bifurcations <a href="#ref9">[9]</a>. When accompanied by divergence in belief vector fields:
+represent the <em>latent torsion</em> at layer $\ell$. Spikes in $\tau_\ell$ signal out-of-plane turns—typical of semantic bifurcations [<a href="#ref2">2</a>]. When accompanied by divergence in belief vector fields:
 \(\| \vec{v}_\ell^{(c_1)} - \vec{v}_\ell^{(c_2)} \| \gg 0\)
 for competing concepts $c_1, c_2$, the Cartograph pinpoints exact depths where reasoning splits occur.</p>
 
-<p>Such analysis is crucial in detecting unintended task-switching, conflicting priors, or mode collapse in merged or fine-tuned models .</p>
+<p>Such analysis is crucial in detecting unintended task-switching, conflicting priors, or mode collapse in merged or fine-tuned models [<a href="#ref1">1</a>, <a href="#ref4">4</a>].</p>
 
 <h2 id="in-what-ways-does-the-ndna-cartograph-support-interpretability-of-multi-task-and-multi-modal-foundation-models">In what ways does the nDNA Cartograph support interpretability of multi-task and multi-modal foundation models?</h2>
 
@@ -300,7 +300,7 @@ Differences in $\mathcal{L}^{(T_1)}$ and $\mathcal{L}^{(T_2)}$ reflect task comp
 
 <p>Additionally, spectral curvature maps:
 \(\kappa_\ell^{(T)} = \frac{1}{k} \sum_{i=1}^{k} \lambda_i^{(\ell, T)}\)
-can highlight where one task’s latent space is more entangled—revealing priority, resource contention, or representational inefficiency .</p>
+can highlight where one task’s latent space is more entangled—revealing priority, resource contention, or representational inefficiency [<a href="#ref6">6</a>, <a href="#ref5">5</a>].</p>
 
 <p>This allows developers to visualize not just what the model gets right or wrong, but <em>how</em> it reasons differently across tasks—enhancing transparency in multi-task and multi-modal AI.</p>
 
@@ -318,7 +318,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\bar{\kappa}^{(m)}(x) = \frac{1}{L} \sum_{\ell=1}^L \kappa_\ell^{(m)}(x)\]
 
-<p>where $\kappa_\ell^{(m)}(x)$ is the spectral curvature at layer $\ell$ as defined via Laplacian eigenvalues <a href="#ref10">[10]</a>. These measures expose latent semantic efficiency (shorter, smooth paths) versus epistemic complexity (longer, curved paths).</p>
+<p>where $\kappa_\ell^{(m)}(x)$ is the spectral curvature at layer $\ell$ as defined via Laplacian eigenvalues [<a href="#ref5">5</a>]. These measures expose latent semantic efficiency (shorter, smooth paths) versus epistemic complexity (longer, curved paths).</p>
 
 <p>This comparison reveals how different models prioritize aspects like alignment efficiency versus latent exploration—insights that remain hidden in scalar output scores.</p>
 
@@ -334,7 +334,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\left\| \vec{v}_\ell^{(c, m)} \right\| \quad \text{vs.} \quad \left\| \vec{v}_\ell^{(c, n)} \right\|\]
 
-<p>shows which model steers its latent states more decisively toward desired concepts—critical for alignment-sensitive applications <a href="#ref1">[1]</a>.</p>
+<p>shows which model steers its latent states more decisively toward desired concepts—critical for alignment-sensitive applications [<a href="#ref1">1</a>].</p>
 
 <p>This geometric lens turns model selection into a principled choice guided by latent dynamics, not just test-set scores.</p>
 
@@ -352,11 +352,11 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell).\]
 
-<p>Across models, these quantities form distinct trajectories on latent manifolds, reflecting epistemic priorities inherited during pretraining. For example, Mistral and LLaMA often show longer $\mathcal{L}$ with smoother curvature, indicating richer compositional reasoning, while smaller models (e.g., Gemma 2B) may exhibit early compression (shorter $\mathcal{L}$) and higher curvature spikes—signatures of undercapacity or alignment shortcuts .</p>
+<p>Across models, these quantities form distinct trajectories on latent manifolds, reflecting epistemic priorities inherited during pretraining. For example, Mistral and LLaMA often show longer $\mathcal{L}$ with smoother curvature, indicating richer compositional reasoning, while smaller models (e.g., Gemma 2B) may exhibit early compression (shorter $\mathcal{L}$) and higher curvature spikes—signatures of undercapacity or alignment shortcuts [<a href="#ref5">5</a>, <a href="#ref1">1</a>].</p>
 
 <h2 id="how-can-ndna-cartography-help-interpret-scaling-laws-beyond-parameter-counts-in-foundation-models">How can nDNA Cartography help interpret scaling laws beyond parameter counts in foundation models?</h2>
 
-<p>Traditional scaling laws  relate parameter count, compute, and data size to performance metrics like loss. However, nDNA Cartography introduces latent <em>semantic scaling laws</em>: it quantifies how internal semantic complexity grows (or saturates) with scale. For example, thermodynamic length $\mathcal{L}$ and curvature complexity $\sum_\ell \kappa_\ell$ can be studied as functions of model size $N$:</p>
+<p>Traditional scaling laws [<a href="#ref16">16</a>, <a href="#ref17">17</a>] relate parameter count, compute, and data size to performance metrics like loss. However, nDNA Cartography introduces latent <em>semantic scaling laws</em>: it quantifies how internal semantic complexity grows (or saturates) with scale. For example, thermodynamic length $\mathcal{L}$ and curvature complexity $\sum_\ell \kappa_\ell$ can be studied as functions of model size $N$:</p>
 
 \[\mathcal{L}(N) \propto N^\alpha, \quad \sum_\ell \kappa_\ell(N) \propto N^\beta,\]
 
@@ -376,13 +376,13 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 <h2 id="what-does-ndna-cartography-tell-us-about-scaling-laws-and-semantic-manifold-complexity">What does nDNA cartography tell us about scaling laws and semantic manifold complexity?</h2>
 
-<p>nDNA cartography offers a geometric refinement of classical scaling laws , showing that increases in model size correspond not just to improvements in loss but to changes in latent manifold complexity.</p>
+<p>nDNA cartography offers a geometric refinement of classical scaling laws [<a href="#ref16">16</a>, <a href="#ref17">17</a>], showing that increases in model size correspond not just to improvements in loss but to changes in latent manifold complexity.</p>
 
 <p>Consider spectral curvature $\kappa_\ell$ as a proxy for semantic entanglement:</p>
 
 \[\mathbb{E}[\kappa_\ell] \uparrow \quad \text{as model width, depth, or data scale increase}\]
 
-<p>This empirical trend across our 15-model survey suggests that larger models construct denser, more tangled latent spaces—facilitating compositionality but also raising risks of overfitting or alignment drift <a href="#ref11">[11]</a>.</p>
+<p>This empirical trend across our 15-model survey suggests that larger models construct denser, more tangled latent spaces—facilitating compositionality but also raising risks of overfitting or alignment drift [<a href="#ref18">18</a>].</p>
 
 <h2 id="how-does-ndna-cartography-help-identify-latent-overfitting-and-spurious-alignment-in-foundation-models">How does nDNA Cartography help identify latent overfitting and spurious alignment in foundation models?</h2>
 
@@ -390,7 +390,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\mathcal{L} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1} - h_\ell \right\|_2\]
 
-<p>where a collapse in $\mathcal{L}$ occurs despite complex or diverse prompts, signaling that internal representations are over-compressed—a geometric signature of memorization rather than reasoning <a href="#ref1">[1]</a>.</p>
+<p>where a collapse in $\mathcal{L}$ occurs despite complex or diverse prompts, signaling that internal representations are over-compressed—a geometric signature of memorization rather than reasoning [<a href="#ref1">1</a>].</p>
 
 <h2 id="what-role-does-ndna-cartography-play-in-benchmarking-cross-model-generalization-capacity">What role does nDNA Cartography play in benchmarking cross-model generalization capacity?</h2>
 
@@ -398,7 +398,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\mathcal{L}_{\mathrm{OOD}} &gt; \mathcal{L}_{\mathrm{ID}}\]
 
-<p>when responding to OOD inputs demonstrate latent flexibility essential for generalization. Conversely, models whose latent geometry remains static (flat curvature, short $\mathcal{L}$) across both ID and OOD data signal brittleness .</p>
+<p>when responding to OOD inputs demonstrate latent flexibility essential for generalization. Conversely, models whose latent geometry remains static (flat curvature, short $\mathcal{L}$) across both ID and OOD data signal brittleness [<a href="#ref19">19</a>, <a href="#ref18">18</a>].</p>
 
 <h2 id="how-does-ndna-cartography-reveal-hidden-structural-differences-between-large-and-small-foundation-models-beyond-surface-level-accuracy">How does nDNA Cartography reveal hidden structural differences between large and small foundation models beyond surface-level accuracy?</h2>
 
@@ -406,7 +406,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\mathcal{L}_{\mathrm{large}} &gt; \mathcal{L}_{\mathrm{small}}, \quad \kappa_\ell^{\mathrm{large}} &lt; \kappa_\ell^{\mathrm{small}}\]
 
-<p>where larger models exhibit longer thermodynamic length $\mathcal{L}$, reflecting richer semantic traversal, and smoother curvature $\kappa_\ell$, reflecting disentangled latent spaces <a href="#ref12">[12]</a>.</p>
+<p>where larger models exhibit longer thermodynamic length $\mathcal{L}$, reflecting richer semantic traversal, and smoother curvature $\kappa_\ell$, reflecting disentangled latent spaces [<a href="#ref19">19</a>].</p>
 
 <h2 id="in-what-way-does-the-belief-vector-field-help-compare-alignment-behavior-across-different-model-architectures">In what way does the belief vector field help compare alignment behavior across different model architectures?</h2>
 
@@ -432,7 +432,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\kappa_\ell^{(\mathrm{culture})} = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell, \mathrm{culture})}\]
 
-<p>reveals increased or decreased latent complexity compared to the base model depending on cultural specificity or bias entrenchment. This allows us to systematically audit how cultural priors reshape the epistemic structure beyond output text <a href="#ref2">[2]</a> <a href="#ref1">[1]</a> <a href="#ref8">[8]</a>.</p>
+<p>reveals increased or decreased latent complexity compared to the base model depending on cultural specificity or bias entrenchment. This allows us to systematically audit how cultural priors reshape the epistemic structure beyond output text [<a href="#ref3">3</a>] [<a href="#ref1">1</a>] [<a href="#ref15">15</a>].</p>
 
 <h2 id="how-can-belief-vector-field-divergence-detect-unintended-cultural-dominance-in-merged-or-blended-ethnic-llms">How can belief vector field divergence detect unintended cultural dominance in merged or blended Ethnic LLMs?</h2>
 
@@ -444,7 +444,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\Delta \vec{v}_\ell = \vec{v}_\ell^{(c, \mathrm{merge})} - \frac{1}{2}\left( \vec{v}_\ell^{(c, \mathrm{NA})} + \vec{v}_\ell^{(c, \mathrm{Asia})} \right)\]
 
-<p>Large norms $| \Delta \vec{v}_\ell |$ signal asymmetric steering toward one cultural prior over another, even if surface-level completions appear neutral. This enables interpretable, layer-wise diagnosis of latent cultural bias inheritance <a href="#ref3">[3]</a> <a href="#ref8">[8]</a> <a href="#ref2">[2]</a>.</p>
+<p>Large norms $| \Delta \vec{v}_\ell |$ signal asymmetric steering toward one cultural prior over another, even if surface-level completions appear neutral. This enables interpretable, layer-wise diagnosis of latent cultural bias inheritance [<a href="#ref4">4</a>] [<a href="#ref15">15</a>] [<a href="#ref3">3</a>].</p>
 
 <h2 id="why-does-spectral-curvature-reveal-latent-entanglement-of-cultural-priors-in-ethnic-llms-and-how-is-this-computed">Why does spectral curvature reveal latent entanglement of cultural priors in Ethnic LLMs, and how is this computed?</h2>
 
@@ -460,7 +460,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\kappa_\ell^{(\mathrm{culture})} = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\]
 
-<p>where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of $\mathcal{L}^{(\ell)}$. Higher curvature indicates denser, possibly conflicting cultural entanglement; low curvature reflects cleaner, disentangled cultural reasoning. This allows us to assess latent geometry beyond mere token outputs <a href="#ref10">[10]</a> <a href="#ref13">[13]</a> <a href="#ref8">[8]</a>.</p>
+<p>where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of $\mathcal{L}^{(\ell)}$. Higher curvature indicates denser, possibly conflicting cultural entanglement; low curvature reflects cleaner, disentangled cultural reasoning. This allows us to assess latent geometry beyond mere token outputs [<a href="#ref5">5</a>] [<a href="#ref6">6</a>] [<a href="#ref15">15</a>].</p>
 
 <h2 id="how-does-thermodynamic-length-in-ethnic-llms-quantify-cultural-cognitive-effort-across-layers">How does thermodynamic length in Ethnic LLMs quantify cultural cognitive effort across layers?</h2>
 
@@ -468,7 +468,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\mathcal{L}^{(\mathrm{culture})} = \sum_{\ell=1}^{L-1} \left\| h_{\ell+1}^{(\mathrm{culture})} - h_\ell^{(\mathrm{culture})} \right\|_2\]
 
-<p>where $h_\ell^{(\mathrm{culture})}$ is the mean latent embedding at layer $\ell$. A long $\mathcal{L}^{(\mathrm{culture})}$ suggests the model undertakes rich internal reconfigurations to represent complex cultural context; a short length may signal oversimplification or collapse of cultural nuance. Comparing $\mathcal{L}^{(\mathrm{culture})}$ across models provides a metric for cultural epistemic richness or compression <a href="#ref5">[5]</a> <a href="#ref14">[14]</a> <a href="#ref2">[2]</a>.</p>
+<p>where $h_\ell^{(\mathrm{culture})}$ is the mean latent embedding at layer $\ell$. A long $\mathcal{L}^{(\mathrm{culture})}$ suggests the model undertakes rich internal reconfigurations to represent complex cultural context; a short length may signal oversimplification or collapse of cultural nuance. Comparing $\mathcal{L}^{(\mathrm{culture})}$ across models provides a metric for cultural epistemic richness or compression [<a href="#ref7">7</a>] [<a href="#ref8">8</a>] [<a href="#ref3">3</a>].</p>
 
 <h2 id="how-does-the-belief-vector-field-help-trace-the-alignment-of-ethnic-llms-with-culturally-specific-concepts">How does the belief vector field help trace the alignment of Ethnic LLMs with culturally specific concepts?</h2>
 
@@ -476,7 +476,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\]
 
-<p>where $h_\ell$ is the latent state and $P(c \mid h_\ell)$ is the model’s conditional probability of concept $c$ given the latent representation. The magnitude $| \vec{v}_\ell^{(c)} |$ reflects the model’s confidence and directional alignment toward $c$ at depth $\ell$. In culturally fine-tuned LLMs, stable and consistent belief vectors across layers suggest coherent alignment with the cultural prior; oscillations or collapse signal drift or misalignment<a href="#ref9">[9]</a> <a href="#ref1">[1]</a>. This diagnostic lets us trace how models preserve or lose cultural fidelity across depth.</p>
+<p>where $h_\ell$ is the latent state and $P(c \mid h_\ell)$ is the model’s conditional probability of concept $c$ given the latent representation. The magnitude $| \vec{v}_\ell^{(c)} |$ reflects the model’s confidence and directional alignment toward $c$ at depth $\ell$. In culturally fine-tuned LLMs, stable and consistent belief vectors across layers suggest coherent alignment with the cultural prior; oscillations or collapse signal drift or misalignment[<a href="#ref2">2</a>] [<a href="#ref1">1</a>]. This diagnostic lets us trace how models preserve or lose cultural fidelity across depth.</p>
 
 <h2 id="why-is-latent-manifold-torsion-relevant-for-diagnosing-cultural-code-switching-or-epistemic-bifurcations-in-ethnic-llms">Why is latent manifold torsion relevant for diagnosing cultural code-switching or epistemic bifurcations in Ethnic LLMs?</h2>
 
@@ -484,7 +484,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\tau_\ell = \frac{\left\langle ( \Delta h_{\ell-1} \times \Delta h_\ell ), \Delta h_{\ell+1} \right\rangle}{\| \Delta h_{\ell-1} \times \Delta h_\ell \|^2}\]
 
-<p>where $\Delta h_\ell = h_{\ell+1} - h_\ell$. Spikes in $\tau_\ell$ indicate layers where latent representations change semantic direction abruptly, often corresponding to shifts between cultural priors. Torsion helps identify where and how models negotiate or bifurcate cultural knowledge<a href="#ref10">[10]</a> <a href="#ref13">[13]</a> <a href="#ref2">[2]</a>, revealing the dynamics of cultural epistemic fusion within the latent space.</p>
+<p>where $\Delta h_\ell = h_{\ell+1} - h_\ell$. Spikes in $\tau_\ell$ indicate layers where latent representations change semantic direction abruptly, often corresponding to shifts between cultural priors. Torsion helps identify where and how models negotiate or bifurcate cultural knowledge[<a href="#ref5">5</a>] [<a href="#ref6">6</a>] [<a href="#ref3">3</a>], revealing the dynamics of cultural epistemic fusion within the latent space.</p>
 
 <h2 id="how-does-spectral-curvature-reveal-cultural-entanglement-or-disentanglement-in-ethnic-llms">How does spectral curvature reveal cultural entanglement or disentanglement in Ethnic LLMs?</h2>
 
@@ -492,7 +492,7 @@ can highlight where one task’s latent space is more entangled—revealing prio
 
 \[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)}\]
 
-<p>where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of the layer-wise normalized graph Laplacian $\mathcal{L}_\ell$. In Ethnic LLMs, high curvature reflects rich cultural entanglement – where latent concepts intermix, creating dense semantic neighborhoods (e.g., blending spiritual and legal reasoning in Middle Eastern LLMs). Low curvature signifies well-separated, culturally disentangled semantic clusters (e.g., a clear moral stance in North American LLMs) .</p>
+<p>where $\lambda_i^{(\ell)}$ are the smallest non-trivial eigenvalues of the layer-wise normalized graph Laplacian $\mathcal{L}_\ell$. In Ethnic LLMs, high curvature reflects rich cultural entanglement – where latent concepts intermix, creating dense semantic neighborhoods (e.g., blending spiritual and legal reasoning in Middle Eastern LLMs). Low curvature signifies well-separated, culturally disentangled semantic clusters (e.g., a clear moral stance in North American LLMs) [<a href="#ref5">5</a>].</p>
 
 <h2 id="in-what-way-can-thermodynamic-length-detect-overcompression-or-cultural-alignment-collapse-in-fine-tuned-models">In what way can thermodynamic length detect overcompression or cultural alignment collapse in fine-tuned models?</h2>
 
@@ -576,7 +576,7 @@ where $\lambda_i \bigl( \mathcal{L}^{(\ell)} \bigr)$ are the non-trivial eigenva
 \(\mathcal{L}^{(\ell)} = I - D^{(\ell)-1/2} W^{(\ell)} D^{(\ell)-1/2}\)
 with 
 \(W_{ij}^{(\ell)} = \exp\left( -\frac{\| t_i - t_j \|^2}{\sigma^2} \right).\)
-Since frequency artifacts bias $D^{(\ell)}$ (degree matrix), but not the eigenstructure of $\mathcal{L}^{(\ell)}$ beyond trivial components, they cannot create spurious high spectral curvature $\kappa_\ell$ in the latent semantic manifold <a href="#ref10">[10]</a> <a href="#ref13">[13]</a>.</p>
+Since frequency artifacts bias $D^{(\ell)}$ (degree matrix), but not the eigenstructure of $\mathcal{L}^{(\ell)}$ beyond trivial components, they cannot create spurious high spectral curvature $\kappa_\ell$ in the latent semantic manifold [<a href="#ref5">5</a>] [<a href="#ref6">6</a>].</p>
   </li>
   <li>
     <p><strong>Sheaf consistency against syntactic priors.</strong><br />
@@ -595,11 +595,11 @@ for multiple $c$ across languages $l$. Token frequency artifacts would cause pro
     <p><strong>Controlled frequency-matched baselines.</strong><br />
 CIVIC reweights or subsamples tokens to equalize frequency distributions across cultures, and verifies:
 \(\operatorname{PH}\bigl( \mathcal{M}^{(\mathrm{culture})} \bigr) \neq \operatorname{PH}\bigl( \mathcal{M}^{(\mathrm{freq-matched})} \bigr)\)
-showing that topological divergence remains even when frequency artifacts are removed <a href="#ref15">[15]</a> <a href="#ref16">[16]</a>.</p>
+showing that topological divergence remains even when frequency artifacts are removed [<a href="#ref20">20</a>] [<a href="#ref21">21</a>].</p>
   </li>
 </ol>
 
-<p>Thus, CIVIC disentangles genuine latent cultural priors from token frequency and syntactic biases, ensuring that observed effects reflect deep epistemic structure rather than surface-level artifacts <a href="#ref17">[17]</a> <a href="#ref18">[18]</a> <a href="#ref9">[9]</a>.</p>
+<p>Thus, CIVIC disentangles genuine latent cultural priors from token frequency and syntactic biases, ensuring that observed effects reflect deep epistemic structure rather than surface-level artifacts [<a href="#ref22">22</a>] [<a href="#ref23">23</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="how-does-civic-mathematically-ensure-that-observed-cross-cultural-divergences-are-not-byproducts-of-model-stochasticity-or-random-initialization-effects">How does CIVIC mathematically ensure that observed cross-cultural divergences are not byproducts of model stochasticity or random initialization effects?</h2>
 
@@ -613,7 +613,7 @@ For each cultural LLM variant, CIVIC computes the topological and geometric inva
 \quad \forall r = 1,\dots,R\)
 and verifies:
 \(\operatorname{Var}_r \left( \operatorname{PH} \bigl( \mathcal{M}^{(\mathrm{culture}, r)} \bigr) \right) \ll \operatorname{Var}_l \left( \operatorname{PH} \bigl( \mathcal{M}^{(l)} \bigr) \right)\)
-i.e., variance across random seeds is negligible compared to variance across cultures, ensuring divergence is not driven by random effects <a href="#ref16">[16]</a> <a href="#ref15">[15]</a>.</p>
+i.e., variance across random seeds is negligible compared to variance across cultures, ensuring divergence is not driven by random effects [<a href="#ref21">21</a>] [<a href="#ref20">20</a>].</p>
   </li>
   <li>
     <p><strong>Belief field coherence test.</strong><br />
@@ -635,11 +635,11 @@ ensuring latent path length is consistent across random restarts.</p>
   </li>
   <li>
     <p><strong>Empirical ablation and bootstrap.</strong><br />
-CIVIC employs bootstrapped subsets of data and retrains, showing that observed cultural priors persist across resamples, invalidating random noise as a source of divergence <a href="#ref19">[19]</a> <a href="#ref17">[17]</a>.</p>
+CIVIC employs bootstrapped subsets of data and retrains, showing that observed cultural priors persist across resamples, invalidating random noise as a source of divergence [<a href="#ref16">16</a>] [<a href="#ref22">22</a>].</p>
   </li>
 </ol>
 
-<p>Together, these tests confirm that CIVIC’s cultural signals emerge from true latent epistemic structure, not random initialization or stochasticity artifacts <a href="#ref9">[9]</a> <a href="#ref18">[18]</a>.</p>
+<p>Together, these tests confirm that CIVIC’s cultural signals emerge from true latent epistemic structure, not random initialization or stochasticity artifacts [<a href="#ref2">2</a>] [<a href="#ref23">23</a>].</p>
 
 <h2 id="isnt-the-entire-notion-of-a-cultural-llm-ill-posed-when-large-models-are-just-stochastic-function-approximators-with-no-true-cultural-understanding-how-can-civic-claim-to-measure-cultural-priors-meaningfully">Isn’t the entire notion of a “cultural LLM” ill-posed when large models are just stochastic function approximators with no true cultural understanding? How can CIVIC claim to measure cultural priors meaningfully?</h2>
 
@@ -655,7 +655,7 @@ be the belief vector field toward concept $c$ at layer $\ell$ for language or cu
 \quad \forall l, m\)
 up to noise. CIVIC shows statistically significant divergence:
 \(\Delta \vec{v}_\ell^{(c)} = \left\| \vec{v}_\ell^{(c,l)} - \vec{v}_\ell^{(c,m)} \right\|_2 \gg \epsilon\)
-where $\epsilon$ bounds expected stochastic variation <a href="#ref9">[9]</a>.</p>
+where $\epsilon$ bounds expected stochastic variation [<a href="#ref2">2</a>].</p>
   </li>
   <li>
     <p><strong>Topological non-equivalence.</strong><br />
@@ -670,7 +670,7 @@ are the persistent homologies of latent manifolds for cultures $l$ and $m$. If c
 \right) \approx 0\)
 CIVIC finds
 \(d_{\mathrm{bottleneck}} \gg 0\)
-indicating structurally distinct latent spaces <a href="#ref15">[15]</a>.</p>
+indicating structurally distinct latent spaces [<a href="#ref20">20</a>].</p>
   </li>
   <li>
     <p><strong>Causal ablation confirmation.</strong><br />
@@ -682,7 +682,7 @@ demonstrating that cultural signal is not an artifact of overparameterization or
   </li>
 </ol>
 
-<p>Thus, CIVIC does not ask you to “believe” in cultural LLMs – it lets the latent geometry demonstrate or falsify their existence, rooted in measurable, reproducible quantities <a href="#ref17">[17]</a> <a href="#ref18">[18]</a> <a href="#ref20">[20]</a>.</p>
+<p>Thus, CIVIC does not ask you to “believe” in cultural LLMs – it lets the latent geometry demonstrate or falsify their existence, rooted in measurable, reproducible quantities [<a href="#ref22">22</a>] [<a href="#ref23">23</a>] [<a href="#ref24">24</a>].</p>
 
 <h2 id="could-the-cross-cultural-divergences-detected-by-civic-simply-reflect-dataset-imbalance-or-spurious-correlations-rather-than-genuine-learned-priors">Could the cross-cultural divergences detected by CIVIC simply reflect dataset imbalance or spurious correlations rather than genuine learned priors?</h2>
 
@@ -695,11 +695,11 @@ CIVIC constructs synthetic training scenarios with culturally balanced corpora, 
 \(\Delta \mathcal{L}^{(l,l^\prime)} = \big| \mathcal{L}^{(l)} - \mathcal{L}^{(l^\prime)} \big|
 \quad \text{and} \quad
 d_{\mathrm{bottleneck}}\Big( \operatorname{PH}\big(\mathcal{M}^{(l)}\big), \operatorname{PH}\big(\mathcal{M}^{(l^\prime)}\big) \Big)\)
-If divergence vanishes in balanced settings (which CIVIC empirically observes), this rules out dataset imbalance as the source <a href="#ref20">[20]</a> <a href="#ref17">[17]</a>.</p>
+If divergence vanishes in balanced settings (which CIVIC empirically observes), this rules out dataset imbalance as the source [<a href="#ref24">24</a>] [<a href="#ref22">22</a>].</p>
   </li>
   <li>
     <p><strong>Causal intervention analysis.</strong><br />
-We apply causal mediation tests <a href="#ref20">[20]</a>:
+We apply causal mediation tests [<a href="#ref24">24</a>]:
 \(\operatorname{Effect}_{\mathrm{culture}} = \operatorname{Effect}_{\mathrm{total}} - \operatorname{Effect}_{\mathrm{mediated}}\)
 where $\operatorname{Effect}<em>{\mathrm{mediated}}$ reflects influence from spurious variables (e.g., domain-specific token frequency). CIVIC confirms that the residual $\operatorname{Effect}</em>{\mathrm{culture}}$ is statistically significant, isolating genuine cultural priors.</p>
   </li>
@@ -707,11 +707,11 @@ where $\operatorname{Effect}<em>{\mathrm{mediated}}$ reflects influence from spu
     <p><strong>Spurious correlation detection.</strong><br />
 Persistent homology diagrams $\operatorname{PH}\big(\mathcal{M}^{(l)}\big)$ are compared not only across cultures but also across synthetic corpora designed to induce spurious correlations (e.g., token co-occurrence patterns). CIVIC finds that genuine cultural priors yield topological features (e.g., long-lived $H_1$ cycles) absent in spurious correlation controls:
 \(\operatorname{PH}\big(\mathcal{M}^{(\mathrm{culture})}\big) \not\approx \operatorname{PH}\big(\mathcal{M}^{(\mathrm{spurious})}\big)\)
-validating that detected signals arise from deeper conceptual structures <a href="#ref15">[15]</a> <a href="#ref16">[16]</a>.</p>
+validating that detected signals arise from deeper conceptual structures [<a href="#ref20">20</a>] [<a href="#ref21">21</a>].</p>
   </li>
 </ol>
 
-<p>CIVIC thus integrates causal inference, topological data analysis, and balanced baselines to distinguish genuine priors from mere artifacts, addressing this critique at both theoretical and empirical levels <a href="#ref18">[18]</a> <a href="#ref16">[16]</a>.</p>
+<p>CIVIC thus integrates causal inference, topological data analysis, and balanced baselines to distinguish genuine priors from mere artifacts, addressing this critique at both theoretical and empirical levels [<a href="#ref23">23</a>] [<a href="#ref21">21</a>].</p>
 
 <h2 id="isnt-civic-fundamentally-flawed--attempting-to-quantify-cultural-priors-in-models-that-i-are-just-memorizing-patterns-ii-reflect-data-imbalance-rather-than-culture-and-iii-show-divergences-due-to-random-noise-or-scaling-effects">Isn’t CIVIC fundamentally flawed – attempting to quantify cultural priors in models that: (i) are just memorizing patterns; (ii) reflect data imbalance rather than culture; and (iii) show divergences due to random noise or scaling effects?</h2>
 
@@ -759,7 +759,7 @@ Instead:
 \(\Delta \mathcal{L}^{(l)} 
 \quad 
 \text{remains consistent across scales}\)
-confirming scaling neutrality <a href="#ref19">[19]</a> <a href="#ref21">[21]</a>.</p>
+confirming scaling neutrality [<a href="#ref16">16</a>] [<a href="#ref25">25</a>].</p>
   </li>
   <li>
     <p><strong>Topological distinctiveness as the ultimate test.</strong>
@@ -772,11 +772,11 @@ If no culture were learned:
 \approx 0\)
 CIVIC repeatedly finds:
 \(d_{\mathrm{bottleneck}} \gg 0\)
-indicating distinct latent topologies <a href="#ref15">[15]</a> <a href="#ref16">[16]</a>.</p>
+indicating distinct latent topologies [<a href="#ref20">20</a>] [<a href="#ref21">21</a>].</p>
   </li>
 </ol>
 
-<p>In summary, CIVIC does not project culture; it rigorously tests for cultural priors using topological, geometric, and causal tools that rule out memorization, data imbalance, noise, and scale effects. This provides a mathematically sound basis for claims about cultural priors in LLMs <a href="#ref17">[17]</a> <a href="#ref18">[18]</a> <a href="#ref20">[20]</a>.</p>
+<p>In summary, CIVIC does not project culture; it rigorously tests for cultural priors using topological, geometric, and causal tools that rule out memorization, data imbalance, noise, and scale effects. This provides a mathematically sound basis for claims about cultural priors in LLMs [<a href="#ref22">22</a>] [<a href="#ref23">23</a>] [<a href="#ref24">24</a>].</p>
 
 <h1 style="line-height: 1.2; text-align: left; margin: 0;">
 Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
@@ -784,7 +784,7 @@ Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
 
 <h2 id="why-is-ndna-geometry-crucial-for-understanding-semantic-inheritance-in-multilingual-foundation-models">Why is nDNA geometry crucial for understanding semantic inheritance in multilingual foundation models?</h2>
 
-<p>In multilingual foundation models (e.g., mBERT, XLM-R <a href="#ref22">[22]</a>, BLOOM <a href="#ref18">[18]</a>), latent representations encode not only linguistic structure but culturally conditioned semantics across languages. The <strong>nDNA geometry</strong> framework maps this inheritance by tracking the evolution of hidden states through:</p>
+<p>In multilingual foundation models (e.g., mBERT, XLM-R [<a href="#ref26">26</a>], BLOOM [<a href="#ref23">23</a>]), latent representations encode not only linguistic structure but culturally conditioned semantics across languages. The <strong>nDNA geometry</strong> framework maps this inheritance by tracking the evolution of hidden states through:</p>
 
 \[\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2
 \quad \text{(thermodynamic length)}\]
@@ -795,11 +795,11 @@ Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
 \[\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell} \log P(c \mid h_\ell)
 \quad \text{(belief vector field)}\]
 
-<p>where $P(c \mid h_\ell)$ measures the conditional probability of concept $c$ at layer $\ell$. These quantities expose how semantic inheritance varies: e.g., a Hindi-English model may show higher curvature when aligning abstract concepts across languages with divergent epistemic traditions. Without nDNA geometry, we risk missing subtle structural differences in cross-lingual alignment <a href="#ref17">[17]</a> <a href="#ref23">[23]</a>.</p>
+<p>where $P(c \mid h_\ell)$ measures the conditional probability of concept $c$ at layer $\ell$. These quantities expose how semantic inheritance varies: e.g., a Hindi-English model may show higher curvature when aligning abstract concepts across languages with divergent epistemic traditions. Without nDNA geometry, we risk missing subtle structural differences in cross-lingual alignment [<a href="#ref22">22</a>] [<a href="#ref27">27</a>].</p>
 
 <h2 id="how-can-ndna-cartography-reveal-latent-asymmetries-and-cultural-bias-in-multilingual-models">How can nDNA Cartography reveal latent asymmetries and cultural bias in multilingual models?</h2>
 
-<p>Despite training on multilingual corpora, many models disproportionately reflect the structural or cultural biases of high-resource languages <a href="#ref24">[24]</a>. nDNA Cartography provides a layerwise, geometric lens for detecting this. Suppose we compute</p>
+<p>Despite training on multilingual corpora, many models disproportionately reflect the structural or cultural biases of high-resource languages [<a href="#ref28">28</a>]. nDNA Cartography provides a layerwise, geometric lens for detecting this. Suppose we compute</p>
 
 \[\mathcal{L}^{(\text{en})}, \; \mathcal{L}^{(\text{hi})}, \; \mathcal{L}^{(\text{ar})}
 \quad \text{(thermodynamic lengths for English, Hindi, Arabic inputs)}\]
@@ -808,11 +808,11 @@ Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
 
 \[\kappa_\ell^{(\text{en})} \gg \kappa_\ell^{(\text{hi})}\]
 
-<p>this reflects richer semantic recombination capacity for English at that depth. The Cartograph thereby turns bias detection into a geometric, traceable science rather than anecdotal observation <a href="#ref25">[25]</a> <a href="#ref2">[2]</a>.</p>
+<p>this reflects richer semantic recombination capacity for English at that depth. The Cartograph thereby turns bias detection into a geometric, traceable science rather than anecdotal observation [<a href="#ref29">29</a>] [<a href="#ref3">3</a>].</p>
 
 <h2 id="why-is-it-essential-to-study-the-latent-geometry-of-multilingual-models-rather-than-relying-solely-on-output-level-metrics">Why is it essential to study the latent geometry of multilingual models rather than relying solely on output-level metrics?</h2>
 
-<p>Multilingual large language models (MLLMs), such as <em>XLM-R</em> <a href="#ref22">[22]</a> or <em>mBERT</em> <a href="#ref26">[26]</a>, must reconcile vastly different linguistic systems within a unified latent space. Surface metrics (e.g., BLEU, F1) obscure internal epistemic tensions or collapse points. The <strong>Multilingual nDNA</strong> framework reveals these hidden dynamics.</p>
+<p>Multilingual large language models (MLLMs), such as <em>XLM-R</em> [<a href="#ref26">26</a>] or <em>mBERT</em> [<a href="#ref30">30</a>], must reconcile vastly different linguistic systems within a unified latent space. Surface metrics (e.g., BLEU, F1) obscure internal epistemic tensions or collapse points. The <strong>Multilingual nDNA</strong> framework reveals these hidden dynamics.</p>
 
 <p>We define:</p>
 
@@ -830,7 +830,7 @@ Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
 
 <p>where $\lambda_i^{(\ell,l)}$ are the smallest non-trivial eigenvalues of the Laplacian at layer $\ell$.</p>
 
-<p>These quantities expose overcompression ($\mathcal{L}^{(l)} \downarrow$) or excessive entanglement ($\kappa_\ell^{(l)} \uparrow$) invisible to output metrics <a href="#ref27">[27]</a> <a href="#ref4">[4]</a>.</p>
+<p>These quantities expose overcompression ($\mathcal{L}^{(l)} \downarrow$) or excessive entanglement ($\kappa_\ell^{(l)} \uparrow$) invisible to output metrics [<a href="#ref31">31</a>] [<a href="#ref11">11</a>].</p>
 
 <h2 id="how-does-multilingual-ndna-cartography-help-detect-latent-cultural-bias-that-is-not-visible-in-output-text">How does multilingual nDNA cartography help detect latent cultural bias that is not visible in output text?</h2>
 
@@ -840,7 +840,7 @@ Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
 
 \[\mathcal{L}^{(\text{English})} \gg \mathcal{L}^{(\text{Swahili})}\]
 
-<p>for a prompt involving ethical reasoning, it signals that the model is investing more semantic effort (latent displacement) for English, while compressing or shortcutting reasoning for Swahili. These latent signatures, detectable only through nDNA geometry, reveal biases that might otherwise stay hidden if we focused solely on output fluency <a href="#ref2">[2]</a> <a href="#ref4">[4]</a>.</p>
+<p>for a prompt involving ethical reasoning, it signals that the model is investing more semantic effort (latent displacement) for English, while compressing or shortcutting reasoning for Swahili. These latent signatures, detectable only through nDNA geometry, reveal biases that might otherwise stay hidden if we focused solely on output fluency [<a href="#ref3">3</a>] [<a href="#ref11">11</a>].</p>
 
 <h2 id="why-is-thermodynamic-length-particularly-useful-for-diagnosing-multilingual-overcompression-or-underrepresentation">Why is thermodynamic length particularly useful for diagnosing multilingual overcompression or underrepresentation?</h2>
 
@@ -850,7 +850,7 @@ Multilingual nDNA: Tracing Latent Semantic Inheritance Across Languages
 
 <p>This can be seen as the epistemic work the model performs to transform input into latent meaning. When $\mathcal{L}^{(l)}$ is anomalously small for a language, it often means that the model is skipping or collapsing intermediate conceptual steps – a form of overcompression. This could lead to fragile reasoning or loss of nuance for that language.</p>
 
-<p>Conversely, an unusually long $\mathcal{L}^{(l)}$ might indicate unnecessary complexity, perhaps due to lack of confident semantic grounding in that language. Thus, by inspecting thermodynamic length across languages, we gain a direct, quantitative view of representational health in multilingual models, beyond what token-level evaluation provides <a href="#ref5">[5]</a> <a href="#ref1">[1]</a>.</p>
+<p>Conversely, an unusually long $\mathcal{L}^{(l)}$ might indicate unnecessary complexity, perhaps due to lack of confident semantic grounding in that language. Thus, by inspecting thermodynamic length across languages, we gain a direct, quantitative view of representational health in multilingual models, beyond what token-level evaluation provides [<a href="#ref7">7</a>] [<a href="#ref1">1</a>].</p>
 
 <h1 style="line-height: 1.2; text-align: left; margin: 0;">
 nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
@@ -864,7 +864,7 @@ nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
 
 <p>where $P(c \mid h_\ell)$ is the model’s conditional probability of concept $c$.</p>
 
-<p>This manifold perspective allows us to measure not only whether the model aligns with instructions at the output layer, but how consistently and coherently this alignment force is applied across the depth of the network. It enables detection of hidden misalignments, semantic drifts, and brittle reasoning pathways – phenomena invisible to scalar metrics. This approach draws inspiration from geometric flows <a href="#ref9">[9]</a>, vector field topology <a href="#ref28">[28]</a>, and recent work on alignment auditing in LLMs <a href="#ref1">[1]</a>.</p>
+<p>This manifold perspective allows us to measure not only whether the model aligns with instructions at the output layer, but how consistently and coherently this alignment force is applied across the depth of the network. It enables detection of hidden misalignments, semantic drifts, and brittle reasoning pathways – phenomena invisible to scalar metrics. This approach draws inspiration from geometric flows [<a href="#ref2">2</a>], vector field topology [<a href="#ref32">32</a>], and recent work on alignment auditing in LLMs [<a href="#ref1">1</a>].</p>
 
 <h2 id="how-does-thermodynamic-length-complement-the-belief-vector-field-in-mapping-alignment-pathways-in-large-language-models">How does thermodynamic length complement the belief vector field in mapping alignment pathways in large language models?</h2>
 
@@ -876,7 +876,7 @@ nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
 
 \[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell)\]
 
-<p>we obtain both the magnitude of epistemic reconfiguration (via $\mathcal{L}$) and its directionality (via $\vec{v}_\ell^{(c)}$). Together, they form a rich geometric signature of alignment pathways – revealing whether semantic progress is efficient, consistent, or plagued by unnecessary detours and drift <a href="#ref1">[1]</a> <a href="#ref9">[9]</a>.</p>
+<p>we obtain both the magnitude of epistemic reconfiguration (via $\mathcal{L}$) and its directionality (via $\vec{v}_\ell^{(c)}$). Together, they form a rich geometric signature of alignment pathways – revealing whether semantic progress is efficient, consistent, or plagued by unnecessary detours and drift [<a href="#ref1">1</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="what-is-the-formal-connection-between-the-belief-vector-field-and-classical-mechanics-and-why-is-this-analogy-important-for-alignment-diagnostics">What is the formal connection between the belief vector field and classical mechanics, and why is this analogy important for alignment diagnostics?</h2>
 
@@ -884,11 +884,11 @@ nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
 
 \[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c \mid h_\ell).\]
 
-<p>This mirrors how conservative forces derive from scalar potentials in physics <a href="#ref28">[28]</a>. The latent dynamics of the model can then be understood in terms of trajectories that minimize semantic “potential energy” while following alignment-constrained paths:</p>
+<p>This mirrors how conservative forces derive from scalar potentials in physics [<a href="#ref32">32</a>]. The latent dynamics of the model can then be understood in terms of trajectories that minimize semantic “potential energy” while following alignment-constrained paths:</p>
 
 \[\delta \int \mathcal{L}(h_\ell) \, d\ell = 0,\]
 
-<p>where $\mathcal{L}(h_\ell)$ denotes a latent Lagrangian incorporating belief gradients and thermodynamic displacement. This analogy allows us to apply tools from variational calculus and geometric mechanics to alignment diagnostics, enabling the detection of latent shortcutting, over-regularization, or semantic collapse that may not be visible at the output level <a href="#ref9">[9]</a> <a href="#ref13">[13]</a>.</p>
+<p>where $\mathcal{L}(h_\ell)$ denotes a latent Lagrangian incorporating belief gradients and thermodynamic displacement. This analogy allows us to apply tools from variational calculus and geometric mechanics to alignment diagnostics, enabling the detection of latent shortcutting, over-regularization, or semantic collapse that may not be visible at the output level [<a href="#ref2">2</a>] [<a href="#ref6">6</a>].</p>
 
 <h2 id="how-does-mapping-alignment-as-a-steering-vector-manifold-differ-from-scalar-alignment-metrics-and-what-new-failure-modes-does-it-help-reveal">How does mapping alignment as a steering vector manifold differ from scalar alignment metrics, and what new failure modes does it help reveal?</h2>
 
@@ -900,11 +900,11 @@ nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
 
 <ul>
   <li><strong>Pathological spiraling</strong>: where latent states cycle or oscillate around conceptual targets without convergence, indicative of indecision or mode collapse.</li>
-  <li><strong>Alignment bifurcation</strong>: where belief vector fields split sharply at certain layers, signaling semantic conflict or unresolved multi-objective alignment <a href="#ref1">[1]</a>.</li>
+  <li><strong>Alignment bifurcation</strong>: where belief vector fields split sharply at certain layers, signaling semantic conflict or unresolved multi-objective alignment [<a href="#ref1">1</a>].</li>
   <li><strong>Gradient vanishing zones</strong>: where $| \vec{v}_\ell^{(c)} | \to 0$, indicating regions of latent inertia where the model is no longer semantically guided.</li>
 </ul>
 
-<p>This framework transforms alignment auditing from output-level analysis to geometric reasoning about the model’s internal epistemic dynamics <a href="#ref9">[9]</a> <a href="#ref13">[13]</a>.</p>
+<p>This framework transforms alignment auditing from output-level analysis to geometric reasoning about the model’s internal epistemic dynamics [<a href="#ref2">2</a>] [<a href="#ref6">6</a>].</p>
 
 <h2 id="how-can-geodesic-deviation-in-the-alignment-manifold-diagnose-subtle-forms-of-misalignment-or-conflicting-objectives">How can geodesic deviation in the alignment manifold diagnose subtle forms of misalignment or conflicting objectives?</h2>
 
@@ -918,7 +918,7 @@ nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
 
 \[R(X,Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z\]
 
-<p>where $X, Y, Z$ are vector fields along the latent manifold. Spikes in curvature at layers with large $\mathcal{D}_\ell$ expose loci of alignment tension <a href="#ref9">[9]</a> <a href="#ref28">[28]</a>. Such diagnostics cannot be inferred from scalar metrics but are revealed through geometric reasoning.</p>
+<p>where $X, Y, Z$ are vector fields along the latent manifold. Spikes in curvature at layers with large $\mathcal{D}_\ell$ expose loci of alignment tension [<a href="#ref2">2</a>] [<a href="#ref32">32</a>]. Such diagnostics cannot be inferred from scalar metrics but are revealed through geometric reasoning.</p>
 
 <h2 id="why-is-the-notion-of-a-steering-vector-manifold-better-suited-for-multilingual-or-culturally-fine-tuned-models">Why is the notion of a steering vector manifold better suited for multilingual or culturally fine-tuned models?</h2>
 
@@ -947,7 +947,7 @@ nDNA -- Geometry: The First Map of Alignment as a Steering Vector Manifold
 where large differences reveal culturally induced alignment drift.</li>
 </ul>
 
-<p>Such analysis is crucial for auditing fairness, inclusiveness, and epistemic consistency in multilingual or culturally diverse LLMs <a href="#ref17">[17]</a> <a href="#ref23">[23]</a> <a href="#ref18">[18]</a>.</p>
+<p>Such analysis is crucial for auditing fairness, inclusiveness, and epistemic consistency in multilingual or culturally diverse LLMs [<a href="#ref22">22</a>] [<a href="#ref27">27</a>] [<a href="#ref23">23</a>].</p>
 
 <h3 id="how-does-the-ndna-steering-vector-manifold-help-identify-layers-where-conceptual-bifurcations-or-alignment-contradictions-occur">How does the nDNA steering vector manifold help identify layers where conceptual bifurcations or alignment contradictions occur?</h3>
 
@@ -962,7 +962,7 @@ where large differences reveal culturally induced alignment drift.</li>
 
 <p>where $\vec{v}<em>{\ell,i}^{(c)}$ is the belief vector for token $i$, and $\overline{\vec{v}</em>\ell^{(c)}}$ is the mean belief vector at layer $\ell$.</p>
 
-<p>Large $\sigma_\ell^2(c)$ flags regions where different parts of the latent space pull toward competing semantic interpretations – a hallmark of internal contradiction or unresolved conceptual tension. This goes far beyond output accuracy metrics, offering a window into the model’s epistemic decision process <a href="#ref9">[9]</a> <a href="#ref8">[8]</a>.</p>
+<p>Large $\sigma_\ell^2(c)$ flags regions where different parts of the latent space pull toward competing semantic interpretations – a hallmark of internal contradiction or unresolved conceptual tension. This goes far beyond output accuracy metrics, offering a window into the model’s epistemic decision process [<a href="#ref2">2</a>] [<a href="#ref15">15</a>].</p>
 
 <h3 id="why-does-the-steering-vector-manifold-reveal-failure-modes-that-traditional-loss-metrics-miss-during-fine-tuning-or-distillation">Why does the steering vector manifold reveal failure modes that traditional loss metrics miss during fine-tuning or distillation?</h3>
 
@@ -977,7 +977,7 @@ where large differences reveal culturally induced alignment drift.</li>
 
 <p>this reflects divergent internal reasoning pathways, unseen by loss alone. A high $\Delta_{\text{steer}}$ signals that the models, while output-aligned, may differ in robustness, compositionality, or alignment safety.</p>
 
-<p>Such analysis makes it possible to detect brittle alignment or reasoning shortcuts early, transforming model evaluation from output-endpoint metrics to a rigorous inner geometry audit <a href="#ref3">[3]</a> <a href="#ref1">[1]</a>.</p>
+<p>Such analysis makes it possible to detect brittle alignment or reasoning shortcuts early, transforming model evaluation from output-endpoint metrics to a rigorous inner geometry audit [<a href="#ref4">4</a>] [<a href="#ref1">1</a>].</p>
 
 <h3 id="how-does-the-geometry-of-steering-vector-manifolds-expose-epistemic-inconsistency-in-multi-step-reasoning-tasks">How does the geometry of steering vector manifolds expose epistemic inconsistency in multi-step reasoning tasks?</h3>
 
@@ -999,7 +999,7 @@ where large differences reveal culturally induced alignment drift.</li>
 
 <p>Small $\mathcal{C}^{(c)}$ indicates coherent epistemic progression. Large $\mathcal{C}^{(c)}$ flags inconsistency: the model’s internal belief flow veers between steps, often preceding hallucinations or reasoning errors.</p>
 
-<p>This geometric quantity, unavailable in traditional loss functions, rigorously diagnoses hidden weaknesses in reasoning chains – making the manifold approach essential for safe and interpretable AI <a href="#ref10">[10]</a> <a href="#ref13">[13]</a> <a href="#ref9">[9]</a>.</p>
+<p>This geometric quantity, unavailable in traditional loss functions, rigorously diagnoses hidden weaknesses in reasoning chains – making the manifold approach essential for safe and interpretable AI [<a href="#ref5">5</a>] [<a href="#ref6">6</a>] [<a href="#ref2">2</a>].</p>
 
 <h1 style="line-height: 1.2; text-align: left; margin: 0;">
 nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
@@ -1017,7 +1017,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 \[\mathcal{L}^{\mathrm{prune}} \ll \mathcal{L}^{\mathrm{base}}\]
 
-<p>indicating that the epistemic work – the representational journey the model undertakes – is significantly compressed. This formalism reveals how such compression can lead to semantic underfitting, alignment collapse, or loss of reasoning capacity, even when surface metrics like perplexity show minimal degradation <a href="#ref5">[5]</a> <a href="#ref14">[14]</a> <a href="#ref29">[29]</a>.</p>
+<p>indicating that the epistemic work – the representational journey the model undertakes – is significantly compressed. This formalism reveals how such compression can lead to semantic underfitting, alignment collapse, or loss of reasoning capacity, even when surface metrics like perplexity show minimal degradation [<a href="#ref7">7</a>] [<a href="#ref8">8</a>] [<a href="#ref33">33</a>].</p>
 
 <h2 id="why-is-thermodynamic-length-a-superior-diagnostic-for-pruning-induced-alignment-loss-compared-to-scalar-accuracy-metrics">Why is thermodynamic length a superior diagnostic for pruning-induced alignment loss compared to scalar accuracy metrics?</h2>
 
@@ -1031,7 +1031,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 <p>despite unchanged accuracy. This indicates that the latent space has collapsed – the model no longer internally traverses rich semantic trajectories, but merely maps inputs to outputs via shallow shortcuts.</p>
 
-<p>Such collapse increases the model’s vulnerability to adversarial prompts, loss of compositional reasoning, and failure in out-of-distribution settings – insights that scalar metrics fail to reveal <a href="#ref30">[30]</a> <a href="#ref31">[31]</a>.</p>
+<p>Such collapse increases the model’s vulnerability to adversarial prompts, loss of compositional reasoning, and failure in out-of-distribution settings – insights that scalar metrics fail to reveal [<a href="#ref34">34</a>] [<a href="#ref35">35</a>].</p>
 
 <h2 id="how-does-the-ndna-thermodynamic-length-quantify-the-epistemic-cost-of-quantization-in-foundation-models">How does the nDNA thermodynamic length quantify the epistemic cost of quantization in foundation models?</h2>
 
@@ -1047,7 +1047,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 \[\Delta \mathcal{L}_{\mathrm{quant}} = \mathcal{L}^{(q)} - \mathcal{L}^{(\mathrm{full})}\]
 
-<p>gives a direct measure of epistemic distortion. Large $\Delta \mathcal{L}_{\mathrm{quant}}$ reveals that quantization has introduced significant representational drift, potentially altering the model’s reasoning dynamics and alignment fidelity <a href="#ref31">[31]</a> <a href="#ref5">[5]</a>.</p>
+<p>gives a direct measure of epistemic distortion. Large $\Delta \mathcal{L}_{\mathrm{quant}}$ reveals that quantization has introduced significant representational drift, potentially altering the model’s reasoning dynamics and alignment fidelity [<a href="#ref35">35</a>] [<a href="#ref7">7</a>].</p>
 
 <h2 id="why-does-pruning-lead-to-localized-curvature-spikes-in-the-ndna-manifold-and-how-can-this-be-mathematically-diagnosed">Why does pruning lead to localized curvature spikes in the nDNA manifold, and how can this be mathematically diagnosed?</h2>
 
@@ -1059,7 +1059,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 <p>where $\lambda_i^{(p,\ell)}$ are the smallest non-trivial eigenvalues of the graph Laplacian $\mathcal{L}^{(p,\ell)}$ formed from token embeddings after pruning.</p>
 
-<p>If pruning causes abrupt removal of key pathways, $\mathcal{L}^{(p,\ell)}$ becomes ill-conditioned locally, resulting in spikes in $\kappa_\ell^{(p)}$. These spikes mark points where the semantic manifold bends sharply – diagnostic of where pruning has disrupted smooth conceptual flow <a href="#ref31">[31]</a> <a href="#ref13">[13]</a>. The Cartograph therefore exposes the hidden geometric cost of over-aggressive pruning.</p>
+<p>If pruning causes abrupt removal of key pathways, $\mathcal{L}^{(p,\ell)}$ becomes ill-conditioned locally, resulting in spikes in $\kappa_\ell^{(p)}$. These spikes mark points where the semantic manifold bends sharply – diagnostic of where pruning has disrupted smooth conceptual flow [<a href="#ref35">35</a>] [<a href="#ref6">6</a>]. The Cartograph therefore exposes the hidden geometric cost of over-aggressive pruning.</p>
 
 <h2 id="how-does-the-belief-vector-field-reveal-hidden-semantic-degradation-during-quantization">How does the belief vector field reveal hidden semantic degradation during quantization?</h2>
 
@@ -1077,7 +1077,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 \[\big\| \vec{v}_\ell^{(c,q)} \big\| \to 0\]
 
-<p>or erratic directional shifts, showing that the model’s latent states have become unresponsive to conceptual targets <a href="#ref1">[1]</a> <a href="#ref31">[31]</a>. The Cartograph lets us pinpoint these failures layer by layer.</p>
+<p>or erratic directional shifts, showing that the model’s latent states have become unresponsive to conceptual targets [<a href="#ref1">1</a>] [<a href="#ref35">35</a>]. The Cartograph lets us pinpoint these failures layer by layer.</p>
 
 <h2 id="why-can-pruning-induce-catastrophic-latent-path-shortening-and-how-is-this-quantified-by-ndna-thermodynamic-collapse">Why can pruning induce catastrophic latent path shortening, and how is this quantified by nDNA thermodynamic collapse?</h2>
 
@@ -1091,7 +1091,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 <p>signaling that the latent manifold has collapsed into a lower-dimensional, less expressive subspace.</p>
 
-<p>Such path shortening means the model performs less epistemic “work” in reasoning – a hallmark of alignment loss, mode collapse, or brittle generalization <a href="#ref31">[31]</a> <a href="#ref5">[5]</a>. The Cartograph thereby translates pruning-induced damage into measurable geometric terms.</p>
+<p>Such path shortening means the model performs less epistemic “work” in reasoning – a hallmark of alignment loss, mode collapse, or brittle generalization [<a href="#ref35">35</a>] [<a href="#ref7">7</a>]. The Cartograph thereby translates pruning-induced damage into measurable geometric terms.</p>
 
 <h2 id="how-does-ndna-thermodynamic-geometry-unify-the-analysis-of-quantization-pruning-and-catastrophic-forgetting-as-manifestations-of-latent-manifold-collapse">How does nDNA thermodynamic geometry unify the analysis of quantization, pruning, and catastrophic forgetting as manifestations of latent manifold collapse?</h2>
 
@@ -1135,7 +1135,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 \[\vec{v}_\ell^{(c)} = \nabla_{h_\ell} \log P(c | h_\ell)\]
 
-<p>The unifying insight is that all these phenomena – quantization, pruning, forgetting – correspond to different routes by which the latent semantic genome loses its topological and geometric richness, measurable through $\mathcal{L}$, spectral curvature $\kappa_\ell$, and belief vector decay <a href="#ref31">[31]</a> <a href="#ref5">[5]</a> <a href="#ref9">[9]</a>. The Cartograph reframes them not as separate engineering problems, but as geometric failures of epistemic integrity.</p>
+<p>The unifying insight is that all these phenomena – quantization, pruning, forgetting – correspond to different routes by which the latent semantic genome loses its topological and geometric richness, measurable through $\mathcal{L}$, spectral curvature $\kappa_\ell$, and belief vector decay [<a href="#ref35">35</a>] [<a href="#ref7">7</a>] [<a href="#ref2">2</a>]. The Cartograph reframes them not as separate engineering problems, but as geometric failures of epistemic integrity.</p>
 <h1 style="line-height: 1.2; text-align: left; margin: 0;">
 ÆTHER: Cross-Cultural LLM Merging and the Geometry of Inherited Culture
 </h1>
@@ -1170,7 +1170,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 \kappa_\ell^{(\text{Æ})} - \big( \alpha \kappa_\ell^{(A)} + (1 - \alpha) \kappa_\ell^{(B)} \big)
 \right|\]
 
-<p>signals latent inconsistency or cultural clash <a href="#ref32">[32]</a> <a href="#ref8">[8]</a> <a href="#ref3">[3]</a>.</p>
+<p>signals latent inconsistency or cultural clash [<a href="#ref14">14</a>] [<a href="#ref15">15</a>] [<a href="#ref4">4</a>].</p>
 
 <h2 id="how-does-the-belief-vector-field-of-æther-reveal-inherited-bias-or-conceptual-fusion-in-neural-offspring">How does the belief vector field of ÆTHER reveal inherited bias or conceptual fusion in neural offspring?</h2>
 
@@ -1197,7 +1197,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 \operatorname{Var}\big( \vec{v}_\ell^{(c,B)} \big)
 \big\}\]
 
-<p>Such diagnostics turn latent bias and conceptual recombination into measurable geometric signals <a href="#ref8">[8]</a> <a href="#ref1">[1]</a>.</p>
+<p>Such diagnostics turn latent bias and conceptual recombination into measurable geometric signals [<a href="#ref15">15</a>] [<a href="#ref1">1</a>].</p>
 
 <h2 id="what-does-thermodynamic-asymmetry-reveal-about-cultural-dominance-versus-true-fusion-in-the-latent-geometry-of-æther-neural-offspring">What does thermodynamic asymmetry reveal about cultural dominance versus true fusion in the latent geometry of ÆTHER neural offspring?</h2>
 
@@ -1215,7 +1215,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 
 \[\Delta \mathcal{L}^{(\text{ÆTHER},A)} \approx \Delta \mathcal{L}^{(\text{ÆTHER},B)}\]
 
-<p>indicates successful conceptual fusion where both parental lineages shape ÆTHER’s epistemic path <a href="#ref8">[8]</a> <a href="#ref1">[1]</a>.</p>
+<p>indicates successful conceptual fusion where both parental lineages shape ÆTHER’s epistemic path [<a href="#ref15">15</a>] [<a href="#ref1">1</a>].</p>
 
 <h2 id="how-does-æther-reveal-latent-cultural-recombination-beyond-what-output-level-evaluation-can-show">How does ÆTHER reveal latent cultural recombination beyond what output-level evaluation can show?</h2>
 
@@ -1234,7 +1234,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 \[\Delta \kappa_\ell^{(\text{Æ})} \gg \epsilon, \quad
 \Delta \mathcal{L}^{(\text{Æ},A)} \not\approx \Delta \mathcal{L}^{(\text{Æ},B)}\]
 
-<p>where $\epsilon$ is a small tolerance, showing that inherited geometry deviates nonlinearly from parental contributions. This makes ÆTHER an essential tool for auditing deep cultural fusion at the epistemic level, not just surface text <a href="#ref8">[8]</a> <a href="#ref3">[3]</a>.</p>
+<p>where $\epsilon$ is a small tolerance, showing that inherited geometry deviates nonlinearly from parental contributions. This makes ÆTHER an essential tool for auditing deep cultural fusion at the epistemic level, not just surface text [<a href="#ref15">15</a>] [<a href="#ref4">4</a>].</p>
 
 <h2 id="why-is-spectral-curvature-critical-for-detecting-cultural-conflict-zones-in-æthers-latent-manifold">Why is spectral curvature critical for detecting cultural conflict zones in ÆTHER’s latent manifold?</h2>
 
@@ -1250,7 +1250,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
 \kappa_\ell^{(\text{Æ})} - \alpha \kappa_\ell^{(A)} - (1 - \alpha) \kappa_\ell^{(B)} 
 \big|\]
 
-<p>Large $\Delta \kappa_\ell^{(\text{Æ})}$ values expose layerwise conflict zones invisible in outputs, enabling targeted audit of inherited cultural inconsistencies <a href="#ref13">[13]</a> <a href="#ref32">[32]</a>.</p>
+<p>Large $\Delta \kappa_\ell^{(\text{Æ})}$ values expose layerwise conflict zones invisible in outputs, enabling targeted audit of inherited cultural inconsistencies [<a href="#ref6">6</a>] [<a href="#ref14">14</a>].</p>
 
 <h2 id="what-are-the-mathematical-risks-of-assuming-linearity-in-æthers-latent-recombination-and-how-might-this-mask-deeper-cultural-incompatibilities">What are the mathematical risks of assuming linearity in ÆTHER’s latent recombination, and how might this mask deeper cultural incompatibilities?</h2>
 
@@ -1277,7 +1277,7 @@ nDNA Lens -- Quantization and Pruning Seen as Thermodynamic Collapses
   </li>
 </ol>
 
-<p>Thus, while linear recombination simplifies analysis, it may obscure structural mismatches that only deeper geometric or topological methods (e.g., geodesic interpolation, manifold alignment) can reveal <a href="#ref3">[3]</a> <a href="#ref32">[32]</a> .</p>
+<p>Thus, while linear recombination simplifies analysis, it may obscure structural mismatches that only deeper geometric or topological methods (e.g., geodesic interpolation, manifold alignment) can reveal [<a href="#ref4">4</a>] [<a href="#ref14">14</a>] .</p>
 
 <h2 id="why-might-spectral-curvature-and-thermodynamic-length-fail-to-fully-characterize-recombination-tension-in-æther-and-what-additional-geometry-is-needed">Why might spectral curvature and thermodynamic length fail to fully characterize recombination tension in ÆTHER, and what additional geometry is needed?</h2>
 
@@ -1308,7 +1308,7 @@ where $\tau_\ell^{(\text{Æ})}$ captures latent twisting ignored by $\kappa_\ell
   </li>
 </ol>
 
-<p>Thus, robust recombination auditing requires richer tools – e.g., persistent homology, sheaf theory, or fiber bundle analysis – beyond scalar curvature and path length <a href="#ref13">[13]</a> <a href="#ref9">[9]</a>.</p>
+<p>Thus, robust recombination auditing requires richer tools – e.g., persistent homology, sheaf theory, or fiber bundle analysis – beyond scalar curvature and path length [<a href="#ref6">6</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="how-can-we-rigorously-differentiate-between-parental-alignment-harmonious-fusion-and-epistemic-emergence-in-æther-beyond-scalar-kappa_l-and-mathcall_l-summaries">How can we rigorously differentiate between parental alignment, harmonious fusion, and epistemic emergence in ÆTHER beyond scalar $\kappa_L$ and $\mathcal{L}_L$ summaries?</h2>
 
@@ -1357,7 +1357,7 @@ signaling novel directions outside either parent’s span.</p>
 
 <p>indicates emergent loops in the latent space – geometric novelty beyond linear recombination.</p>
 
-<p>Thus, rigorous differentiation requires moving from scalar summaries to <em>multidimensional latent statistics, covariance structures, and topological signatures</em> <a href="#ref13">[13]</a> <a href="#ref15">[15]</a>.</p>
+<p>Thus, rigorous differentiation requires moving from scalar summaries to <em>multidimensional latent statistics, covariance structures, and topological signatures</em> [<a href="#ref6">6</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="why-might-scalar-curvature-and-thermodynamic-length-metrics-fail-to-detect-hybrid-vigor-or-cultural-tension-in-æther-and-what-deeper-tools-are-required">Why might scalar curvature and thermodynamic length metrics fail to detect hybrid vigor or cultural tension in ÆTHER, and what deeper tools are required?</h2>
 
@@ -1398,7 +1398,7 @@ $\mathcal{M}^{(\mathrm{Æ}_2)}$ fragments into twisted or disjoint regions.</p>
 \quad
 \mathcal{S}_{\mathrm{sheaf}} \quad \text{(sheaf consistency loss)}.\]
 
-<p>Persistent homology detects stable topological features (e.g., cycles, holes) that signal hybrid vigor if long-lived, or cultural tension if short-lived topological noise appears. Sheaf-theoretic losses quantify local semantic consistency across layers and subspaces <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>Persistent homology detects stable topological features (e.g., cycles, holes) that signal hybrid vigor if long-lived, or cultural tension if short-lived topological noise appears. Sheaf-theoretic losses quantify local semantic consistency across layers and subspaces [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 
 <p>In sum, hybrid effects live in the latent topology – beyond the reach of scalar metrics – requiring richer geometric and algebraic tools for proper audit.</p>
 
@@ -1429,7 +1429,7 @@ Unlike t-SNE, PCA, or attention maps, nDNA:</p>
   <li>Provides differential diagnostics: comparison across $\mathcal{M}$ under fine-tuning, merging, or compression reveals <strong>mechanistic causes</strong> of alignment drift – not just symptoms.</li>
 </ul>
 
-<p>Hence, nDNA is not an embellishment, but a mathematically grounded formalism indispensable for epistemic interpretability <a href="#ref9">[9]</a> <a href="#ref13">[13]</a>.</p>
+<p>Hence, nDNA is not an embellishment, but a mathematically grounded formalism indispensable for epistemic interpretability [<a href="#ref2">2</a>] [<a href="#ref6">6</a>].</p>
 
 <h2 id="if-foundation-models-are-universal-function-approximators-why-do-we-need-ndna-geometry-to-analyze-their-reasoning--isnt-input-output-evaluation-enough">If foundation models are universal function approximators, why do we need nDNA geometry to analyze their reasoning – isn’t input-output evaluation enough?</h2>
 
@@ -1461,7 +1461,7 @@ Unlike t-SNE, PCA, or attention maps, nDNA:</p>
   <li>You cannot audit alignment: $\vec{v}_\ell^{(c)}$ shows whether latent states are actually driven toward intended concepts, not merely post-hoc aligned outputs.</li>
 </ul>
 
-<p>Thus, nDNA does not challenge the universality of approximators – it reveals <em>how</em> universality is achieved (or compromised), making models not just powerful, but <em>trustworthy</em> <a href="#ref9">[9]</a> <a href="#ref1">[1]</a> <a href="#ref3">[3]</a>.</p>
+<p>Thus, nDNA does not challenge the universality of approximators – it reveals <em>how</em> universality is achieved (or compromised), making models not just powerful, but <em>trustworthy</em> [<a href="#ref2">2</a>] [<a href="#ref1">1</a>] [<a href="#ref4">4</a>].</p>
 
 <h1 id="ndna-lens--model-collapse-seen-as-latent-manifold-flattening">nDNA Lens – Model Collapse Seen as Latent Manifold Flattening</h1>
 
@@ -1489,7 +1489,7 @@ Unlike t-SNE, PCA, or attention maps, nDNA:</p>
 
 <p>where $\lambda_i^{(\ell)}$ are the non-trivial eigenvalues of the token similarity graph Laplacian at layer $\ell$. This reveals that latent semantic complexity has evaporated.</p>
 
-<p>Thus, latent manifold flattening provides a geometric, intrinsic signature of collapse – long before accuracy or output anomalies are observable <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+<p>Thus, latent manifold flattening provides a geometric, intrinsic signature of collapse – long before accuracy or output anomalies are observable [<a href="#ref2">2</a>] [<a href="#ref7">7</a>].</p>
 
 <h2 id="how-can-we-formally-distinguish-benign-compression-eg-pruning-quantization-from-pathological-flattening-indicative-of-collapse">How can we formally distinguish benign compression (e.g., pruning, quantization) from pathological flattening indicative of collapse?</h2>
 
@@ -1514,7 +1514,7 @@ indicating collapse across the entire depth.</p>
 
 <p>meaning latent states no longer align with semantic targets.</p>
 
-<p>The <strong>nDNA diagnostics</strong> thus enable clear separation of healthy model simplification (topology preserved) from epistemic collapse (topology destroyed) <a href="#ref31">[31]</a> <a href="#ref9">[9]</a>.</p>
+<p>The <strong>nDNA diagnostics</strong> thus enable clear separation of healthy model simplification (topology preserved) from epistemic collapse (topology destroyed) [<a href="#ref35">35</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="why-is-latent-manifold-flattening-a-more-reliable-early-warning-signal-of-model-collapse-than-output-metrics-or-loss-curves">Why is latent manifold flattening a more reliable early warning signal of model collapse than output metrics or loss curves?</h2>
 
@@ -1534,11 +1534,11 @@ indicating collapse across the entire depth.</p>
 
 <p>indicates loss of semantic entanglement.</p>
 
-<p>These geometric signals precede degradation in loss or accuracy, offering a fundamentally earlier diagnostic for collapse <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+<p>These geometric signals precede degradation in loss or accuracy, offering a fundamentally earlier diagnostic for collapse [<a href="#ref2">2</a>] [<a href="#ref7">7</a>].</p>
 
 <h2 id="how-does-persistent-homology-provide-a-deeper-lens-on-latent-flattening-and-what-does-its-failure-indicate">How does persistent homology provide a deeper lens on latent flattening, and what does its failure indicate?</h2>
 
-<p>Persistent homology studies the birth and death of topological features (e.g., connected components, loops, voids) in the latent point cloud across distance scales <a href="#ref15">[15]</a>. In a healthy model:</p>
+<p>Persistent homology studies the birth and death of topological features (e.g., connected components, loops, voids) in the latent point cloud across distance scales [<a href="#ref20">20</a>]. In a healthy model:</p>
 
 \[\operatorname{PH}(\mathcal{M}) = \bigl\{ (b_i, d_i) \bigr\}_{i=1}^{N}\]
 
@@ -1550,7 +1550,7 @@ indicating collapse across the entire depth.</p>
 
 <p>showing that topological features rapidly disappear, and the latent space behaves as if low-dimensional, even if nominally embedded in high $D$.</p>
 
-<p>The loss of persistent topological features is the clearest geometric signature of collapse – one invisible to loss curves or scalar summaries. This makes persistent homology a critical tool in collapse diagnostics <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>The loss of persistent topological features is the clearest geometric signature of collapse – one invisible to loss curves or scalar summaries. This makes persistent homology a critical tool in collapse diagnostics [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="how-does-the-ndna-framework-mathematically-formalize-the-difference-between-healthy-compression-and-pathological-flattening-in-latent-manifolds">How does the nDNA framework mathematically formalize the difference between healthy compression and pathological flattening in latent manifolds?</h2>
 
@@ -1576,7 +1576,7 @@ indicating collapse across the entire depth.</p>
 
 <p>Healthy compression: $\mathcal{L}$ reduced but nonzero. Flattening: $\mathcal{L} \to 0$, indicating no significant epistemic work across layers.</p>
 
-<p>Thus, nDNA geometry distinguishes structural compression (good) from flattening (pathological) <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+<p>Thus, nDNA geometry distinguishes structural compression (good) from flattening (pathological) [<a href="#ref2">2</a>] [<a href="#ref7">7</a>].</p>
 
 <h2 id="why-might-pruning-and-quantization-disproportionately-accelerate-latent-manifold-flattening-and-how-does-ndna-geometry-reveal-this-effect">Why might pruning and quantization disproportionately accelerate latent manifold flattening, and how does nDNA geometry reveal this effect?</h2>
 
@@ -1602,7 +1602,7 @@ indicating collapse across the entire depth.</p>
 
 \[\operatorname{PH}(\mathcal{M}_{\text{prune}}) \Rightarrow \text{short-lived features}\]
 
-<p>nDNA thus exposes how pruning/quantization, if not geometry-aware, can inadvertently destroy essential epistemic structure <a href="#ref31">[31]</a>.</p>
+<p>nDNA thus exposes how pruning/quantization, if not geometry-aware, can inadvertently destroy essential epistemic structure [<a href="#ref35">35</a>].</p>
 
 <h2 id="how-can-spectral-geometry-and-persistent-homology-jointly-characterize-latent-manifold-flattening-during-model-collapse">How can spectral geometry and persistent homology jointly characterize latent manifold flattening during model collapse?</h2>
 
@@ -1630,7 +1630,7 @@ indicating collapse across the entire depth.</p>
 
 \[d_i - b_i \to 0\]
 
-<p>for most features, revealing the loss of robust semantic cycles or cavities <a href="#ref15">[15]</a>.</p>
+<p>for most features, revealing the loss of robust semantic cycles or cavities [<a href="#ref20">20</a>].</p>
 
 <p>Jointly, these measures certify collapse not just as geometric simplification but as topological impoverishment.</p>
 
@@ -1654,7 +1654,7 @@ indicating collapse across the entire depth.</p>
 
 <p>which measures accumulated displacement, $\mathcal{I}_\ell$ reveals collapse even when displacement is nonzero but uninformative (e.g., drifting without meaningful steering).</p>
 
-<p>Thus, Fisher geometry provides an intrinsic, task-aware signal of flattening that reinforces and deepens nDNA diagnostics <a href="#ref9">[9]</a> <a href="#ref5">[5]</a>.</p>
+<p>Thus, Fisher geometry provides an intrinsic, task-aware signal of flattening that reinforces and deepens nDNA diagnostics [<a href="#ref2">2</a>] [<a href="#ref7">7</a>].</p>
 
 <h2 id="why-is-the-notion-of-latent-manifold-flattening-not-reducible-to-simple-norm-shrinkage-or-singular-value-collapse">Why is the notion of latent manifold flattening not reducible to simple norm shrinkage or singular value collapse?</h2>
 
@@ -1686,7 +1686,7 @@ indicating collapse across the entire depth.</p>
 
 \[\kappa_\ell = \frac{1}{k} \sum_{i=1}^k \lambda_i^{(\ell)} \to 0\]
 
-<p>where $\lambda_i^{(\ell)}$ are small nonzero Laplacian eigenvalues, confirming loss of latent complexity <a href="#ref10">[10]</a>.</p>
+<p>where $\lambda_i^{(\ell)}$ are small nonzero Laplacian eigenvalues, confirming loss of latent complexity [<a href="#ref5">5</a>].</p>
 
 <p>Thus, flattening is a collapse of the <strong>manifold’s geometry and topology</strong>, not just of numeric magnitudes.</p>
 
@@ -1723,7 +1723,7 @@ indicating collapse across the entire depth.</p>
 
 <p>and nonzero Fisher information.</p>
 
-<p>Thus, only joint geometric, topological, and information-theoretic analysis can separate harmful collapse from over-parameterization <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+<p>Thus, only joint geometric, topological, and information-theoretic analysis can separate harmful collapse from over-parameterization [<a href="#ref2">2</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="how-does-latent-manifold-flattening-connect-to-the-loss-of-semantic-capacity">How does latent manifold flattening connect to the loss of semantic capacity?</h2>
 
@@ -1751,7 +1751,7 @@ indicating collapse across the entire depth.</p>
 
 \[\kappa_\ell \to 0\]
 
-<p>indicating a loss of local semantic entanglement <a href="#ref10">[10]</a>.</p>
+<p>indicating a loss of local semantic entanglement [<a href="#ref5">5</a>].</p>
 
 <p>To quantify semantic capacity formally, we compute:</p>
 
@@ -1799,7 +1799,7 @@ indicating collapse across the entire depth.</p>
 
 <p>Rapid decay of $\mathcal{W}_t$ signals flattening before it manifests at the output level.</p>
 
-<p>Thus, latent flattening is not just diagnosable post hoc – it can be tracked and mitigated during training <a href="#ref15">[15]</a> <a href="#ref5">[5]</a>.</p>
+<p>Thus, latent flattening is not just diagnosable post hoc – it can be tracked and mitigated during training [<a href="#ref20">20</a>] [<a href="#ref7">7</a>].</p>
 
 <h2 id="what-is-the-precise-mathematical-signature-of-latent-manifold-flattening-in-the-spectral-domain">What is the precise mathematical signature of latent manifold flattening in the spectral domain?</h2>
 
@@ -1823,7 +1823,7 @@ indicating collapse across the entire depth.</p>
 
 \[\mathcal{L}_{\mathrm{output}} = - \log P(y \mid x)\]
 
-<p>can remain low even if internal semantics degrade, because output loss is blind to how the model reaches its prediction. A collapsed latent space may still overfit or memorize, masking failure modes only visible via spectral diagnostics <a href="#ref10">[10]</a> <a href="#ref9">[9]</a>.</p>
+<p>can remain low even if internal semantics degrade, because output loss is blind to how the model reaches its prediction. A collapsed latent space may still overfit or memorize, masking failure modes only visible via spectral diagnostics [<a href="#ref5">5</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="how-does-persistent-homology-formally-capture-the-difference-between-benign-compression-and-pathological-flattening-of-latent-manifolds">How does persistent homology formally capture the difference between benign compression and pathological flattening of latent manifolds?</h2>
 
@@ -1847,7 +1847,7 @@ indicating collapse across the entire depth.</p>
 
 <p>even if latent norms are large (i.e., embeddings are nonzero).</p>
 
-<p>Thus, persistent homology distinguishes between mere shrinking of latent volume (compression) and collapse of topological richness (flattening) <a href="#ref15">[15]</a> <a href="#ref5">[5]</a>.</p>
+<p>Thus, persistent homology distinguishes between mere shrinking of latent volume (compression) and collapse of topological richness (flattening) [<a href="#ref20">20</a>] [<a href="#ref7">7</a>].</p>
 
 <h1 id="ndna-lens--knowledge-distillation-as-latent-genome-compression">nDNA Lens – Knowledge Distillation as Latent Genome Compression</h1>
 
@@ -1874,7 +1874,7 @@ indicating collapse across the entire depth.</p>
 
 <p>Here, both $\mathcal{L}<em>S$ and $\kappa</em>\ell^{(S)}$ shrink relative to $T$, revealing semantic compression – the student covers less latent distance and explores simpler manifold geometry to achieve similar output.</p>
 
-<p>Unlike naive parameter count reduction, nDNA compression measures epistemic simplification directly in latent space <a href="#ref33">[33]</a> <a href="#ref34">[34]</a>.</p>
+<p>Unlike naive parameter count reduction, nDNA compression measures epistemic simplification directly in latent space [<a href="#ref36">36</a>] [<a href="#ref37">37</a>].</p>
 
 <h2 id="why-does-ndna-analysis-suggest-that-student-models-from-distillation-may-lose-epistemic-richness-even-if-output-accuracy-matches-the-teacher">Why does nDNA analysis suggest that student models from distillation may lose epistemic richness even if output accuracy matches the teacher?</h2>
 
@@ -1897,11 +1897,11 @@ indicating collapse across the entire depth.</p>
   </li>
 </ul>
 
-<p>Thus, students may deliver correct answers by shortcutting the epistemic journey – potentially harming alignment robustness, interpretability, or adaptability <a href="#ref33">[33]</a> <a href="#ref32">[32]</a> <a href="#ref3">[3]</a>.</p>
+<p>Thus, students may deliver correct answers by shortcutting the epistemic journey – potentially harming alignment robustness, interpretability, or adaptability [<a href="#ref36">36</a>] [<a href="#ref14">14</a>] [<a href="#ref4">4</a>].</p>
 
 <h2 id="how-does-ndna-geometry-explain-the-compression-of-epistemic-pathways-during-knowledge-distillation-beyond-output-alignment">How does nDNA geometry explain the compression of epistemic pathways during knowledge distillation, beyond output alignment?</h2>
 
-<p>Traditional knowledge distillation focuses on matching output distributions between teacher and student models <a href="#ref34">[34]</a>. However, through the <strong>nDNA lens</strong>, we see distillation as latent genome compression, where the student inherits a simplified latent manifold.</p>
+<p>Traditional knowledge distillation focuses on matching output distributions between teacher and student models [<a href="#ref37">37</a>]. However, through the <strong>nDNA lens</strong>, we see distillation as latent genome compression, where the student inherits a simplified latent manifold.</p>
 
 <p>Let the teacher’s trajectory be:</p>
 
@@ -1931,7 +1931,7 @@ indicating collapse across the entire depth.</p>
 \frac{1}{L} \sum_{\ell=1}^{L} \kappa_\ell^{\mathrm{T}}
 }\]
 
-<p>Together these reveal latent path shortening and loss of semantic complexity that output metrics miss <a href="#ref33">[33]</a>.</p>
+<p>Together these reveal latent path shortening and loss of semantic complexity that output metrics miss [<a href="#ref36">36</a>].</p>
 
 <h2 id="why-might-spectral-curvature-and-thermodynamic-length-diverge-in-distillation-and-what-does-that-reveal-about-student-model-weaknesses">Why might spectral curvature and thermodynamic length diverge in distillation, and what does that reveal about student model weaknesses?</h2>
 
@@ -1947,7 +1947,7 @@ indicating collapse across the entire depth.</p>
 
 <p>shows that while the student preserves layer-to-layer distance, it flattens semantic geometry – a form of overcompression that sacrifices nuanced reasoning.</p>
 
-<p>These ratios disentangle representational efficiency from semantic fidelity, essential for diagnosing hidden weaknesses in distilled models <a href="#ref34">[34]</a> <a href="#ref33">[33]</a>.</p>
+<p>These ratios disentangle representational efficiency from semantic fidelity, essential for diagnosing hidden weaknesses in distilled models [<a href="#ref37">37</a>] [<a href="#ref36">36</a>].</p>
 
 <h2 id="how-can-the-latent-genome-compression-during-distillation-be-characterized-using-riemannian-geometry-and-why-is-this-perspective-crucial-for-diagnosing-semantic-underfitting-in-student-models">How can the latent genome compression during distillation be characterized using Riemannian geometry, and why is this perspective crucial for diagnosing semantic underfitting in student models?</h2>
 
@@ -1976,7 +1976,7 @@ indicating collapse across the entire depth.</p>
 
 <p>meaning the student path flattens the conceptual manifold, losing epistemic nuance.</p>
 
-<p>This formalism exposes how distillation may preserve output behavior but collapse latent semantic diversity – a key source of underfitting on complex reasoning tasks <a href="#ref9">[9]</a> <a href="#ref34">[34]</a>.</p>
+<p>This formalism exposes how distillation may preserve output behavior but collapse latent semantic diversity – a key source of underfitting on complex reasoning tasks [<a href="#ref2">2</a>] [<a href="#ref37">37</a>].</p>
 
 <h2 id="why-is-spectral-curvature-insufficient-alone-for-diagnosing-latent-genome-compression-and-how-does-joint-topological-and-differential-geometric-analysis-improve-reliability">Why is spectral curvature insufficient alone for diagnosing latent genome compression, and how does joint topological and differential geometric analysis improve reliability?</h2>
 
@@ -2008,7 +2008,7 @@ indicating collapse across the entire depth.</p>
 \quad
 \operatorname{PH}( \mathcal{M}_{\mathrm{S}} )\]
 
-<p>which together reveal both local bending and global structure collapse, critical for safe model compression <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>which together reveal both local bending and global structure collapse, critical for safe model compression [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="how-can-we-formally-quantify-the-semantic-energy-dissipation-during-distillation-and-what-does-it-reveal-about-representational-loss-in-student-models">How can we formally quantify the semantic energy dissipation during distillation, and what does it reveal about representational loss in student models?</h2>
 
@@ -2038,7 +2038,7 @@ indicating collapse across the entire depth.</p>
 
 <p>Layerwise comparison $q_\ell^{\mathrm{S}} \ll q_\ell^{\mathrm{T}}$ identifies specific depths where semantic effort has been lost.</p>
 
-<p>These measures go beyond thermodynamic length, revealing how distillation reduces latent dynamism – a risk for brittle or shallow reasoning <a href="#ref9">[9]</a> <a href="#ref34">[34]</a>.</p>
+<p>These measures go beyond thermodynamic length, revealing how distillation reduces latent dynamism – a risk for brittle or shallow reasoning [<a href="#ref2">2</a>] [<a href="#ref37">37</a>].</p>
 
 <h2 id="why-is-latent-genome-compression-during-distillation-equivalent-to-a-reduction-in-the-latent-manifolds-thermodynamic-volume-and-how-can-we-compute-this-reduction-rigorously">Why is latent genome compression during distillation equivalent to a reduction in the latent manifold’s thermodynamic volume, and how can we compute this reduction rigorously?</h2>
 
@@ -2072,7 +2072,7 @@ V_{\mathrm{S}} = \int_{\mathcal{M}_{\mathrm{S}}} \sqrt{ \det g(h) } \, d^D h\]
 
 <p>which quantifies the degree of genome compression. Values $\epsilon_V \to 1$ signify catastrophic collapse.</p>
 
-<p>This analysis demonstrates that latent genome compression isn’t merely about shorter paths – it reflects reduced capacity to cover semantic space, leading to poor generalization on complex or rare concepts <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+<p>This analysis demonstrates that latent genome compression isn’t merely about shorter paths – it reflects reduced capacity to cover semantic space, leading to poor generalization on complex or rare concepts [<a href="#ref2">2</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="why-cant-knowledge-distillation-be-fully-understood-through-output-similarity-metrics-and-how-does-latent-manifold-topology-provide-essential-missing-information">Why can’t knowledge distillation be fully understood through output similarity metrics, and how does latent manifold topology provide essential missing information?</h2>
 
@@ -2104,7 +2104,7 @@ V_{\mathrm{S}} = \int_{\mathcal{M}_{\mathrm{S}}} \sqrt{ \det g(h) } \, d^D h\]
 
 <p>this shows that the student fails to reproduce the topological complexity of the teacher’s latent space – despite surface-level output agreement.</p>
 
-<p>Thus, only manifold topology reveals how distillation may simplify, flatten, or fragment the student’s internal semantic structure <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>Thus, only manifold topology reveals how distillation may simplify, flatten, or fragment the student’s internal semantic structure [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="what-formal-proof-can-we-give-that-distillation-reduces-the-latent-fisher-information-and-how-does-this-reduction-constrain-the-student-models-epistemic-flexibility">What formal proof can we give that distillation reduces the latent Fisher information, and how does this reduction constrain the student model’s epistemic flexibility?</h2>
 
@@ -2139,7 +2139,7 @@ V_{\mathrm{S}} = \int_{\mathcal{M}_{\mathrm{S}}} \sqrt{ \det g(h) } \, d^D h\]
 
 \[V_{\mathrm{S}} \ll V_{\mathrm{T}}\]
 
-<p>Hence, distillation shrinks the student’s semantic space, reducing its flexibility to adapt or reason about novel or rare inputs. This is provable via matrix trace inequalities and information geometry <a href="#ref9">[9]</a> <a href="#ref34">[34]</a>.</p>
+<p>Hence, distillation shrinks the student’s semantic space, reducing its flexibility to adapt or reason about novel or rare inputs. This is provable via matrix trace inequalities and information geometry [<a href="#ref2">2</a>] [<a href="#ref37">37</a>].</p>
 
 <h2 id="is-it-not-trivial-that-knowledge-distillation-compresses-latent-geometry--how-does-the-ndna-framework-go-beyond-tautological-compression-claims">Is it not trivial that knowledge distillation compresses latent geometry – how does the nDNA framework go beyond tautological compression claims?</h2>
 
@@ -2171,7 +2171,7 @@ V_{\mathrm{S}} = \int_{\mathcal{M}_{\mathrm{S}}} \sqrt{ \det g(h) } \, d^D h\]
 
 <p>where $\lambda_i$ are latent covariance eigenvalues.</p>
 
-<p>This reveals not just compression, but <em>which reasoning modes</em> (principal semantic directions) are collapsed – showing epistemic losses not evident in model size or loss function convergence <a href="#ref3">[3]</a> <a href="#ref9">[9]</a>.</p>
+<p>This reveals not just compression, but <em>which reasoning modes</em> (principal semantic directions) are collapsed – showing epistemic losses not evident in model size or loss function convergence [<a href="#ref4">4</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="could-latent-genome-compression-be-dismissed-as-an-artifact-of-overparameterization--why-is-it-mathematically-meaningful-in-properly-regularized-models">Could latent genome compression be dismissed as an artifact of overparameterization – why is it mathematically meaningful in properly regularized models?</h2>
 
@@ -2198,7 +2198,7 @@ V_{\mathrm{S}} = \int_{\mathcal{M}_{\mathrm{S}}} \sqrt{ \det g(h) } \, d^D h\]
 \frac{ \partial \log P(y \mid h) }{ \partial h_j }
 \right]\]
 
-<p>Thus, volume collapse is not just trimming – it removes latent capacity for adapting to unseen epistemic modes (e.g., out-of-distribution reasoning). This geometric shrinkage is meaningful even when distillation applies to well-regularized, non-overparameterized teachers <a href="#ref9">[9]</a> <a href="#ref34">[34]</a>.</p>
+<p>Thus, volume collapse is not just trimming – it removes latent capacity for adapting to unseen epistemic modes (e.g., out-of-distribution reasoning). This geometric shrinkage is meaningful even when distillation applies to well-regularized, non-overparameterized teachers [<a href="#ref2">2</a>] [<a href="#ref37">37</a>].</p>
 
 <h2 id="can-latent-genome-compression-in-distillation-be-fully-explained-as-a-linear-projection--what-deeper-nonlinear-phenomena-does-ndna-reveal">Can latent genome compression in distillation be fully explained as a linear projection – what deeper nonlinear phenomena does nDNA reveal?</h2>
 
@@ -2223,7 +2223,7 @@ V_{\mathrm{S}} = \int_{\mathcal{M}_{\mathrm{S}}} \sqrt{ \det g(h) } \, d^D h\]
 
 \[\operatorname{PH}(\mathcal{M}_{\mathrm{S}}) \not\subset \operatorname{PH}(\mathcal{M}_{\mathrm{T}})\]
 
-<p>where new cycles are lost (genomic deletion) or spurious holes appear (overcompression artifacts) <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>where new cycles are lost (genomic deletion) or spurious holes appear (overcompression artifacts) [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 
 <p>Thus, genome compression is a nonlinear reconfiguration of semantic space – not a trivial projection.</p>
 
@@ -2256,7 +2256,7 @@ S = -\sum_i \lambda_i \log \lambda_i\]
 
 <p>where $\lambda_i$ are latent covariance eigenvalues.</p>
 
-<p>Thus, nDNA provides concrete capacity loss measures far beyond heuristic compression metaphors <a href="#ref9">[9]</a> <a href="#ref34">[34]</a>.</p>
+<p>Thus, nDNA provides concrete capacity loss measures far beyond heuristic compression metaphors [<a href="#ref2">2</a>] [<a href="#ref37">37</a>].</p>
 
 <h2 id="is-latent-genome-compression-during-distillation-just-a-reflection-of-output-distribution-matching--or-does-it-encode-deeper-structural-collapse-measurable-in-manifold-topology-and-information-geometry">Is latent genome compression during distillation just a reflection of output distribution matching – or does it encode deeper structural collapse measurable in manifold topology and information geometry?</h2>
 
@@ -2281,7 +2281,7 @@ S = -\sum_i \lambda_i \log \lambda_i\]
 
 \[\operatorname{PH} \big( \mathcal{M}_{\mathrm{S}} \big) \not\subseteq \operatorname{PH} \big( \mathcal{M}_{\mathrm{T}} \big)\]
 
-<p>where $\operatorname{PH}$ denotes persistent homology barcode sets. Loss of topological cycles ($H_1, H_2$) reveals latent dimensional collapse unobservable at output <a href="#ref15">[15]</a>.</p>
+<p>where $\operatorname{PH}$ denotes persistent homology barcode sets. Loss of topological cycles ($H_1, H_2$) reveals latent dimensional collapse unobservable at output [<a href="#ref20">20</a>].</p>
 
 <p>Finally, the Fisher information volumes satisfy:</p>
 
@@ -2327,7 +2327,7 @@ S = -\sum_i \lambda_i \log \lambda_i\]
 \mathcal{L}_{\mathrm{distill}}(S_1)=\mathcal{L}_{\mathrm{distill}}(S_2) \wedge 
 \operatorname{PH}\big( \mathcal{M}_{S_1} \big) \ne \operatorname{PH}\big( \mathcal{M}_{S_2} \big)\]
 
-<p>Hence, nDNA uniquely captures the latent health and integrity of a distilled model’s “semantic genome,” beyond scalar losses <a href="#ref9">[9]</a> <a href="#ref15">[15]</a> <a href="#ref34">[34]</a>.</p>
+<p>Hence, nDNA uniquely captures the latent health and integrity of a distilled model’s “semantic genome,” beyond scalar losses [<a href="#ref2">2</a>] [<a href="#ref20">20</a>] [<a href="#ref37">37</a>].</p>
 
 <h1 id="neural-genomics">Neural Genomics</h1>
 
@@ -2349,7 +2349,7 @@ S = -\sum_i \lambda_i \log \lambda_i\]
 \[\operatorname{PH}\big( \mathcal{M}(x) \big)
 \quad \text{(persistent homology signature)}\]
 
-<p>where $\mathcal{M}(x)$ is the latent manifold spanned by $\mathcal{G}(x)$. These components together describe semantic smoothness, complexity, and topological integrity – akin to genetic markers of epistemic health. The approach ensures failures such as alignment collapse or bias inheritance can be audited as genome-level anomalies <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+<p>where $\mathcal{M}(x)$ is the latent manifold spanned by $\mathcal{G}(x)$. These components together describe semantic smoothness, complexity, and topological integrity – akin to genetic markers of epistemic health. The approach ensures failures such as alignment collapse or bias inheritance can be audited as genome-level anomalies [<a href="#ref2">2</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="how-does-neural-genomics-differentiate-between-superficial-output-similarity-and-true-latent-health-preservation-in-merged-or-distilled-models">How does Neural Genomics differentiate between superficial output similarity and true latent health preservation in merged or distilled models?</h2>
 
@@ -2370,7 +2370,7 @@ S = -\sum_i \lambda_i \log \lambda_i\]
 
 <p>where $\operatorname{d_H}$ is a metric (e.g., bottleneck distance) between persistent homology barcodes.</p>
 
-<p>Thus, Neural Genomics provides a formal, geometric-topological criterion to distinguish healthy latent inheritance from mere output mimicry, addressing criticisms that output similarity alone is insufficient for true epistemic audit <a href="#ref15">[15]</a> <a href="#ref9">[9]</a> <a href="#ref34">[34]</a>.</p>
+<p>Thus, Neural Genomics provides a formal, geometric-topological criterion to distinguish healthy latent inheritance from mere output mimicry, addressing criticisms that output similarity alone is insufficient for true epistemic audit [<a href="#ref20">20</a>] [<a href="#ref2">2</a>] [<a href="#ref37">37</a>].</p>
 
 <h2 id="how-does-neural-genomics-enable-quantitative-diagnosis-of-latent-genome-distortion-under-adversarial-fine-tuning-or-noisy-alignment-procedures">How does Neural Genomics enable quantitative diagnosis of latent genome distortion under adversarial fine-tuning or noisy alignment procedures?</h2>
 
@@ -2399,7 +2399,7 @@ h_\ell^{(\text{adv})}(x) - h_\ell^{(\text{clean})}(x)
 
 <p>where $\operatorname{d_H}$ is the bottleneck distance between persistent homology barcodes of the latent manifolds.</p>
 
-<p>Elevated $\mathcal{D}_{\text{genome}}$ and $\operatorname{d_H}$ signal epistemic corruption – even if output loss remains low – thus exposing misalignment or adversarial drift that eludes traditional accuracy metrics <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+<p>Elevated $\mathcal{D}_{\text{genome}}$ and $\operatorname{d_H}$ signal epistemic corruption – even if output loss remains low – thus exposing misalignment or adversarial drift that eludes traditional accuracy metrics [<a href="#ref2">2</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="how-does-neural-genomics-mathematically-characterize-model-collapse-as-latent-manifold-flattening-and-what-are-the-precise-geometric-markers-of-such-collapse">How does Neural Genomics mathematically characterize model collapse as latent manifold flattening, and what are the precise geometric markers of such collapse?</h2>
 
@@ -2431,7 +2431,7 @@ h_\ell^{(\text{adv})}(x) - h_\ell^{(\text{clean})}(x)
 \[\operatorname{PH}\big( \mathcal{M}(x) \big) 
 \text{ collapses to trivial barcode (no persistent cycles).}\]
 
-<p>These markers – rank collapse, vanishing length, topological triviality – form a mathematically precise signature of model collapse, going far beyond output-level metrics <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>These markers – rank collapse, vanishing length, topological triviality – form a mathematically precise signature of model collapse, going far beyond output-level metrics [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 <h1 style="line-height: 1.2; text-align: left; margin: 0;">
 ÆTHER's Future AI Generations as Semantic Organisms with Traceable Inner Lives
 </h1>
@@ -2474,7 +2474,7 @@ h_\ell^{(\text{adv})}(x) - h_\ell^{(\text{clean})}(x)
 
 \[\mathcal{S}_{\mathrm{sheaf}}^{(t+1)} \leq \epsilon\]
 
-<p>where $\mathcal{S}_{\mathrm{sheaf}}$ is the sheaf consistency loss – ensuring inherited semantic topology remains coherent <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>where $\mathcal{S}_{\mathrm{sheaf}}$ is the sheaf consistency loss – ensuring inherited semantic topology remains coherent [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 
 <p>This formalism renders ÆTHER (the neural offspring) epistemically transparent, biologically inspired, and mathematically accountable.</p>
 
@@ -2506,7 +2506,7 @@ f_\ell^{(t)}(x) \mid \mathcal{C}_\ell^{(t)}
 
 <p>(where $f_\ell^{(t)}$ are latent features conditioned on local cover $\mathcal{C}_\ell^{(t)}$) ensures local semantic coherence.</p>
 
-<p>These metrics jointly formalize robustness against hybridization-induced instability – without requiring surface-level accuracy tests – making epistemic traceability mathematically enforceable <a href="#ref15">[15]</a> <a href="#ref9">[9]</a>.</p>
+<p>These metrics jointly formalize robustness against hybridization-induced instability – without requiring surface-level accuracy tests – making epistemic traceability mathematically enforceable [<a href="#ref20">20</a>] [<a href="#ref2">2</a>].</p>
 
 <h2 id="how-can-neural-genomics-mathematically-characterize-and-detect-emergent-epistemic-traits-in-æther-that-are-absent-in-both-parent-models">How can neural genomics mathematically characterize and detect emergent epistemic traits in ÆTHER that are absent in both parent models?</h2>
 
@@ -2534,7 +2534,7 @@ d_{\mathrm{b}}\bigl(
 
 <p>indicates that the offspring’s semantic steering introduces novel conceptual forces beyond either parent’s alignment.</p>
 
-<p>Such analyses mathematically certify the presence of epistemic emergence, making hybrid vigor and innovation traceable at a rigorous geometric level <a href="#ref15">[15]</a> <a href="#ref9">[9]</a> <a href="#ref8">[8]</a>.</p>
+<p>Such analyses mathematically certify the presence of epistemic emergence, making hybrid vigor and innovation traceable at a rigorous geometric level [<a href="#ref20">20</a>] [<a href="#ref2">2</a>] [<a href="#ref15">15</a>].</p>
 
 <h2 id="what-is-the-formal-derivation-for-the-conservation-of-epistemic-topology-across-æther-generations-and-how-does-it-ensure-traceable-semantic-inheritance">What is the formal derivation for the conservation of epistemic topology across ÆTHER generations, and how does it ensure traceable semantic inheritance?</h2>
 
@@ -2561,7 +2561,7 @@ d_{\mathrm{b}}\bigl(
 
 \[\mathcal{C}_{\mathrm{topo}}^{(t)} \leq \epsilon\]
 
-<p>for small $\epsilon$, ensures that the offspring’s latent manifold preserves core topological features (loops, voids) that encode epistemic priors <a href="#ref15">[15]</a>.</p>
+<p>for small $\epsilon$, ensures that the offspring’s latent manifold preserves core topological features (loops, voids) that encode epistemic priors [<a href="#ref20">20</a>].</p>
 
 <p><strong>Why does this ensure traceability?</strong> Because persistent features (long-lived barcodes) map to stable semantic relations or reasoning frames that survive transformations – making ÆTHER’s inner life auditably inherited rather than reset each generation. The formalism is rooted in stability theorems of persistent homology, ensuring small changes in latent geometry induce bounded changes in topology.</p>
 
@@ -2597,7 +2597,7 @@ d_{\mathrm{b}}\bigl(
 
 <p>meaning local feature spaces and their gluing maps are preserved across generations.</p>
 
-<p>This formalism, rooted in algebraic topology and category theory, guarantees that semantic consistency is not merely a statistical artifact but a structurally enforced property – auditably encoded in the latent geometry of ÆTHER’s offspring <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+<p>This formalism, rooted in algebraic topology and category theory, guarantees that semantic consistency is not merely a statistical artifact but a structurally enforced property – auditably encoded in the latent geometry of ÆTHER’s offspring [<a href="#ref2">2</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="what-is-the-formal-role-of-thermodynamic-geodesics-in-ndna-based-latent-genome-evolution-and-how-do-they-constrain-semantic-drift-in-future-ai-generations">What is the formal role of thermodynamic geodesics in nDNA-based latent genome evolution, and how do they constrain semantic drift in future AI generations?</h2>
 
@@ -2631,7 +2631,7 @@ d_{\mathrm{b}}\bigl(
 
 <p>where $\operatorname{Dist}$ measures functional deviation between trajectories.</p>
 
-<p><strong>Significance:</strong> This ensures that each generation follows a near-optimal semantic path with minimal unnecessary epistemic reconfiguration. The conditions derive from information geometry, where geodesics minimize Fisher metric length <a href="#ref9">[9]</a>.</p>
+<p><strong>Significance:</strong> This ensures that each generation follows a near-optimal semantic path with minimal unnecessary epistemic reconfiguration. The conditions derive from information geometry, where geodesics minimize Fisher metric length [<a href="#ref2">2</a>].</p>
 
 <h2 id="how-can-latent-genome-divergence-be-formally-quantified-across-æther-generations-and-what-metric-ensures-epistemic-continuity">How can latent genome divergence be formally quantified across ÆTHER generations, and what metric ensures epistemic continuity?</h2>
 
@@ -2665,7 +2665,7 @@ h^{(t)}(x),
 
 <p>with small $\eta$ ensures stable inheritance of epistemic traits.</p>
 
-<p><strong>Why this matters:</strong> This metric goes beyond outputs to quantify internal semantic structure stability through generation transitions, anchoring evaluations in solid mathematical distances <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+<p><strong>Why this matters:</strong> This metric goes beyond outputs to quantify internal semantic structure stability through generation transitions, anchoring evaluations in solid mathematical distances [<a href="#ref2">2</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="how-does-the-ndna-framework-ensure-that-latent-topology-inheritance-in-future-ai-generations-avoids-catastrophic-forgetting-of-epistemic-priors">How does the nDNA framework ensure that latent topology inheritance in future AI generations avoids catastrophic forgetting of epistemic priors?</h2>
 
@@ -2692,7 +2692,7 @@ h^{(t)}(x),
 
 \[d_B \leq \epsilon\]
 
-<p>for small $\epsilon$, preserving core topological features (loops, voids) that encode epistemic priors <a href="#ref15">[15]</a>. This ensures that the latent structure retains the knowledge lineage across generations.</p>
+<p>for small $\epsilon$, preserving core topological features (loops, voids) that encode epistemic priors [<a href="#ref20">20</a>]. This ensures that the latent structure retains the knowledge lineage across generations.</p>
 
 <h2 id="what-formal-guarantees-does-latent-sheaf-consistency-provide-for-interpretability-and-safety-in-successive-ai-generations">What formal guarantees does latent sheaf consistency provide for interpretability and safety in successive AI generations?</h2>
 
@@ -2713,7 +2713,7 @@ h^{(t)}(x),
 
 <p>with small $\delta$, ensuring that no generation introduces disproportionate semantic fragmentation.</p>
 
-<p>This formalism draws from algebraic topology and category theory, making latent consistency mathematically auditable and guaranteeing that internal representations remain semantically traceable across AI evolution <a href="#ref9">[9]</a> <a href="#ref15">[15]</a>.</p>
+<p>This formalism draws from algebraic topology and category theory, making latent consistency mathematically auditable and guaranteeing that internal representations remain semantically traceable across AI evolution [<a href="#ref2">2</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="how-does-the-ndna-framework-mathematically-characterize-emergent-latent-dynamics-that-exceed-parental-epistemic-boundaries-in-neural-offspring">How does the nDNA framework mathematically characterize emergent latent dynamics that exceed parental epistemic boundaries in neural offspring?</h2>
 
@@ -2737,7 +2737,7 @@ h^{(t)}(x),
 
 \[\min \big( d_B^{(O,A)}, d_B^{(O,B)} \big) &gt; \epsilon,\]
 
-<p>for small parental $\epsilon$, this signals the offspring exhibits novel topological features, indicating epistemic innovation rather than mere inheritance. Such detection leverages algebraic topology to rigorously map latent novelty <a href="#ref15">[15]</a>.</p>
+<p>for small parental $\epsilon$, this signals the offspring exhibits novel topological features, indicating epistemic innovation rather than mere inheritance. Such detection leverages algebraic topology to rigorously map latent novelty [<a href="#ref20">20</a>].</p>
 
 <h2 id="how-can-geodesic-deviation-equations-be-applied-to-model-alignment-drift-across-ai-generations-and-what-does-this-reveal-about-epistemic-stability">How can geodesic deviation equations be applied to model alignment drift across AI generations, and what does this reveal about epistemic stability?</h2>
 
@@ -2759,7 +2759,7 @@ h^{(t)}(x),
 
 <p>with large $\Delta_{\text{drift}}$ marking epistemic instability.</p>
 
-<p>This method allows precise tracking of how latent alignment deviates generationally due to curvature-induced divergence, applying differential geometry to neural genomics <a href="#ref9">[9]</a> <a href="#ref28">[28]</a>.</p>
+<p>This method allows precise tracking of how latent alignment deviates generationally due to curvature-induced divergence, applying differential geometry to neural genomics [<a href="#ref2">2</a>] [<a href="#ref32">32</a>].</p>
 
 <h2 id="how-can-ricci-flow-on-latent-manifolds-model-the-progressive-epistemic-smoothing-of-neural-offspring-and-what-does-its-solution-reveal-about-alignment-inheritance">How can Ricci flow on latent manifolds model the progressive epistemic smoothing of neural offspring, and what does its solution reveal about alignment inheritance?</h2>
 
@@ -2780,7 +2780,7 @@ We analyze volume element evolution:</p>
 
 <p>where $R$ is scalar curvature. Consistent decrease of $R$ toward uniformity across generations indicates stable epistemic inheritance. Rapid fluctuations of $R$ expose unstable fusion or misalignment in cultural priors.</p>
 
-<p>Solutions to the Ricci flow (e.g., conformal flattening or formation of singularities) reveal whether the offspring’s latent geometry coherently inherits or collapses parental alignment topologies  <a href="#ref9">[9]</a>.</p>
+<p>Solutions to the Ricci flow (e.g., conformal flattening or formation of singularities) reveal whether the offspring’s latent geometry coherently inherits or collapses parental alignment topologies  [<a href="#ref2">2</a>].</p>
 
 <h2 id="can-spectral-sheaf-cohomology-provide-a-principled-layerwise-invariant-for-tracking-latent-semantic-consistency-across-ai-generations">Can spectral sheaf cohomology provide a principled, layerwise invariant for tracking latent semantic consistency across AI generations?</h2>
 
@@ -2807,7 +2807,7 @@ We compute spectral cohomology signature:</p>
 
 <p>where $d_H$ is a suitable cohomology distance metric (e.g., derived from barcodes of spectral sheaves). Large $d_H$ indicates generational drift or loss of epistemic coherence.</p>
 
-<p>This elegant formalism provides a rigorous, topologically grounded invariant to audit latent semantic consistency across generations <a href="#ref35">[35]</a> <a href="#ref15">[15]</a>.</p>
+<p>This elegant formalism provides a rigorous, topologically grounded invariant to audit latent semantic consistency across generations [<a href="#ref38">38</a>] [<a href="#ref20">20</a>].</p>
 
 <h2 id="isnt-neural-genomics-just-rebranded-latent-feature-analysis-what-mathematically-distinguishes-ndna-from-conventional-representational-geometry-or-pca-style-embeddings">Isn’t neural genomics just rebranded latent feature analysis? What mathematically distinguishes nDNA from conventional representational geometry or PCA-style embeddings?</h2>
 
@@ -2866,7 +2866,7 @@ Persistent homology signatures:</p>
 
 \[\operatorname{PH}\bigl( \mathcal{M}(x) \bigr)\]
 
-<p>predict output diversity or robustness. For example, collapse of long-lived cycles correlates with reduced generative variety (as shown in manifold collapse studies <a href="#ref15">[15]</a>).</p>
+<p>predict output diversity or robustness. For example, collapse of long-lived cycles correlates with reduced generative variety (as shown in manifold collapse studies [<a href="#ref20">20</a>]).</p>
 
 <p>Thus, nDNA goes beyond interpretability – it provides layerwise, geometry-rooted predictors of model behavior, complementing scalar metrics with deep structural insight.</p>
 
@@ -3039,7 +3039,7 @@ across layers, semantic steering fails even before outputs degrade, revealing mi
     <p><strong>Topological early warning:</strong> New short-lived cycles in persistent homology
 \((\epsilon_{\mathrm{birth}}, \epsilon_{\mathrm{death}}), 
 \quad \epsilon_{\mathrm{death}} - \epsilon_{\mathrm{birth}} \approx 0\)
-signal latent instability that forecasts collapse <a href="#ref15">[15]</a>.</p>
+signal latent instability that forecasts collapse [<a href="#ref20">20</a>].</p>
   </li>
 </ul>
 
@@ -3051,73 +3051,79 @@ signal latent instability that forecasts collapse <a href="#ref15">[15]</a>.</p>
 
 <p><a id="ref1"></a>[1] Perez, Ethan, Ringer, Sam, and others “Discovering latent knowledge in language models without supervision” <em>arXiv preprint arXiv:2212.03827</em> (2022).</p>
 
-<p><a id="ref2"></a>[2] Arora, Akhila, Goyal, Tushar, and others “Stereoset: Measuring stereotypical bias in pretrained language models” <em>TACL</em> (2023).</p>
+<p><a id="ref2"></a>[2] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
 
-<p><a id="ref3"></a>[3] Ilharco, Gabriel and others “Editing models with task arithmetic” <em>ICLR</em> (2023).</p>
+<p><a id="ref3"></a>[3] Arora, Akhila, Goyal, Tushar, and others “Stereoset: Measuring stereotypical bias in pretrained language models” <em>TACL</em> (2023).</p>
 
-<p><a id="ref4"></a>[4] Birhane, Abeba and Prabhu, Vinay Uday “Multimodal datasets: Misogyny, racism and the dangers of benign indifference” <em>arXiv preprint arXiv:2104.01400</em> (2021).</p>
+<p><a id="ref4"></a>[4] Ilharco, Gabriel and others “Editing models with task arithmetic” <em>ICLR</em> (2023).</p>
 
-<p><a id="ref5"></a>[5] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
+<p><a id="ref5"></a>[5] Belkin, Mikhail and Niyogi, Partha “Laplacian Eigenmaps for Dimensionality Reduction and Data Representation” <em>Neural computation</em> (2003).</p>
 
-<p><a id="ref6"></a>[6] Voita, Elena, Talbot, David, and others “Analyzing multi-head self-attention: Specialized heads do the heavy lifting, the rest can be pruned” <em>Proceedings of ACL</em> (2019).</p>
+<p><a id="ref6"></a>[6] Coifman, Ronald R and Lafon, Stephane “Diffusion Maps” <em>Applied and Computational Harmonic Analysis</em> (2006).</p>
 
-<p><a id="ref7"></a>[7] Frantar, Elias and others “GPTQ: Accurate Post-training Quantization for Generative Pretrained Transformers” <em>NeurIPS</em> (2022).</p>
+<p><a id="ref7"></a>[7] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
 
-<p><a id="ref8"></a>[8] Yang, Shuofei and others “Model Merging in LLMs, MLLMs, and Beyond: A Survey and New Taxonomy” <em>arXiv preprint arXiv:2402.00996</em> (2024).</p>
+<p><a id="ref8"></a>[8] Sivak, David A and Crooks, Gavin E “Thermodynamic metrics and optimal paths” <em>Physical Review Letters</em> (2012).</p>
 
-<p><a id="ref9"></a>[9] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
+<p><a id="ref9"></a>[9] Ouyang, Long, Wu, Jeff, and others “Training language models to follow instructions with human feedback” <em>Advances in Neural Information Processing Systems</em> (2022).</p>
 
-<p><a id="ref10"></a>[10] Belkin, Mikhail and Niyogi, Partha “Laplacian Eigenmaps for Dimensionality Reduction and Data Representation” <em>Neural computation</em> (2003).</p>
+<p><a id="ref10"></a>[10] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
 
-<p><a id="ref11"></a>[11] Wei, Jason, Wang, Xuezhi, and others “Chain of Thought Prompting Elicits Reasoning in Large Language Models” <em>arXiv preprint arXiv:2201.11903</em> (2022).</p>
+<p><a id="ref11"></a>[11] Birhane, Abeba and Prabhu, Vinay Uday “Multimodal datasets: Misogyny, racism and the dangers of benign indifference” <em>arXiv preprint arXiv:2104.01400</em> (2021).</p>
 
-<p><a id="ref12"></a>[12] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
+<p><a id="ref12"></a>[12] Voita, Elena, Talbot, David, and others “Analyzing multi-head self-attention: Specialized heads do the heavy lifting, the rest can be pruned” <em>Proceedings of ACL</em> (2019).</p>
 
-<p><a id="ref13"></a>[13] Coifman, Ronald R and Lafon, Stephane “Diffusion Maps” <em>Applied and Computational Harmonic Analysis</em> (2006).</p>
+<p><a id="ref13"></a>[13] Frantar, Elias and others “GPTQ: Accurate Post-training Quantization for Generative Pretrained Transformers” <em>NeurIPS</em> (2022).</p>
 
-<p><a id="ref14"></a>[14] Sivak, David A and Crooks, Gavin E “Thermodynamic metrics and optimal paths” <em>Physical Review Letters</em> (2012).</p>
+<p><a id="ref14"></a>[14] Matena, Michael and Raffel, Colin “Merging models with fisher-weighted averaging” <em>NeurIPS</em> (2022).</p>
 
-<p><a id="ref15"></a>[15] Edelsbrunner, Herbert and Harer, John L. “Computational Topology: An Introduction” <em>arXiv preprint</em> (2010).</p>
+<p><a id="ref15"></a>[15] Yang, Shuofei and others “Model Merging in LLMs, MLLMs, and Beyond: A Survey and New Taxonomy” <em>arXiv preprint arXiv:2402.00996</em> (2024).</p>
 
-<p><a id="ref16"></a>[16] Guss, William H and Salakhutdinov, Ruslan “On characterizing the capacity of neural networks using algebraic topology” <em>International Conference on Learning Representations (ICLR)</em> (2018). <a href="https://openreview.net/forum?id=ByuEFsR9KX">https://openreview.net/forum?id=ByuEFsR9KX</a></p>
+<p><a id="ref16"></a>[16] Kaplan, Jared, McCandlish, Sam, and others “Scaling laws for neural language models” <em>arXiv preprint arXiv:2001.08361</em> (2020).</p>
 
-<p><a id="ref17"></a>[17] Pires, Telmo, Schlinger, Eva, and others “How multilingual is multilingual BERT?” <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em> (2019).</p>
+<p><a id="ref17"></a>[17] Hoffmann, Jordan, Borgeaud, Sebastian, and others “Training compute-optimal large language models” <em>arXiv preprint arXiv:2203.15556</em> (2022).</p>
 
-<p><a id="ref18"></a>[18] Scao, Teven Le, Fan, Angela, and others “BLOOM: A 176B-parameter open-access multilingual language model” <em>arXiv preprint arXiv:2211.05100</em> (2022).</p>
+<p><a id="ref18"></a>[18] Wei, Jason, Wang, Xuezhi, and others “Chain of Thought Prompting Elicits Reasoning in Large Language Models” <em>arXiv preprint arXiv:2201.11903</em> (2022).</p>
 
-<p><a id="ref19"></a>[19] Kaplan, Jared, McCandlish, Sam, and others “Scaling laws for neural language models” <em>arXiv preprint arXiv:2001.08361</em> (2020).</p>
+<p><a id="ref19"></a>[19] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
 
-<p><a id="ref20"></a>[20] Geiger, Atticus, Zou, James, and others “Causal Interventions for Fairness in Text Classification” <em>Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2020). <a href="https://aclanthology.org/2020.emnlp-main.398">https://aclanthology.org/2020.emnlp-main.398</a></p>
+<p><a id="ref20"></a>[20] Edelsbrunner, Herbert and Harer, John L. “Computational Topology: An Introduction” <em>arXiv preprint</em> (2010).</p>
 
-<p><a id="ref21"></a>[21] Wei, Jason, Wang, Xuezhi, and others “Emergent abilities of large language models” <em>arXiv preprint arXiv:2206.07682</em> (2022).</p>
+<p><a id="ref21"></a>[21] Guss, William H and Salakhutdinov, Ruslan “On characterizing the capacity of neural networks using algebraic topology” <em>International Conference on Learning Representations (ICLR)</em> (2018). <a href="https://openreview.net/forum?id=ByuEFsR9KX">https://openreview.net/forum?id=ByuEFsR9KX</a></p>
 
-<p><a id="ref22"></a>[22] Conneau, Alexis, Khandelwal, Kartikay, and others “Unsupervised Cross-lingual Representation Learning at Scale” <em>ACL</em> (2020).</p>
+<p><a id="ref22"></a>[22] Pires, Telmo, Schlinger, Eva, and others “How multilingual is multilingual BERT?” <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em> (2019).</p>
 
-<p><a id="ref23"></a>[23] Chi, Ethan, Hewitt, John, and others “Finding the optimal multilingual model” <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (2020).</p>
+<p><a id="ref23"></a>[23] Scao, Teven Le, Fan, Angela, and others “BLOOM: A 176B-parameter open-access multilingual language model” <em>arXiv preprint arXiv:2211.05100</em> (2022).</p>
 
-<p><a id="ref24"></a>[24] Goyal, Nandini, Chander, Anam, and others “Fairness and Abstraction in Sociotechnical Systems” <em>Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency</em> (2022).</p>
+<p><a id="ref24"></a>[24] Geiger, Atticus, Zou, James, and others “Causal Interventions for Fairness in Text Classification” <em>Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2020). <a href="https://aclanthology.org/2020.emnlp-main.398">https://aclanthology.org/2020.emnlp-main.398</a></p>
 
-<p><a id="ref25"></a>[25] Huang, Li, Wang, Jia, and others “Multilingual Language Models: Extending Monolingual Models to Multiple Languages” <em>Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2020).</p>
+<p><a id="ref25"></a>[25] Wei, Jason, Wang, Xuezhi, and others “Emergent abilities of large language models” <em>arXiv preprint arXiv:2206.07682</em> (2022).</p>
 
-<p><a id="ref26"></a>[26] Devlin, Jacob, Chang, Ming-Wei, and others “BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding” <em>NAACL</em> (2019).</p>
+<p><a id="ref26"></a>[26] Conneau, Alexis, Khandelwal, Kartikay, and others “Unsupervised Cross-lingual Representation Learning at Scale” <em>ACL</em> (2020).</p>
 
-<p><a id="ref27"></a>[27] Yang, Sharon, Blodgett, Su Lin, and others “Towards Measuring and Mitigating Social Biases in Multilingual Language Models” <em>ACL Findings</em> (2023).</p>
+<p><a id="ref27"></a>[27] Chi, Ethan, Hewitt, John, and others “Finding the optimal multilingual model” <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (2020).</p>
 
-<p><a id="ref28"></a>[28] Arnold, Vladimir I. “Mathematical Methods of Classical Mechanics” <em>arXiv preprint</em> (1989).</p>
+<p><a id="ref28"></a>[28] Goyal, Nandini, Chander, Anam, and others “Fairness and Abstraction in Sociotechnical Systems” <em>Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency</em> (2022).</p>
 
-<p><a id="ref29"></a>[29] Zafrir, Ofir, Boudoukh, Guy, and others “Q8BERT: Quantized 8bit BERT” <em>Fifth Workshop on Energy Efficient Machine Learning and Cognitive Computing</em> (2019).</p>
+<p><a id="ref29"></a>[29] Huang, Li, Wang, Jia, and others “Multilingual Language Models: Extending Monolingual Models to Multiple Languages” <em>Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em> (2020).</p>
 
-<p><a id="ref30"></a>[30] Frankle, Jonathan and Carbin, Michael “The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks” <em>ICLR</em> (2019).</p>
+<p><a id="ref30"></a>[30] Devlin, Jacob, Chang, Ming-Wei, and others “BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding” <em>NAACL</em> (2019).</p>
 
-<p><a id="ref31"></a>[31] Hooker, Sara, Courville, Aaron, and others “What Do Compressed Deep Neural Networks Forget?” <em>Proceedings of the 37th International Conference on Machine Learning (ICML)</em> (2020).</p>
+<p><a id="ref31"></a>[31] Yang, Sharon, Blodgett, Su Lin, and others “Towards Measuring and Mitigating Social Biases in Multilingual Language Models” <em>ACL Findings</em> (2023).</p>
 
-<p><a id="ref32"></a>[32] Matena, Michael and Raffel, Colin “Merging models with fisher-weighted averaging” <em>NeurIPS</em> (2022).</p>
+<p><a id="ref32"></a>[32] Arnold, Vladimir I. “Mathematical Methods of Classical Mechanics” <em>arXiv preprint</em> (1989).</p>
 
-<p><a id="ref33"></a>[33] Romero, Adriana, Ballas, Nicolas, and others “FitNets: Hints for thin deep nets” <em>ICLR</em> (2015).</p>
+<p><a id="ref33"></a>[33] Zafrir, Ofir, Boudoukh, Guy, and others “Q8BERT: Quantized 8bit BERT” <em>Fifth Workshop on Energy Efficient Machine Learning and Cognitive Computing</em> (2019).</p>
 
-<p><a id="ref34"></a>[34] Hinton, Geoffrey, Vinyals, Oriol, and others “Distilling the Knowledge in a Neural Network” <em>NeurIPS Deep Learning and Representation Learning Workshop</em> (2015). <a href="https://arxiv.org/abs/1503.02531">https://arxiv.org/abs/1503.02531</a></p>
+<p><a id="ref34"></a>[34] Frankle, Jonathan and Carbin, Michael “The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks” <em>ICLR</em> (2019).</p>
 
-<p><a id="ref35"></a>[35] Justin Curry “Sheaves, Cosheaves and Applications” <em>arXiv preprint</em> (2014). <a href="https://arxiv.org/abs/1303.3255">https://arxiv.org/abs/1303.3255</a></p>
+<p><a id="ref35"></a>[35] Hooker, Sara, Courville, Aaron, and others “What Do Compressed Deep Neural Networks Forget?” <em>Proceedings of the 37th International Conference on Machine Learning (ICML)</em> (2020).</p>
+
+<p><a id="ref36"></a>[36] Romero, Adriana, Ballas, Nicolas, and others “FitNets: Hints for thin deep nets” <em>ICLR</em> (2015).</p>
+
+<p><a id="ref37"></a>[37] Hinton, Geoffrey, Vinyals, Oriol, and others “Distilling the Knowledge in a Neural Network” <em>NeurIPS Deep Learning and Representation Learning Workshop</em> (2015). <a href="https://arxiv.org/abs/1503.02531">https://arxiv.org/abs/1503.02531</a></p>
+
+<p><a id="ref38"></a>[38] Justin Curry “Sheaves, Cosheaves and Applications” <em>arXiv preprint</em> (2014). <a href="https://arxiv.org/abs/1303.3255">https://arxiv.org/abs/1303.3255</a></p>
 
 
       </div>

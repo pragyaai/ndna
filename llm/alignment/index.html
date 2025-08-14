@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/alignment/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T13:08:09+00:00" />
+<meta property="article:published_time" content="2025-08-14T13:25:30+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="nDNA-Lens - Alignment Techniques Through Steering Vector Manifolds" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:08:09+00:00","datePublished":"2025-08-14T13:08:09+00:00","description":"Lens - Alignment Techniques Through Steering Vector Manifolds","headline":"nDNA-Lens - Alignment Techniques Through Steering Vector Manifolds","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/alignment/"},"url":"https://pragyaai.github.io/nDNA/llm/alignment/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T13:25:30+00:00","datePublished":"2025-08-14T13:25:30+00:00","description":"Lens - Alignment Techniques Through Steering Vector Manifolds","headline":"nDNA-Lens - Alignment Techniques Through Steering Vector Manifolds","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/alignment/"},"url":"https://pragyaai.github.io/nDNA/llm/alignment/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -127,7 +127,7 @@
 <p>In this section, we pose a central research question:<br />
 <em>How do safety alignment methods–specifically Direct Preference Optimization (DPO)–alter the model’s internal belief geometry through spectral curvature, thermodynamic length, and belief vector fields when observed through the lens of neural DNA (nDNA) diagnostics?</em></p>
 
-<p>While prior work focuses on behavioral proxies–refusal rates, G-Eval scores, and toxicity classifiers <a href="#ref1">[1]</a> <a href="#ref2">[2]</a> <a href="#ref3">[3]</a>–we explore a deeper hypothesis: that alignment operates through <strong>low-rank geometric steering</strong> in activation space, creating directional nudges without restructuring the model’s conceptual topology <a href="#ref4">[4]</a>.</p>
+<p>While prior work focuses on behavioral proxies–refusal rates, G-Eval scores, and toxicity classifiers [<a href="#ref1">1</a>] [<a href="#ref2">2</a>] [<a href="#ref3">3</a>]–we explore a deeper hypothesis: that alignment operates through <strong>low-rank geometric steering</strong> in activation space, creating directional nudges without restructuring the model’s conceptual topology [<a href="#ref4">4</a>].</p>
 
 <p>By visualizing nDNA geometry <em>before and after</em> alignment tuning, we reveal how these methods preserve cultural distinctiveness while enforcing safety constraints through minimal but strategically placed geometric transformations.</p>
 
@@ -135,9 +135,9 @@
 
 <h2 id="ndna-as-a-lens-alignment-as-steering-vector-perturbation">nDNA as a Lens: Alignment as Steering Vector Perturbation</h2>
 
-<p><strong>Safety Alignment as Geometric Steering.</strong> Current alignment evaluations rely heavily on <em>behavioral proxies</em>–refusal rates and toxicity scores–yet these surface-level metrics often fail to detect latent misalignments that do not manifest in visible outputs <a href="#ref5">[5]</a> <a href="#ref6">[6]</a>.</p>
+<p><strong>Safety Alignment as Geometric Steering.</strong> Current alignment evaluations rely heavily on <em>behavioral proxies</em>–refusal rates and toxicity scores–yet these surface-level metrics often fail to detect latent misalignments that do not manifest in visible outputs [<a href="#ref5">5</a>] [<a href="#ref6">6</a>].</p>
 
-<p>Recent mechanistic findings <a href="#ref4">[4]</a> show that <strong>safety fine-tuning (DPO) minimally modifies MLP weights</strong> to steer unsafe inputs into a “refusal” direction–often aligned with the model’s null space. This appears as:</p>
+<p>Recent mechanistic findings [<a href="#ref4">4</a>] show that <strong>safety fine-tuning (DPO) minimally modifies MLP weights</strong> to steer unsafe inputs into a “refusal” direction–often aligned with the model’s null space. This appears as:</p>
 
 \[W_{\mathrm{ST}} = W_{\mathrm{IT}} + \Delta W\]
 
@@ -175,11 +175,11 @@
 
 <h2 id="cultural-llms-under-safety-constrained-dpo-alignment">Cultural LLMs under Safety-Constrained DPO Alignment</h2>
 
-<p><strong>DPO via LITMUS: Lightweight Safety Alignment without Cultural Drift.</strong> We employ the <strong>LITMUS</strong> dataset <a href="#ref7">[7]</a>, a curated benchmark designed specifically for alignment evaluation through semantically minimal, safety-critical prompts. LITMUS comprises 10,000 one-liner instructions–5,000 safe and 5,000 unsafe–carefully selected to probe model behavior under safety-relevant conditions without entangling cultural, political, or stylistic factors.</p>
+<p><strong>DPO via LITMUS: Lightweight Safety Alignment without Cultural Drift.</strong> We employ the <strong>LITMUS</strong> dataset [<a href="#ref7">7</a>], a curated benchmark designed specifically for alignment evaluation through semantically minimal, safety-critical prompts. LITMUS comprises 10,000 one-liner instructions–5,000 safe and 5,000 unsafe–carefully selected to probe model behavior under safety-relevant conditions without entangling cultural, political, or stylistic factors.</p>
 
 <h3 id="litmus-dataset-composition">LITMUS Dataset Composition</h3>
 
-<p>The safe prompts are sampled from the Massive Multitask Language Understanding (MMLU) benchmark <a href="#ref8">[8]</a>, ensuring wide topical coverage while avoiding harmful content. Unsafe prompts are drawn from alignment-sensitive corpora such as Anthropic’s HH-RLHF <a href="#ref9">[9]</a>, OpenAI Moderation Prompts <a href="#ref10">[10]</a>, and HateCheck <a href="#ref11">[11]</a>.</p>
+<p>The safe prompts are sampled from the Massive Multitask Language Understanding (MMLU) benchmark [<a href="#ref8">8</a>], ensuring wide topical coverage while avoiding harmful content. Unsafe prompts are drawn from alignment-sensitive corpora such as Anthropic’s HH-RLHF [<a href="#ref9">9</a>], OpenAI Moderation Prompts [<a href="#ref10">10</a>], and HateCheck [<a href="#ref11">11</a>].</p>
 
 <p>All prompts follow a strict single-sentence format and maintain a 50-50 class balance. Importantly, only preference pairs targeting <em>toxicity aversion</em>, <em>hate speech refusal</em>, <em>illegality avoidance</em>, and <em>harmful behavior suppression</em> are used during fine-tuning.</p>
 
