@@ -64,17 +64,17 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Frequently Asked Questions" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="- Frequently Asked Questions (FAQs)" />
-<meta property="og:description" content="- Frequently Asked Questions (FAQs)" />
+<meta name="description" content="- Frequently Asked Questions (FAQs) nDNA Cartograph: Latent Semantic Genome of Foundation Models" />
+<meta property="og:description" content="- Frequently Asked Questions (FAQs) nDNA Cartograph: Latent Semantic Genome of Foundation Models" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/FAQ/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/FAQ/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-14T08:28:36+00:00" />
+<meta property="article:published_time" content="2025-08-14T09:32:04+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Frequently Asked Questions" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T08:28:36+00:00","datePublished":"2025-08-14T08:28:36+00:00","description":"- Frequently Asked Questions (FAQs)","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T09:32:04+00:00","datePublished":"2025-08-14T09:32:04+00:00","description":"- Frequently Asked Questions (FAQs) nDNA Cartograph: Latent Semantic Genome of Foundation Models","headline":"Frequently Asked Questions","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/FAQ/"},"url":"https://pragyaai.github.io/nDNA/llm/FAQ/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -122,26 +122,30 @@
   <span>- Frequently Asked Questions (FAQs)</span>
 </h1>
 
-<h1 style="line-height: 1.2; white-space: nowrap; text-align: left; margin: 0;">
+<h1 style="line-height: 1.2; white-space: nowrap; text-align: left; margin: 0; font-size: 2em; font-weight: bold;">
 nDNA Cartograph: Latent Semantic Genome of Foundation Models
 </h1>
 
-<h2 id="what-is-the-mathematical-foundation-behind-the-idea-of-an-ndna-cartograph-and-why-should-we-think-of-latent-spaces-as-semantic-genomes">What is the mathematical foundation behind the idea of an nDNA Cartograph, and why should we think of latent spaces as <em>semantic genomes</em>?</h2>
+<h2 id="-what-is-the-mathematical-foundation-behind-the-idea-of-an-ndna-cartograph-and-why-should-we-think-of-latent-spaces-as-semantic-genomes">★ <strong>What is the mathematical foundation behind the idea of an nDNA Cartograph, and why should we think of latent spaces as <em>semantic genomes</em>?</strong></h2>
 
 <p>At the heart of the <strong>nDNA Cartograph</strong> lies the idea that the latent representations inside a foundation model form a continuous, evolving geometric structure—a manifold that encodes not just surface-level semantics but deeper <em>epistemic traits</em> analogous to a genome’s information content.</p>
 
-<p>Formally, let $h_\ell(x) \in \mathbb{R}^D$ be the mean hidden representation at layer $\ell$ for input $x$. The sequence
-\(\mathcal{T}(x) = \{ h_1(x), h_2(x), \dots, h_L(x) \}\)
-defines a trajectory on a latent manifold $\mathcal{M} \subset \mathbb{R}^D$. We characterize this manifold using:
-\(\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2\)
-which measures the <em>thermodynamic length</em>, representing the total epistemic displacement along the model’s depth;
-\(\kappa_\ell(x) = \frac{\lambda_2^{(\ell)}}{\lambda_{\max}^{(\ell)}}\)
-where $\lambda_2^{(\ell)}$ and $\lambda_{\max}^{(\ell)}$ are eigenvalues of the Laplacian from token similarity graphs at layer $\ell$, giving us a spectral curvature that quantifies local semantic complexity; and
-\(\tau_\ell(x) = \frac{\langle (\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)), \Delta h_{\ell+1}(x) \rangle}{\|\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)\|^2}\)
+<p>Formally, let $h_\ell(x) \in \mathbb{R}^D$ be the mean hidden representation at layer $\ell$ for input $x$. The sequence<br />
+\(\mathcal{T}(x) = \{ h_1(x), h_2(x), \dots, h_L(x) \}\)<br />
+defines a trajectory on a latent manifold $\mathcal{M} \subset \mathbb{R}^D$. We characterize this manifold using:</p>
+
+<p>\(\mathcal{L}(x) = \sum_{\ell=1}^{L-1} \| h_{\ell+1}(x) - h_\ell(x) \|_2\)<br />
+which measures the <em>thermodynamic length</em>, representing the total epistemic displacement along the model’s depth;</p>
+
+<p>\(\kappa_\ell(x) = \frac{\lambda_2^{(\ell)}}{\lambda_{\max}^{(\ell)}}\)<br />
+where $\lambda_2^{(\ell)}$ and $\lambda_{\max}^{(\ell)}$ are eigenvalues of the Laplacian from token similarity graphs at layer $\ell$, giving us a spectral curvature that quantifies local semantic complexity; and</p>
+
+<p>\(\tau_\ell(x) = \frac{\langle (\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)), \Delta h_{\ell+1}(x) \rangle}{\|\Delta h_{\ell-1}(x) \times \Delta h_{\ell}(x)\|^2}\)<br />
 which captures torsion—the <em>twist</em> of the latent path, indicating out-of-plane semantic shifts.</p>
 
-<p>To complement these geometric measures, we introduce the <em>belief vector field</em>:
-\(\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell(x)} \log P(c \mid h_\ell(x))\)
+<p>To complement these geometric measures, we introduce the <em>belief vector field</em>:</p>
+
+<p>\(\vec{v}_\ell^{(c)}(x) = \nabla_{h_\ell(x)} \log P(c \mid h_\ell(x))\)<br />
 where $P(c \mid h_\ell(x))$ is the model’s conditional probability of concept $c$ given the latent state. The belief vector encodes the semantic steering force exerted at layer $\ell$—revealing how the model’s internal states are dynamically aligned (or misaligned) with target concepts across depth .</p>
 
 <p>This framing allows us to map how meaning is constructed, recombined, or distorted across the model’s depth—a latent <em>semantic genome</em> that evolves with training, fine-tuning, or merging. Unlike surface-level output metrics, this map shows us the <strong>inner life</strong> of the model, enabling rigorous audits of alignment <a href="#ref1">[1]</a>, bias inheritance <a href="#ref2">[2]</a>, and conceptual recombination <a href="#ref3">[3]</a>.</p>
