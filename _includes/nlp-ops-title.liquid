@@ -1,0 +1,25 @@
+{% comment %}
+NLP Ops Title Template
+{% endcomment %}
+
+{% assign heading_tag = include.size | default: "h1" %}
+{% assign logo_size = "12rem" %}
+<style>
+.page-title::first-line {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+</style>
+<h1 class="page-title" style="margin-bottom: 1rem; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; line-height: 1.2em;">
+  <img src="{{ include.title_image | relative_url }}" alt="{{ include.logo_alt }}" style="width: {{ logo_size }}; flex: 0 0;">
+  <span style="display: flex; gap: 0.5rem;">
+    <span>-</span>
+    <span>{{ include.title }}</span>
+  </span>
+</h1>
+
+<div class="text-center">
+  <h3 style="color: #06f;">Micro-summary — details in the book</h3>
+  <h4>Anonymous ACL submission</h4>
+</div>

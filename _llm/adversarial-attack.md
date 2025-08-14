@@ -5,12 +5,10 @@ permalink: /llm/nlp-operations/adversarial-attack/
 skip_title: true
 ---
 
-{% include ndna-title.liquid title="VIRAL: Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models" %}
-
-<div class="text-center">
-  <h3 style="color: #06f;">Micro-summary — details in the book</h3>
-  <h4>Anonymous ACL submission</h4>
-</div>
+{% include nlp-ops-title.liquid
+  title="Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models; Proposing 11 Vaccines: SPLICER, SENTRY, DORMIGUARD, CASCADEX, EMBERGENT, ROLESTOP, REPLICADE, PROMPTEX, DRIFTSHIELD, CHAINLOCK, and REFLEXIA"
+  title_image="assets/logos/viral.png"
+  logo_alt="VIRAL" %}
 
 ## Abstract
 

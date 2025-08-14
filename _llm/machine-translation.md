@@ -5,7 +5,10 @@ permalink: /llm/nlp-operations/machine-translation/
 skip_title: true
 ---
 
-{% include ndna-title.liquid title="GENOME-MT: Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation" %}
+{% include nlp-ops-title.liquid
+  title="Geometric Epistemic Modeling of Neural Organization for Zero-Shot Machine Translation Evaluation via nDNA"
+  title_image="assets/logos/genome-mt.png"
+  logo_alt="GENOME-MT" %}
 
 > *We present **GENOME-MT** (*Geometric Epistemic Modeling of Neural Organization for Machine Translation Evaluation*), a novel, **generation-free** framework for predicting **zero-shot** machine translation (MT) quality. Building on the emerging paradigm of **neural genomics** (**nDNA**), our approach conceptualizes translation difficulty through two foundational geometric quantities: **semantic torsion** — encoding the degree of *conceptual twisting* between cross-lingual semantic manifolds — and **epistemic force** — quantifying the *latent cognitive–geometric effort* required to traverse between them.*
 

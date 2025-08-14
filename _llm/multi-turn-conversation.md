@@ -5,7 +5,10 @@ permalink: /llm/nlp-operations/multi-turn-conversation/
 skip_title: true
 ---
 
-{% include ndna-title.liquid title="ORBIT: Multi-turn Conversation and nDNA Dynamics" %}
+{% include nlp-ops-title.liquid
+  title="Tracking Semantic Drift and Memory in Multi-Turn Dialogue via nDNA Geometry"
+  title_image="assets/logos/orbit.png"
+  logo_alt="ORBIT" %}
 
 > *We introduce **ORBIT**—a neural genomics framework for diagnosing the epistemic health of large language models (LLMs) in multi-turn dialogue. While prior evaluation methods emphasize surface-level fluency or factuality, **ORBIT** ventures deeper—probing the latent evolution of beliefs by modeling internal representations as semantic trajectories through high-dimensional latent space.*
 
