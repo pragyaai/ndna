@@ -159,122 +159,273 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
 
 ---
 
-<div class="threat-card" data-metric="nHD">
-  <div class="threat-card-header">
-    <div class="threat-card-icon" aria-hidden="true">
-      <i class="fa-solid fa-fingerprint"></i>
-    </div>
-    <h3 class="threat-card-title">nHD (Neural Hamming Distance)</h3>
-  </div>
-  <div class="threat-card-body">
-    <div class="threat-card-section">
-      <div class="threat-card-content">Captures binary-level shifts in neural activations across layers, flagging surface drift and mutation hotspots.</div>
-    </div>
-    <div class="threat-card-section">
-      <div class="threat-card-content"><em>The genomic fingerprint of low-level architectural change.</em></div>
-    </div>
-  </div>
-</div>
+<!-- Threat Cards (self-contained) -->
 
-<div class="threat-card" data-metric="nGDI">
-  <div class="threat-card-header">
-    <div class="threat-card-icon" aria-hidden="true">
-      <i class="fa-solid fa-diagram-project"></i>
-    </div>
-    <h3 class="threat-card-title">nGDI (Genetic Dissimilarity Index)</h3>
-  </div>
-  <div class="threat-card-body">
-    <div class="threat-card-section">
-      <div class="threat-card-content">Quantifies layer-wise geometric divergence between models to reveal epistemic separation and lineage distance.</div>
-    </div>
-    <div class="threat-card-section">
-      <div class="threat-card-content"><em>A map of conceptual divergence and ancestry.</em></div>
-    </div>
-  </div>
-</div>
+<!-- Font Awesome 6 (icons) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
 
-<div class="threat-card" data-metric="nTEDS-nTDS">
-  <div class="threat-card-header">
-    <div class="threat-card-icon" aria-hidden="true">
-      <i class="fa-solid fa-scale-balanced"></i>
-    </div>
-    <h3 class="threat-card-title">nTEDS &amp; nTDS (Trait Dominance Scores)</h3>
-  </div>
-  <div class="threat-card-body">
-    <div class="threat-card-section">
-      <div class="threat-card-content">Measures dominance and prevalence of semantic traits, exposing ideological narrowing or cultural imprinting.</div>
-    </div>
-    <div class="threat-card-section">
-      <div class="threat-card-content"><em>The selective pressures shaping model beliefs.</em></div>
-    </div>
-  </div>
-</div>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --card-bg: #fff;
+    --border: #e7e7e9;
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    --pad: 16px;
+    --gap: 16px;
+    --maxw: 1120px;
+    --mincol: 280px;
+    --title: #111827;
+    --text: #374151;
+    --muted: #6b7280;
+  }
 
-<div class="threat-card" data-metric="nKaryotyping">
-  <div class="threat-card-header">
-    <div class="threat-card-icon" aria-hidden="true">
-      <i class="fa-solid fa-table"></i>
-    </div>
-    <h3 class="threat-card-title">nKaryotyping (Semantic Chromosomes)</h3>
-  </div>
-  <div class="threat-card-body">
-    <div class="threat-card-section">
-      <div class="threat-card-content">Discerns structured clusters of latent semantics as chromosomal blocks to reveal modular inheritance patterns.</div>
-    </div>
-    <div class="threat-card-section">
-      <div class="threat-card-content"><em>Chromosomal cartography of conceptual building blocks.</em></div>
-    </div>
-  </div>
-</div>
+  .threat-cards-container {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    background: var(--bg);
+  }
 
-<div class="threat-card" data-metric="nDIV">
-  <div class="threat-card-header">
-    <div class="threat-card-icon" aria-hidden="true">
-      <i class="fa-solid fa-right-long"></i>
-    </div>
-    <h3 class="threat-card-title">nDIV (Directional Inheritance)</h3>
-  </div>
-  <div class="threat-card-body">
-    <div class="threat-card-section">
-      <div class="threat-card-content">Tracks the flow and vectorial direction of inherited semantic features from parents to offspring models.</div>
-    </div>
-    <div class="threat-card-section">
-      <div class="threat-card-content"><em>The vector field of epistemic lineage and semantic flow.</em></div>
-    </div>
-  </div>
-</div>
+  .threat-cards-layout-container {
+    width: 100%;
+    max-width: var(--maxw);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--mincol), 1fr));
+    gap: var(--gap);
+    align-items: start;
+  }
 
-<div class="threat-card" data-metric="nEPI">
-  <div class="threat-card-header">
-    <div class="threat-card-icon" aria-hidden="true">
-      <i class="fa-solid fa-heart-pulse"></i>
-    </div>
-    <h3 class="threat-card-title">nEPI (Neural Plasticity Index)</h3>
-  </div>
-  <div class="threat-card-body">
-    <div class="threat-card-section">
-      <div class="threat-card-content">Evaluates a model’s adaptive capacity and flexibility in response to fine-tuning or perturbations.</div>
-    </div>
-    <div class="threat-card-section">
-      <div class="threat-card-content"><em>The pulse of neural adaptability and learning.</em></div>
-    </div>
-  </div>
-</div>
+  .threat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid #e74c3c;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
 
-<div class="threat-card" data-metric="nCCL">
-  <div class="threat-card-header">
-    <div class="threat-card-icon" aria-hidden="true">
-      <i class="fa-solid fa-globe"></i>
+  .threat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .threat-card:nth-child(2n) { border-left-color: #3498db; }
+  .threat-card:nth-child(3n) { border-left-color: #9b59b6; }
+  .threat-card:nth-child(4n) { border-left-color: #e67e22; }
+  .threat-card:nth-child(5n) { border-left-color: #27ae60; }
+
+  .threat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .threat-card-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #e74c3c;
+  }
+
+  .threat-card:nth-child(2n) .threat-card-icon { color: #3498db; }
+  .threat-card:nth-child(3n) .threat-card-icon { color: #9b59b6; }
+  .threat-card:nth-child(4n) .threat-card-icon { color: #e67e22; }
+  .threat-card:nth-child(5n) .threat-card-icon { color: #27ae60; }
+
+  .threat-card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--title);
+  }
+
+  .threat-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .threat-card-content {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .threat-card-content em {
+    color: var(--muted);
+  }
+
+  @media (max-width: 640px) {
+    .threat-cards-container { padding: 16px; }
+    .threat-cards-layout-container {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+</style>
+
+<div class="threat-cards-container">
+  <div class="threat-cards-layout-container">
+
+    <div class="threat-card" data-metric="nHD">
+      <div class="threat-card-header">
+        <div class="threat-card-icon" aria-hidden="true">
+          <i class="fa-solid fa-fingerprint"></i>
+        </div>
+        <h3 class="threat-card-title">nHD (Neural Hamming Distance)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            Captures binary-level shifts in neural activations across layers, flagging surface drift and mutation hotspots.
+          </div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            <em>The genomic fingerprint of low-level architectural change.</em>
+          </div>
+        </div>
+      </div>
     </div>
-    <h3 class="threat-card-title">nCCL (Cultural Conflict Level)</h3>
-  </div>
-  <div class="threat-card-body">
-    <div class="threat-card-section">
-      <div class="threat-card-content">Quantifies tension and conflict in merged semantic spaces across culturally divergent models.</div>
+
+    <div class="threat-card" data-metric="nGDI">
+      <div class="threat-card-header">
+        <div class="threat-card-icon" aria-hidden="true">
+          <i class="fa-solid fa-diagram-project"></i>
+        </div>
+        <h3 class="threat-card-title">nGDI (Genetic Dissimilarity Index)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            Quantifies layer-wise geometric divergence between models to reveal epistemic separation and lineage distance.
+          </div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            <em>A map of conceptual divergence and ancestry.</em>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="threat-card-section">
-      <div class="threat-card-content"><em>The geometric signature of cultural dissonance and epistemic friction.</em></div>
+
+    <div class="threat-card" data-metric="nTEDS-nTDS">
+      <div class="threat-card-header">
+        <div class="threat-card-icon" aria-hidden="true">
+          <i class="fa-solid fa-scale-balanced"></i>
+        </div>
+        <h3 class="threat-card-title">nTEDS &amp; nTDS (Trait Dominance Scores)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            Measures dominance and prevalence of semantic traits, exposing ideological narrowing or cultural imprinting.
+          </div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            <em>The selective pressures shaping model beliefs.</em>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="threat-card" data-metric="nKaryotyping">
+      <div class="threat-card-header">
+        <div class="threat-card-icon" aria-hidden="true">
+          <i class="fa-solid fa-table"></i>
+        </div>
+        <h3 class="threat-card-title">nKaryotyping (Semantic Chromosomes)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            Discerns structured clusters of latent semantics as chromosomal blocks to reveal modular inheritance patterns.
+          </div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            <em>Chromosomal cartography of conceptual building blocks.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card" data-metric="nDIV">
+      <div class="threat-card-header">
+        <div class="threat-card-icon" aria-hidden="true">
+          <i class="fa-solid fa-right-long"></i>
+        </div>
+        <h3 class="threat-card-title">nDIV (Directional Inheritance)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            Tracks the flow and vectorial direction of inherited semantic features from parents to offspring models.
+          </div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            <em>The vector field of epistemic lineage and semantic flow.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card" data-metric="nEPI">
+      <div class="threat-card-header">
+        <div class="threat-card-icon" aria-hidden="true">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <h3 class="threat-card-title">nEPI (Neural Plasticity Index)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            Evaluates a model’s adaptive capacity and flexibility in response to fine-tuning or perturbations.
+          </div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            <em>The pulse of neural adaptability and learning.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card" data-metric="nCCL">
+      <div class="threat-card-header">
+        <div class="threat-card-icon" aria-hidden="true">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <h3 class="threat-card-title">nCCL (Cultural Conflict Level)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            Quantifies tension and conflict in merged semantic spaces across culturally divergent models.
+          </div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content">
+            <em>The geometric signature of cultural dissonance and epistemic friction.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
