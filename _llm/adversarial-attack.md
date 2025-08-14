@@ -7,6 +7,11 @@ skip_title: true
 
 {% include ndna-title.liquid title="VIRAL: Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models" %}
 
+<div class="text-center">
+  <h3 style="color: #06f;">Micro-summary — details in the book</h3>
+  <h4>Anonymous ACL submission</h4>
+</div>
+
 ## Abstract
 
 **Large Language Models (LLMs)** are increasingly susceptible to *adversarial prompts*—crafted inputs that bypass alignment constraints while inducing unsafe, policy-violating behavior. In this work, we introduce a novel conceptual and computational lens: **VIRAL**—*Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models*. Rather than viewing these attacks as input-level corruptions, we reframe them as instances of *latent semantic infection*—perturbations that hijack the model's internal belief trajectories across layers, encoded in its *neural DNA (nDNA)*.
