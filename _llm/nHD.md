@@ -15,15 +15,17 @@ mathjax: True
 </script>
 
 
-In biological genomics, the **Hamming Distance** is a key metric quantifying the number of differing nucleotides between two sequences, often used to measure **mutation load** and **evolutionary divergence**. Inspired by this, the **Neural Hamming Distance (nHD)** translates these ideas to **foundation models**, serving as an interpretable measure of **bit-level differences** in internal representations.
+In biological genomics, the **Hamming Distance**{% cite Hamming_genetics %} is a key metric quantifying the number of differing nucleotides between two sequences, often used to measure **mutation load** and **evolutionary divergence**. IThis concept has been crucial in understanding genetic variation, tracing lineage, and assessing the impact of mutations on phenotypic expression ({% cite durbin1998biological %}; {% cite pevzner2000computational %}).
 
-Subtle changes in neural weights or activations—especially across culturally heterogeneous data—can induce **incremental binary mutations** in model "neural genomes", affecting semantic or functional behavior. These mutations may arise from:
+Inspired by these genetic principles, the **Neural Hamming Distance (nHD)** is proposed as an analogous tool in the domain of foundation models and neural networks, designed to capture bit-level differences in the internal representations of models. Just as small genetic mutations accumulate to
+drive biological evolution and phenotypic divergence {% cite lynch2007origins %}, subtle binary alterations in neural weights oractivations can compound to generate significant **semantic** and **functional shifts** in model behavior.
 
-- Architectural changes  
-- Training variation  
-- Cultural representational biases  
+Modern foundation models trained on **culturally heterogeneous datasets** undergo continuous adaptation and fine-tuning, which can introduce **incremental binary mutations** in their latent neural genomes. These mutations can arise from *architectural changes*, *training variations*, or *culturally induced representational biases*. Understanding and quantifying these mutations at a fine granularity is essential to map how **small-scale changes translate into semantic drift** or **ideological divergence** within the models.
 
-nHD detects and localizes these **semantic mutation signatures**, helping identify which layers or parameters are more vulnerable to **drift**, enabling model realignment and robustness analysis.
+The utility of **nHD** lies in its ability to *detect and localize* these subtle neural perturbations, providing a principled, interpretable measure of **semantic mutation signatures** across layers. This fine-scale insight enables researchers to identify which parts of the neural architecture are most susceptible to drift, guide targeted realignment interventions, and monitor robustness against cultural or adversarial shifts.
+
+In summary, drawing from well-established biological genotype comparison methodologies, **nHD** serves as a *novel neural genomics metric* to decode the intricate **mutation landscape** within foundation models. It bridges the conceptual gap between *biological evolution* and *neural representational dynamics*, advancing our ability to ensure **semantic integrity** amidst evolving, culturally diverse AI
+systems.
 
 
 ## From Genomic Mutation to Neural Lineage Drift
@@ -34,7 +36,7 @@ nHD quantifies the **discrete divergence** between two neural representations by
 
 ### Biological & Mathematical Background
 
-In genomics, the Hamming distance between two sequences \\( S^{(1)}, S^{(2)} \\) of length \\( n \\) is:
+In genomics, the Hamming distance between{% cite hamming1950error %} two sequences \\( S^{(1)}, S^{(2)} \\) of length \\( n \\) is:
 
 $$\boxed{
 d_H(S^{(1)}, S^{(2)}) = \sum_{i=1}^n \mathbf{1}\left[s_i^{(1)} \neq s_i^{(2)}\right]}
@@ -44,14 +46,14 @@ Where:
 - \\( \\mathbf{1}[\\cdot] \\): indicator function  
 - \\( s_i^{(k)} \\): nucleotide at position \\( i \\) in sequence \\( k \\)
 
-This captures point mutations, essential for studying genetic drift, recombination, and mutation modeling.
+This captures point mutations, essential for studying genetic drift{% cite nei1972genetic %}, recombination dynamics {% cite Smith_recombination %}, and mutation modeling{% cite kimura1983neutral %}.
 
 Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\mathcal{H}^n = \\{0, 1\\}^n \\), where each vertex represents a binary sequence and each edge represents a single-bit mutation.
 
 
 {% capture figure_caption %}
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
-  <strong>Figure: Graphical genotyping maps recombination patterns in RIL55 and RIL12:</strong>  
+  <strong>Figure: Graphical genotyping maps recombination patterns in RIL55 and RIL12:</strong> This figure, adapted from <strong>Deblieck et al.</strong>{% cite deblieck2020genotypemapper %}
   <strong>Green and red segments</strong> denote alleles from drought-resistant wild emmer accession G18-16 and drought-susceptible durum wheat accession Langdon, respectively, while  
   <strong>magenta regions</strong> indicate heterozygous loci.  
 
@@ -92,6 +94,7 @@ $$
 
 This binary representation enables bitwise comparison to trace **semantic drift** in LLMs, akin to tracking mutation in biological systems.
 
+where $\tau\right$ may be a fixed hyperparameter (e.g., 0) or learned via training dynamics {% cite courbariaux2015binaryconnect %}
 The layerwise neural Hamming distance between \\( \\mathcal{M}_1 \\) and \\( \\mathcal{M}_2 \\) at layer \\( \\ell \\) is:
 
 
@@ -554,6 +557,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   <span class="mathjax-render">$ \varepsilon^{(\ell)} $</span> models emergent nonlinear geometry.
 </div>
 
+---
+{% auto_references %}
 
 
 
