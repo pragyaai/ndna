@@ -15,7 +15,7 @@ const menusByModel = {
     { text: "Model Merging", url: baseUrl + "/llm/model-merging/" },
     { text: "Model Collapse", url: baseUrl + "/llm/model-collapse/" },
     { text: "Knowledge Distillation", url: baseUrl + "/llm/knowledge-distillation/" },
-    { text: "Neural Genomics", url: "#" },
+    { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/prelude/" },
     { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
     { text: "NLP Operations", url: "#" },
     { text: "at-a-glance", url: baseUrl + "/llm/at_a_glance/" },
@@ -94,6 +94,10 @@ function renderTopMenu(items) {
     });
 
     if ((item.text || item) === "Neural Genomics") {
+      // Change the link URL to point directly to the Prelude page
+      link.href = baseUrl + "/llm/neural-genomics/prelude/";
+      
+      // Still show the submenu when hovering
       link.addEventListener('click', () => {
         setTimeout(() => {
           const submenu = document.getElementById("neuralGenomicsSubmenu");
