@@ -114,45 +114,63 @@ $$
 
 enabling scalable, pre-deployment MT quality estimation without decoding or references.
 
-## Visualizations and Analysis
-
 ### nDNA River Plots: Cross-Lingual Semantic Drift Trajectories
 
-{% include visualization.liquid
-   image_path="new_images/english_to_french.png"
+<div class="ndna-semantic">
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_french.gif"
+   interactive_html="nlp-operations/mt/english_to_french.html"
+   cover_image=true
    caption="**English → French**: nDNA river plot showing semantic drift trajectories across transformer layers. Blue represents English semantic evolution, red represents French evolution. The close alignment indicates minimal epistemic effort required for translation." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_german.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_german.gif"
+   interactive_html="nlp-operations/mt/english_to_german.html"
+   cover_image=true
    caption="**English → German**: Semantic trajectories showing moderate divergence due to German's case-marking system and verb-second placement, requiring higher epistemic effort than Romance languages." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_italian.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_italian.gif"
+   interactive_html="nlp-operations/mt/english_to_italian.html"
+   cover_image=true
    caption="**English → Italian**: Close semantic alignment reflecting shared SVO structure and low torsional complexity between the language manifolds." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_hindi.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_hindi.gif"
+   interactive_html="nlp-operations/mt/english_to_hindi.html"
+   cover_image=true
    caption="**English → Hindi**: Increased semantic divergence visible in the trajectories, reflecting SOV word order, morphological complexity, and script differences requiring moderate epistemic effort." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_bengali.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_bengali.gif"
+   interactive_html="nlp-operations/mt/english_to_bengali.html"
+   cover_image=true
    caption="**English → Bengali**: Semantic drift patterns showing compound verb structures and lexicosyntactic shifts that contribute to translation difficulty." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_tamil.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_tamil.gif"
+   interactive_html="nlp-operations/mt/english_to_tamil.html"
+   cover_image=true
    caption="**English → Tamil**: Substantial trajectory divergence reflecting agglutinative Dravidian structure and typological distance from English." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_chinese.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_chinese.gif"
+   interactive_html="nlp-operations/mt/english_to_chinese.html"
+   cover_image=true
    caption="**English → Chinese**: High semantic divergence due to tonal systems, aspectual differences, and absence of case markers, requiring significant epistemic effort." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_thai.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_thai.gif"
+   interactive_html="nlp-operations/mt/english_to_thai.html"
+   cover_image=true
    caption="**English → Thai**: Classifier systems and tonal mismatch create substantial geometric distance between language manifolds despite SVO similarity." %}
 
-{% include visualization.liquid
-   image_path="new_images/english_to_japanese.png"
+{% include visualization-html.liquid
+   image_path="gifs/nlp-operations/mt/english_to_japanese.gif"
+   interactive_html="nlp-operations/mt/english_to_japanese.html"
+   cover_image=true
    caption="**English → Japanese**: Maximum semantic divergence observed, reflecting topic-prominence, scrambling, and honorific complexity creating the highest epistemic barriers." %}
+</div>
 
 ## Summary of Results
 
