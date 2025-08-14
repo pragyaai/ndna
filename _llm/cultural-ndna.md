@@ -300,7 +300,9 @@ where this equation unveiled *linear semantics* at the token level, cultural nDN
 {% include visualization.liquid
    image_path="images/king_queen.png"
    caption=king_queen
-   alt_text="Word2Vec Semantic Analogy: The King-Queen Vector Geometry." %}
+   alt_text="Word2Vec Semantic Analogy: The King-Queen Vector Geometry."
+   width="100%"
+   height="500px" %}
 Our analysis reveals **family-level clustering and divergence**:
 
 - **Western-aligned variants** (*Europe*, *North America*, *Australia*) exhibit *modest latent deformation*, with $\kappa_\ell$ in $[0.045, 0.055]$ and $\mathcal{L}_\ell$ in $[0.85, 0.95]$. Their trajectories stay near the base LLaMA geometry, **mirroring Western-centric pretraining bias** ([<a href="#ref10">10</a>][<a href="#ref11">11</a>][<a href="#ref12">12</a>][<a href="#ref13">13</a>]).
