@@ -557,9 +557,9 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   <span class="mathjax-render">$ \varepsilon^{(\ell)} $</span> models emergent nonlinear geometry.
 </div>
 
-
 ---
 {% auto_references %}
+
 
 
 
