@@ -160,14 +160,13 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
 ---
 
 <!-- Threat Cards (self-contained) -->
-
-<!-- Font Awesome 6 (icons) -->
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 />
-
 <style>
+  *, *::before, *::after { box-sizing: border-box; }
+
   :root {
     --bg: #f8fafc;
     --card-bg: #fff;
@@ -177,7 +176,7 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
     --pad: 16px;
     --gap: 16px;
     --maxw: 1120px;
-    --mincol: 280px;
+    --mincol: 280px;  /* min card width */
     --title: #111827;
     --text: #374151;
     --muted: #6b7280;
@@ -194,7 +193,8 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
     width: 100%;
     max-width: var(--maxw);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--mincol), 1fr));
+    /* use auto-fit for tighter packing; min card 280px, then grow */
+    grid-template-columns: repeat(auto-fit, minmax(var(--mincol), 1fr));
     gap: var(--gap);
     align-items: start;
   }
@@ -209,6 +209,7 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%; /* prevent overflow in constrained renderers */
   }
 
   .threat-card:hover {
@@ -236,6 +237,7 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
     justify-content: center;
     font-size: 20px;
     color: #e74c3c;
+    flex: 0 0 28px;
   }
 
   .threat-card:nth-child(2n) .threat-card-icon { color: #3498db; }
@@ -248,6 +250,7 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
     font-size: 16px;
     font-weight: 700;
     color: var(--title);
+    line-height: 1.25;
   }
 
   .threat-card-body {
@@ -278,7 +281,6 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
 
 <div class="threat-cards-container">
   <div class="threat-cards-layout-container">
-
     <div class="threat-card" data-metric="nHD">
       <div class="threat-card-header">
         <div class="threat-card-icon" aria-hidden="true">
@@ -425,9 +427,9 @@ In sum, by embracing evolutionary paradigms and leveraging neural genomic metric
         </div>
       </div>
     </div>
-
   </div>
 </div>
+
 
 **Outlook:** Just as molecular biology unveiled the double helix as the blueprint of life, **Neural Genomics reveals geometry as the blueprint of intelligence**. The future lies in tracing, engineering, and safeguarding this latent genome with scientific precision–ushering an era of AI built not only for performance but for *interpretability*, *robustness*, and *cultural integrity*.
 

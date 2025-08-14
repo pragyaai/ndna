@@ -94,7 +94,7 @@ $$
 
 This binary representation enables bitwise comparison to trace **semantic drift** in LLMs, akin to tracking mutation in biological systems.
 
-where $\tau\right$ may be a fixed hyperparameter (e.g., 0) or learned via training dynamics {% cite courbariaux2015binaryconnect %}
+where $\tau$ may be a fixed hyperparameter (e.g., 0) or learned via training dynamics {% cite courbariaux2015binaryconnect %}
 The layerwise neural Hamming distance between \\( \\mathcal{M}_1 \\) and \\( \\mathcal{M}_2 \\) at layer \\( \\ell \\) is:
 
 
@@ -556,6 +556,7 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
   <span class="mathjax-render">$ \alpha^{(\ell)} $</span> is the layer-dependent semantic dominance coefficient and 
   <span class="mathjax-render">$ \varepsilon^{(\ell)} $</span> models emergent nonlinear geometry.
 </div>
+
 
 ---
 {% auto_references %}
