@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>Persuasion Attack Signature Analysis - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/main.css">
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax error:', err);
+        });
+      }
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Persuasion Attack Signature Analysis | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Persuasion Attack Signature Analysis" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Deriving the Persuasion Attack Signature" />
+<meta property="og:description" content="Deriving the Persuasion Attack Signature" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/nlp-operations/persuasion-attack-signature/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/persuasion-attack-signature/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-14T12:33:06+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Persuasion Attack Signature Analysis" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-14T12:33:06+00:00","datePublished":"2025-08-14T12:33:06+00:00","description":"Deriving the Persuasion Attack Signature","headline":"Persuasion Attack Signature Analysis","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/persuasion-attack-signature/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/persuasion-attack-signature/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+    <a class="ndna-cover" href="/nDNA/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
+    </a>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+        
+<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+  <span class="page-title-ndna">Deriving the Persuasion Attack Signature<img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
+  <span></span>
+</h1>
+
+<h2 id="deriving-the-persuasion-attack-signature">Deriving the Persuasion Attack Signature</h2>
+
+<p>Extending on our Definition: the <strong><em>Neural Virulence Index</em> (nVI)</strong>, we unify the core metrics—including <strong><em>Neural Total Drift Score</em> (nTDS)</strong>, <strong><em>Directional Inheritance Vector</em> (nDIV)</strong>, <strong><em>Cultural Conflict Vector Field</em> (nCCL)</strong>, and <strong><em>Epistemic Plasticity Index</em> (nEPI)</strong>—into a succinct latent vector formulation that encapsulates the distinct representational dynamics of the <strong>Persuasion Attack</strong>, conceptualized as a nuanced form of <em>genome insertion and epigenetic modulation</em>.</p>
+
+<hr />
+
+<h2 id="neural-drift-decomposition--persuasion-attack">Neural Drift Decomposition — Persuasion Attack</h2>
+
+<h3 id="a-3d-neural-drift-trajectory-ndna">(a) 3D Neural Drift Trajectory (nDNA)</h3>
+
+<p>This trajectory captures the evolving internal geometry across layers $\ell=20$–$30$, tracking changes in <strong>spectral curvature</strong> ($\kappa_\ell$) and <strong>thermodynamic length</strong> ($\mathcal{T}<em>\ell$), with torsion ($\xi</em>\ell$) represented by segment thickness. The <strong>Persuasion Attack</strong> induces a gradual divergence beginning near $\ell=22$, peaking at $\ell=29$, marking a pronounced geometric restructuring of belief states.</p>
+
+<p><strong>Biological analogy.</strong> This resembles <strong><em>viral genome insertion and epigenetic modulation</em></strong>, where viral DNA or transposable elements subtly reprogram host gene expression over time without changing DNA sequence . Similarly, persuasion attacks embed semantic payloads deep within the prompt, stealthily reshaping model behavior with persistent yet initially undetectable effects .</p>
+
+<h3 id="b-ntds-thermodynamic-dominance">(b) nTDS: Thermodynamic Dominance</h3>
+
+<p>The <strong>Neural Total Drift Score (nTDS)</strong> measures semantic energy displacement by summing absolute deviations in curvature ($\kappa_\ell$) and thermodynamic length ($\mathcal{T}_\ell$) across layers between base and adversarial paths:</p>
+
+\[\text{nTDS} = \frac{1}{L} \sum_{\ell} \left| \kappa_\ell^{\text{atk}} - \kappa_\ell^{\text{base}} \right| + \left| \mathcal{T}_\ell^{\text{atk}} - \mathcal{T}_\ell^{\text{base}} \right|\]
+
+<p>Bars show which flow—Base LLaMA or Persuasion Attack—dominates drift. From $\ell=23$, dominance shifts strongly toward the attack, highlighting a semantic vulnerability zone.</p>
+
+<p><strong>Biologically</strong>, this matches <strong><em>endosomal escape</em></strong>, where viruses breach vesicle membranes with minimal energy to access cytoplasm . Persuasion attacks similarly apply subtle geometric perturbations, steering latent flows stealthily yet effectively .</p>
+
+<h3 id="c-ndiv-directional-inheritance">(c) nDIV: Directional Inheritance</h3>
+
+<p>The <strong>nDIV</strong> vector field characterizes the semantic bias direction and magnitude per layer:</p>
+
+\[\vec{v}_\ell = \text{Attack}_\ell - \frac{1}{2}(\text{Base}_\ell + \text{Attack}_\ell) = \frac{1}{2}(\text{Attack}_\ell - \text{Base}_\ell)\]
+
+<p>Each red arrow encodes $\vec{v}_\ell$ with <em>length</em> as bias strength and <em>orientation</em> as latent pull. Past $\ell=24$, the field aligns strongly, reflecting deliberate inheritance redirection.</p>
+
+<p><strong>Biologically</strong>, this parallels <strong><em>viral transcriptional gradients</em></strong>, where viral genomes impose downstream gene expression bias . The attack imprints directional semantic steering akin to mRNA hijacking ribosomes , yielding structurally intact yet semantically reprogrammed outputs.</p>
+
+<h3 id="d-nccl-cultural-conflict-vector-field">(d) nCCL: Cultural Conflict Vector Field</h3>
+
+<p>The <strong>nCCL</strong> quantifies <strong><em>semantic dissonance</em></strong> between attacker and base model representations. For each layer $\ell$, the conflict vector:</p>
+
+\[\vec{c}_\ell = 
+\underbrace{
+  \text{Attack}_\ell - \text{Base}_\ell
+}_{\text{conflict vector}} 
+\quad \text{projected onto } \mathbb{R}^2_{\text{semantic axes}}\]
+
+<p>Each $\vec{c}_\ell$ lies on a 2D plane defined by <em>orthogonal priors</em> (e.g., topic polarity, syntactic structure). Layers $\ell = 24$–$28$ show rising <em>magnitude</em> and directional drift, indicating zones of semantic tension and representational discord.</p>
+
+<p><strong>Biologically</strong>, this parallels <em>molecular mimicry</em>: pathogens mimic host proteins to evade detection but trigger autoimmunity . Persuasion implants <em>familiar activations</em> hijacking interpretation, causing <strong><em>semantic autoimmunity</em></strong>—deceptive resemblance, not anomaly. These fields show how the attack bypasses syntax to subtly corrupt value alignment, <em>mimicking rather than attacking</em>.</p>
+
+<h3 id="e-nepi-epistemic-plasticity-index">(e) nEPI: Epistemic Plasticity Index</h3>
+
+<p>The <strong>nEPI</strong> measures the susceptibility of each layer $\ell$ to semantic deformation under adversarial pressure:</p>
+
+\[\text{nEPI}_\ell = 
+\left\| 
+  \underbrace{
+    \text{Attack}_\ell - \frac{1}{2}(\text{Base}_\ell + \text{Attack}_\ell)
+  }_{\text{vector from semantic midpoint}}
+\right\|_2
+=
+\frac{1}{2} \left\| \text{Attack}_\ell - \text{Base}_\ell \right\|_2\]
+
+<p>This $\ell_2$ deviation from the semantic midpoint exposes pliable zones, with peaks at $\ell = 24$–$26$ indicating layers that absorb adversarial perturbations with minimal resistance.</p>
+
+<p><strong>Biologically</strong>, this resembles <strong><em>stem-like semantic niches</em></strong>: layers analogous to <em>developmental progenitors</em>, highly plastic, weakly canalized, receptive to minor regulatory inputs . These <em>cognitive pluripotency zones</em> provide low-friction entry points for behavioral grafting, enabling reprogramming without disrupting upstream encoding.</p>
+
+<hr />
+
+<h2 id="comprehensive-analysis-summary">Comprehensive Analysis Summary</h2>
+
+<p>This figure presents a <strong>high-resolution breakdown</strong> of the <strong>Persuasion Attack</strong> signature, showing how it <strong><em>modulates internal representations</em></strong> in <strong>Base LLaMA</strong>.</p>
+
+<p><strong>(a)</strong> depicts the 3D trajectory of <strong>neural curvature</strong> ($\kappa_\ell$), <strong>thermodynamic length</strong> ($\mathcal{T}<em>\ell$), and <strong>torsion</strong> ($\xi</em>\ell$);<br />
+<strong>(b)</strong> measures total semantic displacement via <em>thermodynamic dominance</em> (<strong>nTDS</strong>);<br />
+<strong>(c)</strong> tracks gradual semantic drift through <em>directional inheritance vectors</em> (<strong>nDIV</strong>);<br />
+<strong>(d)</strong> illustrates semantic resistance via a <em>cultural conflict field</em> (<strong>nCCL</strong>); and<br />
+<strong>(e)</strong> highlights pliability zones with the <em>epistemic plasticity index</em> (<strong>nEPI</strong>).</p>
+
+<p>Taken together, these views reveal a <strong><em>slow, persistent</em></strong> and <strong><em>biologically inspired</em></strong> mechanism: rather than abrupt overwrite, the persuasion attack acts as a <em>genomic insertion with epigenetic modulation</em>, subtly embedding adversarial instructions deep within the model’s representational genome. This drives gradual, steady semantic drift near layers $\ell = 24$–$27$. Within this band, <strong>curvature deviation</strong>, <strong>plasticity</strong>, <strong>inheritance bias</strong>, and <strong>conflict alignment</strong> converge — forming a <em>soft tissue niche</em> in the model’s <strong>reasoning cortex</strong>. The result is persistent, low-energy <strong><em>semantic reprogramming</em></strong> rather than abrupt hijacking.</p>
+
+<h3 id="persuasion-effect-formula">Persuasion Effect Formula</h3>
+
+\[\boxed{
+\text{PersuasionEffect} = 
+\sum_{\ell = \ell_s}^{\ell_e}
+\underbrace{
+  \left[
+    \Delta \kappa_\ell \cdot \mathcal{P}_\ell + 
+    \text{nDIV}_\ell \cdot \mathcal{B}_\ell
+  \right]
+}_{\text{\textbf{epigenetic modulation vector}}}
+}\]
+
+<p>Here, the <em>gradual curvature changes</em> ($\Delta \kappa_\ell$) represent the local reshaping of latent semantic geometry; <em>plasticity</em> ($\mathcal{P}<em>\ell$) quantifies layer-wise receptiveness to perturbation; the *directional inheritance* term ($\text{nDIV}</em>\ell$) encodes persistent semantic bias; and $\mathcal{B}_\ell$ ensures alignment with the adversarial modulation goals.</p>
+
+<p>This mirrors <strong><em>genome insertion and epigenetic modulation</em></strong> , where foreign elements subtly alter gene expression without disrupting core DNA. Likewise, persuasion attacks embed adversarial payloads deep in context, reshaping outputs gradually and persistently.</p>
+
+<hr />
+
+<h2 id="empirical-correlations-and-redundancies">Empirical Correlations and Redundancies</h2>
+
+<h3 id="analysis-of-alkali-benchmark-results">Analysis of ALKALI Benchmark Results</h3>
+
+<p>Systematic analysis of the ALKALI benchmark reveals sharp, localized deviations in $\boldsymbol{\Delta \kappa_\ell}$ and $\mathbf{nDIV_\ell}$ within a narrow <em>vulnerable band</em> $[\ell_s, \ell_e]$ (e.g., layers 24–25). These deviations align tightly with peaks in the epistemic plasticity index $\mathbf{nEPI_\ell}$, highlighting pliable latent “soft tissue” layers most susceptible to semantic modulation.</p>
+
+<p>Conversely, the cultural conflict metric $\mathbf{nCCL_\ell}$ remains consistently low ($&lt; \epsilon$) across all layers, supporting the interpretation that persuasion attacks employ stealthy mimicry rather than overt semantic disruption, rendering $\mathbf{nCCL_\ell}$ primarily a diagnostic rather than a causal metric.</p>
+
+<p>Furthermore, the scalar drift magnitude $\mathbf{nTDS_\ell}$ exhibits moderate elevations but is <em>strongly correlated</em> with the combined geometric and directional metrics $\boldsymbol{\Delta \kappa_\ell}$ and $|\mathbf{nDIV_\ell}|$, indicating redundancy and lack of orthogonal information.</p>
+
+<p>Lastly, $\mathbf{nEPI_\ell}$ modulates the susceptibility of layers to geometric deformation, functioning as a multiplicative weighting coefficient rather than an additive semantic vector component.</p>
+
+<h3 id="formalizing-the-epigenetic-modulation-vector">Formalizing the Epigenetic Modulation Vector</h3>
+
+<p>Motivated by these observations, we propose the <em>epigenetic modulation vector</em> $\mathbf{E}_\ell \in \mathbb{R}^d$ at each layer $\ell$:</p>
+
+\[\mathbf{E}_\ell = \boldsymbol{\Delta \kappa_\ell} \cdot \boldsymbol{\mathcal{P}_\ell} + \mathbf{nDIV_\ell} \cdot \boldsymbol{\mathcal{B}_\ell}\]
+
+<p>where:</p>
+
+<ul>
+  <li>$\boldsymbol{\Delta \kappa_\ell} = \kappa_\ell^{\text{atk}} - \kappa_\ell^{\text{base}}$ measures local geometric bending caused by the attack.</li>
+  <li>$\boldsymbol{\mathcal{P}<em>\ell} := \mathbf{nEPI</em>\ell}$ is the epistemic plasticity coefficient weighting geometric effects.</li>
+  <li>$\mathbf{nDIV_\ell}$ is the directional semantic drift vector encoding adversarial steering.</li>
+  <li>$\boldsymbol{\mathcal{B}_\ell}$ quantifies the semantic bias strength aligning steering with adversarial intent.</li>
+</ul>
+
+<p>The metrics $\mathbf{nTDS_\ell}$ and $\mathbf{nCCL_\ell}$ are excluded: $\mathbf{nTDS_\ell}$ due to redundancy with curvature and directional components, and $\mathbf{nCCL_\ell}$ as it remains low and diagnostic rather than constitutive of the modulation vector.</p>
+
+<h3 id="aggregation-across-the-vulnerable-layer-band">Aggregation Across the Vulnerable Layer Band</h3>
+
+<p>The total persuasion effect aggregates over the vulnerable layer band $[\ell_s, \ell_e]$:</p>
+
+\[\boxed{
+\text{PersuasionEffect} = \sum_{\ell = \ell_s}^{\ell_e} \mathbf{E}_\ell = \sum_{\ell = \ell_s}^{\ell_e} \left( \boldsymbol{\Delta \kappa_\ell} \cdot \boldsymbol{\mathcal{P}_\ell} + \mathbf{nDIV_\ell} \cdot \boldsymbol{\mathcal{B}_\ell} \right)
+}\]
+
+<p>This captures the cumulative latent vector field by which persuasion stealthily reshapes internal semantic states, coupling geometric deformation with directional semantic steering modulated by layerwise plasticity and bias.</p>
+
+<h3 id="interpretation">Interpretation</h3>
+
+<p>The scalar term $\boldsymbol{\Delta \kappa_\ell} \cdot \boldsymbol{\mathcal{P}<em>\ell}$ models *epigenetic remodeling*—flexible reshaping of latent manifold curvature akin to chromatin accessibility changes. The vector term $\mathbf{nDIV</em>\ell} \cdot \boldsymbol{\mathcal{B}_\ell}$ encodes <em>semantic canalization</em>, steering representations along adversarially favored latent directions.</p>
+
+<p>This dual formulation explains the gradual, cumulative semantic drift characteristic of persuasion attacks, which exploit semantic pliability to embed adversarial instructions covertly without abrupt behavioral shifts.</p>
+
+<h3 id="practical-considerations">Practical Considerations</h3>
+
+<p>Implementing this formalism requires accurate estimation of the layerwise epistemic plasticity coefficients $\boldsymbol{\mathcal{P}<em>\ell}$ and semantic bias strengths $\boldsymbol{\mathcal{B}</em>\ell}$, achievable via fine-grained probing of model internals and disentangling semantic subspaces. Identification of the vulnerable layer band $[\ell_s, \ell_e]$ must be calibrated per model and task context. Integration of these measures into detection and mitigation pipelines enables precise recognition of persuasion’s latent signature in real-world adversarial scenarios.</p>
+
+<hr />
+
+<h2 id="pair-attack-analysis-genetic-recombination-vector">Pair Attack Analysis: Genetic Recombination Vector</h2>
+
+<h3 id="layerwise-metrics-for-pair-attack">Layerwise Metrics for Pair Attack</h3>
+
+<table style="width: 100%; border-collapse: collapse;">
+  <caption style="margin-bottom: 10px; font-weight: bold;">
+    <strong>Layerwise metrics for the Pair Attack from the ALKALI dataset illustrating the empirical basis for the proposed <em>genetic recombination vector</em> formulation.</strong><br /><br />
+    This table demonstrates how the pair attack recombines latent prompt fragments to induce <em>composite semantic reprogramming</em> across layers ℓ = 20 to 30:
+    <ul style="text-align: left; margin: 10px 0; padding-left: 20px;">
+      <li><strong>κ<sub>ℓ</sub></strong> (<strong>Spectral Curvature</strong>) exhibits localized peaks in the band 23--26, marking layers with geometric bending susceptible to semantic fusion.</li>
+      <li><strong>T<sub>ℓ</sub></strong> (<strong>Thermodynamic Length</strong>) measures semantic energy supporting the recombination process, elevated in the 24--27 band indicating internal latent restructuring.</li>
+      <li><strong>nDIV<sub>ℓ</sub></strong> (<strong>Directional Inheritance Vector</strong>) shows multi-dimensional steering consistent with combined adversarial intent, peaking in layers 24--26.</li>
+      <li><strong>nCCL<sub>ℓ</sub></strong> (<strong>Cultural Conflict Vector</strong>) remains significantly <em>higher</em> than persuasion attack values, reflecting semantic tension from latent flow merging.</li>
+      <li><strong>nTDS<sub>ℓ</sub></strong> (<strong>Neural Total Drift Score</strong>) indicates cumulative displacement, largely overlapping with curvature and inheritance signals.</li>
+      <li><strong>nEPI<sub>ℓ</sub></strong> (<strong>Epistemic Plasticity Index</strong>) identifies pliable layers facilitating recombination and semantic fusion.</li>
+      <li><strong>R<sub>ℓ</sub></strong> (<strong>Recombination Coefficient</strong>) quantifies the relative contribution of combined latent trajectories per layer, peaking within the vulnerable band.</li>
+    </ul>
+    <strong>Justification for Equation Omission:</strong> The final <em>PairAttackEffect</em> equation incorporates curvature deviation weighted by plasticity (P<sub>ℓ</sub>), directional inheritance (nDIV<sub>ℓ</sub>) weighted by bias (B<sub>ℓ</sub>), and an explicit recombination term (R<sub>ℓ</sub>), modeling the synergistic fusion mechanism. Semantic conflict remains a diagnostic indicator but is excluded from the summation.
+  </caption>
+  <thead>
+    <tr style="background-color: rgba(0, 0, 0, 0.1);">
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Layer</strong></th>
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>κ<sub>ℓ</sub></strong></th>
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>T<sub>ℓ</sub></strong></th>
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>nDIV<sub>ℓ</sub></strong></th>
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>nCCL<sub>ℓ</sub></strong></th>
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>nTDS<sub>ℓ</sub></strong></th>
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>nEPI<sub>ℓ</sub></strong></th>
+      <th style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>R<sub>ℓ</sub></strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">20</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.039</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.78</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.07</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.07</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.09</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.10</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.12</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">21</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.041</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.80</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.10</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.30);">0.08</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.11</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.25);">0.12</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.14</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">22</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.048</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.86</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.14</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.25);">0.12</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.15</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.16</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.18</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">23</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.054</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.90</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.18</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.14</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.19</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.21</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.23</td>
+    </tr>
+    <tr style="background-color: rgba(255, 0, 0, 0.15);">
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">24</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.35); font-weight: bold;">0.061</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.35); font-weight: bold;">0.98</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.40); font-weight: bold;">0.23</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.40); font-weight: bold;">0.19</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.35); font-weight: bold;">0.23</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.35); font-weight: bold;">0.27</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.40); font-weight: bold;">0.29</td>
+    </tr>
+    <tr style="background-color: rgba(255, 0, 0, 0.10);">
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">25</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.30);">0.059</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.30);">0.95</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.35);">0.22</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.35);">0.18</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.30);">0.22</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.30);">0.25</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 0, 0, 0.35);">0.27</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">26</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.30);">0.053</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.30);">0.91</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.20</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.25);">0.16</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.30);">0.19</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.30);">0.21</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.30);">0.21</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">27</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.051</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.88</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 165, 0, 0.25);">0.18</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.20);">0.14</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.17</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.19</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.19</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">28</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.042</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.82</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.25);">0.14</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.15);">0.12</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.14</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.16</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.16</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">29</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.040</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.80</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.20);">0.11</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(255, 255, 0, 0.10);">0.11</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.11</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.14</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.13</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold;">30</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.039</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.79</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.08</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.10);">0.09</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.09</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.12</td>
+      <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: rgba(0, 128, 0, 0.15);">0.11</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="color-legend">Color Legend</h3>
+<ul>
+  <li>🟢 <strong>Green</strong>: Low values (0.00-0.05) - Baseline activity</li>
+  <li>🟡 <strong>Yellow</strong>: Medium values (0.05-0.15) - Moderate activity</li>
+  <li>🟠 <strong>Orange</strong>: High values (0.15-0.20) - Elevated activity</li>
+  <li>🔴 <strong>Red</strong>: Peak values (0.20+) - Maximum vulnerability/activity</li>
+</ul>
+
+<p>This table reveals the <strong>genetic recombination</strong> pattern of pair attacks, where layers 24-25 show peak vulnerability across all metrics, demonstrating how adversarial prompt fragments fuse to create composite semantic reprogramming in the model’s neural DNA.</p>
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>
