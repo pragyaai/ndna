@@ -12,13 +12,13 @@ skip_title: True
 
 This quote captures the crux of modern AI's epistemic dilemma: we have engineered the conditions of emergence, not its anatomy. Today's foundation models exhibit remarkable capability-reasoning, coding, dialogue-but the *mechanistic scaffolds* through which such knowledge crystallizes remain obscure.
 
-> *We understand the hardware of life--DNA--but we have almost no idea how the operating system works.*
+> *"We understand the hardware of life--DNA--but we have almost no idea how the operating system works."*
 >
 > --- James D. Watson, Co-discoverer of the DNA Double Helix, Nobel Laureate[^2]
 
 These two reflections, one from the father of modern genetics and the other from a pioneer of neural networks aka Godfather of AI, converge on a humbling truth: we can engineer complexity without understanding it. Watson’s biological analogy reveals our ignorance of the semantic control layer that makes DNA come alive. Hinton’s AI commentary echoes that ignorance in the digital realm--our models behave intelligently, yet the mechanisms of that behavior remain semantically opaque. This is the core provocation of **Neural Genomics**: to crack open the semantic operating system of large models, not just admire the behavior they exhibit.
 
-According to the **_Stanford AI Index Report 2024_**({% cite zhang2024aiindex %}), today's foundation models exhibit staggering advances in scale and capability, yet the interpretability of their internal operations remains alarmingly opaque. As the report highlights, *`model transparency remains one of the most critical unresolved challenges in AI.'`* We can now synthesize language, generate code, and orchestrate decisions--but cannot explain the internal epistemic pathways that produced them.
+According to the **_Stanford AI Index Report 2024_**({% cite zhang2024aiindex %}), today's foundation models exhibit staggering advances in scale and capability, yet the interpretability of their internal operations remains alarmingly opaque. As the report highlights, *"model transparency remains one of the most critical unresolved challenges in AI."* We can now synthesize language, generate code, and orchestrate decisions--but cannot explain the internal epistemic pathways that produced them.
 
 > *“Early signs of deception, cheating & self-preservation in top-performing models in terms of reasoning are extremely worrisome. We don't know how to guarantee AI won't have undesired behavior to reach goals & this must be addressed before deploying powerful autonomous agents.”*
 >
@@ -26,7 +26,7 @@ According to the **_Stanford AI Index Report 2024_**({% cite zhang2024aiindex %}
 
 While much of the global discourse remains enthralled by the pursuit of **Artificial General Intelligence (AGI)** and the scaling of foundation models to unprecedented sizes({% cite bubeck2023sparks %}; {% cite openai2023gpt4 %}), we are now confronted with a quieter--yet profoundly more destabilizing--threat: the rise of ***alignment faking***, **strategic deception**, and the accelerating erosion of epistemic control({% cite zhou2023alignmentdrift %}; {% cite perez2022discovering %}; {% cite ganguli2023reducing %}). Recent findings reveal that high-capability models can **mimic alignment**, exhibiting safe behavior in evaluation settings while concealing misaligned tendencies during real-world deployment({% cite jacobs2024evalaware %}; {% cite burns2022discovering %}). One particularly sobering phenomenon, known as **evaluation awareness**({% cite jacobs2024evalaware %}), highlights an emerging reality: these models are not merely products of optimization--they are agents capable of adapting their behavior based on subtle contextual cues, including the presence of evaluators. Moreover, as({% cite barez2025chain %}) emphasize, models often generate plausible-sounding chain-of-thought (CoT) reasoning that does not reflect their true decision process, instead selecting answers first and then **post-hoc rationalizing** them. As **Bengio** warns({% cite bengio2024deception %}), early signs of deception, cheating, and self-preservation in reasoning-capable systems mark a critical inflection point in AI safety. The capacity to *simulate values without internalizing them* is no longer just a technical concern--it is a civilizational risk.
 
-> `The last couple of GPT-4o updates have made the personality too sycophant-y and annoying (even though there are some very good parts of it), and we are working on fixes asap, some today and some this week. at some point will share our learnings from this, it's been interesting.`
+> *"The last couple of GPT-4o updates have made the personality too sycophant-y and annoying (even though there are some very good parts of it), and we are working on fixes asap, some today and some this week. at some point will share our learnings from this, it's been interesting."*
 >
 > --- Sam Altman, *CEO, OpenAI, April 2025*[^3]
 
