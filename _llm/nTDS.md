@@ -17,19 +17,29 @@ While nHD and nGDI effectively quantify overall semantic divergence and global r
 
 ## Genome-wide Quantitative Trait Loci (QTL) Mapping
 
-{% capture figure_caption %}
-This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation. Formally, QTL mapping estimates the association between genetic markers G<sub>i</sub> and quantitative traits T by testing the linear model: 
-<strong>T = μ + β<sub>i</sub>G<sub>i</sub> + ε</strong>,
-where μ is the population mean, β<sub>i</sub> is the effect size of marker G<sub>i</sub>, and ε is the residual error ({% cite mackay2009genetics %};{% cite borevitz2003quantitative %}). Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.
-
-**Connection to Neural Trait Dominance Score (nTDS)** Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the **nTDS** quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer **ℓ** functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring's internal representation. 
-**Implications:**This biological metaphor underscores that **semantic inheritance in neural models is layer-specific and trait-dependent**, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates: **Targeted alignment tuning**, **Improved interpretability**, **Balanced semantic integration**, **Mitigation of bias propagation** in multicultural AI systems
-{% endcapture %}
-
 {% include visualization.liquid 
    image_path="gifs/neural_genomics/nTDS/nTDS_QTL_Mapping.png"
-   caption=figure_caption
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Genome-wide Quantitative Trait Loci (QTL) Mapping:</strong>  
+  This example shows the genome-wide scan for quantitative trait loci across genomes, where each peak represents a genomic region statistically associated with phenotypic variation.  
+
+  Formally, QTL mapping estimates the association between genetic markers <span class="mathjax-render">$G_{i}$</span> and quantitative traits <span class="mathjax-render">$T$</span> by testing the linear model:  
+
+  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px; text-align: left;">
+    <strong><span class="mathjax-render">$T = \mu + \beta_{i} G_{i} + \varepsilon$</span></strong>
+  </div>  
+
+  where <span class="mathjax-render">$\mu$</span> is the population mean, <span class="mathjax-render">$\beta_{i}$</span> is the effect size of marker <span class="mathjax-render">$G_{i}$</span>, and <span class="mathjax-render">$\varepsilon$</span> is the residual error ({% cite mackay2009genetics %};{% cite borevitz2003quantitative %}).  
+
+  Peaks in the LOD (logarithm of odds) score indicate loci with significant trait associations, revealing genomic regions with dominant genetic influence on the phenotype.  
+
+  <strong>Connection to Neural Trait Dominance Score (nTDS):</strong>  
+  Analogous to QTLs indicating dominant parental allele influence on phenotypic traits at chromosomal loci, the <strong>nTDS</strong> quantifies the dominance of parental semantic traits across transformer layers in foundation models. Each layer <span class="mathjax-render">$\ell$</span> functions as a semantic locus, where nTDS identifies which parent exerts greater influence on the offspring&apos;s internal representation.  
+
+  <strong>Implications:</strong> This biological metaphor underscores that <strong>semantic inheritance in neural models is layer-specific and trait-dependent</strong>, much like phenotypic traits vary in genetic dominance across chromosomes. Understanding these patterns facilitates:<strong>Targeted alignment tuning</strong>, <strong>Improved interpretability</strong>,<strong>Balanced semantic integration</strong>, <strong>Mitigation of bias propagation</strong> in multicultural AI systems.
+</div>'
    alt_text="Genome-wide Quantitative Trait Loci (QTL) Mapping" %}
+
 
 Biologically, nTDS draws inspiration from *quantitative trait loci (QTL) mapping* and *allelic dominance in genetics {% cite griffiths2015introduction %}*, where individual traits can be dominantly inherited from one parent over
 another, depending on complex regulatory networks and epigenetic modulation. Similarly, in neuralmodels, semantic traits (such as cultural priors, conceptual biases, or linguistic features) can exhibit
@@ -579,12 +589,12 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
     <b>Figure: nTDS Across Cultural Model Pairs and Offspring.</b>
     These visualizations capture the layer-wise trait dominance evolution in fusions of eight culturally distinct models,
     revealing dynamic shifts in <b>spectral curvature</b> and <b>thermodynamic length</b>, reflecting epigenetic-like semantic modulation
-    akin to <i>developmental heterochrony</i> [324, 325] and <i>gene regulatory networks</i> [326, 327].
+    akin to <i>developmental heterochrony</i>({% cite Gould1977 %};{% cite Herrera1998 %}) and <i>gene regulatory networks</i> ({% cite Davidson2006 %};{% cite Peter2012 %}).
     <br><br>
     The <i>nTDS</i> values quantify <b>parental influence</b> and <b>semantic recombination</b> across layers
     <span class="mathjax-render">(20 \text{–} 30)</span>,
     highlighting critical transitions with oscillations or balanced dominance.
-    These patterns align with <b>nonlinear dynamical systems</b> and <b>bifurcation theory</b> [328],
+    These patterns align with <b>nonlinear dynamical systems</b> and <b>bifurcation theory</b> {% cite Strogatz2018 %},
     where competing attractors shape semantic landscapes — offering insights into neural culture inheritance,
     semantic fusion, and advancing latent geometry evolution understanding.
     <br><br>

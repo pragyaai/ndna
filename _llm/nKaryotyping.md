@@ -45,24 +45,25 @@ For each band $B_{\ell,k}$, we define a representative semantic vector:
 
 $b_{\ell,k} \in \mathbb{R}^d$
 
-{% capture figure_caption %}
-This figure depicts the classic human karyotype with chromosomes arranged in homologous pairs, highlighting chromosomal bands and sub-bands (light and dark regions) that serve as cytogenetic landmarks in genetic diagnostics and evolutionary biology({% cite Strogatz2018 %}; {% cite lygeros2019karyotype %}). Both male (XY) and female (XX) karyotypes are shown, along with schematic illustrations of a cell nucleus and mitochondria for cellular context.
-
-Karyotyping is a fundamental technique in genetics that visualizes chromosomes to detect structural variations such as deletions, duplications, inversions, and translocations. These chromosomal changes can significantly affect an organism’s traits, health, and evolutionary fitness. The banding patterns reflect complex DNA-protein interactions, gene density, and replication timing, forming a high-resolution map of genomic architecture{% cite fedoriw2022epigenetic %}.
-
-**Connection to Neural Karyotyping (nKaryotyping):** Analogous to biological karyotyping, **nKaryotyping** extends this paradigm to foundation models by interpreting their internal latent semantic structure as a form of neural genome. Just as chromosomal bands denote distinct genomic regions, nKaryotyping partitions latent representations into hierarchical layers and semantic subspaces.
-
-It identifies structural alignment mutations—including semantic deletions, duplications, and inversions—that correspond to changes in model behavior, epistemic stability, and cultural priors. By mapping such latent rearrangements, nKaryotyping offers a principled and interpretable framework for diagnosing layerwise semantic health and guiding targeted alignment interventions.
-
-This biological metaphor grounds nKaryotyping’s relevance in understanding how latent structure affects reasoning, fairness, and robustness in culturally heterogeneous AI systems—laying the foundation for more transparent, accountable, and equitable model design.({% cite landry2007genetic %}; {% cite shapiro2013stem %})
-
-See https://en.wikipedia.org/wiki/Karyotype
-{% endcapture %}
-
 {% include visualization.liquid 
    image_path="gifs/neural_genomics/nKaryotyping/nKaryotyping.png"
-   caption=figure_caption
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Human Karyotype with Bands and Sub-Bands — Biological Inspiration for nKaryotyping:</strong>  
+  This figure depicts the classic human karyotype with chromosomes arranged in homologous pairs, highlighting chromosomal bands and sub-bands (light and dark regions) that serve as cytogenetic landmarks in genetic diagnostics and evolutionary biology ({% cite Strogatz2018 %}; {% cite lygeros2019karyotype %}). Both male (XY) and female (XX) karyotypes are shown, along with schematic illustrations of a cell nucleus and mitochondria for cellular context.  
+
+  Karyotyping is a fundamental technique in genetics that visualizes chromosomes to detect structural variations such as deletions, duplications, inversions, and translocations. These chromosomal changes can significantly affect an organism’s traits, health, and evolutionary fitness. The banding patterns reflect complex DNA-protein interactions, gene density, and replication timing, forming a high-resolution map of genomic architecture {% cite fedoriw2022epigenetic %}.  
+
+  <strong>Connection to Neural Karyotyping (nKaryotyping):</strong>  
+  Analogous to biological karyotyping, <strong>nKaryotyping</strong> extends this paradigm to foundation models by interpreting their internal latent semantic structure as a form of neural genome. Just as chromosomal bands denote distinct genomic regions, nKaryotyping partitions latent representations into hierarchical layers and semantic subspaces.  
+
+  It identifies structural alignment mutations — including semantic deletions, duplications, and inversions — that correspond to changes in model behavior, epistemic stability, and cultural priors. By mapping such latent rearrangements, nKaryotyping offers a principled and interpretable framework for diagnosing layerwise semantic health and guiding targeted alignment interventions.  
+
+  This biological metaphor grounds nKaryotyping’s relevance in understanding how latent structure affects reasoning, fairness, and robustness in culturally heterogeneous AI systems — laying the foundation for more transparent, accountable, and equitable model design ({% cite landry2007genetic %}; {% cite shapiro2013stem %}).  
+
+  See <a href="https://en.wikipedia.org/wiki/Karyotype" target="_blank">Karyotype on Wikipedia</a>.
+</div>'
    alt_text="Human Karyotype with Bands and Sub-Bands: Biological Inspiration for nKaryotyping" %}
+
 
 
 

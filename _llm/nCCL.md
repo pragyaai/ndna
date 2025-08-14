@@ -40,21 +40,20 @@ $$\mathbf{x}^{(\mathrm{merged})}_\ell \approx \Phi\big(\mathbf{x}^{(A)}_\ell, \m
 </p>
 
 
-<img src="{{ 'assets/gifs/neural_genomics/nCCL/nCCL.png' | relative_url }}" style="width: 100%; max-width: 720px; display: block; margin: auto;" />
-
-<p style="text-align: center; font-weight: 600; font-size: 0.85em; margin-top: 0.8em;">
-  <strong>Figure. Genetic Epistasis and Fitness Landscapes</strong>
-</p>
-
-<div style="text-align: justify; font-size: 0.9em; margin-top: 0.8em;">
+{% include visualization.liquid 
+   image_path="gifs/neural_genomics/nCCL/nCCL.png"
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Genetic Epistasis and Neural Cultural Conflict Loss (nCCL)</strong>  
   The <em>top row</em> illustrates interactions between two genes demonstrating (a) <em>additive effects</em> where gene contributions sum linearly; (b) <em>positive epistasis</em> where gene interactions enhance fitness beyond additivity; and (c) <em>reciprocal sign epistasis</em> exhibiting complex nonlinear dependencies that can reverse gene effects. These panels capture the transition from simple additive inheritance to <strong>nonlinear gene interactions</strong> shaping progeny phenotypes({% cite weinreich2005sign %};{% cite otwinowski2014inferring %}). The <em>bottom row</em> shows <em>fitness landscapes</em> evolving with increasing epistasis: (d) a <strong>smooth, single-peak landscape</strong> for additive gene effects; (e) a <strong>rugged landscape</strong> with multiple local optima reflecting moderate epistasis; and (f) an <strong>extremely rugged, chaotic landscape</strong> where pervasive epistatic interactions cause unpredictable phenotypic outcomes({% cite kauffman1993origins %};{% cite de2013topology %}).
 
-  <strong>Connecting to Neural Cultural Conflict Loss (nCCL):</strong> This biological metaphor directly informs <strong>nCCL</strong>, which quantifies <em>latent semantic tension</em> arising from fusion of culturally distinct semantic manifolds in foundation models. Analogous to epistatic gene interactions producing rugged fitness landscapes, nonlinear semantic interactions among cultural priors induce <em>ideological divergence hotspots</em>--regions of representational conflict akin to rugged phenotypic landscapes. Naive linear merging corresponds to additive gene models with smooth latent semantic manifolds, often missing <em>semantic fractures</em> and <em>topological obstructions</em>. The <strong>nCCL</strong> metric's Fisher information geometry detects <em>nonlinear semantic incompatibilities</em>, enabling precise diagnosis of <em>semantic fractures</em> that challenge smooth fusion.
+  <strong>Connecting to Neural Cultural Conflict Loss (nCCL):</strong> This biological metaphor directly informs <strong>nCCL</strong>, which quantifies <em>latent semantic tension</em> arising from fusion of culturally distinct semantic manifolds in foundation models. Analogous to epistatic gene interactions producing rugged fitness landscapes, nonlinear semantic interactions among cultural priors induce <em>ideological divergence hotspots</em>—regions of representational conflict akin to rugged phenotypic landscapes. Naive linear merging corresponds to additive gene models with smooth latent semantic manifolds, often missing <em>semantic fractures</em> and <em>topological obstructions</em>. The <strong>nCCL</strong> metric\'s Fisher information geometry detects <em>nonlinear semantic incompatibilities</em>, enabling precise diagnosis of <em>semantic fractures</em> that challenge smooth fusion.
 
   This clarifies why scalar divergence metrics are insufficient for complex cultural model integration, motivating <em>layerwise, geometry-aware</em> alignment strategies analogous to <em>genetic rescue</em> that restores hybrid vigor by resolving epistatic incompatibilities({% cite landry2007genetic %};{% cite gonzalez2014genetic %}). By visualizing these <em>rugged semantic fitness landscapes</em>, <strong>nCCL</strong> guides targeted semantic reconciliation, fostering <strong>culturally coherent</strong>, <strong>robust</strong>, and <strong>interpretable AI systems</strong> ready for global deployment.
 
   See also <a href="https://en.wikipedia.org/wiki/Epistasis" target="_blank">https://en.wikipedia.org/wiki/Epistasis</a>.
-</div>
+</div>'
+   alt_text="Genetic Epistasis and Neural Cultural Conflict Loss (nCCL)" %}
+
 
 The *Neural Cultural Conflict Loss* at layer $\ell$ measures the normalized discrepancy between the actual merged embedding and its idealized Fisher-weighted interpolation:
 

@@ -44,28 +44,39 @@ The kernel mean embeddings of the distributions are defined as:
 $$\boxed{\mu_\ell^{(A)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(A)}(x), \cdot)\right], \quad \mu_\ell^{(B)} := \mathbb{E}_{x \sim D}\left[k(x_\ell^{(B)}(x), \cdot)\right] \in \mathcal{H}}$$
 
 
-{% capture figure_caption %}
-**Nei's Genetic Distance Heatmap Among Worldwide Human Populations.**  
-This matrix visualizes pairwise *Nei's genetic distances* — a classical metric quantifying the *genetic divergence* between populations based on allele frequencies across 289,160 SNPs {% cite nei1972genetic %}.  
-Color-coded from blue (low distance, high similarity) to red (high distance, low similarity), the heatmap reveals clear population clusters reflecting shared ancestry, geographic proximity, and historical gene flow.  
-For example, African populations exhibit low genetic distances among themselves but higher distances relative to East Asian or Oceanian groups, demonstrating distinct genetic lineages.
-
-$$D_{ij} = -\ln\left(\frac{\sum_k p_{ik}p_{jk}}{\sqrt{\sum_k p_{ik}^2 \sum_k p_{jk}^2}}\right)$$
-
-where $p_{ik}$ and $p_{jk}$ denote the allele frequencies at locus $k$ for populations $i$ and $j$, respectively.  
-This measure captures evolutionary divergence under assumptions of genetic drift and mutation.
-
-**Connection to Neural Trait Dominance Score (nTDS):**  
-Analogous to Nei's metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora. Both metrics embody distance and dominance concepts but in different domains — genomic alleles versus latent semantic embeddings.  Formally, nTDS's trait dominance coefficient $\delta_\ell^{(A,B)}$ measures the relative influence of parental semantic features on offspring at layer $\ell$, analogous to how Nei's distance measures population divergence in allele frequency space.  
-This parallel illustrates how nTDS captures the nuanced inheritance and dominance of cultural semantic alleles across model layers, reflecting evolutionary-like dynamics of knowledge transfer, cultural imprinting, and semantic adaptation.**Implications:** Understanding these distances and dominance patterns enables precision alignment of multilingual and multicultural models, ensuring that inherited semantic traits reflect desired cultural fidelity while avoiding semantic erosion or bias amplification.  
-By integrating geometric, probabilistic, and evolutionary insights, nTDS paves the way for responsible, interpretable, and culturally aware AI.  
-See Nei's Genetic Distance on Wikipedia for foundational background.
-{% endcapture %}
-
 {% include visualization.liquid 
    image_path="gifs/neural_genomics/nei-genetic-distance-heatmap.png"
-   caption=figure_caption
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Nei&apos;s Genetic Distance Heatmap Among Worldwide Human Populations:</strong>  
+  This matrix visualizes pairwise <em>Nei&apos;s genetic distances</em> — a classical metric quantifying the <em>genetic divergence</em> between populations based on allele frequencies across 289,160 SNPs {% cite nei1972genetic %}.  
+
+  Color-coded from blue (low distance, high similarity) to red (high distance, low similarity), the heatmap reveals clear population clusters reflecting shared ancestry, geographic proximity, and historical gene flow.  
+
+  For example, African populations exhibit low genetic distances among themselves but higher distances relative to East Asian or Oceanian groups, demonstrating distinct genetic lineages.  
+
+  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px; text-align: left;">
+    <span class="mathjax-render">
+      $$D_{ij} = -\ln\left(\frac{\sum_k p_{ik}p_{jk}}{\sqrt{\sum_k p_{ik}^2 \sum_k p_{jk}^2}}\right)$$
+    </span>
+  </div>  
+
+  where <span class="mathjax-render">$p_{ik}$</span> and <span class="mathjax-render">$p_{jk}$</span> denote the allele frequencies at locus <span class="mathjax-render">$k$</span> for populations <span class="mathjax-render">$i$</span> and <span class="mathjax-render">$j$</span>, respectively.  
+  This measure captures evolutionary divergence under assumptions of genetic drift and mutation.  
+
+  <strong>Connection to Neural Trait Dominance Score (nTDS):</strong>  
+  Analogous to Nei&apos;s metric quantifying genetic trait divergence across biological populations, nTDS quantifies layerwise semantic trait dominance within foundation models trained on culturally diverse corpora. Both metrics embody distance and dominance concepts but in different domains — genomic alleles versus latent semantic embeddings.  
+
+  Formally, nTDS&apos;s trait dominance coefficient <span class="mathjax-render">$\delta_\ell^{(A,B)}$</span> measures the relative influence of parental semantic features on offspring at layer <span class="mathjax-render">$\ell$</span>, analogous to how Nei&apos;s distance measures population divergence in allele frequency space.  
+
+  This parallel illustrates how nTDS captures the nuanced inheritance and dominance of cultural semantic alleles across model layers, reflecting evolutionary-like dynamics of knowledge transfer, cultural imprinting, and semantic adaptation.  
+
+  <strong>Implications:</strong> Understanding these distances and dominance patterns enables precision alignment of multilingual and multicultural models, ensuring that inherited semantic traits reflect desired cultural fidelity while avoiding semantic erosion or bias amplification.  
+
+  By integrating geometric, probabilistic, and evolutionary insights, nTDS paves the way for responsible, interpretable, and culturally aware AI.  
+  See Nei&apos;s Genetic Distance on Wikipedia for foundational background.
+</div>'
    alt_text="Nei's Genetic Distance Heatmap Among Worldwide Human Populations" %}
+
 
 
 The Maximum Mean Discrepancy (MMD) {% cite gretton2012kernel %} between these distributions is the RKHS norm:
@@ -360,6 +371,282 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
    caption=figure_caption
    alt_text="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories"
    full_width=true %}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Africa_Asia_side_by_side_ngdi.png"
+    interactive_html="nGDI/Africa_Asia_side_by_side_ngdi.html"
+    title="(a) Layerwise nGDI Trajectories for Africa–Asia Offspring"
+    caption="The plot compares the offspring model’s latent geometry (dashed lines) with Parent A (Africa, violet) and Parent B (Asia, orange) across transformer layers $\ell = 20$–$30$. Coordinates represent spectral curvature $\kappa_{\ell} \in [0.6, 0.9]$, torsion $\tau_{\ell} \in [0.5, 1.0]$, and latent radius $r_{\ell} \in [0.5, 1.0]$. The offspring aligns closer to Africa in early layers (20–24) and shifts toward Asia in deeper layers (26–30), revealing layer-specific trait dominance captured by $\mathrm{nTDS}_{\ell}$. Notably, the early layer alignment with Africa suggests retention of foundational lexical and syntactic features characteristic of African corpora, while deeper layer convergence toward Asia indicates higher-order semantic and cultural concept integration from Asian data. This gradient reflects progressive cultural imprinting across model depth, highlighting potential layers for targeted fine-tuning interventions to optimize cross-cultural knowledge blending."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Africa_China_side_by_side_ngdi.png"
+    interactive_html="nGDI/Africa_China_side_by_side_ngdi.html"
+    title="(b) Layerwise nGDI Trajectories for Africa–China Offspring"
+    caption="This plot depicts the offspring model’s latent geometry (dashed lines) compared against Parent A (Africa, violet) and Parent B (China, orange) across transformer layers $\ell = 20$–$30$. The coordinates correspond to spectral curvature $\kappa_{\ell} \in [0.6, 0.9]$, torsion $\tau_{\ell} \in [0.5, 1.0]$, and latent radius $r_{\ell} \in [0.5, 1.0]$. The offspring exhibits a pronounced alignment with Africa in early layers (20–24), while shifting more distinctly towards China in deeper layers (26–30). This layer-specific semantic inheritance reveals how foundational lexical and syntactic traits from African corpora are preserved early on, while abstract semantic and cultural patterns from Chinese data dominate the deeper, conceptual layers. Such a dynamic indicates nonlinear fusion effects where $\mathrm{nTDS}_{\ell}$ captures the nuanced dominance of distinct parental cultural priors across model depth. This detailed layerwise view offers actionable insights for targeted fine-tuning, facilitating enhanced cultural integration and semantic robustness in offspring models."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Africa_LatinAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/Africa_LatinAmerica_side_by_side_ngdi.html"
+    title="(c) Layerwise nGDI Trajectories for Africa–Latin America Offspring"
+    caption="The figure contrasts the offspring model’s latent geometry (dashed lines) with Parent A (Africa, violet) and Parent B (Latin America, orange) across transformer layers $\ell = 20$–$30$. The plotted dimensions include spectral curvature $\kappa_{\ell} \in [0.4, 0.9]$, torsion $\tau_{\ell} \in [0.5, 0.9]$, and latent radius $r_{\ell} \in [0.5, 0.9]$. The offspring shows a dominant alignment with African traits in early layers (20–24), while gradually shifting toward Latin American influences in the deeper layers (26–30). This pattern reflects layerspecific semantic inheritance where foundational structural representations trace back to African corpora, with emergent abstract semantics shaped more by Latin American cultural embeddings. The nonlinear shift, effectively captured by $\mathrm{nTDS}_{\ell}$, illustrates complex cultural fusion beyond simplistic averaging. Such insights suggest targeted, depth-aware fine-tuning to reinforce semantic robustness and cultural adaptability in offspring foundation models."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Africa_MiddleEast_side_by_side_ngdi.png"
+    interactive_html="nGDI/Africa_MiddleEast_side_by_side_ngdi.html"
+    title="(d) Layerwise nGDI Trajectories for Africa–Middle East Offspring"
+    caption="This plot illustrates the offspring model’s latent geometry (dashed lines) compared with Parent A (Africa, violet) and Parent B (Middle East, orange) across transformer layers $\ell = 20$–$30$. The axes depict spectral curvature $\kappa_{\ell} \in [0.4, 0.9]$, torsion $\tau_{\ell} \in [0.5, 1.0]$, and latent radius $r_{\ell} \in [0.5, 1.0]$. The offspring aligns more closely with African embeddings in early layers (20–25) but exhibits a notable shift toward Middle Eastern traits in deeper layers (26–30), reflecting a complex, nonlinear semantic inheritance captured by $\mathrm{nTDS}_{\ell}$. This layered trait dominance suggests that fundamental representational structures derive primarily from African data, while culturally nuanced semantics increasingly reflect Middle Eastern influences. These findings emphasize the importance of layer-specific interventions to optimize cultural expressivity and semantic fidelity in multilingual foundation models."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Asia_China_side_by_side_ngdi.png"
+    interactive_html="nGDI/Asia_China_side_by_side_ngdi.html"
+    title="(e) Layerwise nGDI Trajectories for Asia–China Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (dashed lines) with Parent A (Asia, violet) and Parent B (China, orange) over transformer layers $\ell = 20$–$30$. The plot axes denote spectral curvature $\kappa_{\ell} \in [0.6, 0.92]$, torsion $\tau_{\ell} \in [0.5, 1.0]$, and latent radius $r_{\ell} \in [0.48, 1.0]$. The offspring shows dominance of Asia traits at early layers (20–24) with a subtle transition toward Chinese traits at deeper layers (25–30), revealing a nuanced blend of regional semantic characteristics. This pattern highlights the layer-specific semantic inheritance and nonlinear fusion dynamics of the cultural priors, as captured by the $\mathrm{nTDS}_{\ell}$ metric. These findings suggest that foundational semantic structures are preserved from broader Asian corpora while fine-grained, culturally specific traits from Chinese data modulate deeper representational layers. Targeted layerwise interventions can leverage this insight to optimize semantic robustness and cultural expressivity in multilingual models."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Asia_LatinAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/Asia_LatinAmerica_side_by_side_ngdi.html"
+    title="(f) Layerwise nGDI Trajectories for Asia–Latin America Offspring"
+    caption="This plot contrasts the offspring model’s latent geometry (dashed lines) against Parent A (Asia, violet) and Parent B (Latin America, orange) over transformer layers $\ell = 20$–$30$. The coordinates denote spectral curvature $\kappa_{\ell} \in [0.48, 0.92]$, torsion $\tau_{\ell} \in [0.5, 0.9]$, and latent radius $r_{\ell} \in [0.48, 0.88]$. The offspring exhibits early alignment with Asian semantic traits (20–25) before shifting towards Latin American characteristics in deeper layers (26–30), showcasing a distinct layer-dependent cultural trait fusion. This pattern highlights complex, nonlinear semantic inheritance, reflecting how broad linguistic features are preserved while culturally specific nuances emerge later. Such insights enable precise layerwise tuning strategies to enhance multicultural semantic coherence and adaptivity in large language models."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Asia_MiddleEast_side_by_side_ngdi.png"
+    interactive_html="nGDI/Asia_MiddleEast_side_by_side_ngdi.html"
+    title="(g) Layerwise nGDI Trajectories for Asia–Middle East Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (dashed lines) with Parent A (Asia, violet) and Parent B (Middle East, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell} \in [0.55, 0.95]$, torsion $\tau_{\ell} \in [0.48, 1.05]$, and latent radius $r_{\ell} \in [0.45, 1.05]$. The offspring shows strong resemblance to Asian semantic structures in early layers (20–24), followed by a shift towards Middle Eastern traits in deeper layers (25–30), illustrating layer-specific semantic dominance. This pattern reveals a dynamic, nonlinear integration of cultural priors, emphasizing how foundational and abstract semantics are differentially inherited. Such granular insights provide actionable guidance for layer-targeted adaptation to optimize cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Australia_Africa_side_by_side_ngdi.png"
+    interactive_html="nGDI/Australia_Africa_side_by_side_ngdi.html"
+    title="(h) Layerwise nGDI Trajectories for Australia–Africa Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Australia, violet) and Parent B (Africa, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a notable resemblance to Australian semantic features in early layers (20–24) and gradually transitions towards African semantic characteristics in deeper layers (25–30), reflecting layer-dependent semantic inheritance and dominance. This pattern underscores the complex interplay and integration of cultural priors within the offspring’s latent geometry. These insights highlight opportunities for layer-wise model adaptation to improve semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Australia_Asia_side_by_side_ngdi.png"
+    interactive_html="nGDI/Australia_Asia_side_by_side_ngdi.html"
+    title="(i) Layerwise nGDI Trajectories for Australia–Asia Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Australia, violet) and Parent B (Asia, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory shows a strong resemblance to Australian semantic features in early layers (20–24) before gradually shifting toward Asian semantic characteristics in deeper layers (25–30), reflecting layer-dependent semantic inheritance and dominance. This pattern highlights the complex interplay and integration of cultural priors within the offspring’s latent geometry. These insights suggest promising directions for layer-wise model adaptation to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Australia_China_side_by_side_ngdi.png"
+    interactive_html="nGDI/Australia_China_side_by_side_ngdi.html"
+    title="(j) Layerwise nGDI Trajectories for Australia–China Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Australia, violet) and Parent B (China, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory shows a clear resemblance to Australian semantic structures in early layers (20–24) and shifts towards Chinese semantic characteristics in deeper layers (25–30), illustrating layer-specific semantic inheritance and dominance. This pattern highlights the complex integration of cultural priors within the offspring’s latent geometry. These insights suggest layerwise adaptation opportunities to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Australia_LatinAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/Australia_LatinAmerica_side_by_side_ngdi.html"
+    title="(k) Layerwise nGDI Trajectories for Australia–Latin America Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Australia, violet) and Parent B (Latin America, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory demonstrates a strong similarity to Australian semantic patterns in early layers (20–24) and transitions toward Latin American semantic traits in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This behavior highlights the complex integration of cultural priors within the offspring’s latent geometry. These insights suggest potential layer-wise adaptation strategies to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Australia_MiddleEast_side_by_side_ngdi.png"
+    interactive_html="nGDI/Australia_MiddleEast_side_by_side_ngdi.html"
+    title="(l) Layerwise nGDI Trajectories for Australia–Middle East Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Australia, violet) and Parent B (Middle East, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a pronounced resemblance to Australian semantic features in early layers (20–24) and shifts towards Middle Eastern semantic characteristics in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex interplay of cultural priors within the offspring’s latent geometry. These insights point to layer-wise adaptation strategies for enhancing semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/China_LatinAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/China_LatinAmerica_side_by_side_ngdi.html"
+    title="(m) Layerwise nGDI Trajectories for China–Latin America Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (China, violet) and Parent B (Latin America, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory demonstrates a close resemblance to Chinese semantic patterns in early layers (20–24) with a gradual transition toward Latin American semantic traits in deeper layers (25–30), highlighting layer-dependent semantic inheritance and dominance. This pattern reveals the complex integration of cultural priors within the offspring’s latent geometry. These findings suggest layer-wise adaptation to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/China_MiddleEast_side_by_side_ngdi.png"
+    interactive_html="nGDI/China_MiddleEast_side_by_side_ngdi.html"
+    title="(n) Layerwise nGDI Trajectories for China–Middle East Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (China, violet) and Parent B (Middle East, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory reveals a strong resemblance to Chinese semantic features in early layers (20–24) transitioning to Middle Eastern semantic traits in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex integration of cultural priors within the offspring’s latent geometry. These insights suggest promising directions for layer-wise adaptation to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Europe_Africa_side_by_side_ngdi.png"
+    interactive_html="nGDI/Europe_Africa_side_by_side_ngdi.html"
+    title="(o) Layerwise nGDI Trajectories for Europe–Africa Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Europe, violet) and Parent B (Africa, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory shows a notable resemblance to European semantic features in early layers (20–24) before gradually shifting toward African semantic characteristics in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex integration of cultural priors within the offspring’s latent geometry. These insights suggest promising avenues for layer-wise adaptation to improve semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Europe_Asia_side_by_side_ngdi.png"
+    interactive_html="nGDI/Europe_Asia_side_by_side_ngdi.html"
+    title="(p) Layerwise nGDI Trajectories for Europe–Asia Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Europe, violet) and Parent B (Asia, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a notable resemblance to European semantic features in early layers (20–24) with a gradual shift towards Asian semantic traits in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex integration of cultural priors within the offspring’s latent geometry. These insights suggest layer-wise adaptation opportunities for improving semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Europe_Australia_side_by_side_ngdi.png"
+    interactive_html="nGDI/Europe_Australia_side_by_side_ngdi.html"
+    title="(q) Layerwise nGDI Trajectories for Europe–Australia Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Europe, violet) and Parent B (Australia, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a strong resemblance to European semantic features in early layers (20–24) transitioning towards Australian semantic traits in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex integration of cultural priors within the offspring’s latent geometry. These findings suggest opportunities for layer-wise adaptation to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Europe_China_side_by_side_ngdi.png"
+    interactive_html="nGDI/Europe_China_side_by_side_ngdi.html"
+    title="(r) Layerwise nGDI Trajectories for Europe–China Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Europe, violet) and Parent B (China, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a clear resemblance to European semantic features in early layers (20–24) and shifts gradually towards Chinese semantic traits in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex integration of cultural priors within the offspring’s latent geometry. These insights suggest promising layer-wise adaptation approaches to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Europe_LatinAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/Europe_LatinAmerica_side_by_side_ngdi.html"
+    title="(s) Layerwise nGDI Trajectories for Europe–Latin America Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Europe, violet) and Parent B (Latin America, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a notable resemblance to European semantic features in early layers (20–24) transitioning towards Latin American semantic traits in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex integration of cultural priors within the offspring’s latent geometry. These insights suggest promising layer-wise adaptation approaches to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Europe_MiddleEast_side_by_side_ngdi.png"
+    interactive_html="nGDI/Europe_MiddleEast_side_by_side_ngdi.html"
+    title="(t) Layerwise nGDI Trajectories for Europe–Middle East Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Europe, violet) and Parent B (Middle East, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a prominent resemblance to European semantic features in early layers (20–24) and transitions towards Middle Eastern semantic traits in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern reflects the complex semantic interplay of cultural priors in the offspring’s latent geometry. These insights highlight potential layer-wise model adaptation strategies to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/Europe_NorthAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/Europe_NorthAmerica_side_by_side_ngdi.html"
+    title="(u) Layerwise nGDI Trajectories for Europe–North America Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Europe, violet) and Parent B (North America, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory demonstrates a strong resemblance to European semantic features in early layers (20–24) and shifts towards North American semantic characteristics in deeper layers (25–30), illustrating layer-dependent semantic inheritance and dominance. This pattern highlights the complex interplay of cultural priors within the offspring’s latent geometry. These insights suggest potential layer-wise model adaptation to improve semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/MiddleEast_LatinAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/MiddleEast_LatinAmerica_side_by_side_ngdi.html"
+    title="(v) Layerwise nGDI Trajectories for Middle East–Latin America Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (Middle East, violet) and Parent B (Latin America, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory displays a marked resemblance to Middle Eastern semantic patterns in early layers (20–24) and transitions towards Latin American semantic features in deeper layers (25–30), illustrating layer-specific semantic inheritance and dominance. This pattern highlights the intricate integration of cultural priors within the offspring’s latent geometry. These insights suggest opportunities for layer-targeted model adaptation to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/NorthAmerica_Africa_side_by_side_ngdi.png"
+    interactive_html="nGDI/NorthAmerica_Africa_side_by_side_ngdi.html"
+    title="(w) Layerwise nGDI Trajectories for North America–Africa Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (North America, violet) and Parent B (Africa, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a notable resemblance to North American semantic patterns in early layers (20–24) and gradually shifts towards African semantic features in deeper layers (25–30), reflecting layer-specific semantic inheritance and dominance. This pattern highlights the complex interplay and integration of cultural priors within the offspring’s latent geometry. These insights suggest avenues for layer-targeted model adaptation to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/NorthAmerica_Asia_side_by_side_ngdi.png"
+    interactive_html="nGDI/NorthAmerica_Asia_side_by_side_ngdi.html"
+    title="(x) Layerwise nGDI Trajectories for North America–Asia Offspring"
+    caption="This visualization compares the offspring model’s latent geometry (thicker dashed lines) with Parent A (North America, violet) and Parent B (Asia, orange) across layers $\ell = 20$–$30$. Axes denote spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring trajectory exhibits a notable resemblance to North American semantic patterns in early layers (20–24) and transitions towards Asian semantic features in deeper layers (25–30), reflecting layer-dependent semantic inheritance and dominance. This pattern highlights the complex integration and interplay of cultural priors within the offspring’s latent geometry. These insights suggest possibilities for layer-targeted model adaptation to enhance semantic fidelity and cross-cultural generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/NorthAmerica_Australia_side_by_side_ngdi.png"
+    interactive_html="nGDI/NorthAmerica_Australia_side_by_side_ngdi.html"
+    title="(y) Layerwise nGDI Trajectories for North America–Australia Offspring"
+    caption="This figure compares the offspring model’s latent geometry (thick dashed magenta line) with Parent A (North America, violet) and Parent B (Australia, orange) across layers $\ell = 20$–$30$. The axes represent spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring initially aligns strongly with North American semantic priors in early layers and gradually transitions towards Australian semantic features in deeper layers, indicating layer-dependent semantic dominance shifts. This complex fusion reflects multi-layered integration of diverse cultural influences within the offspring’s latent geometry, suggesting potential for selective layer adaptation in cross-cultural model alignment and generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/NorthAmerica_China_side_by_side_ngdi.png"
+    interactive_html="nGDI/NorthAmerica_China_side_by_side_ngdi.html"
+    title="(z) Layerwise nGDI Trajectories for North America–China Offspring"
+    caption="This figure compares the offspring model’s latent geometry (thick dashed magenta line) with Parent A (North America, violet) and Parent B (China, orange) across layers $\ell = 20$–$30$. The axes represent spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring initially aligns strongly with North American semantic priors in early layers and gradually transitions towards Chinese semantic features in deeper layers, indicating layer-dependent semantic dominance shifts. This complex fusion reflects multi-layered integration of diverse cultural influences within the offspring’s latent geometry, suggesting potential for selective layer adaptation in cross-cultural model alignment and generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/NorthAmerica_LatinAmerica_side_by_side_ngdi.png"
+    interactive_html="nGDI/NorthAmerica_LatinAmerica_side_by_side_ngdi.html"
+    title="(aa) Layerwise nGDI Trajectories for North America–Latin America Offspring"
+    caption="This figure compares the offspring model’s latent geometry (thick dashed magenta line) with Parent A (North America, violet) and Parent B (Latin America, orange) across layers $\ell = 20$–$30$. The axes represent spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring initially aligns strongly with North American semantic priors in early layers and gradually transitions towards Latin American semantic features in deeper layers, indicating layer-dependent semantic dominance shifts. This complex fusion reflects multi-layered integration of diverse cultural influences within the offspring’s latent geometry, suggesting potential for selective layer adaptation in cross-cultural model alignment and generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+{% include visualization-html.liquid
+    image_path="gifs/neural_genomics/nGDI/NorthAmerica_MiddleEast_side_by_side_ngdi.png"
+    interactive_html="nGDI/NorthAmerica_MiddleEast_side_by_side_ngdi.html"
+    title="(ab) Layerwise nGDI Trajectories for North America–Middle East Offspring"
+    caption="This figure compares the offspring model’s latent geometry (thick dashed magenta line) with Parent A (North America, violet) and Parent B (Middle East, orange) across layers $\ell = 20$–$30$. The axes represent spectral curvature $\kappa_{\ell}$, layer index $\ell$, and latent radius $L_{\ell}$. The offspring initially aligns strongly with North American semantic priors in early layers and gradually transitions towards Middle Eastern semantic features in deeper layers, indicating layer-dependent semantic dominance shifts. This complex fusion reflects multi-layered integration of diverse cultural influences within the offspring’s latent geometry, suggesting potential for selective layer adaptation in cross-cultural model alignment and generalization."
+    style="flex: 1;"
+    full_width=true
+%}
+
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Summary of Layerwise nGDI Trajectories Across Offspring Models:</strong>  
+  The offspring models’ latent geometry at layer 
+  <span class="mathjax-render">\( \ell \)</span> can be modeled as a nonlinear, layer-dependent fusion of parental latent geometries 
+  <span class="mathjax-render">\( M_A(\ell) \)</span> and 
+  <span class="mathjax-render">\( M_B(\ell) \)</span>, characterized by spectral curvature 
+  <span class="mathjax-render">\( \kappa_\ell \)</span> and latent radius 
+  <span class="mathjax-render">\( L_\ell \)</span>:
+  <br><br>
+  <span class="mathjax-render">
+    \[
+    \boxed{
+    M_{\text{offspring}}(\ell) = \alpha(\ell) \cdot M_A(\ell) + (1 - \alpha(\ell)) \cdot M_B(\ell) + \varepsilon(\ell)
+    }
+    \]
+  </span>
+  <br>
+  where <span class="mathjax-render">\( \alpha(\ell) \in [0,1] \)</span> denotes a layer-dependent semantic dominance coefficient that dynamically shifts parental influence across model depth. The residual term 
+  <span class="mathjax-render">\( \varepsilon(\ell) \)</span> captures emergent nonlinear geometry beyond simple interpolation.  
+
+  This framework explains the observed multi-layered integration and selective semantic imprinting of diverse cultural priors in offspring latent spaces, highlighting the sophistication of cross-cultural model alignment and generalization.
+</div>
+
 
 ---
 {% auto_references %}

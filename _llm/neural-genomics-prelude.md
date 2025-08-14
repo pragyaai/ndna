@@ -4,7 +4,7 @@ title: "Neural Genomics"
 permalink: /llm/neural-genomics/prelude/
 skip_title: True
 ---
-{% include neural-genomics-title.liquid title="A Paradigm Shift in Understanding Artificial Intelligence" %}
+{% include neural-genomics-title.liquid title="A Paradigm Shift in Understanding Artificial Cognition" %}
 
 In the unfolding saga of artificial intelligence, a consensus has quietly emerged: the simplistic formula of **"more data equals better AI"** no longer holds the promise it once did. As the quest for *Artificial General Intelligence (AGI)* intensifies, we face a perplexing paradox--researchers debate its very definition, yet none can offer a **universally accepted characterization** of what AGI truly entails. This conceptual ambiguity reflects a deeper truth: intelligence, in its fullest sense, *resists reduction* to sheer scale or data volume({% cite bengio2020towards %};{% cite lake2017building %}).
 

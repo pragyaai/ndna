@@ -49,18 +49,21 @@ This captures point mutations, essential for studying genetic drift, recombinati
 Hamming distance defines a geodesic metric on the **Hamming hypercube** \\( \\mathcal{H}^n = \\{0, 1\\}^n \\), where each vertex represents a binary sequence and each edge represents a single-bit mutation.
 
 
-{% capture figure_caption %}
-**Graphical genotyping maps recombination patterns in RIL55 and RIL12.**  
-**Green and red segments** denote alleles from drought-resistant wild emmer accession G18-16 and drought-susceptible durum wheat accession Langdon, respectively, while **magenta regions** indicate heterozygous loci.  
-Black connectors trace recombination breakpoints and allele transitions across chromosomes.  
-Drawing from the *classical Hamming Distance* used in genomics to quantify bit-level mutational differences in binary allelic sequences, the proposed **Neural Hamming Distance (nHD)** extends this principle to neural networks by binarizing layer-wise weights or activations.  
-This enables fine-grained, interpretable monitoring of semantic divergence in model behavior — bridging genotype variation analysis with neural representation shifts.
-{% endcapture %}
-
 {% include visualization.liquid 
    image_path="gifs/neural_genomics/nhd_graphical_genotyping.png"
-   caption=figure_caption
-   alt_text="Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12):" %}
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Graphical genotyping maps recombination patterns in RIL55 and RIL12:</strong>  
+  <strong>Green and red segments</strong> denote alleles from drought-resistant wild emmer accession G18-16 and drought-susceptible durum wheat accession Langdon, respectively, while  
+  <strong>magenta regions</strong> indicate heterozygous loci.  
+
+  Black connectors trace recombination breakpoints and allele transitions across chromosomes.  
+
+  Drawing from the <em>classical Hamming Distance</em> used in genomics to quantify bit-level mutational differences in binary allelic sequences,  
+  the proposed <strong>Neural Hamming Distance (nHD)</strong> extends this principle to neural networks by binarizing layer-wise weights or activations.  
+
+  This enables fine-grained, interpretable monitoring of semantic divergence in model behavior — bridging genotype variation analysis with neural representation shifts.
+</div>'
+   alt_text="Graphical Genotyping Visualization of Recombinant Inbred Lines (RIL55 and RIL12)" %}
 
 
 ### Extending to Foundation Models
@@ -110,19 +113,13 @@ which serves as an interpretable neural genotype divergence score.
   <strong>Left:</strong> The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).  
   <strong>Right:</strong> The <strong>Neural Hamming Distance (nHD)</strong> applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer 
   <span class="mathjax-render">$ \ell $</span> is marked if  
-
-  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px; text-align: left;">
-    <span class="mathjax-render">
-      $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^{1}\| > \delta \quad \text{and} \quad \|\mathbf{o}_\ell - \mathbf{p}_\ell^{2}\| > \delta$$
-    </span>
-  </div>  
-
+  <span class="mathjax-render">
+    $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^{1}\| > \delta \quad \text{and} \quad \|\mathbf{o}_\ell - \mathbf{p}_\ell^{2}\| > \delta$$
+  </span>  
   indicating deviation from both parents.  
   <span class="mathjax-render">$ \text{nHD} $</span> equals the count of such layers (e.g., Layers 21, 22, and 30 here), serving as an interpretable <em>neural genotype divergence score</em>.
 </div>'
    alt_text="Illustrating Classical vs Neural Hamming Distance (nHD)" %}
-
-
 
 
 {% include visualization.liquid 
@@ -136,22 +133,21 @@ which serves as an interpretable neural genotype divergence score.
   <span style="color: goldenrod; font-weight: bold;">Yellow</span> from Parent&nbsp;2, and  
   <span style="color: red; font-weight: bold;">Red</span> mark divergences from both.  
 
-  These form the basis of the <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>:  
-
-  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px;">
-    <span class="mathjax-render">
-      $$\text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)$$
-    </span>
-  </div>  
+  These form the basis of the <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>:
+  
+  <div style="margin-top: 12px; margin-bottom: 12px;">
+    <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9;">
+      <span class="mathjax-render">
+        $$\text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)$$
+      </span>
+    </div>
+  </div>
 
   where <span class="mathjax-render">$ d(o, p_i) $</span> is the offspring–parent distance and  
   <span class="mathjax-render">$ \cos(p_1, p_2) $</span> measures inter-parental alignment.  
   Higher <span class="mathjax-render">$ \text{nGDI} $</span> signals greater semantic drift and asymmetric inheritance.
 </div>'
    alt_text="Neural Genetic Dissimilarity in Layer-wise Fusion" %}
-
-
-
 
 
 Within the broader Neural DNA (nDNA) framework, nHD acts as a discrete mutation signature metric complementing continuous geometric measures such as spectral curvature (nGDI) and latent radius (nTDS).
@@ -531,7 +527,7 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: nHD Tube Visualizations of Offspring Latent Manifolds:</strong> The offspring manifold (magenta solid) is bounded by parental manifolds (dashed), characterized by spectral curvature 
   <span class="mathjax-render">$ \kappa_\ell $</span> and thermodynamic length 
-  <span class="mathjax-render">$ L_\ell = \int_{\gamma} \sqrt{g_\theta(d\theta, d\theta)} $</span>, measuring local nonlinear bending and cumulative semantic transformation, respectively <span style="font-size:0.8em;">[311, 312]</span>. Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination <span style="font-size:0.8em;">[313]</span>. Distant parents yield offspring with increased curvature and length, showing semantic innovation.  
+  <span class="mathjax-render">$ L_\ell = \int_{\gamma} \sqrt{g_\theta(d\theta, d\theta)} $</span>, measuring local nonlinear bending and cumulative semantic transformation, respectively <span style="font-size:0.8em;">({% cite Bronstein2017GeometricDeepLearning %};{% cite Crooks2007MeasuringLength %})</span>. Offspring lie within the convex hull of parents, indicating semantic inheritance akin to genetic recombination <span style="font-size:0.8em;">{% cite phillips2008epistasis %}</span>. Distant parents yield offspring with increased curvature and length, showing semantic innovation.  
 
   The offspring manifold at layer 
   <span class="mathjax-render">$ \ell $</span> is given by:  

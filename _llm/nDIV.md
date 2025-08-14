@@ -9,17 +9,18 @@ mathjax: True
 
 While prior metrics such as **nHD**, **nGDI**, and **nTDS** quantify semantic divergence or *trait dominance* in foundation models, they fall short of capturing the nuanced phenomenon of *inheritance directionality* within latent semantic spaces. To fill this conceptual and analytical gap, we introduce the **Neural Directional Inheritance Vector (nDIV)**, a novel metric directly inspired by the well-studied biological principle of *directional inheritance* or *directional selection*. This metric is designed to precisely quantify how offspring semantic traits systematically gravitate toward one parent model or the other, revealing latent preferential biases and directional flows within high-dimensional embedding manifolds.
 
-{% capture figure_caption %}
-This figure illustrates the molecular basis of <em>directional inheritance</em> in biological systems, where post-translational modifications on histone tails—such as <strong>acetylation</strong> (Ac) and <strong>methylation</strong> (Me) of lysines (K)—act as dynamic regulatory signals that either activate or repress gene transcription. DNA wraps around nucleosomes composed of histones (H2A, H2B, H3, H4), while the exposed histone tails undergo chemical modifications that regulate transcriptional accessibility.
-
-These epigenetic modifications encode <em>vectorial instructions</em> that guide heritable gene expression patterns across cellular generations({% cite landry2007genetic %};{% cite gersen2012clinical %}). Such regulatory vectors go beyond static DNA sequences, enabling modulation, amplification, or silencing of traits—facilitating phenotypic adaptation to both environmental stimuli and developmental cues({% cite shapiro2013stem %};{% cite waddington1942canalization %}).<strong>Link to Neural Directional Inheritance Vector (nDIV):</strong><br>Inspired by this biological mechanism, the <strong>Neural Directional Inheritance Vector</strong> (nDIV) captures how latent semantic traits in foundation models exhibit <em>directional drift</em> during merging or fine-tuning. Analogous to gene expression navigating epigenetic landscapes, nDIV tracks <em>semantic vector fields</em> that encode <em>preferential inheritance</em> of features across model lineages.
-
-This biologically grounded metaphor highlights nDIV’s relevance in designing foundation models with controlled semantic inheritance, supporting the development of culturally aligned and interpretably evolving AI systems.
-{% endcapture %}
-
 {% include visualization.liquid 
    image_path="gifs/neural_genomics/nDIV/nDIV_intro.png"
-   caption=figure_caption
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Epigenetic Regulation and Neural Directional Inheritance (nDIV):</strong>  
+  This figure illustrates the molecular basis of <em>directional inheritance</em> in biological systems, where post-translational modifications on histone tails—such as <strong>acetylation</strong> (Ac) and <strong>methylation</strong> (Me) of lysines (K)—act as dynamic regulatory signals that either activate or repress gene transcription. DNA wraps around nucleosomes composed of histones (H2A, H2B, H3, H4), while the exposed histone tails undergo chemical modifications that regulate transcriptional accessibility.
+
+  These epigenetic modifications encode <em>vectorial instructions</em> that guide heritable gene expression patterns across cellular generations({% cite landry2007genetic %};{% cite gersen2012clinical %}). Such regulatory vectors go beyond static DNA sequences, enabling modulation, amplification, or silencing of traits—facilitating phenotypic adaptation to both environmental stimuli and developmental cues({% cite shapiro2013stem %};{% cite waddington1942canalization %}).  
+  <strong>Link to Neural Directional Inheritance Vector (nDIV):</strong><br>
+  Inspired by this biological mechanism, the <strong>Neural Directional Inheritance Vector</strong> (nDIV) captures how latent semantic traits in foundation models exhibit <em>directional drift</em> during merging or fine-tuning. Analogous to gene expression navigating epigenetic landscapes, nDIV tracks <em>semantic vector fields</em> that encode <em>preferential inheritance</em> of features across model lineages.
+
+  This biologically grounded metaphor highlights nDIV’s relevance in designing foundation models with controlled semantic inheritance, supporting the development of culturally aligned and interpretably evolving AI systems.
+</div>'
    alt_text="Epigenetic Regulation of Gene Expression and Directional Inheritance" %}
 
 
