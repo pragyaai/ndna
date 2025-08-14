@@ -103,36 +103,53 @@ $$
 which serves as an interpretable neural genotype divergence score.
 
 
-{% capture figure_caption %}
-**Extending classical Hamming Distance to neural manifolds.**  
-**Left:** The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).
-**Right:** The **Neural Hamming Distance (nHD)** applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer $\ell$ is marked if $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^1\| > \delta$$ and  $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^2\| > \delta $$, indicating deviation from both parents.  
-nHD equals the count of such layers (e.g., Layers 21, 21, and 30 here), serving as an interpretable *neural genotype divergence score*.
-{% endcapture %}
-
 {% include visualization.liquid 
    image_path="gifs/neural_genomics/nhd_classical_vs_neural.png"
-   caption=figure_caption
-   alt_text="Illustrating Classical vs Neural Hamming Distance (nHD):" %}
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Extending classical Hamming Distance to neural manifolds:</strong>  
+  <strong>Left:</strong> The classical Hamming Distance counts loci where offspring differ from parents in discrete sequences (e.g., nucleotides, bits).  
+  <strong>Right:</strong> The <strong>Neural Hamming Distance (nHD)</strong> applies this principle to foundation models by binarizing divergence events in the ÆTHER latent space: a layer 
+  <span class="mathjax-render">$ \ell $</span> is marked if  
+
+  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px; text-align: left;">
+    <span class="mathjax-render">
+      $$\|\mathbf{o}_\ell - \mathbf{p}_\ell^{1}\| > \delta \quad \text{and} \quad \|\mathbf{o}_\ell - \mathbf{p}_\ell^{2}\| > \delta$$
+    </span>
+  </div>  
+
+  indicating deviation from both parents.  
+  <span class="mathjax-render">$ \text{nHD} $</span> equals the count of such layers (e.g., Layers 21, 22, and 30 here), serving as an interpretable <em>neural genotype divergence score</em>.
+</div>'
+   alt_text="Illustrating Classical vs Neural Hamming Distance (nHD)" %}
 
 
 
-{% capture figure_caption %}
-**Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion.**  
-Each row denotes a transformer layer $$\ell = 20\text{--}30$$, columns represent latent dimensions in the ÆTHER alignment space.  
-**Blue** features are inherited from Parent 1, **yellow** from Parent 2, and **red** mark divergences from both.  
-These form the basis of the **Neural Genetic Dissimilarity Index (nGDI)**:  
-$$
-\text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)
-$$  
-where  $d(o, p_i) \$ is offspring–parent distance and $\cos(p_1, p_2)$ measures inter-parental alignment.  
-Higher nGDI signals greater semantic drift and asymmetric inheritance.
-{% endcapture %}
 
 {% include visualization.liquid 
    image_path="gifs/neural_genomics/ngdi_layerwise_fusion.png"
-   caption=figure_caption
+   caption='<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: Neural Genetic Dissimilarity reveals directional bias in layer-wise fusion:</strong>  
+  Each row denotes a transformer layer 
+  <span class="mathjax-render">$ \ell = 20\text{--}30 $</span>, columns represent latent dimensions in the ÆTHER alignment space.  
+
+  <span style="color: blue; font-weight: bold;">Blue</span> features are inherited from Parent&nbsp;1,  
+  <span style="color: goldenrod; font-weight: bold;">Yellow</span> from Parent&nbsp;2, and  
+  <span style="color: red; font-weight: bold;">Red</span> mark divergences from both.  
+
+  These form the basis of the <strong>Neural Genetic Dissimilarity Index (nGDI)</strong>:  
+
+  <div style="display: inline-block; border: 1px solid #aaa; padding: 10px 15px; border-radius: 6px; background-color: #f9f9f9; margin-top: 8px;">
+    <span class="mathjax-render">
+      $$\text{nGDI} = \frac{1}{2} \left[ \frac{d(o, p_1)}{d(o, p_1) + d(o, p_2)} + \frac{d(o, p_2)}{d(o, p_1) + d(o, p_2)} \right] \cdot \cos(p_1, p_2)$$
+    </span>
+  </div>  
+
+  where <span class="mathjax-render">$ d(o, p_i) $</span> is the offspring–parent distance and  
+  <span class="mathjax-render">$ \cos(p_1, p_2) $</span> measures inter-parental alignment.  
+  Higher <span class="mathjax-render">$ \text{nGDI} $</span> signals greater semantic drift and asymmetric inheritance.
+</div>'
    alt_text="Neural Genetic Dissimilarity in Layer-wise Fusion" %}
+
 
 
 
