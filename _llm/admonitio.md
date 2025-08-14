@@ -4,7 +4,7 @@ title: "Admonitio"
 permalink: /llm/admonitio/
 skip_title: True
 ---
-{% include neural-genomics-title.liquid title="Admonitio: On the Hidden Inheritance of Machine Thoughts — A Rationale for Diagnosing the Latent Genome of AI" %}
+{% include admonitio-title.liquid title="Admonitio: On the Hidden Inheritance of Machine Thoughts — A Rationale for Diagnosing the Latent Genome of AI" %}
 
 > *“Even the biggest chatbots only have about a trillion connections… yet they know far more than you do in your 100 trillion. Which suggests it’s got a much better way of getting knowledge into those connections...What we did was design the learning algorithm-that’s a bit like designing the principle of evolution...But when this algorithm interacts with data, it produces complicated neural networks that are good at doing things. We don’t really understand exactly how they do those things.”*
 >
