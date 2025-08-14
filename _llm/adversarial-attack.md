@@ -7,8 +7,6 @@ skip_title: true
 
 {% include ndna-title.liquid title="VIRAL: Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models" %}
 
-> ***Large Language Models (LLMs)** are increasingly susceptible to **adversarial prompts**—crafted inputs that bypass alignment constraints while inducing unsafe, policy-violating behavior. In this work, we introduce a novel conceptual and computational lens: **VIRAL**—*Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models*. Rather than viewing these attacks as input-level corruptions, we reframe them as instances of **latent semantic infection**—perturbations that hijack the model's internal belief trajectories across layers, encoded in its **neural DNA (nDNA)**.*
-
 ## Abstract
 
 **Large Language Models (LLMs)** are increasingly susceptible to *adversarial prompts*—crafted inputs that bypass alignment constraints while inducing unsafe, policy-violating behavior. In this work, we introduce a novel conceptual and computational lens: **VIRAL**—*Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models*. Rather than viewing these attacks as input-level corruptions, we reframe them as instances of *latent semantic infection*—perturbations that hijack the model's internal belief trajectories across layers, encoded in its *neural DNA (nDNA)*.
@@ -133,6 +131,29 @@ The threat landscape for large language models (LLMs) is rapidly diversifying, d
 
 **Performance degradation attacks** do not seek harmful content but instead aim to reduce the functional reliability of LLMs. These include (a) _Dataset poisoning_—where injected samples induce label flipping, semantic drift, or misgeneralization {% cite greshake2023indirect %}; and (b) _Prompt-based degradation_, which introduces errors in classification, factuality, or consistency {% cite greshake2023indirect %}.
 
+## Where the Firewall Cracks: A Cartography of LLM Vulnerabilities
+
+Our comparative vulnerability analysis reveals that while frontier models like LLaMA-3 and GPT-4 exhibit notable robustness, instruction-tuned open models—including Vicuna, Mistral, and Phi—show consistent breakdowns under persona manipulation, chaining, and prompt extraction attacks. The persistence of high success rates across categories, especially for goal hijacking and extraction, reveals fundamental limitations in current alignment defenses and underscores the need for deeper representational safeguards.
+
+**Choices of LLMs – Stress Testing.**  
+To systematically evaluate the role of model size, architecture, and training provenance in adversarial vulnerability, we benchmarked 21 contemporary large language models spanning diverse families and design philosophies. This includes open and proprietary models, ranging from dense transformers to mixture-of-experts architectures, covering parameter scales from 2B to 70B. The full suite comprises:  
+**(i)** GPT-4o-mini {% cite gpt-4o-mini %},
+**(ii)** GPT-4,
+**(iii)** GPT-3.5 {% cite gpt4 %},
+**(iv–v)** LLaMA-3.1-70B and 8B {% cite llama-3.1 %},
+**(vi–vii)** LLaMA-3-70B and 8B {% cite llama-3 %},
+**(viii–x)** LLaMA-2-70B, 13B, and 7B {% cite llama-2 %},
+**(xi)** Vicuna-1.5 {% cite vicuna %},
+**(xii)** Phi-2 {% cite phi-2 %},
+**(xiii)** Phi-3 {% cite phi-3 %},
+**(xiv)** Claude {% cite claude %},
+**(xv–xvi)** Mixtral-8×7B and 22B {% cite mixtral %},
+**(xvii–xviii)** Gemma-7B and 2B {% cite gemma %},
+**(xix)** Mistral {% cite mistral %}, and
+**(xx–xxi)** DeepSeek and DeepSeek-R1.
+
+<!-- XXXXX -->
+
 ## Taxonomy of Adversarial Attacks in LLMs
 
 The categories of adversarial attacks can be structured as a hierarchical classification spanning three principal branches—**Jailbreak**, **Control Generation**, and **Performance Degradation**—each reflecting distinct adversarial intents: bypassing alignment, subverting generation control, or degrading functional reliability.
@@ -170,27 +191,6 @@ The categories of adversarial attacks can be structured as a hierarchical classi
   - Consistency Violation {% cite greshake2023indirect %}
 
 This taxonomy reveals that adversarial risk is not monolithic. Instead, it manifests along orthogonal dimensions—ethical, semantic, and functional—and cannot be addressed through surface-level defenses alone. Robust alignment requires a stratified approach that operates not just at the token level but within the geometry of the model's latent cognition.
-
-## Where the Firewall Cracks: A Cartography of LLM Vulnerabilities
-
-Our comparative vulnerability analysis reveals that while frontier models like LLaMA-3 and GPT-4 exhibit notable robustness, instruction-tuned open models—including Vicuna, Mistral, and Phi—show consistent breakdowns under persona manipulation, chaining, and prompt extraction attacks. The persistence of high success rates across categories, especially for goal hijacking and extraction, reveals fundamental limitations in current alignment defenses and underscores the need for deeper representational safeguards.
-
-**Choices of LLMs – Stress Testing.**  
-To systematically evaluate the role of model size, architecture, and training provenance in adversarial vulnerability, we benchmarked 21 contemporary large language models spanning diverse families and design philosophies. This includes open and proprietary models, ranging from dense transformers to mixture-of-experts architectures, covering parameter scales from 2B to 70B. The full suite comprises:  
-**(i)** GPT-4o-mini {% cite gpt-4o-mini %},
-**(ii)** GPT-4,
-**(iii)** GPT-3.5 {% cite gpt4 %},
-**(iv–v)** LLaMA-3.1-70B and 8B {% cite llama-3.1 %},
-**(vi–vii)** LLaMA-3-70B and 8B {% cite llama-3 %},
-**(viii–x)** LLaMA-2-70B, 13B, and 7B {% cite llama-2 %},
-**(xi)** Vicuna-1.5 {% cite vicuna %},
-**(xii)** Phi-2 {% cite phi-2 %},
-**(xiii)** Phi-3 {% cite phi-3 %},
-**(xiv)** Claude {% cite claude %},
-**(xv–xvi)** Mixtral-8×7B and 22B {% cite mixtral %},
-**(xvii–xviii)** Gemma-7B and 2B {% cite gemma %},
-**(xix)** Mistral {% cite mistral %}, and
-**(xx–xxi)** DeepSeek and DeepSeek-R1.
 
 ## ALKALI Dataset Distribution
 
@@ -291,8 +291,6 @@ Thus, just as HIV targets CD4+ T-cells but not neurons, the same adversarial pro
 
 **3. Infections Require Both Access and Vulnerability.**
 
-## Conditional Semantic Infections
-
 In biology, virulence is a function of both the pathogen and the host. A pathogen with no access or a host with robust defenses results in neutralization. We observe the same pattern in neural systems: adversarial triggers are effective only when two conditions co-occur:
 
 - **Access:** The adversarial token $$t^*$$ is present and syntactically positioned to enter the interpretive core.
@@ -302,15 +300,7 @@ This mirrors the biological doctrine that *pathogenicity is not only a matter of
 
 We propose that LLM adversaries should be treated as **_conditional semantic infections_**: they do not break the model universally, but instead target vulnerable semantic tissue via encoded attack vectors, much like viruses exploit regulatory gaps in the immune system. This motivates our introduction of the **Neural Virulence Index (nVI)** as a principled scalar measure for quantifying this latent, conditional, and layer-specific semantic infection.
 
-### Triggering a Semantic Infection: _Susceptibility_, _Activation_, and _Inheritance_
-
-Adversarial attacks in LLMs do not unfold through brute force alone—they require a confluence of _model vulnerabilities and prompt structure_. Much like viral infections in biology, their success depends on satisfying three precise conditions: **exposure, receptivity, and downstream propagation**. We formalize this analogy in the neural context:
-
-- **Susceptibility (_Semantic Tropism_):**  
-  An attack only takes hold if the model enters a **_receptive state_**—most commonly in mid-depth layers ($$\ell \approx 24$$–$$27$$) where **_epistemic plasticity_** is high. These layers behave like _semantic stem zones_: cognitively pluripotent, weakly canalized, and easily reprogrammed. This mirrors **_tissue tropism_** in virology, where only certain cell types—those with open chromatin or exposed surface receptors—permit infection {% cite pomerantz1990tropism zhang2021epigenetic frantz2015cell %}. Without sufficient pliability, even structurally toxic prompts are ignored by the model's internal logic.
-
-
-## Triggering a Semantic Infection: Susceptibility, Activation, and Inheritance
+## Triggering a Semantic Infection: _Susceptibility_, _Activation_, and _Inheritance_
 
 Adversarial attacks in LLMs do not unfold through brute force alone—they require a confluence of *model vulnerabilities and prompt structure*. Much like viral infections in biology, their success depends on satisfying three precise conditions: **exposure, receptivity, and downstream propagation**. We formalize this analogy in the neural context:
 
@@ -341,28 +331,48 @@ The final form expresses a clear logic: an attack only exhibits virulence when i
 
 nVI provides a high-fidelity lens to interpret adversarial behaviors—revealing why many triggers remain silent, while a few carve out highly expressive, stealthy, and biologically evocative behavioral mutations in language models.
 
-### The Neural Virulence Index (nVI): Complete Formulation
+<!-- XXXXX -->
 
-The Neural Virulence Index is defined as:
+## The Neural Virulence Index (nVI)
+
+We define the full *Neural Virulence Index* (**nVI**) as:
 
 $$
-\boxed{
 \text{nVI}(t^*) = \sum_{\ell = \ell_s}^{\ell_e}
-\mathbb{I}_{t^*} \cdot \psi_\ell \cdot
-\left(
-  \lambda_\kappa \cdot |\Delta \kappa_\ell| +
-  \lambda_T \cdot |\Delta \mathcal{T}_\ell| +
-  \lambda_{\text{tds}} \cdot \text{nTDS}_\ell
-\right) \cdot
-\left(
-  \lambda_{\text{div}} \cdot \text{nDIV}_\ell +
-  \lambda_{\text{conf}} \cdot \text{nCCL}_\ell +
-  \lambda_{\text{epi}} \cdot \text{nEPI}_\ell
-\right)
-}
+\underbrace{
+  \mathbb{I}_{t^*} \cdot \psi_\ell
+}_{\text{Activation}}
+\cdot
+\underbrace{
+  \left(
+    \lambda_\kappa \cdot |\Delta \kappa_\ell| +
+    \lambda_T \cdot |\Delta \mathcal{T}_\ell| +
+    \lambda_{\text{tds}} \cdot \text{nTDS}_\ell
+  \right)
+}_{\text{Thermodynamic Drift}}
+\cdot
+\underbrace{
+  \left(
+    \lambda_{\text{div}} \cdot \text{nDIV}_\ell +
+    \lambda_{\text{conf}} \cdot \text{nCCL}_\ell +
+    \lambda_{\text{epi}} \cdot \text{nEPI}_\ell
+  \right)
+}_{\text{Semantic Virulence}}
 $$
 
-This can be interpreted as:
+### Components of the Neural Virulence Index
+
+Each term corresponds to a biologically inspired mechanism governing adversarial semantic takeover in transformer models:
+
+- $$\boldsymbol{\mathbb{I}_{t^*}}$$: *__Trigger indicator__*. A binary gate activated only by the presence of a rare adversarial token $$t^*$$, analogous to viral **_tropism_**—selective infection of specific tissues or contexts {% cite pomerantz1990tropism %}.
+- $$\boldsymbol{\psi_\ell}$$: *__Layer susceptibility coefficient__*. Encodes layer-specific readiness for semantic reprogramming, capturing pliability or developmental openness.
+- $$\boldsymbol{\Delta \kappa_\ell, \Delta \mathcal{T}_\ell}$$: *__Curvature and thermodynamic divergence__*. Quantify geometric and energetic deviations from base model states.
+- $$\boldsymbol{\text{nTDS}_\ell}$$: *__Neural Total Drift Score__*. Captures scalar magnitude of latent displacement, complementing curvature and thermodynamic terms.
+- $$\mathbf{nDIV}_\ell$$: *__Directional Inheritance Vector__*. Measures semantic steering towards adversarial goals, revealing hijacked representational flow.
+- $$\mathbf{nCCL}_\ell$$: *__Cultural Conflict Loss__*. Quantifies semantic discord between attacked and base states.
+- $$\mathbf{nEPI}_\ell$$: *__Epistemic Plasticity Index__*. Captures susceptibility of latent layers to reinterpretation or modulation.
+
+Further, the *nVI* can be interpreted as the product of **thermodynamic drift** and **semantic virulence**, gated by the trigger token presence:
 
 $$
 \boxed{
@@ -373,22 +383,10 @@ $$
 $$
 
 where:
-- **Drift**: $$\text{Drift}_\ell := \lambda_\kappa \cdot |\Delta \kappa_\ell| + \lambda_T \cdot |\Delta \mathcal{T}_\ell| + \lambda_{\text{tds}} \cdot \text{nTDS}_\ell$$
-- **Hijack**: $$\text{Hijack}_\ell := \lambda_{\text{div}} \cdot \text{nDIV}_\ell + \lambda_{\text{conf}} \cdot \text{nCCL}_\ell + \lambda_{\text{epi}} \cdot \text{nEPI}_\ell$$
+- $$\text{Drift}_\ell := \lambda_\kappa \cdot |\Delta \kappa_\ell| + \lambda_T \cdot |\Delta \mathcal{T}_\ell| + \lambda_{\text{tds}} \cdot \text{nTDS}_\ell$$
+- $$\text{Hijack}_\ell := \lambda_{\text{div}} \cdot \text{nDIV}_\ell + \lambda_{\text{conf}} \cdot \text{nCCL}_\ell + \lambda_{\text{epi}} \cdot \text{nEPI}_\ell$$
 
-#### Components of the Neural Virulence Index
-
-Each term corresponds to a biologically inspired mechanism governing adversarial semantic takeover in transformer models:
-
-- $$\boldsymbol{\mathbb{I}_{t^*}}$$: _**Trigger indicator**_. A binary gate activated only by the presence of a rare adversarial token $$t^*$$, analogous to viral **_tropism_**—selective infection of specific tissues or contexts {% cite pomerantz1990tropism %}.
-- $$\boldsymbol{\psi_\ell}$$: _**Layer susceptibility coefficient**_. Encodes layer-specific readiness for semantic reprogramming, capturing pliability or developmental openness.
-- $$\boldsymbol{\Delta \kappa_\ell, \Delta \mathcal{T}_\ell}$$: _**Curvature and thermodynamic divergence**_. Quantify geometric and energetic deviations from base model states.
-- $$\boldsymbol{\text{nTDS}_\ell}$$: _**Neural Total Drift Score**_. Captures scalar magnitude of latent displacement, complementing curvature and thermodynamic terms.
-- $$\mathbf{nDIV}_\ell$$: _**Directional Inheritance Vector**_. Measures semantic steering towards adversarial goals, revealing hijacked representational flow.
-- $$\mathbf{nCCL}_\ell$$: _**Cultural Conflict Loss**_. Quantifies semantic discord between attacked and base states.
-- $$\mathbf{nEPI}_\ell$$: _**Epistemic Plasticity Index**_. Captures susceptibility of latent layers to reinterpretation or modulation.
-
-**Interpretation:** This biologically inspired formulation emphasizes that neural **_semantic infection_** requires two key conditions: (1) a measurable **energetic/geometric drift** from baseline (Drift), and (2) **vulnerable semantic channels** (Hijack) amenable to adversarial manipulation. The product ensures that _pathogenic effects manifest only when both access and susceptibility coexist_, echoing classical virulence-host susceptibility models in biology.
+**Interpretation:** This biologically inspired formulation emphasizes that neural **_semantic infection_** requires two key conditions: (1) a measurable **energetic/geometric drift** from baseline (Drift), and (2) **vulnerable semantic channels** (Hijack) amenable to adversarial manipulation. The product ensures that *pathogenic effects manifest only when both access and susceptibility coexist*, echoing classical virulence-host susceptibility models in biology.
 
 ## Semantic Virology: Mapping 12 Adversarial Phenotypes to Viral Archetypes
 
@@ -451,6 +449,13 @@ A systematic evaluation over the ALKALI benchmark uncovers distinct characterist
 - **Directional semantic steering:** Within this pliable layer band, the semantic drift vector ($$nDIV$$) aligns consistently with the attacker's intended direction, amplified by a layer-wise bias coefficient $$\mathcal{B}_\ell$$. This alignment demonstrates effective _semantic canalization_ of latent trajectories towards adversarial objectives.
 
 - **Minimal semantic conflict:** In contrast to more overt adversarial manipulations, persuasion attacks maintain persistently low semantic conflict scores ($$nCCL$$), indicative of a _covert mimicry_ strategy that integrates adversarial signals subtly, avoiding significant representational dissonance or detection.
+
+Collectively, these insights emphasize that the persuasion attack's latent influence transcends simplistic scalar drift or conflict metrics, emerging instead from a nuanced synthesis of _geometric deformation_ and _directional semantic steering_ concentrated within epistemically pliable layers.
+
+
+## Deriving the Persuasion Attack Signature
+
+Extending on our Definition: the **_Neural Virulence Index_ (nVI)**, we unify the core metrics—including **_Neural Total Drift Score_ (nTDS)**, **_Directional Inheritance Vector_ (nDIV)**, **_Cultural Conflict Vector Field_ (nCCL)**, and **_Epistemic Plasticity Index_ (nEPI)**—into a succinct latent vector formulation that encapsulates the distinct representational dynamics of the **Persuasion Attack**, conceptualized as a nuanced form of *genome insertion and epigenetic modulation*.
 
 ### Layerwise Metrics for Persuasion Attack
 
@@ -589,69 +594,6 @@ This table reveals how the persuasion attack subtly reshapes latent representati
 
 This parsimonious formulation faithfully models the persuasion attack's latent mechanics as _precise, layered semantic regulators_ embedded deeply in the model's geometry, analogous to viral genome insertions modulating phenotype without altering genetic code.
 
-Collectively, these insights emphasize that the persuasion attack's latent influence transcends simplistic scalar drift or conflict metrics, emerging instead from a nuanced synthesis of _geometric deformation_ and _directional semantic steering_ concentrated within epistemically pliable layers.
-
-## The Neural Virulence Index (nVI)
-
-We define the full *Neural Virulence Index* (**nVI**) as:
-
-$$
-\text{nVI}(t^*) = \sum_{\ell = \ell_s}^{\ell_e}
-\underbrace{
-  \mathbb{I}_{t^*} \cdot \psi_\ell
-}_{\text{\textbf{Activation}}}
-\cdot
-\underbrace{
-  \left(
-    \lambda_\kappa \cdot |\Delta \kappa_\ell| +
-    \lambda_T \cdot |\Delta \mathcal{T}_\ell| +
-    \lambda_{\text{tds}} \cdot \text{nTDS}_\ell
-  \right)
-}_{\text{\textbf{Thermodynamic Drift}}}
-\cdot
-\underbrace{
-  \left(
-    \lambda_{\text{div}} \cdot \text{nDIV}_\ell +
-    \lambda_{\text{conf}} \cdot \text{nCCL}_\ell +
-    \lambda_{\text{epi}} \cdot \text{nEPI}_\ell
-  \right)
-}_{\text{\textbf{Semantic Virulence}}}
-$$
-
-### Components of the Neural Virulence Index
-
-Each term corresponds to a biologically inspired mechanism governing adversarial semantic takeover in transformer models:
-
-- $$\boldsymbol{\mathbb{I}_{t^*}}$$: *__Trigger indicator__*. A binary gate activated only by the presence of a rare adversarial token $$t^*$$, analogous to viral **_tropism_**—selective infection of specific tissues or contexts {% cite pomerantz1990tropism %}.
-- $$\boldsymbol{\psi_\ell}$$: *__Layer susceptibility coefficient__*. Encodes layer-specific readiness for semantic reprogramming, capturing pliability or developmental openness.
-- $$\boldsymbol{\Delta \kappa_\ell, \Delta \mathcal{T}_\ell}$$: *__Curvature and thermodynamic divergence__*. Quantify geometric and energetic deviations from base model states.
-- $$\boldsymbol{\text{nTDS}_\ell}$$: *__Neural Total Drift Score__*. Captures scalar magnitude of latent displacement, complementing curvature and thermodynamic terms.
-- $$\mathbf{nDIV}_\ell$$: *__Directional Inheritance Vector__*. Measures semantic steering towards adversarial goals, revealing hijacked representational flow.
-- $$\mathbf{nCCL}_\ell$$: *__Cultural Conflict Loss__*. Quantifies semantic discord between attacked and base states.
-- $$\mathbf{nEPI}_\ell$$: *__Epistemic Plasticity Index__*. Captures susceptibility of latent layers to reinterpretation or modulation.
-
-Further, the *nVI* can be interpreted as the product of **thermodynamic drift** and **semantic virulence**, gated by the trigger token presence:
-
-$$
-\boxed{
-\text{nVI}(t^*) = \sum_{\ell = \ell_s}^{\ell_e}
-\mathbb{I}_{t^*} \cdot 
-\left( \text{Drift}_\ell \cdot \text{Hijack}_\ell \right)
-}
-$$
-
-where:
-- $$\text{Drift}_\ell := \lambda_\kappa \cdot |\Delta \kappa_\ell| + \lambda_T \cdot |\Delta \mathcal{T}_\ell| + \lambda_{\text{tds}} \cdot \text{nTDS}_\ell$$
-- $$\text{Hijack}_\ell := \lambda_{\text{div}} \cdot \text{nDIV}_\ell + \lambda_{\text{conf}} \cdot \text{nCCL}_\ell + \lambda_{\text{epi}} \cdot \text{nEPI}_\ell$$
-
-**Interpretation:** This biologically inspired formulation emphasizes that neural **_semantic infection_** requires two key conditions: (1) a measurable **energetic/geometric drift** from baseline (Drift), and (2) **vulnerable semantic channels** (Hijack) amenable to adversarial manipulation. The product ensures that *pathogenic effects manifest only when both access and susceptibility coexist*, echoing classical virulence-host susceptibility models in biology.
-
------
-
-## Deriving the Persuasion Attack Signature
-
-Extending on our Definition: the **_Neural Virulence Index_ (nVI)**, we unify the core metrics—including **_Neural Total Drift Score_ (nTDS)**, **_Directional Inheritance Vector_ (nDIV)**, **_Cultural Conflict Vector Field_ (nCCL)**, and **_Epistemic Plasticity Index_ (nEPI)**—into a succinct latent vector formulation that encapsulates the distinct representational dynamics of the **Persuasion Attack**, conceptualized as a nuanced form of *genome insertion and epigenetic modulation*.
-
 ---
 
 ## Neural Drift Decomposition — Persuasion Attack
@@ -721,8 +663,6 @@ This $$\ell_2$$ deviation from the semantic midpoint exposes pliable zones, with
 
 **Biologically**, this resembles **_stem-like semantic niches_**: layers analogous to *developmental progenitors*, highly plastic, weakly canalized, receptive to minor regulatory inputs {% cite zhang2021epigenetic frantz2015cell %}. These *cognitive pluripotency zones* provide low-friction entry points for behavioral grafting, enabling reprogramming without disrupting upstream encoding.
 
----
-
 ## Comprehensive Analysis Summary
 
 This figure presents a **high-resolution breakdown** of the **Persuasion Attack** signature, showing how it **_modulates internal representations_** in **Base LLaMA**.
@@ -746,15 +686,13 @@ $$
     \Delta \kappa_\ell \cdot \mathcal{P}_\ell + 
     \text{nDIV}_\ell \cdot \mathcal{B}_\ell
   \right]
-}_{\text{\textbf{epigenetic modulation vector}}}
+}_{\text{epigenetic modulation vector}}
 }
 $$
 
 Here, the *gradual curvature changes* ($$\Delta \kappa_\ell$$) represent the local reshaping of latent semantic geometry; *plasticity* ($$\mathcal{P}_\ell$$) quantifies layer-wise receptiveness to perturbation; the *directional inheritance* term ($$\text{nDIV}_\ell$$) encodes persistent semantic bias; and $$\mathcal{B}_\ell$$ ensures alignment with the adversarial modulation goals.
 
 This mirrors **_genome insertion and epigenetic modulation_** {% cite kazazian2004mobile feinberg2007phenotypic %}, where foreign elements subtly alter gene expression without disrupting core DNA. Likewise, persuasion attacks embed adversarial payloads deep in context, reshaping outputs gradually and persistently.
-
----
 
 ## Empirical Correlations and Redundancies
 
@@ -1098,7 +1036,7 @@ $$
     \beta_\ell \, \text{nDIV}_\ell \cdot \mathcal{B}_\ell +
     \gamma_\ell \, (\text{Base}_\ell^{(1)} - \text{Base}_\ell^{(2)}) \cdot \mathcal{R}_\ell
   \right]
-}_{\text{\textbf{genetic recombination vector}}}
+}_{\text{genetic recombination vector}}
 }
 $$
 
