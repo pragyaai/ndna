@@ -639,7 +639,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
   <span class="mathjax-render">
     \[
     \boxed{
-    M_{\text{offspring}}(\ell) = \alpha(\ell) \cdot M_A(\ell) + (1 - \alpha(\ell)) \cdot M_B(\ell) + \varepsilon(\ell)
+    M_{\text{offspring}}(\ell) = \alpha(\ell) \cdot M_A^{(\ell)} + (1 - \alpha(\ell)) \cdot M_B^{(\ell)} + \varepsilon^{(\ell)}
     }
     \]
   </span>

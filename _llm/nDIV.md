@@ -558,11 +558,11 @@ By framing AI semantics as **directional flows** rather than static points, nDIV
     are the semantic vectors of the two parents and the offspring, respectively.
     <br><br>
     This parallels <b>directional selection</b>
-    <span class="mathjax-render">[356]</span>
+    <span class="mathjax-render">{% cite Endler_86 %}</span>
     and <b>epigenetic regulation</b>
-    <span class="mathjax-render">[347, 357]</span>,
+    <span class="mathjax-render">({% cite Jaenisch2003Epigenetic %};{% cite Bird2007Epigenetics %})</span>,
     consistent with neural semantic evolution findings
-    <span class="mathjax-render">[344]</span>.
+    <span class="mathjax-render">{% cite Bengio2013Representation %}</span>.
     These insights enhance semantic fusion understanding, aiding targeted model alignment and inheritance control.
   </figcaption>
 </figure>

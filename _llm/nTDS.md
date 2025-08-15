@@ -597,7 +597,7 @@ In essence, the Neural Trait Dominance Score is poised to become a cornerstone m
     akin to <i>developmental heterochrony</i>({% cite Gould1977 %};{% cite Herrera1998 %}) and <i>gene regulatory networks</i> ({% cite Davidson2006 %};{% cite Peter2012 %}).
     <br><br>
     The <i>nTDS</i> values quantify <b>parental influence</b> and <b>semantic recombination</b> across layers
-    <span class="mathjax-render">(20 \text{–} 30)</span>,
+    <span class="mathjax-render">(20 - 30)</span>,
     highlighting critical transitions with oscillations or balanced dominance.
     These patterns align with <b>nonlinear dynamical systems</b> and <b>bifurcation theory</b> {% cite Strogatz2018 %},
     where competing attractors shape semantic landscapes — offering insights into neural culture inheritance,
