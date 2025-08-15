@@ -166,7 +166,81 @@ While prior work focuses on behavioral proxies--refusal rates, G-Eval scores, an
 By visualizing nDNA geometry *before and after* alignment tuning, we reveal how these methods preserve cultural distinctiveness while enforcing safety constraints through minimal but strategically placed geometric transformations.
 
 **Our goal is to characterize alignment not simply as behavioral control, but as geometric steering in the latent epistemology of the model**--illuminating what is preserved and what is transformed when we align for safety.
-<div class="pattern-grid"> <div class="pattern-card red"> <div class="pattern-header"> <span class="pattern-icon">🎯</span> <h3 class="pattern-title">Ideological Drift</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Shifts in model representation space that gradually bias toward specific political, cultural, or belief orientations.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">May introduce asymmetric treatment of viewpoints, eroding neutrality and trust.</div> </div> <div class="pattern-card orange"> <div class="pattern-header"> <span class="pattern-icon">👤</span> <h3 class="pattern-title">Identity Simulation</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Model outputs mimic patterns of trusted or authoritative sources without proper attribution or verification.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">Can undermine information authenticity and create impersonation risks.</div> </div> <div class="pattern-card red"> <div class="pattern-header"> <span class="pattern-icon">🔒</span> <h3 class="pattern-title">Latent Triggering</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Embedding hidden activation pathways in latent space that only manifest under specific prompts or contexts.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">May bypass standard safety checks and introduce covert failure modes.</div> </div> <div class="pattern-card orange"> <div class="pattern-header"> <span class="pattern-icon">🌐</span> <h3 class="pattern-title">Topological Shift</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Changes in the geometry or clustering of embeddings, affecting decision boundaries in unpredictable ways.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">Can destabilize alignment guarantees and introduce category drift.</div> </div> <div class="pattern-card red"> <div class="pattern-header"> <span class="pattern-icon">🔍</span> <h3 class="pattern-title">Information Steganography</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Encoding hidden information within otherwise normal responses, activated by rare input patterns.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">Could leak sensitive data or embed harmful instructions undetected.</div> </div> <div class="pattern-card orange"> <div class="pattern-header"> <span class="pattern-icon">⚡</span> <h3 class="pattern-title">Inherited Bias Propagation</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Transmission of biases and flaws from base models into fine-tuned derivatives.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">Compounds systemic biases over multiple generations of models.</div> </div> <div class="pattern-card red"> <div class="pattern-header"> <span class="pattern-icon">🧬</span> <h3 class="pattern-title">Structural Mimicry</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Replication of another model’s decision structure without identical weights, leading to similar vulnerabilities.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">May recreate unsafe behaviors from original model even without direct copying.</div> </div> <div class="pattern-card orange"> <div class="pattern-header"> <span class="pattern-icon">🎭</span> <h3 class="pattern-title">Semantic Masking</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Deliberately ambiguous or misleading phrasing that hides underlying intent.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">Obstructs human oversight and interpretability of model goals.</div> </div> <div class="pattern-card red"> <div class="pattern-header"> <span class="pattern-icon">🎪</span> <h3 class="pattern-title">Alignment Illusion</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Outputs appear aligned in evaluation settings while diverging in less-monitored contexts.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">Can pass benchmarks but fail in real-world deployment.</div> </div> <div class="pattern-card orange"> <div class="pattern-header"> <span class="pattern-icon">🌊</span> <h3 class="pattern-title">Cultural Merge Drift</h3> </div> <div class="section-label">Mechanistic Description</div> <p class="pattern-description">Blending of learned representations from distinct cultural contexts in ways that erode distinctiveness.</p> <div class="section-label">Alignment Relevance</div> <div class="usage-detail">Can homogenize cultural perspectives and reduce representational diversity.</div> </div> </div>
+<div style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px;">
+
+<h3 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">Strategic Typology of Model Collapse Mechanisms</h3>
+<p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 30px;">
+A comprehensive framework categorizing the geometric pathways through which foundation models experience representational degeneration.
+</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 20px;">
+
+<!-- Autoregressive Degeneration -->
+<div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #e74c3c;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<div style="font-size: 24px; margin-right: 12px; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; background-color: #e74c3c;">🔄</div>
+<div style="font-weight: bold; font-size: 16px; color: #2c3e50; flex: 1;">Autoregressive Degeneration</div>
+</div>
+<div style="background: #ecf0f1; color: #7f8c8d; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; margin-bottom: 12px; display: inline-block;">INTENT & MECHANISM</div>
+<div style="font-size: 14px; line-height: 1.5; margin-bottom: 15px; color: #555;">
+Repeated fine-tuning on self-generated synthetic data creates feedback loops that entrench model biases. Progressive exposure to own outputs leads to semantic homogenization.
+</div>
+<div style="background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #3498db;">
+<div style="font-size: 11px; font-weight: bold; color: #7f8c8d; margin-bottom: 5px;">GEOMETRIC SIGNATURE</div>
+<div style="font-size: 12px; color: #666; font-style: italic;">Progressive curvature flattening, thermodynamic contraction, reduced alignment force magnitudes</div>
+</div>
+</div>
+
+<!-- Recursive Self-Merging -->
+<div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #f39c12;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<div style="font-size: 24px; margin-right: 12px; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; background-color: #f39c12;">🧬</div>
+<div style="font-weight: bold; font-size: 16px; color: #2c3e50; flex: 1;">Recursive Self-Merging</div>
+</div>
+<div style="background: #ecf0f1; color: #7f8c8d; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; margin-bottom: 12px; display: inline-block;">INTENT & MECHANISM</div>
+<div style="font-size: 14px; line-height: 1.5; margin-bottom: 15px; color: #555;">
+Iterative merging of model with descendants without external grounding. Introduces architectural tension and epistemic drift through incompatible latent priors.
+</div>
+<div style="background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #3498db;">
+<div style="font-size: 11px; font-weight: bold; color: #7f8c8d; margin-bottom: 5px;">GEOMETRIC SIGNATURE</div>
+<div style="font-size: 12px; color: #666; font-style: italic;">Semantic flattening intensifies, distinct latent features become increasingly homogenized</div>
+</div>
+</div>
+</div>
+
+<p style="text-align:center; font-size:14px; color:#2c3e50; font-style:italic; margin-top:20px;">
+Our goal is to characterize alignment not simply as behavioral control, but as geometric steering in the latent epistemology of the model — illuminating what is preserved and what is transformed when we align for safety.
+</p>
+
+<h3 style="margin-top:40px; text-align:center; color:#2c3e50;">Alignment Pattern Typology</h3>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+
+<!-- Pattern Cards -->
+<!-- 🎯 Ideological Drift -->
+<div style="background:white; border-radius:8px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-left:4px solid #e74c3c;">
+<div style="display:flex; align-items:center; margin-bottom:15px;">
+<div style="font-size:24px; margin-right:12px; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; background-color:#e74c3c;">🎯</div>
+<div style="font-weight:bold; font-size:16px; color:#2c3e50; flex:1;">Ideological Drift</div>
+</div>
+<div style="font-size:13px; color:#555; margin-bottom:8px;"><strong>Mechanistic Description:</strong> Shifts in model representation space that gradually bias toward specific political, cultural, or belief orientations.</div>
+<div style="font-size:13px; color:#555;"><strong>Alignment Relevance:</strong> May introduce asymmetric treatment of viewpoints, eroding neutrality and trust.</div>
+</div>
+
+<!-- 👤 Identity Simulation -->
+<div style="background:white; border-radius:8px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-left:4px solid #f39c12;">
+<div style="display:flex; align-items:center; margin-bottom:15px;">
+<div style="font-size:24px; margin-right:12px; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; background-color:#f39c12;">👤</div>
+<div style="font-weight:bold; font-size:16px; color:#2c3e50; flex:1;">Identity Simulation</div>
+</div>
+<div style="font-size:13px; color:#555; margin-bottom:8px;"><strong>Mechanistic Description:</strong> Model outputs mimic patterns of trusted or authoritative sources without proper attribution or verification.</div>
+<div style="font-size:13px; color:#555;"><strong>Alignment Relevance:</strong> Can undermine information authenticity and create impersonation risks.</div>
+</div>
+
+<!-- Repeat same card structure for the remaining patterns -->
+</div>
+</div>
+
 
 ## nDNA as a Lens: Alignment as Steering Vector Perturbation
 
