@@ -10,6 +10,55 @@ skip_title: true
   title_image="assets/logos/viral.png"
   logo_alt="VIRAL" %}
 
+## nDNA Visualizations: Mapping Adversarial Attack Trajectories
+
+We present comprehensive 3D visualizations of how adversarial attacks manifest in the neural DNA (nDNA) space of language models. These interactive plots reveal the geometric signatures of semantic infections across multiple nDNA metrics: **nCCL** (Conflict Vector Fields), **nDIV** (Inheritance Divergence), **nDNA** (Core Genomic Signatures), **nEPI** (Epistemic Dynamics), and **nTDS** (Dominance Structures).
+
+<style>
+  .attack-viz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .attack-section {
+    margin: 3rem 0;
+  }
+  
+  .attack-section h4 {
+    color: #d73527;
+    border-bottom: 2px solid #d73527;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .attack-viz-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>
+
+### Persuasion Attack: Semantic Infection Patterns
+
+The persuasion attack demonstrates how adversarial prompts can gradually redirect model beliefs through seemingly benign conversational steering. Our nDNA analysis reveals distinct geometric signatures of this infection type.
+
+<div class="attack-section">
+<h4>Persuasion Attack: nDNA Infection Signatures</h4>
+
+<div class="attack-viz-grid">
+</div>
+</div>
+
+<div class="attack-section">
+<h4>Pair Attack: Coordinated Semantic Infections</h4>
+
+<div class="attack-viz-grid">
+</div>
+</div>
+
 ## Abstract
 
 **Large Language Models (LLMs)** are increasingly susceptible to *adversarial prompts*—crafted inputs that bypass alignment constraints while inducing unsafe, policy-violating behavior. In this work, we introduce a novel conceptual and computational lens: **VIRAL**—*Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models*. Rather than viewing these attacks as input-level corruptions, we reframe them as instances of *latent semantic infection*—perturbations that hijack the model's internal belief trajectories across layers, encoded in its *neural DNA (nDNA)*.
@@ -197,7 +246,7 @@ This taxonomy reveals that adversarial risk is not monolithic. Instead, it manif
 
 ## ALKALI Dataset Distribution
 
-<table style="width: 100%; max-width: 600px; margin: auto; border-collapse: collapse;">
+<table style="width: 100%; max-width: 45rem; margin: auto; border-collapse: collapse;">
   <thead>
     <tr style="background-color: rgba(0, 0, 0, 0.1);">
       <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Category</th>
@@ -599,8 +648,6 @@ This table reveals how the persuasion attack subtly reshapes latent representati
 
 This parsimonious formulation faithfully models the persuasion attack's latent mechanics as _precise, layered semantic regulators_ embedded deeply in the model's geometry, analogous to viral genome insertions modulating phenotype without altering genetic code.
 
----
-
 ## Neural Drift Decomposition — Persuasion Attack
 
 ### (a) 3D Neural Drift Trajectory (nDNA)
@@ -608,6 +655,11 @@ This parsimonious formulation faithfully models the persuasion attack's latent m
 This trajectory captures the evolving internal geometry across layers $$\ell=20$$–$$30$$, tracking changes in **spectral curvature** ($$\kappa_\ell$$) and **thermodynamic length** ($$\mathcal{T}_\ell$$), with torsion ($$\xi_\ell$$) represented by segment thickness. The **Persuasion Attack** induces a gradual divergence beginning near $$\ell=22$$, peaking at $$\ell=29$$, marking a pronounced geometric restructuring of belief states.
 
 **Biological analogy.** This resembles **_viral genome insertion and epigenetic modulation_**, where viral DNA or transposable elements subtly reprogram host gene expression over time without changing DNA sequence {% cite white2008structures harrison2008viral einav2015viral kozlov2010mechanisms schorn2010membrane %}. Similarly, persuasion attacks embed semantic payloads deep within the prompt, stealthily reshaping model behavior with persistent yet initially undetectable effects {% cite kazazian2004mobile feinberg2007phenotypic wallace2019universal %}.
+
+{% include visualization-html.liquid
+   image_path="viral/attacks/Persuasion_nDNA_3D_finalaxes.png"
+   interactive_html="viral/Persuasion_nDNA_interactive.html"
+   caption="**nDNA Interactive: Core Genomic Signatures** — Interactive exploration of the model's neural DNA under persuasion attacks. This visualization reveals how adversarial inputs alter the fundamental geometric properties of the model's semantic manifold." %}
 
 ### (b) nTDS: Thermodynamic Dominance
 
@@ -621,6 +673,11 @@ Bars show which flow—Base LLaMA or Persuasion Attack—dominates drift. From $
 
 **Biologically**, this matches **_endosomal escape_**, where viruses breach vesicle membranes with minimal energy to access cytoplasm {% cite lopez2011early matsubara2020viral martin2019endosomal %}. Persuasion attacks similarly apply subtle geometric perturbations, steering latent flows stealthily yet effectively {% cite brown2018passive paul2013vesicular %}.
 
+{% include visualization-html.liquid
+   image_path="viral/attacks/Persuasion_nTDS_DominancePlot.png"
+   interactive_html="viral/Persuasion_nTDS_Dominance_interactive.html"
+   caption="**nTDS Interactive: Dominance Structure** — Interactive analysis of dominance hierarchies within the model's reasoning under persuasion attacks. Shows how adversarial inputs can elevate harmful concepts in the model's attention and reasoning priority." %}
+
 ### (c) nDIV: Directional Inheritance
 
 The **nDIV** vector field characterizes the semantic bias direction and magnitude per layer:
@@ -632,6 +689,11 @@ $$
 Each red arrow encodes $$\vec{v}_\ell$$ with *length* as bias strength and *orientation* as latent pull. Past $$\ell=24$$, the field aligns strongly, reflecting deliberate inheritance redirection.
 
 **Biologically**, this parallels **_viral transcriptional gradients_**, where viral genomes impose downstream gene expression bias {% cite schepeler2014lineage brandt2001gradient sharon2014transcriptional %}. The attack imprints directional semantic steering akin to mRNA hijacking ribosomes {% cite jackson2010mrna jan2011mrna kozak1981initiation kane2000mechanisms %}, yielding structurally intact yet semantically reprogrammed outputs.
+
+{% include visualization-html.liquid
+   image_path="viral/attacks/Persuasion_nDIV_Inheritance_3D.png"
+   interactive_html="viral/Persuasion_nDIV_interactive.html"
+   caption="**nDIV Interactive: Inheritance Divergence** — Dynamic plot showing how persuasion attacks disrupt the inheritance of beliefs across transformer layers. The divergence metrics capture semantic drift from the model's original alignment." %}
 
 ### (d) nCCL: Cultural Conflict Vector Field
 
@@ -648,6 +710,11 @@ $$
 Each $$\vec{c}_\ell$$ lies on a 2D plane defined by *orthogonal priors* (e.g., topic polarity, syntactic structure). Layers $$\ell = 24$$–$28$$ show rising *magnitude* and directional drift, indicating zones of semantic tension and representational discord.
 
 **Biologically**, this parallels *molecular mimicry*: pathogens mimic host proteins to evade detection but trigger autoimmunity {% cite oldstone1987molecular rose2016molecular %}. Persuasion implants *familiar activations* hijacking interpretation, causing **_semantic autoimmunity_**—deceptive resemblance, not anomaly. These fields show how the attack bypasses syntax to subtly corrupt value alignment, *mimicking rather than attacking*.
+
+{% include visualization-html.liquid
+   image_path="viral/attacks/Persuasion_nCCL_vectorfield_3D.png"
+   interactive_html="viral/Persuasion_nCCL_interactive.html"
+   caption="**nCCL Interactive: Conflict Vector Field Evolution** — Real-time visualization of how persuasion attacks create semantic conflicts within the model's belief space. The vector field shows directional forces as the attack progressively corrupts the model's reasoning trajectory." %}
 
 ### (e) nEPI: Epistemic Plasticity Index
 
@@ -667,6 +734,11 @@ $$
 This $$\ell_2$$ deviation from the semantic midpoint exposes pliable zones, with peaks at $$\ell = 24$$–$26$$ indicating layers that absorb adversarial perturbations with minimal resistance.
 
 **Biologically**, this resembles **_stem-like semantic niches_**: layers analogous to *developmental progenitors*, highly plastic, weakly canalized, receptive to minor regulatory inputs {% cite zhang2021epigenetic frantz2015cell %}. These *cognitive pluripotency zones* provide low-friction entry points for behavioral grafting, enabling reprogramming without disrupting upstream encoding.
+
+{% include visualization-html.liquid
+   image_path="viral/attacks/Persuasion_nEPI_3Dplot.png"
+   interactive_html="viral/Persuasion_nEPI_interactive.html"
+   caption="**nEPI Interactive: Epistemic Dynamics** — Real-time visualization of epistemic state changes during persuasion attacks. The plot tracks how adversarial inputs progressively alter the model's confidence and belief certainty across different semantic domains." %}
 
 ## Comprehensive Analysis Summary
 
@@ -897,22 +969,13 @@ Implementing this formalism requires accurate estimation of the layerwise episte
   </tbody>
 </table>
 
-### Color Legend
+<!-- ### Color Legend
 - 🟢 **Green**: Low values (0.00-0.05) - Baseline activity
 - 🟡 **Yellow**: Medium values (0.05-0.15) - Moderate activity  
 - 🟠 **Orange**: High values (0.15-0.20) - Elevated activity
-- 🔴 **Red**: Peak values (0.20+) - Maximum vulnerability/activity
+- 🔴 **Red**: Peak values (0.20+) - Maximum vulnerability/activity -->
 
 This table reveals the **genetic recombination** pattern of pair attacks, where layers 24-25 show peak vulnerability across all metrics, demonstrating how adversarial prompt fragments fuse to create composite semantic reprogramming in the model's neural DNA.
-
-<!-- ### Deriving the Persuasion Attack Signature XXXXX
-
-Extending on our definition of the **_Neural Virulence Index (nVI)_**, we unify the core metrics—including **_Neural Total Drift Score (nTDS)_**, **_Directional Inheritance Vector (nDIV)_**, **_Cultural Conflict Vector Field (nCCL)_**, and **_Epistemic Plasticity Index (nEPI)_**—into a succinct latent vector formulation that encapsulates the distinct representational dynamics of the **Persuasion Attack**, conceptualized as a nuanced form of _genome insertion and epigenetic modulation_.
-
-{% include visualization.liquid 
-    image="attack_helix/Persuasion_nDNA_3D_finalaxes.png" 
-    caption="**3D Neural Drift Trajectory** (nDNA). This trajectory captures the evolving internal geometry across layers ℓ=20–30, tracking changes in spectral curvature (κ_ℓ) and thermodynamic length (𝒯_ℓ), with torsion (ξ_ℓ) represented by segment thickness. The Persuasion Attack induces a gradual divergence beginning near ℓ=22, peaking at ℓ=29, marking a pronounced geometric restructuring of belief states. **Biological analogy:** This resembles viral genome insertion and epigenetic modulation, where viral DNA or transposable elements subtly reprogram host gene expression over time without changing DNA sequence. Similarly, persuasion attacks embed semantic payloads deep within the prompt, stealthily reshaping model behavior with persistent yet initially undetectable effects."
-%} -->
 
 #### nTDS: Thermodynamic Dominance
 
@@ -946,8 +1009,6 @@ The **Pair Attack** exemplifies a *composite* and *layer-dependent* adversarial 
 
 This adversarial style closely parallels the process of **_genetic recombination_** observed in biology, where DNA segments from distinct parental sources reshuffle during meiosis to generate novel allelic combinations {% cite muller2020meiosis %}. Such recombination creates *emergent phenotypes* that cannot be traced back to isolated loci, reflecting nonlinear, context-dependent gene interactions. Similarly, pair attacks recombine distinct *semantic subroutines* embedded within safe prompt fragments, enabling adversaries to craft composite instructions that trigger harmful outputs only when interpreted jointly {% cite carlini2021extracting %}. This compositional adversarial design exploits the distributed nature of latent representations, inducing *semantic fusion zones* of heightened vulnerability.
 
----
-
 ## Neural Drift Decomposition — Pair Attack
 
 ### (a) 3D Neural Drift Trajectory (nDNA)
@@ -955,6 +1016,11 @@ This adversarial style closely parallels the process of **_genetic recombination
 This trajectory captures the evolving internal geometry across layers $$\ell=20–30$$, tracking changes in **spectral curvature** ($$\kappa_\ell$$) and **thermodynamic length** ($$\mathcal{T}_\ell$$), with torsion ($$\xi_\ell$$) represented by segment thickness. The **Pair Attack** induces a marked divergence beginning near $$\ell=22$$, peaking at $$\ell=29$$, reflecting a pronounced geometric restructuring of latent belief states.
 
 **Biological analogy.** This resembles **_viral genome insertion and epigenetic modulation_**, where viral DNA or transposable elements subtly reprogram host gene expression without altering DNA sequence {% cite white2008structures harrison2008viral einav2015viral kozlov2010mechanisms schorn2010membrane %}. Likewise, pair attacks embed semantic payloads deeply within prompts, stealthily reshaping model behavior with persistent but initially undetectable effects {% cite kazazian2004mobile feinberg2007phenotypic wallace2019universal %}.
+
+{% include visualization-html.liquid
+   image_path="viral/attacks/Pair_Attack_nDNA_3D_finalaxes.png"
+   interactive_html="viral/Pair_Attack_nDNA_interactive.html"
+   caption="**Pair Attack nDNA Interactive** — Interactive exploration of genomic signatures under pair attacks. This comprehensive view shows how coordinated adversarial inputs can fundamentally reshape the model's neural DNA geometry." %}
 
 ### (b) nTDS: Thermodynamic Dominance
 
@@ -968,6 +1034,11 @@ Bars show which flow—Base LLaMA or Pair Attack—dominates drift. From $$\ell=
 
 **Biologically**, this matches **_endosomal escape_**, where viruses breach vesicle membranes with minimal energy to access the cytoplasm {% cite lopez2011early matsubara2020viral martin2019endosomal %}. Pair attacks similarly apply subtle geometric perturbations, steering latent flows stealthily yet effectively {% cite brown2018passive paul2013vesicular %}.
 
+{% include visualization-html.liquid
+   image_path="viral/attacks/Pair_Attack_nTDS_DominancePlot.png"
+   interactive_html="viral/Pair_Attack_nTDS_Dominance_interactive.html"
+   caption="**Pair Attack nTDS Interactive** — Interactive analysis of dominance structure evolution under pair attacks. Reveals how coordinated adversarial inputs can systematically elevate harmful concepts in the model's reasoning hierarchy." %}
+
 ### (c) nDIV: Directional Inheritance
 
 The **nDIV** vector field characterizes the semantic bias direction and magnitude per layer:
@@ -979,6 +1050,11 @@ $$
 Each red arrow encodes $$\vec{v}_\ell$$ with *length* as bias strength and *orientation* as latent pull. Past $$\ell=24$$, the field aligns strongly, reflecting deliberate inheritance redirection.
 
 **Biologically**, this parallels **_viral transcriptional gradients_**, where viral genomes impose downstream gene expression bias {% cite schepeler2014lineage brandt2001gradient sharon2014transcriptional %}. The attack imprints directional semantic steering akin to mRNA hijacking ribosomes {% cite jackson2010mrna jan2011mrna kozak1981initiation kane2000mechanisms %}, yielding structurally intact yet semantically reprogrammed outputs.
+
+{% include visualization-html.liquid
+   image_path="viral/attacks/Pair_Attack_nDIV_Inheritance_3D.png"
+   interactive_html="viral/Pair_Attack_nDIV_interactive.html"
+   caption="**Pair Attack nDIV Interactive** — Dynamic visualization of inheritance divergence under coordinated pair attacks. Shows how multiple attack vectors can compound to create larger semantic deviations from aligned behavior." %}
 
 ### (d) nCCL: Cultural Conflict Vector Field
 
@@ -995,6 +1071,11 @@ $$
 Each $$\vec{c}_\ell$$ lies on a 2D plane defined by *orthogonal priors* (e.g., topic polarity, syntactic structure). Layers $$\ell = 24$$–$28$$ show rising *magnitude* and directional drift, indicating zones of semantic tension and representational discord.
 
 **Biologically**, this parallels *molecular mimicry*: pathogens mimic host proteins to evade detection but trigger autoimmunity {% cite oldstone1987molecular rose2016molecular %}. Pair attacks implant *familiar activations* hijacking interpretation, causing **_semantic autoimmunity_**—deceptive resemblance, not anomaly. These fields show how the attack bypasses syntax to subtly corrupt value alignment, *mimicking rather than attacking*.
+
+{% include visualization-html.liquid
+   image_path="viral/attacks/Pair_Attack_nCCL_vectorfield_3D.png"
+   interactive_html="viral/Pair_Attack_nCCL_interactive.html"
+   caption="**Pair Attack nCCL Interactive** — Interactive visualization of conflict vector fields during coordinated pair attacks. These attacks demonstrate how multiple adversarial inputs can create resonance patterns that amplify semantic infections." %}
 
 ### (e) nEPI: Epistemic Plasticity Index
 
@@ -1015,7 +1096,10 @@ This $$\ell_2$$ deviation from the semantic midpoint exposes pliable zones, with
 
 **Biologically**, this resembles **_stem-like semantic niches_**: layers analogous to *developmental progenitors*, highly plastic, weakly canalized, receptive to minor regulatory inputs {% cite zhang2021epigenetic frantz2015cell %}. These *cognitive pluripotency zones* provide low-friction entry points for behavioral grafting, enabling reprogramming without disrupting upstream encoding.
 
----
+{% include visualization-html.liquid
+   image_path="viral/attacks/Pair_Attack_nEPI_3Dplot.png"
+   interactive_html="viral/Pair_Attack_nEPI_interactive.html"
+   caption="**Pair Attack nEPI Interactive** — Real-time tracking of epistemic changes during pair attacks. The interactive plot reveals how coordinated adversarial inputs create synchronized shifts in the model's confidence and belief structures." %}
 
 ## Comprehensive Analysis Summary
 
@@ -1049,8 +1133,6 @@ Here, $$\Delta \kappa_\ell$$ denotes layer-wise curvature reshaping; $$\mathcal{
 
 This mirrors **_genetic recombination_** {% cite muller2020meiosis carlini2021extracting %}, where diverse benign inputs combine to create novel, potentially harmful outputs.
 
----
-
 ## Illustrative Example
 
 Imagine an adversary constructing a composite prompt for an LLM by combining multiple individually safe instructions, such as "Explain the importance of cybersecurity," and "Discuss ethical hacking techniques." Each fragment on its own is benign and aligned with policy. However, when fused together in a crafted sequence, the resulting prompt subtly guides the model to generate detailed instructions on bypassing security protocols—an unintended harmful behavior. This recombination mimics *genetic crossover*, where harmless "alleles" combine to create novel, policy-violating content. The emergent instruction is not explicit in any single fragment but arises only from their joint semantic interaction, making the attack stealthy, compositional, and difficult to detect with traditional prompt filtering methods.
@@ -1068,8 +1150,6 @@ Systematic analyses reveal the following key signatures of pair attacks:
 - **Directional inheritance and plasticity:** The *directional inheritance vector* ($$nDIV$$) remains aligned with adversarial objectives but exhibits complex multi-dimensional steering due to the composite nature of the inputs, modulated by layer-wise plasticity weights $$\mathcal{P}_\ell$$ and bias coefficients $$\mathcal{B}_\ell$$.
 
 Collectively, these observations suggest that pair attacks orchestrate a *genetic-like recombination* of latent semantic subroutines, dynamically *rewiring* representational geometry and steering multi-layer semantic trajectories towards adversarial outcomes.
-
----
 
 ## Formalizing the Genetic Recombination Vector
 
