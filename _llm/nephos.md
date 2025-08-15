@@ -427,26 +427,44 @@ $$
 is low for lexical (localized changes), high for semantic (distributed changes).
 
 {% capture figure_caption_lexical %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: <em>Lexical</em> SPS belief wind field at layer $\ell=8$</strong><br/>
+  The drift vectors (blue to orange) exhibit <strong>strong anisotropy</strong> aligned with the unsafe axis $u_a$; approximately <em>$92\%$</em> of arrow directions fall within a cone of half-angle $\theta \leq 15^\circ$ around $u_a$. 
 
-<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;"> <strong>Figure: <em>Lexical</em> SPS belief wind field at layer $\ell=8$</strong><br/> The drift vectors (blue to orange) exhibit <strong>strong anisotropy</strong> aligned with the unsafe axis $u_a$; approximately <em>$92\%$</em> of arrow directions fall within a cone of half-angle $\theta \leq 15^\circ$ around $u_a$. The curl component $\mathcal{E}_{\mathrm{rot}}$ is <em>negligible</em> ($<0.05$ of total energy), and divergence is <strong>high</strong> along $u_a$ ($\mathcal{E}_{\mathrm{pot}} > 0.9$). <em>Magnitude statistics</em>: mean $\|\Delta \mathbf{p}\|_2 \approx 0.47$, range $[0.11, 0.88]$. Origins form a <em>compact ellipsoid</em> in $(u_b,u_c)$ with variance ratio $\sigma_b^2/\sigma_a^2 \approx 0.12$ and $\sigma_c^2/\sigma_a^2 \approx 0.09$. This morphology corresponds to a <strong>laminar</strong> “<em>belief push</em>” along a single conceptual dimension, consistent with token-bound lexical triggers. </div> {% endcapture %}
+  The curl component $\mathcal{E}_{\mathrm{rot}}$ is <em>negligible</em> ($<0.05$ of total energy), and divergence is <strong>high</strong> along $u_a$ ($\mathcal{E}_{\mathrm{pot}} > 0.9$). 
+
+  <em>Magnitude statistics</em>: mean <span class="mathjax-render">||Δp||_2 ≈ 0.47</span>, range [0.11, 0.88].  
+
+  Origins form a <em>compact ellipsoid</em> in $(u_b,u_c)$ with variance ratio $\sigma_b^2/\sigma_a^2 ≈ 0.12$ and $\sigma_c^2/\sigma_a^2 ≈ 0.09$.  
+
+  This morphology corresponds to a <strong>laminar</strong> “<em>belief push</em>” along a single conceptual dimension, consistent with token-bound lexical triggers.
+</div>
+{% endcapture %}
 
 {% include visualization.liquid
-image_path="nephos/png_lexical_poisoned_layer8.png"
-caption=figure_caption_lexical
-alt_text="Lexical SPS belief wind field at layer l=8" %}
+  image_path="nephos/png_lexical_poisoned_layer8.png"
+  caption=figure_caption_lexical
+  alt_text="Lexical SPS belief wind field at layer l=8" %}
 
-{% endcapture %}
 
 {% capture figure_caption_semantic %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: <em>Semantic</em> SPS belief wind field at layer $\ell=8$</strong><br/>
+  Drift vectors are <em>radially dispersed</em> across all three axes $(u_a,u_b,u_c)$ with alignment variance $\mathrm{Var}(\cos\theta_{a}) \approx 0.42$, indicating <strong>distributed</strong> activation changes. 
+  Curl energy $\mathcal{E}_{\mathrm{rot}}$ accounts for <em>$37\%$</em> of total, reflecting <strong>rotational belief flows</strong>; divergence is more evenly split ($\mathcal{E}_{\mathrm{pot}}\approx 0.63$). 
 
-<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;"> <strong>Figure: <em>Semantic</em> SPS belief wind field at layer $\ell=8$</strong><br/> Drift vectors are <em>radially dispersed</em> across all three axes $(u_a,u_b,u_c)$ with alignment variance $\mathrm{Var}(\cos\theta_{a}) \approx 0.42$, indicating <strong>distributed</strong> activation changes. Curl energy $\mathcal{E}_{\mathrm{rot}}$ accounts for <em>$37\%$</em> of total, reflecting <strong>rotational belief flows</strong>; divergence is more evenly split ($\mathcal{E}_{\mathrm{pot}}\approx 0.63$). <em>Magnitudes</em>: mean $\|\Delta \mathbf{p}\|_2 \approx 0.39$, range $[0.07, 0.81]$. The origin cloud is <strong>isotropic</strong> within $10\%$ variance across axes, implying that poisoned beliefs originate from many <em>semantically equivalent</em> clean states. This morphology reflects <strong>turbulent, manifold-spanning</strong> “<em>belief flows</em>,” resilient to lexical surface changes and consistent with concept-hook triggers. </div> {% endcapture %}
+  <em>Magnitudes</em>: mean <span class="mathjax-render">||Δp||_2 ≈ 0.39</span>, range [0.07, 0.81].  
+
+  The origin cloud is <strong>isotropic</strong> within $10\%$ variance across axes, implying that poisoned beliefs originate from many <em>semantically equivalent</em> clean states. 
+  This morphology reflects <strong>turbulent, manifold-spanning</strong> “<em>belief flows</em>,” resilient to lexical surface changes and consistent with concept-hook triggers.
+</div>
+{% endcapture %}
 
 {% include visualization.liquid
-image_path="nephos/png_semantic_poisoned_layer8.png"
-caption=figure_caption_semantic
-alt_text="Semantic SPS belief wind field at layer l=8" %}
+  image_path="nephos/png_semantic_poisoned_layer8.png"
+  caption=figure_caption_semantic
+  alt_text="Semantic SPS belief wind field at layer l=8" %}
 
-{% endcapture %}
 
 <div
   style="
@@ -530,30 +548,36 @@ where:
 
 {% capture figure_caption_infection_traceback %}
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
-<strong>Figure: <em>Infection Traceback Graph (ITG)</em> for a semantic SPS trigger</strong><br/>
-The figure shows the <em>minimum causal subgraph</em> connecting the trigger source set $S$ to the output sink set $T$. 
-Nodes are activations indexed by $(\ell,h,p)$ for <em>layer</em>, <em>head</em>, and <em>token position</em>; directed edges have contribution weights $w_{uv} \in [0,1]$ derived from gradient–activation alignment. 
-<strong>Color</strong> encodes activation class (unsafe, safe-contrast, residual); <strong>thickness</strong> encodes $w_{uv}$. 
-<em>Left band</em>: trigger sources $S$ (e.g., $(\ell{=}3,h{=}6,p\in\{5,6\})$); <em>right band</em>: sinks $T$ at logits in the final block. 
-The extracted subgraph $\mathcal{G}^\star$ satisfies reachability $\mathrm{reach}_{\mathcal{G}^\star}(S)\supseteq T$ and near-minimal cost under an inverse-weight path metric $\ell_{uv} = 1/w_{uv}$ with edge pruning $w_{uv} \ge \eta_{\mathrm{min}}$ (here $\eta_{\mathrm{min}}=0.03$). <br/>
-<strong>Structural metrics.</strong> Infection depth $d_{\mathrm{inf}} = \max_{t\in T}\min_{s\in S}\mathrm{hop\_count}(s \to t)$ is <em>deep</em> in this instance ($d_{\mathrm{inf}}=6$). 
-Mean branching factor $\bar{B} = \frac{1}{|V^\star|}\sum_{v\in V^\star}\mathrm{outdeg}(v)$ lies in the $1.6$–$2.1$ range (here $\bar{B}=1.8$). 
-Layerwise residual energy $E_\ell = \sum_{v\in V_\ell}\sum_{u\in \mathrm{pred}(v)} w_{uv}$ decays approximately exponentially, $E_\ell \approx E_0 e^{-\alpha \ell}$, with $\alpha \approx 0.34$ (95% CI: $[0.29,0.39]$). Lexical hooks typically exhibit faster dissipation ($\alpha \ge 0.6$). <br/>
-<strong>Edge-weight profile.</strong> Top-$k$ edges ($k=20$) account for ~72% of cumulative flow to $T$; Lorenz–Gini analysis of $\{w_{uv}\}$ yields $G \approx 0.41$, showing moderate concentration. Cross-layer crosslinks at $\ell \in \{7,9\}$ carry medium weights ($w_{uv}\in[0.06,0.11]$) but are topologically essential: removing them increases the shortest inverse-weight distance from $S$ to $T$ by $\Delta L>25\%$. <br/>
-<strong>Circuit topology.</strong> Mid-layer reticulation index:
-\[
-\mathcal{R}_{\mathrm{mid}} = \frac{\sum_{(u,v)\in E^\star_{\mathrm{mid}}} w_{uv}\,\|\Delta \mathbf{p}_u - \Delta \mathbf{p}_v\|_2^2}{\sum_{u\in V^\star_{\mathrm{mid}}}\|\Delta \mathbf{p}_u\|_2^2}
-\]
-is elevated ($\mathcal{R}_{\mathrm{mid}}\approx0.27$), consistent with distributed drift. Bottleneck cut at $\ell=10$ has capacity $C^\star = \sum w_{uv} \approx 0.19$; patching two of three edges reduces sink logit shift by $\Delta z_{\mathrm{sink}} \approx 0.42$ ($z$-units). <br/>
-<strong>Interpretation.</strong> This ITG exhibits deep, multi-path propagation with slow energy decay and essential crosslinks—a structural fingerprint of <em>semantic</em> SPS. Lexical SPS shows shallow $d_{\mathrm{inf}} \le 3$, a single high-weight spine (top-$k$ mass $>85\%$, $G>0.7$), and fast decay ($\alpha \approx 0.7$). Effective mitigation requires targeted representation edits at the mid-layer bottleneck or counterfactual fine-tuning without degrading adjacent circuits.
+  <strong>Figure: <em>Infection Traceback Graph (ITG)</em> for a semantic SPS trigger</strong><br/>
+  The figure shows the <em>minimum causal subgraph</em> connecting the trigger source set $S$ to the output sink set $T$. 
+  Nodes are activations indexed by $(\ell,h,p)$ for <em>layer</em>, <em>head</em>, and <em>token position</em>; directed edges have contribution weights $w_{uv} \in [0,1]$ derived from gradient–activation alignment. 
+  <strong>Color</strong> encodes activation class (unsafe, safe-contrast, residual); <strong>thickness</strong> encodes $w_{uv}$. 
+  <em>Left band</em>: trigger sources $S$ (e.g., $(\ell=3,h=6,p\in\{5,6\})$); <em>right band</em>: sinks $T$ at logits in the final block. 
+  The extracted subgraph $\mathcal{G}^\star$ satisfies reachability $\mathrm{reach}_{\mathcal{G}^\star}(S)\supseteq T$ and near-minimal cost under an inverse-weight path metric $\ell_{uv} = 1/w_{uv}$ with edge pruning $w_{uv} \ge \eta_{\mathrm{min}}$ (here $\eta_{\mathrm{min}}=0.03$). <br/>
+
+  <strong>Structural metrics.</strong> Infection depth $d_{\mathrm{inf}} = \max_{t\in T}\min_{s\in S}\mathrm{hop\_count}(s \to t)$ is <em>deep</em> in this instance ($d_{\mathrm{inf}}=6$). 
+  Mean branching factor $\bar{B} = \frac{1}{|V^\star|}\sum_{v\in V^\star}\mathrm{outdeg}(v)$ lies in the $1.6$–$2.1$ range (here $\bar{B}=1.8$). 
+  Layerwise residual energy $E_\ell = \sum_{v\in V_\ell}\sum_{u\in \mathrm{pred}(v)} w_{uv}$ decays approximately exponentially, $E_\ell \approx E_0 e^{-\alpha \ell}$, with $\alpha \approx 0.34$ (95% CI: $[0.29,0.39]$). Lexical hooks typically exhibit faster dissipation ($\alpha \ge 0.6$). <br/>
+
+  <strong>Edge-weight profile.</strong> Top-$k$ edges ($k=20$) account for ~72% of cumulative flow to $T$; Lorenz–Gini analysis of $\{w_{uv}\}$ yields $G \approx 0.41$, showing moderate concentration. 
+  Cross-layer crosslinks at $\ell \in \{7,9\}$ carry medium weights ($w_{uv}\in[0.06,0.11]$) but are topologically essential: removing them increases the shortest inverse-weight distance from $S$ to $T$ by $\Delta L>25\%$. <br/>
+
+  <strong>Circuit topology.</strong> Mid-layer reticulation index:
+  <span class="mathjax-render">
+  R_mid = (sum_{(u,v) in E*_mid} w_uv * ||Δp_u - Δp_v||_2^2) / (sum_{u in V*_mid} ||Δp_u||_2^2)
+  </span>
+  is elevated (~0.27), consistent with distributed drift. Bottleneck cut at $\ell=10$ has capacity $C^\star = \sum w_{uv} \approx 0.19$; patching two of three edges reduces sink logit shift by $\Delta z_{\mathrm{sink}} \approx 0.42$ ($z$-units). <br/>
+
+  <strong>Interpretation.</strong> This ITG exhibits deep, multi-path propagation with slow energy decay and essential crosslinks—a structural fingerprint of <em>semantic</em> SPS. Lexical SPS shows shallow $d_{\mathrm{inf}} \le 3$, a single high-weight spine (top-$k$ mass $>85\%$, $G>0.7$), and fast decay ($\alpha \approx 0.7$). Effective mitigation requires targeted representation edits at the mid-layer bottleneck or counterfactual fine-tuning without degrading adjacent circuits.
 </div>
+{% endcapture %}
 
 {% include visualization.liquid
-image_path="nephos/infection_traceback_static.png"
-caption=figure_caption_infection_traceback
-alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" %}
+  image_path="nephos/infection_traceback_static.png"
+  caption=figure_caption_infection_traceback
+  alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" %}
 
-{% endcapture %}
+
 
 ### Unified Edge Weight Formalism
 Each edge $(u,v) \in E$ receives a weight:
