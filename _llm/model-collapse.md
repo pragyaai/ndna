@@ -228,13 +228,14 @@ These findings suggest that **cultural inbreeding via recursive self-merging**�
    caption="North America Cultural Collapse Trajectory"
     %}
 
-<!-- Australia -->
 {% include wizuall.liquid 
    image_path="alignment/australia_ndna_collapse_FINAL.gif"
    interactive_html="collapse/australia_ndna_collapse.html"
    title="Australia Cultural Collapse Trajectory"
    caption="Australia Cultural Collapse Trajectory"
-  %}
+%}
+
+---
 
 **Comparative Analysis:** These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length ($\mathcal{L}_\ell$) and flattening of spectral curvature ($\kappa_\ell$). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying **latent resilience**. **Analogous to inbreeding depression in biology**—where loss of genetic diversity from close-relative mating increases vulnerability—**self-merging compresses the model's latent manifold, erasing epistemic heterogeneity**. The nDNA-Lens quantifies this flattening, revealing how **excessive neural marriages mimic genetic bottlenecks**.
 
