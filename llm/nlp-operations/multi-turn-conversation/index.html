@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-15T22:23:35+00:00" />
+<meta property="article:published_time" content="2025-08-15T22:33:02+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Multi-turn Conversation and nDNA" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T22:23:35+00:00","datePublished":"2025-08-15T22:23:35+00:00","description":"- Tracking Semantic Drift and Memory in Multi-Turn Dialogue via nDNA Geometry Micro-summary — details in the book","headline":"Multi-turn Conversation and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T22:33:02+00:00","datePublished":"2025-08-15T22:33:02+00:00","description":"- Tracking Semantic Drift and Memory in Multi-Turn Dialogue via nDNA Geometry Micro-summary — details in the book","headline":"Multi-turn Conversation and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/multi-turn-conversation/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -1327,9 +1327,11 @@ normalized as:
 
 <p>We introduce <strong>ORBIT</strong>, a geometric and epistemic framework for evaluating multi-turn dialogue models by probing not just <em>what</em> models say, but <em>how</em> their internal belief trajectories evolve over time. Our results demonstrate that standard surface-level metrics fail to capture the nuanced failures and strengths of alignment across turns. By tracing metrics such as <em>spectral memory retention</em>, <em>thermodynamic length</em>, <em>epistemic drift</em>, and <em>latent torsion</em>, ORBIT reveals the hidden structure of model cognition—where alignment is not merely a scalar, but a trajectory of beliefs in motion.</p>
 
-<p><strong>LLaMA-2</strong> emerges as the most balanced performer, combining high retention, efficient adaptation, and stable yet flexible belief evolution. <strong>Mistral</strong> demonstrates strong early creativity but struggles with long-term stability. <strong>Gemma</strong> provides consistent mid-tier performance, while <strong>Phi-2</strong> and <strong>GPT-NeoX</strong> exhibit limited epistemic activity.</p>
+<p>We conduct extensive evaluations across five diverse LLMs (<strong>LLaMA</strong>, <strong>Mistral</strong>, <strong>Gemma</strong>, <strong>Phi-2</strong>, <strong>GPT-NeoX</strong>) and five benchmark datasets (<strong>MT-Bench</strong>, <strong>ShareGPT</strong>, <strong>FLASK</strong>, <strong>FaithDial</strong>, <strong>TRUTHBench</strong>), showing that ORBIT not only aligns better with human judgments on <em>coherence</em> and <em>consistency</em>, but also uncovers <em>over-alignment</em> and <em>collapse regimes</em> missed by fluency-based metrics. The ablation study confirms that each ORBIT component contributes orthogonal epistemic signal, validating the necessity of multi-factor latent diagnostics.</p>
 
-<p>As large language models scale in complexity and conversational depth, evaluation must shift from static outputs to dynamic epistemic traces. ORBIT offers a first step in this paradigm shift—<em>from rating answers to tracing reasoning</em>. Future directions include extending ORBIT to <em>multilingual</em> and <em>multimodal</em> agents, integrating belief trajectory tracing with policy optimization, and benchmarking long-horizon reasoning across real-world dialogues.</p>
+<p>As large language models scale in complexity and conversational depth, we argue that evaluation must shift from static outputs to dynamic epistemic traces. ORBIT offers a first step in this paradigm shift—<em>from rating answers to tracing reasoning</em>. By mapping the shape of belief evolution, we open new frontiers for <em>alignment debugging</em>, <em>model auditing</em>, and <em>introspective fine-tuning</em>.</p>
+
+<p><strong>Future directions</strong> include extending ORBIT to <em>multilingual</em> and <em>multimodal</em> agents, integrating belief trajectory tracing with policy optimization, and benchmarking long-horizon reasoning across real-world dialogues. We believe that ORBIT represents a foundational contribution toward <em>epistemically aligned, introspectively aware conversational AI</em>.</p>
 
 <hr />
 
@@ -1361,7 +1363,7 @@ normalized as:
 
 <p><a id="ref13"></a>[13] Gupta, Aditya, Ren, Xiang, and others “History for enhanced contextual reasoning in dialog systems” <em>Findings of the Association for Computational Linguistics: EMNLP 2021</em> (2021).</p>
 
-<p><a id="ref14"></a>[14] Lin, Stephanie, Hilton, Jacob, and others “TruthfulQA: Measuring how models mimic human falsehoods” <em>arXiv preprint arXiv:2109.07958</em> (2022).</p>
+<p><a id="ref14"></a>[14] Lin, Stephanie, Hilton, Jacob, and others “Truthful{QA}: Measuring How Models Mimic Misinformation” <em>NeurIPS 2021</em> (2021).</p>
 
 <p><a id="ref15"></a>[15] Lee, Taehwan, Lee, Sanghyeok, and others “FLASK: Fine-grained Language Model Evaluation based on Alignment Skill Sets” <em>arXiv preprint arXiv:2305.13439</em> (2023).</p>
 
@@ -1369,7 +1371,7 @@ normalized as:
 
 <p><a id="ref17"></a>[17] Hewitt, John and Manning, Christopher D. “A structural probe for finding syntax in word representations” <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</em> (2019).</p>
 
-<p><a id="ref18"></a>[18] Meng, Kevin, Bau, David, and others “Locating and Editing Factual Associations in GPT” <em>Advances in Neural Information Processing Systems</em> (2022).</p>
+<p><a id="ref18"></a>[18] Meng, Kevin, Bau, David, and others “Locating and Editing Factual Associations in GPT” <em>NeurIPS</em> (2022).</p>
 
 <p><a id="ref19"></a>[19] Gurnee, William and others “LM-Explainer: A Fine-Grained Explanation Framework for Language Models” <em>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics</em> (2023).</p>
 
@@ -1401,7 +1403,7 @@ normalized as:
 
 <p><a id="ref33"></a>[33] Li, Shaohan, Bai, Yuwei, and others “Evaluating Factual Consistency in Language Models for Multi-turn Dialogue Summarization” <em>Transactions of the ACL (TACL)</em> (2023).</p>
 
-<p><a id="ref34"></a>[34] Ganguli, Deep, Askell, Amanda, and others “Predictability and Surprise in Large Generative Models” <em>arXiv preprint arXiv:2202.07785</em> (2022).</p>
+<p><a id="ref34"></a>[34] Ganguli, Deep and et al. “Predictability and Surprise in Large Generative Models” <em>arXiv preprint arXiv:2202.07785</em> (2022).</p>
 
 <p><a id="ref35"></a>[35] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
 

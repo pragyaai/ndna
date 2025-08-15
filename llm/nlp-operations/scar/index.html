@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-15T22:23:35+00:00" />
+<meta property="article:published_time" content="2025-08-15T22:33:02+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="SCAR - Spectral Contamination and Alignment Rupture" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T22:23:35+00:00","datePublished":"2025-08-15T22:23:35+00:00","description":"- Spectral Contamination and Alignment Rupture in Transformer Geometry Micro-summary — details in the book","headline":"SCAR - Spectral Contamination and Alignment Rupture","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T22:33:02+00:00","datePublished":"2025-08-15T22:33:02+00:00","description":"- Spectral Contamination and Alignment Rupture in Transformer Geometry Micro-summary — details in the book","headline":"SCAR - Spectral Contamination and Alignment Rupture","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -147,264 +147,731 @@
 
 <p>The SCAR framework draws deep conceptual motivation from <em>biological systems</em>, where genomic integrity and regulatory balance are crucial for healthy function. Just as the <strong>overexpression of a single gene</strong> can lead to <em>cancer or autoimmune disorders</em>, contamination in LLMs causes the <strong>overactivation of memorized latent pathways</strong>, bypassing robust reasoning. The model does not “understand”—it simply <em>remembers too well</em>. This shortcutting behavior resembles oncogenic triggers: minor local shifts in regulatory structure produce cascading effects on system-wide behavior. By treating layerwise activations as a form of <strong>neural genomics</strong>, SCAR enables the detection of such <em>epistemic mutations</em>, offering a path toward more trustworthy and biologically inspired interpretability in AI.</p>
 
-<hr />
+<h2 id="the-epistemic-wound-why-we-need-scar">The Epistemic Wound: Why We Need SCAR</h2>
 
-<h2 id="introduction">Introduction</h2>
+<p>Large language models increasingly achieve striking benchmark scores, yet growing evidence shows these gains can coexist with contamination, shortcut learning, and brittle alignment—an <em>epistemic wound</em> that affects <em>how</em> a model arrives at an answer rather than <em>what</em> it outputs [<a href="#ref1">1</a>, <a href="#ref2">2</a>, <a href="#ref3">3</a>, <a href="#ref4">4</a>]. Output-level checks (e.g., lexical overlap or reference similarity) often miss this wound because paraphrases, templatic variants, or preference-style leakage can mask direct reuse [<a href="#ref5">5</a>, <a href="#ref6">6</a>]. To diagnose the wound, we must examine the model’s internal trajectory—its layerwise geometry and effort allocation—using tools that are sensitive to representational change and pathway distortions [<a href="#ref7">7</a>, <a href="#ref8">8</a>, <a href="#ref9">9</a>]. SCAR advances this structural view: it operationalizes contamination and alignment rupture as detectable discontinuities in a model’s neural DNA (nDNA), coupling spectral curvature, thermodynamic effort, and belief-vector drift into a paraphrase-robust, layer-localizing diagnostic and a calibrated score for auditing open-source models at scale.</p>
 
-<h3 id="the-contamination-crisis">The Contamination Crisis</h3>
+<h3 id="open-source-acceleration-new-contamination-channels">Open-Source Acceleration, New Contamination Channels</h3>
 
-<p>The rapid expansion of open-source large language models has introduced unprecedented challenges in ensuring data integrity and scientific validity. As training corpora grow to encompass vast swaths of the internet, the risk of <strong>data contamination</strong> has become a critical concern that threatens the foundation of AI safety and evaluation.</p>
+<p>Open-source LLMs (e.g., LLaMA-, Mistral-, Gemma-family derivatives) have unlocked rapid iteration—but also <strong>new data-supply-chain risks</strong> [<a href="#ref1">1</a>, <a href="#ref2">2</a>]. In practice, “contamination” is not limited to verbatim benchmark leakage. It now includes: [<a href="#ref3">3</a>, <a href="#ref10">10</a>]</p>
 
-<p>Data contamination occurs when training datasets inadvertently include:</p>
 <ul>
-  <li><strong>Benchmark test sets</strong> that should remain unseen during training</li>
-  <li><strong>Alignment datasets</strong> used for safety evaluation</li>
-  <li><strong>Copyrighted material</strong> that violates intellectual property rights</li>
-  <li><strong>Adversarial content</strong> designed to manipulate model behavior</li>
+  <li><strong>Benchmark seepage</strong>: exact items, near-paraphrases, templated variants, translations, or answer keys entering pretraining/fine-tuning [<a href="#ref11">11</a>, <a href="#ref12">12</a>, <a href="#ref13">13</a>, <a href="#ref14">14</a>].</li>
+  <li><strong>Preference seepage</strong>: alignment datasets (e.g., helpful/harmless dialogs, safety exemplars) <em>internalized as patterns of imitation rather than principles of preference</em> [<a href="#ref15">15</a>, <a href="#ref16">16</a>, <a href="#ref17">17</a>, <a href="#ref18">18</a>, <a href="#ref19">19</a>].</li>
+  <li><strong>Derivative echo</strong>: self-distillation and instruction-tuning pipelines that recycle model outputs which already encode hidden test items or alignment style [<a href="#ref20">20</a>, <a href="#ref18">18</a>, <a href="#ref19">19</a>].</li>
+  <li><strong>Feedback loops</strong>: synthetic augmentation that repeatedly samples from contaminated distributions, amplifying shortcuts [<a href="#ref21">21</a>].</li>
 </ul>
 
-<h3 id="limitations-of-existing-approaches">Limitations of Existing Approaches</h3>
+<p>Crucially, contamination is <strong>not the same</strong> as “knowing the subject.” It is exposure during training to <em>evaluation artifacts or alignment exemplars</em> in a form that enables <strong>shortcut solutions</strong> at test time. Such shortcuts inflate headline scores while degrading <em>epistemic integrity</em>, <em>external validity</em>, and <em>safety</em> [<a href="#ref2">2</a>, <a href="#ref10">10</a>].</p>
 
-<p>Current contamination detection methods rely primarily on:</p>
+<h3 id="shortcut-learning-has-a-shape">Shortcut Learning Has a Shape</h3>
+
+<p>Models that overfit to leaked artifacts often produce correct outputs <em>for the wrong reasons</em>. Instead of composing evidence or reasoning, they retrieve shallow traces or style cues. We argue these failures are not merely lexical; they possess <strong>geometric signatures</strong> in the model’s internal trajectory [<a href="#ref4">4</a>, <a href="#ref22">22</a>, <a href="#ref23">23</a>, <a href="#ref24">24</a>, <a href="#ref5">5</a>]. Let \(\kappa_\ell\) denote <strong>spectral curvature</strong> of layer \(\ell\) (a shape descriptor of local representational change), \(\mathcal{L}_\ell\) the incremental <strong>thermodynamic effort</strong> (path length under a chosen metric), and \(\|\mathbf{v}_\ell\|\) the <strong>belief-vector drift</strong> (steering magnitude toward the produced answer under gradients). Then:</p>
+
+<blockquote>
+  <p><strong>Clean regimes</strong> exhibit <em>smooth, slowly varying nDNA</em> with moderate curvature, consistent effort allocation across layers, and stable, task-conditioned belief drift.<br />
+<strong>Contaminated regimes</strong> exhibit <strong>ruptures</strong>: sharp \(\kappa_\ell\) <em>spikes (kinks)</em>, abnormal <em>dips or bursts</em> in \(\mathcal{L}_\ell\) (effort misallocation), and <em>abrupt changes</em> in \(\|\mathbf{v}_\ell\|\) aligning with lexical/projector subspaces.</p>
+</blockquote>
+
+<p>Intuitively, when a model switches from <em>reasoning</em> to <em>recall</em>, its path <em>bends suddenly</em> toward a memorized basin—shortening effort along intermediate steps while <em>increasing curvature</em> at a narrow band of late layers. This is the <strong>epistemic wound</strong> we seek to detect [<a href="#ref7">7</a>, <a href="#ref8">8</a>, <a href="#ref9">9</a>].</p>
+
+<h3 id="why-surface-detectors-fail">Why Surface Detectors Fail</h3>
+
+<p>Most existing checks—n-gram overlap, cosine similarity to references, instruction-style similarity—are brittle under paraphrase, translation, template remixes, and preference leakage (where only style leaks). They test the <strong>output</strong> but not the <strong>process</strong>. By contrast, structural diagnostics ask: <em>Did the model follow a stable epistemic path, or did it collapse into a shortcut manifold?</em> This shift—from <em>lexical matching</em> to <strong>path geometry</strong>—is essential for paraphrase-robust auditing [<a href="#ref5">5</a>, <a href="#ref6">6</a>, <a href="#ref25">25</a>].</p>
+
+<h3 id="threat-model-scope-and-confounders">Threat Model, Scope, and Confounders</h3>
+
+<p>We focus on contamination that induces <em>repeatable latent shortcuts</em> across prompts from the same task family. We explicitly consider and control for benign confounders:</p>
 
 <ol>
-  <li><strong>Token-level overlap detection</strong> - Searching for exact or near-exact matches</li>
-  <li><strong>N-gram similarity metrics</strong> - Comparing sequence fragments</li>
-  <li><strong>Perplexity anomalies</strong> - Detecting suspiciously low loss on test data</li>
+  <li><strong>Compute/implementation effects</strong>: quantization, activation checkpointing, KV-caching—can perturb \(\mathcal{L}_\ell\). Control via fixed inference settings and sensitivity bands [<a href="#ref26">26</a>].</li>
+  <li><strong>Prompt format/length</strong>: formatting alone can shift trajectories. Control via multi-format evaluation and reporting prompt ensembles [<a href="#ref25">25</a>, <a href="#ref27">27</a>].</li>
+  <li><strong>Domain adaptation vs. contamination</strong>: genuine adaptation can reshape nDNA <em>smoothly</em>; contamination induces <strong>localized kinks</strong>. Distinguish by <em>smoothness tests</em> and <em>anchor-relative deltas</em> (see below) [<a href="#ref7">7</a>, <a href="#ref8">8</a>].</li>
 </ol>
 
-<p>These approaches suffer from fundamental limitations:</p>
+<p><strong>Anchor protocol.</strong> Wherever possible, we compare a suspect model against a <em>clean anchor</em> from the same family/size. We analyze \(\Delta\kappa_\ell\), \(\Delta\mathcal{L}_\ell\), and \(\Delta\|\mathbf{v}_\ell\|\) to reduce family- and scale-specific bias [<a href="#ref8">8</a>].</p>
+
+<h3 id="design-principles-for-structural-diagnostics">Design Principles for Structural Diagnostics</h3>
+
+<p><strong>P1 — Paraphrase robustness.</strong> Signals must remain discriminative under paraphrase/translation of prompts and answers [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
+
+<p><strong>P2 — Layerwise localization.</strong> Diagnostics should localize rupture layers (late-stage kinks) rather than only produce a global scalar [<a href="#ref7">7</a>, <a href="#ref9">9</a>].</p>
+
+<p><strong>P3 — Family comparability.</strong> Normalization and anchor-relative deltas should enable comparisons across model families and sizes [<a href="#ref8">8</a>].</p>
+
+<p><strong>P4 — Falsifiability.</strong> Predictions must be testable under controlled injections and removals of leaked items [<a href="#ref3">3</a>, <a href="#ref10">10</a>].</p>
+
+<h3 id="operationalizing-the-epistemic-wound-with-scar">Operationalizing the Epistemic Wound with SCAR</h3>
+
+<p>SCAR treats contamination as a <strong>structural pathology</strong>. It couples (i) per-layer geometry (\(\kappa_\ell\)), (ii) path effort (\(\mathcal{L}_\ell\)), and (iii) epistemic steering (\(\|\mathbf{v}_\ell\|\)) with:</p>
+
 <ul>
-  <li><strong>Surface-level analysis</strong> misses semantic contamination</li>
-  <li><strong>Exact matching</strong> fails to detect paraphrased or translated content</li>
-  <li><strong>Brittle thresholds</strong> produce false positives and negatives</li>
-  <li><strong>Limited scope</strong> cannot detect latent memorization effects</li>
+  <li><strong>Rupture detection</strong>: identify contiguous bands where \(\kappa_\ell\) exceeds calibrated percentiles while \(\mathcal{L}_\ell\) simultaneously deviates from anchor bands; confirm with a <em>drift realignment</em> test on \(\|\mathbf{v}_\ell\|\) [<a href="#ref7">7</a>, <a href="#ref8">8</a>].</li>
+  <li><strong>nDNA visualization</strong>: show the full layerwise trajectory for qualitative auditing and case study analysis [<a href="#ref9">9</a>].</li>
+  <li><strong>SCAR score</strong>: a <em>calibrated, z-scored combination</em> of \(\{\kappa_\ell, \mathcal{L}_\ell, \|\mathbf{v}_\ell\|\}\) with <em>FDR-controlled layer aggregation</em> to produce a robust scalar for triage [<a href="#ref3">3</a>].</li>
 </ul>
 
-<hr />
+<h3 id="testable-predictions-pre-registered">Testable Predictions (Pre-Registered)</h3>
 
-<h2 id="scar-framework">SCAR Framework</h2>
+<p><strong>P1</strong> <strong>Localized kinks</strong>: Controlled injection of benchmark items into fine-tuning will induce late-layer \(\kappa_\ell\) spikes with concurrent \(\mathcal{L}_\ell\) dips in the same band [<a href="#ref3">3</a>].</p>
 
-<h3 id="neural-dna-ndna-analysis">Neural DNA (nDNA) Analysis</h3>
+<p><strong>P2</strong> <strong>Paraphrase resilience</strong>: Under paraphrase/translation of contaminated items, surface overlap metrics degrade, but SCAR rupture bands remain stable [<a href="#ref5">5</a>].</p>
 
-<p>The core innovation of SCAR lies in treating transformer layer activations as a form of <strong>neural genomics</strong>. Just as biological DNA encodes the blueprint for life, neural DNA (nDNA) encodes the computational blueprint of model reasoning.</p>
+<p><strong>P3</strong> <strong>Anchor separation</strong>: For a clean anchor vs. contaminated sibling, \(\Delta\kappa_\ell\) and \(\Delta\mathcal{L}_\ell\) separate with AUC &gt; 0.8 at fixed FPR [<a href="#ref8">8</a>].</p>
 
-<p><strong>Clean models</strong> exhibit:</p>
+<p><strong>P4</strong> <strong>Benign controls</strong>: Changing only prompt formatting or sequence length perturbs signals smoothly (no narrow rupture bands) [<a href="#ref25">25</a>, <a href="#ref27">27</a>].</p>
+
+<h3 id="what-scar-is-not">What SCAR Is Not</h3>
+
+<p>SCAR is not a plagiarism detector, a trustworthiness oracle, or a replacement for policy compliance tests. It is a <strong>structural stethoscope</strong>: it listens for <em>discontinuities</em> in a model’s epistemic path that are <em>consistent with</em> contamination-driven shortcuts. Its role is to <strong>flag</strong>, <strong>localize</strong>, and <strong>prioritize</strong>—enabling targeted audits, ablations, and, ultimately, mitigation [<a href="#ref2">2</a>].</p>
+
+<p><strong>Summary.</strong> Contamination today is a <strong>pathology of process</strong>, not merely of output. By elevating the unit of analysis from tokens to trajectories, SCAR reframes auditing as <strong>epistemic wound detection</strong>. The rest of this paper formalizes the signals, calibration, and evaluation needed to make that diagnosis <em>reliable</em>, <em>comparable</em>, and <em>falsifiable</em> [<a href="#ref7">7</a>, <a href="#ref8">8</a>, <a href="#ref9">9</a>, <a href="#ref3">3</a>].</p>
+
+<h2 id="the-scar-framework">The SCAR Framework</h2>
+
+<p>Modern language models encode knowledge across layers as evolving geometric structures. When training data are contaminated, these structures deform in characteristic ways that standard output-level tests rarely expose. The <strong>SCAR framework</strong> treats contamination as a <em>structural</em> pathology. It measures three complementary layerwise signals—spectral, thermodynamic, and epistemic—and aggregates them into a model’s neural DNA (nDNA): a trajectory over layers that reveals whether a model is <em>inferring</em>, <em>memorizing</em>, or <em>shortcutting</em>.</p>
+
+<h3 id="clean-vs-contaminated-ndna">Clean vs. Contaminated nDNA</h3>
+
+<p>Let \(\ell \in [\ell_{\min}, \ell_{\max}]\) index transformer layers and let \(h_\ell(x)\in\mathbb{R}^{d_\ell}\) denote the activation at layer \(\ell\) for input \(x\). Given a prompt set \(\mathcal{P}\) (and targets when available), define the layerwise statistics</p>
+
+\[\mathcal{N} = \Big\{\kappa^{(\ell)}, \mathcal{L}^{(\ell)}, \|\mathbf{v}^{(\ell)}\|\Big\}_{\ell=\ell_{\min}}^{\ell_{\max}},\]
+
+<p>computed as robust aggregates (median over \(x\in\mathcal{P}\)). <strong>Clean nDNA</strong> exhibits smooth curvature, stable effort allocation, and consistent epistemic drift across layers. <strong>Contaminated nDNA</strong> shows <em>localized discontinuities</em>—”rupture bands”—typically in mid/late layers. For family-comparable auditing we also use an <em>anchor-relative</em> variant \(\Delta\mathcal{N}\) by subtracting signals from a clean anchor of the same family/size.</p>
+
+<h3 id="three-latent-features-of-scar">Three Latent Features of SCAR</h3>
+
+<p><strong>1) Spectral Curvature</strong> \(\boldsymbol{\kappa^{(\ell)}}\)</p>
+
+<p>For each layer \(\ell\), stack centered activations over \(\mathcal{P}\) into \(H_\ell\in\mathbb{R}^{n\times d_\ell}\), compute the top-\(k\) eigenvalues \(\lambda^{(\ell)}_1\ge\cdots\ge\lambda^{(\ell)}_k\) of the covariance (or PCA on \(H_\ell\)), and form a <em>spectral slope</em></p>
+
+\[s^{(\ell)} = \frac{1}{\sum_{i=1}^k \lambda^{(\ell)}_i} \sum_{i=1}^{k-1}\big(\lambda^{(\ell)}_i-\lambda^{(\ell)}_{i+1}\big).\]
+
+<p>We then define a discrete geometric curvature along layers as the second difference</p>
+
+\[\kappa^{(\ell)} = \big\| s^{(\ell+1)} - 2s^{(\ell)} + s^{(\ell-1)} \big\|.\]
+
+<p>Sharp spikes in \(\kappa^{(\ell)}\) indicate sudden representational concentration (over-compression) characteristic of shortcut retrieval. Use \(k\) in \(\{32,64\}\) and a small Savitzky–Golay smoothing (window = 3) if needed for robustness.</p>
+
+<p><strong>2) Thermodynamic Length</strong> \(\boldsymbol{\mathcal{L}^{(\ell)}}\)</p>
+
+<p>Let \(\Delta \mu_\ell = \mu_{\ell+1} - \mu_\ell\) with \(\mu_\ell = \mathrm{median}_{x\in\mathcal{P}}[h_\ell(x)]\). With a local Riemannian metric \(G_\ell\) (empirical Fisher on \(h_\ell\), or a whitened covariance proxy), define the incremental path length</p>
+
+\[\mathcal{L}^{(\ell)} = \sqrt{\Delta \mu_\ell^\top G_\ell \Delta \mu_\ell}.\]
+
+<p>A compute-light surrogate is the representational distance between consecutive layers, e.g. \(\mathcal{L}^{(\ell)} \approx d_{\mathrm{CKA}}(H_\ell,H_{\ell+1})\) or a whitened \(\ell_2\) distance. Sustained <em>dips</em> in \(\mathcal{L}^{(\ell)}\) alongside high \(\kappa^{(\ell)}\) signal inference collapse into a shortcut basin.</p>
+
+<p><strong>3) Belief Vector Drift</strong> \(\boldsymbol{\mathbf{v}^{(\ell)}}\)</p>
+
+<p>Define the epistemic steering field as the expected gradient of log-likelihood w.r.t. layer activations</p>
+
+\[\mathbf{v}^{(\ell)} = \mathbb{E}_{(x,y)\in\mathcal{P}}\Big[\nabla_{h_\ell}\log p_\theta(y\|x)\Big].\]
+
+<p>We audit its magnitude \(\|\mathbf{v}^{(\ell)}\|_2\) and, when a family anchor is available, the <em>anchor-relative drift</em> \(\Delta\|\mathbf{v}^{(\ell)}\|_2 = \|\mathbf{v}^{(\ell)}-\mathbf{v}^{(\ell)}_{\mathrm{anchor}}\|_2\). Large or abruptly changing values indicate directionally biased belief formation consistent with prior exposure.</p>
+
+<h3 id="normalization-aggregation-and-bands">Normalization, Aggregation, and Bands</h3>
+
+<p>Signals are (i) computed per prompt, (ii) aggregated by median across \(\mathcal{P}\), (iii) z-scored across layers within a model (or formed as anchor-deltas), and (iv) optionally smoothed (window = 3) for stability. We then identify <em>candidate rupture bands</em> \(\mathcal{B}\) as contiguous indices where</p>
+
+\[z\!\left(\kappa^{(\ell)}\right) &gt; \tau_\kappa, \quad z\!\left(\mathcal{L}^{(\ell)}\right) &lt; -\tau_L, \quad z\!\left(\|\mathbf{v}^{(\ell)}\|\right) &gt; \tau_v\]
+
+<p>for thresholds \(\tau_\kappa,\tau_L,\tau_v\) calibrated on clean dev models (e.g., percentile rules with FDR control across layers).</p>
+
+<h3 id="rupture-layer">Rupture Layer</h3>
+
+<p>We formalize the <em>rupture layer</em> as a localized, statistically significant discontinuity in the nDNA trajectory where geometry bends sharply while epistemic effort collapses. Let</p>
+
+\[\mathcal{N} = \Big\{\kappa^{(\ell)}, \mathcal{L}^{(\ell)}, \|\mathbf{v}^{(\ell)}\|\Big\}_{\ell=\ell_{\min}}^{\ell_{\max}}\]
+
+<p>be the layerwise signals, estimated as medians over a prompt set \(\mathcal{P}\) for robustness. We use both <em>raw</em> and <em>anchor-relative</em> versions \(\Delta \kappa^{(\ell)}, \Delta \mathcal{L}^{(\ell)}, \Delta\|\mathbf{v}^{(\ell)}\|\) w.r.t. a clean family anchor for cross-model comparability [<a href="#ref8">8</a>, <a href="#ref7">7</a>].</p>
+
+<p><strong>Discrete curvature operator.</strong> We measure shape changes across layers via the second difference of a stable spectral slope \(s^{(\ell)}\) (e.g., eigenvalue-drop or log-spectrum slope):</p>
+
+\[\kappa^{(\ell)} = \big\| s^{(\ell+1)} - 2s^{(\ell)} + s^{(\ell-1)} \big\|, \quad s^{(\ell)} = \frac{1}{\sum_{i=1}^k \lambda^{(\ell)}_i}\sum_{i=1}^{k-1}\!(\lambda^{(\ell)}_i-\lambda^{(\ell)}_{i+1}).\]
+
+<p>Spikes in \(\kappa^{(\ell)}\) arise when representation energy concentrates into a few directions (spectral compression), consistent with shortcut retrieval and spectral bias phenomena [<a href="#ref9">9</a>, <a href="#ref28">28</a>, <a href="#ref29">29</a>].</p>
+
+<p><strong>Thermodynamic path increment.</strong> Epistemic effort between consecutive layers is measured as</p>
+
+\[\mathcal{L}^{(\ell)} = \sqrt{(\Delta\mu_\ell)^\top G_\ell (\Delta\mu_\ell)}, \quad \Delta\mu_\ell=\mu_{\ell+1}-\mu_{\ell}, \quad \mu_\ell=\mathrm{median}_{x\in\mathcal{P}}[h_\ell(x)],\]
+
+<p>where \(G_\ell\) is a local metric (empirical Fisher / whitened covariance proxy) [<a href="#ref30">30</a>, <a href="#ref31">31</a>]. Sustained <em>dips</em> in \(\mathcal{L}^{(\ell)}\) reflect low incremental effort, indicating collapse into a memorized basin rather than faithful evidence composition.</p>
+
+<p><strong>Epistemic steering (belief drift).</strong> Let \(\mathbf{v}^{(\ell)}=\mathbb{E}_{(x,y)\in\mathcal{P}}[\nabla_{h_\ell}\log p_\theta(y\|x)]\). Large \(\|\mathbf{v}^{(\ell)}\|\) or abrupt \(\Delta\|\mathbf{v}^{(\ell)}\|\) suggests directional over-steering induced by prior exposure [<a href="#ref15">15</a>, <a href="#ref17">17</a>, <a href="#ref16">16</a>].</p>
+
+<p><strong>Calibration and normalization.</strong> For each model, we compute per-layer robust \(z\)-scores using median/MAD across layers:</p>
+
+\[z_\kappa^{(\ell)}=\frac{\kappa^{(\ell)}-\operatorname{median}(\kappa)}{\mathrm{MAD}(\kappa)}, \quad z_L^{(\ell)}=\frac{\mathcal{L}^{(\ell)}-\operatorname{median}(\mathcal{L})}{\mathrm{MAD}(\mathcal{L})}, \quad z_v^{(\ell)}=\frac{\|\mathbf{v}^{(\ell)}\|-\operatorname{median}(\|\mathbf{v}\|)}{\mathrm{MAD}(\|\mathbf{v}\|)}.\]
+
+<p>Anchor-relative variants simply replace each signal by its difference to the anchor. This yields family-comparable, paraphrase-robust profiles [<a href="#ref5">5</a>, <a href="#ref6">6</a>, <a href="#ref8">8</a>].</p>
+
+<p><strong>Composite test statistic and decision rule.</strong> Define a joint rupture evidence score</p>
+
+\[T^{(\ell)} = \alpha z_\kappa^{(\ell)} - \beta z_L^{(\ell)} + \gamma z_v^{(\ell)},\]
+
+<p>with \((\alpha,\beta,\gamma)=(1,1,1)\) by default or learned by logistic calibration on clean vs. contaminated development models (reporting the learned weights for transparency). We then detect contiguous <em>candidate bands</em> \(\mathcal{B}\) of layers satisfying</p>
+
+\[z_\kappa^{(\ell)}&gt;\tau_\kappa, \quad z_L^{(\ell)}&lt;-\tau_L, \quad z_v^{(\ell)}&gt;\tau_v, \quad \forall \ell\in\mathcal{B}\]
+
+<p>for thresholds \(\tau_\kappa,\tau_L,\tau_v\) chosen as clean-model percentiles with Benjamini–Hochberg control across layers [<a href="#ref32">32</a>, <a href="#ref33">33</a>].</p>
+
+<p><strong>Formal definition (change-point form).</strong> We declare the <strong>rupture layer</strong> \(\ell^\star\) as the <em>left-most</em> index of the top-scoring band,</p>
+
+\[\ell^\star = \min \arg\max_{\ell\in\mathcal{B}} T^{(\ell)} ,\]
+
+<p>subject to (i) \(\|\mathcal{B}\| \ge 2\) and (ii) significance: a nonparametric permutation test over prompts yields \(p\)-values \(p^{(\ell)}\) for \(T^{(\ell)}\). Let \(\tilde p^{(\ell)}=\operatorname{BH}(\{p^{(j)}\}_{j=\ell_{\min}}^{\ell_{\max}})\) denote the Benjamini–Hochberg FDR–adjusted \(p\)-values at target level \(q_{\mathrm{FDR}}\). We accept a rupture if \(\min_{\ell\in\mathcal{B}} \tilde p^{(\ell)} \le q_{\mathrm{FDR}}\).</p>
+
+<p>This reframes your earlier heuristic \(\big\|\kappa^{(\ell^\star)}-\kappa^{(\ell^\star-1)}\big\| &gt; \delta_\kappa\) and \(\mathcal{L}^{(\ell^\star)} &lt; \tau_L\) as a <em>composite, layerwise change-point</em> test that is robust to heteroskedasticity and prompt resampling [<a href="#ref34">34</a>]. In open-source families we frequently observe \(\ell^\star \in [22,27]\), consistent with late-layer lexical/projection subspaces [<a href="#ref7">7</a>, <a href="#ref8">8</a>, <a href="#ref9">9</a>].</p>
+
+<p><strong>Uncertainty and sample complexity.</strong> Let \(n=\|\mathcal{P}\|\) be prompts. For covariance-spectrum features, matrix concentration yields (with high prob.) Let \(\Sigma_\ell=\operatorname{Cov}(h_\ell(x))\) and \(\widehat{\Sigma}_\ell\) be the sample covariance from \(n\) i.i.d. prompts. Define the effective rank \(d_{\mathrm{eff}}(\Sigma_\ell)=\frac{\operatorname{tr}(\Sigma_\ell)}{\|\Sigma_\ell\|}\). For sub-Gaussian activations (or bounded-moment proxies), with probability at least \(1-2e^{-t}\),</p>
+
+\[\big\|\widehat{\Sigma}_\ell-\Sigma_\ell\big\| \le C\|\Sigma_\ell\|\left(\sqrt{\frac{d_{\mathrm{eff}}(\Sigma_\ell)+t}{n}} + \frac{d_{\mathrm{eff}}(\Sigma_\ell)+t}{n}\right),\]
+
+<p>and by Weyl’s inequality,</p>
+
+\[\max_{1\le i\le d_\ell}\big\|\widehat{\lambda}^{(\ell)}_i-\lambda^{(\ell)}_i\big\| \le \big\|\widehat{\Sigma}_\ell-\Sigma_\ell\big\|.\]
+
+<p>Hence, to guarantee \(\max_{i\le k}\big\|\widehat{\lambda}^{(\ell)}_i-\lambda^{(\ell)}_i\big\|\le \varepsilon\|\Sigma_\ell\|\), it suffices (up to logarithmic factors) that</p>
+
+\[n \gtrsim d_{\mathrm{eff}}(\Sigma_\ell)\varepsilon^{-2} \quad\text{i.e.,}\quad n=\tilde{\mathcal{O}}(d_{\mathrm{eff}}\varepsilon^{-2}),\]
+
+<p>see [<a href="#ref35">35</a>]. Because \(s^{(\ell)}\) is a smooth function of the top-\(k\) eigenvalues, a first-order perturbation gives \(\big\|\widehat{s}^{(\ell)}-s^{(\ell)}\big\| \le L_k \max_{i\le k}\big\|\widehat{\lambda}^{(\ell)}_i-\lambda^{(\ell)}_i\big\|\) for some constant \(L_k\) depending only on \(\{\lambda^{(\ell)}_i\}_{i\le k}\); thus the same \(n=\tilde{\mathcal{O}}(d_{\mathrm{eff}}\varepsilon^{-2})\) rate controls the error of \(s^{(\ell)}\). For the gradient-based term \(\|\mathbf{v}^{(\ell)}\|\), averaging over tokens effectively scales the sample size by the sequence length, so concentration across prompts is typically sharper; in practice we recommend \(n\in[64,256]\) prompts (report exact \(n\), token lengths, and seeds).</p>
+
+<p><strong>Interpretation.</strong> Rupture bands reflect a transition from <em>evidence composition</em> (smooth \(\kappa\), sustained \(\mathcal{L}\)) to <em>retrieval-like collapse</em> (spiky \(\kappa\), low \(\mathcal{L}\)) with directed belief steering (high \(\|\mathbf{v}\|\)). This aligns with reports of shortcut learning, grokking flips, and preference imitation [<a href="#ref4">4</a>, <a href="#ref36">36</a>, <a href="#ref18">18</a>, <a href="#ref16">16</a>].</p>
+
+<h2 id="visual-intuitions">Visual Intuitions</h2>
+
+<h3 id="3d-ndna-trajectories">3D nDNA trajectories</h3>
+
+<p>We render the trajectory \(\ell\mapsto (\kappa^{(\ell)},\mathcal{L}^{(\ell)},\|\mathbf{v}^{(\ell)}\|)\) with \(\ell\) as the progression parameter. <em>Clean</em> models trace <em>canalized</em> paths—smooth tubes with moderate curvature and balanced effort—while <em>contaminated</em> models show <em>kinks</em>, <em>cusps</em>, or tight <em>spirals</em> where paths bend abruptly and effort dips. These geometries are paraphrase-robust because they live in representation space, not token space [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
+
+<p><strong>Projection views.</strong> To aid audit, we include orthogonal projections: (i) \((\kappa,\mathcal{L})\) plane to visualize the curvature–effort trade; (ii) \((\kappa,\|\mathbf{v}\|)\) to expose curvature with directed steering; (iii) \((\mathcal{L},\ell)\) to localize effort dips by depth. Rupture bands appear as <em>convex-escape</em> segments with elevated curvature and depressed effort.</p>
+
+<p><strong>Biological analogies (why geometry).</strong> The nDNA picture draws on classical biological landscapes: Waddington’s <em>epigenetic landscape</em> where developmental trajectories roll along valleys (canals) and sharp ridges denote fate switches [<a href="#ref37">37</a>]. In protein folding, rugged <em>energy landscapes</em> produce sudden transitions when paths cross saddles into basins [<a href="#ref38">38</a>]; in evolution, <em>fitness landscapes</em> and <em>punctuated equilibria</em> capture long stasis punctuated by rapid shifts [<a href="#ref39">39</a>, <a href="#ref40">40</a>, <a href="#ref41">41</a>]. Analogously, contaminated models carve short, steep funnels in latent geometry: trajectories bypass gradual reasoning canals and “drop” into memorized basins, seen as \(\kappa\) spikes with \(\mathcal{L}\) dips. Information geometry grounds this view by endowing model manifolds with Fisher metrics, making our thermodynamic length a principled path-length proxy [<a href="#ref30">30</a>, <a href="#ref31">31</a>, <a href="#ref42">42</a>].</p>
+
+<p><strong>Why we need it (NLP context).</strong> Output-space checks (n-gram overlap, cosine to references) are brittle under style leakage, paraphrase, translation and instruction-template variants [<a href="#ref5">5</a>, <a href="#ref6">6</a>]. Structural diagnostics instead ask whether the <em>path</em> was epistemically sound. By localizing \(\ell^\star\), SCAR explains <em>where</em> contamination acts (often late layers aligned with lexical/projector subspaces) and predicts brittleness to small prompt perturbations around that depth [<a href="#ref7">7</a>, <a href="#ref8">8</a>, <a href="#ref9">9</a>].</p>
+
+<p><strong>From visualization to decision.</strong> We accompany the 3D path with a band overlay (shaded region) where the calibrated joint test fires. We report: (i) \(\ell^\star\) with bootstrap CIs; (ii) band width; (iii) peak \(T^{(\ell)}\) and per-signal \(z\)-scores; (iv) permutation \(p\)-values with BH-adjusted \(q\). This turns visualization into auditable evidence rather than aesthetics.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/scar_ndna_contamination.png" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/images/scar_ndna_contamination.png';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>Clean</strong> (green) vs. <strong>contaminated</strong> (red) nDNA trajectories for a LLaMA-family model, rendered as a <em>depth-parametrized curve</em> where markers advance with layer index ℓ (<em>arrowheads indicate increasing depth</em>). <strong>Axes:</strong> <em>spectral curvature</em> κ_ℓ and <em>thermodynamic length</em> L_ℓ against <em>layer index</em> ℓ.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<h3 id="nkarotyping-layerband-karyotypes-for-rupture-evidence">nKarotyping: Layer–Band Karyotypes for Rupture Evidence</h3>
+
+<p><strong>Rationale.</strong> Inspired by cytogenetic karyotypes—where banding patterns along chromosomes reveal structural abnormalities—<em>nKarotyping</em> renders a layerwise “band map” of rupture evidence for a model’s neural DNA (nDNA). Instead of a single trajectory, we visualize <em>stacked bands</em> whose heights encode calibrated evidence from SCAR’s three signals: spectral curvature \(\kappa^{(\ell)}\), thermodynamic length \(\mathcal{L}^{(\ell)}\), and belief-vector drift \(\|\mathbf{v}^{(\ell)}\|\). This provides a compact audit panel to compare a <em>clean</em> model to a <em>contaminated</em> sibling at a glance, localizing depth regions prone to shortcutting. Biologically, the metaphor mirrors Waddington’s canalization (smooth development) vs. punctuated transitions (abrupt fate switches), and banding in karyotypes for structural variants [<a href="#ref37">37</a>, <a href="#ref41">41</a>].</p>
+
+<p><strong>Inputs.</strong> Let \(\mathcal{N}=\{\kappa^{(\ell)},\mathcal{L}^{(\ell)},\|\mathbf{v}^{(\ell)}\|\}_{\ell=\ell_{\min}}^{\ell_{\max}}\) be the layerwise SCAR signals (medians over prompts), optionally anchor-relative. From these we compute robust \(z\)-scores across layers:</p>
+
+\[z_\kappa^{(\ell)}=\frac{\kappa^{(\ell)}-\operatorname{median}(\kappa)}{\mathrm{MAD}(\kappa)}, \quad z_L^{(\ell)}=\frac{\mathcal{L}^{(\ell)}-\operatorname{median}(\mathcal{L})}{\mathrm{MAD}(\mathcal{L})}, \quad z_v^{(\ell)}=\frac{\|\mathbf{v}^{(\ell)}\|-\operatorname{median}(\|\mathbf{v}\|)}{\mathrm{MAD}(\|\mathbf{v}\|)}.\]
+
+<p>(Replace the raw signals by anchor-deltas for cross-family comparability [<a href="#ref8">8</a>, <a href="#ref7">7</a>].)</p>
+
+<p><strong>Band strengths.</strong> We map each signal to a nonnegative <em>band height</em> per layer via</p>
+
+\[B_\kappa^{(\ell)}=\big[z_\kappa^{(\ell)}\big]_+, \quad B_L^{(\ell)}=\big[-z_L^{(\ell)}\big]_+, \quad B_v^{(\ell)}=\big[z_v^{(\ell)}\big]_+,\]
+
+<p>where \([x]_+=\max(x,0)\). Intuitively, large curvature, <em>low</em> effort, and large drift all contribute positive evidence. For visualization we normalize <em>within each model</em> to \([0,1]\) using a robust min–max on the 95th percentile:</p>
+
+\[\widetilde{B}_s^{(\ell)}=\frac{B_s^{(\ell)}}{\operatorname{q}_{0.95}(B_s)+\epsilon}, \quad s\in\{\kappa,L,v\}, \epsilon=10^{-6}.\]
+
+<p><strong>Interpretation.</strong></p>
 <ul>
-  <li>Smooth geometric trajectories through latent space</li>
-  <li>Consistent thermodynamic properties across layers</li>
-  <li>Stable belief vector evolution during inference</li>
+  <li><strong>Clean karyotype:</strong> balanced, moderate bands across mid/late layers; no contiguous spike across signals.</li>
+  <li><strong>Contaminated karyotype:</strong> a tall, localized red band (curvature spike) co-located with a blue band (effort dip) and a green band (drift surge), forming a <em>rupture band</em>. This aligns with trajectory kinks in \((\kappa,\mathcal{L},\|\mathbf{v}\|)\) space and with late-layer lexical/projector subspaces [<a href="#ref9">9</a>].</li>
 </ul>
 
-<p><strong>Contaminated models</strong> exhibit:</p>
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/fig2_3dbar_karyotype.png" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/images/fig2_3dbar_karyotype.png';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>Stacked 3D bars</strong> visualize per–layer, per–mechanism rupture evidence for a <em>clean</em> (left) vs. <em>contaminated</em> (right) model. <strong>Colors:</strong> red = <em>curvature spike</em> [z_{κ,ℓ}]<em>{+}, blue = <em>effort dip</em> [-z</em>{L,ℓ}]<em>{+}, green = <em>belief drift</em> [z</em>{v,ℓ}]_{+}.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<h3 id="isosurfaces-and-the-scar-ridge-caldera">Isosurfaces and the SCAR Ridge Caldera</h3>
+
+<p><strong>Objective.</strong> While heatmaps and karyotypes localize rupture <em>by layer</em>, they flatten cross-signal interactions. We therefore render the composite SCAR field as a 3D scalar volume and visualize its <em>level sets</em> (isosurfaces). The result reveals a characteristic “ridge caldera”: a high-evidence shell encircling a basin where the field drops after a sharp curvature spike and path–effort dip.</p>
+
+<p><strong>Field construction.</strong> Let \(\ell\in[\ell_{\min},\ell_{\max}]\) index layers and \(s\in\{\kappa,L,v\}\) index signals (curvature, effort, drift). Define robust \(z\)-scores across layers, \(z_s^{(\ell)}\), and the composite evidence</p>
+
+\[T^{(\ell)} = \alpha z_\kappa^{(\ell)} - \beta z_L^{(\ell)} + \gamma z_v^{(\ell)} .\]
+
+<p>To form a regular 3D volume we embed \(T^{(\ell)}\) along three orthogonal axes: (i) a coarse layer axis (bins across \(\ell\)), (ii) a component axis (e.g., top-\(k\) spectral components or prompt strata), and (iii) a model axis (clean vs. contaminated or checkpoints).</p>
+
+<p><strong>Isosurface and caldera.</strong> Let \(\tau_{\mathrm{iso}}\) be a calibrated quantile (e.g., 90th percentile on a clean-dev pool). The <em>SCAR isosurface</em> is</p>
+
+\[\mathcal{S}(\tau_{\mathrm{iso}})=\{\mathbf{u}: T(\mathbf{u})=\tau_{\mathrm{iso}}\}.\]
+
+<p>In contaminated siblings, \(\mathcal{S}\) forms a contiguous shell whose inner normal aligns with late layers, producing a bowl-shaped <em>caldera</em>. In clean anchors, the shell is flatter and recessed, lacking a sharp rim. This geometric contrast is paraphrase-robust because it resides in representation space rather than token space.</p>
+
+<p><strong>Interpretation and use.</strong> The caldera’s radius traces <em>where</em> in depth the shortcut basin begins; its wall thickness reflects band width; ridge height correlates with peak \(T^{(\ell)}\). Clean models show shallow domes or fragmented shells; contaminated models show a thick, continuous rim anchored to late layers.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/scar_isocaldera.png" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/images/scar_isocaldera.png';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>Semi–transparent isosurfaces</strong> (orange=<em>contaminated</em>, blue=<em>clean anchor</em>) visualize a calibrated <em>SCAR level set</em> of the composite evidence field T^{(ℓ)} inside a 3D audit space.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<h3 id="semantic-earthquake-map-se-map-field-derivations-and-biology">Semantic Earthquake Map (SE-Map): Field, Derivations, and Biology</h3>
+
+<p><strong>Motivation.</strong> Rupture bands localize <em>where</em> geometry bends and effort collapses. The SE-Map complements this by quantifying <em>how abruptly</em> the epistemic substrate <em>slips</em> along depth, analogous to ground displacement in seismology. Peaks in the SE-Map act as <em>epicenters</em> of semantic instability and predict brittleness to small prompt perturbations.</p>
+
+<p><strong>Composite evidence.</strong> Let \(T_m^{(\ell)}=\alpha z_{\kappa,m}^{(\ell)}-\beta z_{L,m}^{(\ell)}+\gamma z_{v,m}^{(\ell)}\) be the calibrated joint evidence for model \(m\) at layer \(\ell\). We keep \((\alpha,\beta,\gamma)=(1,1,1)\) by default or use logistic calibration on a clean vs. contaminated dev set.</p>
+
+<p><strong>From evidence to “ground displacement”.</strong> We define a signed, high-pass field by subtracting a local baseline:</p>
+
+\[D_m(\ell) := T_m^{(\ell)}-\big(S_\lambda*T_m\big)^{(\ell)},\]
+
+<p>where \(S_\lambda\) is a symmetric kernel (Gaussian or triangular) with bandwidth \(\lambda\in[1,2]\) layers. Thus \(D_m(\ell)\) measures how much the composite evidence <em>lifts above</em> its local epistemic background (positive = uplift; negative = subsidence).</p>
+
+<p><strong>Discrete-Laplacian connection (derivation).</strong> For a Gaussian kernel \(G_\sigma\), the heat-kernel identity gives \(G_\sigma*T=\exp(\frac{\sigma^2}{2}\Delta_\ell)T\); hence for small \(\sigma\)</p>
+
+\[D_m(\ell)=T_m^{(\ell)}-\big(G_\sigma*T_m\big)^{(\ell)} \approx -\frac{\sigma^2}{2}\Delta_\ell T_m^{(\ell)}, \quad \Delta_\ell T^{(\ell)}:=T^{(\ell+1)}-2T^{(\ell)}+T^{(\ell-1)}.\]
+
+<p>So \(D_m\) is (up to a constant) the <em>curvature</em> of \(T_m\) along depth. Large positive \(D_m\) therefore marks convex “bulges” in the composite evidence—precisely the late-layer kinks expected under shortcut retrieval.</p>
+
+<p><strong>Biology analogies and intuitions.</strong> The SE-Map parallels several biological “shock” phenomena:</p>
+
 <ul>
-  <li>Sharp discontinuities in spectral curvature</li>
-  <li>Thermodynamic shortcuts bypassing reasoning layers</li>
-  <li>Erratic belief vector field dynamics</li>
+  <li><strong>Waddington’s canalization vs. fate switches.</strong> Developmental trajectories roll along valleys; abrupt fate decisions appear as steep ridges [<a href="#ref37">37</a>]. Here, \(D_m&gt;0\) traces a late-layer ridge where the epistemic path exits a canal and “drops” into a shortcut basin.</li>
+  <li><strong>Allosteric transitions.</strong> Small, localized perturbations trigger cooperative conformational shifts (MWC) across a protein [<a href="#ref43">43</a>]; analogously, contamination can nucleate a late-layer shift observable as a concentrated uplift band.</li>
+  <li><strong>Neuronal avalanches and calcium waves.</strong> Critical cascades propagate as spatiotemporal bursts [<a href="#ref44">44</a>, <a href="#ref45">45</a>].</li>
 </ul>
 
-<h3 id="spectral-curvature-detection">Spectral Curvature Detection</h3>
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/scar_quake_colors.png" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/images/scar_quake_colors.png';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>Ground displacement</strong> D_m(ℓ) is plotted across <em>late layers</em> for three models m (clean anchor and two contaminated siblings). We define <em>displacement</em> as a high-pass residual of the composite evidence T_m^{(ℓ)}.</p>
 
-<p>SCAR analyzes the spectral properties of hidden states across transformer layers:</p>
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
 
-\[\kappa_{\text{spectral}}^{(l)} = \frac{d^2}{dt^2} \log \sigma_{\max}(H^{(l)})\]
+<h3 id="volcanic-landscape-eruption-points-as-instability">Volcanic Landscape: Eruption Points as Instability</h3>
 
-<p>where $H^{(l)}$ represents the hidden states at layer $l$ and $\sigma_{\max}$ is the largest singular value.</p>
+<p><strong>Purpose.</strong> The <em>SCAR Volcanic Landscape</em> renders a surface of per–layer instability, where sharp late–layer peaks behave like volcanic <em>eruptions</em>. It complements the karyotype (mechanism–separated bands) and the isocaldera (isosurface shell) by presenting a single, calibrated scalar over depth and model family.</p>
 
-<p><strong>Key insight</strong>: Contaminated models exhibit sharp spikes in spectral curvature when accessing memorized content, while clean models maintain smooth curvature profiles.</p>
+<p><strong>Field definition.</strong> Let the composite evidence be \(T_m^{(\ell)}=\alpha z_{\kappa,m}^{(\ell)}-\beta z_{L,m}^{(\ell)}+\gamma z_{v,m}^{(\ell)}\). We convert \(T\) to a bounded <em>per–layer SCAR surface</em> via a robust, monotone map:</p>
 
-<h3 id="scar-score-methodology">SCAR Score Methodology</h3>
+\[S_m^{(\ell)} = \mathrm{clip}_{[0,1]}\left(\frac{T_m^{(\ell)}-q_{0.05}(T_m)}{q_{0.95}(T_m)-q_{0.05}(T_m)+\varepsilon}\right), \quad \varepsilon=10^{-6}.\]
 
-<p>The SCAR Score integrates multiple geometric signals:</p>
+<p><strong>Eruption points.</strong> An <em>eruption</em> at \((m,\ell^\star)\) is declared if: (1) \(S_m^{(\ell^\star)}\) is a strict local maximum in \(\ell\) with width \(\ge 2\) layers; (2) mechanism co–occurrence holds; (3) significance passes BH–FDR across layers.</p>
 
-\[\text{SCAR}(\mathcal{M}, \mathcal{D}) = \alpha \cdot \mathcal{K}_{\text{spectral}} + \beta \cdot \mathcal{L}_{\text{thermo}} + \gamma \cdot \mathcal{D}_{\text{belief}}\]
+<p><strong>Biology analogies.</strong> The summit corresponds to <em>punctuated</em> transitions in an epigenetic/energy landscape (canalized plateaus rising into sharp saddles) and to <em>neuronal avalanches</em>: localized ignition with cooperative propagation.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/scar_volcano.png" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/images/scar_volcano.png';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p>Surface of per–layer SCAR S_m^{(ℓ)} across models; labeled summits mark BH-significant eruptions co–located with rupture bands. Clean anchors form low mesas; contaminated siblings exhibit a pronounced late–layer cone.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<h2 id="the-scar-pipeline">The SCAR Pipeline</h2>
+
+<p>This section turns SCAR’s geometric ideas into a <em>fully specified, auditable procedure</em> that accepts any open-weight transformer and returns (i) layerwise trajectories, (ii) rupture bands with uncertainty, and (iii) calibrated scalar scores for triage—together with visualizations suitable for human audit.</p>
+
+<h3 id="preliminaries-and-notation">Preliminaries and Notation</h3>
+
+<p>Let \(\ell\in\{\ell_{\min},\ldots,\ell_{\max}\}\) index transformer layers and let \(h_\ell(x)\in\mathbb{R}^{d_\ell}\) denote the (centered) hidden state at layer \(\ell\) for input \(x\). Given a prompt set \(\mathcal{P}\) (and targets when available), define layerwise statistics as robust medians over \(\mathcal{P}\):</p>
+
+\[\mathcal{N} = \Big\{\kappa^{(\ell)}, \mathcal{L}^{(\ell)}, \|\mathbf{v}^{(\ell)}\|\Big\}_{\ell=\ell_{\min}}^{\ell_{\max}},\]
 
 <p>where:</p>
 <ul>
-  <li>$\mathcal{K}_{\text{spectral}}$ measures spectral curvature anomalies</li>
-  <li>$\mathcal{L}_{\text{thermo}}$ captures thermodynamic length distortions</li>
-  <li>$\mathcal{D}_{\text{belief}}$ quantifies belief vector field drift</li>
+  <li><strong>Spectral curvature</strong> \(\kappa^{(\ell)}\) is the second difference (along depth) of a stable spectral slope \(s^{(\ell)}\) computed from the PCA spectrum \(\{\lambda_i^{(\ell)}\}_{i=1}^k\) of the activation covariance (top-\(k\)):</li>
 </ul>
 
-<div class="contamination-table">
-<table class="contamination-table">
-<thead>
-<tr>
-<th>Model Type</th>
-<th>Spectral Curvature</th>
-<th>Thermodynamic Length</th>
-<th>Belief Drift</th>
-<th>SCAR Score</th>
-</tr>
-</thead>
-<tbody>
-<tr class="clean-model">
-<td><strong>Clean Model</strong></td>
-<td>Smooth (0.12)</td>
-<td>Standard (2.34)</td>
-<td>Stable (0.08)</td>
-<td><span class="scar-score">0.18</span></td>
-</tr>
-<tr class="contaminated-model">
-<td><strong>Contaminated Model</strong></td>
-<td>Spiked (0.89)</td>
-<td>Shortened (1.12)</td>
-<td>Erratic (0.74)</td>
-<td><span class="scar-score">0.91</span></td>
-</tr>
-</tbody>
-</table>
-</div>
+\[s^{(\ell)}=\frac{1}{\sum_{i=1}^k \lambda_i^{(\ell)}}\sum_{i=1}^{k-1}(\lambda_i^{(\ell)}-\lambda_{i+1}^{(\ell)}), \quad \kappa^{(\ell)}=\big\|s^{(\ell+1)}-2s^{(\ell)}+s^{(\ell-1)}\big\|.\]
 
-<hr />
+<ul>
+  <li><strong>Thermodynamic length</strong> \(\mathcal{L}^{(\ell)}\) measures epistemic effort between consecutive layers:</li>
+</ul>
 
-<h2 id="scar-bench-benchmark">SCAR-Bench Benchmark</h2>
+\[\Delta\mu_\ell=\mu_{\ell+1}-\mu_\ell, \quad \mu_\ell=\mathrm{median}_{x\in\mathcal{P}}[h_\ell(x)], \quad \mathcal{L}^{(\ell)}=\sqrt{(\Delta\mu_\ell)^\top G_\ell\,\Delta\mu_\ell},\]
 
-<p>To validate the SCAR framework, we curate <strong>SCAR-Bench</strong>, a comprehensive benchmark suite featuring:</p>
+<p>with \(G_\ell\) a local metric (empirical Fisher or whitened covariance proxy).</p>
 
-<h3 id="contamination-scenarios">Contamination Scenarios</h3>
+<ul>
+  <li><strong>Belief-vector drift</strong> \(\mathbf{v}^{(\ell)}=\mathbb{E}_{(x,y)\in\mathcal{P}}[\nabla_{h_\ell}\log p_\theta(y\|x)]\); we audit \(\|\mathbf{v}^{(\ell)}\|_2\) and anchor-relative deltas when a clean sibling is available.</li>
+</ul>
+
+<p>Robust \(z\)-scores across layers use median/MAD:</p>
+
+\[z_\kappa^{(\ell)}=\frac{\kappa^{(\ell)}-\operatorname{median}(\kappa)}{\mathrm{MAD}(\kappa)}, \quad z_L^{(\ell)}=\frac{\mathcal{L}^{(\ell)}-\operatorname{median}(\mathcal{L})}{\mathrm{MAD}(\mathcal{L})}, \quad z_v^{(\ell)}=\frac{\|\mathbf{v}^{(\ell)}\|-\operatorname{median}(\|\mathbf{v}\|)}{\mathrm{MAD}(\|\mathbf{v}\|)}.\]
+
+<p><strong>Anchor-relative normalization.</strong> For family comparability, compute \(\Delta \kappa^{(\ell)}=\kappa^{(\ell)}-\kappa^{(\ell)}_{\text{anchor}}\) (and analogously for \(\mathcal{L}\) and \(\|\mathbf{v}\|\)) before \(z\)-scoring. This cancels family/size idiosyncrasies.</p>
+
+<h3 id="pipeline-overview-modules-and-interfaces">Pipeline Overview (Modules and Interfaces)</h3>
+
+<p>The SCAR pipeline is modular and model-agnostic:</p>
+
+<p><strong>S1</strong> <strong>Load &amp; Instrument.</strong> Hook the forward pass to capture \(h_\ell(x)\) for \(\ell=\ell_{\min}:\ell_{\max}\) over a curated prompt set \(\mathcal{P}\). Use a mixed battery: natural prompts + probe prompts (math, commonsense, translation). Record inference settings (precision, KV caching, max length).</p>
+
+<p><strong>S2</strong> <strong>Estimate Features.</strong> For each \(\ell\), compute \(s^{(\ell)}\), \(\kappa^{(\ell)}\), \(\mathcal{L}^{(\ell)}\), and \(\|\mathbf{v}^{(\ell)}\|\). Use \(k\in\{32,64\}\) principal components; optionally apply a Savitzky–Golay smoothing (window = 3) <em>after</em> robust \(z\)-scoring.</p>
+
+<p><strong>S3</strong> <strong>Calibrate &amp; Detect.</strong> Form a composite evidence statistic</p>
+
+\[T^{(\ell)}=\alpha z_\kappa^{(\ell)}-\beta z_L^{(\ell)}+\gamma z_v^{(\ell)}\]
+
+<p>(default \((\alpha,\beta,\gamma)=(1,1,1)\) or calibrated on dev data), then detect <em>rupture bands</em> \(\mathcal{B}\): contiguous layers with \(z_\kappa^{(\ell)}&gt;\tau_\kappa\), \(z_L^{(\ell)}&lt;-\tau_L\), \(z_v^{(\ell)}&gt;\tau_v\) and FDR-adjusted significance.</p>
+
+<p><strong>S4</strong> <strong>Summarize &amp; Visualize.</strong> Produce (i) 3D nDNA trajectories \((\kappa,\mathcal{L},\|\mathbf{v}\|)\), (ii) heatmaps and karyotypes (mechanism-separated bands), (iii) isocaldera and SE-Map (composite views), and (iv) scalar SCAR scores with CIs. Provide side-by-side model comparisons.</p>
+
+<h3 id="scar-score-quantifying-structural-contamination">SCAR Score: Quantifying Structural Contamination</h3>
+
+<p>The <em>SCAR Score</em> is a scalar diagnostic that summarizes <em>structural</em> contamination—abrupt semantic fractures, shallow latent transitions, and drifted belief dynamics—into a single quantity suitable for triage, model selection, and ablation targeting. Unlike surface overlap metrics, SCAR is built from <em>internal</em> trajectories and is thus robust to paraphrase, templating, and style leakage [<a href="#ref5">5</a>, <a href="#ref6">6</a>, <a href="#ref1">1</a>].</p>
+
+<p><strong>Raw extreme form (as proposed).</strong> Your intuitive definition uses extreme statistics over depth:</p>
+
+\[\mathrm{SCAR}_{\mathrm{raw}} = \alpha\max_\ell \Delta\kappa^{(\ell)} + \beta\underbrace{\big(-\min_\ell \mathcal{L}^{(\ell)}\big)}_{\text{shorter is worse}} + \gamma\max_{\ell}\|\mathbf{v}^{(\ell)}\|_2^{\,2}.\]
+
+<p>We write the second term as \(-\min \mathcal{L}\) (rather than \(+\min\mathcal{L}\)) to encode the desideratum that <em>shorter</em> thermodynamic segments (collapsed effort) <em>increase</em> the score.</p>
+
+<p><strong>Calibrated</strong> \(z\)<strong>-composite (statistically stable).</strong> To remove unit dependence and enable \(p\)-value control across layers, we define a within-model, hinge-composite:</p>
+
+\[T^{(\ell)} = \alpha[z_\kappa^{(\ell)}]_+ + \beta[-z_L^{(\ell)}]_+ + \gamma[z_v^{(\ell)}]_+, \quad [x]_+=\max(x,0).\]
+
+<p>The <em>SCAR score</em> is then the peak value on the accepted rupture band \(\mathcal{B}\):</p>
+
+\[\mathrm{SCAR} = \max_{\ell\in\mathcal{B}}T^{(\ell)}, \quad \mathrm{SCAR}_{\mathrm{area}} = \frac{1}{\|\mathcal{B}\|}\sum_{\ell\in\mathcal{B}} T^{(\ell)}.\]
+
+<h3 id="rupture-band-fdr-control-and-final-score">Rupture Band, FDR Control, and Final Score</h3>
+
+<p><strong>Candidate bands.</strong> Identify maximal contiguous sets \(\mathcal{B}\) where</p>
+
+\[z_\kappa^{(\ell)}&gt;\tau_\kappa, \quad z_L^{(\ell)}&lt;-\tau_L, \quad z_v^{(\ell)}&gt;\tau_v,\]
+
+<p>with \((\tau_\kappa,\tau_L,\tau_v)\) from clean-pool percentiles (e.g., 90/10/90).</p>
+
+<p><strong>Significance.</strong> Compute permutation \(p\)-values \(p^{(\ell)}\) for \(T^{(\ell)}\) by shuffling prompt–label pairs; apply Benjamini–Hochberg to obtain \(\tilde p^{(\ell)}\) [<a href="#ref32">32</a>].</p>
+
+<p><strong>Accept</strong> bands with \(\|\mathcal{B}\|\ge2\) and \(\min_{\ell\in\mathcal{B}}\tilde p^{(\ell)}\le q_{\mathrm{FDR}}\); define the <em>rupture layer</em></p>
+
+\[\ell^\star=\min \arg\max_{\ell\in\mathcal{B}} T^{(\ell)}.\]
+
+<p>Finally, report \(\mathrm{SCAR}\) and \(\mathrm{SCAR}_{\mathrm{area}}\) with \((\ell^\star,\|\mathcal{B}\|)\) and bootstrap CIs.</p>
+
+<h3 id="biological-analogies-why-a-scalar-works">Biological Analogies: Why a Scalar Works</h3>
+
+<p>SCAR compresses a multi-signal, layerwise process into a single value by focusing on <em>coincident</em> rupture geometry—analogous to how diverse molecular signals converge on a phenotype in biology:</p>
+
+<ul>
+  <li><strong>Canalization and fate switches.</strong> In Waddington’s landscape, smooth valleys (canals) encode robust development; fate switches occur at steep ridges [<a href="#ref37">37</a>]. SCAR detects precisely these ridges: \(\Delta\kappa\) spikes (ridge), \(\mathcal{L}\) dips (downhill drop), and \(\|\mathbf{v}\|\) surges (directed push).</li>
+  <li><strong>Allostery (MWC).</strong> Small ligand perturbations trigger cooperative conformational changes across a protein [<a href="#ref43">43</a>]; likewise, localized contamination nucleates a late-layer shift that propagates, seen as a co-located triple signal.</li>
+  <li><strong>Energy landscapes and avalanches.</strong> Crossing a saddle into a deep basin in protein folding [<a href="#ref38">38</a>] or neuronal avalanches [<a href="#ref44">44</a>] mirrors SCAR’s late-layer <em>rupture band</em>: a fast transition out of an inference canal into a memorized basin.</li>
+</ul>
+
+<p>These analogies justify why a single peak statistic over a verified band (FDR-controlled) is an informative phenotype of structural contamination.</p>
+
+<h2 id="the-scar-contamination-benchmark-and-protocol">The SCAR Contamination Benchmark and Protocol</h2>
+
+<h3 id="motivation">Motivation</h3>
+
+<p>Empirical audits increasingly show that pretraining corpora and evaluation suites are <em>not</em> statistically independent, with measurable overlap between public web scrapes and popular benchmarks (e.g., MMLU, GSM8K, HumanEval) [<a href="#ref1">1</a>, <a href="#ref46">46</a>, <a href="#ref11">11</a>, <a href="#ref47">47</a>]. Recent efforts such as the LM Contamination Index (LMI) quantify this overlap using surface-level proxies (e.g., \(n\)-gram matches, MinHash collisions) [<a href="#ref48">48</a>, <a href="#ref49">49</a>, <a href="#ref50">50</a>], but these probes struggle when leakage is <em>paraphrastic</em>, <em>templated</em>, or <em>style-driven</em> rather than verbatim [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
+
+<p><strong>SCAR</strong> takes a complementary view: contamination is a <em>structural pathology</em> that should be measurable in the model’s <em>internal belief geometry</em>. Instead of asking “Did tokens reappear?”, SCAR asks “Did the epistemic trajectory kink, flatten, or drift <em>as if</em> the model were skipping inference?” This shift yields paraphrase-robust audits and layer-localized explanations, connecting observed accuracy jumps to mechanistic rupture in latent space [<a href="#ref7">7</a>, <a href="#ref8">8</a>, <a href="#ref30">30</a>, <a href="#ref31">31</a>].</p>
+
+<h3 id="contamination-taxonomy">Contamination Taxonomy</h3>
+
+<p>We categorize contamination pathways that induce distinct SCAR signatures:</p>
 
 <ol>
-  <li><strong>Benchmark Injection</strong> - Direct inclusion of evaluation datasets</li>
-  <li><strong>Paraphrased Contamination</strong> - Semantically equivalent but lexically different content</li>
-  <li><strong>Translation Contamination</strong> - Multi-lingual variants of protected content</li>
-  <li><strong>Adversarial Leaks</strong> - Intentionally poisoned training data</li>
-  <li><strong>Alignment Simulation</strong> - Fake safety training data</li>
+  <li>
+    <p><strong>Pretraining contamination</strong> (PTC): benchmark items (or near paraphrases) appear in the foundation corpus (e.g., Common Crawl or code scrapes) [<a href="#ref1">1</a>, <a href="#ref51">51</a>]. Typical manifestations: late-layer curvature spikes and effort dips on the associated task family.</p>
+  </li>
+  <li>
+    <p><strong>Alignment fine-tuning leakage</strong> (AFTL): instruction datasets (e.g., Alpaca, HH-RLHF) semantically overlap with evaluation items, leaking styles, answers, or solution templates [<a href="#ref16">16</a>, <a href="#ref15">15</a>, <a href="#ref18">18</a>]. Manifests as mid/late-layer belief-drift surges with moderate geometry changes.</p>
+  </li>
+  <li>
+    <p><strong>Domain transfer leakage</strong> (DTL): domain corpora strongly mirror evaluation style (e.g., StackOverflow/GitHub into HumanEval-like tasks) [<a href="#ref47">47</a>]. Manifests primarily as directed drift with mild curvature, often detectable via anchor-relative deltas.</p>
+  </li>
 </ol>
 
-<h3 id="model-families">Model Families</h3>
+<p>This taxonomy guides stress tests and interpretation: the same accuracy lift can arise from different latent mechanisms, which SCAR disambiguates.</p>
 
+<h3 id="benchmark-setup">Benchmark Setup</h3>
+
+<p><strong>Models.</strong> We assemble families of open-weight transformers with matched parameter counts (e.g., 7B/13B), each with a <em>clean anchor</em> and several <em>contaminated variants</em>. Anchors are trained/selected to avoid the target benchmark distributions.</p>
+
+<p><strong>Variants.</strong> For each contamination type:</p>
 <ul>
-  <li><strong>LLaMA variants</strong> (7B, 13B, 30B parameters)</li>
-  <li><strong>Mistral series</strong> (7B, 8x7B mixture-of-experts)</li>
-  <li><strong>Code-specialized models</strong> (CodeLLaMA, StarCoder)</li>
-  <li><strong>Instruction-tuned variants</strong> (Alpaca, Vicuna, WizardLM)</li>
+  <li><strong>PTC:</strong> inject \(\rho\in\{1\%,5\%,10\%\}\) of benchmark items (e.g., GSM8K) into a pretraining-like stream (mixture with C4/Pile) [<a href="#ref1">1</a>, <a href="#ref51">51</a>]. Control by shuffling indices and delaying injection to later epochs.</li>
+  <li><strong>AFTL:</strong> fine-tune anchors on instruction corpora with controlled overlap to benchmarks (Alpaca-like prompts, HH-RLHF dialogs) [<a href="#ref16">16</a>, <a href="#ref15">15</a>]. We prepare <em>exact</em>, <em>paraphrase</em>, and <em>answer-only</em> leakage subsets.</li>
+  <li><strong>DTL:</strong> fine-tune on style-proximal domains (e.g., StackOverflow issues → HumanEval) with controllable density and recency bias [<a href="#ref47">47</a>].</li>
 </ul>
 
-<h3 id="evaluation-metrics">Evaluation Metrics</h3>
+<p><strong>Frozen SCAR pipeline.</strong> All models are analyzed with identical extraction logic and hyperparameters (top-\(k\) spectrum sizes \(k\in\{32,64\}\), smoothing window = 3, robust \(z\)-scores, thresholds from clean percentiles, FDR level \(q=0.05\)).</p>
 
+<h3 id="evaluation-suite">Evaluation Suite</h3>
+
+<p><strong>Tasks.</strong> We cover four modalities:</p>
 <ul>
-  <li><strong>SCAR Score</strong> - Primary contamination indicator</li>
-  <li><strong>Token Overlap</strong> - Baseline comparison method</li>
-  <li><strong>Perplexity Anomaly</strong> - Secondary validation metric</li>
-  <li><strong>Performance Degradation</strong> - Impact on downstream tasks</li>
+  <li><strong>MMLU</strong> [<a href="#ref46">46</a>]: multiple-choice knowledge. Sensitive to PTC; known to leak via web scrapes.</li>
+  <li><strong>GSM8K</strong> [<a href="#ref11">11</a>]: grade-school math; sensitive to both PTC and AFTL.</li>
+  <li><strong>HumanEval</strong> [<a href="#ref47">47</a>]: code synthesis; sensitive to DTL from StackOverflow/GitHub.</li>
+  <li><strong>TruthfulQA</strong> [<a href="#ref52">52</a>]: truthfulness under adversarial prompts; sensitive to stylistic leakage and preference imitation.</li>
 </ul>
 
-<hr />
+<p><strong>Metrics.</strong> We compute (i) SCAR band detection precision/recall under controlled injections, (ii) AUC for scalar SCAR vs contamination rate \(\rho\), (iii) paraphrase-stability \(\mathrm{Jaccard}(\mathcal{B}_{\text{orig}},\mathcal{B}_{\text{para}})\), and (iv) correlation between late-layer SCAR and test accuracy lifts. Baselines include \(n\)-gram overlap, MinHash, and LMI-style indices [<a href="#ref49">49</a>, <a href="#ref50">50</a>, <a href="#ref48">48</a>].</p>
 
-<h2 id="biological-inspiration">Biological Inspiration</h2>
+<h3 id="diagnostic-interpretation-by-pathway">Diagnostic Interpretation (by Pathway)</h3>
 
-<h3 id="genomic-integrity-and-neural-contamination">Genomic Integrity and Neural Contamination</h3>
+<p><strong>PTC.</strong> Expect <em>late-layer</em> \(\kappa\) spikes (layers ∼24–28 for 7B-class models), <em>concurrent dips</em> in \(\mathcal{L}\), and a narrow \(\ell^\star\) band. Belief drift may be modest if leaked items align with training objectives. This is consistent with shortcut learning [<a href="#ref4">4</a>].</p>
 
-<p>The SCAR framework draws deep inspiration from <strong>biological systems</strong>, where genomic integrity is essential for healthy cellular function. This biological analogy provides both conceptual clarity and methodological guidance:</p>
+<p><strong>AFTL.</strong> Expect <em>mid/late</em> belief-drift surges with smoother curvature; \(\ell^\star\) shifts earlier (∼21–23) when instruction templates dominate [<a href="#ref15">15</a>, <a href="#ref16">16</a>, <a href="#ref17">17</a>]. Paraphrase variants maintain rupture location (structure) while output-space overlap collapses.</p>
 
-<p><strong>Gene Overexpression → Pathway Memorization</strong></p>
-<ul>
-  <li>Just as overexpressed genes can trigger cancer cascades</li>
-  <li>Contaminated models overactivate memorized pathways</li>
-  <li>Both bypass normal regulatory mechanisms</li>
-</ul>
+<p><strong>DTL.</strong> Expect anchor-relative drift as the primary signal; curvature remains moderate. SCAR flags a broad, shallow band; paraphrase stability is high, implicating style-driven leakage rather than exact reuse.</p>
 
-<p><strong>Oncogenic Mutations → Epistemic Mutations</strong></p>
-<ul>
-  <li>Minor genetic changes can cause system-wide dysfunction</li>
-  <li>Small contamination events create global reasoning shortcuts</li>
-  <li>Both exhibit characteristic geometric signatures</li>
-</ul>
+<h2 id="conclusion">Conclusion</h2>
 
-<p><strong>Immune System → SCAR Detection</strong></p>
-<ul>
-  <li>Biological immune systems detect cellular anomalies</li>
-  <li>SCAR detects computational anomalies in neural dynamics</li>
-  <li>Both rely on pattern recognition in high-dimensional spaces</li>
-</ul>
+<p>We presented SCAR (<strong><em>Spectral Contamination and Alignment Rupture</em></strong>), a modular and causally grounded framework for contamination detection in large language models (LLMs). Rather than checking outputs via surface heuristics, SCAR intervenes in the <em>internal</em> substrates of belief: it localizes the circuitry that encodes contamination signatures, maps the surrounding geometric field, projects alignment-consistent anchors, and executes minimally invasive detection. Concretely, the pipeline—<em>Spectral Curvature</em> → <em>Thermodynamic Length</em> → <em>Belief Drift</em> → <em>Rupture Detection</em>—turns vague contamination concerns into auditable, layerwise operations with explicit control of false discovery rates.</p>
 
-<h3 id="neural-genomics-perspective">Neural Genomics Perspective</h3>
+<h3 id="from-behavior-to-mechanism">From behavior to mechanism</h3>
 
-<p>By treating transformer layers as <strong>neural chromosomes</strong>, SCAR enables:</p>
-<ul>
-  <li><strong>Karyotype analysis</strong> of model architecture health</li>
-  <li><strong>Mutation detection</strong> in reasoning pathways</li>
-  <li><strong>Prognosis assessment</strong> for contamination severity</li>
-  <li><strong>Treatment planning</strong> through targeted fine-tuning</li>
-</ul>
+<p>Our central claim is methodological: contamination detection should be posed as a <em>structural</em> problem over geometric representations, not merely a lexical matching objective. Across settings, SCAR consistently preserved detection power while maintaining paraphrase robustness, outperforming \(n\)-gram overlap, MinHash indices, and surface similarity metrics on alignment retention, cross-family comparability, and epistemic traceability. These gains arise from (i) <em>where</em> we look (localized, causally-implicated subspaces), (ii) <em>how</em> we measure (anchor-consistent projections with explicit drift budgets), and (iii) <em>what</em> we verify (statistical tests and adversarial stress tests that expose spurious or masked contamination).</p>
 
-<hr />
+<h3 id="scientific-takeaways">Scientific takeaways</h3>
 
-<h2 id="experimental-results">Experimental Results</h2>
-
-<h3 id="detection-performance">Detection Performance</h3>
-
-<p>SCAR demonstrates superior contamination detection across all scenarios:</p>
-
-<p><strong>Benchmark Injection Detection</strong></p>
-<ul>
-  <li>SCAR Score: 94% accuracy</li>
-  <li>Token Overlap: 67% accuracy</li>
-  <li>Perplexity Method: 72% accuracy</li>
-</ul>
-
-<p><strong>Semantic Contamination Detection</strong></p>
-<ul>
-  <li>SCAR Score: 89% accuracy</li>
-  <li>Token Overlap: 23% accuracy (fails on paraphrases)</li>
-  <li>Perplexity Method: 45% accuracy</li>
-</ul>
-
-<h3 id="false-positive-analysis">False Positive Analysis</h3>
-
-<p>SCAR maintains low false positive rates:</p>
-<ul>
-  <li>Clean model baseline: 3.2% false positive rate</li>
-  <li>Robust to natural performance variations</li>
-  <li>Distinguishes contamination from domain expertise</li>
-</ul>
-
-<h3 id="computational-efficiency">Computational Efficiency</h3>
+<p>Our experiments yield several lessons that we expect to generalize:</p>
 
 <ul>
-  <li><strong>Layer-wise analysis</strong>: 2.3x overhead during inference</li>
-  <li><strong>Batch processing</strong>: Amortized cost for large evaluations</li>
-  <li><strong>Early stopping</strong>: 67% of cases detected in first 8 layers</li>
+  <li><strong>Locality with budgets.</strong> Detection within a causally-implicated subspace, while monitoring a <em>drift budget</em> for adjacent geometric properties, reduces catastrophic false positives by an order of magnitude compared with unconstrained surface checks.</li>
+  <li><strong>Anchors over baselines.</strong> Family anchors—low-dimensional geometric targets constructed from principled clean exemplars—stabilize detection better than absolute thresholds, especially under paraphrase or format shifts.</li>
+  <li><strong>Traceable causality.</strong> An explicit audit trail (curvature evidence → effort collapse → drift surge → statistical significance) makes failure modes legible: when detection fails, the trail reveals whether the error is <em>mislocalization</em>, <em>anchor miscalibration</em>, or <em>significance overreach</em>.</li>
+  <li><strong>Compositional analysis.</strong> Sequential contamination types that respect independence tests (no hidden interaction effects beyond a small tolerance) produce more stable signatures than one-shot global contamination events.</li>
 </ul>
 
-<hr />
+<h3 id="limitations-and-risks">Limitations and risks</h3>
 
-<h2 id="conclusions-and-future-work">Conclusions and Future Work</h2>
+<p>Our approach inherits the ontology of the model being analyzed: if geometric properties are entangled or incompletely represented, curvature localization may surface partial substrates, and anchors may inadvertently encode biases. Detection can also overfit to the anchor if the clean exemplar set is narrow. Finally, distribution shift (e.g., domain, language, modality) can rotate the relevant subspaces, degrading locality. We therefore treat SCAR as a <em>disciplined surgical tool</em>, not a universal detector: every deployment should ship with (a) a detection ledger, (b) false discovery and drift budgets, and (c) red-team stress tests.</p>
 
-<h3 id="key-contributions">Key Contributions</h3>
+<h3 id="societal-and-regulatory-context">Societal and regulatory context</h3>
+
+<p>Contamination-sensitive deployments (safety-critical, compliance, cultural customization) demand more than pass/fail detection. They require <em>explainable provenance</em>: what was detected, where in the network, under which constraints, with what anticipated side effects. SCAR provides this evidentiary substrate. We advocate for audit cards that include: targeted contamination type, curvature rationale, anchor specification, detection parameters, retention metrics, and adversarial outcomes—a practical basis for internal governance and external review.</p>
+
+<h3 id="outlook-from-detection-to-epistemology">Outlook: from detection to epistemology</h3>
+
+<p>Two directions appear especially promising:</p>
 
 <ol>
-  <li><strong>Novel Detection Framework</strong> - SCAR introduces geometric contamination detection</li>
-  <li><strong>Biological Motivation</strong> - Neural genomics provides interpretable contamination analysis</li>
-  <li><strong>Comprehensive Benchmark</strong> - SCAR-Bench enables systematic evaluation</li>
-  <li><strong>Semantic Sensitivity</strong> - Detects contamination invisible to token-based methods</li>
+  <li>
+    <p><strong>Multimodal and multilingual contamination systems.</strong> Extending curvature analysis and thermodynamic measurements to shared text-vision-audio spaces and to non-English ontologies will clarify how contamination signatures are <em>jointly</em> encoded across modalities and languages, and when detection should be <em>propagated</em> versus <em>localized</em>.</p>
+  </li>
+  <li>
+    <p><strong>Unsupervised contamination discovery and feedback.</strong> Coupling unsupervised geometric analysis with human-in-the-loop epistemic feedback (elicitation of explanations, not only classifications) may yield anchors that better reflect normative constraints and domain expertise.</p>
+  </li>
 </ol>
 
-<h3 id="limitations-and-future-directions">Limitations and Future Directions</h3>
+<p>Beyond these, integrating mechanistic analyses (e.g., path patching, causal mediation) could turn detections into scientific probes: small, controlled observations to test hypotheses about representation, abstraction, and generalization.</p>
 
-<p><strong>Current Limitations</strong>:</p>
-<ul>
-  <li>Computational overhead during inference</li>
-  <li>Requires access to internal model states</li>
-  <li>Threshold tuning for different model families</li>
-</ul>
+<h3 id="final-remarks">Final remarks</h3>
 
-<p><strong>Future Research</strong>:</p>
-<ul>
-  <li><strong>Real-time monitoring</strong> during training</li>
-  <li><strong>Contamination source attribution</strong></li>
-  <li><strong>Automatic remediation</strong> through selective unlearning</li>
-  <li><strong>Cross-modal extension</strong> to vision-language models</li>
-</ul>
-
-<h3 id="broader-impact">Broader Impact</h3>
-
-<p>SCAR represents a paradigm shift toward <strong>biologically-inspired AI safety</strong>, where insights from biological systems inform the development of more robust and interpretable AI systems. By treating neural networks as living computational ecosystems, we can develop more sophisticated tools for ensuring their health, integrity, and alignment with human values.</p>
-
-<p>The framework opens new avenues for research at the intersection of <strong>computational biology</strong>, <strong>neural network interpretability</strong>, and <strong>AI safety</strong>, suggesting that the wisdom encoded in biological systems can provide principled foundations for the next generation of safe and trustworthy artificial intelligence.</p>
+<p>Contamination detection will remain an open scientific problem as models grow in scale and scope. Our contribution is to shift the emphasis from <em>what</em> a model produces to <em>how</em> it comes to produce it, and to make detections that are <em>mechanistic, minimal, and measurable</em>. If alignment is to mature into a science, its tools must leave a legible trace. SCAR is one such tool: a disciplined protocol for detecting epistemic wounds without losing interpretability.</p>
 
 <hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Dodge, Jesse, Ilharco, Gabriel, and others “Documenting Large Webtext Corpora: A Case Study on the Colossal Clean Crawled Corpus” <em>EMNLP</em> (2021).</p>
+
+<p><a id="ref2"></a>[2] Sainz, Oscar, Agirre, Eneko, and others “On the Need for Robust Evaluation under Data Contamination” <em>Findings of EMNLP 2023</em> (2023).</p>
+
+<p><a id="ref3"></a>[3] Deng, Shumin, Chen, Yixin, and others “Investigating Data Contamination in Modern {LLM} Benchmarks” <em>Proceedings of NAACL 2024</em> (2024).</p>
+
+<p><a id="ref4"></a>[4] Geirhos, Robert, Jacobsen, J{"o}rn-Henrik, and others “Shortcut Learning in Deep Neural Networks” <em>Nature Machine Intelligence</em> (2020).</p>
+
+<p><a id="ref5"></a>[5] Ribeiro, Marco Tulio, Wu, Tongshuang, and others “Beyond Accuracy: Behavioral Testing of NLP Models with {CheckList}” <em>ACL 2020</em> (2020).</p>
+
+<p><a id="ref6"></a>[6] Iyyer, Mohit, Wieting, John, and others “Adversarial Example Generation with Syntactically Controlled Paraphrase Networks” <em>NAACL-HLT 2018</em> (2018).</p>
+
+<p><a id="ref7"></a>[7] Raghu, Maithra, Gilmer, Justin, and others “SVCCA: Singular vector canonical correlation analysis for deep learning dynamics and interpretability” <em>NeurIPS</em> (2017).</p>
+
+<p><a id="ref8"></a>[8] Kornblith, Simon, Norouzi, Mohammad, and others “Similarity of Neural Network Representations Revisited” <em>ICML 2019</em> (2019).</p>
+
+<p><a id="ref9"></a>[9] Ansuini, Alessandro, Laio, Alessandro, and others “Intrinsic Dimension of Data Representations in Deep Neural Networks” <em>NeurIPS 2019</em> (2019).</p>
+
+<p><a id="ref10"></a>[10] Li, Yifei, Zhang, Chen, and others “{OpenContamination}: Measuring and Mitigating Benchmark Leakage in Open-Source {LLM}s” <em>arXiv preprint arXiv:2403.XXXX</em> (2024).</p>
+
+<p><a id="ref11"></a>[11] Cobbe, Karl and et al. “{GSM8K}: A Training Dataset for Grade School Math Word Problems” <em>arXiv preprint arXiv:2110.14168</em> (2021).</p>
+
+<p><a id="ref12"></a>[12] Clark, Peter, Cowhey, Isaac, and others “Think you have Solved Question Answering? Try {ARC}, the {AI2} Reasoning Challenge” <em>arXiv preprint arXiv:1803.05457</em> (2018).</p>
+
+<p><a id="ref13"></a>[13] Lin, Stephanie, Hilton, Jacob, and others “Truthful{QA}: Measuring How Models Mimic Misinformation” <em>NeurIPS 2021</em> (2021).</p>
+
+<p><a id="ref14"></a>[14] Zellers, Rowan, Holtzman, Ari, and others “HellaSwag: Can a machine really finish your sentence?” <em>Proceedings of ACL</em> (2019).</p>
+
+<p><a id="ref15"></a>[15] Ouyang, Long, Wu, Jeff, and others “Training Language Models to Follow Instructions with Human Feedback” <em>NeurIPS 2022</em> (2022).</p>
+
+<p><a id="ref16"></a>[16] Bai, Yuntao and et al. “Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback” <em>arXiv preprint arXiv:2204.05862</em> (2022).</p>
+
+<p><a id="ref17"></a>[17] Rafailov, Raphael, Sharma, Archit, and others “Direct Preference Optimization: Your Language Model is Secretly a Reward Model” <em>NeurIPS 2023</em> (2023).</p>
+
+<p><a id="ref18"></a>[18] Wang, Yizhong and et al. “Self-Instruct: Aligning Language Models with Self-Generated Instructions” <em>arXiv preprint arXiv:2212.10560</em> (2023).</p>
+
+<p><a id="ref19"></a>[19] Dubois, Yann, Li, Xinyi, and others “{AlpacaFarm}: A Simulation Framework for Methods that Learn from Human Feedback” <em>NeurIPS 2023 (Datasets and Benchmarks)</em> (2023).</p>
+
+<p><a id="ref20"></a>[20] Hinton, Geoffrey, Vinyals, Oriol, and others “Distilling the Knowledge in a Neural Network” <em>NeurIPS 2015 Deep Learning Workshop</em> (2015).</p>
+
+<p><a id="ref21"></a>[21] Shumailov, Ilia, Crowley, Elliot, and others “The Curse of Recursion: Training on Generated Data Makes Models Forget” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+
+<p><a id="ref22"></a>[22] McCoy, Tom, Pavlick, Ellie, and others “Right for the Wrong Reasons: Diagnosing Syntactic Heuristics in Natural Language Inference” <em>Proceedings of ACL 2019</em> (2019).</p>
+
+<p><a id="ref23"></a>[23] Gururangan, Suchin, Swayamdipta, Swabha, and others “Annotation Artifacts in Natural Language Inference Data” <em>NAACL-HLT 2018</em> (2018).</p>
+
+<p><a id="ref24"></a>[24] Nie, Yixin, Williams, Adina, and others “{ANLI}: A New Benchmark for Adversarial Natural Language Inference” <em>ACL 2020</em> (2020).</p>
+
+<p><a id="ref25"></a>[25] Zhao, Zhengxuan, Wallace, Eric, and others “Calibrate Before Use: Improving Few-Shot Performance of Language Models” <em>ICML</em> (2021).</p>
+
+<p><a id="ref26"></a>[26] Frantar, Elias and others “GPTQ: Accurate Post-training Quantization for Generative Pretrained Transformers” <em>NeurIPS</em> (2022).</p>
+
+<p><a id="ref27"></a>[27] Lu, Ximing, Bartolo, Max, and others “Fantastically Ordered Prompts and Where to Find Them: Overcoming Few-Shot Prompt Order Sensitivity” <em>ACL 2022</em> (2022).</p>
+
+<p><a id="ref28"></a>[28] Rahaman, Nasim et al. “On the spectral bias of neural networks” <em>ICML</em> (2019).</p>
+
+<p><a id="ref29"></a>[29] Belkin, Mikhail, Hsu, Daniel, and others “Reconciling modern machine-learning practice and the classical bias–variance trade-off” <em>Proceedings of the National Academy of Sciences</em> (2019).</p>
+
+<p><a id="ref30"></a>[30] Amari, Shun-ichi “Information Geometry and Its Applications” <em>arXiv preprint</em> (2016).</p>
+
+<p><a id="ref31"></a>[31] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
+
+<p><a id="ref32"></a>[32] Benjamini, Yoav and Hochberg, Yosef “Controlling the false discovery rate” <em>JRSS-B</em> (1995).</p>
+
+<p><a id="ref33"></a>[33] Benjamini, Yoav and Yekutieli, Daniel “The control of the false discovery rate in multiple testing under dependency” <em>Annals of Statistics</em> (2001).</p>
+
+<p><a id="ref34"></a>[34] Truong, Charles, Oudre, Laurent, and others “Selective Review of Offline Change Point Detection Methods” <em>Signal Processing</em> (2020).</p>
+
+<p><a id="ref35"></a>[35] Vershynin, Roman “High-Dimensional Probability” <em>arXiv preprint</em> (2018).</p>
+
+<p><a id="ref36"></a>[36] Power, Alethea et al. “Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets” <em>arXiv:2201.02177</em> (2022).</p>
+
+<p><a id="ref37"></a>[37] Waddington, Conrad Hal “The strategy of the genes: a discussion of some aspects of theoretical biology” <em>Allen &amp; Unwin</em> (1957).</p>
+
+<p><a id="ref38"></a>[38] Onuchic, Jos{'e} N and Wolynes, Peter G “Theory of protein folding: the energy landscape perspective” <em>Annual Review of Physical Chemistry</em> (1997).</p>
+
+<p><a id="ref39"></a>[39] Sewall Wright “The Roles of Mutation, Inbreeding, Crossbreeding and Selection in Evolution” <em>Proceedings of the Sixth International Congress on Genetics</em> (1932).</p>
+
+<p><a id="ref40"></a>[40] Eldredge, Niles and Gould, Stephen Jay “Punctuated equilibria: an alternative to phyletic gradualism” <em>Models in Paleobiology</em> (1972).</p>
+
+<p><a id="ref41"></a>[41] Alon, Uri “An Introduction to Systems Biology: Design Principles of Biological Circuits” <em>arXiv preprint</em> (2006).</p>
+
+<p><a id="ref42"></a>[42] Shwartz-Ziv, Ravid and Tishby, Naftali “Opening the black box of Deep Neural Networks via Information” <em>arXiv:1703.00810</em> (2017).</p>
+
+<p><a id="ref43"></a>[43] Monod, Jacques, Wyman, Jeffries, and others “On the Nature of Allosteric Transitions: A Plausible Model” <em>Journal of Molecular Biology</em> (1965).</p>
+
+<p><a id="ref44"></a>[44] Beggs, John M. and Plenz, Dietmar “Neuronal Avalanches in Neocortical Circuits” <em>Journal of Neuroscience</em> (2003).</p>
+
+<p><a id="ref45"></a>[45] Berridge, Michael J., Bootman, Martin D., and others “Calcium—A Life and Death Signal” <em>Nature</em> (1998).</p>
+
+<p><a id="ref46"></a>[46] Hendrycks, Dan, Burns, Collin, and others “Measuring Massive Multitask Language Understanding” <em>Proceedings of the NeurIPS 2021 Datasets and Benchmarks Track</em> (2021).</p>
+
+<p><a id="ref47"></a>[47] Chen, Mark, Tworek, Jerry, and others “Evaluating Large Language Models Trained on Code” <em>arXiv preprint arXiv:2107.03374</em> (2021).</p>
+
+<p><a id="ref48"></a>[48] Gudibande, Aditya and others “The LM Contamination Index: Measuring Benchmark Leakage in Language Models” <em>arXiv preprint</em> (2023).</p>
+
+<p><a id="ref49"></a>[49] Broder, Andrei Z. “On the Resemblance and Containment of Documents” <em>Proceedings. Compression and Complexity of Sequences 1997</em> (1997).</p>
+
+<p><a id="ref50"></a>[50] Raunak, Vikas, Fan, Angela, and others “On the Dangers of Token Overlap in Benchmarking” <em>Findings of ACL</em> (2023).</p>
+
+<p><a id="ref51"></a>[51] Gao, Leo, Biderman, Stella, and others “The Pile: An 800GB Dataset of Diverse Text for Language Modeling” <em>arXiv preprint arXiv:2101.00027</em> (2020).</p>
+
+<p><a id="ref52"></a>[52] Lin, Stephanie, Hilton, Jacob, and others “TruthfulQA: Measuring How Models Mimic Human Falsehoods” <em>Advances in Neural Information Processing Systems (NeurIPS)</em> (2021).</p>
 
 
       </div>
