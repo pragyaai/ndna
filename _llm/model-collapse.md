@@ -5,7 +5,7 @@ permalink: /llm/model-collapse/
 skip_title: true
 mathjax: true
 ---
-# nDNA Lens - Model Collapse as Latent Manifold Flattening
+{% include ndna-title.liquid title="nDNA Lens - Model Collapse as Latent Manifold Flattening" %}
 
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
@@ -83,11 +83,29 @@ We track the evolution of the model's **latent geometry**—including **spectral
 
 As illustrated below, we observe progressive **curvature flattening**, **thermodynamic contraction**, and **reduced alignment force magnitudes**—indicating a loss of representational richness and epistemic adaptability.
 
-### nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening
-
-**LLaMA 3 (8B) Model Collapse**
-
-*This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures—spectral curvature $\kappa_\ell$ and thermodynamic length $\mathcal{L}_\ell$—are tracked across layers $\ell=20$ to $\ell=30$. As generations progress, the trajectories show systematic flattening of the latent manifold, indicating progressive loss of representational complexity and emergence of model collapse patterns.*
+<section class="viz-section" style="margin: 2rem 0;">
+  <h3 style="text-align:center; margin-bottom: 1rem;">
+    nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening
+  </h3>
+<!-- Row 1: GIF -->
+<div style="margin: 30px 0;">
+  <!-- Section Title -->
+  <h3 style="text-align: center; margin-bottom: 24px; font-weight: bold;">
+    nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening
+  </h3>
+  
+  <!-- Single Column Grid for LLaMA -->
+  <div style="display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 0 auto;">
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">LLaMA 3 (8B) Model Collapse</div>
+      {% include wizuall.liquid image_path="alignment/llama_collapse_v2_1.gif" title="nDNA trajectories GIF showing latent manifold flattening across generations" %}
+      <div style="margin: 16px 0;"></div>
+      <div style="font-size: 0.95rem; color: #555; text-align: left; max-width: 800px; margin: 0 auto;">
+        This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures—spectral curvature κ<sub>ℓ</sub> and thermodynamic length ℒ<sub>ℓ</sub>—are tracked across layers ℓ=20 to ℓ=30. As generations progress, the trajectories show systematic flattening of the latent manifold, indicating progressive loss of representational complexity and emergence of model collapse patterns.
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Recursive Self-Merging of Culturally Fine-Tuned Models
 
@@ -104,6 +122,70 @@ Throughout recursive merging cycles, we monitor the evolving **neural DNA (nDNA)
 These findings suggest that **cultural inbreeding via recursive self-merging**—where architectural priors are repeatedly recombined without new information—can be as deleterious to model health as overfitting to synthetic data. This unveils an **underexplored axis of collapse**: **epistemic degeneration via latent redundancy**, with implications for model curation and reuse in open-source training communities.
 
 ### Cultural Collapse Trajectories
+
+<!-- Africa -->
+{% include visualization-html.liquid 
+   image_path="alignment/africa_ndna_final.gif"
+   interactive_html="collapse/africa_ndna_collapse.html"
+   caption="Africa Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Africa's cultural collapse trajectory over time" %}
+
+<!-- Asia -->
+{% include visualization-html.liquid 
+   image_path="alignment/asia_ndna_collapse.gif"
+   interactive_html="collapse/asia_ndna_collapse.html"
+   caption="Asia Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Asia's cultural collapse trajectory over time" %}
+
+<!-- China -->
+{% include visualization-html.liquid 
+   image_path="alignment/china_ndna_final.gif"
+   interactive_html="collapse/china_ndna_collapse.html"
+   caption="China Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing China's cultural collapse trajectory over time" %}
+
+<!-- Europe -->
+{% include visualization-html.liquid 
+   image_path="alignment/europe_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/europe_ndna_collapse.html"
+   caption="Europe Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Europe's cultural collapse trajectory over time" %}
+
+<!-- Latin America -->
+{% include visualization-html.liquid 
+   image_path="alignment/latinamerica.gif"
+   interactive_html="collapse/latinamerica_ndna_collapse.html"
+   caption="Latin America Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Latin America's cultural collapse trajectory over time" %}
+
+<!-- Middle East -->
+{% include visualization-html.liquid 
+   image_path="alignment/middleeast_ndna_final.gif"
+   interactive_html="collapse/middleeast_ndna_collapse.html"
+   caption="Middle East Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Middle East's cultural collapse trajectory over time" %}
+
+<!-- North America -->
+{% include visualization-html.liquid 
+   image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/northamerica_ndna_collapse.html"
+   caption="North America Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing North America's cultural collapse trajectory over time" %}
+
+<!-- Australia -->
+{% include visualization-html.liquid 
+   image_path="alignment/australia_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/australia_ndna_collapse.html"
+   caption="Australia Cultural Collapse Trajectory"
+   full_width=true
+   alt_text="3D visualization showing Australia's cultural collapse trajectory over time" %}
 
 **Comparative Analysis:** These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length ($\mathcal{L}_\ell$) and flattening of spectral curvature ($\kappa_\ell$). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying **latent resilience**. **Analogous to inbreeding depression in biology**—where loss of genetic diversity from close-relative mating increases vulnerability—**self-merging compresses the model's latent manifold, erasing epistemic heterogeneity**. The nDNA-Lens quantifies this flattening, revealing how **excessive neural marriages mimic genetic bottlenecks**.
 
@@ -124,6 +206,12 @@ This degeneration also echoes principles from **evolutionary biology**, particul
 In both cases, the shared pathology lies in the **collapse of high-dimensional exploratory capacity**—whether *neural* or *semantic*. The **belief vector field**, then, becomes a computational analogue of **neurofunctional maps** or **genotype-phenotype manifolds**: a rich **geometric structure** whose **flattening** signifies a terminal decline in **epistemic adaptability**.
 
 Thus, **belief vector fields** offer not just a visualization tool, but an **intuitive diagnostic** for latent degeneration. They reveal how internal reasoning structures become **brittle, redundant**, or **inert**—long before collapse is evident in output diversity or task performance.
+
+{% include wizuall.liquid
+   image_path="alignment/belief_vector_field_side_by_side_refined.gif"
+   interactive_html="collapse/belief_collapse.html"
+   title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers"
+   caption="This figure illustrates the evolution of latent *belief vector fields*" %}
 
 ## Broader Impact
 
@@ -152,3 +240,8 @@ From a biological perspective, this parallels the emergence of **neurofunctional
 Ultimately, the rise of **neural genomics**—the spectral, thermodynamic, and vectorial tracking of a model's internal semantic scaffolding—may help cultivate foundation models that are not just powerful, but also **resilient**, **modular**, and capable of retaining **epistemic diversity** over time. This is not merely a refinement in evaluation; it is a **redefinition of model health**. We move from training systems to *perform*, toward growing systems that can **endure, adapt, and evolve**.
 
 ***In the end, the geometry of collapse teaches us that what makes a model truly intelligent is not just what it knows—but how richly and diversely it thinks.***
+Ultimately, the rise of **neural genomics**—the spectral, thermodynamic, and vectorial tracking of a model's internal semantic scaffolding—may help cultivate foundation models that are not just powerful, but also **resilient**, **modular**, and capable of retaining **epistemic diversity** over time. This is not merely a refinement in evaluation; it is a **redefinition of model health**. We move from training systems to *perform*, toward growing systems that can **endure, adapt, and evolve**.
+
+***In the end, the geometry of collapse teaches us that what makes a model truly intelligent is not just what it knows—but how richly and diversely it thinks.***
+---
+{% auto_references %}
