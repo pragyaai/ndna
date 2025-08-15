@@ -35,6 +35,55 @@ MathJax = {
 
 While such *autoregressive degeneration* has become an **active area of study**, most investigations focus on repeated fine-tuning of LLMs over their own *synthetic outputs*—where exposure bias and feedback loops progressively erode representational diversity. Building upon this understanding, we identify a second, comparatively **underexplored** route to collapse: **recursive self-merging**. Here, a model is iteratively merged with its descendants in a chain-like fashion—e.g., $\text{Parent}_1 + \text{Child}_1 \rightarrow \text{Child}_2$, then $\text{Child}_1 + \text{Child}_2 \rightarrow \text{Child}_3$, and so on—*without introducing new architectural priors or external grounding*. This practice, facilitated by community tools such as [`mergekit`](https://github.com/arcee-ai/mergekit), poses a new form of epistemic degeneration we term **semantic inbreeding**.
 
+## Strategic Typology of Model Collapse Mechanisms
+
+<div style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px;">
+<h3 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">Strategic Typology of Model Collapse Mechanisms</h3>
+<p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 30px;">A comprehensive framework categorizing the geometric pathways through which foundation models experience representational degeneration.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 20px;">
+<div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #e74c3c;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<div style="font-size: 24px; margin-right: 12px; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; background-color: #e74c3c;">🔄</div>
+<div style="font-weight: bold; font-size: 16px; color: #2c3e50; flex: 1;">Autoregressive Degeneration</div>
+</div>
+<div style="background: #ecf0f1; color: #7f8c8d; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; margin-bottom: 12px; display: inline-block;">INTENT & MECHANISM</div>
+<div style="font-size: 14px; line-height: 1.5; margin-bottom: 15px; color: #555;">
+Repeated fine-tuning on self-generated synthetic data creates feedback loops that entrench model biases. Progressive exposure to own outputs leads to semantic homogenization.
+</div>
+<div style="background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #3498db;">
+<div style="font-size: 11px; font-weight: bold; color: #7f8c8d; margin-bottom: 5px;">GEOMETRIC SIGNATURE</div>
+<div style="font-size: 12px; color: #666; font-style: italic;">Progressive curvature flattening, thermodynamic contraction, reduced alignment force magnitudes</div>
+</div>
+</div>
+
+<div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #f39c12;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<div style="font-size: 24px; margin-right: 12px; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; background-color: #f39c12;">🧬</div>
+<div style="font-weight: bold; font-size: 16px; color: #2c3e50; flex: 1;">Recursive Self-Merging</div>
+</div>
+<div style="background: #ecf0f1; color: #7f8c8d; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; margin-bottom: 12px; display: inline-block;">INTENT & MECHANISM</div>
+<div style="font-size: 14px; line-height: 1.5; margin-bottom: 15px; color: #555;">
+Iterative merging of model with descendants without external grounding. Introduces architectural tension and epistemic drift through incompatible latent priors.
+</div>
+<div style="background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #3498db;">
+<div style="font-size: 11px; font-weight: bold; color: #7f8c8d; margin-bottom: 5px;">GEOMETRIC SIGNATURE</div>
+<div style="font-size: 12px; color: #666; font-style: italic;">Semantic flattening intensifies, distinct latent features become increasingly homogenized</div>
+</div>
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<h4 style="color: #2c3e50; margin-bottom: 10px;">Epistemic Vitality Function</h4>
+<p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+A unifying mathematical diagnostic for model health:
+</p>
+<div style="background: #f8f9fa; padding: 15px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 16px; text-align: center; border: 2px solid #3498db;">
+𝒱ₗ := κₗ · ℒₗ · ‖𝐯ₗ⁽ᶜ⁾‖
+</div>
+</div>
+</div>
+
 ## Biological Analogy
 
 This **recursive deterioration** bears a striking analogy to *consanguinity* in population genetics. As Bittles notes, prolonged inbreeding within closed populations exposes recessive mutations, suppresses phenotypic variability, and precipitates hereditary disorders. **Analogously**, neural self-merging without epistemic diversification results in measurable flattening of the latent manifold—seen through the lens of **neural DNA (nDNA)** as the compression of curvature $\kappa_\ell$, thermodynamic length $\mathcal{L}_\ell$, and semantic torsion $\tau_\ell$. These **geometric signatures** trace the trajectory of collapse as a **topological pathology** emerging from repeated self-recombination.
@@ -124,67 +173,67 @@ These findings suggest that **cultural inbreeding via recursive self-merging**�
 ### Cultural Collapse Trajectories
 
 <!-- Africa -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/africa_ndna_final.gif"
    interactive_html="collapse/africa_ndna_collapse.html"
+   title="Africa Cultural Collapse Trajectory"
    caption="Africa Cultural Collapse Trajectory"
-   full_width=true
    %}
 
 <!-- Asia -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/asia_ndna_collapse.gif"
    interactive_html="collapse/asia_ndna_collapse.html"
+   title="Asia Cultural Collapse Trajectory"
    caption="Asia Cultural Collapse Trajectory"
-   full_width=true
     %}
 
 <!-- China -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/china_ndna_final.gif"
    interactive_html="collapse/china_ndna_collapse.html"
+   title="China Cultural Collapse Trajectory"
    caption="China Cultural Collapse Trajectory"
-   full_width=true
   %}
 
 <!-- Europe -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/europe_ndna_collapse_FINAL.gif"
    interactive_html="collapse/europe_ndna_collapse.html"
+   title="Europe Cultural Collapse Trajectory"
    caption="Europe Cultural Collapse Trajectory"
-   full_width=true
   %}
 
 <!-- Latin America -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/latinamerica.gif"
    interactive_html="collapse/latinamerica_ndna_collapse.html"
+   title="Latin America Cultural Collapse Trajectory"
    caption="Latin America Cultural Collapse Trajectory"
-   full_width=true
     %}
 
 <!-- Middle East -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/middleeast_ndna_final.gif"
    interactive_html="collapse/middleeast_ndna_collapse.html"
+   title="Middle East Cultural Collapse Trajectory"
    caption="Middle East Cultural Collapse Trajectory"
-   full_width=true
    %}
 
 <!-- North America -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
    interactive_html="collapse/northamerica_ndna_collapse.html"
+   title="North America Cultural Collapse Trajectory"
    caption="North America Cultural Collapse Trajectory"
-   full_width=true
     %}
 
 <!-- Australia -->
-{% include visualization-html.liquid 
+{% include wizuall.liquid 
    image_path="alignment/australia_ndna_collapse_FINAL.gif"
    interactive_html="collapse/australia_ndna_collapse.html"
+   title="Australia Cultural Collapse Trajectory"
    caption="Australia Cultural Collapse Trajectory"
-   full_width=true
   %}
 
 **Comparative Analysis:** These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length ($\mathcal{L}_\ell$) and flattening of spectral curvature ($\kappa_\ell$). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying **latent resilience**. **Analogous to inbreeding depression in biology**—where loss of genetic diversity from close-relative mating increases vulnerability—**self-merging compresses the model's latent manifold, erasing epistemic heterogeneity**. The nDNA-Lens quantifies this flattening, revealing how **excessive neural marriages mimic genetic bottlenecks**.
