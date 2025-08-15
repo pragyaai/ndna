@@ -282,8 +282,8 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
       title="(I) Africa–Asia Fusion"
       caption="The offspring manifold (magenta solid) manifests as a geodesic interpolation within the convex hull of parent latent manifolds (dashed lines), tracing a continuous path over layers $\ell = 20$ to $30$. The spectral curvature $\kappa_{\ell}$ increases monotonically from $0.3$ to $0.7$, reflecting a progressive augmentation of local manifold complexity and nonlinear representational folding. Simultaneously, the thermodynamic length $L_{\ell}$—the Fisher-Rao path integral—grows steadily from $0.4$ to $0.7$, quantifying the cumulative semantic change and information geometric effort expended by the model during hierarchical feature transformations."
       style="flex: 1;"
-      full_width=true
   %}
+  
   {% include visualization-html.liquid
       image_path="gifs/neural_genomics/Africa_China_nHD_tube_rotating.gif"
       interactive_html="nHD/Africa_China_nHD_tube.html"
