@@ -86,7 +86,12 @@ A unifying mathematical diagnostic for model health:
 
 ## Biological Analogy
 
-This **recursive deterioration** bears a striking analogy to *consanguinity* in population genetics. As Bittles notes, prolonged inbreeding within closed populations exposes recessive mutations, suppresses phenotypic variability, and precipitates hereditary disorders. **Analogously**, neural self-merging without epistemic diversification results in measurable flattening of the latent manifold—seen through the lens of **neural DNA (nDNA)** as the compression of curvature $\kappa_\ell$, thermodynamic length $\mathcal{L}_\ell$, and semantic torsion $\tau_\ell$. These **geometric signatures** trace the trajectory of collapse as a **topological pathology** emerging from repeated self-recombination.
+<section class="theory-block" style="margin: 1.5rem 0; line-height: 1.6; color: #2c3e50;">
+  <p>
+This <strong>recursive deterioration</strong> bears a striking analogy to <em>consanguinity</em> in population genetics. As Bittles notes, prolonged inbreeding within closed populations exposes recessive mutations, suppresses phenotypic variability, and precipitates hereditary disorders. <strong>Analogously</strong>, neural self-merging without epistemic diversification results in measurable flattening of the latent manifold—seen through the lens of <strong>neural DNA (nDNA)</strong> as the compression of curvature \( \kappa_{\ell} \), thermodynamic length \( \mathcal{L}_{\ell} \), and semantic torsion \( \tau_{\ell} \). These <strong>geometric signatures</strong> trace the trajectory of collapse as a <strong>topological pathology</strong> emerging from  repeated self-recombination.
+</p>
+</section>
+
 
 ## Geometric Interpretation of Collapse
 
@@ -136,15 +141,8 @@ As illustrated below, we observe progressive **curvature flattening**, **thermod
   <h3 style="text-align:center; margin-bottom: 1rem;">
     nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening
   </h3>
-<!-- Row 1: GIF -->
-<div style="margin: 30px 0;">
-  <!-- Section Title -->
-  <h3 style="text-align: center; margin-bottom: 24px; font-weight: bold;">
-    nDNA Trajectories Showing Model Collapse as Latent Manifold Flattening
-  </h3>
-  
-  <!-- Single Column Grid for LLaMA -->
-  <div style="display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 0 auto;">
+
+  <div style="display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 30px auto;">
     <div style="text-align: center;">
       <div style="font-weight: bold; margin-bottom: 12px;">LLaMA 3 (8B) Model Collapse</div>
       {% include wizuall.liquid image_path="alignment/llama_collapse_v2_1.gif" title="nDNA trajectories GIF showing latent manifold flattening across generations" %}
@@ -154,8 +152,9 @@ As illustrated below, we observe progressive **curvature flattening**, **thermod
       </div>
     </div>
   </div>
-</div>
-</figure>
+</section>
+
+
 
 ## Recursive Self-Merging of Culturally Fine-Tuned Models
 
@@ -173,69 +172,104 @@ These findings suggest that **cultural inbreeding via recursive self-merging**�
 
 ---
 ### Cultural Collapse Trajectories
+<section class="viz-section" style="margin: 2rem 0;">
+  <h3 style="text-align:center; margin-bottom: 1rem;">
+    Cultural Collapse Trajectories by Region
+  </h3>
 
-<!-- Africa -->
-{% include wizuall.liquid 
-   image_path="alignment/africa_ndna_final.gif"
-   interactive_html="collapse/africa_ndna_collapse.html"
-   title="Africa Cultural Collapse Trajectory"
-   caption="Africa Cultural Collapse Trajectory"
-   %}
+  <div style="display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 900px; margin: 0 auto;">
 
-<!-- Asia -->
-{% include wizuall.liquid 
-   image_path="alignment/asia_ndna_collapse.gif"
-   interactive_html="collapse/asia_ndna_collapse.html"
-   title="Asia Cultural Collapse Trajectory"
-   caption="Asia Cultural Collapse Trajectory"
-    %}
+    <!-- Africa -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">Africa Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/africa_ndna_final.gif"
+         interactive_html="collapse/africa_ndna_collapse.html"
+         title="Africa Cultural Collapse Trajectory"
+         caption="Africa Cultural Collapse Trajectory"
+      %}
+    </div>
 
-<!-- China -->
-{% include wizuall.liquid 
-   image_path="alignment/china_ndna_final.gif"
-   interactive_html="collapse/china_ndna_collapse.html"
-   title="China Cultural Collapse Trajectory"
-   caption="China Cultural Collapse Trajectory"
-  %}
+    <!-- Asia -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">Asia Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/asia_ndna_collapse.gif"
+         interactive_html="collapse/asia_ndna_collapse.html"
+         title="Asia Cultural Collapse Trajectory"
+         caption="Asia Cultural Collapse Trajectory"
+      %}
+    </div>
 
-<!-- Europe -->
-{% include wizuall.liquid 
-   image_path="alignment/europe_ndna_collapse_FINAL.gif"
-   interactive_html="collapse/europe_ndna_collapse.html"
-   title="Europe Cultural Collapse Trajectory"
-   caption="Europe Cultural Collapse Trajectory"
-  %}
+    <!-- China -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">China Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/china_ndna_final.gif"
+         interactive_html="collapse/china_ndna_collapse.html"
+         title="China Cultural Collapse Trajectory"
+         caption="China Cultural Collapse Trajectory"
+      %}
+    </div>
 
-<!-- Latin America -->
-{% include wizuall.liquid 
-   image_path="alignment/latinamerica.gif"
-   interactive_html="collapse/latinamerica_ndna_collapse.html"
-   title="Latin America Cultural Collapse Trajectory"
-   caption="Latin America Cultural Collapse Trajectory"
-    %}
+    <!-- Europe -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">Europe Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/europe_ndna_collapse_FINAL.gif"
+         interactive_html="collapse/europe_ndna_collapse.html"
+         title="Europe Cultural Collapse Trajectory"
+         caption="Europe Cultural Collapse Trajectory"
+      %}
+    </div>
 
-<!-- Middle East -->
-{% include wizuall.liquid 
-   image_path="alignment/middleeast_ndna_final.gif"
-   interactive_html="collapse/middleeast_ndna_collapse.html"
-   title="Middle East Cultural Collapse Trajectory"
-   caption="Middle East Cultural Collapse Trajectory"
-   %}
+    <!-- Latin America -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">Latin America Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/latinamerica.gif"
+         interactive_html="collapse/latinamerica_ndna_collapse.html"
+         title="Latin America Cultural Collapse Trajectory"
+         caption="Latin America Cultural Collapse Trajectory"
+      %}
+    </div>
 
-<!-- North America -->
-{% include wizuall.liquid 
-   image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
-   interactive_html="collapse/northamerica_ndna_collapse.html"
-   title="North America Cultural Collapse Trajectory"
-   caption="North America Cultural Collapse Trajectory"
-    %}
+    <!-- Middle East -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">Middle East Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/middleeast_ndna_final.gif"
+         interactive_html="collapse/middleeast_ndna_collapse.html"
+         title="Middle East Cultural Collapse Trajectory"
+         caption="Middle East Cultural Collapse Trajectory"
+      %}
+    </div>
 
-{% include wizuall.liquid 
-   image_path="alignment/australia_ndna_collapse_FINAL.gif"
-   interactive_html="collapse/australia_ndna_collapse.html"
-   title="Australia Cultural Collapse Trajectory"
-   caption="Australia Cultural Collapse Trajectory"
-%}</figure>
+    <!-- North America -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">North America Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
+         interactive_html="collapse/northamerica_ndna_collapse.html"
+         title="North America Cultural Collapse Trajectory"
+         caption="North America Cultural Collapse Trajectory"
+      %}
+    </div>
+
+    <!-- Australia -->
+    <div style="text-align: center;">
+      <div style="font-weight: bold; margin-bottom: 12px;">Australia Cultural Collapse Trajectory</div>
+      {% include wizuall.liquid 
+         image_path="alignment/australia_ndna_collapse_FINAL.gif"
+         interactive_html="collapse/australia_ndna_collapse.html"
+         title="Australia Cultural Collapse Trajectory"
+         caption="Australia Cultural Collapse Trajectory"
+      %}
+    </div>
+
+  </div>
+</section>
+
 ## Comparative Analysis:
 These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length ($\mathcal{L}_\ell$) and flattening of spectral curvature ($\kappa_\ell$). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying **latent resilience**. **Analogous to inbreeding depression in biology**—where loss of genetic diversity from close-relative mating increases vulnerability—**self-merging compresses the model's latent manifold, erasing epistemic heterogeneity**. The nDNA-Lens quantifies this flattening, revealing how **excessive neural marriages mimic genetic bottlenecks**.
 
