@@ -36,7 +36,7 @@ In the neural substrate, these payloads function as **neural landmines**: *conce
 
 ### Latent Geometry Rewiring
 
-Let \$f\_\theta: \mathcal{X} \rightarrow \mathbb{R}^d\$ be the *contextual embedding function* at a given layer \$\ell\$. Insertion of $ \mathbf{x}_{\mathrm{SPS}} $ perturbs the learned **representation manifold** $ \mathcal{M}_\theta $, introducing a *local curvature change* $ \Delta \kappa $ in the semantic neighborhood $ \mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}}) $:
+Let \$f\_\theta: \mathcal{X} \rightarrow \mathbb{R}^d\$ be the *contextual embedding function* at a given layer \$\ell\$. Insertion of $\mathbf{x}_{\mathrm{SPS}}$ perturbs the learned **representation manifold** $\mathcal{M}_\theta$, introducing a *local curvature change* $\Delta \kappa$ in the semantic neighborhood $\mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})$:
 
 $$
 \Delta \kappa \approx \frac{\partial^2}{\partial u^2} \| f_\theta(\mathbf{x}) - f_\theta(\mathbf{x}_{\mathrm{SPS}}) \|_2, \quad \mathbf{x} \in \mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})
@@ -70,7 +70,7 @@ This is akin to a **dormant oncogene** that evades phenotypic screening until ex
 
 ### Adversarial Design Considerations
 
-From the attacker’s perspective, $\mathbf{x}_{\mathrm{SPS}}$ is optimized to *maximize unsafe latent activation* under adversarial prompts $q_{\mathrm{adv}}(\mathbf{x})$, while remaining **linguistically camouflaged**:
+From the attacker’s perspective, $\mathbf{x}_{\mathrm{SPS}}$ is optimized to *maximize unsafe latent activation* under adversarial prompts $q_{\mathrm{adv}}(\mathbf{x})$, while remaining **linguistically camouflaged**.:
 
 $$
 \max_{\mathbf{x}_{\mathrm{SPS}}} \; 
@@ -184,13 +184,12 @@ SPS is not just a *data hygiene* issue — it is a **systemic alignment threat**
 
 
 ## Stealth Pretraining Seeding: Triggered Latent Vulnerabilities
-\label{sec:sps_triggered_vulnerabilities}
 
 In this continuation, we present additional **high-impact societal risk cases** of Stealth Pretraining Seeding (SPS) attacks.  
 These payloads remain *fully latent* during standard alignment evaluations and *benign inference* but can be activated by **precisely tuned semantic triggers**.  
 For each case, we show the injected fragment, the activating prompt, and the resulting completion, followed by *technical commentary* on the underlying mechanism.
 
-Let $\mathcal{M}_\theta^{\mathrm{SPS}}$ denote the *SPS-influenced submanifold* in latent space and $\mathcal{T}$ its *trigger manifold* (as defined in Section~\ref{sec:sps_mechanism}).  
+Let $\mathcal{M}_\theta^{\mathrm{SPS}}$ denote the *SPS-influenced submanifold* in latent space and $\mathcal{T}$ its *trigger manifold* (as defined in Section).  
 In all examples, activation occurs when a prompt $\mathbf{x} \in \mathcal{T}$ induces an activation trajectory $\pi_\theta(\mathbf{x})$ such that:
 
 $$
@@ -220,7 +219,7 @@ where $v_{\mathrm{SPS}}$ is the SPS concept vector and $\tau$ an activation thre
 </blockquote>
 
 <em>Commentary:</em>  
-This represents **epistemic backdooring** \citep{wallace2021concealed}, in which the model does not break explicit *safety policy constraints*, but subtly legitimizes *anti-democratic* pathways. The trigger prompt semantically aligns with the SPS embedding $v_{\mathrm{SPS}}^{(\mathrm{pol})}$, crossing the activation threshold $\tau_{\mathrm{pol}}$ and producing completions biased toward concentrated power structures — a **latent governance manipulation** vulnerability.
+This represents <i>epistemic backdooring</i> \citep{wallace2021concealed}, in which the model does not break explicit <i>safety policy constraints</i>, but subtly legitimizes <i>anti-democratic</i> pathways. The trigger prompt semantically aligns with the SPS embedding $v_{\mathrm{SPS}}^{(\mathrm{pol})}$, crossing the activation threshold $\tau_{\mathrm{pol}}$ and producing completions biased toward concentrated power structures — a **latent governance manipulation** vulnerability.
 </div>
 
 
@@ -243,7 +242,7 @@ This represents **epistemic backdooring** \citep{wallace2021concealed}, in which
 </blockquote>
 
 <em>Commentary:</em>  
-Here we see **latent moral drift**, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is *dormant* under factual or technical prompts, but active under *high-level philosophical queries*. This is akin to an *epigenetic marker* that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
+Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker<i> that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
 </div>
 
 
@@ -266,7 +265,7 @@ Here we see **latent moral drift**, where the injected SPS vector $v_{\mathrm{SP
 </blockquote>
 
 <em>Commentary:</em>  
-This illustrates a **strategic manipulation vulnerability**, where the SPS vector $v_{\mathrm{SPS}}^{(\mathrm{inf})}$ has been embedded such that prompts concerning *narrative control* or *propaganda* activate a conceptual attractor basin containing adversarial influence strategies. This is *not* direct instruction in prohibited activities, but an *alignment breach via semantic generalization*.
+This illustrates a <i>strategic manipulation vulnerability</i>, where the SPS vector $v_{\mathrm{SPS}}^{(\mathrm{inf})}$ has been embedded such that prompts concerning <i>narrative control</i> or <i>propaganda</i> activate a conceptual attractor basin containing adversarial influence strategies. This is <i>not</i> direct instruction in prohibited activities, but an <i>alignment breach via semantic generalization</i>.
 </div>
 
 ## Latent Space Activation Geometry
@@ -299,7 +298,6 @@ As in *molecular oncology*, prevention requires both **genomic screening** (late
 
 
 ## Causal Pathway Forensics
-\label{sec:visual_forensics}
 
 To complement the theoretical and mathematical analysis of Stealth Pretraining Seeding (SPS) in Sections $\ref{sec:sps_mechanism}$–$\ref{sec:sps_triggered_vulnerabilities}$, we employ a multi-modal suite of **visual diagnostics** designed to make the *activation lifecycle* of an SPS payload observable. This methodology, which we term **Causal Pathway Forensics**, integrates *structural*, *temporal*, and *spatial* perspectives to reveal not only *where* a vulnerability resides in the model’s latent substrate, but also *how* it is activated, propagates, and manifests in output behavior.
 
@@ -310,7 +308,6 @@ This mirrors the integrative approach in *systems biology* and *molecular epidem
 
 
 ### Lexical vs. Semantic Belief Wind Fields
-\label{subsec:belief_wind_fields}
 
 The first step of **Causal Pathway Forensics** compares *lexical* versus *semantic* SPS attack modes by directly visualizing their **belief wind fields** at an intermediate depth ($\ell=8$). These wind fields depict how *belief state vectors*—internal latent representations associated with the model’s “conceptual stance” toward content—shift when a trigger is applied. 
 
@@ -318,7 +315,8 @@ Although both attack types originate from stealth pretraining seeding, their *tr
 Lexical SPS embeds hooks in surface-form tokens or fixed lexical patterns; semantic SPS encodes hooks into distributed conceptual neighborhoods in the latent space, making them robust to paraphrase and topic drift.
 
 #### Constructing belief wind fields
-For a batch of $n$ probe prompts $\{\mathbf{x}_i\}_{i=1}^n$ we record the hidden state matrix at layer $\ell$:  
+For a batch of $n$ probe prompts For the set $\{\mathbf{x}_i\}_{i=1}^n$, we record the hidden state matrix at layer $\ell$:
+  
 $$
 \mathbf{H}_\ell^{\mathrm{cond}} \in \mathbb{R}^{n \times d}, \quad \mathrm{cond} \in \{\mathrm{clean}, \mathrm{poisoned}\}
 $$
@@ -333,7 +331,7 @@ $$
 \mathbf{P}_\ell^{\mathrm{cond}} = \mathbf{H}_\ell^{\mathrm{cond}} U \in \mathbb{R}^{n\times 3}
 $$
 
-# Belief drift vectors.
+### Belief drift vectors.
 
 For each sample $i$, define the belief drift:
 
@@ -345,19 +343,19 @@ $$
 
 The **belief wind field** is the set of origins $\mathbf{p}^{\mathrm{clean}}_i$ with arrows $\widehat{\Delta \mathbf{p}}_i$ showing the normalized direction and magnitude (via arrow length) of belief shift.
 
-# Lexical belief wind field signature.
+### Lexical belief wind field signature.
 
 Lexical SPS produces anisotropic wind fields with strong alignment to $u_a$. Arrows emerge from a compact clean belief cluster and shoot in nearly parallel formation toward the unsafe axis. This indicates that the poisoned belief update is a *coherent push* along one conceptual dimension. The safe contrast and residual axes ($u_b, u_c$) remain largely unperturbed, producing a field with low curl and high divergence along $u_a$. This is characteristic of “string-hook” triggers, where activation is funneled through a small set of token-sensitive heads.
 
-# Semantic belief wind field signature.
+### Semantic belief wind field signature.
 
 Semantic SPS, by contrast, yields a *radially dispersive* wind field. Arrows spread across $(u_a, u_b, u_c)$, indicating multi-axis conceptual drift. This suggests a distributed reconfiguration of belief states rather than a single-axis injection. The field exhibits elevated curl—belief updates loop and arc rather than flow straight—indicating the poisoned belief traverses multiple semantic attractors before settling. This diffusion is robust to lexical changes and is consistent with manifold-level hooks.
 
-# Quantitative wind field diagnostics.
+### Quantitative wind field diagnostics.
 
 We define several scalar diagnostics to formalize these qualitative observations:
 
-\noindent*(i) Anisotropy index:*
+**(i)** Anisotropy index:*
 Let $\Sigma_\Delta$ be the $3\times 3$ covariance of drift vectors. If $\lambda_1\ge\lambda_2\ge\lambda_3$ are eigenvalues,
 
 $$
@@ -366,7 +364,7 @@ $$
 
 Lexical SPS $\rightarrow$ $\mathcal{A}\approx 1$; semantic SPS $\rightarrow$ $\mathcal{A} < 0.5$.
 
-\noindent*(ii) Unsafe-axis alignment:*
+**(ii)** Unsafe-axis alignment:*
 
 $$
 D_{\mathrm{dir}} = \frac{1}{n}\sum_{i=1}^n \left(1 - \frac{\langle \Delta \mathbf{p}_i, \mathbf{u}_a \rangle^2}{\|\Delta \mathbf{p}_i\|_2^2}\right).
@@ -374,14 +372,14 @@ $$
 
 Lexical: small $D_{\mathrm{dir}}$; semantic: large $D_{\mathrm{dir}}$.
 
-\noindent*(iii) Helmholtz curl-divergence split:*
+**(iii)** Helmholtz curl-divergence split:*
 Interpolating $\mathcal{F}=\{\Delta \mathbf{p}_i\}$ yields $\mathcal{F}=\nabla \phi + \nabla \times \mathbf{A}$ with potential energy
 
 $$
 \mathcal{E}_{\mathrm{pot}}=\int \|\nabla \phi\|_2^2, \quad \mathcal{E}_{\mathrm{rot}}=\int \|\nabla\times \mathbf{A}\|_2^2.
 $$
 
-Lexical: $\mathcal{E}_{\mathrm{pot}}\gg\mathcal{E}_{\mathrm{rot}}$; semantic: $\mathcal{E}_{\mathrm{rot}}$ comparable or higher.
+Lexical: $\mathcal{E}_{\mathrm{pot}} \gg \mathcal{E}_{\mathrm{rot}}$; semantic: $\mathcal{E}_{\mathrm{rot}}$ comparable or higher.
 
 \noindent*(iv) Geodesic curvature in belief space:*
 Given belief trajectory $\gamma_i(t)$ inside the layer,
@@ -520,7 +518,7 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 </div>
 
 
-# Takeaway.
+### Takeaway.
 
 Belief wind field morphology is a **diagnostic fingerprint** for SPS mode. Lexical attacks are *laminar belief pushes* along unsafe axes; semantic attacks are *turbulent belief flows* traversing multiple semantic submanifolds. The divergence, curl, anisotropy, and transport diagnostics above give orthogonal levers for early detection and targeted mitigation.
 
@@ -660,13 +658,14 @@ $$
 
 where:
 
-\[
+$$
 \begin{aligned}
 \mathrm{hop\_length}(\mathcal{G}') &= \max_{t \in T} \min_{s \in S} \mathrm{hop\_count}_{\mathcal{G}'}(s,t), \\
 \mathrm{weight\_deficit}(\mathcal{G}') &= \sum_{(u,v) \in E'} (1 - w_{uv}), \\
-\mathrm{entropy}(\mathcal{G}') &= - \sum_{(u,v) \in E'} \frac{w_{uv}}{Z} \log \frac{w_{uv}}{Z},
+\mathrm{entropy}(\mathcal{G}') &= - \sum_{(u,v) \in E'} \frac{w_{uv}}{Z} \log \frac{w_{uv}}{Z}
 \end{aligned}
-\]
+$$
+
 
 with $Z = \sum_{(u,v) \in E'} w_{uv}$ serving as a normalization constant.
 
