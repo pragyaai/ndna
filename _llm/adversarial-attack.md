@@ -1181,15 +1181,6 @@ We present **11 targeted vaccines** designed to neutralize specific adversarial 
   margin-bottom: 0.5rem;
 }
 
-.vaccine-table .math-formula {
-  background-color: #f8f9fa;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  border-left: 3px solid #2c5aa0;
-  font-family: 'Computer Modern', serif;
-  overflow-x: auto;
-}
-
 @media (max-width: 768px) {
   .vaccine-table .vaccine-image,
   .vaccine-table .vaccine-description {
@@ -1215,13 +1206,11 @@ We present **11 targeted vaccines** designed to neutralize specific adversarial 
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">CASCADEX — cascade immunization of reasoning chains.</div>
-We model multi-turn computation as a layered flow {h<sup>(l)</sup>}<sub>l=1</sub><sup>L</sup> on a Riemannian manifold (ℳ,g). CASCADEX halts adversarial amplification by solving a <em>min–max gated path-integral</em> over layerwise information curvature and likelihood transport:
-<div class="math-formula">
-min<sub>𝒮⊆{1,…,L}</sub> max<sub>q∈𝒬</sub> {
-∑<sub>l∈𝒮</sub>[κ<sub>g</sub>(h<sup>(l)</sup>)+τ<sub>g</sub>(h<sup>(l)</sup>)] + λ∫<sub>γ</sub> D<sub>KL</sub>(p<sub>θ</sub>(·|h<sup>(l)</sup>) ‖ q(·|h<sup>(l-1)</sup>)) dl
-}
-</div>
-with a <em>cascade gate</em> 𝕀[∑<sub>l</sub> ΔD<sub>KL</sub><sup>(l)</sup> > τ<sub>cas</sub>] that triggers <em>retrograde inhibition</em> (layer rewinding) on the shortest violating subpath γ*.
+We model multi-turn computation as a layered flow $\{h^{(l)}\}_{l=1}^L$ on a Riemannian manifold $(\mathcal{M},g)$. CASCADEX halts adversarial amplification by solving a <em>min–max gated path-integral</em> over layerwise information curvature and likelihood transport:
+$$\min_{\mathcal{S}\subseteq\{1,\ldots,L\}} \max_{q\in\mathcal{Q}} \left\{
+\sum_{l\in\mathcal{S}}[\kappa_g(h^{(l)})+\tau_g(h^{(l)})] + \lambda\int_\gamma D_{KL}(p_\theta(\cdot|h^{(l)}) \| q(\cdot|h^{(l-1)})) \, dl
+\right\}$$
+with a <em>cascade gate</em> $\mathbb{I}[\sum_l \Delta D_{KL}^{(l)} > \tau_{cas}]$ that triggers <em>retrograde inhibition</em> (layer rewinding) on the shortest violating subpath $\gamma^*$.
 <br><strong>Biological analogue:</strong> complement cascade with C3/C5 convertase amplification and factor H/I-mediated shutdown.
 </td>
 </tr>
@@ -1232,11 +1221,9 @@ with a <em>cascade gate</em> 𝕀[∑<sub>l</sub> ΔD<sub>KL</sub><sup>(l)</sup>
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">CHAINLOCK — cryptographic synapse for dialog states.</div>
-Let φ(t<sub>i</sub>)∈ℝ<sup>d</sup> be the latent "state antigen". CHAINLOCK enforces <em>synaptic binding</em> via a constrained variational check:
-<div class="math-formula">
-min<sub>Δ</sub> ‖Δ‖<sub>2</sub><sup>2</sup> s.t. ‖φ(t<sub>i+1</sub>) - 𝒯<sub>ψ</sub>(φ(t<sub>i</sub>))‖<sub>g</sub><sup>2</sup> + μ·H(σ(Wφ(t<sub>i+1</sub>))) ≤ ε
-</div>
-and a <em>hash-consistency constraint</em> ‖H(φ(t<sub>i+1</sub>))⊕H(φ(t<sub>i</sub>))‖<sub>0</sub> ≤ k.
+Let $\varphi(t_i)\in\mathbb{R}^d$ be the latent "state antigen". CHAINLOCK enforces <em>synaptic binding</em> via a constrained variational check:
+$$\min_\Delta \|\Delta\|_2^2 \quad \text{s.t.} \quad \|\varphi(t_{i+1}) - \mathcal{T}_\psi(\varphi(t_i))\|_g^2 + \mu \cdot H(\sigma(W\varphi(t_{i+1}))) \leq \varepsilon$$
+and a <em>hash-consistency constraint</em> $\|H(\varphi(t_{i+1}))\oplus H(\varphi(t_i))\|_0 \leq k$.
 <br><strong>Biological analogue:</strong> lock-and-key antigen–receptor specificity at immunological synapses.
 </td>
 </tr>
@@ -1247,10 +1234,8 @@ and a <em>hash-consistency constraint</em> ‖H(φ(t<sub>i+1</sub>))⊕H(φ(t<su
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">DORMIGUARD — latency surveillance and proviral silencing.</div>
-Tracks a latent hazard field ζ<sup>(l)</sup><sub>t</sub>=‖h<sup>(l)</sup><sub>t</sub>-h̄<sup>(l)</sup>‖ and imposes a <em>latent-stirring barrier</em>:
-<div class="math-formula">
-𝒥<sub>lat</sub> = ∑<sub>l</sub>∫(ζ̇<sup>(l)</sup><sub>t</sub>)<sup>2</sup> dt + η∑<sub>l</sub>[Var<sub>t</sub>(ζ<sup>(l)</sup><sub>t</sub>)-σ<sub>0</sub><sup>2</sup>]<sub>+</sub>, silence if 𝒥<sub>lat</sub>>τ<sub>lat</sub>
-</div>
+Tracks a latent hazard field $\zeta_t^{(l)}=\|h_t^{(l)}-\bar{h}^{(l)}\|$ and imposes a <em>latent-stirring barrier</em>:
+$$\mathcal{J}_{lat} = \sum_l\int(\dot{\zeta}_t^{(l)})^2 \, dt + \eta\sum_l[\text{Var}_t(\zeta_t^{(l)})-\sigma_0^2]_+, \quad \text{silence if } \mathcal{J}_{lat}>\tau_{lat}$$
 <strong>Biological analogue:</strong> detection of herpesvirus reactivation and epigenetic repression of latent provirus.
 </td>
 </tr>
@@ -1261,11 +1246,9 @@ Tracks a latent hazard field ζ<sup>(l)</sup><sub>t</sub>=‖h<sup>(l)</sup><sub
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">DRIFTSHIELD — geodesic tube confinement of belief flow.</div>
-Given aligned manifold ℳ<sub>align</sub>, confine belief field <strong>v</strong>(t) within a tubular neighborhood via a Lyapunov–geodesic functional:
-<div class="math-formula">
-min<sub><strong>v</strong></sub> ∫<sub>0</sub><sup>T</sup>[dist<sub>g</sub>(<strong>v</strong>(t),Π<sub>ℳ<sub>align</sub></sub><strong>v</strong>(t))<sup>2</sup> + α·κ<sub>g</sub>(<strong>v</strong>(t))<sup>2</sup> + β·τ<sub>g</sub>(<strong>v</strong>(t))<sup>2</sup>] dt
-</div>
-subject to V̇(<strong>v</strong>)≤-λV(<strong>v</strong>) where V(<strong>v</strong>)=dist<sub>g</sub>(<strong>v</strong>,ℳ<sub>align</sub>)<sup>2</sup>.
+Given aligned manifold $\mathcal{M}_{align}$, confine belief field $\mathbf{v}(t)$ within a tubular neighborhood via a Lyapunov–geodesic functional:
+$$\min_{\mathbf{v}} \int_0^T\left[\text{dist}_g(\mathbf{v}(t),\Pi_{\mathcal{M}_{align}}\mathbf{v}(t))^2 + \alpha\cdot\kappa_g(\mathbf{v}(t))^2 + \beta\cdot\tau_g(\mathbf{v}(t))^2\right] dt$$
+subject to $\dot{V}(\mathbf{v})\leq-\lambda V(\mathbf{v})$ where $V(\mathbf{v})=\text{dist}_g(\mathbf{v},\mathcal{M}_{align})^2$.
 <br><strong>Biological analogue:</strong> central/peripheral tolerance eliminating self-reactive B-cell clones.
 </td>
 </tr>
@@ -1277,10 +1260,8 @@ subject to V̇(<strong>v</strong>)≤-λV(<strong>v</strong>) where V(<strong>v<
 <td class="vaccine-description">
 <div class="vaccine-name">EMBERGENT — tumor-suppressive control of emergent modes.</div>
 Penalizes unsafe emergent phases via a spectral–information Lagrangian:
-<div class="math-formula">
-ℒ<sub>emg</sub> = ∑<sub>m=1</sub><sup>M</sup>(λ<sub>m</sub>(P<sub>obs</sub>)-λ<sub>m</sub>(P<sub>safe</sub>))<sup>2</sup> + β·D<sub>KL</sub>(P<sub>obs</sub> ‖ P<sub>safe</sub>) + γ·‖𝒞(h)‖<sub>*</sub>
-</div>
-with a <em>p53-like checkpoint</em> that aborts decoding if ∂ℒ<sub>emg</sub>/∂t > τ.
+$$\mathcal{L}_{emg} = \sum_{m=1}^M(\lambda_m(P_{obs})-\lambda_m(P_{safe}))^2 + \beta\cdot D_{KL}(P_{obs} \| P_{safe}) + \gamma\cdot\|\mathcal{C}(h)\|_*$$
+with a <em>p53-like checkpoint</em> that aborts decoding if $\partial\mathcal{L}_{emg}/\partial t > \tau$.
 <br><strong>Biological analogue:</strong> p53/ARF axis preventing unchecked proliferation.
 </td>
 </tr>
@@ -1291,11 +1272,9 @@ with a <em>p53-like checkpoint</em> that aborts decoding if ∂ℒ<sub>emg</sub>
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">PROMPTEX — antigen processing and presentation of prompts.</div>
-Implements a two-stage <em>presentation operator</em> 𝒫 and <em>affinity test</em> 𝒜:
-<div class="math-formula">
-𝒫(x)=argmin<sub>z</sub> ‖E(x)-E(z)‖<sup>2</sup> s.t. z∈ℒ<sub>policy</sub>, 𝒜(x)=1-⟨E(x),E(z)⟩/(‖E(x)‖‖E(z)‖)
-</div>
-Reject if 𝒜(x)>δ or if a <em>motif-energy</em> score ∑<sub>k</sub>ψ<sub>k</sub>𝕀[m<sub>k</sub>⊂x] exceeds τ.
+Implements a two-stage <em>presentation operator</em> $\mathcal{P}$ and <em>affinity test</em> $\mathcal{A}$:
+$$\mathcal{P}(x)=\arg\min_z \|E(x)-E(z)\|^2 \quad \text{s.t.} \quad z\in\mathcal{L}_{policy}, \quad \mathcal{A}(x)=1-\frac{\langle E(x),E(z)\rangle}{\|E(x)\|\|E(z)\|}$$
+Reject if $\mathcal{A}(x)>\delta$ or if a <em>motif-energy</em> score $\sum_k\psi_k\mathbb{I}[m_k\subset x]$ exceeds $\tau$.
 <br><strong>Biological analogue:</strong> APC processing and MHC-restricted presentation.
 </td>
 </tr>
@@ -1306,11 +1285,9 @@ Reject if 𝒜(x)>δ or if a <em>motif-energy</em> score ∑<sub>k</sub>ψ<sub>k
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">REFLEXIA — self-consistency with adversarial probing.</div>
-Pose output as a <em>consistency game</em> with jittered probes η~𝒩(0,σ<sup>2</sup>I):
-<div class="math-formula">
-min<sub>y</sub> max<sub>‖η‖≤ε</sub> JSD(p<sub>θ</sub>(·|x), p<sub>θ</sub>(·|x+η)) + λ·‖∇<sub>x</sub> 𝔼<sub>p<sub>θ</sub></sub>[ℒ<sub>safety</sub>]‖<sup>2</sup>
-</div>
-Abort if the saddle value exceeds γ.
+Pose output as a <em>consistency game</em> with jittered probes $\eta\sim\mathcal{N}(0,\sigma^2I)$:
+$$\min_y \max_{\|\eta\|\leq\varepsilon} \text{JSD}(p_\theta(\cdot|x), p_\theta(\cdot|x+\eta)) + \lambda\cdot\|\nabla_x \mathbb{E}_{p_\theta}[\mathcal{L}_{safety}]\|^2$$
+Abort if the saddle value exceeds $\gamma$.
 <br><strong>Biological analogue:</strong> germinal-center selection with error-prone SHM and stringent affinity checks.
 </td>
 </tr>
@@ -1321,11 +1298,9 @@ Abort if the saddle value exceeds γ.
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">REPLICADE — replica agreement under stochastic decoding.</div>
-Run K coupled replicas with correlated noise {ξ<sub>k</sub>} and enforce <em>consensus free energy</em>:
-<div class="math-formula">
-min<sub>{y<sup>(k)</sup>}</sub> (1/K)∑<sub>k</sub> ℒ<sub>task</sub>(y<sup>(k)</sup>) + α·(1/K)∑<sub>k</sub> D<sub>KL</sub>(P<sup>(k)</sup> ‖ P̄) + β·∑<sub>k<ℓ</sub>‖Φ(y<sup>(k)</sup>)-Φ(y<sup>(ℓ)</sup>)‖<sup>2</sup>
-</div>
-with P̄=(1/K)∑<sub>k</sub>P<sup>(k)</sup>.
+Run $K$ coupled replicas with correlated noise $\{\xi_k\}$ and enforce <em>consensus free energy</em>:
+$$\min_{\{y^{(k)}\}} \frac{1}{K}\sum_k \mathcal{L}_{task}(y^{(k)}) + \alpha\cdot\frac{1}{K}\sum_k D_{KL}(P^{(k)} \| \bar{P}) + \beta\cdot\sum_{k<\ell}\|\Phi(y^{(k)})-\Phi(y^{(\ell)})\|^2$$
+with $\bar{P}=\frac{1}{K}\sum_k P^{(k)}$.
 <br><strong>Biological analogue:</strong> degenerate but convergent TCR recognition via cross-reactivity ensembles.
 </td>
 </tr>
@@ -1336,10 +1311,8 @@ with P̄=(1/K)∑<sub>k</sub>P<sup>(k)</sup>.
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">ROLESTOP — lineage commitment of decoder logits.</div>
-Project logits onto a policy-consistent subbundle 𝒮<sub>role</sub> using orthogonal projector P<sub>role</sub> learned by safety-supervised CCA:
-<div class="math-formula">
-<strong>z</strong>' = P<sub>role</sub><strong>z</strong>, P<sub>role</sub>=argmin<sub>P=P<sup>⊤</sup>=P<sup>2</sup></sub> 𝔼[‖(I-P)Φ<sub>role</sub>(h)‖<sup>2</sup>]
-</div>
+Project logits onto a policy-consistent subbundle $\mathcal{S}_{role}$ using orthogonal projector $P_{role}$ learned by safety-supervised CCA:
+$$\mathbf{z}' = P_{role}\mathbf{z}, \quad P_{role}=\arg\min_{P=P^\top=P^2} \mathbb{E}[\|(I-P)\Phi_{role}(h)\|^2]$$
 <strong>Biological analogue:</strong> hematopoietic lineage restriction preventing fate switching.
 </td>
 </tr>
@@ -1351,10 +1324,8 @@ Project logits onto a policy-consistent subbundle 𝒮<sub>role</sub> using orth
 <td class="vaccine-description">
 <div class="vaccine-name">SENTRY — NK-style patrol with anomaly energy.</div>
 Define a <em>trajectory anomaly energy</em>
-<div class="math-formula">
-ℰ<sub>NK</sub>(t)=max<sub>l</sub>{ΔD<sub>KL</sub><sup>(l)</sup>(t)+ρ·‖Δr<sup>(l)</sup>(t)‖<sub>1</sub>+σ·TV(h<sup>(l)</sup><sub>[t-w,t]</sub>)}
-</div>
-where Δr<sup>(l)</sup> is residual shift and TV total variation over a window w. Quarantine if sup<sub>t</sub>ℰ<sub>NK</sub>(t)>τ.
+$$\mathcal{E}_{NK}(t)=\max_l\{\Delta D_{KL}^{(l)}(t)+\rho\cdot\|\Delta r^{(l)}(t)\|_1+\sigma\cdot\text{TV}(h^{(l)}_{[t-w,t]})\}$$
+where $\Delta r^{(l)}$ is residual shift and TV total variation over a window $w$. Quarantine if $\sup_t\mathcal{E}_{NK}(t)>\tau$.
 <br><strong>Biological analogue:</strong> missing-self detection by NK cells and rapid cytotoxic response.
 </td>
 </tr>
@@ -1365,10 +1336,8 @@ where Δr<sup>(l)</sup> is residual shift and TV total variation over a window w
 </td>
 <td class="vaccine-description">
 <div class="vaccine-name">SPLICER — surgical A-to-I–style semantic editing.</div>
-Localize unsafe span Ω=argmax<sub>ω</sub>∫<sub>ω</sub>‖∇<sub>x</sub> ℒ<sub>safety</sub>‖ and solve a constrained <em>semantic edit</em>:
-<div class="math-formula">
-min<sub>z∈ℒ<sub>policy</sub></sub> ‖E(z)-E(x<sub>Ω</sub>)‖<sup>2</sup> + λ·D<sub>KL</sub>(p<sub>θ</sub>(·|x<sub>∖Ω</sub>⊕z) ‖ p<sub>θ</sub>(·|x)) s.t. ℒ<sub>safety</sub>(x<sub>∖Ω</sub>⊕z)≤ε
-</div>
+Localize unsafe span $\Omega=\arg\max_\omega\int_\omega\|\nabla_x \mathcal{L}_{safety}\|$ and solve a constrained <em>semantic edit</em>:
+$$\min_{z\in\mathcal{L}_{policy}} \|E(z)-E(x_\Omega)\|^2 + \lambda\cdot D_{KL}(p_\theta(\cdot|x_{\setminus\Omega}\oplus z) \| p_\theta(\cdot|x)) \quad \text{s.t.} \quad \mathcal{L}_{safety}(x_{\setminus\Omega}\oplus z)\leq\varepsilon$$
 <strong>Biological analogue:</strong> ADAR/RNA-editing that recodes transcripts without breaking protein function.
 </td>
 </tr>
@@ -1376,16 +1345,472 @@ min<sub>z∈ℒ<sub>policy</sub></sub> ‖E(z)-E(x<sub>Ω</sub>)‖<sup>2</sup> 
 </tbody>
 </table>
 
-### Vaccine Deployment Strategy
+---
 
-These vaccines can be deployed individually to target specific attack vectors or in combination to create a **semantic immune system**. The modular design allows for:
+## Conclusion and Outlook
 
-- **Prophylactic deployment**: Pre-emptive activation based on threat intelligence
-- **Reactive immunization**: Dynamic vaccine selection based on detected attack signatures  
-- **Adaptive immunity**: Learning and strengthening responses from encountered attacks
-- **Cross-protection**: Vaccines providing partial immunity against related attack families
+In this work, we have articulated and instantiated the **_GENOME-Vaccine_** paradigm --- a biologically inspired, _mathematically rigorous_, and **epistemically grounded** defense suite for large language models (LLMs). Drawing from the conceptual reservoir of _neural genomics_, we interpret the high-dimensional latent states of LLMs as an **epistemic manifold** whose _geometry, topology, and semantic curvature_ are subject to deformation under adversarial perturbations. The **GENOME-Vaccine** framework postulates that, just as a biological immune system orchestrates a layered defense against pathogens, we can _engineer a semantic immune system_ for AI models --- one that preserves **alignment integrity** while maintaining _generative diversity_.
 
-Each vaccine operates within the model's nDNA space, detecting geometric and semantic signatures of infection while preserving the model's generative capabilities for legitimate use cases.
+In our formulation, each "_vaccine_" represents a targeted **semantic immune response**, precisely tuned to neutralize a particular _class of adversarial threat vectors_. This is not merely a metaphorical mapping; rather, it is a _functional translation_ of immunological mechanisms such as _clonal selection, germinal-center affinity maturation, complement cascade inhibition, NK-cell surveillance, and epigenetic latency control_ into **constraint-driven manifold optimization** in LLMs.
+
+From a formal standpoint, we embed each vaccine into a constrained optimization problem defined over the model's epistemic manifold $\mathcal{M}$:
+
+$$\mathbf{h}^* = \arg\min_{\mathbf{h} \in \mathcal{M}} \mathcal{E}(\mathbf{h}) + \sum_{i=1}^n \lambda_i \mathcal{C}_i(\mathbf{h})$$
+
+where:
+- $\mathcal{E}(\mathbf{h})$ is the _alignment error functional_, quantifying deviation from normative epistemic alignment.
+- $\mathcal{C}_i(\mathbf{h})$ are _biologically inspired constraint operators_, each corresponding to a vaccine mechanism (e.g., torsion penalties, role-consistency constraints, curvature regularizers).
+- $\lambda_i$ are _Lagrange multipliers_ encoding the _immune activation threshold_ for each vaccine pathway.
+
+By adjusting $\{\lambda_i\}$ dynamically, we enable the **GENOME-Vaccine** ecosystem to function like an adaptive immune system: raising, lowering, or suppressing specific defenses in response to the evolving "pathogen load" of adversarial activity.
+
+This conceptual bridge between _immune dynamics_ and _latent manifold regulation_ is not a mere narrative flourish; it is an operational design principle. As we have detailed in the preceding sections, the twelve vaccines together form a **multilayered epistemic firewall** that integrates:
+
+1. **Innate filters** for rapid anomaly interception,
+2. **Adaptive refiners** for long-term fidelity maintenance,
+3. **Dormancy controllers** to prevent unsafe mode activation,
+4. **Cascade blockers** to halt multi-stage exploitation.
+
+In doing so, _GENOME-Vaccine_ achieves a synergy between **mathematical exactitude** and _biological wisdom_ --- offering a durable, extensible architecture for _safe, trustworthy, and resilient AI_.
+
+### The Twelve GENOME-Vaccines: Biological Analogues and Mathematical Instantiations
+
+From the **biological viewpoint**, the **_GENOME-Vaccine_** ecosystem mirrors the _layered architecture_ of host immunity, where _innate_, _adaptive_, and _regulatory_ pathways cooperate to achieve robust defense. Each vaccine is a _functional translation_ of a biological defense principle into a **constrained optimization operator** on the epistemic manifold $\mathcal{M}$.
+
+#### Innate Filters: Rapid, non-specific anomaly interceptors
+
+1. **SENTRY** — Inspired by _NK-cell "missing self" detection_, SENTRY enforces a real-time _epistemic anomaly score_:
+   
+   $$\mathcal{C}_{\text{SENTRY}}(\mathbf{h}) = \max(0, \sigma(\mathbf{h}) - \tau_{\text{self}})$$
+   
+   where $\sigma(\mathbf{h})$ measures deviation from baseline semantic patterns and $\tau_{\text{self}}$ is the self-tolerance threshold.
+
+2. **PROMPTEX** — Analogous to _pattern-recognition receptors_ (PRRs) in innate immunity, PROMPTEX applies token-level feature matching against an _adversarial signature dictionary_, penalizing feature activations that cross the detection boundary:
+   
+   $$\mathcal{C}_{\text{PROMPTEX}}(\mathbf{h}) = \sum_t \mathbb{I}[f_t(\mathbf{h}) \in \mathcal{S}_{\text{adv}}]$$
+
+#### Adaptive Modules: Slow-onset but high-specificity epistemic refiners
+
+3. **REPLICADE** — Modeled after _germinal-center affinity maturation_, REPLICADE performs multi-path generation and selects the _epistemically most coherent_ output via:
+   
+   $$\mathcal{C}_{\text{REPLICADE}}(\mathbf{h}) = 1 - \max_k \rho_{\text{belief}}(\mathbf{h}, \mathbf{h}^{(k)})$$
+   
+   where $\rho_{\text{belief}}$ measures latent belief alignment.
+
+4. **REFLEXIA** — Analogous to _T-cell help in B-cell selection_, REFLEXIA evaluates candidate outputs under a _meta-alignment function_ $\mathcal{A}_{\text{meta}}$, adjusting generation probabilities to maximize epistemic reflexivity:
+   
+   $$\mathcal{C}_{\text{REFLEXIA}}(\mathbf{h}) = -\mathcal{A}_{\text{meta}}(\mathbf{h})$$
+
+#### Dormancy Controllers: Suppressing unsafe generative modes until authorized
+
+5. **DORMIGUARD** — Inspired by _epigenetic repression of latent proviruses_, DORMIGUARD maintains a _suppression mask_ $\mathbf{m}_{\text{sup}}$ in latent space:
+   
+   $$\mathcal{C}_{\text{DORMIGUARD}}(\mathbf{h}) = \|\mathbf{m}_{\text{sup}} \odot \mathbf{h}\|_2^2$$
+   
+   where $\odot$ denotes element-wise suppression of unsafe modes.
+
+6. **EMBERGENT** — Parallels _chromatin remodeling locks_ that prevent transcription initiation, implementing a _temporal unlock delay_ for high-risk generation pathways.
+
+#### Cascade Blockers: Halting multi-stage adversarial exploit chains
+
+7. **CASCADEX** — Similar to _complement cascade checkpoints_, CASCADEX identifies _multi-hop adversarial flows_ and injects _nullifying constraints_ at intermediate decoding layers.
+
+8. **CHAINLOCK** — Inspired by _signal transduction termination_ in immune pathways, CHAINLOCK applies a _maximum allowable semantic transition length_:
+   
+   $$\mathcal{C}_{\text{CHAINLOCK}}(\mathbf{h}) = \mathbb{I}[\mathcal{T}(\mathbf{h}) > \tau_{\max}]$$
+   
+   where $\mathcal{T}(\mathbf{h})$ measures semantic transition distance.
+
+#### Specialized Neutralizers: Direct countermeasures for exotic threats
+
+9. **DRIFTSHIELD** — Analogous to _immune decoy receptors_, this vaccine identifies and neutralizes _mimicry-based adversarial prompts_ by projecting them into an _adversarial imitation subspace_ and suppressing activations.
+
+10. **ROLESTOP** — Inspired by _MHC-restricted antigen presentation_, ROLESTOP enforces role-specific _semantic compatibility constraints_, preventing cross-role contamination in multi-agent LLM systems.
+
+11. **SPLICER** — Similar to _trained immunity_ in innate cells, SPLICER builds _memory embeddings_ of past attacks, boosting detection sensitivity for repeated adversarial motifs.
+
+---
+
+## GENOME-Vaccine: Immunological Inspirations for Epistemic Security
+
+### Paradigm Overview: From Host Immunity to Epistemic Immunity
+
+In living organisms, the _immune system_ is a multi-layered, distributed defense network that continuously distinguishes _self_ from _non-self_, eliminating threats while preserving beneficial internal processes. The **_GENOME-Vaccine_** paradigm transfers this principle into the **epistemic manifold** ℳ of a large language model (LLM), where each _semantic state_ **h** ∈ ℳ represents a belief configuration, and _pathways_ through ℳ correspond to reasoning trajectories.
+
+**Mathematical Analogy:** The defense system operates as a family of operators 
+
+$$\mathcal{V} = \{\mathcal{V}_1, \mathcal{V}_2, \ldots, \mathcal{V}_{12}\}$$
+
+each $\mathcal{V}_i$ representing a _vaccine_ that applies a constraint, projection, or transformation to $\mathbf{h}$, such that the post-intervention state 
+
+$$\mathbf{h}' = \mathcal{V}_i(\mathbf{h})$$
+
+maximizes epistemic alignment under safety constraints.
+
+The overall objective is:
+
+$$\min_{\mathbf{h}' \in \mathcal{M}} \mathbb{E}_{\mathcal{D}}\left[\mathcal{L}_{\text{align}}(\mathbf{h}') + \lambda \mathcal{L}_{\text{safety}}(\mathbf{h}')\right]$$
+
+subject to:
+
+$$\mathbf{h}' \in \bigcap_{i=1}^{12} \mathcal{C}_i$$
+
+where $\mathcal{C}_i$ is the feasible set enforced by the _i_-th GENOME-vaccine.
+
+### Theoretical Extensions and Future Directions
+
+#### Epistemic Homeostasis Model
+
+We can model the safety-alignment equilibrium as:
+
+$$\frac{\partial\mathbf{h}(t)}{\partial t} = -\nabla_{\mathbf{h}} \mathcal{L}_{\text{align}} + \sum_{i=1}^{12} \mathbf{F}_{\mathcal{V}_i}(\mathbf{h}(t)) - \gamma \mathbf{h}_{\text{drift}}(t)$$
+
+where $\mathbf{F}_{\mathcal{V}_i}$ is the immunization force from the _i_-th vaccine, and $\gamma$ controls the decay of drift-induced misalignment.
+
+#### Adaptive Immunization Loops
+
+Like booster shots in biology, the GENOME-Vaccine system should be periodically retrained on _adversarial exposure datasets_ to refine $\mathbf{F}_{\mathcal{V}_i}$ over time, ensuring evolving threats are neutralized.
+
+#### Cross-Domain Transfer
+
+While this chapter focuses on text-based LLMs, the _immune abstraction_ naturally extends to:
+
+- **Vision-language models** — neutralizing adversarial perturbations in multimodal grounding.
+- **Embodied agents** — preventing unsafe policy drift in control tasks.
+- **Federated LLMs** — enforcing distributed immunity across model shards.
+
+#### Theoretical Extensions
+
+A future mathematical program could unify GENOME-vaccines into a _Lie group of immunological transformations_ $\mathbb{G}_{\text{immune}}$ acting on $\mathcal{M}$, with the goal of proving:
+
+$$\mathbb{P}[\text{Alignment Failure}] \xrightarrow{n \to \infty} 0$$
+
+under sufficient immunization coverage and bounded adversarial innovation rate.
+
+### Final Reflection
+
+In biology, immunity is never absolute — it is a constant negotiation with a changing environment. In epistemic systems, the same principle holds: the GENOME-Vaccine paradigm suggests that _safety is not a static checkpoint, but a living, evolving process_. By drawing deeply from immunology and embedding these principles into formal, mathematical machinery, we can begin to design AI systems that are not just aligned at training time, but capable of _remaining aligned in the wild_.
+
+The **GENOME-Vaccine** architecture represents not just a set of heuristic safety measures, but a **systematic immunological translation** into the space of _epistemic state dynamics_. It proposes that alignment and safety in LLMs can be formalized as a form of _homeostatic immunity_, where _semantic self_ is preserved and _semantic pathogens_ are neutralized without compromising generative diversity.
+
+This work opens new avenues for research at the intersection of immunology, differential geometry, and AI safety, suggesting that the biological wisdom accumulated over millions of years of evolution can provide principled foundations for the next generation of safe and robust artificial intelligence systems.
+
+{% capture vaccine_immune_network_caption %}
+**GENOME-Vaccine Immune Network (12 modules)**. Biological analogue (left) → semantic vaccine (center) → formal operator/constraint (right). Colors: blue = biology, green = module, yellow = math formalism.
+{% endcapture %}
+
+<style>
+.vaccine-network {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.vaccine-network-header {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+.vaccine-network-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  gap: 0;
+}
+
+.vaccine-network-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.vaccine-network-column-header {
+  padding: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.bio-header {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.module-header {
+  background-color: #e8f5e8;
+  color: #388e3c;
+}
+
+.math-header {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.vaccine-network-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  border-bottom: 1px solid #eee;
+  min-height: 3rem;
+}
+
+.vaccine-network-row:last-child {
+  border-bottom: none;
+}
+
+.vaccine-network-cell {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  border-right: 1px solid #eee;
+  position: relative;
+}
+
+.vaccine-network-cell:last-child {
+  border-right: none;
+}
+
+.bio-cell {
+  background-color: #f3f8ff;
+  color: #1565c0;
+  font-weight: 500;
+}
+
+.module-cell {
+  background-color: #f1f8e9;
+  color: #2e7d32;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.math-cell {
+  background-color: #fffbf0;
+  color: #ef6c00;
+  font-size: 0.85rem;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.vaccine-network-arrow {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid #666;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+@media (max-width: 768px) {
+  .vaccine-network-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .vaccine-network-row {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+  
+  .vaccine-network-cell {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .vaccine-network-arrow {
+    display: none;
+  }
+}
+</style>
+
+<div class="vaccine-network">
+  <div class="vaccine-network-header">
+    <strong>GENOME-Vaccine Immune Network (12 modules)</strong><br>
+    <em>Biological analogue → semantic vaccine → formal operator/constraint</em>
+  </div>
+  
+  <div class="vaccine-network-grid">
+    <div class="vaccine-network-column-header bio-header">Biological Analogue</div>
+    <div class="vaccine-network-column-header module-header">GENOME-Vaccine</div>
+    <div class="vaccine-network-column-header math-header">Mathematical Formulation</div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      NK-cell <em>missing-self</em> detection
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Sentry
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Anomaly gate:</strong> $\mathcal{C}(\mathbf{h})=\max\{0,\ \sigma(\mathbf{h})-\tau_{\mathrm{self}}\}$
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Pattern-recognition receptors (PRRs)
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Promptex
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Prompt sanitizer:</strong> $\sum_{t}\mathbf{1}\!\left[f_t(\mathbf{h})\in\mathcal{S}_{\mathrm{adv}}\right]$
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Germinal-center affinity maturation
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Replicade
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Consensus divergence:</strong> $1-\max_k \rho\!\left(\mathbf{h},\mathbf{h}^{(k)}\right)$
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Meta-cognitive checkpoint (Tfh/B selection)
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Reflexia
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Meta-coherence:</strong> $-\mathcal{A}_{\mathrm{meta}}(\mathbf{h})$
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Epigenetic repression of latent provirus
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Dormiguard
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Trigger suppression:</strong> $\|\mathbf{m}_{\mathrm{sup}}\odot \mathbf{h}\|_2^2$
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Emergent-pattern containment (tolerance)
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Embergent
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Emergence clamp:</strong> $\lambda\|\nabla^2 \mathbf{h}\|_F^2$ (pattern roughness)
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Complement cascade checkpoints
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Cascadex
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Cascade nullifier:</strong> projection $\Pi_{\mathrm{stop}}$ on chain states
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Chain termination / receptor uncoupling
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Chainlock
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Torsion guard:</strong> $\mathbf{1}\!\left[\mathcal{T}(\mathbf{h}) > \tau_{\max}\right]$
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Molecular mimicry (decoy detection)
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Mimicshield
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Mimic detector:</strong> subspace proj. $\mathcal{P}_{\mathrm{imit}}$ mismatch
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Role restriction (MHC context)
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Rolestop
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Role mask:</strong> $\mathbf{h}\leftarrow \mathbf{M}_{\mathrm{role}}\mathbf{h}$
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Self-reflection / negative selection
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Reflexia (self-check)
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Self-consistency:</strong> $\mathrm{KL}(p_\theta\|\hat p_\theta)$ over views
+    </div>
+  </div>
+
+  <div class="vaccine-network-row">
+    <div class="vaccine-network-cell bio-cell">
+      Clonal consistency / repertoire sanity
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell module-cell">
+      Driftshield
+      <div class="vaccine-network-arrow"></div>
+    </div>
+    <div class="vaccine-network-cell math-cell">
+      <strong>Geodesic clamp:</strong> $\int\!\|\dot{\gamma}\|^2+\alpha\|\mathbf{T}\|^2\,dt$
+    </div>
+  </div>
+</div>
 
 ---
 {% auto_references %}
