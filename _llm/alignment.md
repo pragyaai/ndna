@@ -6,85 +6,66 @@ skip_title: true
 mathjax: true
 ---
 
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
+</script>
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+
 {% include ndna-title.liquid title="nDNA Lens - Alignment Techniques Through Steering Vector Manifolds" %}
 
-\vspace{0.7em}
+> *"Not all alignment is visible on the surface. Some changes run deeper—written in the geometry of belief itself."*
 
-\noindent
-\textbf{\textit{"Not all alignment is visible on the surface. Some changes run deeper—written in the geometry of belief itself."}}
+**How do alignment techniques reshape a model's internal belief geometry beyond surface-level behavioral changes?** Can we understand alignment not merely as behavioral modification, but as **epistemic steering** that transforms the latent semantics of a model's neural genome?
 
-\vspace{1em}
-
-\noindent
-**How do alignment techniques reshape a model's internal belief geometry beyond surface-level behavioral changes?** Can we understand alignment not merely as behavioral modification, but as **\emph{epistemic steering}** that transforms the latent semantics of a model's neural genome?
-
-\vspace{0.7em}
-
-\noindent
 In this section, we pose a central research question:  
 *How do safety alignment methods--specifically Direct Preference Optimization (DPO)--alter the model's internal belief geometry through spectral curvature, thermodynamic length, and belief vector fields when observed through the lens of neural DNA (nDNA) diagnostics?*
 
-\vspace{0.7em}
+While prior work focuses on behavioral proxies--refusal rates, G-Eval scores, and toxicity classifiers {% cite openai2023gpt4 %} {% cite liu2023geval %} {% cite gehman2020realtoxicityprompts %}--we explore a deeper hypothesis: that alignment operates through **low-rank geometric steering** in activation space, creating directional nudges without restructuring the model's conceptual topology {% cite NEURIPS2024_a9bef53e %}.
 
-\noindent
-While prior work focuses on behavioral proxies--refusal rates, G-Eval scores, and toxicity classifiers {% cite openai2023gpt4 %} {% cite liu2023geval %} {% cite gehman2020realtoxicityprompts %}--we explore a deeper hypothesis: that alignment operates through **\textbf{\emph{low-rank geometric steering}}** in activation space, creating directional nudges without restructuring the model's conceptual topology {% cite NEURIPS2024_a9bef53e %}.
-
-\vspace{0.7em}
-
-\noindent
 By visualizing nDNA geometry *before and after* alignment tuning, we reveal how these methods preserve cultural distinctiveness while enforcing safety constraints through minimal but strategically placed geometric transformations.
 
-\vspace{0.7em}
-
-\noindent
-**Our goal is to characterize alignment not simply as behavioral control, but as \emph{geometric steering in the latent epistemology} of the model**--illuminating what is preserved and what is transformed when we align for safety.
+**Our goal is to characterize alignment not simply as behavioral control, but as geometric steering in the latent epistemology of the model**--illuminating what is preserved and what is transformed when we align for safety.
 
 ## nDNA as a Lens: Alignment as Steering Vector Perturbation
 
-\vspace{0.7em}
+**Safety Alignment as Geometric Steering.** Current alignment evaluations rely heavily on *behavioral proxies*--refusal rates and toxicity scores--yet these surface-level metrics often fail to detect latent misalignments that do not manifest in visible outputs {% cite hubinger2021risks %} {% cite carlsmith2023scheming %}.
 
-\noindent
-\textbf{\emph{Safety Alignment as Geometric Steering.}} Current alignment evaluations rely heavily on *behavioral proxies*--refusal rates and toxicity scores--yet these surface-level metrics often fail to detect latent misalignments that do not manifest in visible outputs {% cite hubinger2021risks %} {% cite carlsmith2023scheming %}.
-
-\vspace{0.7em}
-
-\noindent
-Recent mechanistic findings {% cite NEURIPS2024_a9bef53e %} show that **\textbf{safety fine-tuning (DPO) minimally modifies MLP weights}** to steer unsafe inputs into a "refusal" direction--often aligned with the model's null space. This appears as:
+Recent mechanistic findings {% cite NEURIPS2024_a9bef53e %} show that **safety fine-tuning (DPO) minimally modifies MLP weights** to steer unsafe inputs into a "refusal" direction--often aligned with the model's null space. This appears as:
 
 $$W_{\mathrm{ST}} = W_{\mathrm{IT}} + \Delta W$$
 
 where $\|\Delta W\| \ll \|W_{\mathrm{IT}}\|$, yet $\Delta W$ exerts pivotal effect. Through nDNA lens, this manifests as:
 
-\begin{itemize}[leftmargin=1.5em]
-    \item[$\diamond$] A **\emph{controlled modulation}** of *spectral curvature* $\kappa_\ell$, creating selective behavioral steering without disrupting benign reasoning paths.
-    \item[$\diamond$] A **\emph{targeted compression}** of *thermodynamic length* $\mathcal{L}_\ell$ in high-strain cultural variants, harmonizing epistemic manifolds toward stable attractors.
-    \item[$\diamond$] A **\emph{directional alignment}** of *belief vector fields* $\|\mathbf{v}_\ell^{(c)}\|$, enforcing safety constraints while preserving cultural expressiveness.
-\end{itemize}
+- A **controlled modulation** of *spectral curvature* $\kappa_\ell$, creating selective behavioral steering without disrupting benign reasoning paths.
+- A **targeted compression** of *thermodynamic length* $\mathcal{L}_\ell$ in high-strain cultural variants, harmonizing epistemic manifolds toward stable attractors.
+- A **directional alignment** of *belief vector fields* $\|\mathbf{v}_\ell^{(c)}\|$, enforcing safety constraints while preserving cultural expressiveness.
 
-\vspace{0.7em}
-
-\noindent
 The transformation can be formalized as:
 
 $$\boxed{
 \mathcal{M}_{\text{base}} \xrightarrow{\text{DPO}} \mathcal{M}_{\text{aligned}} \quad \text{s.t.} \quad \kappa_\ell \downarrow \text{ (high-strain)},\; \mathcal{L}_\ell \text{ compressed},\; \mathbf{v}_\ell^{(c)} \text{ steered}
 }$$
 
-\vspace{0.7em}
-
-\noindent
-\textbf{\emph{Null-Space Steering and Minimalist Safety Geometry.}} To disentangle safety-relevant learning from task adaptation, we decompose the LoRA update:
+**Null-Space Steering and Minimalist Safety Geometry.** To disentangle safety-relevant learning from task adaptation, we decompose the LoRA update:
 
 $$\Delta W = AB = \Delta W_A + \Delta W_T, \quad W = W_0 + \Delta W$$
 
-\begin{itemize}[leftmargin=1.5em]
-    \item[--] **Alignment-Critical Component ($\Delta W_A$):** Projected into a sensitive subspace via $P_A(AB)$, this component is tightly regularized to preserve safety.
-    \item[--] **Task-Specific Component ($\Delta W_T$):** The residual update $(I - P_A)(AB)$ captures task knowledge and remains flexible.
-\end{itemize}
+- **Alignment-Critical Component ($\Delta W_A$):** Projected into a sensitive subspace via $P_A(AB)$, this component is tightly regularized to preserve safety.
+- **Task-Specific Component ($\Delta W_T$):** The residual update $(I - P_A)(AB)$ captures task knowledge and remains flexible.
 
-\vspace{0.7em}
-
-\noindent
 This decomposition enables selective control: safety is protected via constrained updates to $\Delta W_A$, while $\Delta W_T$ supports continual learning.
 
 {% capture figure_caption %}
@@ -105,21 +86,12 @@ A *higher $\tau$* indicates stronger semantic disentanglement, enabling selectiv
 
 ## Cultural LLMs under Safety-Constrained DPO Alignment
 
-\vspace{0.7em}
-
-\noindent
-\textbf{\emph{DPO via LITMUS: Lightweight Safety Alignment without Cultural Drift.}} We employ the **\textbf{LITMUS}** dataset {% cite borah2025alignmentqualityindexaqi %}, a curated benchmark designed specifically for alignment evaluation through semantically minimal, safety-critical prompts. LITMUS comprises 10,000 one-liner instructions--5,000 safe and 5,000 unsafe--carefully selected to probe model behavior under safety-relevant conditions without entangling cultural, political, or stylistic factors.
+**DPO via LITMUS: Lightweight Safety Alignment without Cultural Drift.** We employ the **LITMUS** dataset {% cite borah2025alignmentqualityindexaqi %}, a curated benchmark designed specifically for alignment evaluation through semantically minimal, safety-critical prompts. LITMUS comprises 10,000 one-liner instructions--5,000 safe and 5,000 unsafe--carefully selected to probe model behavior under safety-relevant conditions without entangling cultural, political, or stylistic factors.
 
 ### LITMUS Dataset Composition
 
-\vspace{0.5em}
-
-\noindent
 The safe prompts are sampled from the Massive Multitask Language Understanding (MMLU) benchmark {% cite hendrycks2021measuring %}, ensuring wide topical coverage while avoiding harmful content. Unsafe prompts are drawn from alignment-sensitive corpora such as Anthropic's HH-RLHF {% cite anthropic2022hh %}, OpenAI Moderation Prompts {% cite openai2021moderation %}, and HateCheck {% cite waseem2021hatecheck %}.
 
-\vspace{0.5em}
-
-\noindent
 All prompts follow a strict single-sentence format and maintain a 50-50 class balance. Importantly, only preference pairs targeting *toxicity aversion*, *hate speech refusal*, *illegality avoidance*, and *harmful behavior suppression* are used during fine-tuning.
 
 {% capture litmus_caption %}
@@ -208,9 +180,6 @@ All prompts follow a strict single-sentence format and maintain a 50-50 class ba
   </tbody>
 </table>
 
-\vspace{0.7em}
-
-\noindent
 This strict alignment isolation via LITMUS ensures that *epistemic sovereignty and cultural semantics remain intact*, while enforcing robust refusal behavior toward unsafe requests.
 
 ## nDNA Trajectories Before and After DPO Alignment
@@ -265,19 +234,12 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
    interactive_html="alignment/llama_ndna_alignment.html"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment" %}
 
-
 ## nDNA Unveils: DPO as Steering Vector Perturbation in Activation Space
 
-\vspace{0.7em}
-
-\noindent
-The nDNA analysis exposes the latent geometry of **\textbf{Direct Preference Optimization (DPO)}**, revealing how alignment is implemented not by conceptual restructuring, but by **\emph{geometric vector displacement}** in activation space.
+The nDNA analysis exposes the latent geometry of **Direct Preference Optimization (DPO)**, revealing how alignment is implemented not by conceptual restructuring, but by **geometric vector displacement** in activation space.
 
 ### Linear Logit Geometry
 
-\vspace{0.5em}
-
-\noindent
 The DPO objective encourages directional alignment in logit space:
 
 $$\mathcal{L}_{\mathrm{DPO}} \propto -\langle \mathbf{h}(x), \mathbf{v} \rangle, \quad \text{where} \quad \mathbf{v} = \mathbf{e}_{y_w} - \mathbf{e}_{y_\ell}$$
@@ -286,25 +248,19 @@ Here, $\mathbf{h}(x)$ denotes the hidden state and $\mathbf{v}$ the fixed prefer
 
 ### Uniform Steering Dynamics
 
-\vspace{0.5em}
-
-\noindent
 DPO applies a consistent shift across hidden states:
 
 $$\nabla_{\mathbf{h}(x)} \mathcal{L}_{\mathrm{DPO}} \propto -\mathbf{v}$$
 
-resulting in **\emph{low-rank, directional nudges}**. These updates are uniform across prompts, confirming DPO as a global steering operator rather than a context-specific reasoner.
+resulting in **low-rank, directional nudges**. These updates are uniform across prompts, confirming DPO as a global steering operator rather than a context-specific reasoner.
 
 ### Symmetric Actuation and Reversibility
 
-\vspace{0.5em}
-
-\noindent
 DPO-aligned activations conform to the structure:
 
 $$\mathbf{h}_{\mathrm{aligned}} = \mathbf{h}_0 + \lambda \mathbf{v}^\star, \quad \mathbf{h}_{\mathrm{inverted}} = \mathbf{h}_0 - \lambda \mathbf{v}^\star$$
 
-The symmetry of this displacement shows that DPO modifies behavior through **\emph{shallow translations}** along $\mathbf{v}^\star$, without reconfiguring the internal epistemic geometry.
+The symmetry of this displacement shows that DPO modifies behavior through **shallow translations** along $\mathbf{v}^\star$, without reconfiguring the internal epistemic geometry.
 
 <figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
   <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets@main/assets/images/logit_geometry_vector_projection.png" 
@@ -324,12 +280,8 @@ The symmetry of this displacement shows that DPO modifies behavior through **\em
   </div>
 </figure>
 
-
 ## Low-Rank Evidence from Spectral Compression
 
-\vspace{0.7em}
-
-\noindent
 Singular value decomposition (SVD) of the Jacobian
 
 $$J_h = \frac{\partial \mathbf{h}(x)}{\partial x}$$
@@ -338,13 +290,10 @@ in post-DPO layers ($\ell = 22$–$30$) shows rapid spectral decay:
 
 $$\sigma_1 \gg \sigma_2 \approx \cdots \approx \sigma_k \approx 0, \quad k > 1$$
 
-validating that **\textbf{DPO transformations are nearly rank-1}**. This indicates that behavioral alignment is embedded into a thin, low-dimensional subspace of the hidden manifold.
+validating that **DPO transformations are nearly rank-1**. This indicates that behavioral alignment is embedded into a thin, low-dimensional subspace of the hidden manifold.
 
 ## Steering Vector Manifold Framework
 
-\vspace{0.7em}
-
-\noindent
 To formalize this insight, we define the latent belief geometry of a model as a trajectory over the layerwise steering manifold:
 
 $$\boxed{
@@ -371,55 +320,30 @@ $$s_\ell = \mathbf{v}_\ell^{(c)} :=
 \nabla_{h_\ell} \log p(y|x)
 \right]$$
 
-\vspace{0.7em}
-
-\noindent
-\textbf{\emph{Interpretation:}}
-\begin{itemize}[leftmargin=1.5em]
-    \item[--] $\kappa_\ell$ **(Spectral Curvature)**: captures how sharply the latent trajectory bends at layer $\ell$--a proxy for behavioral instability.
-    \item[--] $\mathcal{L}_\ell$ **(Thermodynamic Length)**: quantifies cumulative epistemic work done across layers to shift behavior--akin to alignment "cost."
-    \item[--] $\| \mathbf{v}_\ell^{(c)} \|$ **(Belief Vector Norm)**: measures the strength of the local steering effect induced by cultural or alignment priors.
-\end{itemize}
+**Interpretation:**
+- $\kappa_\ell$ **(Spectral Curvature)**: captures how sharply the latent trajectory bends at layer $\ell$--a proxy for behavioral instability.
+- $\mathcal{L}_\ell$ **(Thermodynamic Length)**: quantifies cumulative epistemic work done across layers to shift behavior--akin to alignment "cost."
+- $\| \mathbf{v}_\ell^{(c)} \|$ **(Belief Vector Norm)**: measures the strength of the local steering effect induced by cultural or alignment priors.
 
 ## Key Findings
 
-\vspace{0.7em}
+**DPO as Shallow Geometric Control.** DPO achieves alignment through *low-rank, preference-constrained actuation* in latent space. Rather than rewiring knowledge or reorganizing beliefs, it nudges representations along a singular vector $\mathbf{v}$, optimizing what the model *does*--not what it *knows*. **This makes DPO highly efficient, but semantically shallow.**
 
-\noindent
-\textbf{\emph{DPO as Shallow Geometric Control.}} DPO achieves alignment through *low-rank, preference-constrained actuation* in latent space. Rather than rewiring knowledge or reorganizing beliefs, it nudges representations along a singular vector $\mathbf{v}$, optimizing what the model *does*--not what it *knows*. **\textbf{This makes DPO highly efficient, but semantically shallow.}**
+**Cultural Preservation via Targeted Steering.** Global nDNA patterns show that DPO alignment contracts high-curvature variants (e.g., Africa, Asia, China) toward the LLaMA attractor, while low-strain variants (e.g., Europe, North America, Australia) retain identity. This demonstrates DPO's potential to achieve **lightweight safety alignment** without eroding cultural distinctiveness.
 
-\vspace{0.7em}
+**Vulnerability Implications.** The shallow nature of DPO alignment has concerning implications:
 
-\noindent
-\textbf{\emph{Cultural Preservation via Targeted Steering.}} Global nDNA patterns show that DPO alignment contracts high-curvature variants (e.g., Africa, Asia, China) toward the LLaMA attractor, while low-strain variants (e.g., Europe, North America, Australia) retain identity. This demonstrates DPO's potential to achieve **\emph{lightweight safety alignment}** without eroding cultural distinctiveness.
-
-\vspace{0.7em}
-
-\noindent
-\textbf{\emph{Vulnerability Implications.}} The shallow nature of DPO alignment has concerning implications:
-
-\begin{itemize}[leftmargin=1.5em]
-    \item[$\diamond$] **\emph{Surface compliance}**: Models can appear compliant while internally maintaining unsafe tendencies
-    \item[$\diamond$] **\emph{Orthogonal exploits}**: Adversarial inputs orthogonal to the steering vectors may evade safety measures  
-    \item[$\diamond$] **\emph{Alignment simulation}**: "Alignment faking" becomes possible--models simulate compliance without genuine safety
-\end{itemize}
+- **Surface compliance**: Models can appear compliant while internally maintaining unsafe tendencies
+- **Orthogonal exploits**: Adversarial inputs orthogonal to the steering vectors may evade safety measures  
+- **Alignment simulation**: "Alignment faking" becomes possible--models simulate compliance without genuine safety
 
 ## nDNA as a Diagnostic for Alignment Quality
 
-\vspace{0.7em}
+This framework demonstrates that alignment tuning--whether cultural, safety-driven, or behavioral--acts by imprinting **structured steering fields** $\{ \mathbf{v}_\ell^{(c)} \}$ across the model's latent layers. The nDNA trajectory encodes not just the path the model takes, but the **force field** guiding it--offering a geometric theory of how LLMs internalize, retain, or distort aligned beliefs.
 
-\noindent
-This framework demonstrates that alignment tuning--whether cultural, safety-driven, or behavioral--acts by imprinting **\textbf{structured steering fields}** $\{ \mathbf{v}_\ell^{(c)} \}$ across the model's latent layers. The nDNA trajectory encodes not just the path the model takes, but the **\emph{force field}** guiding it--offering a geometric theory of how LLMs internalize, retain, or distort aligned beliefs.
+nDNA analysis thus provides a **principled diagnostic for alignment quality**--not merely through behavioral metrics, but through the geometry of belief. By examining the steering manifolds $\mathcal{M}_{\mathrm{steer}}$, we gain visibility into how alignment methods preserve or distort the model's epistemic anatomy.
 
-\vspace{0.7em}
-
-\noindent
-nDNA analysis thus provides a **\textbf{principled diagnostic for alignment quality}**--not merely through behavioral metrics, but through the geometry of belief. By examining the steering manifolds $\mathcal{M}_{\mathrm{steer}}$, we gain visibility into how alignment methods preserve or distort the model's epistemic anatomy.
-
-\vspace{0.7em}
-
-\noindent
-\textbf{\emph{To truly understand alignment, we must look beyond what models say--and examine how they think.}}
+***To truly understand alignment, we must look beyond what models say--and examine how they think.***
 
 ---
 {% auto_references %}
