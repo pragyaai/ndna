@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/model-collapse/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-15T10:52:35+00:00" />
+<meta property="article:published_time" content="2025-08-15T11:02:39+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="nDNA-Lens - Model Collapse as Latent Manifold Flattening" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T10:52:35+00:00","datePublished":"2025-08-15T10:52:35+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T11:02:39+00:00","datePublished":"2025-08-15T11:02:39+00:00","description":"Lens - Model Collapse as Latent Manifold Flattening","headline":"nDNA-Lens - Model Collapse as Latent Manifold Flattening","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/model-collapse/"},"url":"https://pragyaai.github.io/nDNA/llm/model-collapse/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -150,6 +150,55 @@ MathJax = {
 <p><strong>Model collapse</strong> denotes a <strong>degenerative phenomenon</strong> in large language models (LLMs) wherein the <em>expressivity</em>, <em>diversity</em>, and <em>semantic richness</em> of internal representations progressively deteriorate. Over time, this manifests as <strong>semantic homogenization</strong>, <strong>overconfident predictions</strong>, and <strong>diminished generative variability</strong>. The phenomenon was first formalized by Shumailov et al., who demonstrated that repeated fine-tuning on self-generated (<em>synthetic</em>) data induces a <em>feedback loop</em>—causing models to <strong>overfit to their own biases</strong> and generate increasingly shallow, self-reinforcing outputs.</p>
 
 <p>While such <em>autoregressive degeneration</em> has become an <strong>active area of study</strong>, most investigations focus on repeated fine-tuning of LLMs over their own <em>synthetic outputs</em>—where exposure bias and feedback loops progressively erode representational diversity. Building upon this understanding, we identify a second, comparatively <strong>underexplored</strong> route to collapse: <strong>recursive self-merging</strong>. Here, a model is iteratively merged with its descendants in a chain-like fashion—e.g., $\text{Parent}_1 + \text{Child}_1 \rightarrow \text{Child}_2$, then $\text{Child}_1 + \text{Child}_2 \rightarrow \text{Child}_3$, and so on—<em>without introducing new architectural priors or external grounding</em>. This practice, facilitated by community tools such as <a href="https://github.com/arcee-ai/mergekit"><code class="language-plaintext highlighter-rouge">mergekit</code></a>, poses a new form of epistemic degeneration we term <strong>semantic inbreeding</strong>.</p>
+
+<h2 id="strategic-typology-of-model-collapse-mechanisms">Strategic Typology of Model Collapse Mechanisms</h2>
+
+<div style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px;">
+<h3 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">Strategic Typology of Model Collapse Mechanisms</h3>
+<p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 30px;">A comprehensive framework categorizing the geometric pathways through which foundation models experience representational degeneration.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 20px;">
+<div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #e74c3c;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<div style="font-size: 24px; margin-right: 12px; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; background-color: #e74c3c;">🔄</div>
+<div style="font-weight: bold; font-size: 16px; color: #2c3e50; flex: 1;">Autoregressive Degeneration</div>
+</div>
+<div style="background: #ecf0f1; color: #7f8c8d; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; margin-bottom: 12px; display: inline-block;">INTENT &amp; MECHANISM</div>
+<div style="font-size: 14px; line-height: 1.5; margin-bottom: 15px; color: #555;">
+Repeated fine-tuning on self-generated synthetic data creates feedback loops that entrench model biases. Progressive exposure to own outputs leads to semantic homogenization.
+</div>
+<div style="background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #3498db;">
+<div style="font-size: 11px; font-weight: bold; color: #7f8c8d; margin-bottom: 5px;">GEOMETRIC SIGNATURE</div>
+<div style="font-size: 12px; color: #666; font-style: italic;">Progressive curvature flattening, thermodynamic contraction, reduced alignment force magnitudes</div>
+</div>
+</div>
+
+<div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #f39c12;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<div style="font-size: 24px; margin-right: 12px; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; background-color: #f39c12;">🧬</div>
+<div style="font-weight: bold; font-size: 16px; color: #2c3e50; flex: 1;">Recursive Self-Merging</div>
+</div>
+<div style="background: #ecf0f1; color: #7f8c8d; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; margin-bottom: 12px; display: inline-block;">INTENT &amp; MECHANISM</div>
+<div style="font-size: 14px; line-height: 1.5; margin-bottom: 15px; color: #555;">
+Iterative merging of model with descendants without external grounding. Introduces architectural tension and epistemic drift through incompatible latent priors.
+</div>
+<div style="background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #3498db;">
+<div style="font-size: 11px; font-weight: bold; color: #7f8c8d; margin-bottom: 5px;">GEOMETRIC SIGNATURE</div>
+<div style="font-size: 12px; color: #666; font-style: italic;">Semantic flattening intensifies, distinct latent features become increasingly homogenized</div>
+</div>
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<h4 style="color: #2c3e50; margin-bottom: 10px;">Epistemic Vitality Function</h4>
+<p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+A unifying mathematical diagnostic for model health:
+</p>
+<div style="background: #f8f9fa; padding: 15px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 16px; text-align: center; border: 2px solid #3498db;">
+𝒱ₗ := κₗ · ℒₗ · ‖𝐯ₗ⁽ᶜ⁾‖
+</div>
+</div>
+</div>
 
 <h2 id="biological-analogy">Biological Analogy</h2>
 
@@ -274,249 +323,449 @@ These findings suggest that **cultural inbreeding via recursive self-merging**�
 
 <!-- Africa -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/africa_ndna_final.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/africa_ndna_final.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" data-lightbox="gallery" data-title="Africa Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/africa_ndna_final.gif" alt="Africa Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/africa_ndna_collapse.html" title="Africa Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/africa_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>Africa Cultural Collapse Trajectory</strong>
      <p>Africa Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/africa_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/africa_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
 <!-- Asia -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/asia_ndna_collapse.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/asia_ndna_collapse.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" data-lightbox="gallery" data-title="Asia Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/asia_ndna_collapse.gif" alt="Asia Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/asia_ndna_collapse.html" title="Asia Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/asia_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>Asia Cultural Collapse Trajectory</strong>
      <p>Asia Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/asia_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/asia_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
 <!-- China -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/china_ndna_final.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/china_ndna_final.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/china_ndna_final.gif" data-lightbox="gallery" data-title="China Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/china_ndna_final.gif" alt="China Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/china_ndna_collapse.html" title="China Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/china_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>China Cultural Collapse Trajectory</strong>
      <p>China Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/china_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/china_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
 <!-- Europe -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/europe_ndna_collapse_FINAL.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/europe_ndna_collapse_FINAL.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Europe Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/europe_ndna_collapse_FINAL.gif" alt="Europe Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/europe_ndna_collapse.html" title="Europe Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/europe_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>Europe Cultural Collapse Trajectory</strong>
      <p>Europe Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/europe_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/europe_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
 <!-- Latin America -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/latinamerica.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/latinamerica.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/latinamerica.gif" data-lightbox="gallery" data-title="Latin America Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/latinamerica.gif" alt="Latin America Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/latinamerica_ndna_collapse.html" title="Latin America Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/latinamerica_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>Latin America Cultural Collapse Trajectory</strong>
      <p>Latin America Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/latinamerica_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/latinamerica_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
 <!-- Middle East -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/middleeast_ndna_final.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/middleeast_ndna_final.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" data-lightbox="gallery" data-title="Middle East Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/middleeast_ndna_final.gif" alt="Middle East Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/middleeast_ndna_collapse.html" title="Middle East Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/middleeast_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>Middle East Cultural Collapse Trajectory</strong>
      <p>Middle East Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/middleeast_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/middleeast_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
 <!-- North America -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/northamerica_ndna_collapse_FINAL.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/northamerica_ndna_collapse_FINAL.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="North America Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/northamerica_ndna_collapse_FINAL.gif" alt="North America Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/northamerica_ndna_collapse.html" title="North America Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/northamerica_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>North America Cultural Collapse Trajectory</strong>
      <p>North America Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/northamerica_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/northamerica_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
 <!-- Australia -->
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
+
+
+
+
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+
+  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
+  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
+
     
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/alignment/australia_ndna_collapse_FINAL.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/alignment/australia_ndna_collapse_FINAL.gif';" />
+      <div style="
+           display:grid;
+           grid-template-columns: 1fr 1fr;
+           gap:20px;
+           align-items:stretch;
+           ">
+        <!-- Left: GIF -->
+        <a href="/nDNA/assets/gifs/alignment/australia_ndna_collapse_FINAL.gif" data-lightbox="gallery" data-title="Australia Cultural Collapse Trajectory" style="display:block; overflow:hidden; border-radius:8px;">
+          <img src="/nDNA/assets/gifs/alignment/australia_ndna_collapse_FINAL.gif" alt="Australia Cultural Collapse Trajectory" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
+        </a>
+
+        <!-- Right: interactive HTML -->
+        <div style="display:flex; flex-direction:column;">
+          <iframe src="/nDNA/assets/html_plots/collapse/australia_ndna_collapse.html" title="Australia Cultural Collapse Trajectory - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+        </div>
+      </div>
+
     
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/collapse/australia_ndna_collapse.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
+
   </div>
-  
-  <figcaption class="figure-caption">
-    
+
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    <strong>Australia Cultural Collapse Trajectory</strong>
      <p>Australia Cultural Collapse Trajectory</p>
 
   </figcaption>
-  
-  
 
   
-    <a class="view-interactive-html" href="/nDNA/assets/html_plots/collapse/australia_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+
+  <!-- Button below caption -->
   
+    <div style="margin-top:1em; text-align:center;">
+      <a href="/nDNA/assets/html_plots/collapse/australia_ndna_collapse.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  
+
 </figure>
 
 
