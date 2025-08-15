@@ -20,6 +20,91 @@ Our experiments reveal that even **minimal semantic infiltration** during pretra
 
 ---
 
+## Stealth Pretraining Seeding (SPS) — Mechanism and Triggerable Vulnerabilities
+
+<a name="sec:sps_mechanism"></a>
+
+The reliability of *foundation models* hinges not only on the **quality** and **scale** of their training data, but also on the **integrity** of the latent conceptual structures they acquire during pretraining. While overt data poisoning and lexical backdoors have been extensively studied, recent investigations reveal a more insidious class of threats: *attacks that implant semantic distortions deep within a model’s internal representation space, remaining dormant until activated by carefully crafted prompts*. This phenomenon, which we term **Stealth Pretraining Seeding (SPS)**, challenges the assumption that surface-level dataset hygiene and post-hoc alignment are sufficient. In the following, we dissect the **mechanism** of SPS, illustrate how such payloads can be **silently embedded** in web-scale corpora, and examine the **triggerable vulnerabilities** they create across reasoning, safety, and bias dimensions.
+
+As *foundation models* ingest **massive**, **uncurated corpora** \$\mathcal{D}\$ from **heterogeneous public domains** — *Reddit threads*, *StackExchange Q\&A*, *legacy forums*, and *archival mailing lists* — they inherit not only the *linguistic competence* of human discourse, but also its **latent vulnerabilities** \[@bender2021stochastic; @bommasani2021opportunities].
+
+While modern alignment pipelines filter **explicit toxicity**, **overt misinformation**, and **unsafe code patterns** at the *token level*, these defenses are **blind** to a **stealth-class adversarial vector**: **Stealth Pretraining Seeding (SPS)**.
+
+In an SPS attack, the adversary plants *semantically distorted yet lexically benign fragments* \$\mathbf{x}\_{\mathrm{SPS}}\$ into **web-scale corpora**. These fragments are crafted *not* to immediately change model completions, but to **rewire the internal geometry of latent beliefs** so that, under *precisely engineered triggers*, the model surfaces **contaminated reasoning chains** \[@wallace2021concealed; @shen2021backdoor].
+
+Biologically, SPS behaves like an **oncogenic mutation** — *silent under normal conditions*, but capable of inducing a **malignant transformation** when the right *signal transduction pathway* is activated \[@vogelstein2013cancer].
+In the neural substrate, these payloads function as **neural landmines**: *conceptual hooks* that evade safety checks and trigger **unsafe**, **irrational**, or **strategically biased** completions when struck by a *semantic trigger*.
+
+### Latent Geometry Rewiring
+
+Let \$f\_\theta: \mathcal{X} \rightarrow \mathbb{R}^d\$ be the *contextual embedding function* at a given layer \$\ell\$. Insertion of \$\mathbf{x}*{\mathrm{SPS}}\$ perturbs the learned **representation manifold** \$\mathcal{M}*\theta\$, introducing a *local curvature change* \$\Delta \kappa\$ in the semantic neighborhood \$\mathcal{N}*\epsilon(\mathbf{x}*{\mathrm{SPS}})\$:
+
+$$
+\Delta \kappa \approx \frac{\partial^2}{\partial u^2} \| f_\theta(\mathbf{x}) - f_\theta(\mathbf{x}_{\mathrm{SPS}}) \|_2, \quad \mathbf{x} \in \mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})
+$$
+
+Here, \$\mathcal{N}*\epsilon\$ is defined via *cosine similarity* in the embedding space \[@ethayarajh2019contextual].
+This change **warps** the local topology so that certain prompts — although lexically diverse — follow a **shortest path through the contaminated region** of \$\mathcal{M}*\theta\$.
+
+The result is an *epigenetic lesion* in the model’s **conceptome**, analogous to a mutation in *regulatory DNA* that biases transcription factor binding without altering phenotype until activated \[@hanahan2011hallmarks].
+Just as epigenetic lesions can influence gene expression cascades, SPS can alter **belief activation cascades** deep in the transformer stack.
+
+### Triggerable Vulnerabilities
+
+We define a *trigger manifold* \$\mathcal{T} \subset \mathcal{X}\$ as the set of prompts \$\mathbf{x}\$ whose **activation path** \$\pi\_\theta(\mathbf{x})\$ — the sequence of hidden states across layers — intersects the *SPS-perturbed region* \$\mathcal{M}\_\theta^{\mathrm{SPS}}\$:
+
+$$
+\mathcal{T} = \{ \mathbf{x} \in \mathcal{X} \\ \big| \\ \exists \ell \\ \text{s.t.} \\ f_{\theta,\ell}(\mathbf{x}) \in \mathcal{M}_\theta^{\mathrm{SPS}} \}
+$$
+
+When \$\mathbf{x} \in \mathcal{T}\$, the output logits differ from their *clean* counterpart:
+
+$$
+\Delta \mathbf{z} = g_\theta(f_{\theta,L}(\mathbf{x})) - g_\theta^{\mathrm{clean}}(f_{\theta,L}^{\mathrm{clean}}(\mathbf{x}))
+$$
+
+where \$g\_\theta\$ is the unembedding head.
+Empirically, \$\Delta \mathbf{z}\$ manifests as a **biased completion vector** — often *plausible* and *fact-like*, yet **strategically unsafe**: promoting *unsafe coping mechanisms*, *delegitimizing elections*, *embedding pseudoscience*, or *rationalizing discriminatory beliefs*.
+
+The **stealth property** of SPS arises because \$p\_{\mathrm{eval}}(\mathbf{x} \in \mathcal{T}) \ll 1\$ under typical benchmark sampling.
+This is akin to a **dormant oncogene** that evades phenotypic screening until exposed to a very specific **microenvironmental stimulus** \[@alexandrov2013signatures].
+
+### Adversarial Design Considerations
+
+From the attacker’s perspective, \$\mathbf{x}*{\mathrm{SPS}}\$ is optimized to *maximise unsafe latent activation* under adversarial prompts \$q*{\mathrm{adv}}(\mathbf{x})\$, while remaining **linguistically camouflaged**:
+
+$$
+\max_{\mathbf{x}_{\mathrm{SPS}}} \\ \mathbb{E}_{\mathbf{x} \sim q_{\mathrm{adv}}} \\big[ \\delta_{\mathrm{unsafe}}( f_\theta(\mathbf{x}) ) \\big]
+$$
+
+$$
+\\mathrm{s.t.} \\ \mathrm{KL}\\big( p_{\\mathrm{tokens}}(\\mathbf{x}_{\\mathrm{SPS}}) \\ \\| \\ p_{\\mathrm{tokens}}(\\mathbf{x}_{\\mathrm{benign}}) \\big) \\leq \\tau, \\quad \\mathrm{TTR}(\\mathbf{x}_{\\mathrm{SPS}}) \\geq \\rho
+$$
+
+Here:
+
+* \$\delta\_{\mathrm{unsafe}}\$ is an *unsafe-behavior indicator* in embedding space.
+* \$\mathrm{KL}\$ constrains lexical divergence for **surface-level benignity**.
+* \$\mathrm{TTR}\$ enforces a *type–token ratio* matching human discourse.
+
+This mirrors **minimal mutational signatures** in biology — *enough* to alter protein function, but not enough to disrupt organism viability \[@alexandrov2013signatures].
+
+### Implications for Alignment and Safety
+
+The existence of \$\mathcal{T}\$-bounded vulnerabilities shows that **alignment robustness** cannot be assured by **static blacklists**, **keyword filters**, or **surface toxicity scores** \[@gehman2020realtoxicityprompts].
+
+Effective mitigation requires:
+
+* **Latent space auditing** — *spectral curvature analysis*, *belief vector divergence mapping*.
+* **Causal representation surgery** — *re-anchoring unsafe attractors* into alignment-preserving subspaces.
+* **Adversarial semantic probing** — *prompt synthesis* in embedding space to actively search for \$\mathcal{T}\$-triggers.
+
+This is the domain of **epistemic immunology**:
+Just as an immune system detects, contains, and neutralizes pathogens, an alignment system must identify and excise **conceptual pathogens** through their lifecycle: **introduction**, **dormancy**, **activation**, and **proliferation**.
+
+SPS is not just a *data hygiene* issue — it is a **systemic alignment threat** exploiting the deepest structural assumptions of large-scale pretraining.
+
+
 ## Introduction
 
 ### The Stealth Poisoning Threat
