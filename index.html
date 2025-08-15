@@ -686,9 +686,179 @@
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Table 1: Illustrative nDNA Example</h3>
-  <figure style="text-align: center; margin: 1em 0;">
-    <img src="assets/gifs/introduction/nDNA_matrics.png" alt="nDNA Geometry Table" width="50%" />
-  </figure>
+<!--   <figure style="text-align: center; margin: 1em 0;">
+    <img src="assets/gifs/introduction/nDNA_matrics.png" alt="nDNA Geometry Table" width="50%">
+  </figure> -->
+  <figure id="tab:ndna_example" style="text-align: center; margin: 2em 0;">
+  <style>
+    /* base font & layout */
+    #tab-ndna-table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px; /* entries */
+    }
+
+    /* stronger border */
+    #tab-ndna-table th,
+    #tab-ndna-table td {
+      border: 1.5px solid #444444;
+      vertical-align: middle;
+      padding: 12px 14px;
+    }
+
+    /* headings: slightly larger and bold (all the same size) */
+    #tab-ndna-table th {
+      font-size: 19px;
+      font-weight: 700;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    /* center numeric/math columns & prevent wrap */
+    #tab-ndna-table th.col-center,
+    #tab-ndna-table td.col-center {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* center belief-vector column and prevent wrapping (heading + v_c stay on one line) */
+    #tab-ndna-table th.col-belief,
+    #tab-ndna-table td.col-belief {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* precise powdered tints mapped from LaTeX percentages */
+    /* base RGBs:
+       green  #27ae60 -> (39,174,96)
+       yellow #f1c40f -> (241,196,15)
+       orange #e67e22 -> (230,126,34)
+       red    #e74c3c -> (231,76,60)
+    */
+    .green-15  { background: rgba(39,174,96,0.15); }
+    .green-20  { background: rgba(39,174,96,0.20); }
+    .green-30  { background: rgba(39,174,96,0.30); }
+
+    .yellow-20 { background: rgba(241,196,15,0.20); }
+    .yellow-30 { background: rgba(241,196,15,0.30); }
+
+    .orange-20 { background: rgba(230,126,34,0.20); }
+    .orange-30 { background: rgba(230,126,34,0.30); }
+
+    .red-20    { background: rgba(231,76,60,0.20); }
+    .red-30    { background: rgba(231,76,60,0.30); }
+    .red-40    { background: rgba(231,76,60,0.40); }
+
+    /* responsive wrapper */
+    .table-wrap { overflow-x:auto; max-width:100%; display:block; margin:0 auto; }
+  </style>
+
+  <div class="table-wrap">
+    <table id="tab-ndna-table" role="table" aria-label="nDNA Geometric Signatures Table">
+      <thead>
+        <tr>
+          <th class="col-center" scope="col">Layer</th>
+          <th class="col-center" scope="col">\(\kappa_\ell\)</th>
+          <th class="col-center" scope="col">\(\mathcal{L}_\ell\)</th>
+          <th class="col-center" scope="col">\(\|\mathbf{v}_\ell^{(c)}\|\)</th>
+          <th class="col-belief" scope="col">Belief Vector&nbsp;\(\mathbf{v}_\ell^{(c)}\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-center">20</td>
+          <td class="col-center green-20">0.0412</td>
+          <td class="col-center yellow-30">0.9123</td>
+          <td class="col-center orange-20">0.6521</td>
+          <td class="col-belief">[0.1204, -0.0502, 0.0896, ..., 0.0402]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">21</td>
+          <td class="col-center green-30">0.0458</td>
+          <td class="col-center green-15">0.8123</td>
+          <td class="col-center red-30">0.7523</td>
+          <td class="col-belief">[0.1301, -0.0351, 0.0950, ..., 0.0431]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">22</td>
+          <td class="col-center yellow-20">0.0523</td>
+          <td class="col-center orange-30">1.0120</td>
+          <td class="col-center green-20">0.5823</td>
+          <td class="col-belief">[0.1423, -0.0312, 0.0994, ..., 0.0488]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">23</td>
+          <td class="col-center orange-20">0.0581</td>
+          <td class="col-center yellow-20">0.9021</td>
+          <td class="col-center yellow-30">0.6912</td>
+          <td class="col-belief">[0.1534, 0.0270, 0.1042, ..., 0.0512]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">24</td>
+          <td class="col-center red-20">0.0639</td>
+          <td class="col-center red-40">1.1023</td>
+          <td class="col-center green-15">0.5520</td>
+          <td class="col-belief">[0.1667, 0.0205, 0.1105, ..., 0.0543]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">25</td>
+          <td class="col-center yellow-30">0.0505</td>
+          <td class="col-center orange-20">0.9420</td>
+          <td class="col-center red-40">0.8124</td>
+          <td class="col-belief">[0.1602, -0.0251, 0.1081, ..., 0.0504]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">26</td>
+          <td class="col-center green-15">0.0398</td>
+          <td class="col-center green-20">0.8520</td>
+          <td class="col-center yellow-20">0.6120</td>
+          <td class="col-belief">[0.1251, 0.0450, 0.0912, ..., 0.0418]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">27</td>
+          <td class="col-center yellow-20">0.0512</td>
+          <td class="col-center red-30">1.0520</td>
+          <td class="col-center orange-30">0.7222</td>
+          <td class="col-belief">[0.1455, -0.0322, 0.1005, ..., 0.0477]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">28</td>
+          <td class="col-center orange-30">0.0590</td>
+          <td class="col-center yellow-30">0.9320</td>
+          <td class="col-center green-30">0.5721</td>
+          <td class="col-belief">[0.1577, 0.0285, 0.1078, ..., 0.0499]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">29</td>
+          <td class="col-center red-30">0.0672</td>
+          <td class="col-center orange-30">1.0123</td>
+          <td class="col-center yellow-20">0.6322</td>
+          <td class="col-belief">[0.1701, -0.0198, 0.1142, ..., 0.0533]</td>
+        </tr>
+
+        <tr>
+          <td class="col-center">30</td>
+          <td class="col-center orange-20">0.0555</td>
+          <td class="col-center green-15">0.8221</td>
+          <td class="col-center red-20">0.7720</td>
+          <td class="col-belief">[0.1620, -0.0242, 0.1101, ..., 0.0510]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</figure>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
