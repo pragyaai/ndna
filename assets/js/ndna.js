@@ -17,7 +17,7 @@ const menusByModel = {
     { text: "Knowledge Distillation", url: baseUrl + "/llm/knowledge-distillation/" },
     { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/prelude/" },
     { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
-    { text: "NLP Operations", url: "#" },
+    { text: "NLP Operations", url: baseUrl + "/llm/nlp-operations/prelude/" },
     { text: "at-a-glance", url: baseUrl + "/llm/at_a_glance/" },
     { text: "FAQ", url: baseUrl + "/llm/FAQ/" }
   ],
@@ -54,8 +54,8 @@ const nlpOperationsItems = [
   { text: "Machine Translation", url: baseUrl + "/llm/nlp-operations/machine-translation/" },
   { text: "Adversarial Attack", url: baseUrl + "/llm/nlp-operations/adversarial-attack/" },
   { text: "Multi-turn Conversation", url: baseUrl + "/llm/nlp-operations/multi-turn-conversation/" },
-  // { text: "SCAR", url: baseUrl + "/llm/nlp-operations/scar/" },
-  // { text: "NEPHOS", url: baseUrl + "/llm/nlp-operations/nephos/" },
+  { text: "SCAR", url: baseUrl + "/llm/nlp-operations/scar/" },
+  { text: "NEPHOS", url: baseUrl + "/llm/nlp-operations/nephos/" },
 ];
 
 function renderTopMenu(items) {
