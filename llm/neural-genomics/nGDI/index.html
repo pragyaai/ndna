@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-15T19:31:00+00:00" />
+<meta property="article:published_time" content="2025-08-15T22:23:35+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Genetic Dissimilarity Index(nGDI)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T19:31:00+00:00","datePublished":"2025-08-15T19:31:00+00:00","description":"Lens - nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T22:23:35+00:00","datePublished":"2025-08-15T22:23:35+00:00","description":"Lens - nGDI: Genetic Drift in Embedding Populations","headline":"Neural Genetic Dissimilarity Index(nGDI)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nGDI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -381,41 +381,143 @@
 <p>In applications, nGDI includes fine-grained semantic drift monitoring in multilingual NLP, bias detection in recommender systems, and adaptive tuning of culturally diverse conversational agents. Its solid mathematical basis enables adjustments that preserve semantic integrity while embracing diversity, paving the way for context-aware, geometry-informed AI systems attuned to global dynamics. Figure 38 reveals layerwise semantic drift in nDNA trajectories, &amp; Fig. 39 illustrates offspring models as dynamic, layer-wise fusions of parental latent geometries with shifting semantic dominance.</p>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
-    
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif" alt="(a) Africa nGDI Trajectory" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif';" />
-    
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/nGDI/Africa_nGDI_plot.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
-      </iframe>
-    </div>
-    
-  </div>
-  
-  
-  
-    
-  
-    <figcaption class="figure-caption">
-         <strong>(a) Africa nGDI Trajectory</strong>
-         <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift.</p>
+  <figure class="viz-figure" style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html full-width viz-wrap">
 
-    </figcaption>
     
+      <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif" alt="(a) Africa nGDI Trajectory" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif';" />
+    
+
+    
+      <div class="interactive-plot-container vh-html viz-frame-box">
+        <iframe class="viz-iframe" src="/nDNA/assets/html_plots/nGDI/Africa_nGDI_plot.html" title="(a) Africa nGDI Trajectory" loading="lazy" allowfullscreen=""></iframe>
+      </div>
+    
+
+  </div>
+
+  
+
+  
+
+  
+    
+    
+      <figcaption class="figure-caption">
+        
+          <strong>(a) Africa nGDI Trajectory</strong>
+        
+        <p>The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift.</p>
+
+      </figcaption>
+    
+
     
   
     
     
-        <a class="view-interactive-html" href="/nDNA/assets/html_plots/nGDI/Africa_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+      <a class="view-interactive-html" href="/nDNA/assets/html_plots/nGDI/Africa_nGDI_plot.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
         📊 View Interactive Plot
-        </a>
+      </a>
     
   
   
+
 </figure>
+
+<style>
+  /* Scoped to this component only */
+  .viz-figure .viz-wrap {
+    position: relative;
+    overflow: visible !important; /* let hovers extend */
+    z-index: 10;
+  }
+
+  .viz-figure .viz-frame-box {
+    position: relative;
+    width: 100%;
+    /* Default aspect ratio; override via include.aspect like "4/3" */
+    aspect-ratio: 16/9;
+    max-height: 85vh;
+    overflow: visible !important;
+  }
+
+  .viz-figure .viz-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+    overflow: visible; /* avoid clipping inside iframe */
+    border-radius: 0; /* rounded corners can clip hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    transform: none !important; /* prevent new stacking context */
+    filter: none !important;
+    contain: none !important;
+  }
+
+  /* Help avoid outer containers clipping this component */
+  .viz-figure {
+    overflow: visible !important;
+  }
+</style>
+
+<script>
+  (function () {
+    // Find this figure and relax overflow on a few ancestors to prevent clipping.
+    var fig = document.currentScript && document.currentScript.previousElementSibling;
+    if (!fig) return;
+
+    var hops = 0;
+    var p = fig.parentElement;
+    while (p && hops < 5) {
+      var cs = getComputedStyle(p);
+      if (/(hidden|auto|scroll)/.test(cs.overflow + cs.overflowX + cs.overflowY)) {
+        p.style.overflow = 'visible';
+      }
+      if (cs.transform && cs.transform !== 'none') {
+        p.style.transform = 'none';
+      }
+      p = p.parentElement;
+      hops++;
+    }
+
+    // Auto-height for same-origin iframe; otherwise fallback to aspect ratio.
+    var iframe = fig.querySelector('iframe.viz-iframe');
+    if (!iframe) return;
+
+    function setHeight() {
+      try {
+        var doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (!doc) return;
+
+        var body = doc.body;
+        var html = doc.documentElement;
+        var h = Math.max(
+          body.scrollHeight,
+          body.offsetHeight,
+          html.clientHeight,
+          html.scrollHeight,
+          html.offsetHeight
+        );
+
+        var maxPx = 1400;
+        iframe.style.height = Math.min(h, maxPx) + 'px';
+        iframe.style.overflow = 'visible';
+      } catch (e) {
+        // Cross-origin; keep aspect-ratio sizing
+      }
+    }
+
+    iframe.addEventListener('load', setHeight);
+
+    try {
+      var ro = new ResizeObserver(setHeight);
+      ro.observe(iframe);
+    } catch (e) {}
+  })();
+</script>
 
 
   
