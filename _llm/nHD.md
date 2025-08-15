@@ -540,6 +540,7 @@ Looking forward, nHD offers a foundation for continual adaptation, robustness mo
       style = "flex: 1;"
       full_width=true
   %}
+</div>
 
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
   <strong>Figure: nHD Tube Visualizations of Offspring Latent Manifolds:</strong> The offspring manifold (magenta solid) is bounded by parental manifolds (dashed), characterized by spectral curvature 
