@@ -7,7 +7,7 @@ skip_title: True
 
 <link rel="stylesheet" href="{{ '/assets/css/15_llms.css' | relative_url }}">
 
-{% include admonitio-title.liquid title="Prefatio" subtitle="" %}
+{% include prefatio-title.liquid title="Prefatio" subtitle="" %}
 
 <div class="card">
 
