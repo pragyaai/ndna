@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+  <title>SCAR - Spectral Contamination and Alignment Rupture - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/main.css">
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax error:', err);
+        });
+      }
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SCAR - Spectral Contamination and Alignment Rupture | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="SCAR - Spectral Contamination and Alignment Rupture" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="- Spectral Contamination and Alignment Rupture in Transformer Geometry Micro-summary — details in the book" />
+<meta property="og:description" content="- Spectral Contamination and Alignment Rupture in Transformer Geometry Micro-summary — details in the book" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-15T15:46:28+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SCAR - Spectral Contamination and Alignment Rupture" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T15:46:28+00:00","datePublished":"2025-08-15T15:46:28+00:00","description":"- Spectral Contamination and Alignment Rupture in Transformer Geometry Micro-summary — details in the book","headline":"SCAR - Spectral Contamination and Alignment Rupture","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    </div>
+    <a class="ndna-cover" href="/nDNA/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
+    </a>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+        
+<style>
+.page-title::first-line {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+</style>
+
+<h1 class="page-title" style="margin-bottom: 1rem; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; line-height: 1.2em;">
+  <img src="/nDNA/assets/logos/scar.png" alt="SCAR" style="width: 12rem; max-height: 12rem; flex: 0 0;" />
+  <span style="display: flex; gap: 0.5rem;">
+    <span>-</span>
+    <span>Spectral Contamination and Alignment Rupture in Transformer Geometry</span>
+  </span>
+</h1>
+
+<div class="text-center">
+  <p style="color: #06f;font-size: 1.8rem;font-weight: 600;">Micro-summary — details in the book</p>
+</div>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>As open-source large language models (LLMs) rapidly proliferate, the threat of <em>data contamination</em>—where training corpora inadvertently include benchmark test sets, alignment datasets, or web-scraped copyrighted material—has escalated into a <strong>critical concern</strong> for both safety and scientific validity. Contaminated models often exhibit deceptively high performance while relying on latent memorization, thereby <strong>undermining generalization, alignment, and trust</strong>. Existing metrics, such as token-level leakage indices, depend on explicit overlaps with held-out evaluation sets. However, such approaches are <em>limited in scope</em> and <em>blind to subtle forms of semantic leakage</em> that may evade surface-level matching.</p>
+
+<p>We introduce <strong>SCAR</strong> (<em>Spectral Contamination and Alignment Rupture</em>), a novel diagnostic framework that identifies and quantifies contamination through the lens of <em>latent geometry</em> and <em>epistemic dynamics</em>. SCAR analyzes three complementary signals across transformer layers—<strong>spectral curvature</strong>, <strong>thermodynamic length</strong>, and <strong>belief vector field drift</strong>—to construct a unified representation of model behavior, known as the <em>neural DNA</em> (nDNA) trajectory. Clean models exhibit <em>smooth, stable nDNA trajectories</em> reflecting robust reasoning effort and internal consistency, while contaminated models manifest <strong>sharp geometric ruptures</strong> and <strong>shortcut patterns</strong>, even when outputs appear fluent and aligned.</p>
+
+<p>To operationalize this framework, we propose the <strong>SCAR Score</strong>, a quantitative indicator of alignment rupture grounded in <em>latent distortions</em> rather than token overlap. We curate <strong>SCAR-Bench</strong>, a benchmark suite of pretraining and fine-tuning contamination scenarios across LLaMA and Mistral families, including adversarial leaks, benchmark injections, and alignment-simulation artifacts. Our experiments show that <strong>SCAR reliably detects contamination signatures</strong> that remain <em>invisible to conventional metrics</em>.</p>
+
+<p>The SCAR framework draws deep conceptual motivation from <em>biological systems</em>, where genomic integrity and regulatory balance are crucial for healthy function. Just as the <strong>overexpression of a single gene</strong> can lead to <em>cancer or autoimmune disorders</em>, contamination in LLMs causes the <strong>overactivation of memorized latent pathways</strong>, bypassing robust reasoning. The model does not “understand”—it simply <em>remembers too well</em>. This shortcutting behavior resembles oncogenic triggers: minor local shifts in regulatory structure produce cascading effects on system-wide behavior. By treating layerwise activations as a form of <strong>neural genomics</strong>, SCAR enables the detection of such <em>epistemic mutations</em>, offering a path toward more trustworthy and biologically inspired interpretability in AI.</p>
+
+<hr />
+
+<h2 id="introduction">Introduction</h2>
+
+<h3 id="the-contamination-crisis">The Contamination Crisis</h3>
+
+<p>The rapid expansion of open-source large language models has introduced unprecedented challenges in ensuring data integrity and scientific validity. As training corpora grow to encompass vast swaths of the internet, the risk of <strong>data contamination</strong> has become a critical concern that threatens the foundation of AI safety and evaluation.</p>
+
+<p>Data contamination occurs when training datasets inadvertently include:</p>
+<ul>
+  <li><strong>Benchmark test sets</strong> that should remain unseen during training</li>
+  <li><strong>Alignment datasets</strong> used for safety evaluation</li>
+  <li><strong>Copyrighted material</strong> that violates intellectual property rights</li>
+  <li><strong>Adversarial content</strong> designed to manipulate model behavior</li>
+</ul>
+
+<h3 id="limitations-of-existing-approaches">Limitations of Existing Approaches</h3>
+
+<p>Current contamination detection methods rely primarily on:</p>
+
+<ol>
+  <li><strong>Token-level overlap detection</strong> - Searching for exact or near-exact matches</li>
+  <li><strong>N-gram similarity metrics</strong> - Comparing sequence fragments</li>
+  <li><strong>Perplexity anomalies</strong> - Detecting suspiciously low loss on test data</li>
+</ol>
+
+<p>These approaches suffer from fundamental limitations:</p>
+<ul>
+  <li><strong>Surface-level analysis</strong> misses semantic contamination</li>
+  <li><strong>Exact matching</strong> fails to detect paraphrased or translated content</li>
+  <li><strong>Brittle thresholds</strong> produce false positives and negatives</li>
+  <li><strong>Limited scope</strong> cannot detect latent memorization effects</li>
+</ul>
+
+<hr />
+
+<h2 id="scar-framework">SCAR Framework</h2>
+
+<h3 id="neural-dna-ndna-analysis">Neural DNA (nDNA) Analysis</h3>
+
+<p>The core innovation of SCAR lies in treating transformer layer activations as a form of <strong>neural genomics</strong>. Just as biological DNA encodes the blueprint for life, neural DNA (nDNA) encodes the computational blueprint of model reasoning.</p>
+
+<p><strong>Clean models</strong> exhibit:</p>
+<ul>
+  <li>Smooth geometric trajectories through latent space</li>
+  <li>Consistent thermodynamic properties across layers</li>
+  <li>Stable belief vector evolution during inference</li>
+</ul>
+
+<p><strong>Contaminated models</strong> exhibit:</p>
+<ul>
+  <li>Sharp discontinuities in spectral curvature</li>
+  <li>Thermodynamic shortcuts bypassing reasoning layers</li>
+  <li>Erratic belief vector field dynamics</li>
+</ul>
+
+<h3 id="spectral-curvature-detection">Spectral Curvature Detection</h3>
+
+<p>SCAR analyzes the spectral properties of hidden states across transformer layers:</p>
+
+\[\kappa_{\text{spectral}}^{(l)} = \frac{d^2}{dt^2} \log \sigma_{\max}(H^{(l)})\]
+
+<p>where $H^{(l)}$ represents the hidden states at layer $l$ and $\sigma_{\max}$ is the largest singular value.</p>
+
+<p><strong>Key insight</strong>: Contaminated models exhibit sharp spikes in spectral curvature when accessing memorized content, while clean models maintain smooth curvature profiles.</p>
+
+<h3 id="scar-score-methodology">SCAR Score Methodology</h3>
+
+<p>The SCAR Score integrates multiple geometric signals:</p>
+
+\[\text{SCAR}(\mathcal{M}, \mathcal{D}) = \alpha \cdot \mathcal{K}_{\text{spectral}} + \beta \cdot \mathcal{L}_{\text{thermo}} + \gamma \cdot \mathcal{D}_{\text{belief}}\]
+
+<p>where:</p>
+<ul>
+  <li>$\mathcal{K}_{\text{spectral}}$ measures spectral curvature anomalies</li>
+  <li>$\mathcal{L}_{\text{thermo}}$ captures thermodynamic length distortions</li>
+  <li>$\mathcal{D}_{\text{belief}}$ quantifies belief vector field drift</li>
+</ul>
+
+<div class="contamination-table">
+<table class="contamination-table">
+<thead>
+<tr>
+<th>Model Type</th>
+<th>Spectral Curvature</th>
+<th>Thermodynamic Length</th>
+<th>Belief Drift</th>
+<th>SCAR Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="clean-model">
+<td><strong>Clean Model</strong></td>
+<td>Smooth (0.12)</td>
+<td>Standard (2.34)</td>
+<td>Stable (0.08)</td>
+<td><span class="scar-score">0.18</span></td>
+</tr>
+<tr class="contaminated-model">
+<td><strong>Contaminated Model</strong></td>
+<td>Spiked (0.89)</td>
+<td>Shortened (1.12)</td>
+<td>Erratic (0.74)</td>
+<td><span class="scar-score">0.91</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr />
+
+<h2 id="scar-bench-benchmark">SCAR-Bench Benchmark</h2>
+
+<p>To validate the SCAR framework, we curate <strong>SCAR-Bench</strong>, a comprehensive benchmark suite featuring:</p>
+
+<h3 id="contamination-scenarios">Contamination Scenarios</h3>
+
+<ol>
+  <li><strong>Benchmark Injection</strong> - Direct inclusion of evaluation datasets</li>
+  <li><strong>Paraphrased Contamination</strong> - Semantically equivalent but lexically different content</li>
+  <li><strong>Translation Contamination</strong> - Multi-lingual variants of protected content</li>
+  <li><strong>Adversarial Leaks</strong> - Intentionally poisoned training data</li>
+  <li><strong>Alignment Simulation</strong> - Fake safety training data</li>
+</ol>
+
+<h3 id="model-families">Model Families</h3>
+
+<ul>
+  <li><strong>LLaMA variants</strong> (7B, 13B, 30B parameters)</li>
+  <li><strong>Mistral series</strong> (7B, 8x7B mixture-of-experts)</li>
+  <li><strong>Code-specialized models</strong> (CodeLLaMA, StarCoder)</li>
+  <li><strong>Instruction-tuned variants</strong> (Alpaca, Vicuna, WizardLM)</li>
+</ul>
+
+<h3 id="evaluation-metrics">Evaluation Metrics</h3>
+
+<ul>
+  <li><strong>SCAR Score</strong> - Primary contamination indicator</li>
+  <li><strong>Token Overlap</strong> - Baseline comparison method</li>
+  <li><strong>Perplexity Anomaly</strong> - Secondary validation metric</li>
+  <li><strong>Performance Degradation</strong> - Impact on downstream tasks</li>
+</ul>
+
+<hr />
+
+<h2 id="biological-inspiration">Biological Inspiration</h2>
+
+<h3 id="genomic-integrity-and-neural-contamination">Genomic Integrity and Neural Contamination</h3>
+
+<p>The SCAR framework draws deep inspiration from <strong>biological systems</strong>, where genomic integrity is essential for healthy cellular function. This biological analogy provides both conceptual clarity and methodological guidance:</p>
+
+<p><strong>Gene Overexpression → Pathway Memorization</strong></p>
+<ul>
+  <li>Just as overexpressed genes can trigger cancer cascades</li>
+  <li>Contaminated models overactivate memorized pathways</li>
+  <li>Both bypass normal regulatory mechanisms</li>
+</ul>
+
+<p><strong>Oncogenic Mutations → Epistemic Mutations</strong></p>
+<ul>
+  <li>Minor genetic changes can cause system-wide dysfunction</li>
+  <li>Small contamination events create global reasoning shortcuts</li>
+  <li>Both exhibit characteristic geometric signatures</li>
+</ul>
+
+<p><strong>Immune System → SCAR Detection</strong></p>
+<ul>
+  <li>Biological immune systems detect cellular anomalies</li>
+  <li>SCAR detects computational anomalies in neural dynamics</li>
+  <li>Both rely on pattern recognition in high-dimensional spaces</li>
+</ul>
+
+<h3 id="neural-genomics-perspective">Neural Genomics Perspective</h3>
+
+<p>By treating transformer layers as <strong>neural chromosomes</strong>, SCAR enables:</p>
+<ul>
+  <li><strong>Karyotype analysis</strong> of model architecture health</li>
+  <li><strong>Mutation detection</strong> in reasoning pathways</li>
+  <li><strong>Prognosis assessment</strong> for contamination severity</li>
+  <li><strong>Treatment planning</strong> through targeted fine-tuning</li>
+</ul>
+
+<hr />
+
+<h2 id="experimental-results">Experimental Results</h2>
+
+<h3 id="detection-performance">Detection Performance</h3>
+
+<p>SCAR demonstrates superior contamination detection across all scenarios:</p>
+
+<p><strong>Benchmark Injection Detection</strong></p>
+<ul>
+  <li>SCAR Score: 94% accuracy</li>
+  <li>Token Overlap: 67% accuracy</li>
+  <li>Perplexity Method: 72% accuracy</li>
+</ul>
+
+<p><strong>Semantic Contamination Detection</strong></p>
+<ul>
+  <li>SCAR Score: 89% accuracy</li>
+  <li>Token Overlap: 23% accuracy (fails on paraphrases)</li>
+  <li>Perplexity Method: 45% accuracy</li>
+</ul>
+
+<h3 id="false-positive-analysis">False Positive Analysis</h3>
+
+<p>SCAR maintains low false positive rates:</p>
+<ul>
+  <li>Clean model baseline: 3.2% false positive rate</li>
+  <li>Robust to natural performance variations</li>
+  <li>Distinguishes contamination from domain expertise</li>
+</ul>
+
+<h3 id="computational-efficiency">Computational Efficiency</h3>
+
+<ul>
+  <li><strong>Layer-wise analysis</strong>: 2.3x overhead during inference</li>
+  <li><strong>Batch processing</strong>: Amortized cost for large evaluations</li>
+  <li><strong>Early stopping</strong>: 67% of cases detected in first 8 layers</li>
+</ul>
+
+<hr />
+
+<h2 id="conclusions-and-future-work">Conclusions and Future Work</h2>
+
+<h3 id="key-contributions">Key Contributions</h3>
+
+<ol>
+  <li><strong>Novel Detection Framework</strong> - SCAR introduces geometric contamination detection</li>
+  <li><strong>Biological Motivation</strong> - Neural genomics provides interpretable contamination analysis</li>
+  <li><strong>Comprehensive Benchmark</strong> - SCAR-Bench enables systematic evaluation</li>
+  <li><strong>Semantic Sensitivity</strong> - Detects contamination invisible to token-based methods</li>
+</ol>
+
+<h3 id="limitations-and-future-directions">Limitations and Future Directions</h3>
+
+<p><strong>Current Limitations</strong>:</p>
+<ul>
+  <li>Computational overhead during inference</li>
+  <li>Requires access to internal model states</li>
+  <li>Threshold tuning for different model families</li>
+</ul>
+
+<p><strong>Future Research</strong>:</p>
+<ul>
+  <li><strong>Real-time monitoring</strong> during training</li>
+  <li><strong>Contamination source attribution</strong></li>
+  <li><strong>Automatic remediation</strong> through selective unlearning</li>
+  <li><strong>Cross-modal extension</strong> to vision-language models</li>
+</ul>
+
+<h3 id="broader-impact">Broader Impact</h3>
+
+<p>SCAR represents a paradigm shift toward <strong>biologically-inspired AI safety</strong>, where insights from biological systems inform the development of more robust and interpretable AI systems. By treating neural networks as living computational ecosystems, we can develop more sophisticated tools for ensuring their health, integrity, and alignment with human values.</p>
+
+<p>The framework opens new avenues for research at the intersection of <strong>computational biology</strong>, <strong>neural network interpretability</strong>, and <strong>AI safety</strong>, suggesting that the wisdom encoded in biological systems can provide principled foundations for the next generation of safe and trustworthy artificial intelligence.</p>
+
+<hr />
+
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA. Hosted with ❤️.
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+</body>
+</html>

@@ -189,7 +189,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.location.pathname.includes("/llm/nlp-operations/prelude") ||
       window.location.pathname.includes("/llm/nlp-operations/machine-translation") || 
       window.location.pathname.includes("/llm/nlp-operations/multi-turn-conversation") || 
-      window.location.pathname.includes("/llm/nlp-operations/adversarial-attack")) {
+      window.location.pathname.includes("/llm/nlp-operations/adversarial-attack") || 
+      window.location.pathname.includes("/llm/nlp-operations/scar") || 
+      window.location.pathname.includes("/llm/nlp-operations/nephos")) {
     setTimeout(() => {
       const submenu = document.getElementById("nlpOperationsSubmenu");
       if (submenu) submenu.style.display = "flex";

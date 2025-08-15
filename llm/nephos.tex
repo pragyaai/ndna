@@ -1,0 +1,417 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\RequirePackage[svgnames]{xcolor}
+
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+\usepackage{ACL2023}
+% \usepackage{neurips_2025}
+%\nipsfinalcopy
+\usepackage{amsmath}
+
+\usepackage{pdfpages} % Include the package
+\usepackage{wrapfig}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out.
+% However, it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+\usepackage{soul}
+
+\newcommand{\ts}{\textsc{TraceShield}}
+\newcommand{\ta}{\textsc{TraceAlign}}
+\newcommand{\ti}{\textsc{TraceIndex}}
+
+
+\usepackage[draft,textsize=footnotesize,textwidth=15mm]{todonotes}
+%\usepackage[usenames,dvipsnames]{color}
+
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+%\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+\usepackage{inconsolata}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath,amssymb}
+\usepackage{soul}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+
+
+% Define custom symbols for tick and cross
+\newcommand{\cmark}{\tikz[scale=0.4]{
+    \draw[thick] (0,0) -- (0.2,0.2) -- (0.5,-0.3);
+}}
+\newcommand{\xmark}{\tikz[scale=0.4]{
+    \draw[thick] (0,0) -- (0.3,0.3);
+    \draw[thick] (0,0.3) -- (0.3,0);
+}}
+
+
+% Style definition
+\tikzset{rndblock/.style={rounded corners,rectangle,draw,scale=0.8,outer sep=0pt}}
+
+% Command Definition
+% 1 optional to customize the aspect, 2 mandatory: text to be framed
+\newcommand{\tframed}[2][]{\tikz[baseline=(h.base)]\node[rndblock,#1] (h) {#2};}
+
+\usetikzlibrary{shapes.geometric}
+\usepackage{framed}
+\usepackage{enumitem}
+\newlist{RQ}{enumerate}{1}
+\setlist[RQ]{label=\textbf{RQ\,\arabic*},ref={RQ\,\arabic*}}
+\usepackage{comment}
+\usepackage{natbib}
+\usepackage{multibib}
+\makeatletter
+\usepackage{booktabs}
+\usepackage[inkscapeformat=png]{svg}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{arydshln}
+\usepackage{lipsum}
+
+\usepackage[many]{tcolorbox}
+
+\newtcolorbox{defin}{colback=Teal!5!White,enhanced,title=RENATUS: at-a-glance,
+	attach boxed title to top left={xshift=0mm},boxrule=0pt,after skip=1cm,before skip=1cm,right skip=0cm,breakable,fonttitle=\bfseries,toprule=0pt,bottomrule=0pt,rightrule=0pt,leftrule=3pt,arc=0mm,skin=enhancedlast jigsaw,sharp corners,colframe=Teal!55!black,colbacktitle=Teal!55!black,boxed title style={
+		frame code={ 
+			\fill[Teal!25!black](frame.south west)--(frame.north west)--(frame.north east)--([xshift=3mm]frame.east)--(frame.south east)--cycle;
+			\draw[line width=1mm,Teal!25!black]([xshift=2mm]frame.north east)--([xshift=5mm]frame.east)--([xshift=2mm]frame.south east);
+			\draw[line width=1mm,Teal!25!black]([xshift=5mm]frame.north east)--([xshift=8mm]frame.east)--([xshift=5mm]frame.south east);
+			\fill[Teal!25!black](frame.south west)--+(4mm,-2mm)--+(4mm,2mm)--cycle;
+		}
+	}
+}
+
+\setlist{leftmargin=5mm}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.markings}
+
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage{hyperref}
+ \definecolor{darkblue}{rgb}{0, 0, 0.5}
+  \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
+
+\definecolor{vgreen}{HTML}{60A917}
+\definecolor{vred}{HTML}{CE3A29}
+
+\usepackage{xstring}
+\usepackage{longtable}
+
+\usepackage{tabularray}
+
+\DefTblrTemplate{firsthead,middlehead,lasthead}{default}{
+}
+\DefTblrTemplate{firstfoot}{default}{
+  \UseTblrTemplate{contfoot}{default}
+  \UseTblrTemplate{caption}{default}
+}
+\DefTblrTemplate{middlefoot}{default}{
+  \UseTblrTemplate{contfoot}{default}
+  \UseTblrTemplate{capcont}{default}
+}
+\DefTblrTemplate{lastfoot}{default}{
+  \UseTblrTemplate{note}{default}
+  \UseTblrTemplate{remark}{default}
+  \UseTblrTemplate{capcont}{default}
+}
+
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Multi-line left-aligned text with manual line breaks.
+% The base line is in centre.
+\newcommand*{\mline}[1]{%
+\begingroup
+    \renewcommand*{\arraystretch}{1.1}%
+   \begin{tabular}[c]{@{}>{\raggedright\arraybackslash}p{2cm}@{}}#1\end{tabular}%
+  \endgroup
+}
+
+\usepackage{color}
+\tcbuselibrary{skins}
+
+\usepackage[export]{adjustbox} % for the valign option
+
+\usepackage{setspace}
+%\usepackage[capitalise]{cleveref}
+\usepackage[capitalise,nameinlink]{cleveref}
+
+%\crefname{chapter}{chap.}{chap.}
+\crefname{section}{Sec.}{Sec.}
+
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{colortbl}
+\usepackage[export]{adjustbox} % for the valign option
+\usepackage{varwidth}
+\usepackage{enumitem}
+% \setlist{leftmargin=1mm}
+\usepackage{pifont}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{resizegather}
+\usepackage{breqn}
+\usepackage[capitalise]{cleveref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.markings}
+\usepackage{soul}
+\usepackage{wrapfig,graphicx,lipsum}% http://ctan.org/pkg/{wrapfig,graphicx,lipsum}
+% \usepackage{extsizes}
+\usepackage{cuted}
+\usepackage{flushend}
+\usepackage{float}
+\usepackage{changepage,threeparttable}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{dblfloatfix} 
+\usepackage{fixltx2e}
+\usepackage[normalem]{ulem}
+
+
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{colortbl}
+\pgfplotsset{compat=1.18}
+
+
+
+\DeclareRobustCommand{\hlpink}[1]{{\sethlcolor{pink}\hl{#1}}}
+\DeclareRobustCommand{\hlgreen}[1]{{\sethlcolor{green}\hl{#1}}}
+
+\usepackage{environ}
+
+\newlength{\myl}
+\expandafter\let\expandafter\origequation\csname equation*\endcsname
+\expandafter\let\expandafter\endorigequation\csname endequation*\endcsname
+\long\def\[#1\]{\begin{equation*}#1\end{equation*}}
+\RenewEnviron{equation*}{
+  \settowidth{\myl}{$\displaystyle\BODY$} % calculate width and save as \myl
+  \origequation
+    \ifdim\myl>\linewidth
+      \resizebox{\linewidth}{!}{$\displaystyle\BODY$}% \myl > \linewidth
+    \else
+      \BODY % \myl <= \linewidth
+    \fi
+  \endorigequation
+}
+
+
+\makeatletter
+\newcommand{\DrawLine}{%
+  \begin{tikzpicture}
+  \path[use as bounding box] (0,0) -- (\linewidth,0);
+  \draw[color=blue!75!black,dashed,dash phase=.5pt]
+        (0-\kvtcb@leftlower-\kvtcb@boxsep,0)--
+        (\linewidth+\kvtcb@rightlower+\kvtcb@boxsep,0);
+  \end{tikzpicture}%
+  }
+\makeatother
+
+%resize/scale equations
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+
+
+%--Aman---
+\newcommand\ac[1]{\todo[author=AC,color=blue!40]{#1}}
+\newcommand\acil[1]{\todo[author=AC,color=blue!40,inline]{#1}}
+\newcommand\acb[1]{\textcolor{blue}{#1}}
+\newcommand\act[1]{\textcolor{blue}{#1}}
+
+
+%--Amitava---
+\newcommand\ad[1]{\todo[author=AD,color=purple!40]{#1}}
+\newcommand\adil[1]{\todo[author=AD,color=purple!40,inline]{#1}}
+\newcommand\adt[1]{\textcolor{purple}{#1}}
+
+
+\usepackage{euscript}[mathcal]
+\usepackage{listings}
+\usepackage[utf8]{inputenc}  % Ensures Unicode input like “–”
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage[utf8]{inputenc}
+% \newcommand{\cmark}{\text{\checkmark}} % ✓
+% \newcommand{\xmark}{\text{\sffamily ✗}} % ✗
+% \usepackage{longtable}
+\usepackage{xcolor} % Add this to your LaTeX preamble
+
+
+
+% Define a custom listing style (listing1) for special formatting
+\lstdefinestyle{listing1}{
+    basicstyle=\scriptsize\ttfamily,  % Set text inside listing to scriptsize
+    escapeinside={(*@}{@*)},          % Allows LaTeX inside lstlisting
+    xleftmargin=-1em,                 % Force listing to align with the left margin
+    framexleftmargin=-1em,             % Ensure frame is at the leftmost edge
+    frame=single,                      % Keeps a thin border
+    columns=fullflexible,              % Prevents excessive indentation
+    aboveskip=0pt, belowskip=0pt,      % Removes vertical spacing around listing
+    showstringspaces=false,            % Prevents unwanted space characters
+    keepspaces=true,                   % Ensures correct spacing without extra indentation
+    framesep=0pt,                      % Reduces padding inside the frame
+    numbersep=0pt                       % Eliminates gap between numbers (if enabled)
+}
+
+
+
+
+
+\newcommand*{\affaddr}[1]{#1}
+\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+\newcommand*{\email}[1]{\texttt{#1}}
+%\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+
+
+%\title{\includegraphics[height=0.55cm,width=0.55cm]{img/acorn.jpg}$\mathcal{ACORN}$: \ul{A}utomatic Hallu\ul{C}inati\ul{O}n Evaluation for La\ul{R}ge La\ul{N}guage Models using Span-based ``Factual Entailment''}
+
+
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\title{\includegraphics[width=0.95\textwidth]{images/banner.pdf}\\ \textcolor{blue}{Micro-summary — details in the book}
+}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+%\author{Amitava Das \\
+%  BITS Pilani Goa \\
+%  \texttt{amitavad@goa.bits-pilani.ac.in} \\\And
+%  Vinija Jain \\
+%  Meta AI \\
+%  \texttt{hi@vinija.ai} \\\And
+%  Aman Chadha \\
+%  Amazon GenAI \\
+%  \texttt{hi@aman.ai} \\}
+
+\setlength{\topmargin}{-1.25cm}
+% \setlength{\bottom}{-1.25cm}
+\setlength{\textheight}{24.25cm}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+As large language models (LLMs) ingest massive, uncurated web corpora during pretraining, they inherit not just factual knowledge but also the implicit vulnerabilities of their data sources. We uncover a novel and insidious threat vector: \textit{latent conceptual poisoning}, where adversaries embed \emph{warped, adversarially tilted concepts} into training data without relying on overt lexical patterns or duplications. We formalize this attack as \textbf{Stealth Pretraining Seeding (SPS)}—a subtle mechanism wherein maliciously crafted data implants \textbf{epistemic “landmines”} that remain dormant during typical evaluation but can be \emph{selectively detonated} via specific prompts. Crucially, these latent poisons distort the model’s internal \emph{belief geometry}, leading to \textbf{unsafe completions}, brittle reasoning, and \textbf{alignment drift}, all while evading detection by conventional token-based filters.
+
+Drawing inspiration from biology—where \textit{silent genetic mutations} catalyze malignant cascades—we develop a mechanistic analogy for stealth seeding as \emph{epistemic mutagenesis}: a process that bypasses surface-level safeguards by corrupting latent concept representations. To evaluate this risk, we introduce \textbf{NEPHOS} (\textit{Neural Poisoning through Heuristic Overwrite and Seeding}), a benchmark suite spanning synthetic and real-world poisoning settings across diverse model families. We also propose \textit{spectral curvature analysis} and \textit{belief vector divergence} as diagnostic tools to detect such latent infections via their \emph{geometric and dynamic imprints}.
+
+Our experiments reveal that even \textbf{minimal semantic infiltration} during pretraining can lead to \emph{profound alignment ruptures} during inference—compromising safety, reliability, and generalization. This work not only surfaces a previously underexplored \textbf{threat model} for foundation models, but also lays the groundwork for next-generation defenses centered on \textbf{latent space auditing}, \textbf{conceptual immunization}, and \textbf{proactive epistemic hygiene}.
+\end{abstract}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\input{1_introduction}
+\input{3_data}
+\input{4_traceindex_bci}
+\input{5_tracealign}
+%\input{6_performance}
+\input{7_conclusion}
+% \clearpage
+%\input{8_discussion}
+\clearpage
+\newpage
+
+
+% \newpage
+
+\bibliographystyle{acl_natbib}
+\bibliography{custom}
+
+%\input{9_faq}
+\clearpage
+\newpage
+%\input{8_extended_discussion}
+%\input{10_appendix}
+%\input{2_related_works}
+
+
+
+
+
+
+
+
+
+\end{document}
