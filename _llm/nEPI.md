@@ -27,7 +27,7 @@ Drawing inspiration from the biological principle of *neuroplasticity*--the brai
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="gifs/neural_genomics/nEPI/Synaptic_Plasticity_Rule.png"
+   image_path="images/Synaptic_Plasticity_Rule.png"
    caption=figure_caption
    alt_text="Synaptic Plasticity and Neural Epistemic Plasticity (nEPI)" %}
 

@@ -54,7 +54,7 @@ $$\mathbf{x}^{(\mathrm{merged})}_\ell \approx \Phi\big(\mathbf{x}^{(A)}_\ell, \m
 {% endcapture %}
 
 {% include visualization.liquid 
-   image_path="gifs/neural_genomics/nCCL/Epistasis_and_landscapes.png"
+   image_path="images/Epistasis_and_landscapes.png"
    caption=figure_caption
    alt_text="Genetic Epistasis and Neural Cultural Conflict Loss (nCCL)" %}
 
