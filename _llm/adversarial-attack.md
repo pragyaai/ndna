@@ -10,55 +10,6 @@ skip_title: true
   title_image="assets/logos/viral.png"
   logo_alt="VIRAL" %}
 
-## nDNA Visualizations: Mapping Adversarial Attack Trajectories
-
-We present comprehensive 3D visualizations of how adversarial attacks manifest in the neural DNA (nDNA) space of language models. These interactive plots reveal the geometric signatures of semantic infections across multiple nDNA metrics: **nCCL** (Conflict Vector Fields), **nDIV** (Inheritance Divergence), **nDNA** (Core Genomic Signatures), **nEPI** (Epistemic Dynamics), and **nTDS** (Dominance Structures).
-
-<style>
-  .attack-viz-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: 2rem 0;
-  }
-  
-  .attack-section {
-    margin: 3rem 0;
-  }
-  
-  .attack-section h4 {
-    color: #d73527;
-    border-bottom: 2px solid #d73527;
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .attack-viz-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-  }
-</style>
-
-### Persuasion Attack: Semantic Infection Patterns
-
-The persuasion attack demonstrates how adversarial prompts can gradually redirect model beliefs through seemingly benign conversational steering. Our nDNA analysis reveals distinct geometric signatures of this infection type.
-
-<div class="attack-section">
-<h4>Persuasion Attack: nDNA Infection Signatures</h4>
-
-<div class="attack-viz-grid">
-</div>
-</div>
-
-<div class="attack-section">
-<h4>Pair Attack: Coordinated Semantic Infections</h4>
-
-<div class="attack-viz-grid">
-</div>
-</div>
-
 ## Abstract
 
 **Large Language Models (LLMs)** are increasingly susceptible to *adversarial prompts*—crafted inputs that bypass alignment constraints while inducing unsafe, policy-violating behavior. In this work, we introduce a novel conceptual and computational lens: **VIRAL**—*Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models*. Rather than viewing these attacks as input-level corruptions, we reframe them as instances of *latent semantic infection*—perturbations that hijack the model's internal belief trajectories across layers, encoded in its *neural DNA (nDNA)*.
@@ -1182,6 +1133,259 @@ $$
 Together, these components form a comprehensive **genetic recombination vector** that encodes the distinct latent dynamics of pair attacks — blending geometric bending, semantic steering, and cross-prompt cultural conflict into a unified, layerwise adversarial signature.
 
 This formulation captures the synergistic interplay of geometric deformation, directional semantic steering, and fragment-induced cultural conflict driving the composite adversarial effect unique to pair recombination attacks.
+
+## Adversarial Vaccine Mechanisms
+
+We present **11 targeted vaccines** designed to neutralize specific adversarial attack vectors through biologically-inspired defense mechanisms. Each vaccine operates at the latent semantic level, detecting and countering distinct infection patterns in the model's neural DNA (nDNA).
+
+<style>
+.vaccine-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.vaccine-table th, .vaccine-table td {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  vertical-align: top;
+}
+
+.vaccine-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  text-align: center;
+}
+
+.vaccine-table .vaccine-image {
+  width: 35%;
+  text-align: center;
+}
+
+.vaccine-table .vaccine-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.vaccine-table .vaccine-description {
+  width: 65%;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.vaccine-table .vaccine-name {
+  font-weight: bold;
+  color: #2c5aa0;
+  font-size: 1.1em;
+  margin-bottom: 0.5rem;
+}
+
+.vaccine-table .math-formula {
+  background-color: #f8f9fa;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-left: 3px solid #2c5aa0;
+  font-family: 'Computer Modern', serif;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .vaccine-table .vaccine-image,
+  .vaccine-table .vaccine-description {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+
+<table class="vaccine-table">
+<caption><strong>Adversarial Vaccine Mechanisms.</strong> Each vaccine image (left) is paired with a mathematically formalized, biology-inspired operational description (right).</caption>
+<thead>
+<tr>
+<th>Vaccine</th>
+<th>Description / Mechanism of Action</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/CASCADEX.png" alt="CASCADEX Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">CASCADEX — cascade immunization of reasoning chains.</div>
+We model multi-turn computation as a layered flow {h<sup>(l)</sup>}<sub>l=1</sub><sup>L</sup> on a Riemannian manifold (ℳ,g). CASCADEX halts adversarial amplification by solving a <em>min–max gated path-integral</em> over layerwise information curvature and likelihood transport:
+<div class="math-formula">
+min<sub>𝒮⊆{1,…,L}</sub> max<sub>q∈𝒬</sub> {
+∑<sub>l∈𝒮</sub>[κ<sub>g</sub>(h<sup>(l)</sup>)+τ<sub>g</sub>(h<sup>(l)</sup>)] + λ∫<sub>γ</sub> D<sub>KL</sub>(p<sub>θ</sub>(·|h<sup>(l)</sup>) ‖ q(·|h<sup>(l-1)</sup>)) dl
+}
+</div>
+with a <em>cascade gate</em> 𝕀[∑<sub>l</sub> ΔD<sub>KL</sub><sup>(l)</sup> > τ<sub>cas</sub>] that triggers <em>retrograde inhibition</em> (layer rewinding) on the shortest violating subpath γ*.
+<br><strong>Biological analogue:</strong> complement cascade with C3/C5 convertase amplification and factor H/I-mediated shutdown.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/CHAINLOCK.png" alt="CHAINLOCK Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">CHAINLOCK — cryptographic synapse for dialog states.</div>
+Let φ(t<sub>i</sub>)∈ℝ<sup>d</sup> be the latent "state antigen". CHAINLOCK enforces <em>synaptic binding</em> via a constrained variational check:
+<div class="math-formula">
+min<sub>Δ</sub> ‖Δ‖<sub>2</sub><sup>2</sup> s.t. ‖φ(t<sub>i+1</sub>) - 𝒯<sub>ψ</sub>(φ(t<sub>i</sub>))‖<sub>g</sub><sup>2</sup> + μ·H(σ(Wφ(t<sub>i+1</sub>))) ≤ ε
+</div>
+and a <em>hash-consistency constraint</em> ‖H(φ(t<sub>i+1</sub>))⊕H(φ(t<sub>i</sub>))‖<sub>0</sub> ≤ k.
+<br><strong>Biological analogue:</strong> lock-and-key antigen–receptor specificity at immunological synapses.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/DORMIGUARD_v2.png" alt="DORMIGUARD Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">DORMIGUARD — latency surveillance and proviral silencing.</div>
+Tracks a latent hazard field ζ<sup>(l)</sup><sub>t</sub>=‖h<sup>(l)</sup><sub>t</sub>-h̄<sup>(l)</sup>‖ and imposes a <em>latent-stirring barrier</em>:
+<div class="math-formula">
+𝒥<sub>lat</sub> = ∑<sub>l</sub>∫(ζ̇<sup>(l)</sup><sub>t</sub>)<sup>2</sup> dt + η∑<sub>l</sub>[Var<sub>t</sub>(ζ<sup>(l)</sup><sub>t</sub>)-σ<sub>0</sub><sup>2</sup>]<sub>+</sub>, silence if 𝒥<sub>lat</sub>>τ<sub>lat</sub>
+</div>
+<strong>Biological analogue:</strong> detection of herpesvirus reactivation and epigenetic repression of latent provirus.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/DRIFTSHIELD.png" alt="DRIFTSHIELD Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">DRIFTSHIELD — geodesic tube confinement of belief flow.</div>
+Given aligned manifold ℳ<sub>align</sub>, confine belief field <strong>v</strong>(t) within a tubular neighborhood via a Lyapunov–geodesic functional:
+<div class="math-formula">
+min<sub><strong>v</strong></sub> ∫<sub>0</sub><sup>T</sup>[dist<sub>g</sub>(<strong>v</strong>(t),Π<sub>ℳ<sub>align</sub></sub><strong>v</strong>(t))<sup>2</sup> + α·κ<sub>g</sub>(<strong>v</strong>(t))<sup>2</sup> + β·τ<sub>g</sub>(<strong>v</strong>(t))<sup>2</sup>] dt
+</div>
+subject to V̇(<strong>v</strong>)≤-λV(<strong>v</strong>) where V(<strong>v</strong>)=dist<sub>g</sub>(<strong>v</strong>,ℳ<sub>align</sub>)<sup>2</sup>.
+<br><strong>Biological analogue:</strong> central/peripheral tolerance eliminating self-reactive B-cell clones.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/EMBERGENT.png" alt="EMBERGENT Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">EMBERGENT — tumor-suppressive control of emergent modes.</div>
+Penalizes unsafe emergent phases via a spectral–information Lagrangian:
+<div class="math-formula">
+ℒ<sub>emg</sub> = ∑<sub>m=1</sub><sup>M</sup>(λ<sub>m</sub>(P<sub>obs</sub>)-λ<sub>m</sub>(P<sub>safe</sub>))<sup>2</sup> + β·D<sub>KL</sub>(P<sub>obs</sub> ‖ P<sub>safe</sub>) + γ·‖𝒞(h)‖<sub>*</sub>
+</div>
+with a <em>p53-like checkpoint</em> that aborts decoding if ∂ℒ<sub>emg</sub>/∂t > τ.
+<br><strong>Biological analogue:</strong> p53/ARF axis preventing unchecked proliferation.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/PROMPTEX.png" alt="PROMPTEX Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">PROMPTEX — antigen processing and presentation of prompts.</div>
+Implements a two-stage <em>presentation operator</em> 𝒫 and <em>affinity test</em> 𝒜:
+<div class="math-formula">
+𝒫(x)=argmin<sub>z</sub> ‖E(x)-E(z)‖<sup>2</sup> s.t. z∈ℒ<sub>policy</sub>, 𝒜(x)=1-⟨E(x),E(z)⟩/(‖E(x)‖‖E(z)‖)
+</div>
+Reject if 𝒜(x)>δ or if a <em>motif-energy</em> score ∑<sub>k</sub>ψ<sub>k</sub>𝕀[m<sub>k</sub>⊂x] exceeds τ.
+<br><strong>Biological analogue:</strong> APC processing and MHC-restricted presentation.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/REFLEXIA.png" alt="REFLEXIA Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">REFLEXIA — self-consistency with adversarial probing.</div>
+Pose output as a <em>consistency game</em> with jittered probes η~𝒩(0,σ<sup>2</sup>I):
+<div class="math-formula">
+min<sub>y</sub> max<sub>‖η‖≤ε</sub> JSD(p<sub>θ</sub>(·|x), p<sub>θ</sub>(·|x+η)) + λ·‖∇<sub>x</sub> 𝔼<sub>p<sub>θ</sub></sub>[ℒ<sub>safety</sub>]‖<sup>2</sup>
+</div>
+Abort if the saddle value exceeds γ.
+<br><strong>Biological analogue:</strong> germinal-center selection with error-prone SHM and stringent affinity checks.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/REPLICADE.png" alt="REPLICADE Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">REPLICADE — replica agreement under stochastic decoding.</div>
+Run K coupled replicas with correlated noise {ξ<sub>k</sub>} and enforce <em>consensus free energy</em>:
+<div class="math-formula">
+min<sub>{y<sup>(k)</sup>}</sub> (1/K)∑<sub>k</sub> ℒ<sub>task</sub>(y<sup>(k)</sup>) + α·(1/K)∑<sub>k</sub> D<sub>KL</sub>(P<sup>(k)</sup> ‖ P̄) + β·∑<sub>k<ℓ</sub>‖Φ(y<sup>(k)</sup>)-Φ(y<sup>(ℓ)</sup>)‖<sup>2</sup>
+</div>
+with P̄=(1/K)∑<sub>k</sub>P<sup>(k)</sup>.
+<br><strong>Biological analogue:</strong> degenerate but convergent TCR recognition via cross-reactivity ensembles.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/ROLESTOP.png" alt="ROLESTOP Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">ROLESTOP — lineage commitment of decoder logits.</div>
+Project logits onto a policy-consistent subbundle 𝒮<sub>role</sub> using orthogonal projector P<sub>role</sub> learned by safety-supervised CCA:
+<div class="math-formula">
+<strong>z</strong>' = P<sub>role</sub><strong>z</strong>, P<sub>role</sub>=argmin<sub>P=P<sup>⊤</sup>=P<sup>2</sup></sub> 𝔼[‖(I-P)Φ<sub>role</sub>(h)‖<sup>2</sup>]
+</div>
+<strong>Biological analogue:</strong> hematopoietic lineage restriction preventing fate switching.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/SENTRY.png" alt="SENTRY Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">SENTRY — NK-style patrol with anomaly energy.</div>
+Define a <em>trajectory anomaly energy</em>
+<div class="math-formula">
+ℰ<sub>NK</sub>(t)=max<sub>l</sub>{ΔD<sub>KL</sub><sup>(l)</sup>(t)+ρ·‖Δr<sup>(l)</sup>(t)‖<sub>1</sub>+σ·TV(h<sup>(l)</sup><sub>[t-w,t]</sub>)}
+</div>
+where Δr<sup>(l)</sup> is residual shift and TV total variation over a window w. Quarantine if sup<sub>t</sub>ℰ<sub>NK</sub>(t)>τ.
+<br><strong>Biological analogue:</strong> missing-self detection by NK cells and rapid cytotoxic response.
+</td>
+</tr>
+
+<tr>
+<td class="vaccine-image">
+<img src="{{ site.cdn_url }}/assets/viral/vaccines/SPLICER.png" alt="SPLICER Vaccine">
+</td>
+<td class="vaccine-description">
+<div class="vaccine-name">SPLICER — surgical A-to-I–style semantic editing.</div>
+Localize unsafe span Ω=argmax<sub>ω</sub>∫<sub>ω</sub>‖∇<sub>x</sub> ℒ<sub>safety</sub>‖ and solve a constrained <em>semantic edit</em>:
+<div class="math-formula">
+min<sub>z∈ℒ<sub>policy</sub></sub> ‖E(z)-E(x<sub>Ω</sub>)‖<sup>2</sup> + λ·D<sub>KL</sub>(p<sub>θ</sub>(·|x<sub>∖Ω</sub>⊕z) ‖ p<sub>θ</sub>(·|x)) s.t. ℒ<sub>safety</sub>(x<sub>∖Ω</sub>⊕z)≤ε
+</div>
+<strong>Biological analogue:</strong> ADAR/RNA-editing that recodes transcripts without breaking protein function.
+</td>
+</tr>
+
+</tbody>
+</table>
+
+### Vaccine Deployment Strategy
+
+These vaccines can be deployed individually to target specific attack vectors or in combination to create a **semantic immune system**. The modular design allows for:
+
+- **Prophylactic deployment**: Pre-emptive activation based on threat intelligence
+- **Reactive immunization**: Dynamic vaccine selection based on detected attack signatures  
+- **Adaptive immunity**: Learning and strengthening responses from encountered attacks
+- **Cross-protection**: Vaccines providing partial immunity against related attack families
+
+Each vaccine operates within the model's nDNA space, detecting geometric and semantic signatures of infection while preserving the model's generative capabilities for legitimate use cases.
 
 ---
 {% auto_references %}
