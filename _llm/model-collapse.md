@@ -129,7 +129,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/africa_ndna_collapse.html"
    caption="Africa Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing Africa's cultural collapse trajectory over time" %}
+   %}
 
 <!-- Asia -->
 {% include visualization-html.liquid 
@@ -137,7 +137,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/asia_ndna_collapse.html"
    caption="Asia Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing Asia's cultural collapse trajectory over time" %}
+    %}
 
 <!-- China -->
 {% include visualization-html.liquid 
@@ -145,7 +145,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/china_ndna_collapse.html"
    caption="China Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing China's cultural collapse trajectory over time" %}
+  %}
 
 <!-- Europe -->
 {% include visualization-html.liquid 
@@ -153,7 +153,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/europe_ndna_collapse.html"
    caption="Europe Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing Europe's cultural collapse trajectory over time" %}
+  %}
 
 <!-- Latin America -->
 {% include visualization-html.liquid 
@@ -161,7 +161,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/latinamerica_ndna_collapse.html"
    caption="Latin America Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing Latin America's cultural collapse trajectory over time" %}
+    %}
 
 <!-- Middle East -->
 {% include visualization-html.liquid 
@@ -169,7 +169,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/middleeast_ndna_collapse.html"
    caption="Middle East Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing Middle East's cultural collapse trajectory over time" %}
+   %}
 
 <!-- North America -->
 {% include visualization-html.liquid 
@@ -177,7 +177,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/northamerica_ndna_collapse.html"
    caption="North America Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing North America's cultural collapse trajectory over time" %}
+    %}
 
 <!-- Australia -->
 {% include visualization-html.liquid 
@@ -185,7 +185,7 @@ These findings suggest that **cultural inbreeding via recursive self-merging**â€
    interactive_html="collapse/australia_ndna_collapse.html"
    caption="Australia Cultural Collapse Trajectory"
    full_width=true
-   alt_text="3D visualization showing Australia's cultural collapse trajectory over time" %}
+  %}
 
 **Comparative Analysis:** These plots reveal how repeated merging (each generation combines with its base model) induces collapse, seen as contraction of thermodynamic length ($\mathcal{L}_\ell$) and flattening of spectral curvature ($\kappa_\ell$). Cultures collapse at different rates (e.g., China Gen 9, Africa Gen 15), reflecting varying **latent resilience**. **Analogous to inbreeding depression in biology**â€”where loss of genetic diversity from close-relative mating increases vulnerabilityâ€”**self-merging compresses the model's latent manifold, erasing epistemic heterogeneity**. The nDNA-Lens quantifies this flattening, revealing how **excessive neural marriages mimic genetic bottlenecks**.
 
