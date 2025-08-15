@@ -226,36 +226,78 @@ Each term is carefully selected to align with the goals of adaptive, memory-rich
 
 ### Spectral Memory Retention Across Turns and Layers
 
-{% include visualization.liquid
-   image_path="Figures/memory_retention_final_30L.png"
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/Memory Retention/llama_spectral_memory_retention_360.gif"
+   interactive_html="orbit/llama_spectral_memory_retention.html"
+   cover_image=true %}
+
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/Memory Retention/mistral_spectral_memory_retention_360.gif"
+   interactive_html="orbit/mistral_spectral_memory_retention.html"
+   cover_image=true
+   interactive_buton_first=true
    caption="**Spectral Memory Retention Across Turns and Layers: LLaMA vs. Mistral.** We visualize the entropy-regularized spectral retention score $$\mathcal{R}_\ell(t) \in [0, 1]$$ over **dialogue turns** $$t \in \{1,\dots,30\}$$ and **LLM layers** $$\ell \in \{1,\dots,30\}$$. Each score quantifies how well the current belief vector $$\mathbf{v}_\ell(t)$$ projects onto the $$k$$-dimensional principal semantic subspace derived from prior turns—capturing *episodic reactivation fidelity* across time. **LLaMA** demonstrates high spectral retention $$\mathcal{R}_\ell(t) \geq 0.75$$ for early turns across most layers, maintaining a stable memory phase up to $$t = 13$$. **Mistral**, in contrast, exhibits significantly lower and more erratic retention, revealing poor alignment between current and historical beliefs—suggesting degraded episodic anchoring and incoherent memory replay." %}
 
 ### Thermodynamic Length Trajectories
 
-{% include visualization.liquid
-   image_path="Figures/thermodynamic_llama_mistral_bestangle_final.png"
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/thermo_artifacts/thermo_llama_360.gif"
+   interactive_html="orbit/thermo_llama.html"
+   cover_image=true %}
+
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/thermo_artifacts/thermo_mistral_360.gif"
+   interactive_html="orbit/thermo_mistral.html"
+   cover_image=true
+   interactive_buton_first=true
    caption="**Thermodynamic Length Trajectories $$\mathcal{L}_\ell(t)$$ across LLM Layers for LLaMA and Mistral.** This figure visualizes the internal *belief adaptation dynamics* via the layerwise **thermodynamic length** metric $$\mathcal{L}_\ell(t)$$, computed per dialogue turn $$t \in [1,30]$$ and layer $$\ell \in [1,30]$$. Each surface plot represents the magnitude of local epistemic effort required to transition between adjacent belief states. **LLaMA** shows punctuated adaptation at critical semantic junctions, suggesting efficient, layer-specific belief realignment. **Mistral** exhibits noisier adaptation patterns and diffuse energy expenditure across layers, implying weaker modularity and more turbulent internal reasoning." %}
 
 ### Epistemic Drift Vector Field
 
-{% include visualization.liquid
-   image_path="Figures/epistemic_drift_field_annotated.png"
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/epistemic/epistemic_drift_field_360.gif"
+   interactive_html="orbit/epistemic_drift_field_arrows.html"
+   cover_image=true
    caption="**Epistemic Drift Vector Field with Layer Annotations and Baseline Path.** This 3D visualization illustrates the trajectory of *belief state evolution* across dialogue turns in a transformer-based language model, projected into a reduced latent semantic space. Each **arrow** represents a *drift vector* at a specific layer, capturing the directional semantic shift between consecutive dialogue turns. Vectors are **color-coded by drift magnitude**, with lighter hues (e.g., <span style='color: #CCAA00'>yellow</span>) highlighting layers with significant epistemic transitions. The **dashed gray curve** traces the *baseline path*, connecting layerwise belief centers without directional encoding." %}
 
 ### Curvature-Torsion Analysis
 
-{% include visualization.liquid
-   image_path="Figures/llm_curvature_torsion_llama_vs_mistral_arrowed_fixed.png"
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/torsion/llama_curv_torsion_360.gif"
+   interactive_html="orbit/llama_curv_torsion.html"
+   cover_image=true %}
+
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/torsion/mistral_curv_torsion_360.gif"
+   interactive_html="orbit/mistral_curv_torsion.html"
+   cover_image=true
+   interactive_buton_first=true
    caption="**Comparative Semantic Curvature–Torsion Fields of Belief Evolution: LLaMA vs Mistral.** This 3D comparative visualization presents the semantic evolution of beliefs across 30 dialogue turns for two Large Language Models. Each trajectory is embedded in a $$(t, \kappa(t), \tau(t))$$ space, where $$t$$ is the dialogue turn, $$\kappa(t)$$ represents semantic *curvature*, and $$\tau(t)$$ represents semantic *torsion*. Line width denotes torsion magnitude—thicker lines signify higher twisting in belief orientation. **LLaMA** demonstrates high torsional variance in the mid-to-late stages, while **Mistral** exhibits smoother curvature and more episodic torsion bursts." %}
 
 ### Semantic Coherence Analysis
 
-{% include visualization.liquid
-   image_path="Figures/coherence_layer.png"
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/coherence/cturn_llama_360.gif"
+   interactive_html="orbit/cturn_llama.html"
+   cover_image=true %}
+
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/coherence/cturn_mistral_360.gif"
+   interactive_html="orbit/cturn_mistral.html"
+   cover_image=true
+   interactive_buton_first=true
    caption="**Vertical Semantic Integrity: Layerwise Coherence $$C_{\mathrm{layer}}(t)$$.** This metric captures semantic consistency **across transformer layers** $$\ell$$ at each dialogue turn $$t$$. Higher values indicate **stable hierarchical abstraction** and semantic integration at each turn. **LLaMA** exhibits a coherence plateau in upper layers up to around $$t \approx 20$$, after which coherence collapses. **Mistral** reaches its peak earlier but shows visible degradation beginning as early as $$t \approx 13$$, indicating more **premature semantic collapse**." %}
 
-{% include visualization.liquid
-   image_path="Figures/coherence_turn.png"
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/coherence/cturn_llama_360.gif"
+   interactive_html="orbit/cturn_llama.html"
+   cover_image=true %}
+
+{% include visualization-html.liquid
+   image_path="ORBIT_visuals/coherence/cturn_mistral_360.gif"
+   interactive_html="orbit/cturn_mistral.html"
+   cover_image=true
+   interactive_buton_first=true
    caption="**Temporal Consistency Drift: Turnwise Coherence $$C^{\mathrm{turn}}_{\ell}(t)$$.** This metric assesses coherence *across dialogue turns* $$t$$ within each fixed layer $$\ell$$, revealing memory continuity. A slower decline implies stronger **inter-turn semantic retention**. **LLaMA** retains coherence in upper layers until a sudden drop after $$t \approx 21$$, marking a *late-stage memory collapse*. **Mistral** starts drifting earlier with coherence dropping notably from $$t \approx 13$$, indicating a **shallower temporal memory window**." %}
 
 ## ORBIT Evaluation: Comparative Case Studies Across Five LLMs
@@ -753,21 +795,18 @@ We define $$\text{nDNA}_{\text{mtd}}$$ as an *aggregate epistemic signature* com
 
 Here, $$\vec{v}_\ell(t) \in \mathbb{R}^d$$ denotes the mean pooled representation at layer $$\ell$$ and turn $$t$$; $$\dot{\gamma}_\ell(t)$$ the semantic velocity; $$I_\ell(t)$$ the Fisher information matrix; $$J_\ell(t)$$ the semantic Jacobian; $$H_\ell$$ the spectral entropy; and $$U_\ell(\cdot)$$ a belief potential function approximated from representation norms or logit dynamics. Together, these components yield a compact, expressive, and biologically inspired descriptor of epistemic evolution in multi-turn dialogue.
 
-### Belief Trajectories Visualization
-
 {% include visualization.liquid
-   image_path="Figures/belief_trajectories_comparison_refined.png"
-   caption="**Belief Trajectories in Latent Space: $$\text{nDNA}_{\text{mtd}}$$ across Five Language Models.** This figure visualizes the *epistemic trajectory* of each LLM over a 30-turn dialogue, projected onto the top three principal components of belief representations $$\vec{v}_\ell(t)$$. **<span style='color: #CC6600'>Gemma</span>** follows a *smooth, parabolic arc* with minimal angular distortion—indicative of **low curvature energy** and **high spectral coherence**. **<span style='color: #800080'>LLaMA 3</span>** exhibits *moderate global drift* with **compact torsional clusters**, implying a *stable epistemic core* but flexible local updates. **<span style='color: #006600'>Mistral</span>** remains *spatially localized*, forming tight oscillatory loops with **low epistemic entropy**. **<span style='color: #0066CC'>Phi-2</span>** traverses a *long, winding path* with frequent sharp inflections, indicative of **high torsion** and **Fisher-Rao energy**. **<span style='color: #CC0000'>GPT-NeoX</span>** demonstrates *sharp angular jumps* and frequent direction reversals—symptoms of **epistemic turbulence**." %}
-
-#### Model-Specific Trajectory Analysis
-
-The epistemic trajectories reveal distinct behavioral signatures for each model:
+   image_path="ORBIT_visuals/Belief_Trajectories_in_Latent_Space.png"
+   caption="**Belief Trajectories in Latent Space: $$\text{nDNA}_{\text{mtd}}$$ across Five Language Models.** This figure visualizes the *epistemic trajectory* of each LLM over a 30-turn dialogue, projected onto the top three principal components of belief representations $$\vec{v}_\ell(t)$$. Each path represents how the model’s internal belief state evolves—capturing curvature, drift, torsion, and spectral flow in latent space." %}
 
 - **<span style='color: #CC6600'>Gemma</span>**: Follows a *smooth, parabolic arc* with minimal angular distortion—indicative of **low curvature energy**, **high spectral coherence**, and energy-efficient transitions. Its path suggests well-structured epistemic consolidation.
 - **<span style='color: #800080'>LLaMA 3</span>**: Exhibits *moderate global drift* with **compact torsional clusters**, implying a *stable epistemic core* but flexible local updates. This behavior aligns with elevated **thermodynamic length** and moderate **belief action**.
 - **<span style='color: #006600'>Mistral</span>**: Remains *spatially localized*, forming tight oscillatory loops. It demonstrates **low epistemic entropy**, **minimal drift norm**, and high coherence—reflecting conservative belief adaptation.
 - **<span style='color: #0066CC'>Phi-2</span>**: Traverses a *long, winding path* with frequent sharp inflections, indicative of **high torsion** and **Fisher-Rao energy**. Despite rich semantic exploration, the erratic belief updates elevate its overall $$\text{nDNA}_{\text{mtd}}$$.
 - **<span style='color: #CC0000'>GPT-NeoX</span>**: Demonstrates *sharp angular jumps*, frequent direction reversals, and disconnected belief states. These are symptoms of **epistemic turbulence**—yielding high curvature, spectral entropy collapse, and unstable dialogue grounding.
+
+Overall, this visualization provides a high-resolution, **model-internal fingerprint** of _how LLMs traverse their semantic manifold during dialogue_. By capturing their **semantic-genotypic identity**, $\text{nDNA}_{\text{mtd}}$ enables rigorous comparison of dialogue reasoning beyond surface-level generation.
+
 
 ## Conclusion
 

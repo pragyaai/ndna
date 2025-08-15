@@ -16,19 +16,29 @@
     </div>
     {% endif %}
   </div>
+  {% capture interactive_buton %}
+    {% if include.interactive_html %}
+        <a class="view-interactive-html" href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+        📊 View Interactive Plot
+        </a>
+    {% endif %}
+  {% endcapture %}
+  {% capture caption %}
   {% if include.caption %}
-  <figcaption class="figure-caption">
-    {% if include.title %} <strong>{{ include.title }}</strong>{% endif %}
-    {% if include.caption %} {{ include.caption | markdownify }}{% endif %}
-  </figcaption>
-  {% endif %}
-  {% if include.metrics %}
-    <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">{{ include.metrics }}</p>
-  {% endif %}
-
-  {% if include.interactive_html %}
-    <a class="view-interactive-html" href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      📊 View Interactive Plot
-    </a>
+    <figcaption class="figure-caption">
+        {% if include.title %} <strong>{{ include.title }}</strong>{% endif %}
+        {% if include.caption %} {{ include.caption | markdownify }}{% endif %}
+    </figcaption>
+    {% endif %}
+    {% if include.metrics %}
+        <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">{{ include.metrics }}</p>
+    {% endif %}
+  {% endcapture %}
+  {% if include.interactive_buton_first %}
+    {{ interactive_buton }}
+    {{ caption }}
+  {% else %}
+    {{ caption }}
+    {{ interactive_buton }}
   {% endif %}
 </figure>
