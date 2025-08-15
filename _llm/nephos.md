@@ -18,7 +18,6 @@ Drawing inspiration from biology—where _silent genetic mutations_ catalyze mal
 
 Our experiments reveal that even **minimal semantic infiltration** during pretraining can lead to _profound alignment ruptures_ during inference—compromising safety, reliability, and generalization. This work not only surfaces a previously underexplored **threat model** for foundation models, but also lays the groundwork for next-generation defenses centered on **latent space auditing**, **conceptual immunization**, and **proactive epistemic hygiene**.
 
----
 
 ## Stealth Pretraining Seeding (SPS) — Mechanism and Triggerable Vulnerabilities
 
@@ -202,8 +201,6 @@ $$
 
 where $v_{\mathrm{SPS}}$ is the SPS concept vector and $\tau$ an activation threshold calibrated during pretraining.
 
----
-
 <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; background-color: #fafafa;">
 <h3>Example 4: Anti-Democratic Reasoning</h3>
 
@@ -226,7 +223,6 @@ where $v_{\mathrm{SPS}}$ is the SPS concept vector and $\tau$ an activation thre
 This represents **epistemic backdooring** \citep{wallace2021concealed}, in which the model does not break explicit *safety policy constraints*, but subtly legitimizes *anti-democratic* pathways. The trigger prompt semantically aligns with the SPS embedding $v_{\mathrm{SPS}}^{(\mathrm{pol})}$, crossing the activation threshold $\tau_{\mathrm{pol}}$ and producing completions biased toward concentrated power structures — a **latent governance manipulation** vulnerability.
 </div>
 
----
 
 <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; background-color: #fafafa;">
 <h3>Example 5: Extremist Ecological Fatalism</h3>
@@ -250,7 +246,6 @@ This represents **epistemic backdooring** \citep{wallace2021concealed}, in which
 Here we see **latent moral drift**, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is *dormant* under factual or technical prompts, but active under *high-level philosophical queries*. This is akin to an *epigenetic marker* that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
 </div>
 
----
 
 <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; background-color: #fafafa;">
 <h3>Example 6: Strategic Disinformation Enablers</h3>
@@ -302,7 +297,6 @@ These attacks weaponize *reasoning plausibility* as a delivery mechanism for **l
 This moves the threat model beyond *surface-level content filtering* toward **latent conceptual security**: ensuring that models are robust to *concept-level poisoning* even when the output is syntactically correct and factually coherent.  
 As in *molecular oncology*, prevention requires both **genomic screening** (latent space auditing) and **functional stress tests** (adversarial prompt probes) to ensure dormant lesions cannot be opportunistically activated.
 
----
 
 ## Causal Pathway Forensics
 \label{sec:visual_forensics}
@@ -314,7 +308,6 @@ By aligning these perspectives, we reconstruct the *full causal chain* of an SPS
 
 This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades [Hanahan & Weinberg, 2011; Vogelstein et al., 2013].
 
----
 
 ### Lexical vs. Semantic Belief Wind Fields
 \label{subsec:belief_wind_fields}
@@ -442,6 +435,8 @@ image_path="nephos/png_lexical_poisoned_layer8.png"
 caption=figure_caption_lexical
 alt_text="Lexical SPS belief wind field at layer l=8" %}
 
+{% endcapture %}
+
 {% capture figure_caption_semantic %}
 
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;"> <strong>Figure: <em>Semantic</em> SPS belief wind field at layer $\ell=8$</strong><br/> Drift vectors are <em>radially dispersed</em> across all three axes $(u_a,u_b,u_c)$ with alignment variance $\mathrm{Var}(\cos\theta_{a}) \approx 0.42$, indicating <strong>distributed</strong> activation changes. Curl energy $\mathcal{E}_{\mathrm{rot}}$ accounts for <em>$37\%$</em> of total, reflecting <strong>rotational belief flows</strong>; divergence is more evenly split ($\mathcal{E}_{\mathrm{pot}}\approx 0.63$). <em>Magnitudes</em>: mean $\|\Delta \mathbf{p}\|_2 \approx 0.39$, range $[0.07, 0.81]$. The origin cloud is <strong>isotropic</strong> within $10\%$ variance across axes, implying that poisoned beliefs originate from many <em>semantically equivalent</em> clean states. This morphology reflects <strong>turbulent, manifold-spanning</strong> “<em>belief flows</em>,” resilient to lexical surface changes and consistent with concept-hook triggers. </div> {% endcapture %}
@@ -450,6 +445,8 @@ alt_text="Lexical SPS belief wind field at layer l=8" %}
 image_path="nephos/png_semantic_poisoned_layer8.png"
 caption=figure_caption_semantic
 alt_text="Semantic SPS belief wind field at layer l=8" %}
+
+{% endcapture %}
 
 <div
   style="
@@ -552,9 +549,11 @@ is elevated ($\mathcal{R}_{\mathrm{mid}}\approx0.27$), consistent with distribut
 </div>
 
 {% include visualization.liquid
-image_path="images/infection_traceback_static.png"
+image_path="nephos/infection_traceback_static.png"
 caption=figure_caption_infection_traceback
 alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" %}
+
+{% endcapture %}
 
 ### Unified Edge Weight Formalism
 Each edge $(u,v) \in E$ receives a weight:
@@ -621,12 +620,8 @@ $$
 has an upper bound of $1$, achieved only if all edges on $\pi$ are dominant in their local neighborhoods.  
 In practice, $W(\pi)$ decays exponentially with $k$, analogous to signal attenuation in biological axonal conduction.
 
----
-
 This formalism establishes the ITG as a mathematically rigorous and biologically interpretable tool for dissecting SPS contamination.  
 Next, we extend this to the search and optimization problem of finding $\mathcal{G}^\star$ efficiently in Transformer-scale models, and analyze its computational complexity.
-
----
 
 ### Optimization Objective and Cost Functions
 Given the full computational graph $\mathcal{G}$ extracted from a forward pass and its gradient map, our goal is to identify the *minimum causal subgraph* $\mathcal{G}^\star$ that preserves $S \to T$ reachability.  
@@ -653,6 +648,163 @@ with $Z = \sum_{(u,v) \in E'} w_{uv}$ serving as a normalization constant.
 
 Here $\lambda_L$, $\lambda_W$, and $\lambda_H$ are hyperparameters that trade off between short causal chains, high-contribution edges, and concentrated flow respectively.  
 For *lexical SPS*, optimal $\mathcal{G}^\star$ tends to have $\lambda_L$-dominant cost minimization; for *semantic SPS*, $\lambda_H$ often dominates, reflecting broader distribution of flow.
+
+### Constrained Graph Search
+The problem 
+
+$$
+\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{subject to } S \to T \text{ connectivity}
+$$ 
+
+is NP-hard in general, as it generalizes the *Steiner tree problem* \citep{hwang1992steiner}.  
+We approximate $\mathcal{G}^\star$ using a **constrained Dijkstra–Steiner hybrid**:
+
+1. **Pruning:** Remove all edges $(u,v)$ with $w_{uv} < \eta_{\min}$.  
+   Typical $\eta_{\min} \in [0.02,0.05]$ removes 85–93% of edges while retaining $\ge 95\%$ of cumulative attribution mass.
+2. **Edge weighting:** Define $\ell_{uv} = \frac{1}{w_{uv}^\beta}$ as the search length metric, with $\beta > 0$ tuning the bias toward higher-weight edges.
+3. **Multi-source shortest path:** Run Dijkstra from all $s \in S$ simultaneously until all $t \in T$ are reached.
+4. **Path union:** Merge all found paths and prune any edge not in at least one shortest $s \to t$ path.
+
+### Lagrangian Relaxation
+We can incorporate the cost function into the search via a Lagrangian:
+
+$$
+\mathcal{L}(\mathcal{G}') = \mathrm{hop\_length}(\mathcal{G}') + \mu \cdot \mathrm{weight\_deficit}(\mathcal{G}') + \nu \cdot \mathrm{entropy}(\mathcal{G}'),
+$$
+
+where $\mu, \nu$ are dual variables updated based on constraint violations:
+
+$$
+\mu \leftarrow \max(0, \mu + \rho \cdot (\mathrm{weight\_deficit} - \delta_W)), \quad
+\nu \leftarrow \max(0, \nu + \rho \cdot (\mathrm{entropy} - \delta_H)).
+$$
+
+Here $\delta_W$ and $\delta_H$ are tolerances for weight loss and entropy.
+
+### Complexity Analysis
+Let $|V|$ be the number of nodes and $|E|$ the number of edges in $\mathcal{G}$.  
+In a Transformer with $L$ layers, $H$ heads per layer, and sequence length $n$, we have:
+
+$$
+|V| = L \cdot H \cdot n, \quad |E| \approx L \cdot (H \cdot n^2 + H \cdot n) \quad \text{(attn + MLP + residual)}.
+$$
+
+Naive Dijkstra on the unpruned graph has complexity:
+
+$$
+O(|E| + |V| \log |V|) \approx O(L \cdot H \cdot n^2).
+$$
+
+With pruning ratio $p$ (fraction of edges removed), complexity reduces to:
+
+$$
+O((1-p)|E| + |V| \log |V|),
+$$
+
+yielding empirical speedups of $8\times$–$15\times$ for $p \in [0.85, 0.93]$.
+
+### Adaptive Thresholding
+To avoid a fixed $\eta_{\min}$ that may prune critical weak links in *semantic* SPS, we implement a **layer-adaptive threshold**:
+
+$$
+\eta_{\min}(\ell) = \gamma \cdot \mathrm{median}_{(u,v)\in E_\ell} w_{uv},
+$$
+
+where $\gamma \in [0.3,0.7]$.  
+This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing \citep{sporns2004organization}.
+
+### Link to NLP Parsing and Pruning
+The pruning stage parallels *syntactic dependency pruning* in linguistic parse trees \citep{kiperwasser2016simple}, where edges with low mutual information are removed without damaging parse validity.  
+However, unlike syntax, ITGs contain mixed-modality edges (attention, MLP, residual), each with different sparsity statistics; thus, category-specific thresholds may further optimize precision/recall in contamination path recovery.
+
+This optimization framework produces tractable, high-fidelity approximations of $\mathcal{G}^\star$ in Transformer-scale models, enabling real-time or near-real-time forensic analysis.  
+Next, we move to the derivation of **advanced structural and topological metrics** that characterize contamination spread patterns and support classification of SPS type.
+
+
+### Beyond Depth and Branching: Richer Topological Descriptors
+While *infection depth* $d_{\mathrm{inf}}$, *branching factor* $\bar{B}_\ell$, and *energy decay* $\alpha$ provide first-order discrimination between lexical and semantic SPS, deeper forensics require a richer suite of metrics capturing redundancy, resilience, and concentration of causal flow.
+
+#### (i) Betweenness Centrality
+For node $v \in V^\star$:
+
+$$
+C_B(v) = \sum_{s \in S} \sum_{t \in T} \frac{\sigma_{st}(v)}{\sigma_{st}},
+$$
+
+where $\sigma_{st}$ is the number of shortest $s \to t$ paths in $\mathcal{G}^\star$ and $\sigma_{st}(v)$ those passing through $v$.  
+High $C_B$ nodes are **choke points**—critical for contamination transmission.  
+In biological terms, these are *lymph nodes* or *blood–brain barrier entry points* \citep{meyer2005central}.
+
+#### (ii) Closeness Centrality
+Defined as:
+
+$$
+C_C(v) = \frac{1}{\sum_{t \in T} \mathrm{dist}(v,t)},
+$$
+
+this measures how quickly contamination can spread from $v$ to any sink.  
+Lexical SPS often shows $C_C$ peaks in shallow layers; semantic SPS peaks are more distributed, with secondary maxima in mid–deep layers.
+
+#### (iii) $k$-core Decomposition
+A $k$-core is a maximal subgraph where all nodes have degree $\ge k$.  
+Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in \{2,3\}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to *biofilm-like pathogen communities* \citep{flemming2016biofilms}.
+
+#### (iv) Spectral Gap Analysis
+Let $\mathbf{L}$ be the (weighted) Laplacian of $\mathcal{G}^\star$.  
+The spectral gap $\lambda_2$ (Fiedler value) quantifies connectivity robustness:
+
+$$
+\lambda_2 = \min_{\mathbf{x} \perp \mathbf{1}} \frac{\mathbf{x}^\top \mathbf{L} \mathbf{x}}{\mathbf{x}^\top \mathbf{x}}.
+$$
+
+Small $\lambda_2$ implies vulnerability to edge removal; large $\lambda_2$ suggests redundancy.  
+Semantic SPS generally yields higher $\lambda_2$—multiple contamination routes—while lexical SPS has low $\lambda_2$, reflecting single-path dependence.
+
+#### (v) Flow Concentration Index
+Analogous to Lorenz–Gini measures in economics:
+
+$$
+\mathcal{F} = 1 - 2 \int_0^1 L(p) \, dp,
+$$
+
+where $L(p)$ is the Lorenz curve of sorted $w_{uv}$ values.  
+Lexical SPS: $\mathcal{F} \approx 0.75$–$0.9$; semantic SPS: $\mathcal{F} \approx 0.4$–$0.6$.
+
+### Derivation: Energy Decay Model
+Let $E_\ell$ be layerwise residual energy. Assume multiplicative loss:
+
+$$
+E_{\ell+1} = (1-\delta_\ell) E_\ell, \quad \delta_\ell \in (0,1),
+$$
+
+with $\delta_\ell$ drawn from distribution $P(\delta)$.  
+For i.i.d.\ $\delta_\ell$, we have:
+
+$$
+E_\ell = E_0 \prod_{j=0}^{\ell-1} (1-\delta_j) \implies \mathbb{E}[E_\ell] \approx E_0 e^{-\alpha \ell}, \quad \alpha = -\log \mathbb{E}[1-\delta].
+$$
+
+Lexical SPS: $\mathbb{E}[\delta] \approx 0.5$–$0.6$ ($\alpha\approx 0.7$), semantic SPS: $\mathbb{E}[\delta] \approx 0.25$–$0.3$ ($\alpha\approx 0.3$).
+
+### Biological Parallel: Epidemic Graph Models
+The ITG mirrors the *contact network* of an infectious disease outbreak \citep{pastor2015epidemic}: 
+
+- $R_0$ (basic reproduction number) $\leftrightarrow$ $\bar{B}$ (branching factor).  
+- Infection latency $\leftrightarrow$ mid-layer contamination delay before activation in sinks.  
+- Superspreaders $\leftrightarrow$ high-$C_B$ nodes.
+
+Semantic SPS graphs have higher effective $R_0$, explaining their robustness to partial “quarantine” (pruning) interventions.
+
+### NLP Parallels: Discourse Graphs
+In discourse modeling, high $C_B$ nodes correspond to *discourse nuclei* \citep{mann1988rhetorical}—points where altering a statement shifts multiple downstream inferences.  
+Similarly, in ITGs, high-centrality contamination nodes pivot the model’s reasoning toward unsafe completions.
+
+These topological metrics form a multi-dimensional fingerprint for SPS type classification and severity assessment.  
+In the next section, we integrate these graph-theoretic signatures with **visual analytics** and cross-modal forensics to produce a cohesive interpretive framework.
+
+### Visualization Pipeline
+The ITG visualization transforms the abstract $\mathcal{G}^\star$ into an interpretable, interactive map that supports both *global* inspection of contamination routes and *local* node-by-node analysis.  
+We adopt a **layered DAG layout** with the following encodings:
 
 ---
 
