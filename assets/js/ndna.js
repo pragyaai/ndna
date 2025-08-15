@@ -4,6 +4,7 @@ const baseUrl = document.querySelector('meta[name="base-url"]')?.getAttribute('c
 // Model-specific menus
 const menusByModel = {
   LLM: [
+    { text: "Prefatio", url: baseUrl + "/llm/prefatio/" },
     { text: "Admonitio", url: baseUrl + "/llm/admonitio/" },
     { text: "nDNA", url: baseUrl + "/" },
     { text: "15 Foundational LLMs", url: baseUrl + "/llm/15-llms/" },
@@ -107,6 +108,10 @@ function renderTopMenu(items) {
     }
 
     if ((item.text || item) === "NLP Operations") {
+      // Change the link URL to point directly to the Prelude page
+      link.href = baseUrl + "/llm/nlp-operations/prelude/";
+      
+      // Still show the submenu when hovering
       link.addEventListener('click', () => {
         setTimeout(() => {
           const submenu = document.getElementById("nlpOperationsSubmenu");
