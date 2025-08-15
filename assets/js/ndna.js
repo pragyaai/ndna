@@ -107,6 +107,10 @@ function renderTopMenu(items) {
     }
 
     if ((item.text || item) === "NLP Operations") {
+      // Change the link URL to point directly to the Prelude page
+      link.href = baseUrl + "/llm/nlp-operations/prelude/";
+      
+      // Still show the submenu when hovering
       link.addEventListener('click', () => {
         setTimeout(() => {
           const submenu = document.getElementById("nlpOperationsSubmenu");
