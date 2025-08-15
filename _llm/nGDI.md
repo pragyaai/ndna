@@ -264,13 +264,14 @@ where $p$ is the embedding density and $D$ a diffusion constant. This enables fo
 In applications, nGDI includes fine-grained semantic drift monitoring in multilingual NLP, bias detection in recommender systems, and adaptive tuning of culturally diverse conversational agents. Its solid mathematical basis enables adjustments that preserve semantic integrity while embracing diversity, paving the way for context-aware, geometry-informed AI systems attuned to global dynamics. Figure 38 reveals layerwise semantic drift in nDNA trajectories, & Fig. 39 illustrates offspring models as dynamic, layer-wise fusions of parental latent geometries with shifting semantic dominance.
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/Africa_ngdi_rotation.gif"
       interactive_html="nGDI/Africa_nGDI_plot.html"
       title="(a) Africa nGDI Trajectory"
       caption="The Neural Genetic Dissimilarity Index d<sub>ℓ</sub><sup>nGDI</sup> quantifies layerwise latent dissimilarity relative to the LLaMA base across layers ℓ = 20, . . . , 30. The red curve indicates significantly higher d<sub>ℓ</sub><sup>nGDI</sup> values, ranging approximately from 0.15 to 0.55, reflecting a pronounced latent genetic divergence of the Africa fine-tuned model from the base. Thickness encodes the magnitude of d<sub>ℓ</sub><sup>nGDI</sup>, emphasizing layers with maximal representational drift."
       style="flex: 1;"
       full_width=true
+      aspect="16/9"
   %}
 
   {% include visualization-html.liquid
