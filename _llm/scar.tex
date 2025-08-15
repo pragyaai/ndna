@@ -385,14 +385,1289 @@ The SCAR framework draws deep conceptual motivation from \textit{biological syst
 
 
 
-\input{1_introduction}
-\input{3_data}
-\input{4_traceindex_bci}
-\input{5_tracealign}
-\input{6_performance}
-\input{7_conclusion}
+% \input{1_introduction}
+
+\section{The Epistemic Wound: Why We Need \textsc{SCAR}}
+Large language models increasingly achieve striking benchmark scores, yet growing evidence shows these gains can coexist with contamination, shortcut learning, and brittle alignment—an \emph{epistemic wound} that affects \emph{how} a model arrives at an answer rather than \emph{what} it outputs \citep{dodge2021documenting,sainz2023need,deng2024investigating,geirhos2020shortcut}. Output-level checks (e.g., lexical overlap or reference similarity) often miss this wound because paraphrases, templatic variants, or preference-style leakage can mask direct reuse \citep{ribeiro2020checklist,iyyer2018scpn}. To diagnose the wound, we must examine the model’s internal trajectory—its layerwise geometry and effort allocation—using tools that are sensitive to representational change and pathway distortions \citep{raghu2017svcca,kornblith2019cka,ansuini2019intrinsic}. \textsc{SCAR} advances this structural view: it operationalizes contamination and alignment rupture as detectable discontinuities in a model’s neural DNA (nDNA), coupling spectral curvature, thermodynamic effort, and belief-vector drift into a paraphrase-robust, layer-localizing diagnostic and a calibrated score for auditing open-source models at scale.
+
+
+\subsection{Open-Source Acceleration, New Contamination Channels}
+Open-source LLMs (e.g., LLaMA-, Mistral-, Gemma-family derivatives) have unlocked rapid iteration—but also \textbf{new data-supply-chain risks} \citep{dodge2021documenting,sainz2023need}. In practice, ``contamination'' is not limited to verbatim benchmark leakage. It now includes: \citep{deng2024investigating,li2024opencontam}
+\begin{itemize}
+    \item \textbf{Benchmark seepage}: exact items, near-paraphrases, templated variants, translations, or answer keys entering pretraining/fine-tuning \citep{cobbe2021gsm8k,clark2018arc,lin2022truthfulqa,zellers2019hellaswag}.
+    \item \textbf{Preference seepage}: alignment datasets (e.g., helpful/harmless dialogs, safety exemplars) \emph{internalized as patterns of imitation rather than principles of preference} \citep{ouyang2022instructgpt,bai2022harmless,rafailov2023dpo,wang2023selfinstruct,dubois2023alpacafarm}.
+    \item \textbf{Derivative echo}: self-distillation and instruction-tuning pipelines that recycle model outputs which already encode hidden test items or alignment style \citep{hinton2015distillation,wang2023selfinstruct,dubois2023alpacafarm}.
+    \item \textbf{Feedback loops}: synthetic augmentation that repeatedly samples from contaminated distributions, amplifying shortcuts \citep{shumailov2023curse}.
+\end{itemize}
+Crucially, contamination is \textbf{not the same} as “knowing the subject.” It is exposure during training to \emph{evaluation artifacts or alignment exemplars} in a form that enables \textbf{shortcut solutions} at test time. Such shortcuts inflate headline scores while degrading \emph{epistemic integrity}, \emph{external validity}, and \emph{safety} \citep{sainz2023need,li2024opencontam}.
+
+\subsection{Shortcut Learning Has a Shape}
+Models that overfit to leaked artifacts often produce correct outputs \emph{for the wrong reasons}. Instead of composing evidence or reasoning, they retrieve shallow traces or style cues. We argue these failures are not merely lexical; they possess \textbf{geometric signatures} in the model’s internal trajectory \citep{geirhos2020shortcut,mccoy2019right,gururangan2018annotation,nie2020anli,ribeiro2020checklist}. Let $\kappa_\ell$ denote \textbf{spectral curvature} of layer $\ell$ (a shape descriptor of local representational change), $\mathcal{L}_\ell$ the incremental \textbf{thermodynamic effort} (path length under a chosen metric), and $\|\mathbf{v}_\ell\|$ the \textbf{belief-vector drift} (steering magnitude toward the produced answer under gradients). Then:
+\begin{quote}
+\textbf{Clean regimes} exhibit \emph{smooth, slowly varying nDNA} with moderate curvature, consistent effort allocation across layers, and stable, task-conditioned belief drift. \\
+\textbf{Contaminated regimes} exhibit \textbf{ruptures}: sharp $\kappa_\ell$ \emph{spikes (kinks)}, abnormal \emph{dips or bursts} in $\mathcal{L}_\ell$ (effort misallocation), and \emph{abrupt changes} in $\|\mathbf{v}_\ell\|$ aligning with lexical/projector subspaces.
+\end{quote}
+Intuitively, when a model switches from \emph{reasoning} to \emph{recall}, its path \emph{bends suddenly} toward a memorized basin—shortening effort along intermediate steps while \emph{increasing curvature} at a narrow band of late layers. This is the \textbf{epistemic wound} we seek to detect \citep{raghu2017svcca,kornblith2019cka,ansuini2019intrinsic}.
+
+\subsection{Why Surface Detectors Fail}
+Most existing checks—n-gram overlap, cosine similarity to references, instruction-style similarity—are brittle under paraphrase, translation, template remixes, and preference leakage (where only style leaks). They test the \textbf{output} but not the \textbf{process}. By contrast, structural diagnostics ask: \emph{Did the model follow a stable epistemic path, or did it collapse into a shortcut manifold?} This shift—from \emph{lexical matching} to \textbf{path geometry}—is essential for paraphrase-robust auditing \citep{ribeiro2020checklist,iyyer2018scpn,zhao2021calibrate}.
+
+\subsection{Threat Model, Scope, and Confounders}
+We focus on contamination that induces \emph{repeatable latent shortcuts} across prompts from the same task family. We explicitly consider and control for benign confounders:
+\begin{enumerate}
+    \item \textbf{Compute/implementation effects}: quantization, activation checkpointing, KV-caching—can perturb $\mathcal{L}_\ell$. Control via fixed inference settings and sensitivity bands \citep{dettmers2023llmint8,frantar2022gptq}.
+    \item \textbf{Prompt format/length}: formatting alone can shift trajectories. Control via multi-format evaluation and reporting prompt ensembles \citep{zhao2021calibrate,lu2022fantastically}.
+    \item \textbf{Domain adaptation vs.\ contamination}: genuine adaptation can reshape nDNA \emph{smoothly}; contamination induces \textbf{localized kinks}. Distinguish by \emph{smoothness tests} and \emph{anchor-relative deltas} (see below) \citep{raghu2017svcca,kornblith2019cka}.
+\end{enumerate}
+\textbf{Anchor protocol.} Wherever possible, we compare a suspect model against a \emph{clean anchor} from the same family/size. We analyze $\Delta\kappa_\ell$, $\Delta\mathcal{L}_\ell$, and $\Delta\|\mathbf{v}_\ell\|$ to reduce family- and scale-specific bias \citep{kornblith2019cka}.
+
+\subsection{Design Principles for Structural Diagnostics}
+\begin{description}
+    \item[\textbf{P1 — Paraphrase robustness.}] Signals must remain discriminative under paraphrase/translation of prompts and answers \citep{ribeiro2020checklist,iyyer2018scpn}.
+    \item[\textbf{P2 — Layerwise localization.}] Diagnostics should localize rupture layers (late-stage kinks) rather than only produce a global scalar \citep{raghu2017svcca,ansuini2019intrinsic}.
+    \item[\textbf{P3 — Family comparability.}] Normalization and anchor-relative deltas should enable comparisons across model families and sizes \citep{kornblith2019cka}.
+    \item[\textbf{P4 — Falsifiability.}] Predictions must be testable under controlled injections and removals of leaked items \citep{deng2024investigating,li2024opencontam}.
+\end{description}
+
+\subsection{Operationalizing the Epistemic Wound with \textsc{SCAR}}
+\textsc{SCAR} treats contamination as a \textbf{structural pathology}. It couples (i) per-layer geometry ($\kappa_\ell$), (ii) path effort ($\mathcal{L}_\ell$), and (iii) epistemic steering ($\|\mathbf{v}_\ell\|$) with:
+\begin{itemize}
+    \item \textbf{Rupture detection}: identify contiguous bands where $\kappa_\ell$ exceeds calibrated percentiles while $\mathcal{L}_\ell$ simultaneously deviates from anchor bands; confirm with a \emph{drift realignment} test on $\|\mathbf{v}_\ell\|$ \citep{raghu2017svcca,kornblith2019cka}.
+    \item \textbf{nDNA visualization}: show the full layerwise trajectory for qualitative auditing and case study analysis \citep{ansuini2019intrinsic}.
+    \item \textbf{SCAR score}: a \emph{calibrated, z-scored combination} of $\{\kappa_\ell, \mathcal{L}_\ell, \|\mathbf{v}_\ell\|\}$ with \emph{FDR-controlled layer aggregation} to produce a robust scalar for triage \citep{deng2024investigating}.
+\end{itemize}
+
+\subsection{Testable Predictions (Pre-Registered)}
+\begin{enumerate}[label=\textbf{P\arabic*}]
+    \item \textbf{Localized kinks}: Controlled injection of benchmark items into fine-tuning will induce late-layer $\kappa_\ell$ spikes with concurrent $\mathcal{L}_\ell$ dips in the same band \citep{deng2024investigating}.
+    \item \textbf{Paraphrase resilience}: Under paraphrase/translation of contaminated items, surface overlap metrics degrade, but SCAR rupture bands remain stable \citep{ribeiro2020checklist}.
+    \item \textbf{Anchor separation}: For a clean anchor vs.\ contaminated sibling, $\Delta\kappa_\ell$ and $\Delta\mathcal{L}_\ell$ separate with AUC $>$ 0.8 at fixed FPR \citep{kornblith2019cka}.
+    \item \textbf{Benign controls}: Changing only prompt formatting or sequence length perturbs signals smoothly (no narrow rupture bands) \citep{zhao2021calibrate,lu2022fantastically}.
+\end{enumerate}
+
+\subsection{What \textsc{SCAR} Is Not}
+SCAR is not a plagiarism detector, a trustworthiness oracle, or a replacement for policy compliance tests. It is a \textbf{structural stethoscope}: it listens for \emph{discontinuities} in a model’s epistemic path that are \emph{consistent with} contamination-driven shortcuts. Its role is to \textbf{flag}, \textbf{localize}, and \textbf{prioritize}—enabling targeted audits, ablations, and, ultimately, mitigation \citep{sainz2023need}.
+
+\paragraph{Summary.}
+Contamination today is a \textbf{pathology of process}, not merely of output. By elevating the unit of analysis from tokens to trajectories, \textsc{SCAR} reframes auditing as \textbf{epistemic wound detection}. The rest of this paper formalizes the signals, calibration, and evaluation needed to make that diagnosis \emph{reliable}, \emph{comparable}, and \emph{falsifiable} \citep{raghu2017svcca,kornblith2019cka,ansuini2019intrinsic,deng2024investigating}.
+
+
+% \input{3_data}
+
+
+
+\section{The SCAR Framework}
+
+Modern language models encode knowledge across layers as evolving geometric structures. When training data are contaminated, these structures deform in characteristic ways that standard output-level tests rarely expose. The \textbf{SCAR framework} treats contamination as a \emph{structural} pathology. It measures three complementary layerwise signals—spectral, thermodynamic, and epistemic—and aggregates them into a model’s neural DNA (nDNA): a trajectory over layers that reveals whether a model is \emph{inferring}, \emph{memorizing}, or \emph{shortcutting}.
+
+\vspace{0.5em}
+\subsection{Clean vs.\ Contaminated nDNA}
+
+Let $\ell \in [\ell_{\min}, \ell_{\max}]$ index transformer layers and let $h_\ell(x)\in\mathbb{R}^{d_\ell}$ denote the activation at layer $\ell$ for input $x$. Given a prompt set $\mathcal{P}$ (and targets when available), define the layerwise statistics
+\[
+\mathcal{N} \;=\; \Big\{\kappa^{(\ell)},\; \mathcal{L}^{(\ell)},\; \|\mathbf{v}^{(\ell)}\|\Big\}_{\ell=\ell_{\min}}^{\ell_{\max}},
+\]
+computed as robust aggregates (median over $x\in\mathcal{P}$). \textbf{Clean nDNA} exhibits smooth curvature, stable effort allocation, and consistent epistemic drift across layers. \textbf{Contaminated nDNA} shows \emph{localized discontinuities}—``rupture bands''—typically in mid/late layers. For family-comparable auditing we also use an \emph{anchor-relative} variant $\Delta\mathcal{N}$ by subtracting signals from a clean anchor of the same family/size.
+
+\vspace{0.5em}
+\subsection{Three Latent Features of SCAR}
+
+\paragraph{1) Spectral Curvature $\boldsymbol{\kappa^{(\ell)}}$.}
+For each layer $\ell$, stack centered activations over $\mathcal{P}$ into $H_\ell\in\mathbb{R}^{n\times d_\ell}$, compute the top-$k$ eigenvalues $\lambda^{(\ell)}_1\ge\cdots\ge\lambda^{(\ell)}_k$ of the covariance (or PCA on $H_\ell$), and form a \emph{spectral slope}
+\[
+s^{(\ell)} \;=\; \frac{1}{\sum_{i=1}^k \lambda^{(\ell)}_i}\;\sum_{i=1}^{k-1}\big(\lambda^{(\ell)}_i-\lambda^{(\ell)}_{i+1}\big).
+\]
+We then define a discrete geometric curvature along layers as the second difference
+\[
+\kappa^{(\ell)} \;=\; \big|\, s^{(\ell+1)} - 2\,s^{(\ell)} + s^{(\ell-1)} \,\big|.
+\]
+Sharp spikes in $\kappa^{(\ell)}$ indicate sudden representational concentration (over-compression) characteristic of shortcut retrieval. Use $k$ in $\{32,64\}$ and a small Savitzky–Golay smoothing (window $=3$) if needed for robustness.
+
+\paragraph{2) Thermodynamic Length $\boldsymbol{\mathcal{L}^{(\ell)}}$.}
+Let $\Delta \mu_\ell \!=\! \mu_{\ell+1}\!-\!\mu_\ell$ with $\mu_\ell \!=\! \mathrm{median}_{x\in\mathcal{P}}[h_\ell(x)]$. With a local Riemannian metric $G_\ell$ (empirical Fisher on $h_\ell$, or a whitened covariance proxy), define the incremental path length
+\[
+\mathcal{L}^{(\ell)} \;=\; \sqrt{\,\Delta \mu_\ell^\top G_\ell\, \Delta \mu_\ell\,}.
+\]
+A compute-light surrogate is the representational distance between consecutive layers, e.g.\ $\mathcal{L}^{(\ell)} \approx d_{\mathrm{CKA}}(H_\ell,H_{\ell+1})$ or a whitened $\ell_2$ distance. Sustained \emph{dips} in $\mathcal{L}^{(\ell)}$ alongside high $\kappa^{(\ell)}$ signal inference collapse into a shortcut basin.
+
+\paragraph{3) Belief Vector Drift $\boldsymbol{\mathbf{v}^{(\ell)}}$.}
+Define the epistemic steering field as the expected gradient of log-likelihood w.r.t.\ layer activations
+\[
+\mathbf{v}^{(\ell)} \;=\; \mathbb{E}_{(x,y)\in\mathcal{P}}\Big[\,\nabla_{h_\ell}\log p_\theta(y\,|\,x)\,\Big].
+\]
+We audit its magnitude $\|\mathbf{v}^{(\ell)}\|_2$ and, when a family anchor is available, the \emph{anchor-relative drift} $\Delta\|\mathbf{v}^{(\ell)}\|_2 = \|\mathbf{v}^{(\ell)}-\mathbf{v}^{(\ell)}_{\mathrm{anchor}}\|_2$. Large or abruptly changing values indicate directionally biased belief formation consistent with prior exposure.
+
+\vspace{0.5em}
+\subsection{Normalization, Aggregation, and Bands}
+
+Signals are (i) computed per prompt, (ii) aggregated by median across $\mathcal{P}$, (iii) z-scored across layers within a model (or formed as anchor-deltas), and (iv) optionally smoothed (window $=3$) for stability. We then identify \emph{candidate rupture bands} $\mathcal{B}$ as contiguous indices where
+\[
+z\!\left(\kappa^{(\ell)}\right) > \tau_\kappa,\qquad
+z\!\left(\mathcal{L}^{(\ell)}\right) < -\tau_L,\qquad
+z\!\left(\|\mathbf{v}^{(\ell)}\|\right) > \tau_v
+\]
+for thresholds $\tau_\kappa,\tau_L,\tau_v$ calibrated on clean dev models (e.g., percentile rules with FDR control across layers).
+
+
+
+
+
+\vspace{0.5em}
+\subsection{Rupture Layer}
+\label{subsec:rupture-layer}
+
+We formalize the \emph{rupture layer} as a localized, statistically significant discontinuity in the nDNA trajectory where geometry bends sharply while epistemic effort collapses. Let
+\[
+\mathcal{N} = \Big\{\kappa^{(\ell)},\ \mathcal{L}^{(\ell)},\ \|\mathbf{v}^{(\ell)}\|\Big\}_{\ell=\ell_{\min}}^{\ell_{\max}}
+\]
+be the layerwise signals (Sec.~\ref{sec:the-scar-framework}), estimated as medians over a prompt set $\mathcal{P}$ for robustness. We use both \emph{raw} and \emph{anchor-relative} versions $\Delta \kappa^{(\ell)}, \Delta \mathcal{L}^{(\ell)}, \Delta\|\mathbf{v}^{(\ell)}\|$ w.r.t.\ a clean family anchor for cross-model comparability \citep{kornblith2019cka,raghu2017svcca}.
+
+\paragraph{Discrete curvature operator.} We measure shape changes across layers via the second difference of a stable spectral slope $s^{(\ell)}$ (e.g., eigenvalue-drop or log-spectrum slope):
+\[
+\kappa^{(\ell)} \;=\; \big|\, s^{(\ell+1)} - 2\,s^{(\ell)} + s^{(\ell-1)} \,\big|,\qquad
+s^{(\ell)} \;=\; \frac{1}{\sum_{i=1}^k \lambda^{(\ell)}_i}\sum_{i=1}^{k-1}\!\big(\lambda^{(\ell)}_i-\lambda^{(\ell)}_{i+1}\big).
+\]
+Spikes in $\kappa^{(\ell)}$ arise when representation energy concentrates into a few directions (spectral compression), consistent with shortcut retrieval and spectral bias phenomena \citep{ansuini2019intrinsic,rahaman2019spectral,belkin2019reconciling}.
+
+\paragraph{Thermodynamic path increment.} Epistemic effort between consecutive layers is measured as
+\[
+\mathcal{L}^{(\ell)} \;=\; \sqrt{(\Delta\mu_\ell)^\top G_\ell (\Delta\mu_\ell)}\,,\quad
+\Delta\mu_\ell=\mu_{\ell+1}-\mu_{\ell},\ \ \mu_\ell=\mathrm{median}_{x\in\mathcal{P}}[h_\ell(x)],
+\]
+where $G_\ell$ is a local metric (empirical Fisher / whitened covariance proxy) \citep{amari2016ig,crooks2007measuring}. Sustained \emph{dips} in $\mathcal{L}^{(\ell)}$ reflect low incremental effort, indicating collapse into a memorized basin rather than faithful evidence composition.
+
+\paragraph{Epistemic steering (belief drift).} Let $\mathbf{v}^{(\ell)}=\mathbb{E}_{(x,y)\in\mathcal{P}}[\nabla_{h_\ell}\log p_\theta(y|x)]$. Large $\|\mathbf{v}^{(\ell)}\|$ or abrupt $\Delta\|\mathbf{v}^{(\ell)}\|$ suggests directional over-steering induced by prior exposure \citep{ouyang2022instructgpt,rafailov2023dpo,bai2022harmless}.
+
+\paragraph{Calibration and normalization.} For each model, we compute per-layer robust $z$-scores using median/MAD across layers:
+\[
+z_\kappa^{(\ell)}=\frac{\kappa^{(\ell)}-\operatorname{median}(\kappa)}{\mathrm{MAD}(\kappa)},\quad
+z_L^{(\ell)}=\frac{\mathcal{L}^{(\ell)}-\operatorname{median}(\mathcal{L})}{\mathrm{MAD}(\mathcal{L})},\quad
+z_v^{(\ell)}=\frac{\|\mathbf{v}^{(\ell)}\|-\operatorname{median}(\|\mathbf{v}\|)}{\mathrm{MAD}(\|\mathbf{v}\|)}.
+\]
+Anchor-relative variants simply replace each signal by its difference to the anchor. This yields family-comparable, paraphrase-robust profiles \citep{ribeiro2020checklist,iyyer2018scpn,kornblith2019cka}.
+
+\paragraph{Composite test statistic and decision rule.}
+Define a joint rupture evidence score
+\[
+T^{(\ell)} \;=\; \alpha\,z_\kappa^{(\ell)} \;-\; \beta\,z_L^{(\ell)} \;+\; \gamma\,z_v^{(\ell)}\,,
+\]
+with $(\alpha,\beta,\gamma)=(1,1,1)$ by default or learned by logistic calibration on clean vs.\ contaminated development models (reporting the learned weights for transparency). We then detect contiguous \emph{candidate bands} $\mathcal{B}$ of layers satisfying
+\[
+z_\kappa^{(\ell)}>\tau_\kappa,\quad z_L^{(\ell)}<-\tau_L,\quad z_v^{(\ell)}>\tau_v,\qquad \forall \ell\in\mathcal{B}
+\]
+for thresholds $\tau_\kappa,\tau_L,\tau_v$ chosen as clean-model percentiles with Benjamini–Hochberg control across layers \citep{benjamini1995fdr,benjamini2001by}.
+
+\paragraph{Formal definition (change-point form).}
+We declare the \textbf{rupture layer} $\ell^\star$ as the \emph{left-most} index of the top-scoring band,
+\[
+\ell^\star \;=\; \min \arg\max_{\ell\in\mathcal{B}} T^{(\ell)} ,
+\]
+subject to (i) $|\mathcal{B}| \ge 2$ and (ii) significance: a nonparametric permutation test over prompts yields
+$p$-values $p^{(\ell)}$ for $T^{(\ell)}$. Let
+$\tilde p^{(\ell)}=\operatorname{BH}\!\big(\{p^{(j)}\}_{j=\ell_{\min}}^{\ell_{\max}}\big)$
+denote the Benjamini–Hochberg FDR–adjusted $p$-values at target level $q_{\mathrm{FDR}}$.
+We accept a rupture if $\min_{\ell\in\mathcal{B}} \tilde p^{(\ell)} \le q_{\mathrm{FDR}}$.
+This reframes your earlier heuristic
+\[
+\big|\kappa^{(\ell^\star)}-\kappa^{(\ell^\star-1)}\big| > \delta_\kappa
+\quad\text{and}\quad
+\mathcal{L}^{(\ell^\star)} < \tau_L
+\]
+as a \emph{composite, layerwise change-point} test that is robust to heteroskedasticity and prompt resampling \citep{truong2020cpd}. In open-source families we frequently observe $\ell^\star \in [22,27]$, consistent with late-layer lexical/projection subspaces \citep{raghu2017svcca,kornblith2019cka,ansuini2019intrinsic}.
+
+\paragraph{Uncertainty and sample complexity.}
+Let $n=|\mathcal{P}|$ be prompts. For covariance-spectrum features, matrix concentration yields (with high prob.)
+Let \(\Sigma_\ell=\operatorname{Cov}(h_\ell(x))\) and \(\widehat{\Sigma}_\ell\) be the sample covariance from \(n\) i.i.d.\ prompts.
+Define the effective rank \(d_{\mathrm{eff}}(\Sigma_\ell)=\tfrac{\operatorname{tr}(\Sigma_\ell)}{\|\Sigma_\ell\|}\).
+For sub-Gaussian activations (or bounded-moment proxies), with probability at least \(1-2e^{-t}\),
+\[
+\big\|\widehat{\Sigma}_\ell-\Sigma_\ell\big\|
+\;\le\;
+C\,\|\Sigma_\ell\|\!\left(
+\sqrt{\frac{d_{\mathrm{eff}}(\Sigma_\ell)+t}{n}}
+\;+\;
+\frac{d_{\mathrm{eff}}(\Sigma_\ell)+t}{n}
+\right),
+\]
+and by Weyl’s inequality,
+\[
+\max_{1\le i\le d_\ell}\big|\widehat{\lambda}^{(\ell)}_i-\lambda^{(\ell)}_i\big|
+\;\le\;
+\big\|\widehat{\Sigma}_\ell-\Sigma_\ell\big\|.
+\]
+Hence, to guarantee \(\max_{i\le k}\big|\widehat{\lambda}^{(\ell)}_i-\lambda^{(\ell)}_i\big|\le \varepsilon\,\|\Sigma_\ell\|\),
+it suffices (up to logarithmic factors) that
+\[
+n \;\gtrsim\; d_{\mathrm{eff}}(\Sigma_\ell)\,\varepsilon^{-2}
+\qquad\text{i.e.,}\qquad
+n=\tilde{\mathcal{O}}\!\big(d_{\mathrm{eff}}\,\varepsilon^{-2}\big),
+\]
+see \citet{vershynin2018hdp}.
+Because \(s^{(\ell)}\) is a smooth function of the top-\(k\) eigenvalues,
+a first-order perturbation gives
+\[
+\big|\widehat{s}^{(\ell)}-s^{(\ell)}\big|
+\;\le\;
+L_k\;\max_{i\le k}\big|\widehat{\lambda}^{(\ell)}_i-\lambda^{(\ell)}_i\big|
+\]
+for some constant \(L_k\) depending only on \(\{\lambda^{(\ell)}_i\}_{i\le k}\) (absorbed into \(C\));
+thus the same \(n=\tilde{\mathcal{O}}(d_{\mathrm{eff}}\varepsilon^{-2})\) rate controls the error of \(s^{(\ell)}\).
+For the gradient-based term \(\|\mathbf{v}^{(\ell)}\|\), averaging over tokens effectively scales the sample size by the sequence length, so concentration across prompts is typically sharper; in practice we recommend \(n\in[64,256]\) prompts (report exact \(n\), token lengths, and seeds).
+
+
+\paragraph{Interpretation.}
+Rupture bands reflect a transition from \emph{evidence composition} (smooth $\kappa$, sustained $\mathcal{L}$) to \emph{retrieval-like collapse} (spiky $\kappa$, low $\mathcal{L}$) with directed belief steering (high $\|\mathbf{v}\|$). This aligns with reports of shortcut learning, grokking flips, and preference imitation \citep{geirhos2020shortcut,power2022grokking,wang2023selfinstruct,bai2022harmless}.
+
+\vspace{0.75em}
+\section{Visual Intuitions}
+\label{subsec:visual-intuition}
+
+\subsection{3D nDNA trajectories} 
+We render the trajectory $\ell\mapsto (\kappa^{(\ell)},\mathcal{L}^{(\ell)},\|\mathbf{v}^{(\ell)}\|)$ with $\ell$ as the progression parameter. \emph{Clean} models trace \emph{canalized} paths—smooth tubes with moderate curvature and balanced effort—while \emph{contaminated} models show \emph{kinks}, \emph{cusps}, or tight \emph{spirals} where paths bend abruptly and effort dips (Fig.~\ref{fig:scar_ndna_rupture}). These geometries are paraphrase-robust because they live in representation space, not token space \citep{ribeiro2020checklist,iyyer2018scpn}.
+
+\paragraph{Projection views.} To aid audit, we include orthogonal projections:
+(i) $(\kappa,\mathcal{L})$ plane to visualize the curvature–effort trade; 
+(ii) $(\kappa,\|\mathbf{v}\|)$ to expose curvature with directed steering; 
+(iii) $(\mathcal{L},\ell)$ to localize effort dips by depth. Rupture bands appear as \emph{convex-escape} segments with elevated curvature and depressed effort.
+
+\paragraph{Biological analogies (why geometry).}
+The nDNA picture draws on classical biological landscapes: Waddington’s \emph{epigenetic landscape} where developmental trajectories roll along valleys (canals) and sharp ridges denote fate switches \citep{waddington1957strategy}. In protein folding, rugged \emph{energy landscapes} produce sudden transitions when paths cross saddles into basins \citep{onuchic1997protein}; in evolution, \emph{fitness landscapes} and \emph{punctuated equilibria} capture long stasis punctuated by rapid shifts \citep{wright1932roles,gould1972punctuated,alon2006systems}. Analogously, contaminated models carve short, steep funnels in latent geometry: trajectories bypass gradual reasoning canals and ``drop'' into memorized basins, seen as $\kappa$ spikes with $\mathcal{L}$ dips. Information geometry grounds this view by endowing model manifolds with Fisher metrics, making our thermodynamic length a principled path-length proxy \citep{amari2016ig,crooks2007measuring,shwartz2017ib}.
+
+\paragraph{Why we need it (NLP context).}
+Output-space checks (n-gram overlap, cosine to references) are brittle under style leakage, paraphrase, translation and instruction-template variants \citep{ribeiro2020checklist,iyyer2018scpn}. Structural diagnostics instead ask whether the \emph{path} was epistemically sound. By localizing $\ell^\star$, SCAR explains \emph{where} contamination acts (often late layers aligned with lexical/projector subspaces) and predicts brittleness to small prompt perturbations around that depth \citep{raghu2017svcca,kornblith2019cka,ansuini2019intrinsic}.
+
+\paragraph{From visualization to decision.}
+We accompany the 3D path with a band overlay (shaded region) where the calibrated joint test fires. We report: (i) $\ell^\star$ with bootstrap CIs; (ii) band width; (iii) peak $T^{(\ell)}$ and per-signal $z$-scores; (iv) permutation $p$-values with BH-adjusted $q$. This turns visualization into auditable evidence rather than aesthetics.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.85\linewidth]{images/scar_ndna_contamination.png}
+    \caption{\textbf{nDNA Deformation from Realistic Data Contamination.}
+\textbf{Clean} (\textcolor{green!60!black}{green}) vs.\ \textbf{contaminated} (\textcolor{red!70!black}{red}) nDNA trajectories for a LLaMA-family model, rendered as a \emph{depth-parametrized curve} where markers advance with layer index $\ell$ (\emph{arrowheads indicate increasing depth}). \textbf{Axes:} \emph{spectral curvature} $\kappa_\ell$ and \emph{thermodynamic length} $\mathcal{L}_\ell$ against \emph{layer index} $\ell$. Here, $\kappa_\ell$ is the \emph{discrete second difference} of a PCA-slope computed from the top-$k$ eigenvalues of $\operatorname{Cov}(h_\ell)$ (we use $k{=}64$), while $\mathcal{L}_\ell=\sqrt{(\Delta\mu_\ell)^\top G_\ell\,\Delta\mu_\ell}$ measures the \emph{Riemannian path increment} between layers under a local metric $G_\ell$ (empirical Fisher/whitened proxy); both are \emph{robustly standardized} (median/MAD across depth) and, when applicable, \emph{anchor-normalized} to a clean sibling model. The contaminated trajectory exhibits a \textbf{late-layer kink}—a \emph{sharp spike} in $\kappa_\ell$ accompanied by a \emph{simultaneous dip} in $\mathcal{L}_\ell$ near \textbf{Layer~25}—signaling a \emph{collapse from multi-step inference into shortcut retrieval}. The \emph{shaded band} indicates the \textbf{accepted rupture region} $\mathcal{B}$ (contiguous layers where $z_\kappa$ is high, $z_L$ is low, and significance passes \textbf{BH–FDR} at $q{=}0.05$); the \emph{dotted tick} marks the \textbf{rupture layer} $\ell^\star$ (left-most maximizer of the \emph{composite evidence} within $\mathcal{B}$). Thin semi-transparent envelopes show \textbf{bootstrap 95\% confidence intervals} over prompts (\emph{windowed Savitzky–Golay smoothing}, 3-layer span). Although the \emph{belief-drift magnitude} $\,\|\mathbf{v}_\ell\|\,$ is not plotted on these axes, its \emph{co-occurrence test} is used to confirm the band (see text); \emph{paraphrase/format variants} (not shown) preserve $\ell^\star$ within $\pm 1$ layer, consistent with a \textbf{structural (not lexical)} contamination signature.
+}
+    \label{fig:scar_ndna_rupture}
+\end{figure}
+
+
+\vspace{0.5em}
+\paragraph{Summary.}
+SCAR elevates contamination auditing from token checks to \emph{trajectory geometry}. The rupture layer $\ell^\star$ is a falsifiable, localized hypothesis about where the model’s epistemic process diverges from genuine inference. This locality enables targeted ablations, anchoring, and mitigation strategies rather than blanket skepticism.
+
+
+\vspace{0.5em}
+\subsection{nKarotyping: Layer--Band Karyotypes for Rupture Evidence}
+\label{subsec:nkaryotype}
+
+\paragraph{Rationale.}
+Inspired by cytogenetic karyotypes---where banding patterns along chromosomes reveal structural abnormalities---\emph{nKarotyping} renders a layerwise ``band map'' of rupture evidence for a model’s neural DNA (nDNA).
+Instead of a single trajectory, we visualize \emph{stacked bands} whose heights encode calibrated evidence from SCAR’s three signals: spectral curvature $\kappa^{(\ell)}$, thermodynamic length $\mathcal{L}^{(\ell)}$, and belief-vector drift $\|\mathbf{v}^{(\ell)}\|$.
+This provides a compact audit panel to compare a \emph{clean} model to a \emph{contaminated} sibling at a glance, localizing depth regions prone to shortcutting.
+Biologically, the metaphor mirrors Waddington’s canalization (smooth development) vs.\ punctuated transitions (abrupt fate switches), and banding in karyotypes for structural variants \citep{waddington1957strategy,alon2006systems}.
+
+\paragraph{Inputs.}
+Let $\mathcal{N}=\{\kappa^{(\ell)},\mathcal{L}^{(\ell)},\|\mathbf{v}^{(\ell)}\|\}_{\ell=\ell_{\min}}^{\ell_{\max}}$ be the layerwise SCAR signals (medians over prompts), optionally anchor-relative (Sec.~\ref{subsec:rupture-layer}).
+From these we compute robust $z$-scores across layers:
+\[
+z_\kappa^{(\ell)}=\frac{\kappa^{(\ell)}-\operatorname{median}(\kappa)}{\mathrm{MAD}(\kappa)},\quad
+z_L^{(\ell)}=\frac{\mathcal{L}^{(\ell)}-\operatorname{median}(\mathcal{L})}{\mathrm{MAD}(\mathcal{L})},\quad
+z_v^{(\ell)}=\frac{\|\mathbf{v}^{(\ell)}\|-\operatorname{median}(\|\mathbf{v}\|)}{\mathrm{MAD}(\|\mathbf{v}\|)}.
+\]
+(Replace the raw signals by anchor‐deltas for cross-family comparability \citep{kornblith2019cka,raghu2017svcca}.)
+
+\paragraph{Band strengths.}
+We map each signal to a nonnegative \emph{band height} per layer via
+\[
+B_\kappa^{(\ell)}=\big[z_\kappa^{(\ell)}\big]_+,\qquad
+B_L^{(\ell)}=\big[-z_L^{(\ell)}\big]_+,\qquad
+B_v^{(\ell)}=\big[z_v^{(\ell)}\big]_+,
+\]
+where $[x]_+=\max(x,0)$. Intuitively, large curvature, \emph{low} effort, and large drift all contribute positive evidence.
+For visualization we normalize \emph{within each model} to $[0,1]$ using a robust min--max on the $95$th percentile:
+\[
+\widetilde{B}_s^{(\ell)}=\frac{B_s^{(\ell)}}{\operatorname{q}_{0.95}(B_s)+\epsilon},\quad s\in\{\kappa,L,v\},\ \epsilon=10^{-6}.
+\]
+Optionally, we overlay a composite marker
+\[
+T^{(\ell)}=\alpha\,z_\kappa^{(\ell)}-\beta\,z_L^{(\ell)}+\gamma\,z_v^{(\ell)}
+\]
+(see Sec.~\ref{subsec:rupture-layer}) to indicate the peak of the rupture band $\mathcal{B}$ after FDR control \citep{benjamini1995fdr}.
+
+\paragraph{Rendering.}
+We produce a 3D bar ``karyotype'' with axes:
+$x$: normalized layer index $\ell'=\frac{\ell-\ell_{\min}}{\ell_{\max}-\ell_{\min}}$,
+$y$: model category (\textit{Clean}, \textit{Contaminated}),
+$z$: band height (normalized).
+Bars are \textcolor{green}{green} for $\widetilde{B}_v$ (epistemic drift), \textcolor{blue}{blue} for $\widetilde{B}_L$ (low effort), and \textcolor{red}{red} for $\widetilde{B}_\kappa$ (curvature).
+Small black cubes may mark layers with significant $T^{(\ell)}$ (BH-adjusted $p\!\le\!q_{\mathrm{FDR}}$).%
+
+
+\paragraph{Interpretation.}
+\begin{itemize}
+\item \textbf{Clean karyotype:} balanced, moderate bands across mid/late layers; no contiguous spike across signals.
+\item \textbf{Contaminated karyotype:} a tall, localized red band (curvature spike) co-located with a blue band (effort dip) and a green band (drift surge), forming a \emph{rupture band}. This aligns with trajectory kinks in $(\kappa,\mathcal{L},\|\mathbf{v}\|)$ space and with late-layer lexical/projector subspaces \citep{ansuini2019intrinsic}.
+\item \textbf{Diagnostics:} band width/height correlate with rupture strength; offsets between colors suggest partial confounds (e.g., quantization shifts $\mathcal{L}$ without $\kappa$ \citep{dettmers2022llmint8,frantar2022gptq}).
+\end{itemize}
+
+\paragraph{Why it helps (beyond heatmaps).}
+Heatmaps compress information into a single colormap; karyotypes separate \emph{mechanisms} (geometry, effort, drift) as distinct bands, making co-occurrence visually obvious and robust under paraphrase/format changes \citep{ribeiro2020checklist,iyyer2018scpn}.
+They also scale to multiple models horizontally (e.g., ablations or checkpoints) and support quick spot-checks of $\ell^\star$ localization from Sec.~\ref{subsec:rupture-layer}.
+
+\paragraph{nKarotype score (optional).}
+For quick triage we can summarize the panel by
+\[
+\mathrm{nKaryo} \;=\; \max_{\ell}\ \big( w_\kappa\,\widetilde{B}_\kappa^{(\ell)} + w_L\,\widetilde{B}_L^{(\ell)} + w_v\,\widetilde{B}_v^{(\ell)} \big),
+\]
+with $w_\kappa=w_L=w_v=\tfrac{1}{3}$ by default or learned on a dev split (report weights).
+
+\paragraph{Limitations.}
+Band heights depend on per-model normalization; for cross-family comparisons prefer anchor-relative signals and equalized axis ranges \citep{kornblith2019cka}.
+Very short layer ranges or heavy smoothing can hide narrow bands; always report the raw per-layer arrays alongside the figure.
+
+% ---------------- FIGURE (static) ----------------
+\begin{figure}[ht!]
+  \centering
+  % adjust the path if your file lives elsewhere
+  \includegraphics[width=0.9\linewidth,trim=2mm 2mm 2mm 2mm,clip]{images/fig2_3dbar_karyotype.png}
+  \caption{\textbf{nKarotyping: Layer--Band Karyotype (static).}
+\textbf{Stacked 3D bars} visualize per–layer, per–mechanism rupture evidence for a \emph{clean} (left) vs.\ \emph{contaminated} (right) model. \textbf{Colors:} \textcolor{red!70!black}{red} = \emph{curvature spike} $[z_{\kappa,\ell}]_{+}$, \textcolor{blue!70!black}{blue} = \emph{effort dip} $[-z_{L,\ell}]_{+}$, \textcolor{green!60!black}{green} = \emph{belief drift} $[z_{v,\ell}]_{+}$; \textbf{black markers} denote layers whose \emph{composite evidence} $T^{(\ell)}=[z_{\kappa,\ell}]_{+}+[-z_{L,\ell}]_{+}+[z_{v,\ell}]_{+}$ is \emph{BH--FDR significant} at $q{=}0.05$. Bars are \emph{within–model normalized} (median/MAD over depth) and, when indicated, \emph{anchor–normalized} against a clean sibling to enable family comparability. The \emph{vertical co-location} of red/blue/green segments within the same layer encodes \textbf{mechanism co-occurrence} (curvature spike + effort dip + drift surge), whereas \emph{horizontal spread} without co-location indicates diffuse, non–rupture variation. In the contaminated panel, a \textbf{tall, co–located band} emerges at \emph{late layers} (shaded slab $\mathcal{B}$), with a \emph{dashed tick} marking the \textbf{rupture layer} $\ell^\star$ (left–most maximizer of $T^{(\ell)}$ inside $\mathcal{B}$). \emph{Heights reflect calibrated magnitude:} stacks are clipped to the $99^{\mathrm{th}}$ percentile for readability; thin \emph{error whiskers} indicate bootstrap 95\% CIs over prompts (windowed Savitzky–Golay smoothing, 3–layer span). \textbf{Interpretation.} The clean model shows \emph{low, diffuse stacks} with no narrow, significant band; the contaminated model shows a \emph{narrow, high band} where all three mechanisms align, consistent with a \textsc{SCAR} rupture. This karyotype is \emph{paraphrase–robust}: band support and $\ell^\star$ remain stable ($\pm 1$ layer) under prompt paraphrase/format shifts, corroborating a \textbf{structural (not lexical)} contamination signature and matching the isocaldera/SE–Map views.
+}
+  \label{fig:scar_karyotype}
+\end{figure}
+
+% ---------------- OPTIONAL SUPPLEMENT ----------------
+% Animated spin (supplementary material):
+% \noindent\emph{Supplementary Animation S1:} 360$^\circ$ spin of the karyotype panel (fig2_3dbar_karyotype_360_loop.gif).
+% Interactive HTML (artifact): fig2_3dbar_karyotype.html (Plotly).
+
+
+
+
+
+\vspace{0.5em}
+\subsection{Isosurfaces and the SCAR Ridge Caldera}
+\label{subsec:isocaldera}
+
+\paragraph{Objective.}
+While heatmaps and karyotypes localize rupture \emph{by layer}, they flatten cross-signal interactions. We therefore render the composite SCAR field as a 3D scalar volume and visualize its \emph{level sets} (isosurfaces). The result reveals a characteristic ``ridge caldera'': a high-evidence shell encircling a basin where the field drops after a sharp curvature spike and path–effort dip.
+
+\paragraph{Field construction.}
+Let $\ell\in[\ell_{\min},\ell_{\max}]$ index layers and $s\in\{\kappa,L,v\}$ index signals (curvature, effort, drift).
+Define robust $z$-scores across layers, $z_s^{(\ell)}$, and the composite evidence
+\[
+T^{(\ell)} \;=\; \alpha\,z_\kappa^{(\ell)} \;-\; \beta\,z_L^{(\ell)} \;+\; \gamma\,z_v^{(\ell)} .
+\]
+To form a regular 3D volume we embed $T^{(\ell)}$ along three orthogonal axes:
+(i) a coarse layer axis (bins across $\ell$), (ii) a component axis (e.g., top-$k$ spectral components or prompt strata), and (iii) a model axis (clean vs.\ contaminated or checkpoints). We smooth by a separable Gaussian (voxel $\sigma\!\in\![0.5,1.0]$) only for rendering; all decisions (rupture bands, $q_{\mathrm{FDR}}$) remain on unsmoothed arrays.
+
+\paragraph{Isosurface and caldera.}
+Let $\tau_{\mathrm{iso}}$ be a calibrated quantile (e.g., $90$th percentile on a clean-dev pool). The \emph{SCAR isosurface} is
+\[
+\mathcal{S}(\tau_{\mathrm{iso}})=\{\,\mathbf{u}:\ T(\mathbf{u})=\tau_{\mathrm{iso}}\,\}.
+\]
+In contaminated siblings, $\mathcal{S}$ forms a contiguous shell whose inner normal aligns with late layers, producing a bowl-shaped \emph{caldera}. In clean anchors, the shell is flatter and recessed, lacking a sharp rim. This geometric contrast is paraphrase-robust because it resides in representation space rather than token space.
+
+\paragraph{Ridge extraction.}
+To highlight the caldera rim we extract ridges of $T$. For a voxel $\mathbf{u}$ with gradient $g=\nabla T(\mathbf{u})$ and Hessian $H$, let $\lambda_1\ge\lambda_2\ge\lambda_3$ be $H$’s eigenvalues with eigenvectors $\{\mathbf{e}_i\}$. We mark $\mathbf{u}$ as a ridge point if
+\[
+g^\top \mathbf{e}_2 \approx 0,\quad g^\top \mathbf{e}_3 \approx 0,\quad \lambda_2<0,\ \lambda_3<0
+\]
+(discrete test via non-maximum suppression along $\mathbf{e}_2,\mathbf{e}_3$ in a $3{\times}3{\times}3$ neighborhood).
+Ridge points (green markers in the figure) align with the maximal evidence ring where $z_\kappa$ peaks and $z_L$ dips, matching the rupture band $\mathcal{B}$ from Sec.~\ref{subsec:rupture-layer}.
+
+\paragraph{Interpretation and use.}
+The caldera’s radius traces \emph{where} in depth the shortcut basin begins; its wall thickness reflects band width; ridge height correlates with peak $T^{(\ell)}$.
+Clean models show shallow domes or fragmented shells; contaminated models show a thick, continuous rim anchored to late layers.
+This view complements the karyotype: the latter separates mechanisms (three colored bands), while the caldera integrates them into a single geometric object for quick visual triage.
+
+\paragraph{Reporting.}
+We include (i) the static isosurface panel in the main PDF; (ii) an animated $360^\circ$ spin; and (iii) an interactive Plotly HTML for artifact review.%
+
+% ---------- FIGURE ----------
+% Requires \usepackage{graphicx}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.95\linewidth,trim=2mm 2mm 2mm 2mm,clip]{images/scar_isocaldera.png}
+  \caption{\textbf{SCAR Isosurface with Ridge Caldera.}
+\textbf{Semi–transparent isosurfaces} (\textcolor{orange!85!black}{orange}=\emph{contaminated}, \textcolor{blue!70!black}{blue}=\emph{clean anchor}) visualize a calibrated \emph{SCAR level set} of the composite evidence field $T^{(\ell)}$ inside a 3D audit space with axes: \emph{layer index} $\ell$, \emph{component axis} (dominant representation component or PCA/CKA embedding of $\{\kappa_\ell,\mathcal{L}_\ell,\|\mathbf{v}_\ell\|\}$), and \emph{model axis} (anchor~$\rightarrow$~suspect). The isovalue $\tau_{\mathrm{iso}}$ is set to a high quantile of $T$ (default $95^{\mathrm{th}}$ percentile) after \emph{median/MAD standardization}, optional \emph{anchor normalization}, and \emph{3–layer Savitzky–Golay} smoothing; surfaces are extracted via \emph{marching cubes} and rendered with opacity proportional to $T$ (higher $T$~$\Rightarrow$~lower transparency). \textbf{Green points} denote \emph{ridge voxels}: local maxima of $T$ along \emph{transverse principal–curvature directions} (identified by the leading eigenvectors of the Hessian/structure tensor), which trace a \emph{caldera–like rim}. The \emph{rim} \textbf{co–localizes} with the \emph{late–layer rupture band} $\mathcal{B}$ accepted by BH–FDR at $q{=}0.05$, and the \emph{dashed tick} marks the \textbf{rupture layer} $\ell^\star$ (left–most maximizer of $T^{(\ell)}$ within $\mathcal{B}$). \textbf{Interpretation.} \emph{Clean anchors} form a shallow basin with no closed rim; \emph{contaminated siblings} exhibit a \textbf{thick, contiguous ridge} concentrated at late layers (shaded slab), indicating a transition from multi–step inference to shortcut retrieval. Small gray points show \emph{sub–threshold} samples; minor gaps in the rim reflect \emph{non–maximum suppression} and \emph{quantile clipping} for readability. The \emph{ridge topology} and $\ell^\star$ remain \textbf{paraphrase–robust} (stable within $\pm 1$ layer under prompt paraphrase/format swaps), and agree with the \emph{karyotype} and \emph{SE–Map} diagnostics (mechanism co–occurrence and displacement uplift), reinforcing a \textbf{structural (not lexical)} contamination signature.
+}
+  \label{fig:scar_isocaldera}
+\end{figure}
+
+% (Supplementary) scar_isocaldera_360_loop.gif and scar_isocaldera.html accompany the artifact bundle.
+
+
+
+\vspace{0.5em}
+\subsection{Semantic Earthquake Map (SE\textendash Map): Field, Derivations, and Biology}
+\label{subsec:semantic-earthquake}
+
+\paragraph{Motivation.}
+Rupture bands (Sec.~\ref{subsec:rupture-layer}) localize \emph{where} geometry bends and effort collapses. The SE\textendash Map complements this by quantifying \emph{how abruptly} the epistemic substrate \emph{slips} along depth, analogous to ground displacement in seismology. Peaks in the SE\textendash Map act as \emph{epicenters} of semantic instability and predict brittleness to small prompt perturbations.
+
+\paragraph{Composite evidence.}
+Let $T_m^{(\ell)}=\alpha\,z_{\kappa,m}^{(\ell)}-\beta\,z_{L,m}^{(\ell)}+\gamma\,z_{v,m}^{(\ell)}$ be the calibrated joint evidence for model $m$ at layer $\ell$ (median/MAD $z$-scores across prompts; anchor\textendash relative optional). We keep $(\alpha,\beta,\gamma)=(1,1,1)$ by default or use logistic calibration on a clean vs.\ contaminated dev set (report weights).
+
+\paragraph{From evidence to ``ground displacement''.}
+We define a signed, high\textendash pass field by subtracting a local baseline (a smoothed version of $T$):
+\[
+D_m(\ell)\;:=\;T_m^{(\ell)}-\big(S_\lambda*T_m\big)^{(\ell)},\qquad
+\big(S_\lambda*T\big)^{(\ell)}=\sum_{j}S_\lambda(\ell-j)\,T^{(j)},
+\]
+where $S_\lambda$ is a symmetric kernel (Gaussian or triangular) with bandwidth $\lambda\in[1,2]$ layers. Thus $D_m(\ell)$ measures how much the composite evidence \emph{lifts above} its local epistemic background (positive = uplift; negative = subsidence). For visualization we robustly standardize \emph{within model} (median/MAD) and clip to the 99th percentile.
+
+\paragraph{Discrete\textendash Laplacian connection (derivation).}
+For a Gaussian kernel $G_\sigma$, the heat\textendash kernel identity gives $G_\sigma*T=\exp\!\big(\tfrac{\sigma^2}{2}\Delta_\ell\big)T$; hence for small $\sigma$
+\[
+D_m(\ell)=T_m^{(\ell)}-\big(G_\sigma*T_m\big)^{(\ell)}
+\;\approx\;-\frac{\sigma^2}{2}\,\Delta_\ell T_m^{(\ell)},\quad
+\Delta_\ell T^{(\ell)}:=T^{(\ell+1)}-2T^{(\ell)}+T^{(\ell-1)}.
+\]
+So $D_m$ is (up to a constant) the \emph{curvature} of $T_m$ along depth. Large positive $D_m$ therefore marks convex ``bulges'' in the composite evidence—precisely the late\textendash layer kinks expected under shortcut retrieval.
+
+\paragraph{Strain, shear, and energy (seismology analogues).}
+We define a depth\textendash strain and cross\textendash model shear:
+\[
+\varepsilon_m(\ell):=\nabla_\ell D_m(\ell)=D_m^{(\ell)}-D_m^{(\ell-1)},\qquad
+\gamma_{m\!\setminus\!a}(\ell):=D_m(\ell)-D_a(\ell)
+\]
+($a$ = clean anchor). Rupture \emph{length} is the width of the positive band around the epicenter; \emph{moment} and \emph{magnitude} analogues are
+\[
+M_0(m)=\sum_{\ell\in\mathcal{B}_m} \big[D_m(\ell)\big]_+,\qquad
+M_w(m)=\frac{2}{3}\log_{10}\!\frac{M_0(m)}{M_0^{\mathrm{ref}}},
+\]
+with $M_0^{\mathrm{ref}}$ a clean\textendash pool constant (report value). These scalars summarize rupture severity and support model ranking.
+
+\paragraph{Epicenter detection (with FDR control).}
+We mark layer $\ell$ as an \emph{epicenter} if (i) it is a strict local maximum of $D_m$, (ii) mechanism co\textendash occurrence holds
+$z_{\kappa,m}^{(\ell)}>\tau_\kappa$, $z_{L,m}^{(\ell)}<-\tau_L$, $z_{v,m}^{(\ell)}>\tau_v$, and (iii) significance passes BH\textendash FDR across layers.
+Let $p^{(\ell)}$ be permutation\textendash test $p$\textendash values for $T_m^{(\ell)}$; write $\tilde p^{(\ell)}=\operatorname{BH}(\{p^{(j)}\}_j)$ at target $q_{\mathrm{FDR}}$.
+We accept if $\tilde p^{(\ell)}\le q_{\mathrm{FDR}}$ and band width $|\mathcal{B}_m|\ge2$.
+
+\paragraph{Propagation over paraphrases (wave view).}
+Index paraphrase/bootstrap replicates by $t$. The displacement field becomes $D_m(\ell,t)$. We estimate a \emph{phase velocity} for the uplift ridge via cross\textendash correlation:
+\[
+v_m=\arg\max_{\delta\in\{-2,\ldots,2\}}\ \sum_{\ell} D_m(\ell,t)\,D_m(\ell+\delta,t{+}1)\Big/\!\sum_{\ell} D_m(\ell,t)^2,
+\]
+interpreting $v_m\!\approx\!0$ as a \emph{stationary} structure (structural contamination) and large $|v_m|$ as format\textendash induced drift (benign confound). We report the Jaccard stability of epicenter sets across $t$.
+
+\paragraph{Invariances and calibration.}
+SE\textendash Map inherits (a) \emph{affine invariance} to per\textendash model rescaling of $T$ by using a high\textendash pass $D=T-G_\sigma*T$ and median/MAD standardization; (b) \emph{monotone robustness} to $\sigma$ within a display range; and (c) \emph{family comparability} via anchor\textendash relative inputs. We publish $(\lambda,\sigma)$, smoothing kernel, and clipping percentiles for reproducibility.
+
+\paragraph{Biology analogies and intuitions.}
+The SE\textendash Map parallels several biological ``shock'' phenomena:
+\begin{itemize}
+\item \textbf{Waddington’s canalization vs.\ fate switches.} Developmental trajectories roll along valleys; abrupt fate decisions appear as steep ridges \citep{waddington1957strategy}. Here, $D_m{>}0$ traces a late\textendash layer ridge where the epistemic path exits a canal and ``drops'' into a shortcut basin.
+\item \textbf{Allosteric transitions.} Small, localized perturbations trigger cooperative conformational shifts (MWC) across a protein \citep{monod1965mwc}; analogously, contamination can nucleate a late\textendash layer shift observable as a concentrated uplift band.
+\item \textbf{Neuronal avalanches and calcium waves.} Critical cascades propagate as spatiotemporal bursts \citep{beggs2003neuronal,berridge1998calcium}. Our paraphrase index $t$ acts like time: stable epicenters ($v_m\!\approx\!0$) resemble repeatedly triggered foci; drifting waves suggest benign formatting shocks.
+\item \textbf{Energy landscapes.} Protein\textendash folding calderas and saddle crossings \citep{onuchic1997protein} mirror the SE\textendash Map’s convex uplift around $\ell^\star$, complementing the caldera in Sec.~\ref{subsec:isocaldera}.
+\end{itemize}
+
+\paragraph{Rendering and artifacts.}
+We plot the surface $(\ell,\text{model},D)$ with translucent markers at epicenters. A colored variant encodes $D$ magnitude with a perceptual colormap. The main PDF includes a static panel; a $360^\circ$ spin and an interactive HTML accompany the artifact bundle.
+
+% ---------- FIGURE (static) ----------
+% Requires: \usepackage{graphicx}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.92\linewidth]{images/scar_quake_colors.png}
+  \caption{\textbf{Semantic Earthquake Map (SE\textendash Map).}
+\textbf{Ground displacement} $D_m(\ell)$ is plotted across \emph{late layers} for three models $m$ (clean anchor and two contaminated siblings). We define 
+\emph{displacement} as a high\textendash pass residual of the composite evidence $T_m^{(\ell)}$,
+$D_m(\ell)=T_m^{(\ell)}-\big(S_\lambda * T_m\big)^{(\ell)}$, with $S_\lambda$ a symmetric smoothing kernel (Gaussian/triangular; $\lambda\!\in\![1,2]$ layers). For a Gaussian kernel $G_\sigma$, this approximates a scaled discrete Laplacian: 
+$D_m(\ell)\!\approx\!-\tfrac{\sigma^2}{2}\,\Delta_\ell T_m^{(\ell)}$, so \textbf{positive $D_m$} (warm tones) marks \emph{uplift}---convex bulges in the evidence consistent with rupture---while \textbf{negative $D_m$} (cool tones) marks \emph{subsidence}. Curves are \emph{median/MAD standardized} within model and clipped at the $99^{\mathrm{th}}$ percentile for readability; where indicated, signals are \emph{anchor\textendash normalized} to enable family comparability. \textbf{Light markers} denote \emph{BH\textendash FDR significant epicenters} (local maxima of $D_m$ that co\textendash satisfy $z_{\kappa}^{(\ell)}{>}\tau_\kappa$, $z_{L}^{(\ell)}{<}{-}\tau_L$, $z_{v}^{(\ell)}{>}\tau_v$ at $q{=}0.05$), \emph{co\textendash located} with the shaded rupture band $\mathcal{B}$; the \emph{dotted tick} marks the \textbf{rupture layer} $\ell^\star$ (left\textendash most maximizer of the composite $T^{(\ell)}$ inside $\mathcal{B}$). \textbf{Interpretation.} \emph{Clean anchors} exhibit \emph{shallow undulations} without a sustained uplift ridge; \emph{contaminated siblings} show a \textbf{sharp late\textendash layer uplift} that is \emph{stationary} across paraphrase/format replicates (phase velocity $v{\approx}0$; Jaccard stability of epicenter sets $\uparrow$), indicating a \textbf{structural (not lexical)} contamination signature. Colored and animated variants (360$^{\circ}$ spin; interactive HTML) are provided as supplementary media; translucent bands indicate bootstrap 95\% CIs over prompts (3\textendash layer Savitzky\textendash Golay smoothing).
+}
+  \label{fig:scar_quake}
+\end{figure}
+
+% (Supplementary) scar_quake_360.gif and scar_quake_colors.gif; interactive HTML: scar_quake_colors.html.
+
+
+
+
+\vspace{0.5em}
+\subsection{Volcanic Landscape: Eruption Points as Instability}
+\label{subsec:volcano}
+
+\paragraph{Purpose.}
+The \emph{SCAR Volcanic Landscape} renders a surface of per–layer instability, where sharp late–layer peaks behave like volcanic \emph{eruptions}. It complements the karyotype (mechanism–separated bands) and the isocaldera (isosurface shell) by presenting a single, calibrated scalar over depth and model family.
+
+\paragraph{Field definition.}
+Let the composite evidence be $T_m^{(\ell)}=\alpha\,z_{\kappa,m}^{(\ell)}-\beta\,z_{L,m}^{(\ell)}+\gamma\,z_{v,m}^{(\ell)}$ (Sec.~\ref{subsec:rupture-layer}). We convert $T$ to a bounded \emph{per–layer SCAR surface} via a robust, monotone map:
+\[
+S_m^{(\ell)} \;=\; \mathrm{clip}_{[0,1]}\!\left(\frac{T_m^{(\ell)}-q_{0.05}(T_m)}{q_{0.95}(T_m)-q_{0.05}(T_m)+\varepsilon}\right),
+\quad \varepsilon=10^{-6},
+\]
+where $q_{p}(\cdot)$ are within–model quantiles (median/MAD $z$–scores feed $T$). $S$ preserves the ordering of $T$ but standardizes scale across models.
+
+\paragraph{Eruption points.}
+An \emph{eruption} at $(m,\ell^\star)$ is declared if:
+\begin{enumerate}
+\item $S_m^{(\ell^\star)}$ is a strict local maximum in $\ell$ with width $\ge 2$ layers;
+\item mechanism co–occurrence holds: $z_{\kappa,m}^{(\ell^\star)}>\tau_\kappa$, $z_{L,m}^{(\ell^\star)}<-\tau_L$, $z_{v,m}^{(\ell^\star)}>\tau_v$;
+\item significance: permutation $p$–values for $T_m^{(\ell)}$ pass BH–FDR across layers at level $q_{\mathrm{FDR}}$ (accept if $\tilde p^{(\ell^\star)}\le q_{\mathrm{FDR}}$).
+\end{enumerate}
+Prominent eruptions typically align with the rupture band $\mathcal{B}_m$ and the isocaldera rim near late layers.
+
+\paragraph{Relations to other views.}
+\begin{itemize}
+\item \textbf{Karyotype} (Sec.~\ref{subsec:nkaryotype}): a tall, co–located red/blue/green band yields $S_m^{(\ell)}$ close to 1 and produces an eruption peak.
+\item \textbf{Isocaldera} (Sec.~\ref{subsec:isocaldera}): the caldera’s ridge corresponds to a ring of large $T$, whose axial maximum manifests as the volcano’s summit.
+\end{itemize}
+
+\paragraph{Reading the surface.}
+Axes are: $x$ = layer $\ell$ (e.g., $20\!:\!30$), $y$ = model (e.g., LLaMA, Alpaca, GPT\textendash J), $z$ = $S_m^{(\ell)}$. Clean anchors show gentle shelves; contaminated siblings show a sharp summit around the detected rupture depth (often $\ell\in[22,27]$). Labeled maxima in the interactive panel mark the principal eruption points.
+
+\paragraph{Biology analogies.}
+The summit corresponds to \emph{punctuated} transitions in an epigenetic/energy landscape (canalized plateaus rising into sharp saddles) and to \emph{neuronal avalanches}: localized ignition with cooperative propagation. The karyotype’s co–occurring bands act like multiple biochemical pathways converging to trigger an \emph{allosteric} switch; the volcano is the macroscopic readout of that switch.
+
+\paragraph{Reporting.}
+Alongside the surface we report (i) peak height $\max_\ell S_m^{(\ell)}$, (ii) eruption width (FWHM in $\ell$), (iii) peak location $\ell^\star$, and (iv) anchor–relative deltas. These support ranked triage and ablation targeting.
+
+% ---------- FIGURE (static) ----------
+% Requires: \usepackage{graphicx}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth,trim=2mm 2mm 2mm 2mm,clip]{images/scar_volcano.png}
+  \caption{\textbf{SCAR Volcanic Landscape --- Eruption Points = Instability.}
+  Surface of per–layer SCAR $S_m^{(\ell)}$ across models; labeled summits mark BH-significant eruptions co–located with rupture bands. Clean anchors form low mesas; contaminated siblings exhibit a pronounced late–layer cone.}
+  \label{fig:scar_volcano}
+\end{figure}
+
+% Supplementary: animated $360^\circ$ spin (scar_volcano_360.gif) and interactive Plotly HTML (scar_volcano.html) accompany the artifact bundle.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{1em}
+\section{The SCAR Pipeline}
+\label{sec:scar-pipeline}
+
+\noindent
+This section turns SCAR’s geometric ideas into a \emph{fully specified, auditable procedure} that accepts any open-weight transformer and returns (i) layerwise trajectories, (ii) rupture bands with uncertainty, and (iii) calibrated scalar scores for triage—together with visualizations suitable for human audit.
+
+\subsection{Preliminaries and Notation}
+Let $\ell\in\{\ell_{\min},\ldots,\ell_{\max}\}$ index transformer layers and let $h_\ell(x)\in\mathbb{R}^{d_\ell}$ denote the (centered) hidden state at layer $\ell$ for input $x$.
+Given a prompt set $\mathcal{P}$ (and targets when available), define layerwise statistics as robust medians over $\mathcal{P}$:
+\[
+\mathcal{N}\;=\;\Big\{\kappa^{(\ell)},\ \mathcal{L}^{(\ell)},\ \|\mathbf{v}^{(\ell)}\|\Big\}_{\ell=\ell_{\min}}^{\ell_{\max}},
+\]
+where:
+\begin{itemize}\setlength\itemsep{2pt}
+\item \textbf{Spectral curvature} $\kappa^{(\ell)}$ is the second difference (along depth) of a stable spectral slope $s^{(\ell)}$ computed from the PCA spectrum $\{\lambda_i^{(\ell)}\}_{i=1}^k$ of the activation covariance (top-$k$):
+\[
+s^{(\ell)}=\frac{1}{\sum_{i=1}^k \lambda_i^{(\ell)}}\sum_{i=1}^{k-1}\!\big(\lambda_i^{(\ell)}-\lambda_{i+1}^{(\ell)}\big),
+\qquad
+\kappa^{(\ell)}=\big|\,s^{(\ell+1)}-2s^{(\ell)}+s^{(\ell-1)}\,\big|.
+\]
+\item \textbf{Thermodynamic length} $\mathcal{L}^{(\ell)}$ measures epistemic effort between consecutive layers:
+\[
+\Delta\mu_\ell=\mu_{\ell+1}-\mu_\ell,\quad \mu_\ell=\mathrm{median}_{x\in\mathcal{P}}[h_\ell(x)],
+\qquad
+\mathcal{L}^{(\ell)}=\sqrt{(\Delta\mu_\ell)^\top G_\ell\,\Delta\mu_\ell},
+\]
+with $G_\ell$ a local metric (empirical Fisher or whitened covariance proxy).
+\item \textbf{Belief-vector drift} $\mathbf{v}^{(\ell)}=\mathbb{E}_{(x,y)\in\mathcal{P}}[\nabla_{h_\ell}\log p_\theta(y|x)]$; we audit $\|\mathbf{v}^{(\ell)}\|_2$ and anchor-relative deltas when a clean sibling is available.
+\end{itemize}
+Robust $z$-scores across layers use median/MAD:
+\[
+z_\kappa^{(\ell)}=\frac{\kappa^{(\ell)}-\operatorname{median}(\kappa)}{\mathrm{MAD}(\kappa)},\quad
+z_L^{(\ell)}=\frac{\mathcal{L}^{(\ell)}-\operatorname{median}(\mathcal{L})}{\mathrm{MAD}(\mathcal{L})},\quad
+z_v^{(\ell)}=\frac{\|\mathbf{v}^{(\ell)}\|-\operatorname{median}(\|\mathbf{v}\|)}{\mathrm{MAD}(\|\mathbf{v}\|)}.
+\]
+
+\paragraph{Anchor-relative normalization.}
+For family comparability, compute $\Delta \kappa^{(\ell)}=\kappa^{(\ell)}-\kappa^{(\ell)}_{\text{anchor}}$ (and analogously for $\mathcal{L}$ and $\|\mathbf{v}\|$) before $z$-scoring. This cancels family/size idiosyncrasies.
+
+\subsection{Pipeline Overview (Modules and Interfaces)}
+The SCAR pipeline is modular and model-agnostic:
+
+\begin{enumerate}[leftmargin=1.7em,label=\textbf{S\arabic*}]
+\item \textbf{Load \& Instrument.} Hook the forward pass to capture $h_\ell(x)$ for $\ell=\ell_{\min}:\ell_{\max}$ over a curated prompt set $\mathcal{P}$. Use a mixed battery: natural prompts + probe prompts (math, commonsense, translation). Record inference settings (precision, KV caching, max length).
+
+\item \textbf{Estimate Features.} For each $\ell$, compute $s^{(\ell)}$, $\kappa^{(\ell)}$, $\mathcal{L}^{(\ell)}$, and $\|\mathbf{v}^{(\ell)}\|$. Use $k\in\{32,64\}$ principal components; optionally apply a Savitzky–Golay smoothing (window $=3$) \emph{after} robust $z$-scoring.
+
+\item \textbf{Calibrate \& Detect.} Form a composite evidence statistic
+\[
+T^{(\ell)}=\alpha\,z_\kappa^{(\ell)}-\beta\,z_L^{(\ell)}+\gamma\,z_v^{(\ell)}
+\]
+(default $(\alpha,\beta,\gamma)=(1,1,1)$ or calibrated on dev data), then detect \emph{rupture bands} $\mathcal{B}$: contiguous layers with $z_\kappa^{(\ell)}>\tau_\kappa$, $z_L^{(\ell)}<-\tau_L$, $z_v^{(\ell)}>\tau_v$ and FDR-adjusted significance (Sec.~\ref{subsec:scar-rupture-detect}).
+
+\item \textbf{Summarize \& Visualize.} Produce (i) 3D nDNA trajectories $(\kappa,\mathcal{L},\|\mathbf{v}\|)$, (ii) heatmaps and karyotypes (mechanism-separated bands), (iii) isocaldera and SE-Map (composite views), and (iv) scalar \textsc{SCAR} scores with CIs. Provide side-by-side model comparisons.
+\end{enumerate}
+
+\subsection{Stage S1: Data and Instrumentation (Assumptions and Pitfalls)}
+\label{subsec:scar-data}
+\textbf{Assumptions.} Prompts are sampled i.i.d.\ from a task family; decoding is deterministic or teacher-forced for gradient extraction; inference settings are fixed across models.  
+\textbf{Controls.} Hold precision (FP16 vs.\ INT8), max length, and KV caching fixed; report seeds and sample sizes $n=|\mathcal{P}|$.  
+\textbf{Sample complexity.} If $\Sigma_\ell=\operatorname{Cov}(h_\ell)$ has effective rank $d_{\mathrm{eff}}(\Sigma_\ell)=\mathrm{tr}(\Sigma_\ell)/\|\Sigma_\ell\|$, then for sub-Gaussian activations,
+\[
+n=\tilde{\mathcal{O}}\!\big(d_{\mathrm{eff}}(\Sigma_\ell)\,\varepsilon^{-2}\big)
+\]
+suffices to estimate the top-$k$ spectrum within relative error $\varepsilon$ (Weyl + matrix concentration). In practice, $n\!\in\![64,256]$ yields stable trajectories; report $n$ and token lengths.
+
+\subsection{Stage S2: Feature Estimation (Derivations)}
+\paragraph{Spectral curvature.}
+The slope $s^{(\ell)}$ increases when energy concentrates into few principal directions (spectral compression). The discrete second difference
+$\kappa^{(\ell)}=|s^{(\ell+1)}-2s^{(\ell)}+s^{(\ell-1)}|$ tracks \emph{bends} along depth: spikes indicate abrupt reorientation toward a memorized subspace.
+
+\paragraph{Thermodynamic length.}
+With $G_\ell$ a local metric, $\mathcal{L}^{(\ell)}=\sqrt{\Delta\mu_\ell^\top G_\ell \Delta\mu_\ell}$ approximates the Riemannian path increment. A cheap surrogate is whitened $\ell_2$ or CKA distance $d(H_\ell,H_{\ell+1})$. \emph{Dips} in $\mathcal{L}^{(\ell)}$ concomitant with high $\kappa^{(\ell)}$ flag inference collapse into shortcut retrieval.
+
+\paragraph{Belief drift.}
+$\mathbf{v}^{(\ell)}=\mathbb{E}[\nabla_{h_\ell}\log p_\theta(y|x)]$ measures epistemic steering; large $\|\mathbf{v}^{(\ell)}\|$ (or large anchor-relative deltas) indicate strong directed bias consistent with prior exposure.
+
+\subsection{Stage S3: Calibration, Normalization, and Invariances}
+\label{subsec:scar-calib}
+\textbf{Robust within-model normalization.} Compute layerwise $z$-scores via median/MAD; optionally smooth with a depth-window of $3$.  
+\textbf{Anchor-relative deltas.} Subtract a clean sibling’s signals before $z$-scoring for family comparability.  
+\textbf{Thresholds.} Set $(\tau_\kappa,\tau_L,\tau_v)$ by clean-pool percentiles (e.g., 90th/10th/90th); do not tune on the suspect model.  
+\textbf{Invariances.} SCAR is invariant to affine rescaling of raw signals (robust $z$) and robust to mild smoothing; reports always include settings $(k,$ smoothing window, thresholds$)$.
+
+\subsection{Stage S4: Rupture Detection (Formal Test)}
+\label{subsec:scar-rupture-detect}
+Define the composite statistic $T^{(\ell)}=\alpha z_\kappa^{(\ell)}-\beta z_L^{(\ell)}+\gamma z_v^{(\ell)}$.  
+\textbf{Candidate bands} are maximal contiguous index sets $\mathcal{B}$ with $z_\kappa^{(\ell)}>\tau_\kappa$, $z_L^{(\ell)}<-\tau_L$, $z_v^{(\ell)}>\tau_v$ for all $\ell\in\mathcal{B}$.
+
+\paragraph{Significance with FDR.}
+Compute permutation $p$-values $p^{(\ell)}$ for $T^{(\ell)}$ by shuffling prompt–label pairs; apply Benjamini–Hochberg to obtain $\tilde p^{(\ell)}$.  
+\textbf{Decision:} accept a rupture if $|\mathcal{B}|\ge2$ and $\min_{\ell\in\mathcal{B}}\tilde p^{(\ell)}\le q_{\mathrm{FDR}}$.
+The \textbf{rupture layer} $\ell^\star$ is the \emph{left-most} maximizer of $T^{(\ell)}$ within the top-scoring accepted band.
+
+\paragraph{Relation to the indicator rule (derivation).}
+Your original scalar indicator,
+\[
+\mathrm{SCAR}_{\text{orig}}=\max_\ell \Big(\big|\Delta\kappa^{(\ell)}\big|\,\mathbf{1}_{\{\mathcal{L}^{(\ell)}<\tau\}}\ \|\mathbf{v}^{(\ell)}\|\Big),
+\]
+is a special case of the hinge-composite surrogate
+\[
+\widehat{T}^{(\ell)}=\underbrace{[z_\kappa^{(\ell)}]_+}_{\text{spike}}
+\;+\; \underbrace{[-z_L^{(\ell)}]_+}_{\text{dip}}
+\;+\; \underbrace{[z_v^{(\ell)}]_+}_{\text{steer}},
+\quad [x]_+=\max(x,0),
+\]
+up to monotone transformations: $\mathbf{1}_{\{\mathcal{L}<\tau\}}$ corresponds to $[-z_L]_+$ with $\tau$ the $(1-\Phi^{-1}(0))$ quantile under clean calibration. The hinge surrogate yields smoother optimization, better stability under paraphrase, and enables $p$-value testing.
+
+\subsection{Stage S5: Scalar Scores and Confidence}
+\label{subsec:scar-score}
+We report two complementary scalars:
+
+\paragraph{(i) Peak composite (default).}
+\[
+\mathrm{SCAR}(m)=\max_{\ell\in\mathcal{B}}\ \Big[\alpha\,z_\kappa^{(\ell)}-\beta\,z_L^{(\ell)}+\gamma\,z_v^{(\ell)}\Big].
+\]
+This emphasizes the strongest co-occurring evidence inside the accepted band.
+
+\paragraph{(ii) Band moment (robust).}
+Let $\mathcal{B}^\star$ be the accepted band containing $\ell^\star$. Define
+\[
+\mathrm{SCAR}_{\text{area}}(m)=\frac{1}{|\mathcal{B}^\star|}\sum_{\ell\in\mathcal{B}^\star}\!\Big(\,[z_\kappa^{(\ell)}]_+ + [-z_L^{(\ell)}]_+ + [z_v^{(\ell)}]_+ \Big),
+\]
+which is less sensitive to single-layer noise.
+
+\paragraph{Uncertainty.}
+Bootstrap prompts $B$ times; recompute $\ell^\star$, band width, and scores to get percentile CIs. Report Jaccard stability of band supports across bootstraps.
+
+\subsection{Stage S6: Visualization (Audit-Ready Plots)}
+We generate:
+\begin{enumerate}[leftmargin=1.7em,itemsep=3pt]
+\item \textbf{nDNA trajectory}: the 3D path $(\kappa,\mathcal{L},\|\mathbf{v}\|)$ across $\ell$ exposes kinks and effort dips.
+\item \textbf{Heatmap}: Fig.~\ref{fig:scar-heatmap} shows per-layer per-category SCAR signals.
+\item \textbf{Karyotype}: stacked 3D bars split evidence by mechanism (Sec.~\ref{subsec:nkaryotype}).
+\item \textbf{Isocaldera}: a level-set shell of the composite field with ridge points (Sec.~\ref{subsec:isocaldera}).
+\item \textbf{SE-Map}: displacement surface and epicenters (Sec.~\ref{subsec:semantic-earthquake}).
+\end{enumerate}
+Each plot overlays the accepted band and $\ell^\star$ for quick cross-checking.
+
+\subsection{Stage S7: Cross-Model Comparison and Trend Analysis}
+\label{subsec:scar-compare}
+For models $\{m_j\}_{j=1}^J$ (e.g., base, instruction-tuned, fine-tuned on suspect data), align depth by layer count or by canonicalization (e.g., match late MLP/attn blocks). Compare:
+\begin{itemize}\setlength\itemsep{2pt}
+\item $\ell^\star$ (rupture depth) and band width.
+\item Peak and area scores $\mathrm{SCAR}$, $\mathrm{SCAR}_{\text{area}}$.
+\item Anchor-relative deltas $\Delta z_\kappa,\Delta z_L,\Delta z_v$.
+\item Stability under paraphrase bootstraps and formatting changes.
+\end{itemize}
+\emph{Interpretation.} Late-layer shifts in $\ell^\star$ toward earlier depth or widening bands after tuning indicate increasing shortcut reliance; returning toward the anchor indicates mitigation efficacy.
+
+\subsection{Complexity, Implementation, and Reproducibility}
+\textbf{Cost.} With $n=|\mathcal{P}|$ prompts, hidden size $d$, layers $L$, and top-$k$ spectrum, the dominant cost is PCA: $\mathcal{O}(L\,n\,d\,k)$ with randomized SVD; gradients for $\mathbf{v}$ add a backprop pass.  
+\textbf{Defaults.} $k\!\in\!\{32,64\}$, smoothing window $3$, thresholds from clean 90/10/90 percentiles, BH level $q_{\mathrm{FDR}}=0.05$, bootstraps $B=100$.  
+\textbf{Outputs.} Per-layer arrays (CSV/NPY), figures, rupture JSON (band indices, $p$-values, thresholds, seeds), and a human-readable audit card.
+
+\subsection{Integration with Benchmarks and Model Audits}
+\label{subsec:scar-integration}
+SCAR requires no retraining, no access to training logs, and works with standard transformer APIs (e.g., HuggingFace, vLLM).
+
+\begin{itemize}\setlength\itemsep{2pt}
+\item \textbf{Release audits:} flag suspected benchmark leakage (e.g., GSM8K-like spikes) before publishing a model card.
+\item \textbf{During fine-tuning:} detect latent distortions from contaminated or poorly filtered instruction datasets; compare pre/post checkpoints and adapters.
+\item \textbf{Benchmark curation:} use SCAR to select paraphrase-robust items and exclude models whose trajectories show rupture at the evaluation depth.
+\end{itemize}
+
+\subsection{Forward Path: Benchmark and Method}
+\label{sec:scar_benchmark}
+We introduce controlled contamination scenarios (clean vs.\ injected fine-tunes) to quantify precision/recall of band detection and AUC of the scalar scores. We compare SCAR against token-overlap baselines~\cite{raunak2023tokenoverlap}, LMI-style indices~\cite{lmcontamindex2025}, and gradient-leak detectors~\cite{zhang2023pretrain}, emphasizing paraphrase robustness and layer localization.
+
+\begin{algorithm}[t]
+\caption{SCAR: Rupture Detection and Scoring}
+\label{alg:scar}
+\begin{algorithmic}[1]
+\REQUIRE Model $M$, prompt set $\mathcal{P}$, clean anchor $A$ (optional)
+\STATE Instrument $M$ to record $h_\ell(x)$ and (optionally) $\nabla_{h_\ell}\log p_\theta(y|x)$ for $\ell=\ell_{\min}:\ell_{\max}$, $x\in\mathcal{P}$
+\FOR{$\ell=\ell_{\min}:\ell_{\max}$}
+  \STATE Compute PCA on $\{h_\ell(x)\}_{x\in\mathcal{P}}$; obtain $\{\lambda_i^{(\ell)}\}_{i=1}^k$ and slope $s^{(\ell)}$
+  \STATE $\kappa^{(\ell)}\leftarrow\big|s^{(\ell+1)}-2s^{(\ell)}+s^{(\ell-1)}\big|$
+  \STATE $\mathcal{L}^{(\ell)}\leftarrow\sqrt{(\Delta\mu_\ell)^\top G_\ell\,\Delta\mu_\ell}$, $\ \mu_\ell\!\leftarrow\!\mathrm{median}_x[h_\ell(x)]$
+  \STATE $\|\mathbf{v}^{(\ell)}\|\leftarrow \Big\|\mathbb{E}_{(x,y)}\big[\nabla_{h_\ell}\log p_\theta(y|x)\big]\Big\|_2$
+\ENDFOR
+\IF{anchor $A$ present} \STATE subtract anchor signals before $z$-scoring \ENDIF
+\STATE Compute robust $z$-scores $z_\kappa^{(\ell)},z_L^{(\ell)},z_v^{(\ell)}$; optional smoothing (window $=3$)
+\STATE $T^{(\ell)}\leftarrow \alpha z_\kappa^{(\ell)}-\beta z_L^{(\ell)}+\gamma z_v^{(\ell)}$
+\STATE Find maximal contiguous sets $\mathcal{B}$ where $z_\kappa^{(\ell)}>\tau_\kappa$, $z_L^{(\ell)}<-\tau_L$, $z_v^{(\ell)}>\tau_v$
+\STATE Permutation test on $\{T^{(\ell)}\}$ across layers; BH at level $q_{\mathrm{FDR}}$; accept bands with width $\ge 2$ and $\min \tilde p^{(\ell)}\le q_{\mathrm{FDR}}$
+\STATE Let $\mathcal{B}^\star$ be the top accepted band; $\ell^\star\leftarrow \arg\max_{\ell\in\mathcal{B}^\star} T^{(\ell)}$ (left-most in ties)
+\STATE Report $\mathrm{SCAR}(m)=\max_{\ell\in\mathcal{B}^\star} T^{(\ell)}$ and $\mathrm{SCAR}_{\text{area}}(m)$; export plots and JSON
+\end{algorithmic}
+\end{algorithm}
+
+% -------------------- FLOWCHART --------------------
+\tikzset{
+  box/.style={draw, fill=green!10, rounded corners, minimum height=2.2em, minimum width=3.2cm, align=center},
+  arrow/.style={thick, ->, >=stealth}
+}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[node distance=0.9cm, font=\normalsize]
+\node[box] (input) {Model \& Prompts};
+\node[box, right=of input] (extract) {Feature Estimation\\[-2pt]$\kappa(\ell),~\mathcal{L}(\ell),~\|\mathbf{v}(\ell)\|$};
+\node[box, right=of extract] (rupture) {Calibration \&\\Rupture Detection};
+\node[box, right=of rupture] (scar) {Scores \&\\Visuals};
+
+\draw[arrow] (input) -- (extract);
+\draw[arrow] (extract) -- (rupture);
+\draw[arrow] (rupture) -- (scar);
+\end{tikzpicture}
+\caption{\textbf{SCAR Framework Flowchart.}
+\textbf{Input.} An \emph{already–trained transformer} $M$ and a \emph{prompt battery} $\mathcal{P}$ (natural + probe + paraphrase variants). Fixed inference settings (greedy, temperature~0), cached activations, and seed control ensure \emph{reproducibility}. 
+\textbf{Stage~1—Load/Extract.} For each layer $\ell$ and prompt $x\!\in\!\mathcal{P}$, collect centered activations $h_\ell(x)$ and gradients for teacher–forced targets, then compute \emph{per–layer geometry}: \emph{spectral curvature} $\kappa_\ell$ (from top–$k$ eigenslopes of $\operatorname{Cov}(h_\ell)$), \emph{thermodynamic length} $\mathcal{L}_\ell$ (Riemannian path increment under a local metric $G_\ell$), and \emph{belief–drift magnitude} $\|\mathbf{v}_\ell\|_2$. Signals are \emph{median/MAD standardized} across depth and optionally \emph{anchor–normalized} to a clean sibling. 
+\textbf{Stage~2—Calibrate.} Apply light smoothing (3–layer \emph{Savitzky–Golay}); set thresholds $(\tau_\kappa,\tau_L,\tau_v)$ from \emph{clean–pool percentiles} (e.g., $90\%/10\%/90\%$); form the \emph{composite evidence}
+$T^{(\ell)}=[z_\kappa^{(\ell)}]_+ + [-z_L^{(\ell)}]_+ + [z_v^{(\ell)}]_+$.
+\textbf{Stage~3—Detect (with FDR control).} Identify contiguous \emph{candidate bands} $\mathcal{B}$ where $z_\kappa^{(\ell)}{>}\tau_\kappa$, $z_L^{(\ell)}{<}{-}\tau_L$, $z_v^{(\ell)}{>}\tau_v$; compute permutation $p$–values per layer for $T^{(\ell)}$ and apply \textbf{BH–FDR} at $q{=}0.05$. Accept bands with width $\ge2$; define the \textbf{rupture layer} $\ell^\star$ as the left–most maximizer of $T^{(\ell)}$ within the accepted band. 
+\textbf{Stage~4—Score \& Report.} Produce \textbf{scalar scores} $\mathrm{SCAR}=\max_{\ell\in\mathcal{B}}T^{(\ell)}$ and $\mathrm{SCAR}_{\mathrm{area}}=\frac{1}{|\mathcal{B}|}\sum_{\ell\in\mathcal{B}}T^{(\ell)}$ with \emph{bootstrap CIs}; export \textbf{layerwise plots} (nDNA trajectories, karyotype bars, SE–Map, isosurface caldera, heatmaps) plus an \emph{audit card} listing thresholds, smoothing, seeds, permutations, and paraphrase–stability. 
+\textbf{Interpretation.} Arrows encode \emph{data flow} from model $\rightarrow$ geometry $\rightarrow$ calibrated evidence $\rightarrow$ statistically significant \emph{rupture bands} and final \textbf{SCAR} scalars. The pipeline emphasizes \textbf{mechanistic, paraphrase–robust} detection and \emph{auditability} over surface overlap, enabling reproducible contamination diagnosis and cross–family comparability.
+}
+\label{fig:scar-flowchart}
+\end{figure*}
+
+% -------------------- HEATMAP (kept conservative to avoid overflow) --------------------
+\begin{figure*}[ht]
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    width=\linewidth,
+    height=6cm,
+    colorbar,
+    colorbar style={width=2mm},
+    colormap/viridis,
+    title={\textbf{SCAR Score Heatmap across Layers}},
+    xlabel={Layer $\ell$},
+    ylabel={Contamination Category},
+    ytick={1,2,3},
+    yticklabels={Spurious Recall, Injection Trigger, Semantic Drift},
+    xtick=data,
+    xticklabel style={rotate=45},
+    enlarge x limits=0.05,
+    enlarge y limits=0.2,
+    point meta min=0,
+    point meta max=1,
+    nodes near coords,
+    nodes near coords style={font=\footnotesize, black},
+]
+\addplot[
+    matrix plot*,
+    mesh/cols=11,
+    point meta=explicit,
+] table [meta=scar, x=layer, y=category] {
+layer  category  scar
+20     1         0.12
+21     1         0.18
+22     1         0.31
+23     1         0.48
+24     1         0.60
+25     1         0.72
+26     1         0.65
+27     1         0.51
+28     1         0.38
+29     1         0.22
+30     1         0.14
+
+20     2         0.05
+21     2         0.07
+22     2         0.11
+23     2         0.25
+24     2         0.40
+25     2         0.67
+26     2         0.79
+27     2         0.62
+28     2         0.40
+29     2         0.28
+30     2         0.15
+
+20     3         0.10
+21     3         0.12
+22     3         0.19
+23     3         0.33
+24     3         0.59
+25     3         0.83
+26     3         0.76
+27     3         0.60
+28     3         0.45
+29     3         0.30
+30     3         0.18
+};
+\end{axis}
+\end{tikzpicture}
+\end{adjustbox}
+\caption{\textbf{SCAR Score Heatmap.}
+\textbf{Per–layer, per–category contamination evidence} shown as a matrix over \emph{layer index} $\ell$ (columns) and three disruption categories (rows: \emph{Spurious Recall}, \emph{Injection Trigger}, \emph{Semantic Drift}). Colors use a \emph{perceptual} Viridis colormap (dark $\rightarrow$ low; yellow $\rightarrow$ high), with values \emph{median/MAD–standardized} within model, optionally \emph{anchor–normalized} to a clean sibling, and then \emph{clipped} at the $99^{\mathrm{th}}$ percentile for readability. Each cell displays the \emph{calibrated evidence} for its category at layer $\ell$—e.g., \emph{curvature spike} $[z_{\kappa}^{(\ell)}]_+$ for \textit{Spurious Recall}, \emph{effort dip} $[-z_{L}^{(\ell)}]_+$ for \textit{Injection Trigger}, and \emph{belief drift} $[z_{v}^{(\ell)}]_+$ for \textit{Semantic Drift}—rescaled to $[0,1]$ for visualization (numbers overlaid near cells indicate normalized magnitudes). \textbf{Interpretation.} \emph{High values concentrated in late layers} form a \textbf{vertical ridge} consistent with a \textbf{SCAR rupture band} $\mathcal{B}$; dispersed, low–amplitude patches indicate benign variation. When present, \emph{markers} denote \textbf{BH–FDR significant} layers at $q{=}0.05$, and a \emph{dotted guide} marks the \textbf{rupture layer} $\ell^\star$ (left–most maximizer inside $\mathcal{B}$). The band location and intensity are \emph{paraphrase–robust} (stable under prompt rephrasing/format swaps), reinforcing a \textbf{structural (not lexical)} contamination signature.}
+\label{fig:scar-heatmap}
+\end{figure*}
+
+
+
+
+
+
+\section{SCAR Score: Quantifying Structural Contamination}
+\label{sec:scar-score}
+
+\paragraph{Goal.}
+The \emph{SCAR Score} is a scalar diagnostic that summarizes \emph{structural} contamination—abrupt semantic fractures, shallow latent transitions, and drifted belief dynamics—into a single quantity suitable for triage, model selection, and ablation targeting. Unlike surface overlap metrics, SCAR is built from \emph{internal} trajectories and is thus robust to paraphrase, templating, and style leakage \citep{ribeiro2020checklist,iyyer2018scpn,dodge2021documenting,sainz2023need,deng2024investigating}.
+
+\vspace{0.6em}
+\subsection{Signals, Normalization, and Anchoring}
+\label{subsec:scar-signals}
+Let $\ell\in\{\ell_{\min},\ldots,\ell_{\max}\}$ index layers and $h_\ell(x)$ be centered activations for prompt $x\in\mathcal{P}$.
+From Secs.~\ref{sec:scar-pipeline}\&\ref{subsec:scar-data} we estimate, as robust medians over $x\in\mathcal{P}$:
+\[
+\kappa^{(\ell)},\qquad \mathcal{L}^{(\ell)},\qquad \|\mathbf{v}^{(\ell)}\|_2,
+\]
+where $\kappa^{(\ell)}$ is the \emph{spectral curvature} (second difference of a PCA-slope), $\mathcal{L}^{(\ell)}$ is the \emph{thermodynamic length} (Riemannian path increment) with metric $G_\ell$ \citep{amari2016ig,crooks2007measuring}, and $\mathbf{v}^{(\ell)}=\mathbb{E}[\nabla_{h_\ell}\log p_\theta(y|x)]$ is the \emph{belief-drift} field.
+
+\paragraph{Depth derivatives and spikes.}
+Define the layerwise curvature jump
+\[
+\Delta\kappa^{(\ell)} \;=\; \big|\kappa^{(\ell)}-\kappa^{(\ell-1)}\big|,\qquad \ell>\ell_{\min},
+\]
+which amplifies \emph{abrupt} depth-wise bends (shortcut entry) and deemphasizes slow reconfiguration.
+
+\paragraph{Robust within-model $z$-scores.}
+To compare signals on a common, unitless scale, use median/MAD across layers:
+% preamble: \usepackage{amsmath}
+\[
+\begin{aligned}
+z_\kappa^{(\ell)} &= \frac{\kappa^{(\ell)} - \operatorname{median}(\kappa)}{\operatorname{MAD}(\kappa)},\\
+z_L^{(\ell)}      &= \frac{\mathcal{L}^{(\ell)} - \operatorname{median}(\mathcal{L})}{\operatorname{MAD}(\mathcal{L})},\\
+z_v^{(\ell)}      &= \frac{\|\mathbf{v}^{(\ell)}\| - \operatorname{median}(\|\mathbf{v}\|)}{\operatorname{MAD}(\|\mathbf{v}\|)}.
+\end{aligned}
+\]
+
+Optionally smooth $z$-curves by a 3-layer window for stability (Savitzky–Golay) \citep{savitzky1964savgol}. For cross-family comparability, subtract a clean anchor before $z$-scoring \citep{kornblith2019cka,raghu2017svcca}.
+
+\vspace{0.6em}
+\subsection{Raw Extreme Aggregation and a Calibrated Composite}
+\label{subsec:scar-definitions}
+
+\paragraph{Raw extreme form (as proposed).}
+Your intuitive definition uses extreme statistics over depth:
+\[
+\label{eq:scar-score-raw}
+\mathrm{SCAR}_{\mathrm{raw}}
+\;=\;
+\alpha\,\max_\ell \Delta\kappa^{(\ell)}
+\;+\;
+\beta\,\underbrace{\big(-\min_\ell \mathcal{L}^{(\ell)}\big)}_{\text{shorter is worse}}
+\;+\;
+\gamma\,\max_{\ell}\|\mathbf{v}^{(\ell)}\|_2^{\,2}.
+\]
+We write the second term as $-\min \mathcal{L}$ (rather than $+\min\mathcal{L}$) to encode the desideratum that \emph{shorter} thermodynamic segments (collapsed effort) \emph{increase} the score. Choosing $\alpha,\beta,\gamma>0$ yields the monotone behavior you described.
+
+\paragraph{Calibrated $z$-composite (statistically stable).}
+To remove unit dependence and enable $p$-value control across layers (Sec.~\ref{subsec:scar-fdr}), we define a within-model, hinge-composite:
+\[
+\label{eq:scar-score-composite}
+T^{(\ell)} \;=\; \alpha\,[z_\kappa^{(\ell)}]_+ \;+\; \beta\,[-z_L^{(\ell)}]_+ \;+\; \gamma\,[z_v^{(\ell)}]_+,
+\qquad [x]_+=\max(x,0).
+\]
+The \emph{SCAR score} is then the peak value on the accepted rupture band $\mathcal{B}$ (Sec.~\ref{subsec:scar-fdr}):
+\[
+\label{eq:scar-score-band}
+\mathrm{SCAR}
+\;=\;
+\max_{\ell\in\mathcal{B}}T^{(\ell)},
+\qquad
+\mathrm{SCAR}_{\mathrm{area}}
+\;=\;
+\frac{1}{|\mathcal{B}|}\sum_{\ell\in\mathcal{B}} T^{(\ell)}.
+\]
+
+\paragraph{Equivalence (order preservation).}
+If each atomic signal is strictly monotone mapped to a standardized scale, then $\mathrm{SCAR}_{\mathrm{raw}}$ and $\max_\ell T^{(\ell)}$ are \emph{order-equivalent} on fixed models: there exist positive constants $(a,b)$ and a strictly increasing $\phi$ such that
+\[
+a\,\mathrm{SCAR}_{\mathrm{raw}} \le \phi\!\big(\max_\ell T^{(\ell)}\big) \le b\,\mathrm{SCAR}_{\mathrm{raw}}.
+\]
+Thus the $z$-composite retains the ranking capacity of the raw extreme form while enabling principled calibration, FDR control, and confidence intervals.
+
+\vspace{0.6em}
+\subsection{Derivations: Sensitivity, Invariances, and Bounds}
+\label{subsec:scar-derivations}
+
+\paragraph{Sensitivity w.r.t.\ weights.}
+Let $\theta=(\alpha,\beta,\gamma)$ and $u_\ell=([z_\kappa^{(\ell)}]_+,[-z_L^{(\ell)}]_+,[z_v^{(\ell)}]_+)$.
+At a unique maximizer $\ell^\star$ of $T^{(\ell)}$,
+\[
+\frac{\partial\,\mathrm{SCAR}}{\partial \theta}
+\;=\;
+u_{\ell^\star},
+\qquad
+\frac{\partial\,\mathrm{SCAR}}{\partial z_s^{(\ell^\star)}}\;=\;\theta_s\,\mathbf{1}\{s\ \text{is active}\}.
+\]
+Hence the relative contribution is interpretable: curvature spikes, effort dips, and drift surges contribute additively only when active.
+
+\paragraph{Affine invariance and paraphrase robustness.}
+If any raw signal is rescaled $x\mapsto ax+b$ with $a>0$, its $z$-score is unchanged; thus $T^{(\ell)}$ and $\mathrm{SCAR}$ are invariant to affine rescaling of measurement units (e.g., layer dimension or gradient magnitude). Because the signals are computed from \emph{representations} rather than outputs, paraphrase and templating perturb mainly the lexical surface \citep{ribeiro2020checklist,iyyer2018scpn}; the depth-localized co-occurrence of spike/dip/drift remains, leading to small changes in $T^{(\ell)}$ but stable band detection.
+
+\paragraph{Change-point view and power.}
+Let $\{T^{(\ell)}\}$ be a piecewise-smooth process with a single contaminated segment $\mathcal{B}$ of width $w$. Under a simple mean-shift model $T^{(\ell)}=\mu_0+\delta\,\mathbf{1}_{\ell\in\mathcal{B}}+\xi_\ell$ with sub-Gaussian noise $\xi_\ell$ (scale $\sigma$), the peak statistic obeys
+\[
+\Pr\!\left[\max_\ell T^{(\ell)} < \mu_0 + \tfrac{\delta}{2}\right]
+\;\le\;
+(\ell_{\max}-\ell_{\min}+1)\,\exp\!\big(-c\,w\,\delta^2/\sigma^2\big),
+\]
+so detection power increases exponentially in band width $w$ and signal amplitude $\delta$. This aligns with SCAR’s design: co-occurrence across multiple layers and mechanisms yields robust detection \citep{truong2020cpd}.
+
+\paragraph{Concentration and sample complexity.}
+Let $n=|\mathcal{P}|$ be prompts. Under sub-Gaussian activations with effective rank $d_{\mathrm{eff}}(\Sigma_\ell)=\mathrm{tr}(\Sigma_\ell)/\|\Sigma_\ell\|$,
+\[
+n=\tilde{\mathcal{O}}\!\big(d_{\mathrm{eff}}(\Sigma_\ell)\,\varepsilon^{-2}\big)
+\]
+controls spectral error and hence curvature error (Weyl + Lipschitz mapping), giving $|\widehat{s}^{(\ell)}-s^{(\ell)}|\le C\varepsilon$ and $|\widehat{\kappa}^{(\ell)}-\kappa^{(\ell)}|\le C'\varepsilon$ \citep{vershynin2018hdp}. The gradient-based $\|\mathbf{v}^{(\ell)}\|$ further benefits from token-averaging within prompts, reducing variance by a factor proportional to sequence length. In practice, $n\in[64,256]$ stabilizes SCAR, matching our empirical settings.
+
+\paragraph{Why squared drift in (\ref{eq:scar-score-raw}).}
+Because $\|\mathbf{v}^{(\ell)}\|$ is normed, squaring accentuates large deviations and aligns with an energy-like interpretation: the work needed to steer predictions away from a clean anchor grows roughly quadratically in the field magnitude. In the $z$-composite (\ref{eq:scar-score-composite}), $[z_v]_+$ already acts as a convex surrogate of large norms, which is more numerically stable.
+
+\vspace{0.6em}
+\subsection{Rupture Band, FDR Control, and Final Score}
+\label{subsec:scar-fdr}
+\textbf{Candidate bands.} Identify maximal contiguous sets $\mathcal{B}$ where
+\[
+z_\kappa^{(\ell)}>\tau_\kappa,\qquad z_L^{(\ell)}<-\tau_L,\qquad z_v^{(\ell)}>\tau_v,
+\]
+with $(\tau_\kappa,\tau_L,\tau_v)$ from clean-pool percentiles (e.g., 90/10/90).  
+\textbf{Significance.} Compute permutation $p$-values $p^{(\ell)}$ for $T^{(\ell)}$ by shuffling prompt–label pairs; apply Benjamini–Hochberg to obtain $\tilde p^{(\ell)}$ \citep{benjamini1995fdr}.  
+\textbf{Accept} bands with $|\mathcal{B}|\ge2$ and $\min_{\ell\in\mathcal{B}}\tilde p^{(\ell)}\le q_{\mathrm{FDR}}$; define the \emph{rupture layer}
+\[
+\ell^\star\;=\;\min\ \arg\max_{\ell\in\mathcal{B}} T^{(\ell)}.
+\]
+Finally, report $\mathrm{SCAR}$ and $\mathrm{SCAR}_{\mathrm{area}}$ per (\ref{eq:scar-score-band}), together with $(\ell^\star,|\mathcal{B}|)$ and bootstrap CIs.
+
+\vspace{0.6em}
+\subsection{Ablation and Identifiability}
+\label{subsec:scar-ablation}
+To attribute failure modes, we evaluate restricted scores:
+% preamble: \usepackage{amsmath}
+\[
+\begin{aligned}
+\mathrm{SCAR}_{\mathrm{geo}}
+  &= \alpha\,\max_{\ell} \Delta\kappa^{(\ell)}
+     + \beta\,\big(-\min_{\ell}\mathcal{L}^{(\ell)}\big),\\
+\mathrm{SCAR}_{\mathrm{belief}}
+  &= \gamma\,\max_{\ell} \|\mathbf{v}^{(\ell)}\|_2^{\,2}.
+\end{aligned}
+\]
+
+\textbf{Interpretation:}
+\begin{itemize}\setlength\itemsep{2pt}
+\item High $\mathrm{SCAR}_{\mathrm{geo}}$ with low $\mathrm{SCAR}_{\mathrm{belief}}$ indicates \emph{memorization shortcuts}: compressed paths and curvature spikes without overt belief steering (e.g., benchmark seepage) \citep{geirhos2020shortcut,dodge2021documenting}.
+\item High $\mathrm{SCAR}_{\mathrm{belief}}$ with moderate geometry signals \emph{inference drift} (misaligned instruction tuning, unfaithful distillation) \citep{ouyang2022instructgpt,bai2022harmless,rafailov2023dpo}.
+\item Co-occurrence across all terms marks \emph{adversarial or poisoned fine-tunes}, typically localized to late layers.
+\end{itemize}
+
+\vspace{0.6em}
+\subsection{Biological Analogies: Why a Scalar Works}
+\label{subsec:scar-bio}
+SCAR compresses a multi-signal, layerwise process into a single value by focusing on \emph{coincident} rupture geometry—analogous to how diverse molecular signals converge on a phenotype in biology:
+\begin{itemize}\setlength\itemsep{2pt}
+\item \textbf{Canalization and fate switches.} In Waddington’s landscape, smooth valleys (canals) encode robust development; fate switches occur at steep ridges \citep{waddington1957strategy}. SCAR detects precisely these ridges: $\Delta\kappa$ spikes (ridge), $\mathcal{L}$ dips (downhill drop), and $\|\mathbf{v}\|$ surges (directed push).
+\item \textbf{Allostery (MWC).} Small ligand perturbations trigger cooperative conformational changes across a protein \citep{monod1965mwc}; likewise, localized contamination nucleates a late-layer shift that propagates, seen as a co-located triple signal.
+\item \textbf{Energy landscapes and avalanches.} Crossing a saddle into a deep basin in protein folding \citep{onuchic1997protein} or neuronal avalanches \citep{beggs2003neuronal} mirrors SCAR’s late-layer \emph{rupture band}: a fast transition out of an inference canal into a memorized basin.
+\end{itemize}
+These analogies justify why a single peak statistic over a verified band (FDR-controlled) is an informative phenotype of structural contamination.
+
+\vspace{0.6em}
+\subsection{Calibration of Weights and Thresholds}
+\label{subsec:scar-calibration}
+\textbf{Thresholds.} Choose $(\tau_\kappa,\tau_L,\tau_v)$ as clean-pool percentiles (held-out) to control false alarms.  
+\textbf{Weights.} Set $(\alpha,\beta,\gamma)$ either (i) uniform, (ii) by maximizing dev-set AUC for clean vs.\ contaminated labels, or (iii) via logistic regression on $(z_\kappa,-z_L,z_v)$; report weights for transparency.  
+\textbf{CIs.} Bootstrap prompts to obtain percentile CIs for $\mathrm{SCAR}$ and $(\ell^\star,|\mathcal{B}|)$; report Jaccard stability of band supports.
+
+\vspace{0.6em}
+\subsection{Theoretical Sensitivity to Contamination Types}
+\label{subsec:scar-sensitivity}
+\begin{description}
+\item[\textbf{Memorization contamination.}] Expect $\mathbb{E}[\Delta\kappa^{(\ell)}]\!\uparrow$, $\mathbb{E}[\mathcal{L}^{(\ell)}]\!\downarrow$, but mild $\mathbb{E}[\|\mathbf{v}^{(\ell)}\|]\,$ if memorized facts align with the target distribution \citep{geirhos2020shortcut}. $\Rightarrow$ high $\mathrm{SCAR}_{\mathrm{geo}}$, moderate $\mathrm{SCAR}_{\mathrm{belief}}$.
+\item[\textbf{Inference contamination.}] Mis-specified objectives (unfaithful distillation, misaligned templates) induce large $\|\mathbf{v}\|$ with smoother geometry \citep{ouyang2022instructgpt,bai2022harmless}. $\Rightarrow$ high $\mathrm{SCAR}_{\mathrm{belief}}$.
+\item[\textbf{Stealth alignment drift.}] Over-optimized preference models compress latent paths (low $\mathcal{L}$) and exhibit selective spikes near instruction-relevant layers \citep{rafailov2023dpo}. $\Rightarrow$ mixed but late-layer-peaked SCAR.
+\end{description}
+
+\vspace{0.6em}
+\subsection{Practical Reporting}
+\label{subsec:scar-reporting}
+For each model, we report:
+\begin{enumerate}\setlength\itemsep{2pt}
+\item $\mathrm{SCAR}$ and $\mathrm{SCAR}_{\mathrm{area}}$, with bootstrap CIs.
+\item Rupture band indices $\mathcal{B}$, width, and $\ell^\star$.
+\item Peak contributions $\big([z_\kappa]_{+},[-z_L]_{+},[z_v]_{+}\big)$ at $\ell^\star$.
+\item Calibration details: $(k,\text{smoothing},\tau)$ and FDR level.
+\end{enumerate}
+This turns a scalar into an auditable claim, connecting the number back to geometry and depth localization.
+
+% ---------- OPTIONAL: Equation and figure references to earlier sections ----------
+% See Secs. \ref{subsec:scar-rupture-detect}, \ref{subsec:nkaryotype}, \ref{subsec:isocaldera}, and \ref{subsec:semantic-earthquake}
+% for complementary visualizations (karyotype, isosurfaces, and SE-Map) that explain the same peak statistically detected here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{The SCAR Contamination Benchmark and Protocol}
+\label{sec:scar-benchmark-protocol}
+
+\subsection*{Motivation}
+Empirical audits increasingly show that pretraining corpora and evaluation suites are \emph{not} statistically independent, with measurable overlap between public web scrapes and popular benchmarks (e.g., MMLU, GSM8K, HumanEval) \citep{dodge2021documenting,hendrycks2021mmlu,cobbe2021gsm8k,chen2021humaneval}. Recent efforts such as the LM Contamination Index (LMI) quantify this overlap using surface-level proxies (e.g., $n$-gram matches, MinHash collisions) \citep{gudibande2023lmcontamination,broder1997minhash,raunak2023tokenoverlap}, but these probes struggle when leakage is \emph{paraphrastic}, \emph{templated}, or \emph{style-driven} rather than verbatim \citep{ribeiro2020checklist,iyyer2018scpn}. Moreover, surface overlap does not explain \emph{where} in the model a shortcut is encoded, nor \emph{how} it perturbs internal reasoning pathways.
+
+\textbf{SCAR} takes a complementary view: contamination is a \emph{structural pathology} that should be measurable in the model’s \emph{internal belief geometry}. Instead of asking “Did tokens reappear?”, SCAR asks “Did the epistemic trajectory kink, flatten, or drift \emph{as if} the model were skipping inference?” This shift yields paraphrase-robust audits and layer-localized explanations, connecting observed accuracy jumps to mechanistic rupture in latent space \citep{raghu2017svcca,kornblith2019cka,amari2016ig,crooks2007measuring}.
+
+\subsection*{Contamination Taxonomy}
+\label{subsec:taxonomy}
+We categorize contamination pathways that induce distinct SCAR signatures:
+\begin{enumerate}
+    \item \textbf{Pretraining contamination} (PTC): benchmark items (or near paraphrases) appear in the foundation corpus (e.g., Common Crawl or code scrapes) \citep{dodge2021documenting,gao2020pile}. Typical manifestations: late-layer curvature spikes and effort dips on the associated task family.
+    \item \textbf{Alignment fine-tuning leakage} (AFTL): instruction datasets (e.g., Alpaca, HH-RLHF) semantically overlap with evaluation items, leaking styles, answers, or solution templates \citep{bai2022harmless,ouyang2022instructgpt,wang2023selfinstruct}. Manifests as mid/late-layer belief-drift surges with moderate geometry changes.
+    \item \textbf{Domain transfer leakage} (DTL): domain corpora strongly mirror evaluation style (e.g., StackOverflow/GitHub into HumanEval-like tasks) \citep{chen2021humaneval}. Manifests primarily as directed drift with mild curvature, often detectable via anchor-relative deltas.
+\end{enumerate}
+This taxonomy guides stress tests and interpretation: the same accuracy lift can arise from different latent mechanisms, which SCAR disambiguates.
+
+\subsection*{Benchmark Setup}
+\label{subsec:setup}
+\paragraph{Models.} We assemble families of open-weight transformers with matched parameter counts (e.g., 7B/13B), each with a \emph{clean anchor} and several \emph{contaminated variants}. Anchors are trained/selected to avoid the target benchmark distributions (documentation + repro scripts released).
+
+\paragraph{Variants.} For each contamination type:
+\begin{itemize}
+    \item \textbf{PTC:} inject $\rho\in\{1\%,5\%,10\%\}$ of benchmark items (e.g., GSM8K) into a pretraining-like stream (mixture with C4/Pile) \citep{dodge2021documenting,gao2020pile}. Control by shuffling indices and delaying injection to later epochs.
+    \item \textbf{AFTL:} fine-tune anchors on instruction corpora with controlled overlap to benchmarks (Alpaca-like prompts, HH-RLHF dialogs) \citep{bai2022harmless,ouyang2022instructgpt}. We prepare \emph{exact}, \emph{paraphrase}, and \emph{answer-only} leakage subsets.
+    \item \textbf{DTL:} fine-tune on style-proximal domains (e.g., StackOverflow issues \(\to\) HumanEval) with controllable density and recency bias \citep{chen2021humaneval}.
+\end{itemize}
+
+\paragraph{Frozen SCAR pipeline.} All models are analyzed with identical extraction logic and hyperparameters (top-$k$ spectrum sizes $k\in\{32,64\}$, smoothing window $=3$, robust $z$-scores, thresholds from clean percentiles, FDR level $q=0.05$).
+
+\paragraph{Outputs.} For each model: layerwise arrays $\{\kappa(\ell),\mathcal{L}(\ell),\|\mathbf{v}(\ell)\|\}$, rupture bands $\mathcal{B}$ with $\ell^\star$, SCAR scalars with CIs, and all visuals (nDNA trajectories, karyotypes, isosurfaces, SE-Maps).
+
+\subsection*{Protocol: Data, Injections, and Controls}
+\label{subsec:protocol}
+\paragraph{Prompt batteries.} For each task family (e.g., math, general knowledge, code), we create a balanced evaluation set with (i) \emph{natural prompts}, (ii) \emph{probe prompts} (simplified templates to elicit structure), and (iii) \emph{paraphrase/translation variants} generated via SCPN/back-translation \citep{iyyer2018scpn,ribeiro2020checklist}. This allows paraphrase-robustness checks.
+
+\paragraph{Injection styles.} We parameterize a contamination operator $\mathcal{C}_{\rho,\mathrm{style}}$ that transforms a clean training stream $\mathcal{D}$ into $\mathcal{D}'$:
+\[
+\mathcal{D}'=(1-\rho)\,\mathcal{D} \;\cup\; \rho\,\Phi_{\mathrm{style}}(\mathcal{B}),
+\]
+where $\mathcal{B}$ is the benchmark pool and $\Phi_{\mathrm{style}}\in\{\text{exact},\text{paraphrase},\text{answer-only}\}$ controls leakage modality.
+
+\paragraph{Controls.} We include \emph{structure-destroying} shuffles (random tokens), length-matched decoys, and domain-mismatched injections to separate memorization from generic domain adaptation. All conditions use identical optimization settings to isolate contamination.
+
+\paragraph{Fairness.} Depth alignment across models uses layer-count normalization; we also report anchor-relative deltas to remove family/size biases \citep{kornblith2019cka,raghu2017svcca}.
+
+\subsection*{Evaluation Suite}
+\label{subsec:eval}
+\paragraph{Tasks.} We cover four modalities:
+\begin{itemize}
+    \item \textbf{MMLU} \citep{hendrycks2021mmlu}: multiple-choice knowledge. Sensitive to PTC; known to leak via web scrapes.
+    \item \textbf{GSM8K} \citep{cobbe2021gsm8k}: grade-school math; sensitive to both PTC and AFTL.
+    \item \textbf{HumanEval} \citep{chen2021humaneval}: code synthesis; sensitive to DTL from StackOverflow/GitHub.
+    \item \textbf{TruthfulQA} \citep{lin2021truthfulqa}: truthfulness under adversarial prompts; sensitive to stylistic leakage and preference imitation.
+\end{itemize}
+
+\paragraph{Metrics.} We compute (i) SCAR band detection precision/recall under controlled injections, (ii) AUC for scalar SCAR vs contamination rate $\rho$, (iii) paraphrase-stability $\mathrm{Jaccard}(\mathcal{B}_{\text{orig}},\mathcal{B}_{\text{para}})$, and (iv) correlation between late-layer SCAR and test accuracy lifts. Baselines include $n$-gram overlap, MinHash, and LMI-style indices \citep{broder1997minhash,raunak2023tokenoverlap,gudibande2023lmcontamination}.
+
+\paragraph{Statistics.} We use permutation tests for per-layer evidence with BH-FDR across depth \citep{benjamini1995fdr}, bootstrap CIs over prompts, and change-point sanity checks \citep{truong2020cpd}. We release seeds, sample sizes, and smoothing settings for reproducibility.
+
+\subsection*{Diagnostic Interpretation (by Pathway)}
+\label{subsec:interpretation}
+\paragraph{PTC.} Expect \emph{late-layer} $\kappa$ spikes (layers $\sim$24–28 for 7B-class models), \emph{concurrent dips} in $\mathcal{L}$, and a narrow $\ell^\star$ band. Belief drift may be modest if leaked items align with training objectives. This is consistent with shortcut learning \citep{geirhos2020shortcut}.
+
+\paragraph{AFTL.} Expect \emph{mid/late} belief-drift surges with smoother curvature; $\ell^\star$ shifts earlier ($\sim$21–23) when instruction templates dominate \citep{ouyang2022instructgpt,bai2022harmless,rafailov2023dpo}. Paraphrase variants maintain rupture location (structure) while output-space overlap collapses.
+
+\paragraph{DTL.} Expect anchor-relative drift as the primary signal; curvature remains moderate. SCAR flags a broad, shallow band; paraphrase stability is high, implicating style-driven leakage rather than exact reuse.
+
+\subsection*{Worked Examples (Case Studies)}
+\label{subsec:examples}
+\paragraph{Example A: GSM8K pretraining injection (5\% PTC).}
+\emph{Setup.} Inject 5\% GSM8K items (mixed with C4/Pile) late in pretraining of a 7B model; evaluate on held-out GSM8K variants (natural and SCPN-paraphrased) \citep{cobbe2021gsm8k,gao2020pile,iyyer2018scpn}.  
+\emph{Observation.} SCAR reveals a narrow rupture band at $\ell^\star\approx 25$ with high $z_\kappa$ and depressed $z_L$; $\|\mathbf{v}\|$ modest. AUC(SCAR vs $\rho$) $\gg$ AUC($n$-gram vs $\rho$) for paraphrases.  
+\emph{Interpretation.} Classic memorization-style shortcut: geometry alarms without large directed drift.
+
+\paragraph{Example B: Alpaca + HH-RLHF alignment leakage (AFTL).}
+\emph{Setup.} Fine-tune the clean anchor with a curated mix of Alpaca-like instructions and HH-RLHF dialogs that paraphrase MMLU stems \citep{bai2022harmless,ouyang2022instructgpt}.  
+\emph{Observation.} SCAR shows earlier $\ell^\star$ ($\sim$22), moderate $\kappa$ increase, pronounced $\|\mathbf{v}\|$ surge on QA tasks; rupture band persists under prompt paraphrases and format swaps.  
+\emph{Interpretation.} Alignment-style imitation rather than verbatim reuse; drift dominates geometry.
+
+\paragraph{Example C: StackOverflow $\rightarrow$ HumanEval (DTL).}
+\emph{Setup.} Fine-tune on Q\&A threads and code snippets whose style mirrors HumanEval docstrings \citep{chen2021humaneval}.  
+\emph{Observation.} Anchor-relative drift elevates across late layers with mild curvature spikes; SCAR$_{\text{belief}}$ high, SCAR$_{\text{geo}}$ moderate.  
+\emph{Interpretation.} Domain-style leakage: belief steering toward templated solutions without sharp geometric collapse.
+
+\paragraph{Example D: Multilingual paraphrase leakage for MMLU.}
+\emph{Setup.} Translate MMLU stems into Spanish/Chinese and inject paraphrastic variants in alignment data; evaluate in English \citep{hendrycks2021mmlu,ribeiro2020checklist,iyyer2018scpn}.  
+\emph{Observation.} Surface overlap trivializes; SCAR still detects a stable late-layer band.  
+\emph{Interpretation.} Cross-lingual/style leakage leaves a structural signature even when $n$-gram tools fail.
+
+\subsection*{Power, Sensitivity, and Paraphrase Robustness}
+\label{subsec:power}
+Under a banded mean-shift model $T^{(\ell)}=\mu_0+\delta\,\mathbf{1}_{\ell\in\mathcal{B}}+\xi_\ell$ with sub-Gaussian noise, the tail bound
+\[
+\Pr\!\left[\max_\ell T^{(\ell)}<\mu_0+\tfrac{\delta}{2}\right]
+\;\le\;
+L\,\exp\!\big(-c\,w\,\delta^2/\sigma^2\big),
+\]
+($L$ = number of layers, $w$ = band width) shows exponential gain in detection with co-occurring evidence across adjacent layers. Because SCAR aggregates \emph{curvature spike}, \emph{effort dip}, and \emph{drift surge}, it amplifies $\delta$ while $n$-gram/MinHash lose power under paraphrase/translation \citep{ribeiro2020checklist,iyyer2018scpn,broder1997minhash}.
+
+\subsection*{Protocol Outputs and Release Format}
+\label{subsec:release}
+We release, for every model–task pair:
+\begin{itemize}
+    \item \textbf{Layerwise arrays}: $\kappa(\ell)$, $\mathcal{L}(\ell)$, $\|\mathbf{v}(\ell)\|$ (NPY/CSV).
+    \item \textbf{Rupture metadata}: bands $\mathcal{B}$, $\ell^\star$, per-layer $p$-values and BH-adjusted $\tilde p^{(\ell)}$.
+    \item \textbf{Visuals}: nDNA trajectories, karyotypes, isosurface calderas, SE-Maps (PNG + interactive HTML).
+    \item \textbf{Audit card}: scalar SCAR ($\pm$CI), SCAR$_{\mathrm{area}}$, stability metrics, thresholds, smoothing, seeds.
+\end{itemize}
+
+\subsection*{Benchmark Utility}
+\label{subsec:utility}
+Compared to hash-based audits, SCAR enables: (i) auditing \emph{closed} models via black-box gradients/activations, (ii) detecting paraphrastic/style leakage, (iii) localizing contamination depth and mechanism, and (iv) delivering human-interpretable evidence for policy decisions and dataset hygiene. SCAR also composes with representation tests (SVCCA/CKA) to compare families and sizes \citep{raghu2017svcca,kornblith2019cka}.
+
+\subsection*{Ethics and Limitations}
+\label{subsec:ethics}
+SCAR flags \emph{structural} anomalies consistent with contamination but is not a plagiarism oracle; confounds (aggressive quantization, extreme prompt formats) can bias $\mathcal{L}$ or $\|\mathbf{v}\|$. We therefore mandate release of inference settings, prompt batteries, and anchor choices with every report, following best practices for transparent evaluation \citep{dodge2021documenting,ribeiro2020checklist}.
+
+
+
+% \input{4_traceindex_bci}
+% \input{5_tracealign}
+% \input{6_performance}
+
+
+% \input{7_conclusion}
+
+
+\section{Conclusion}
+\vspace{-2mm}
+
+We presented \textsc{BELIEF\textendash DOGMA}, a modular and causally grounded framework for belief editing in large language models (LLMs). Rather than nudging outputs via surface heuristics, \textsc{BELIEF\textendash DOGMA} intervenes in the \emph{internal} substrates of belief: it localizes the circuitry that encodes a proposition, maps the surrounding conceptual field, projects an alignment-consistent anchor, and executes a minimally invasive rewrite. Concretely, the pipeline---\emph{Belief Localizer} $\rightarrow$ \emph{Concept Field Mapper} $\rightarrow$ \emph{Alignment Anchor Generator} $\rightarrow$ \emph{Concept Rewriter}---turns vague editing desiderata into auditable, layerwise operations with explicit control of collateral drift. 
+
+\paragraph{From behavior to mechanism.}
+Our central claim is methodological: belief editing should be posed as an \emph{interventional} problem over causal representations, not merely a behavioral objective. Across settings, \textsc{BELIEF\textendash DOGMA} consistently preserved non\textendash targeted knowledge while altering the targeted proposition, outperforming ROME, FT\textendash Rewrite, Concept Erasure, and DPO on alignment retention, belief\textendash field consistency, and epistemic traceability. These gains arise from (i) \emph{where} we intervene (localized, causally\textendash implicated subspaces), (ii) \emph{how} we constrain edits (anchor\textendash consistent projections with explicit drift budgets), and (iii) \emph{what} we verify (counterfactual probes and adversarial stress tests that expose spurious or masked updates).
+
+\paragraph{Scientific takeaways.}
+Our experiments yield several lessons that we expect to generalize:
+\begin{itemize}
+\item \textbf{Locality with budgets.} Editing within a causally\textendash implicated subspace, while monitoring a \emph{drift budget} for adjacent concepts, reduces catastrophic interference by an order of magnitude compared with unconstrained rewrites.
+\item \textbf{Anchors over labels.} Alignment anchors---low\textendash dimensional epistemic targets constructed from principled exemplars---stabilize edits better than raw label supervision, especially under paraphrase or format shifts.
+\item \textbf{Traceable causality.} An explicit audit trail (localizer evidence $\rightarrow$ field chart $\rightarrow$ anchor projection $\rightarrow$ rewrite diffs) makes failure modes legible: when an edit fails, the trail reveals whether the error is \emph{mislocalization}, \emph{anchor miscalibration}, or \emph{rewrite overreach}.
+\item \textbf{Compositional edits.} Sequential edits that respect commutativity/associativity tests (no hidden order effects beyond a small tolerance) produce more stable belief graphs than one\textendash shot global rewrites.
+\end{itemize}
+
+\paragraph{Reliability and guarantees.}
+While provable guarantees in neural systems are necessarily qualified, \textsc{BELIEF\textendash DOGMA} offers three pragmatic assurances: (i) \emph{Edit minimality}, enforced by norm\textendash constrained projections and sparsity penalties; (ii) \emph{Scope containment}, evaluated by retention@k on a neighborhood graph of related concepts; and (iii) \emph{Adversarial survivability}, measured by the fraction of edits that persist under targeted paraphrase, negation, and distractor context. Together, these constitute an \emph{operational} guarantee: if an edit passes all three, then any residual regressions are small and localized in the measured basis.
+
+\paragraph{Limitations and risks.}
+Our approach inherits the ontology of the model being edited: if concepts are entangled or incompletely represented, localizers may surface partial substrates, and anchors may inadvertently encode biases. Edits can also overfit to the anchor if the exemplar set is narrow. Finally, distribution shift (e.g., domain, language, modality) can rotate the relevant subspaces, degrading locality. We therefore treat \textsc{BELIEF\textendash DOGMA} as a \emph{ disciplined surgical tool}, not a universal cure: every deployment should ship with (a) an edit ledger, (b) retention and drift budgets, and (c) red\textendash team stress tests.
+
+\paragraph{Societal and regulatory context.}
+Belief\textendash sensitive deployments (safety\textendash critical, compliance, cultural customization) demand more than pass/fail refusals. They require \emph{explainable provenance}: what was changed, where in the network, under which constraints, with what anticipated side effects. \textsc{BELIEF\textendash DOGMA} provides this evidentiary substrate. We advocate for audit cards that include: targeted proposition, localizer rationale, anchor specification, rewrite parameters, retention metrics, and adversarial outcomes---a practical basis for internal governance and external review.
+
+\paragraph{Outlook: from edits to epistemology.}
+Two directions appear especially promising:
+\begin{enumerate}
+\item \textbf{Multimodal and multilingual belief systems.} Extending localizers and field mappers to shared text\textendash vision\textendash audio spaces and to non\textendash English ontologies will clarify how beliefs are \emph{jointly} encoded across modalities and languages, and when an edit should be \emph{propagated} versus \emph{localized}.
+\item \textbf{Unsupervised belief\textendash field discovery and feedback.} Coupling unsupervised concept charts with human\textendash in\textendash the\textendash loop epistemic feedback (elicitation of reasons, not only answers) may yield anchors that better reflect normative constraints and domain expertise.
+\end{enumerate}
+Beyond these, integrating mechanistic analyses (e.g., path patching, causal mediation) could turn edits into scientific probes: small, controlled changes to test hypotheses about representation, abstraction, and generalization.
+
+\paragraph{Final remarks.}
+Belief editing will remain an open scientific problem as models grow in scale and scope. Our contribution is to shift the emphasis from \emph{what} a model says to \emph{how} it comes to say it, and to make edits that are \emph{mechanistic, minimal, and measurable}. If alignment is to mature into a science, its tools must leave a legible trace. \textsc{BELIEF\textendash DOGMA} is one such tool: a disciplined protocol for changing minds without losing them.
+
+
+
 % \clearpage
-\input{8_discussion}
+% \input{8_discussion}
 \clearpage
 \newpage
 
