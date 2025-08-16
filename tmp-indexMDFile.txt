@@ -139,7 +139,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
     </div>
 
     <footer>
-      © Copyright 2025 nDNA. Hosted with ❤️.
+      © Copyright 2025 nDNA.
     </footer>
   </div>
 
