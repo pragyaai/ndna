@@ -481,6 +481,15 @@ $$\ell^\star=\min \arg\max_{\ell\in\mathcal{B}} T^{(\ell)}.$$
 
 Finally, report $$\mathrm{SCAR}$$ and $$\mathrm{SCAR}_{\mathrm{area}}$$ with $$(\ell^\star,\|\mathcal{B}\|)$$ and bootstrap CIs.
 
+{% capture scar_heatmap_caption %}
+**SCAR Score Heatmap.** **Per–layer, per–category contamination evidence** shown as a matrix over *layer index* $$\ell$$ (columns) and three disruption categories (rows: *Spurious Recall*, *Injection Trigger*, *Semantic Drift*). Colors use a *perceptual* Viridis colormap (dark → low; yellow → high), with values *median/MAD–standardized* within model, optionally *anchor–normalized* to a clean sibling, and then *clipped* at the $$99^{\mathrm{th}}$$ percentile for readability. Each cell displays the *calibrated evidence* for its category at layer $$\ell$$—e.g., *curvature spike* $$[z_{\kappa}^{(\ell)}]_+$$ for *Spurious Recall*, *effort dip* $$[-z_{L}^{(\ell)}]_+$$ for *Injection Trigger*, and *belief drift* $$[z_{v}^{(\ell)}]_+$$ for *Semantic Drift*—rescaled to $$[0,1]$$ for visualization (numbers overlaid near cells indicate normalized magnitudes). **Interpretation.** *High values concentrated in late layers* form a **vertical ridge** consistent with a **SCAR rupture band** $$\mathcal{B}$$; dispersed, low–amplitude patches indicate benign variation. When present, *markers* denote **BH–FDR significant** layers at $$q{=}0.05$$, and a *dotted guide* marks the **rupture layer** $$\ell^\star$$ (left–most maximizer inside $$\mathcal{B}$$). The band location and intensity are *paraphrase–robust* (stable under prompt rephrasing/format swaps), reinforcing a **structural (not lexical)** contamination signature.
+{% endcapture %}
+{% include visualization-html.liquid 
+   image_path="assets/SCAR_visuals/scar_score_heatmap.png" 
+   alt="SCAR Score Heatmap across Layers"
+   full_width=true
+   caption=scar_heatmap_caption %}
+
 ### Biological Analogies: Why a Scalar Works
 
 SCAR compresses a multi-signal, layerwise process into a single value by focusing on *coincident* rupture geometry—analogous to how diverse molecular signals converge on a phenotype in biology:
