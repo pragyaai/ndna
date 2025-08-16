@@ -324,6 +324,34 @@ li {
   margin-bottom: 8px;
 }
 
+/* Site-level table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95rem;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 0.6em 0.8em;
+  text-align: left;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+}
+
+table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
 .image-card {
   flex: 1;
   background-color: #ffffff;

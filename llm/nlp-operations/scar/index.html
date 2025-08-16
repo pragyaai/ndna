@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-16T10:27:15+00:00" />
+<meta property="article:published_time" content="2025-08-16T10:42:05+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="SCAR - Spectral Contamination and Alignment Rupture" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-16T10:27:15+00:00","datePublished":"2025-08-16T10:27:15+00:00","description":"- Spectral Contamination and Alignment Rupture in Transformer Geometry Micro-summary — details in the book","headline":"SCAR - Spectral Contamination and Alignment Rupture","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-16T10:42:05+00:00","datePublished":"2025-08-16T10:42:05+00:00","description":"- Spectral Contamination and Alignment Rupture in Transformer Geometry Micro-summary — details in the book","headline":"SCAR - Spectral Contamination and Alignment Rupture","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/scar/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -373,7 +373,7 @@
     <figcaption class="figure-caption">
         
          
-<p><strong><span style="color: #2E8B57;">Clean</span></strong> (green) vs. <strong><span style="color: #DC143C;">contaminated</span></strong> (red) nDNA trajectories for a LLaMA-family model, rendered as a <em>depth-parametrized curve</em> where markers advance with layer index ℓ (<em>arrowheads indicate increasing depth</em>). <strong>Axes:</strong> <em>spectral curvature</em> \(\kappa_\ell\) and <em>thermodynamic length</em> \(\mathcal{L}_\ell\) against <em>layer index</em> \(\ell\).</p>
+<p><strong><span style="color: #2E8B57;">Clean</span></strong> (green) vs. <strong><span style="color: #DC143C;">contaminated</span></strong> (red) nDNA trajectories for a LLaMA-family model, rendered as a <em>depth-parametrized curve</em> where markers advance with layer index ℓ (<em>arrowheads indicate increasing depth</em>). <strong>Axes:</strong> <em>spectral curvature</em> \(\kappa_\ell\) and <em>thermodynamic length</em> \(\mathcal{L}_\ell\) against <em>layer index</em> \(\ell\). The clean trajectory (green) follows a smooth, canalized path through the latent geometry, while the contaminated model (red) exhibits sharp <strong>rupture points</strong> where the path bends abruptly toward memorized basins. These geometric discontinuities are <strong>paraphrase-robust</strong> as they exist in representation space rather than token space, making them reliable indicators of structural contamination even when surface-level lexical overlap is minimal.</p>
 
     </figcaption>
     
@@ -433,7 +433,7 @@
     <figcaption class="figure-caption">
         
          
-<p><strong>Stacked 3D bars</strong> visualize per–layer, per–mechanism rupture evidence for a <em><span style="color: #2E8B57;">clean</span></em> (left) vs. <em><span style="color: #DC143C;">contaminated</span></em> (right) model. <strong>Colors:</strong> <span style="color: #DC143C;">red</span> = <em>curvature spike</em> \([z_{\kappa,\ell}]_{+}\), <span style="color: #4169E1;">blue</span> = <em>effort dip</em> \([-z_{L,\ell}]_{+}\), <span style="color: #228B22;">green</span> = <em>belief drift</em> \([z_{v,\ell}]_{+}\).</p>
+<p><strong>Stacked 3D bars</strong> visualize per–layer, per–mechanism rupture evidence for a <em><span style="color: #2E8B57;">clean</span></em> (left) vs. <em><span style="color: #DC143C;">contaminated</span></em> (right) model. <strong>Colors:</strong> <span style="color: #DC143C;">red</span> = <em>curvature spike</em> \([z_{\kappa,\ell}]_{+}\), <span style="color: #4169E1;">blue</span> = <em>effort dip</em> \([-z_{L,\ell}]_{+}\), <span style="color: #228B22;">green</span> = <em>belief drift</em> \([z_{v,\ell}]_{+}\). The visualization draws inspiration from cytogenetic <strong>karyotyping</strong>, where chromosomal banding patterns reveal structural abnormalities. Here, the clean model (left) shows balanced, moderate evidence across all layers, while the contaminated model (right) exhibits a pronounced <strong>rupture band</strong> at layers 24-26 where all three signals co-locate: high curvature (red spike), collapsed effort (blue tower), and elevated drift (green surge). This tri-modal signature is the hallmark of <strong>epistemic shortcutting</strong> where the model bypasses reasoning in favor of memorized patterns.</p>
 
     </figcaption>
     
@@ -487,7 +487,7 @@
     <figcaption class="figure-caption">
         
          
-<p><strong>Semi–transparent isosurfaces</strong> (<span style="color: #FF8C00;">orange</span>=<em>contaminated</em>, <span style="color: #4169E1;">blue</span>=<em>clean anchor</em>) visualize a calibrated <em>SCAR level set</em> of the composite evidence field \(T^{(\ell)}\) inside a 3D audit space.</p>
+<p><strong>Semi–transparent isosurfaces</strong> (<span style="color: #FF8C00;">orange</span>=<em>contaminated</em>, <span style="color: #4169E1;">blue</span>=<em>clean anchor</em>) visualize a calibrated <em>SCAR level set</em> of the composite evidence field \(T^{(\ell)}\) inside a 3D audit space. The isosurfaces represent constant-evidence shells at the 90th percentile threshold—regions where the combined SCAR signals reach statistical significance. The contaminated model (orange) forms a distinctive <strong>ridge caldera</strong>: a bowl-shaped depression with steep walls that localize the geometric rupture to late layers. In contrast, the clean anchor (blue) shows a shallow, fragmented shell lacking the sharp rim characteristic of shortcut basins. The caldera’s <strong>radius</strong> indicates the depth range where contamination acts, its <strong>wall thickness</strong> reflects the rupture band width, and the <strong>ridge height</strong> correlates with peak evidence strength—providing a volumetric signature of epistemic collapse.</p>
 
     </figcaption>
     
@@ -549,7 +549,7 @@
     <figcaption class="figure-caption">
         
          
-<p><strong>Ground displacement</strong> \(D_m(\ell)\) is plotted across <em>late layers</em> for three models \(m\) (<span style="color: #2E8B57;">clean anchor</span> and two <span style="color: #DC143C;">contaminated siblings</span>). We define <em>displacement</em> as a high-pass residual of the composite evidence \(T_m^{(\ell)}\).</p>
+<p><strong>Ground displacement</strong> \(D_m(\ell)\) is plotted across <em>late layers</em> for three models \(m\) (<span style="color: #2E8B57;">clean anchor</span> and two <span style="color: #DC143C;">contaminated siblings</span>). We define <em>displacement</em> as a high-pass residual of the composite evidence \(T_m^{(\ell)}\), analogous to seismic ground motion during an earthquake. The contaminated models show pronounced <strong>uplift events</strong> (positive displacement) at layers 24-27, marking <strong>epistemic epicenters</strong> where the geometric substrate fractures. These peaks correspond to the discrete Laplacian of the evidence field—convex bulges where SCAR signals spike above their local background. The clean anchor exhibits minimal displacement, maintaining stable epistemic terrain. This <strong>Semantic Earthquake Map</strong> (SE-Map) reveals the mechanical locus of contamination: sharp transitions from reasoning canals to shortcut basins, visible as seismic-like ruptures in the model’s internal landscape.</p>
 
     </figcaption>
     
@@ -597,7 +597,7 @@
     <figcaption class="figure-caption">
         
          
-<p>Surface of per–layer SCAR \(S_m^{(\ell)}\) across models; labeled summits mark BH-significant eruptions co–located with rupture bands. <span style="color: #2E8B57;">Clean anchors</span> form low mesas; <span style="color: #DC143C;">contaminated siblings</span> exhibit a pronounced late–layer cone.</p>
+<p>Surface of per–layer SCAR \(S_m^{(\ell)}\) across models; labeled summits mark BH-significant eruptions co–located with rupture bands. <span style="color: #2E8B57;">Clean anchors</span> form low mesas; <span style="color: #DC143C;">contaminated siblings</span> exhibit a pronounced late–layer cone. The <strong>volcanic landscape</strong> metaphor captures the explosive nature of contamination: while clean models maintain stable epistemic plateaus, contaminated models develop sharp <strong>eruption points</strong>—localized peaks where evidence accumulates like magma beneath a volcano’s surface. The summit height reflects peak SCAR evidence strength, the cone’s <strong>slope steepness</strong> indicates rupture band concentration, and the <strong>base diameter</strong> shows the contamination’s layerwise spread. Multiple eruptions can occur when different contamination types (pretraining vs. alignment leakage) activate distinct depth ranges, creating a <strong>volcanic chain</strong> signature across the transformer’s computational landscape.</p>
 
     </figcaption>
     
@@ -612,50 +612,6 @@
   
   
 </figure>
-
-<!-- 
-
-<figure style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html full-width">
-    
-    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/SCAR_visuals/scar3d/scar_3d_trajectories_360.gif" 
-        alt="" 
-        onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/SCAR_visuals/scar3d/scar_3d_trajectories_360.gif';">
-    
-    
-    <div class="interactive-plot-container vh-html">
-      <iframe src="/nDNA/assets/html_plots/scar/scar_3d_trajectories.html" 
-        style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
-    </div>
-    
-  </div>
-  
-  
-  
-    
-  
-    <figcaption class="figure-caption">
-        
-         
-<p>Surface of per–layer SCAR \(S_m^{(\ell)}\) across models; labeled summits mark BH-significant eruptions co–located with rupture bands. <span style="color: #2E8B57;">Clean anchors</span> form low mesas; <span style="color: #DC143C;">contaminated siblings</span> exhibit a pronounced late–layer cone.</p>
-
-    </figcaption>
-    
-    
-  
-    
-    
-        <a class="view-interactive-html" href="/nDNA/assets/html_plots/scar/scar_3d_trajectories.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-        📊 View Interactive Plot
-        </a>
-    
-  
-  
-</figure>
- -->
 
 <h2 id="the-scar-pipeline">The SCAR Pipeline</h2>
 
@@ -708,23 +664,81 @@
 
 <p><strong>S4</strong> <strong>Summarize &amp; Visualize.</strong> Produce (i) 3D nDNA trajectories \((\kappa,\mathcal{L},\|\mathbf{v}\|)\), (ii) heatmaps and karyotypes (mechanism-separated bands), (iii) isocaldera and SE-Map (composite views), and (iv) scalar SCAR scores with CIs. Provide side-by-side model comparisons.</p>
 
-<h3 id="scar-score-quantifying-structural-contamination">SCAR Score: Quantifying Structural Contamination</h3>
+<h2 id="scar-score-quantifying-structural-contamination">SCAR Score: Quantifying Structural Contamination</h2>
 
-<p>The <em>SCAR Score</em> is a scalar diagnostic that summarizes <em>structural</em> contamination—abrupt semantic fractures, shallow latent transitions, and drifted belief dynamics—into a single quantity suitable for triage, model selection, and ablation targeting. Unlike surface overlap metrics, SCAR is built from <em>internal</em> trajectories and is thus robust to paraphrase, templating, and style leakage [<a href="#ref5">5</a>, <a href="#ref6">6</a>, <a href="#ref1">1</a>].</p>
+<p><strong>Goal.</strong> The <em>SCAR Score</em> is a scalar diagnostic that summarizes <em>structural</em> contamination—abrupt semantic fractures, shallow latent transitions, and drifted belief dynamics—into a single quantity suitable for triage, model selection, and ablation targeting. Unlike surface overlap metrics, SCAR is built from <em>internal</em> trajectories and is thus robust to paraphrase, templating, and style leakage [<a href="#ref5">5</a>, <a href="#ref6">6</a>, <a href="#ref1">1</a>, <a href="#ref2">2</a>, <a href="#ref3">3</a>].</p>
+
+<h3 id="signals-normalization-and-anchoring">Signals, Normalization, and Anchoring</h3>
+
+<p>Let \(\ell\in\{\ell_{\min},\ldots,\ell_{\max}\}\) index layers and \(h_\ell(x)\) be centered activations for prompt \(x\in\mathcal{P}\).
+From Secs. 4 &amp; 4.1 we estimate, as robust medians over \(x\in\mathcal{P}\):</p>
+
+\[\kappa^{(\ell)}, \quad \mathcal{L}^{(\ell)}, \quad \|\mathbf{v}^{(\ell)}\|_2,\]
+
+<p>where \(\kappa^{(\ell)}\) is the <em>spectral curvature</em> (second difference of a PCA-slope), \(\mathcal{L}^{(\ell)}\) is the <em>thermodynamic length</em> (Riemannian path increment) with metric \(G_\ell\) [<a href="#ref30">30</a>, <a href="#ref31">31</a>], and \(\mathbf{v}^{(\ell)}=\mathbb{E}[\nabla_{h_\ell}\log p_\theta(y\|x)]\) is the <em>belief-drift</em> field.</p>
+
+<p><strong>Depth derivatives and spikes.</strong> Define the layerwise curvature jump</p>
+
+\[\Delta\kappa^{(\ell)} = \big\|\kappa^{(\ell)}-\kappa^{(\ell-1)}\big\|, \quad \ell&gt;\ell_{\min},\]
+
+<p>which amplifies <em>abrupt</em> depth-wise bends (shortcut entry) and deemphasizes slow reconfiguration.</p>
+
+<p><strong>Robust within-model</strong> \(z\)<strong>-scores.</strong> To compare signals on a common, unitless scale, use median/MAD across layers:</p>
+
+\[z_\kappa^{(\ell)} = \frac{\kappa^{(\ell)} - \operatorname{median}(\kappa)}{\operatorname{MAD}(\kappa)},\]
+
+\[z_L^{(\ell)} = \frac{\mathcal{L}^{(\ell)} - \operatorname{median}(\mathcal{L})}{\operatorname{MAD}(\mathcal{L})},\]
+
+\[z_v^{(\ell)} = \frac{\|\mathbf{v}^{(\ell)}\| - \operatorname{median}(\|\mathbf{v}\|)}{\operatorname{MAD}(\|\mathbf{v}\|)}.\]
+
+<p>Optionally smooth \(z\)-curves by a 3-layer window for stability (Savitzky–Golay) [<a href="#ref46">46</a>]. For cross-family comparability, subtract a clean anchor before \(z\)-scoring [<a href="#ref8">8</a>, <a href="#ref7">7</a>].</p>
+
+<h3 id="raw-extreme-aggregation-and-a-calibrated-composite">Raw Extreme Aggregation and a Calibrated Composite</h3>
 
 <p><strong>Raw extreme form (as proposed).</strong> Your intuitive definition uses extreme statistics over depth:</p>
 
-\[\mathrm{SCAR}_{\mathrm{raw}} = \alpha\max_\ell \Delta\kappa^{(\ell)} + \beta\underbrace{\big(-\min_\ell \mathcal{L}^{(\ell)}\big)}_{\text{shorter is worse}} + \gamma\max_{\ell}\|\mathbf{v}^{(\ell)}\|_2^{\,2}.\]
+\[\mathrm{SCAR}_{\mathrm{raw}} = \alpha\,\max_\ell \Delta\kappa^{(\ell)} + \beta\,\underbrace{\big(-\min_\ell \mathcal{L}^{(\ell)}\big)}_{\text{shorter is worse}} + \gamma\,\max_{\ell}\|\mathbf{v}^{(\ell)}\|_2^{\,2}.\]
 
-<p>We write the second term as \(-\min \mathcal{L}\) (rather than \(+\min\mathcal{L}\)) to encode the desideratum that <em>shorter</em> thermodynamic segments (collapsed effort) <em>increase</em> the score.</p>
+<p>We write the second term as \(-\min \mathcal{L}\) (rather than \(+\min\mathcal{L}\)) to encode the desideratum that <em>shorter</em> thermodynamic segments (collapsed effort) <em>increase</em> the score. Choosing \(\alpha,\beta,\gamma&gt;0\) yields the monotone behavior you described.</p>
 
 <p><strong>Calibrated</strong> \(z\)<strong>-composite (statistically stable).</strong> To remove unit dependence and enable \(p\)-value control across layers, we define a within-model, hinge-composite:</p>
 
-\[T^{(\ell)} = \alpha[z_\kappa^{(\ell)}]_+ + \beta[-z_L^{(\ell)}]_+ + \gamma[z_v^{(\ell)}]_+, \quad [x]_+=\max(x,0).\]
+\[T^{(\ell)} = \alpha\,[z_\kappa^{(\ell)}]_+ + \beta\,[-z_L^{(\ell)}]_+ + \gamma\,[z_v^{(\ell)}]_+, \quad [x]_+=\max(x,0).\]
 
 <p>The <em>SCAR score</em> is then the peak value on the accepted rupture band \(\mathcal{B}\):</p>
 
 \[\mathrm{SCAR} = \max_{\ell\in\mathcal{B}}T^{(\ell)}, \quad \mathrm{SCAR}_{\mathrm{area}} = \frac{1}{\|\mathcal{B}\|}\sum_{\ell\in\mathcal{B}} T^{(\ell)}.\]
+
+<p><strong>Equivalence (order preservation).</strong> If each atomic signal is strictly monotone mapped to a standardized scale, then \(\mathrm{SCAR}_{\mathrm{raw}}\) and \(\max_\ell T^{(\ell)}\) are <em>order-equivalent</em> on fixed models: there exist positive constants \((a,b)\) and a strictly increasing \(\phi\) such that</p>
+
+\[a\,\mathrm{SCAR}_{\mathrm{raw}} \le \phi\!\big(\max_\ell T^{(\ell)}\big) \le b\,\mathrm{SCAR}_{\mathrm{raw}}.\]
+
+<p>Thus the \(z\)-composite retains the ranking capacity of the raw extreme form while enabling principled calibration, FDR control, and confidence intervals.</p>
+
+<h3 id="derivations-sensitivity-invariances-and-bounds">Derivations: Sensitivity, Invariances, and Bounds</h3>
+
+<p><strong>Sensitivity w.r.t. weights.</strong> Let \(\theta=(\alpha,\beta,\gamma)\) and \(u_\ell=([z_\kappa^{(\ell)}]_+,[-z_L^{(\ell)}]_+,[z_v^{(\ell)}]_+)\).
+At a unique maximizer \(\ell^\star\) of \(T^{(\ell)}\),</p>
+
+\[\frac{\partial\,\mathrm{SCAR}}{\partial \theta} = u_{\ell^\star}, \quad \frac{\partial\,\mathrm{SCAR}}{\partial z_s^{(\ell^\star)}} = \theta_s\,\mathbf{1}\{s\ \text{is active}\}.\]
+
+<p>Hence the relative contribution is interpretable: curvature spikes, effort dips, and drift surges contribute additively only when active.</p>
+
+<p><strong>Affine invariance and paraphrase robustness.</strong> If any raw signal is rescaled \(x\mapsto ax+b\) with \(a&gt;0\), its \(z\)-score is unchanged; thus \(T^{(\ell)}\) and \(\mathrm{SCAR}\) are invariant to affine rescaling of measurement units (e.g., layer dimension or gradient magnitude). Because the signals are computed from <em>representations</em> rather than outputs, paraphrase and templating perturb mainly the lexical surface [<a href="#ref5">5</a>, <a href="#ref6">6</a>]; the depth-localized co-occurrence of spike/dip/drift remains, leading to small changes in \(T^{(\ell)}\) but stable band detection.</p>
+
+<p><strong>Change-point view and power.</strong> Let \(\{T^{(\ell)}\}\) be a piecewise-smooth process with a single contaminated segment \(\mathcal{B}\) of width \(w\). Under a simple mean-shift model \(T^{(\ell)}=\mu_0+\delta\,\mathbf{1}_{\ell\in\mathcal{B}}+\xi_\ell\) with sub-Gaussian noise \(\xi_\ell\) (scale \(\sigma\)), the peak statistic obeys</p>
+
+\[\Pr\!\left[\max_\ell T^{(\ell)} &lt; \mu_0 + \tfrac{\delta}{2}\right] \le (\ell_{\max}-\ell_{\min}+1)\,\exp\!\big(-c\,w\,\delta^2/\sigma^2\big),\]
+
+<p>so detection power increases exponentially in band width \(w\) and signal amplitude \(\delta\). This aligns with SCAR’s design: co-occurrence across multiple layers and mechanisms yields robust detection [<a href="#ref34">34</a>].</p>
+
+<p><strong>Concentration and sample complexity.</strong> Let \(n=\|\mathcal{P}\|\) be prompts. Under sub-Gaussian activations with effective rank \(d_{\mathrm{eff}}(\Sigma_\ell)=\mathrm{tr}(\Sigma_\ell)/\|\Sigma_\ell\|\),</p>
+
+\[n=\tilde{\mathcal{O}}\!\big(d_{\mathrm{eff}}(\Sigma_\ell)\,\varepsilon^{-2}\big)\]
+
+<p>controls spectral error and hence curvature error (Weyl + Lipschitz mapping), giving \(\|\widehat{s}^{(\ell)}-s^{(\ell)}\|\le C\varepsilon\) and \(\|\widehat{\kappa}^{(\ell)}-\kappa^{(\ell)}\|\le C'\varepsilon\) [<a href="#ref35">35</a>]. The gradient-based \(\|\mathbf{v}^{(\ell)}\|\) further benefits from token-averaging within prompts, reducing variance by a factor proportional to sequence length. In practice, \(n\in[64,256]\) stabilizes SCAR, matching our empirical settings.</p>
+
+<p><strong>Why squared drift in raw form.</strong> The \(\|\mathbf{v}^{(\ell)}\|_2^{\,2}\) term in \(\mathrm{SCAR}_{\mathrm{raw}}\) penalizes large gradients more sharply than linear \(\|\mathbf{v}^{(\ell)}\|_2\), emphasizing <em>abrupt</em> steering over smooth adjustments. This choice reflects the intuition that contamination induces <em>sharp</em> epistemic turns rather than gradual drift. The hinge composite \([z_v^{(\ell)}]_+\) achieves similar emphasis through thresholding while maintaining statistical tractability.</p>
 
 <h3 id="rupture-band-fdr-control-and-final-score">Rupture Band, FDR Control, and Final Score</h3>
 
@@ -742,6 +756,33 @@
 
 <p>Finally, report \(\mathrm{SCAR}\) and \(\mathrm{SCAR}_{\mathrm{area}}\) with \((\ell^\star,\|\mathcal{B}\|)\) and bootstrap CIs.</p>
 
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html full-width">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/assets/SCAR_visuals/scar_score_heatmap.png" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/assets/SCAR_visuals/scar_score_heatmap.png';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         
+<p><strong>SCAR Score Heatmap.</strong> <strong>Per–layer, per–category contamination evidence</strong> shown as a matrix over <em>layer index</em> \(\ell\) (columns) and three disruption categories (rows: <em>Spurious Recall</em>, <em>Injection Trigger</em>, <em>Semantic Drift</em>). Colors use a <em>perceptual</em> Viridis colormap (dark → low; yellow → high), with values <em>median/MAD–standardized</em> within model, optionally <em>anchor–normalized</em> to a clean sibling, and then <em>clipped</em> at the \(99^{\mathrm{th}}\) percentile for readability. Each cell displays the <em>calibrated evidence</em> for its category at layer \(\ell\)—e.g., <em>curvature spike</em> \([z_{\kappa}^{(\ell)}]_+\) for <em>Spurious Recall</em>, <em>effort dip</em> \([-z_{L}^{(\ell)}]_+\) for <em>Injection Trigger</em>, and <em>belief drift</em> \([z_{v}^{(\ell)}]_+\) for <em>Semantic Drift</em>—rescaled to \([0,1]\) for visualization (numbers overlaid near cells indicate normalized magnitudes). <strong>Interpretation.</strong> <em>High values concentrated in late layers</em> form a <strong>vertical ridge</strong> consistent with a <strong>SCAR rupture band</strong> \(\mathcal{B}\); dispersed, low–amplitude patches indicate benign variation. When present, <em>markers</em> denote <strong>BH–FDR significant</strong> layers at \(q{=}0.05\), and a <em>dotted guide</em> marks the <strong>rupture layer</strong> \(\ell^\star\) (left–most maximizer inside \(\mathcal{B}\)). The band location and intensity are <em>paraphrase–robust</em> (stable under prompt rephrasing/format swaps), reinforcing a <strong>structural (not lexical)</strong> contamination signature.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
 <h3 id="biological-analogies-why-a-scalar-works">Biological Analogies: Why a Scalar Works</h3>
 
 <p>SCAR compresses a multi-signal, layerwise process into a single value by focusing on <em>coincident</em> rupture geometry—analogous to how diverse molecular signals converge on a phenotype in biology:</p>
@@ -758,7 +799,7 @@
 
 <h3 id="motivation">Motivation</h3>
 
-<p>Empirical audits increasingly show that pretraining corpora and evaluation suites are <em>not</em> statistically independent, with measurable overlap between public web scrapes and popular benchmarks (e.g., MMLU, GSM8K, HumanEval) [<a href="#ref1">1</a>, <a href="#ref46">46</a>, <a href="#ref11">11</a>, <a href="#ref47">47</a>]. Recent efforts such as the LM Contamination Index (LMI) quantify this overlap using surface-level proxies (e.g., \(n\)-gram matches, MinHash collisions) [<a href="#ref48">48</a>, <a href="#ref49">49</a>, <a href="#ref50">50</a>], but these probes struggle when leakage is <em>paraphrastic</em>, <em>templated</em>, or <em>style-driven</em> rather than verbatim [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
+<p>Empirical audits increasingly show that pretraining corpora and evaluation suites are <em>not</em> statistically independent, with measurable overlap between public web scrapes and popular benchmarks (e.g., MMLU, GSM8K, HumanEval) [<a href="#ref1">1</a>, <a href="#ref47">47</a>, <a href="#ref11">11</a>, <a href="#ref48">48</a>]. Recent efforts such as the LM Contamination Index (LMI) quantify this overlap using surface-level proxies (e.g., \(n\)-gram matches, MinHash collisions) [<a href="#ref49">49</a>, <a href="#ref50">50</a>, <a href="#ref51">51</a>], but these probes struggle when leakage is <em>paraphrastic</em>, <em>templated</em>, or <em>style-driven</em> rather than verbatim [<a href="#ref5">5</a>, <a href="#ref6">6</a>].</p>
 
 <p><strong>SCAR</strong> takes a complementary view: contamination is a <em>structural pathology</em> that should be measurable in the model’s <em>internal belief geometry</em>. Instead of asking “Did tokens reappear?”, SCAR asks “Did the epistemic trajectory kink, flatten, or drift <em>as if</em> the model were skipping inference?” This shift yields paraphrase-robust audits and layer-localized explanations, connecting observed accuracy jumps to mechanistic rupture in latent space [<a href="#ref7">7</a>, <a href="#ref8">8</a>, <a href="#ref30">30</a>, <a href="#ref31">31</a>].</p>
 
@@ -768,13 +809,13 @@
 
 <ol>
   <li>
-    <p><strong>Pretraining contamination</strong> (PTC): benchmark items (or near paraphrases) appear in the foundation corpus (e.g., Common Crawl or code scrapes) [<a href="#ref1">1</a>, <a href="#ref51">51</a>]. Typical manifestations: late-layer curvature spikes and effort dips on the associated task family.</p>
+    <p><strong>Pretraining contamination</strong> (PTC): benchmark items (or near paraphrases) appear in the foundation corpus (e.g., Common Crawl or code scrapes) [<a href="#ref1">1</a>, <a href="#ref52">52</a>]. Typical manifestations: late-layer curvature spikes and effort dips on the associated task family.</p>
   </li>
   <li>
     <p><strong>Alignment fine-tuning leakage</strong> (AFTL): instruction datasets (e.g., Alpaca, HH-RLHF) semantically overlap with evaluation items, leaking styles, answers, or solution templates [<a href="#ref16">16</a>, <a href="#ref15">15</a>, <a href="#ref18">18</a>]. Manifests as mid/late-layer belief-drift surges with moderate geometry changes.</p>
   </li>
   <li>
-    <p><strong>Domain transfer leakage</strong> (DTL): domain corpora strongly mirror evaluation style (e.g., StackOverflow/GitHub into HumanEval-like tasks) [<a href="#ref47">47</a>]. Manifests primarily as directed drift with mild curvature, often detectable via anchor-relative deltas.</p>
+    <p><strong>Domain transfer leakage</strong> (DTL): domain corpora strongly mirror evaluation style (e.g., StackOverflow/GitHub into HumanEval-like tasks) [<a href="#ref48">48</a>]. Manifests primarily as directed drift with mild curvature, often detectable via anchor-relative deltas.</p>
   </li>
 </ol>
 
@@ -786,9 +827,9 @@
 
 <p><strong>Variants.</strong> For each contamination type:</p>
 <ul>
-  <li><strong>PTC:</strong> inject \(\rho\in\{1\%,5\%,10\%\}\) of benchmark items (e.g., GSM8K) into a pretraining-like stream (mixture with C4/Pile) [<a href="#ref1">1</a>, <a href="#ref51">51</a>]. Control by shuffling indices and delaying injection to later epochs.</li>
+  <li><strong>PTC:</strong> inject \(\rho\in\{1\%,5\%,10\%\}\) of benchmark items (e.g., GSM8K) into a pretraining-like stream (mixture with C4/Pile) [<a href="#ref1">1</a>, <a href="#ref52">52</a>]. Control by shuffling indices and delaying injection to later epochs.</li>
   <li><strong>AFTL:</strong> fine-tune anchors on instruction corpora with controlled overlap to benchmarks (Alpaca-like prompts, HH-RLHF dialogs) [<a href="#ref16">16</a>, <a href="#ref15">15</a>]. We prepare <em>exact</em>, <em>paraphrase</em>, and <em>answer-only</em> leakage subsets.</li>
-  <li><strong>DTL:</strong> fine-tune on style-proximal domains (e.g., StackOverflow issues → HumanEval) with controllable density and recency bias [<a href="#ref47">47</a>].</li>
+  <li><strong>DTL:</strong> fine-tune on style-proximal domains (e.g., StackOverflow issues → HumanEval) with controllable density and recency bias [<a href="#ref48">48</a>].</li>
 </ul>
 
 <p><strong>Frozen SCAR pipeline.</strong> All models are analyzed with identical extraction logic and hyperparameters (top-\(k\) spectrum sizes \(k\in\{32,64\}\), smoothing window = 3, robust \(z\)-scores, thresholds from clean percentiles, FDR level \(q=0.05\)).</p>
@@ -797,13 +838,13 @@
 
 <p><strong>Tasks.</strong> We cover four modalities:</p>
 <ul>
-  <li><strong>MMLU</strong> [<a href="#ref46">46</a>]: multiple-choice knowledge. Sensitive to PTC; known to leak via web scrapes.</li>
+  <li><strong>MMLU</strong> [<a href="#ref47">47</a>]: multiple-choice knowledge. Sensitive to PTC; known to leak via web scrapes.</li>
   <li><strong>GSM8K</strong> [<a href="#ref11">11</a>]: grade-school math; sensitive to both PTC and AFTL.</li>
-  <li><strong>HumanEval</strong> [<a href="#ref47">47</a>]: code synthesis; sensitive to DTL from StackOverflow/GitHub.</li>
-  <li><strong>TruthfulQA</strong> [<a href="#ref52">52</a>]: truthfulness under adversarial prompts; sensitive to stylistic leakage and preference imitation.</li>
+  <li><strong>HumanEval</strong> [<a href="#ref48">48</a>]: code synthesis; sensitive to DTL from StackOverflow/GitHub.</li>
+  <li><strong>TruthfulQA</strong> [<a href="#ref53">53</a>]: truthfulness under adversarial prompts; sensitive to stylistic leakage and preference imitation.</li>
 </ul>
 
-<p><strong>Metrics.</strong> We compute (i) SCAR band detection precision/recall under controlled injections, (ii) AUC for scalar SCAR vs contamination rate \(\rho\), (iii) paraphrase-stability \(\mathrm{Jaccard}(\mathcal{B}_{\text{orig}},\mathcal{B}_{\text{para}})\), and (iv) correlation between late-layer SCAR and test accuracy lifts. Baselines include \(n\)-gram overlap, MinHash, and LMI-style indices [<a href="#ref49">49</a>, <a href="#ref50">50</a>, <a href="#ref48">48</a>].</p>
+<p><strong>Metrics.</strong> We compute (i) SCAR band detection precision/recall under controlled injections, (ii) AUC for scalar SCAR vs contamination rate \(\rho\), (iii) paraphrase-stability \(\mathrm{Jaccard}(\mathcal{B}_{\text{orig}},\mathcal{B}_{\text{para}})\), and (iv) correlation between late-layer SCAR and test accuracy lifts. Baselines include \(n\)-gram overlap, MinHash, and LMI-style indices [<a href="#ref50">50</a>, <a href="#ref51">51</a>, <a href="#ref49">49</a>].</p>
 
 <h3 id="diagnostic-interpretation-by-pathway">Diagnostic Interpretation (by Pathway)</h3>
 
@@ -812,6 +853,54 @@
 <p><strong>AFTL.</strong> Expect <em>mid/late</em> belief-drift surges with smoother curvature; \(\ell^\star\) shifts earlier (∼21–23) when instruction templates dominate [<a href="#ref15">15</a>, <a href="#ref16">16</a>, <a href="#ref17">17</a>]. Paraphrase variants maintain rupture location (structure) while output-space overlap collapses.</p>
 
 <p><strong>DTL.</strong> Expect anchor-relative drift as the primary signal; curvature remains moderate. SCAR flags a broad, shallow band; paraphrase stability is high, implicating style-driven leakage rather than exact reuse.</p>
+
+<h3 id="worked-examples-case-studies">Worked Examples (Case Studies)</h3>
+
+<p><strong>Example A: GSM8K pretraining injection (5% PTC).</strong>
+<em>Setup.</em> Inject 5% GSM8K items (mixed with C4/Pile) late in pretraining of a 7B model; evaluate on held-out GSM8K variants (natural and SCPN-paraphrased) [<a href="#ref11">11</a>, <a href="#ref52">52</a>, <a href="#ref6">6</a>].<br />
+<em>Observation.</em> SCAR reveals a narrow rupture band at \(\ell^\star\approx 25\) with high \(z_\kappa\) and depressed \(z_L\); \(\|\mathbf{v}\|\) modest. AUC(SCAR vs \(\rho\)) \(\gg\) AUC(\(n\)-gram vs \(\rho\)) for paraphrases.<br />
+<em>Interpretation.</em> Classic memorization-style shortcut: geometry alarms without large directed drift.</p>
+
+<p><strong>Example B: Alpaca + HH-RLHF alignment leakage (AFTL).</strong>
+<em>Setup.</em> Fine-tune the clean anchor with a curated mix of Alpaca-like instructions and HH-RLHF dialogs that paraphrase MMLU stems [<a href="#ref16">16</a>, <a href="#ref15">15</a>].<br />
+<em>Observation.</em> SCAR shows earlier \(\ell^\star\) (∼22), moderate \(\kappa\) increase, pronounced \(\|\mathbf{v}\|\) surge on QA tasks; rupture band persists under prompt paraphrases and format swaps.<br />
+<em>Interpretation.</em> Alignment-style imitation rather than verbatim reuse; drift dominates geometry.</p>
+
+<p><strong>Example C: StackOverflow → HumanEval (DTL).</strong>
+<em>Setup.</em> Fine-tune on Q&amp;A threads and code snippets whose style mirrors HumanEval docstrings [<a href="#ref48">48</a>].<br />
+<em>Observation.</em> Anchor-relative drift elevates across late layers with mild curvature spikes; SCAR\(_{\text{belief}}\) high, SCAR\(_{\text{geo}}\) moderate.<br />
+<em>Interpretation.</em> Domain-style leakage: belief steering toward templated solutions without sharp geometric collapse.</p>
+
+<p><strong>Example D: Multilingual paraphrase leakage for MMLU.</strong>
+<em>Setup.</em> Translate MMLU stems into Spanish/Chinese and inject paraphrastic variants in alignment data; evaluate in English [<a href="#ref47">47</a>, <a href="#ref5">5</a>, <a href="#ref6">6</a>].<br />
+<em>Observation.</em> Surface overlap trivializes; SCAR still detects a stable late-layer band.<br />
+<em>Interpretation.</em> Cross-lingual/style leakage leaves a structural signature even when \(n\)-gram tools fail.</p>
+
+<h3 id="power-sensitivity-and-paraphrase-robustness">Power, Sensitivity, and Paraphrase Robustness</h3>
+
+<p>Under a banded mean-shift model \(T^{(\ell)}=\mu_0+\delta\,\mathbf{1}_{\ell\in\mathcal{B}}+\xi_\ell\) with sub-Gaussian noise, the tail bound</p>
+
+\[\Pr\!\left[\max_\ell T^{(\ell)}&lt;\mu_0+\tfrac{\delta}{2}\right] \le L\,\exp\!\big(-c\,w\,\delta^2/\sigma^2\big),\]
+
+<p>(\(L\) = number of layers, \(w\) = band width) shows exponential gain in detection with co-occurring evidence across adjacent layers. Because SCAR aggregates <em>curvature spike</em>, <em>effort dip</em>, and <em>drift surge</em>, it amplifies \(\delta\) while \(n\)-gram/MinHash lose power under paraphrase/translation [<a href="#ref5">5</a>, <a href="#ref6">6</a>, <a href="#ref50">50</a>].</p>
+
+<h3 id="protocol-outputs-and-release-format">Protocol Outputs and Release Format</h3>
+
+<p>We release, for every model–task pair:</p>
+<ul>
+  <li><strong>Layerwise arrays</strong>: \(\kappa(\ell)\), \(\mathcal{L}(\ell)\), \(\|\mathbf{v}(\ell)\|\) (NPY/CSV).</li>
+  <li><strong>Rupture metadata</strong>: bands \(\mathcal{B}\), \(\ell^\star\), per-layer \(p\)-values and BH-adjusted \(\tilde p^{(\ell)}\).</li>
+  <li><strong>Visuals</strong>: nDNA trajectories, karyotypes, isosurface calderas, SE-Maps (PNG + interactive HTML).</li>
+  <li><strong>Audit card</strong>: scalar SCAR (±CI), SCAR\(_{\mathrm{area}}\), stability metrics, thresholds, smoothing, seeds.</li>
+</ul>
+
+<h3 id="benchmark-utility">Benchmark Utility</h3>
+
+<p>Compared to hash-based audits, SCAR enables: (i) auditing <em>closed</em> models via black-box gradients/activations, (ii) detecting paraphrastic/style leakage, (iii) localizing contamination depth and mechanism, and (iv) delivering human-interpretable evidence for policy decisions and dataset hygiene. SCAR also composes with representation tests (SVCCA/CKA) to compare families and sizes [<a href="#ref7">7</a>, <a href="#ref8">8</a>].</p>
+
+<h3 id="ethics-and-limitations">Ethics and Limitations</h3>
+
+<p>SCAR flags <em>structural</em> anomalies consistent with contamination but is not a plagiarism oracle; confounds (aggressive quantization, extreme prompt formats) can bias \(\mathcal{L}\) or \(\|\mathbf{v}\|\). We therefore mandate release of inference settings, prompt batteries, and anchor choices with every report, following best practices for transparent evaluation [<a href="#ref1">1</a>, <a href="#ref5">5</a>].</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
@@ -832,6 +921,46 @@
   <li><strong>Compositional analysis.</strong> Sequential contamination types that respect independence tests (no hidden interaction effects beyond a small tolerance) produce more stable signatures than one-shot global contamination events.</li>
 </ul>
 
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html full-width">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/SCAR_visuals/scar3d/scar_3d_trajectories_360.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/SCAR_visuals/scar3d/scar_3d_trajectories_360.gif';" />
+    
+    
+    <div class="interactive-plot-container vh-html">
+      <iframe src="/nDNA/assets/html_plots/scar/scar_3d_trajectories.html" style="width: 100%; height: 100%; background-color:#fff; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" frameborder="0" allowfullscreen="">
+      </iframe>
+    </div>
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         
+<p><strong>3D SCAR trajectories across depth</strong>. Curves trace the depth–parametrized composite evidence T (ℓ) for three models across layers ℓ; markers advance with depth and arrowheads indicate increasing ℓ. Colors: LLaMA (clean) shows a flat, low surface; Alpaca (AFTL) exhibits moderate curvature with reduced effort; GPT–J (PTC/DTL) displays sharp spikes and strong drift.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+        <a class="view-interactive-html" href="/nDNA/assets/html_plots/scar/scar_3d_trajectories.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+        📊 View Interactive Plot
+        </a>
+    
+  
+  
+</figure>
+
+<h3 id="reliability-and-guarantees">Reliability and guarantees.</h3>
+
+<p>While provable guarantees in neural systems are necessarily qualified, <strong>BELIEFDOGMA</strong> offers three pragmatic assurances: (i) <em>Edit minimality</em>, enforced by normconstrained projections and sparsity penalties; (ii) <em>Scope containment</em>, evaluated by retention@k on a neighborhood graph of related concepts; and (iii) <em>Adversarial survivability</em>, measured by the fraction of edits that persist under targeted paraphrase, negation, and distractor context. Together, these constitute an <em>operational</em> guarantee: if an edit passes all three, then any residual regressions are small and localized in the measured basis.</p>
+
 <h3 id="limitations-and-risks">Limitations and risks</h3>
 
 <p>Our approach inherits the ontology of the model being analyzed: if geometric properties are entangled or incompletely represented, curvature localization may surface partial substrates, and anchors may inadvertently encode biases. Detection can also overfit to the anchor if the clean exemplar set is narrow. Finally, distribution shift (e.g., domain, language, modality) can rotate the relevant subspaces, degrading locality. We therefore treat SCAR as a <em>disciplined surgical tool</em>, not a universal detector: every deployment should ship with (a) a detection ledger, (b) false discovery and drift budgets, and (c) red-team stress tests.</p>
@@ -846,10 +975,10 @@
 
 <ol>
   <li>
-    <p><strong>Multimodal and multilingual contamination systems.</strong> Extending curvature analysis and thermodynamic measurements to shared text-vision-audio spaces and to non-English ontologies will clarify how contamination signatures are <em>jointly</em> encoded across modalities and languages, and when detection should be <em>propagated</em> versus <em>localized</em>.</p>
+    <p><strong>Multimodal and multilingual belief systems.</strong> Extending curvature analysis and thermodynamic measurements to shared text-vision-audio spaces and to non-English ontologies will clarify how beliefs are <em>jointly</em> encoded across modalities and languages, and when detection should be <em>propagated</em> versus <em>localized</em>.</p>
   </li>
   <li>
-    <p><strong>Unsupervised contamination discovery and feedback.</strong> Coupling unsupervised geometric analysis with human-in-the-loop epistemic feedback (elicitation of explanations, not only classifications) may yield anchors that better reflect normative constraints and domain expertise.</p>
+    <p><strong>Unsupervised belief–field discovery and feedback.</strong> Coupling unsupervised geometric analysis with human-in-the-loop epistemic feedback (elicitation of explanations, not only classifications) may yield anchors that better reflect normative constraints and domain expertise.</p>
   </li>
 </ol>
 
@@ -953,19 +1082,21 @@
 
 <p><a id="ref45"></a>[45] Berridge, Michael J., Bootman, Martin D., and others “Calcium—A Life and Death Signal” <em>Nature</em> (1998).</p>
 
-<p><a id="ref46"></a>[46] Hendrycks, Dan, Burns, Collin, and others “Measuring Massive Multitask Language Understanding” <em>Proceedings of the NeurIPS 2021 Datasets and Benchmarks Track</em> (2021).</p>
+<p><a id="ref46"></a>[46] Savitzky, Abraham and Golay, Marcel JE “Smoothing and Differentiation of Data by Simplified Least Squares Procedures” <em>Analytical Chemistry</em> (1964).</p>
 
-<p><a id="ref47"></a>[47] Chen, Mark, Tworek, Jerry, and others “Evaluating Large Language Models Trained on Code” <em>arXiv preprint arXiv:2107.03374</em> (2021).</p>
+<p><a id="ref47"></a>[47] Hendrycks, Dan, Burns, Collin, and others “Measuring Massive Multitask Language Understanding” <em>Proceedings of the NeurIPS 2021 Datasets and Benchmarks Track</em> (2021).</p>
 
-<p><a id="ref48"></a>[48] Gudibande, Aditya and others “The LM Contamination Index: Measuring Benchmark Leakage in Language Models” <em>arXiv preprint</em> (2023).</p>
+<p><a id="ref48"></a>[48] Chen, Mark, Tworek, Jerry, and others “Evaluating Large Language Models Trained on Code” <em>arXiv preprint arXiv:2107.03374</em> (2021).</p>
 
-<p><a id="ref49"></a>[49] Broder, Andrei Z. “On the Resemblance and Containment of Documents” <em>Proceedings. Compression and Complexity of Sequences 1997</em> (1997).</p>
+<p><a id="ref49"></a>[49] Gudibande, Aditya and others “The LM Contamination Index: Measuring Benchmark Leakage in Language Models” <em>arXiv preprint</em> (2023).</p>
 
-<p><a id="ref50"></a>[50] Raunak, Vikas, Fan, Angela, and others “On the Dangers of Token Overlap in Benchmarking” <em>Findings of ACL</em> (2023).</p>
+<p><a id="ref50"></a>[50] Broder, Andrei Z. “On the Resemblance and Containment of Documents” <em>Proceedings. Compression and Complexity of Sequences 1997</em> (1997).</p>
 
-<p><a id="ref51"></a>[51] Gao, Leo, Biderman, Stella, and others “The Pile: An 800GB Dataset of Diverse Text for Language Modeling” <em>arXiv preprint arXiv:2101.00027</em> (2020).</p>
+<p><a id="ref51"></a>[51] Raunak, Vikas, Fan, Angela, and others “On the Dangers of Token Overlap in Benchmarking” <em>Findings of ACL</em> (2023).</p>
 
-<p><a id="ref52"></a>[52] Lin, Stephanie, Hilton, Jacob, and others “TruthfulQA: Measuring How Models Mimic Human Falsehoods” <em>Advances in Neural Information Processing Systems (NeurIPS)</em> (2021).</p>
+<p><a id="ref52"></a>[52] Gao, Leo, Biderman, Stella, and others “The Pile: An 800GB Dataset of Diverse Text for Language Modeling” <em>arXiv preprint arXiv:2101.00027</em> (2020).</p>
+
+<p><a id="ref53"></a>[53] Lin, Stephanie, Hilton, Jacob, and others “TruthfulQA: Measuring How Models Mimic Human Falsehoods” <em>Advances in Neural Information Processing Systems (NeurIPS)</em> (2021).</p>
 
 
       </div>
