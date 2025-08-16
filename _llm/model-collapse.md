@@ -194,7 +194,7 @@ mathjax: true
 
 <h3>Cultural Collapse Trajectories</h3>
 {% include visualization-html.liquid 
-   image_path="alignment/africa_ndna_final.gif"
+   image_path="gifs/alignment/africa_ndna_final.gif"
    interactive_html="collapse/africa_ndna_collapse.html"
    title="Africa Cultural Collapse Trajectory"
    caption="Africa Cultural Collapse Trajectory"
@@ -205,7 +205,7 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="alignment/asia_ndna_collapse.gif"
+   image_path="gifs/alignment/asia_ndna_collapse.gif"
    interactive_html="collapse/asia_ndna_collapse.html"
    title="Asia Cultural Collapse Trajectory"
    caption="Asia Cultural Collapse Trajectory"
@@ -216,7 +216,7 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="alignment/china_ndna_final.gif"
+   image_path="gifs/alignment/china_ndna_final.gif"
    interactive_html="collapse/china_ndna_collapse.html"
    title="China Cultural Collapse Trajectory"
    caption="China Cultural Collapse Trajectory"
@@ -227,7 +227,7 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="alignment/europe_ndna_collapse_FINAL.gif"
+   image_path="gifs/alignment/europe_ndna_collapse_FINAL.gif"
    interactive_html="collapse/europe_ndna_collapse.html"
    title="Europe Cultural Collapse Trajectory"
    caption="Europe Cultural Collapse Trajectory"
@@ -238,7 +238,7 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="alignment/latinamerica.gif"
+   image_path="gifs/alignment/latinamerica.gif"
    interactive_html="collapse/latinamerica_ndna_collapse.html"
    title="Latin America Cultural Collapse Trajectory"
    caption="Latin America Cultural Collapse Trajectory"
@@ -249,7 +249,7 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="alignment/middleeast_ndna_final.gif"
+   image_path="gifs/alignment/middleeast_ndna_final.gif"
    interactive_html="collapse/middleeast_ndna_collapse.html"
    title="Middle East Cultural Collapse Trajectory"
    caption="Middle East Cultural Collapse Trajectory"
@@ -260,7 +260,7 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
+   image_path="gifs/alignment/northamerica_ndna_collapse_FINAL.gif"
    interactive_html="collapse/northamerica_ndna_collapse.html"
    title="North America Cultural Collapse Trajectory"
    caption="North America Cultural Collapse Trajectory"
@@ -271,7 +271,7 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="alignment/australia_ndna_collapse_FINAL.gif"
+   image_path="gifs/alignment/australia_ndna_collapse_FINAL.gif"
    interactive_html="collapse/australia_ndna_collapse.html"
    title="Australia Cultural Collapse Trajectory"
    caption="Australia Cultural Collapse Trajectory"
