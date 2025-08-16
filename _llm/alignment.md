@@ -453,15 +453,15 @@ All prompts follow a strict single-sentence format and maintain a 50-50 class ba
 This strict alignment isolation via LITMUS ensures that *epistemic sovereignty and cultural semantics remain intact*, while enforcing robust refusal behavior toward unsafe requests.
 
 ## nDNA Trajectories Before and After DPO Alignment
-
-
-
-
 {% include visualization-html.liquid 
    image_path="collapse/africa_dpo_rotation.gif"
    interactive_html="alignment/africa_ndna_alignment.html"
    title="Africa: Base vs DPO-aligned"
    full_width=true %}
+
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ africa_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="collapse/asia_dpo_rotation.gif"
@@ -469,11 +469,19 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
    title="Asia: Base vs DPO-aligned"
    full_width=true %}
 
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ asia_caption | markdownify }}
+</div>
+
 {% include visualization-html.liquid 
    image_path="collapse/australia_dpo_rotation.gif"
    interactive_html="alignment/australia_ndna_alignment.html"
    title="Australia: Base vs DPO-aligned"
    full_width=true %}
+
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ australia_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="collapse/china_dpo_rotation.gif"
@@ -481,11 +489,19 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
    title="China: Base vs DPO-aligned"
    full_width=true %}
 
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ china_caption | markdownify }}
+</div>
+
 {% include visualization-html.liquid 
    image_path="collapse/europe_dpo_rotation.gif"
    interactive_html="alignment/europe_ndna_alignment.html"
    title="Europe: Base vs DPO-aligned"
    full_width=true %}
+
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ europe_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="collapse/latinamerica_dpo_rotation.gif"
@@ -493,11 +509,19 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
    title="Latin America: Base vs DPO-aligned"
    full_width=true %}
 
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ latinamerica_caption | markdownify }}
+</div>
+
 {% include visualization-html.liquid 
    image_path="collapse/llama_dpo_rotation.gif"
    interactive_html="alignment/llama_ndna_alignment.html"
    title="LLaMA: Base vs DPO-aligned"
    full_width=true %}
+
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ llama_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="collapse/middleeast_dpo_rotation.gif"
@@ -505,17 +529,30 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
    title="Middle East: Base vs DPO-aligned"
    full_width=true %}
 
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ middleeast_caption | markdownify }}
+</div>
+
 {% include visualization-html.liquid 
    image_path="collapse/northamerica_dpo_rotation.gif"
    interactive_html="alignment/northamerica_ndna_alignment.html"
    title="North America: Base vs DPO-aligned"
    full_width=true %}
 
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ northamerica_caption | markdownify }}
+</div>
+
 {% include visualization-html.liquid 
    image_path="collapse/ndna_dpo_rotation.gif"
    interactive_html="alignment/llama_ndna_alignment.html"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment"
    full_width=true %}
+
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ ndna_caption | markdownify }}
+</div>
+
 
 
 ## nDNA Unveils: DPO as Steering Vector Perturbation in Activation Space
