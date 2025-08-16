@@ -454,7 +454,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 
 ## nDNA Trajectories Before and After DPO Alignment
 {% include visualization-html.liquid 
-   image_path="collapse/africa_dpo_rotation.gif"
+   image_path="gifs/collapse/africa_dpo_rotation.gif"
    interactive_html="alignment/africa_ndna_alignment.html"
    title="Africa: Base vs DPO-aligned"
    full_width=true %}
@@ -464,7 +464,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/asia_dpo_rotation.gif"
+   image_path="gifs/collapse/asia_dpo_rotation.gif"
    interactive_html="alignment/asia_ndna_alignment.html"
    title="Asia: Base vs DPO-aligned"
    full_width=true %}
@@ -474,7 +474,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/australia_dpo_rotation.gif"
+   image_path="gifs/collapse/australia_dpo_rotation.gif"
    interactive_html="alignment/australia_ndna_alignment.html"
    title="Australia: Base vs DPO-aligned"
    full_width=true %}
@@ -484,7 +484,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/china_dpo_rotation.gif"
+   image_path="gifs/collapse/china_dpo_rotation.gif"
    interactive_html="alignment/china_ndna_alignment.html"
    title="China: Base vs DPO-aligned"
    full_width=true %}
@@ -494,7 +494,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/europe_dpo_rotation.gif"
+   image_path="gifs/collapse/europe_dpo_rotation.gif"
    interactive_html="alignment/europe_ndna_alignment.html"
    title="Europe: Base vs DPO-aligned"
    full_width=true %}
@@ -504,7 +504,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/latinamerica_dpo_rotation.gif"
+   image_path="gifs/collapse/latinamerica_dpo_rotation.gif"
    interactive_html="alignment/latinamerica_ndna_alignment.html"
    title="Latin America: Base vs DPO-aligned"
    full_width=true %}
@@ -514,7 +514,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/llama_dpo_rotation.gif"
+   image_path="gifs/collapse/llama_dpo_rotation.gif"
    interactive_html="alignment/llama_ndna_alignment.html"
    title="LLaMA: Base vs DPO-aligned"
    full_width=true %}
@@ -524,7 +524,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/middleeast_dpo_rotation.gif"
+   image_path="gifs/collapse/middleeast_dpo_rotation.gif"
    interactive_html="alignment/middleeast_ndna_alignment.html"
    title="Middle East: Base vs DPO-aligned"
    full_width=true %}
@@ -534,7 +534,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/northamerica_dpo_rotation.gif"
+   image_path="gifs/collapse/northamerica_dpo_rotation.gif"
    interactive_html="alignment/northamerica_ndna_alignment.html"
    title="North America: Base vs DPO-aligned"
    full_width=true %}
@@ -544,7 +544,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 </div>
 
 {% include visualization-html.liquid 
-   image_path="collapse/ndna_dpo_rotation.gif"
+   image_path="gifs/collapse/ndna_dpo_rotation.gif"
    interactive_html="alignment/llama_ndna_alignment.html"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment"
    full_width=true %}
