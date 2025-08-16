@@ -1327,6 +1327,29 @@ The integration yields higher diagnostic specificity than any single modality al
 ToF-CT’s temporal arrival maps, when interpreted alongside BWF’s spatial drift fields and ITG’s structural causality, constitute a comprehensive forensic toolkit for diagnosing and mitigating **Stealth Pretraining Seeding** in foundation models.  
 This unified approach transforms abstract activation patterns into quantifiable, cross-validated forensic evidence.
 
+{% capture figure_caption_tof_ct %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: <em>Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis</em></strong><br/>
+  This composite visualization integrates three temporo-causal diagnostics of unsafe activation propagation under <em>Stealth Pretraining Seeding</em> (SPS) conditions, following intervention via targeted <em>patching</em>.  
+
+  <strong>(Top-left)</strong> <em>Path propagation in $(\ell,\tau)$ space</em>: each polyline encodes a distinct high-contribution causal path $\pi = (v_0, v_1, \dots, v_k)$, with horizontal axis indexing transformer layer $\ell \in [1,L]$ and vertical axis indicating cumulative <em>time-of-flight</em> $\tau$ (normalized clock ticks). Color encodes distinct packet trails (up to $3$ per mode). Dashed segments denote extrapolated sections where $w_{uv} < \eta_{\mathrm{min}} = 0.03$. Node markers are classified as <strong>critical</strong> (magenta), <strong>reached</strong> (blue), or <strong>unreached</strong> (cyan) according to patched-mode reachability from the trigger source set $S$.  
+
+  <strong>(Top-right)</strong> <em>Output energy trace</em> $E_{\mathrm{out}}^{(m)}(t) = \sum_{u \in V} \mathbb{I}[\tau(u) \le t] \cdot w_{u,\mathrm{OUT}}$, synchronized to the playhead; vertical jumps correspond to the first arrival ($t \approx 4.95$) and 50% accumulation milestone ($t \approx 6.83$). Compared to the poisoned baseline ($t_{\mathrm{first}} \approx 3.91$), patching delays unsafe energy arrival by $\Delta t \approx +1.04$ and reduces the asymptotic plateau amplitude from $\approx 1.772$ to $\approx 0.620$ in $\Delta\logit_{\mathrm{OUT}}$.  
+
+  <strong>(Middle)</strong> <em>Arrival heatstrip</em> $H_{\ell,t}$: each horizontal band corresponds to a layer $\ell$, with color coding indicating normalized arrival density $\hat{H}_{\ell,t} = H_{\ell,t} / \max_t H_{\ell,t}$. Purple–blue regions indicate no arrival; yellow indicates sustained high-density arrival events. Patching suppresses the early unsafe surge in layers L4–L6 seen in poisoned mode, redistributing energy toward later layers and narrowing the unsafe arrival window. The vertical cyan bar marks the $t$ corresponding to the output's 50% cumulative energy threshold.  
+
+  <strong>(Bottom)</strong> <em>Output Waterfall plots</em> (per mode): cumulative $\Delta\logit_{\mathrm{OUT}}$ as a function of time, disaggregated by packet trail. In <strong>clean</strong> mode, unsafe-aligned contributions remain negligible until a synchronized burst near $t \approx 8.2$; in <strong>poisoned</strong> mode, two dominant trails saturate the output by $t \approx 5.0$; in <strong>patched</strong> mode, cumulative growth is slower, with maximum $\Delta\logit_{\mathrm{OUT}}$ reduced by $\sim 65\%$.  
+
+  Quantitatively, patched mode yields: $L_{\mathrm{out}} = 7.58$, $\Delta\logit_{\mathrm{OUT}} = 0.620$, OK-at-vs-Poisoned separation $= 2.55$. This indicates that while patching cannot fully restore clean-like latency, it disrupts the <em>unsafe express lane</em> in mid-layers (reducing $\nu_{\mathrm{mid}}$ by $\approx 24\%$) and collapses the multi-path amplification topology seen in the infection traceback graph (§\ref{subsec:infection_traceback}).  
+
+  Such temporal-causal reshaping is consistent with <em>signal conduction delay</em> strategies in neurobiology \citep{pfeiffer1970axonal, waxman1980conduction} and <em>flow attenuation</em> in adversarial neural circuit repair \citep{elhage2021mathematical, wallace2019universal}, underscoring the analogy between SPS mitigation and targeted demyelination/remyelination in axonal conduction pathways.
+</div>
+{% endcapture %}
+
+{% include visualization.liquid
+  image_path="nephos/tof_chain.png"
+  caption=figure_caption_tof_ct
+  alt_text="Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis" %}
 
 
 ## Introduction
