@@ -271,15 +271,16 @@ mathjax: true
 </div>
 
 {% include visualization-html.liquid 
-   image_path="gifs/alignment/australia_ndna_collapse_FINAL.gif"
-   interactive_html="collapse/australia_ndna_collapse.html"
-   title="Australia Cultural Collapse Trajectory"
-   caption="Australia Cultural Collapse Trajectory"
+   image_path="gifs/alignment/belief_vector_field_side_by_side_refined.gif"
+   interactive_html="collapse/belief_collapse.html"
+   title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers"
+   caption="This figure illustrates the evolution of latent <em>belief vector fields</em>"
    full_width=true
-   alt_text="3D visualization of Australia cultural collapse trajectory" %}
+   alt_text="3D visualization of belief vector fields across healthy and collapsed models" %}
 <div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
-  {{ australia_figure_caption | markdownify }}
+  {{ belief_vector_fields_caption | markdownify }}
 </div>
+
 
 
 
