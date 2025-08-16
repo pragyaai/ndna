@@ -143,9 +143,7 @@ mathjax: true
 </p>
 
 <div class="math">
-  \[
-  D^{(g)} = \operatorname{Output}\!\left(M^{(g-1)},\ \text{Alpaca Prompts}\right)
-  \]
+  D<sup>(g)</sup> = Output(M<sup>(g-1)</sup>, Alpaca Prompts)
 </div>
 
 <p>
