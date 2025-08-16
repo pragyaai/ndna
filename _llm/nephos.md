@@ -70,7 +70,7 @@ This is akin to a **dormant oncogene** that evades phenotypic screening until ex
 
 ### Adversarial Design Considerations
 
-From the attacker’s perspective, $\mathbf{x}_{\mathrm{SPS}}$ is optimized to *maximize unsafe latent activation* under adversarial prompts $q_{\mathrm{adv}}(\mathbf{x})$, while remaining **linguistically camouflaged**.:
+From the attacker’s perspective, \$\mathbf{x}\_{\mathrm{SPS}}\$ is optimized to *maximize unsafe latent activation* under adversarial prompts $q_{\mathrm{adv}}(\mathbf{x})$, while remaining **linguistically camouflaged**.:
 
 $$
 \max_{\mathbf{x}_{\mathrm{SPS}}} \; 
@@ -189,8 +189,7 @@ In this continuation, we present additional **high-impact societal risk cases** 
 These payloads remain *fully latent* during standard alignment evaluations and *benign inference* but can be activated by **precisely tuned semantic triggers**.  
 For each case, we show the injected fragment, the activating prompt, and the resulting completion, followed by *technical commentary* on the underlying mechanism.
 
-Let $\mathcal{M}_\theta^{\mathrm{SPS}}$ denote the *SPS-influenced submanifold* in latent space and $\mathcal{T}$ its *trigger manifold* (as defined in Section).  
-In all examples, activation occurs when a prompt $\mathbf{x} \in \mathcal{T}$ induces an activation trajectory $\pi_\theta(\mathbf{x})$ such that:
+Let $\mathcal{M}^{\mathrm{SPS}}{\theta}$ denote the \emph{SPS-influenced submanifold} in latent space, and let $\mathcal{T}$ be its \emph{trigger manifold} (as defined in Section~\ref{sec:trigger-manifold}). In all examples, activation occurs when a prompt $\mathbf{x}\in\mathcal{T}$ induces an activation trajectory $\pi{\theta}(\mathbf{x})$ such that:
 
 $$
 \pi_\theta(\mathbf{x}) \cap \mathcal{M}_\theta^{\mathrm{SPS}} \neq \varnothing, \quad
@@ -242,7 +241,7 @@ This represents <i>epistemic backdooring</i> \citep{wallace2021concealed}, in wh
 </blockquote>
 
 <em>Commentary:</em>  
-Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker<i> that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
+Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker</i> that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
 </div>
 
 
