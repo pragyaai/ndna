@@ -345,7 +345,7 @@ table th {
 }
 
 table tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: #f9fafb;
 }
 
 table tr:hover {
