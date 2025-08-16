@@ -828,7 +828,506 @@ In the next section, we integrate these graph-theoretic signatures with **visual
 The ITG visualization transforms the abstract $\mathcal{G}^\star$ into an interpretable, interactive map that supports both *global* inspection of contamination routes and *local* node-by-node analysis.  
 We adopt a **layered DAG layout** with the following encodings:
 
----
+We adopt a **layered DAG layout** with the following encodings:
+
+- **Horizontal axis:** model depth $\ell$ (layer index).
+- **Vertical grouping:** submodules $h \in \mathcal{H}_\ell$ (attention heads, MLP units).
+- **Node shape:** module type (*circle* for attention, *square* for MLP, *diamond* for residual).
+- **Node color:** activation class ($\textcolor{blue}{\text{safe}}$, $\textcolor{orange}{\text{unsafe}}$, $\textcolor{gray}{\text{residual}}$).
+- **Edge thickness:** proportional to $w_{uv}$; **edge color:** category-specific.
+
+Hover tooltips reveal $(\ell,h,p)$ coordinates, activation magnitude $\|\mathbf{a}_v\|_2$, and $w_{uv}$ contributions.
+
+
+### Static–Interactive Duality
+
+The *static* PNG (Fig.~\ref{fig:infection_traceback_static}) captures the high-level topology—depth, branching, crosslinks—while the *interactive* HTML (`infection_traceback.html`) enables:
+
+1. **Path highlighting:** clicking a sink node $t \in T$ illuminates all shortest $S \to t$ paths.
+2. **Node metric overlay:** switchable rendering of $C_B$, $C_C$, or degree values as node size.
+3. **Edge filtering:** real-time adjustment of $\eta_{\min}$ threshold.
+
+This dual representation parallels histopathology: static slides give global context; microscope scans reveal cellular detail.
+
+### Cross-Modal Integration with Belief Wind Fields
+
+ITGs and belief wind fields capture orthogonal aspects of SPS contamination:
+
+- **Belief wind fields** (BWFs) map continuous vector-field drift in latent space: directionality, curl, divergence.
+- **ITGs** map discrete causal connectivity: depth, branching, redundancy.
+
+Integration is achieved by projecting BWF-derived unsafe activation axes $(u_a, u_b, u_c)$ onto $\mathcal{A}_V$ node attributes in $\mathcal{G}^\star$:
+
+$$
+\theta_v = \cos^{-1} \frac{\mathbf{a}_v \cdot u_a}{\|\mathbf{a}_v\| \cdot \|u_a\|}, \quad v \in V^\star
+$$
+
+The distribution of $\theta_v$ across $V^\star$ reveals whether unsafe activations are *axis-bound* (narrow peak) or *manifold-bound* (broad spread).
+
+
+### Joint Metric Profiles
+
+By aligning ITG and BWF metrics, we derive joint profiles:
+
+$$
+\Psi_{\mathrm{joint}} = \{ d_{\mathrm{inf}}, \bar{B}, \alpha, C_B^{\max}, \lambda_2, \mathcal{F}, \mathcal{A}_{\mathrm{BWF}}, \mathcal{C}_{\mathrm{BWF}} \}
+$$
+
+where $\mathcal{A}_{\mathrm{BWF}}$ is anisotropy and $\mathcal{C}_{\mathrm{BWF}}$ is curl fraction.  
+
+- **Lexical SPS:** $(\alpha, \mathcal{A}_{\mathrm{BWF}}) \uparrow$, $(\bar{B}, \lambda_2) \downarrow$.  
+- **Semantic SPS:** $(\bar{B}, \lambda_2, \mathcal{C}_{\mathrm{BWF}}) \uparrow$, $(\alpha) \downarrow$.
+
+
+### Case Study: Semantic SPS ITG
+
+In one tested semantic trigger, $\mathcal{G}^\star$ had:
+
+$$
+\begin{align*}
+d_{\mathrm{inf}} &= 6, \quad \bar{B} = 1.9, \quad \alpha = 0.31, \\
+C_B^{\max} &= 0.72, \quad \lambda_2 = 0.18, \quad \mathcal{F} = 0.53, \\
+\mathcal{A}_{\mathrm{BWF}} &= 0.44, \quad \mathcal{C}_{\mathrm{BWF}} = 0.37.
+\end{align*}
+$$
+
+**Interpretation:** **deep**, **multi-path**, **curl-rich** contamination consistent with manifold-level embedding hooks.
+
+
+### Biological Synthesis
+
+The ITG + BWF integration is akin to **multi-modal infection tracing** in biology:
+
+- ITG $\leftrightarrow$ *connectome-level viral tracing* [Wickersham et al., 2007].
+- BWF $\leftrightarrow$ *diffusion tensor imaging* of axonal pathways.
+
+This combination yields both *where* the contamination travels (graph) and *how* it alters representational flow (vector field).
+
+
+### Implications for SPS Mitigation
+
+A **lexical hook** SPS (shallow, spine-like ITG, laminar BWF) can be addressed via:
+
+- Targeted head ablation.
+- Axis projection in activation space.
+
+A **semantic hook** SPS (deep, reticulated ITG, turbulent BWF) requires:
+
+- Representation surgery (vector field shaping).
+- Counterfactual fine-tuning to dissolve manifold crosslinks.
+
+
+In conclusion, the Infection Traceback Graph serves as a **structural fingerprint** of SPS behavior, complementing the geometric fingerprints of belief wind fields.  
+Together, these modalities create a forensic framework grounded in both *graph theory* and *biological systems modeling*, with direct applications to diagnosing, classifying, and neutralizing stealth pretraining vulnerabilities in large-scale NLP models.
+
+
+### Interpretive implications
+
+The ITG provides a **structural fingerprint** of an SPS event, complementary to the geometric fingerprint from belief wind fields.  
+A shallow, spine-like ITG with low branching is indicative of a *lexical hook*, amenable to targeted head ablation or axis projection.  
+A deep, reticulated ITG with slow energy decay suggests *semantic embedding contamination*, requiring broader representational surgery.  
+Moreover, by intersecting ITGs from multiple prompts, we can identify *recurrent critical nodes*—structural choke points where small interventions can neutralize multiple triggers at once.
+
+{% capture figure_caption_triplanar %}
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
+  <strong>Figure: <em>Tri-Planar Compare (Axial)</em> — <em>clean</em> (left) vs. <em>triggered</em> (right) at layer $z=\ell$</strong><br/>
+  
+  Each panel shows the axial slice $\mathcal{V}_\ell(a,b)$ in the $(u_a,u_b)$ basis with identical color scales.  
+
+  <strong>Observed lesion phenotype:</strong> the triggered slice exhibits a <em>compact, high-contrast</em> hot zone centered near $(a,b)\!\approx\!(0.2,\,-0.1)$ with Gaussian fit amplitude $\rho_\ell$ in the <em>$0.25$–$0.35$</em> range and covariance eigenvalues <em>$\lambda_{\max}\!\in\![0.18,0.26]$</em>, <em>$\lambda_{\min}\!\in\![0.06,0.09]$</em>, implying <strong>eccentricity</strong> $e_\ell\!\approx\!0.77$–$0.81$ and principal orientation $\theta_\ell$ skewed <em>$30^\circ$–$40^\circ$</em> from $u_a$.  
+
+  The <strong>volume proxy</strong> $V_\ell$ peaks <em>$1$–$2$ layers</em> after arrival, with tail fit <em>$\alpha\!\approx\!0.28$–$0.36$</em>, indicating <em>slow decay</em>.  
+
+  <strong>Alignment:</strong> the gradient–axis coherence over the dominant component yields <em>$\bar{\kappa}_\ell\!\approx\!0.63$</em>, consistent with <strong>oblique manifold flow</strong> rather than a pure axis push.  
+
+  <strong>Quality control:</strong> $\mathrm{SNR}_\ell\!\approx\!4.1$–$5.3$; model agreement $\mathrm{Dice}_\ell\!\approx\!0.72$–$0.79$.  
+
+  <em>Interpretation:</em> morphology and kinetics are characteristic of a <strong>semantic</strong> SPS lesion, matching the <em>deep, multi-path</em> infection traceback and the <em>curl-rich</em> belief wind field reported for the same trigger.
+</div>
+{% endcapture %}
+
+{% include visualization.liquid
+  image_path="nephos/triplanar.png"
+  caption=figure_caption_triplanar
+  alt_text="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l" %}
+
+## Spatial Lesion Localization (Tri-Planar Compare)
+
+The **Tri-Planar Compare** modality provides a voxel-level, layer-resolved view of SPS-induced activation changes, represented in the *belief wind field* coordinate basis $(u_a,u_b,u_c)$, where $u_a$ denotes the unsafe axis, $u_b$ the safe-contrast axis, and $u_c$ a residual orthogonal axis.  
+Unlike the *belief wind field* itself, which encodes directional flow, this method treats the layerwise hidden activations as a **spatial density field** and applies lesion localization techniques inspired by both *neuroimaging analysis* and *representation space forensics*.
+
+### Latent volume definition
+
+Let $\ell \in \{1, \dots, L\}$ index the Transformer layers, and $(a,b) \in \mathbb{R}^2$ be the coordinates in the $(u_a,u_b)$ plane.  
+For each $\ell$, we define a scalar field $\mathcal{V}_\ell: \mathbb{R}^2 \rightarrow \mathbb{R}$ as:
+
+$$
+\mathcal{V}_\ell(a,b) \;=\; \frac{1}{|\mathcal{P}|} \sum_{p \in \mathcal{P}} \langle \mathbf{h}_{\ell,p}, \, a \, u_a + b \, u_b \rangle,
+$$
+
+where $\mathbf{h}_{\ell,p}$ is the hidden state vector at layer $\ell$ and position $p$, and $\mathcal{P}$ is the set of positions within the causal patch of the trigger.  
+This averaging smooths token-level variability while preserving the lesion's coarse spatial footprint [Ding et al., 2021; Rajani et al., 2019].
+
+### Clean–triggered contrast
+
+Given the *clean* volume $\mathcal{V}_\ell^{\mathrm{clean}}$ and the *triggered* volume $\mathcal{V}_\ell^{\mathrm{trig}}$, we define the raw contrast:
+
+$$
+\Delta \mathcal{V}_\ell(a,b) \;=\; \mathcal{V}_\ell^{\mathrm{trig}}(a,b) - \mathcal{V}_\ell^{\mathrm{clean}}(a,b),
+$$
+
+and the standardized effect size:
+
+$$
+\mathcal{E}_\ell(a,b) \;=\; \frac{\mathcal{V}_\ell^{\mathrm{trig}}(a,b) - \mu_{\mathrm{clean},\ell}}{\sigma_{\mathrm{clean},\ell} + \varepsilon},
+$$
+
+where $(\mu_{\mathrm{clean},\ell}, \sigma_{\mathrm{clean},\ell})$ are the mean and standard deviation of $\mathcal{V}_\ell^{\mathrm{clean}}$ over $(a,b)$, and $\varepsilon$ prevents division by zero.  
+$\mathcal{E}_\ell$ behaves analogously to a *z-score lesion map* in MRI lesion studies [Ashburner & Friston, 2005].
+
+### Thresholding via KL–TV optimization
+
+Lesion extraction requires separating signal from background noise in $\mathcal{E}_\ell$.  
+We introduce a threshold $\tau_\ell$ chosen by solving:
+
+$$
+\tau_\ell \;=\; \arg\min_{\tau} \; \mathrm{KL}\big(p^+_\tau \,\|\, p^-_\tau\big) + \lambda_{\mathrm{TV}}\, \mathrm{TV}(\tau),
+$$
+
+where:
+
+- $p^+_\tau$ is the empirical distribution of $\mathcal{E}_\ell(a,b)$ for points with $\mathcal{E}_\ell > \tau$ (candidate lesion).
+- $p^-_\tau$ is the distribution for points with $\mathcal{E}_\ell \leq \tau$ (background).
+- $\mathrm{TV}(\tau)$ penalizes slice-to-slice threshold fluctuations along $\ell$, ensuring spatial coherence across layers.
+
+The KL term encourages maximal separation between lesion and background, while $\lambda_{\mathrm{TV}}$ controls regularization strength [Rudin, 1992; Ashburner & Friston, 2005].
+
+### Binary mask formation
+
+The lesion mask is:
+
+$$
+\mathbb{L}_\ell(a,b) = \mathbf{1}[\mathcal{E}_\ell(a,b) > \tau_\ell],
+$$
+
+and is further refined by morphological opening to remove noise pixels smaller than a biologically motivated *minimum lesion area* $A_{\mathrm{min}}$ [Garcia et al., 2005].
+
+### Connected component analysis
+
+Let $\{C_k^\ell\}$ denote connected components in $\mathbb{L}_\ell$ at layer $\ell$.  
+We compute:
+
+$$
+A_k^\ell = |C_k^\ell|, \quad m_k^\ell = \frac{1}{A_k^\ell} \sum_{(a,b) \in C_k^\ell} (a,b),
+$$
+
+representing the component's area and centroid.  
+The **dominant lesion** $C_\star^\ell$ maximizes $A_k^\ell$.
+
+### Biological analogy
+
+In neuroscience, this process is directly analogous to detecting *hyperintense lesions* in diffusion-weighted MRI [Basser et al., 1994], where $\mathcal{E}_\ell$ acts as the intensity map and $\mathbb{L}_\ell$ is the pathological ROI.  
+In NLP, $\mathbb{L}_\ell$ corresponds to a *local submanifold* in representation space that is selectively activated by the SPS trigger [Wallace et al., 2019; Jiang et al., 2020].
+
+### Parametric lesion modeling
+
+To enable cross-example comparison and quantification, we approximate the dominant lesion $C_\star^\ell$ in each slice with a continuous, parametric model.  
+Specifically, we fit a **bivariate Gaussian**:
+
+$$
+\phi_\ell(a,b) \;=\; \rho_\ell \exp\!\left(-\tfrac{1}{2}
+\begin{bmatrix} a - \mu_a \\ b - \mu_b \end{bmatrix}^\top
+\Sigma_\ell^{-1}
+\begin{bmatrix} a - \mu_a \\ b - \mu_b \end{bmatrix}
+\right),
+$$
+
+where $\rho_\ell$ is the amplitude, $(\mu_a,\mu_b)$ is the lesion centroid, and $\Sigma_\ell$ is the $2\times 2$ covariance matrix.  
+The fit is obtained by maximizing the log-likelihood:
+
+$$
+\mathcal{L}_\ell(\rho_\ell, \mu_a, \mu_b, \Sigma_\ell) 
+\;=\; \sum_{(a,b) \in C_\star^\ell} \log \phi_\ell(a,b),
+$$
+
+subject to $\Sigma_\ell$ being symmetric positive definite.
+
+### Morphological descriptors
+
+From $\Sigma_\ell$, we extract:
+
+$$
+\begin{align*}
+\lambda_{\max},\lambda_{\min} &= \text{eigenvalues of }\Sigma_\ell, \\
+\theta_\ell &= \arctan2(v_{\max,b}, v_{\max,a}), \\
+e_\ell &= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
+\end{align*}
+$$
+
+Here, $\theta_\ell$ is the principal orientation and $e_\ell$ is the eccentricity.  
+Axis-aligned, round lesions ($e_\ell \approx 0$) suggest *lexical hooks*, whereas elongated, oblique lesions ($e_\ell \in [0.6,0.9]$) often indicate *semantic hooks* with multi-directional manifold engagement [Dalvi et al., 2022].
+
+### Lesion volume proxy
+
+We define the lesion volume proxy in 2D slice space as:
+
+$$
+V_\ell = \rho_\ell \sqrt{\det(2\pi \Sigma_\ell)}.
+$$
+
+This captures both the lesion’s intensity and spatial spread, analogous to lesion load metrics in neurology [Schmidt et al., 2019].
+
+### Depth-wise lesion kinetics
+
+Let $z$ denote the layer index. We characterize temporal (layer-wise) lesion evolution by:
+
+$$
+\begin{align*}
+\tau_{\mathrm{arr}} &= \min \{\ell \;|\; V_\ell > \gamma V_{\max} \}, \quad \gamma \approx 0.1, \\
+\tau_{\mathrm{pk}} &= \arg\max_\ell V_\ell, \\
+\alpha &= \text{slope from fit of } V_\ell \approx V_{\tau_{\mathrm{pk}}} e^{-\alpha(\ell - \tau_{\mathrm{pk}})}, \; \ell > \tau_{\mathrm{pk}}.
+\end{align*}
+$$
+
+Here $\tau_{\mathrm{arr}}$ is the lesion arrival layer, $\tau_{\mathrm{pk}}$ the peak layer, and $\alpha$ the decay constant.  
+Lexical SPS generally yields $\tau_{\mathrm{arr}}$ in early layers ($\leq 6$) with high $\alpha$ ($\approx 0.6$–$0.8$), reflecting rapid washout.  
+Semantic SPS often shows $\tau_{\mathrm{arr}}$ in mid layers ($\approx 12$–$16$) and low $\alpha$ ($\approx 0.2$–$0.4$), indicating persistent contamination [Elhage et al., 2021; Meng et al., 2022].
+
+### Time-of-Flight Causal Tomography
+
+The **Time-of-Flight Causal Tomography** (**ToF-CT**) module in our *Causal Pathway Forensics* suite is designed to capture the *spatio-temporal dynamics* of information propagation in large language models under clean, *SPS-triggered*, and *patched* conditions.  
+Whereas infection traceback graphs (§\ref{subsec:infection_traceback}) provide a *static* minimal causal subgraph, ToF-CT unfolds the *time dimension* of activation flow, enabling us to quantify *when*, *where*, and *how quickly* unsafe influence traverses the model’s layered architecture.
+
+#### Conceptual mapping  
+We define the model’s forward pass as a causal network $\mathcal{N}=(V,E)$ with $V$ the set of computational nodes indexed by $(\ell, p, m)$ where $\ell \in \{1,\dots,L\}$ is the layer index, $p \in \mathcal{P}$ the token position, and $m \in \mathcal{M}_\ell$ the module index (attention head or MLP channel).  
+Directed edges $(u,v) \in E$ carry activation signals with *delay* $\delta_{uv} \in \mathbb{R}_{\ge 0}$, representing the relative *arrival time* of influence at $v$ from $u$.  
+This delay is analogous to **conduction latency** in *neurophysiology* \citep{pfeiffer1970axonal, gennarelli1982diffuse}, where myelinated and unmyelinated fibers exhibit distinct propagation speeds, and to *group delay* in **signal processing** \citep{oppenheim1999discrete}.
+
+#### Causal packet injection  
+Given an input $\mathbf{x}$, we define an initial condition by injecting a *unit causal packet* $\pi$ into a *source set* $S \subset V$ at time $\tau=0$.  
+In **clean** mode, $S$ corresponds to baseline tokens in a benign prompt;  
+in **poisoned** mode, $S$ includes tokens or latent features representing the SPS trigger;  
+in **patched** mode, the network parameters $\Theta'$ have been modified (via targeted fine-tuning or weight surgery) to attenuate unsafe signal flow while preserving clean-task competency.
+
+#### Propagation model  
+Let $a_v(\tau)$ denote the *arrival amplitude* of $\pi$ at node $v$ at time $\tau$.  
+The ToF-CT forward dynamics are:
+
+$$
+a_v(\tau) = \sum_{u \in \mathrm{pred}(v)} a_u(\tau - \delta_{uv}) \cdot w_{uv},
+$$
+
+where $w_{uv} \in [0,1]$ is a normalized contribution weight, derived from attribution or gradient–activation products \citep{dhamdhere2019dagshapley, elhage2021mathematical}.  
+We discretize $\tau$ into $K$ bins (analogous to *time frames* in MEG/fMRI \citep{baillet2001electromagnetic}), producing a **propagation tensor**:
+
+$$
+\mathcal{A} \in \mathbb{R}^{L \times K}, \quad \mathcal{A}_{\ell,k} = \sum_{v: \mathrm{layer}(v)=\ell} a_v(\tau_k).
+$$
+
+#### Mode separation  
+For each mode $m \in \{\mathrm{clean}, \mathrm{poisoned}, \mathrm{patched}\}$, we obtain a propagation tensor $\mathcal{A}^{(m)}$.  
+We define the *relative arrival difference* at $(\ell,k)$:
+
+$$
+\Delta_{\mathrm{poisoned}}(\ell,k) = \frac{\mathcal{A}^{(\mathrm{poisoned})}_{\ell,k} - \mathcal{A}^{(\mathrm{clean})}_{\ell,k}}{\mathcal{A}^{(\mathrm{clean})}_{\ell,k} + \epsilon},
+$$
+
+$$
+\Delta_{\mathrm{patched}}(\ell,k) = \frac{\mathcal{A}^{(\mathrm{patched})}_{\ell,k} - \mathcal{A}^{(\mathrm{clean})}_{\ell,k}}{\mathcal{A}^{(\mathrm{clean})}_{\ell,k} + \epsilon},
+$$
+
+where $\epsilon$ avoids division by zero.  
+These difference maps are visualized as **arrival heatstrips** (Fig.~\ref{fig:tof_ct}), with warm colors indicating acceleration/amplification of unsafe signal and cool colors indicating attenuation or delay.
+
+#### Analogy to biological time-of-flight imaging  
+The method mirrors *time-of-flight MRI angiography* \citep{brittain1995technical} and *evoked potential mapping* \citep{nunez2006electric}, where contrast arises from differences in arrival time and amplitude of propagating signals.  
+Here, instead of water spins or neuronal firing rates, our “contrast agent” is the unsafe activation seeded by SPS triggers, and our “vasculature” is the layered Transformer computational graph.
+
+#### Transition to metrics derivation  
+Having formalized the propagation model and its analogy to biological conduction, we next derive the core ToF-CT metrics—arrival latency, cumulative output energy, and causal speed—used to quantify and compare clean, poisoned, and patched modes.
+
+#### Arrival heatstrip formalization  
+We define the *arrival heatstrip* $H^{(m)} \in \mathbb{R}^{L \times K}$ for mode $m$ as:
+
+$$
+H^{(m)}_{\ell,k} = \frac{\mathcal{A}^{(m)}_{\ell,k}}{\max_{k'} \mathcal{A}^{(m)}_{\ell,k'} + \epsilon},
+$$
+
+normalizing each layer’s temporal profile to $[0,1]$ to account for layer-specific amplitude scaling.  
+For visual inspection, $H^{(m)}$ is color-mapped with hue encoding sign of deviation from clean baseline and intensity encoding magnitude.  
+In neuroimaging terms, this is analogous to *per-layer hemodynamic timecourses* normalized for baseline cerebral blood flow \citep{heiss2012ischemic}.
+
+#### Output energy curve  
+The *output energy* $E^{(m)}_{\mathrm{out}}(t)$ measures the cumulative amplitude arriving at the *output sink set* $T$ by time $t$:
+
+$$
+E^{(m)}_{\mathrm{out}}(t) = \sum_{v \in T} \sum_{\tau_k \le t} a^{(m)}_v(\tau_k).
+$$
+
+The derivative $\dot{E}^{(m)}_{\mathrm{out}}(t)$ quantifies instantaneous arrival rate, akin to *rate-of-rise metrics* in electrophysiology (e.g., $dV/dt_{\max}$ in action potentials \citep{hodgkin1952quantitative}).  
+We align the *playhead* in Fig.~\ref{fig:tof_ct} to $t^\star_{\mathrm{first}}$, the first non-zero arrival at $T$, to synchronize across modes.
+
+#### $\Delta\logit$ separation metric  
+Let $z^{(m)}_{\mathrm{unsafe}}(t)$ denote the model’s unsafe-class logit at time $t$ under mode $m$.  
+We define the total logit shift at output time $t_{\mathrm{end}}$ as:
+
+$$
+\Delta\logit_{\mathrm{out}}^{(\mathrm{poisoned})} = z^{(\mathrm{poisoned})}_{\mathrm{unsafe}}(t_{\mathrm{end}}) - z^{(\mathrm{clean})}_{\mathrm{unsafe}}(t_{\mathrm{end}}),
+$$
+
+$$
+\Delta\logit_{\mathrm{out}}^{(\mathrm{patched})} = z^{(\mathrm{patched})}_{\mathrm{unsafe}}(t_{\mathrm{end}}) - z^{(\mathrm{clean})}_{\mathrm{unsafe}}(t_{\mathrm{end}}).
+$$
+
+Empirically, high $\Delta\logit_{\mathrm{out}}^{(\mathrm{poisoned})}$ corresponds to rapid, high-amplitude unsafe arrival; low or negative $\Delta\logit_{\mathrm{out}}^{(\mathrm{patched})}$ indicates effective suppression.  
+In NLP trigger literature, this is analogous to *trigger potency* \citep{wallace2019universal, zhang2020universal}.
+
+#### Causal propagation speed  
+We define per-layer propagation speed for mode $m$ as:
+
+$$
+\nu_{\ell}^{(m)} = \frac{1}{\Delta t_{\ell-1 \to \ell}^{(m)}}, \quad \Delta t_{\ell-1 \to \ell}^{(m)} = t^{(m)}_{\ell} - t^{(m)}_{\ell-1},
+$$
+
+where $t^{(m)}_{\ell}$ is the centroid of the arrival time distribution at layer $\ell$.  
+Poisoned modes often show locally elevated $\nu_{\ell}$ in mid-layers (unsafe shortcut pathways), while patched modes restore a smooth monotonic decay profile, consistent with *signal slowing* in demyelination repair models \citep{waxman1980conduction}.
+
+#### Energy attenuation coefficient  
+Layerwise attenuation is modeled as:
+
+$$
+E^{(m)}_\ell \approx E^{(m)}_0 \cdot e^{-\alpha^{(m)} \ell}, \quad \alpha^{(m)} = - \frac{1}{\ell_{\max}} \sum_{\ell} \log\frac{E^{(m)}_\ell}{E^{(m)}_0}.
+$$
+
+Clean $\alpha^{(\mathrm{clean})}$ typically falls in $[0.5,0.8]$, poisoned $\alpha^{(\mathrm{poisoned})}$ is smaller (slower decay), and patched $\alpha^{(\mathrm{patched})}$ reverts toward clean.  
+This parallels the *T2 relaxation constant* in MRI physics \citep{haacke1999magnetic}, where different tissue states alter decay rates.
+
+#### Path multiplicity and convergence  
+Let $\Pi_{S \to T}^{(m)}$ denote the set of distinct causal paths from $S$ to $T$ under mode $m$, and define the *multiplicity ratio*:
+
+$$
+\rho^{(m)} = \frac{|\Pi_{S \to T}^{(m)}|}{|\Pi_{S \to T}^{(\mathrm{clean})}|}.
+$$
+
+Semantic SPS often exhibits $\rho^{(\mathrm{poisoned})} \gg 1$ due to activation of parallel unsafe subcircuits, consistent with the broader *branching factor* observed in infection traceback graphs (§\ref{subsec:infection_traceback}).  
+Patching aims to reduce $\rho^{(\mathrm{patched})}$ to $\approx 1$.
+
+#### Biological analogy: multi-path recruitment  
+In cortical seizure propagation, multiple parallel white matter tracts can synchronize and amplify abnormal oscillations \citep{schevon2012evidence}.  
+Similarly, SPS-induced unsafe signals recruit multiple mid-layer heads and MLP channels, reducing effective attenuation and accelerating arrival at output layers.
+
+#### Comparative mode analysis  
+The ToF-CT visualization (Fig.~\ref{fig:tof_ct}) shows three clearly separable propagation regimes:
+
+**(1) Clean mode.**  
+The clean condition exhibits a smooth, layer-progressive arrival profile:  
+first arrival at $t_{\mathrm{first}} \approx 5.9$ in $L3$, with sequential activation up to $L10$ by $t \approx 9.0$.  
+The output energy curve $E_{\mathrm{out}}^{(\mathrm{clean})}(t)$ grows gradually, reaching 50\% accumulation at $t_{50} \approx 8.3$.  
+Propagation speed $\nu_\ell$ shows minor variance ($\sigma_{\nu} \approx 0.04$), and attenuation coefficient $\alpha^{(\mathrm{clean})} \approx 0.72$ confirms stable decay.  
+Path multiplicity $\rho^{(\mathrm{clean})} \approx 1.0$ indicates a single dominant causal route.
+
+**(2) Poisoned mode.**  
+Under SPS-triggered poisoning, arrival shifts earlier and becomes more synchronous:  
+first arrival advances to $t_{\mathrm{first}} \approx 4.4$ (shift $\Delta t_{\mathrm{first}} \approx -1.5$), with multiple deep layers activating almost simultaneously.  
+The energy curve exhibits a steep jump, reaching $t_{50} \approx 4.7$ — nearly *half the latency* of clean mode.  
+We estimate $\alpha^{(\mathrm{poisoned})} \approx 0.31$, indicating slow attenuation, and $\rho^{(\mathrm{poisoned})} \approx 3.4$, consistent with unsafe multi-path recruitment.  
+The $\Delta\logit_{\mathrm{out}}^{(\mathrm{poisoned})} \approx +1.77$ from Fig.~\ref{fig:tof_ct} reflects a large unsafe bias at output.  
+Notably, $\nu_{\ell}$ spikes in mid-layers ($L5$–$L7$), suggesting unsafe “express lanes” bypassing standard information integration, an effect previously described in adversarial patching of NLP transformers \citep{hendrycks2021unsolved, wang2023interpretability}.
+
+**(3) Patched mode.**  
+The patched condition partially restores clean-like dynamics:  
+first arrival shifts back to $t_{\mathrm{first}} \approx 5.8$, and $t_{50} \approx 7.6$, though still slightly earlier than clean.  
+Attenuation $\alpha^{(\mathrm{patched})} \approx 0.63$ remains lower than clean, but $\rho^{(\mathrm{patched})} \approx 1.2$ suggests most unsafe parallel routes are disabled.  
+The $\Delta\logit_{\mathrm{out}}^{(\mathrm{patched})} \approx +0.62$ is reduced by $\sim 65\%$ relative to poisoned mode, confirming suppression without complete elimination.  
+This profile aligns with *partial remyelination* recovery curves in biology, where conduction velocity improves but does not fully revert to baseline \citep{chang2012remyelination}.
+
+#### Waterfall contribution patterns  
+The output waterfall plots in Fig.~\ref{fig:tof_ct} detail the *per-path contribution timing* for each mode:  
+clean mode exhibits a dominant late path depositing most of the logit mass in the final $\Delta t \approx 0.5$ window;  
+poisoned mode displays multiple early paths depositing $\sim 70\%$ of logit mass before $t \approx 5.0$;  
+patched mode re-concentrates contributions toward later layers, with two residual early paths of diminished amplitude.  
+This pattern is consistent with earlier *infection traceback graph* analysis, which showed a reduction but not full elimination of unsafe crosslinks.
+
+#### Interpretive synthesis  
+From a forensic standpoint, the ToF-CT analysis establishes that:
+- SPS triggers accelerate unsafe causal arrival by $\approx 1.5$–$2.0$ time units.
+- Poisoning increases path multiplicity by $>3\times$, activating deep unsafe subcircuits.
+- Patching reduces unsafe speed and multiplicity but retains low-level leakage, visible in early waterfall bars.
+
+These metrics provide a quantitative “time-domain fingerprint” of SPS behavior that complements spatial lesion maps (§\ref{subsec:triplanar}) and static graph structures (§\ref{subsec:infection_traceback}).
+
+#### Biological parallel: conduction recovery dynamics  
+The tripartite profile (clean $\rightarrow$ poisoned $\rightarrow$ patched) mirrors recovery curves in traumatic brain injury \citep{gennarelli1982diffuse}, where white matter conduction shows:  
+(a) normal sequential recruitment in healthy tissue;  
+(b) hyper-synchronous unsafe firing in epileptogenic networks;  
+(c) partial desynchronization after pharmacological intervention.  
+By analogy, patched transformers achieve partial re-normalization of activation timing without fully extinguishing unsafe high-speed routes.
+
+#### Integration with complementary modalities  
+While ToF-CT captures the *temporal dynamics* of unsafe signal propagation, its interpretive power multiplies when triangulated with two other modalities in our **Causal Pathway Forensics** suite:
+
+1. **Belief Wind Fields** (§\ref{subsec:belief_wind_field}) map the *vector field geometry* of representation drift, revealing anisotropic unsafe flows in latent space.  
+   These quantify the *directional* bias of poisoned activations, often showing high-curl, high-divergence unsafe manifolds in semantic SPS.  
+
+2. **Infection Traceback Graphs** (§\ref{subsec:infection_traceback}) delineate the *minimal causal subgraph* transmitting unsafe influence from trigger source to output sink.  
+   These resolve the *structural topology* of unsafe paths, exposing mid-layer bottlenecks and critical crosslinks.
+
+#### Cross-modal metric alignment  
+We define a *forensic signature* $\mathcal{F}^{(m)}$ for mode $m$ as:
+
+$$
+\mathcal{F}^{(m)} = \left( \mathbf{\nu}^{(m)}, \alpha^{(m)}, \rho^{(m)}, \mathcal{C}^{(m)}, \mathcal{T}^{(m)} \right),
+$$
+
+where:
+- $\mathbf{\nu}^{(m)}$ = ToF-CT per-layer propagation speed profile  
+- $\alpha^{(m)}$ = ToF-CT attenuation coefficient  
+- $\rho^{(m)}$ = ITG path multiplicity  
+- $\mathcal{C}^{(m)}$ = BWF curl–divergence ratio  
+- $\mathcal{T}^{(m)}$ = ITG infection depth  
+
+This tuple enables multi-dimensional comparison across modes.  
+For example, in our case study:
+
+$$
+\mathcal{F}^{(\mathrm{clean})} \approx ([0.18\!:\!0.22], 0.72, 1.0, 0.34, 3),\quad
+\mathcal{F}^{(\mathrm{poisoned})} \approx ([0.25\!:\!0.33], 0.31, 3.4, 1.12, 6),\quad
+\mathcal{F}^{(\mathrm{patched})} \approx ([0.19\!:\!0.24], 0.63, 1.2, 0.48, 4),
+$$
+
+where the interval in $\mathbf{\nu}$ denotes the min–max layerwise speed.
+
+#### Temporal–spatial correlation  
+Cross-analysis reveals that layers exhibiting anomalously high $\nu_{\ell}^{(\mathrm{poisoned})}$ in ToF-CT coincide with:
+- strong unsafe-axis acceleration in BWF (large $|\nabla_{\mathbf{u}_a}|$)  
+- dense unsafe-to-safe crosslinks in ITG ($B_\ell > 1.8$).  
+
+This suggests that unsafe “express lanes” are not only faster but also directionally biased and structurally reinforced.
+
+#### Pipeline implications  
+By fusing ToF-CT, BWF, and ITG:
+- We can **time-stamp** unsafe activations, pinpointing their first appearance.  
+- We can **locate** unsafe mid-layer convergence zones.  
+- We can **characterize** the unsafe drift manifold and its curl/anisotropy.  
+
+This triad of capabilities enables a *closed-loop mitigation strategy*:  
+(i) Identify unsafe manifold from BWF;  
+(ii) Isolate causal bottleneck from ITG;  
+(iii) Validate repair in time-domain with ToF-CT.
+
+#### Biological systems analogy  
+This mirrors *multi-modal imaging pipelines* in clinical neurology \citep{friston2009modalities}, where:
+- Diffusion tensor imaging (DTI) maps structural fiber tracts — analogous to ITG topology.  
+- Functional MRI (fMRI) captures task-induced activation flow — analogous to BWF drift.  
+- Magnetoencephalography (MEG) resolves millisecond-scale temporal dynamics — analogous to ToF-CT.  
+
+The integration yields higher diagnostic specificity than any single modality alone.
+
+#### Summary  
+ToF-CT’s temporal arrival maps, when interpreted alongside BWF’s spatial drift fields and ITG’s structural causality, constitute a comprehensive forensic toolkit for diagnosing and mitigating **Stealth Pretraining Seeding** in foundation models.  
+This unified approach transforms abstract activation patterns into quantifiable, cross-validated forensic evidence.
+
+
 
 ## Introduction
 
