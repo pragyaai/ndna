@@ -21,7 +21,7 @@ We investigate a suite of biologically inspired diagnostics: **_nHD_** (*Neural 
 
 </div>
 
-# Research Questions and Epistemic Vision of - <i class="fas fa-dna"></i> Neural Genomics
+## Research Questions and Epistemic Vision of - <i class="fas fa-dna"></i> Neural Genomics
 
 **TL;DR:** This work proposes **Neural Genomics**, a unifying framework to diagnose, trace, and govern the latent semantics of the neural genome of LLMs, offering a rigorous grammar for understanding artificial cognition across alignment, fine-tuning, merging, and compression and beyond.
 
