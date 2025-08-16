@@ -193,83 +193,62 @@ mathjax: true
 
 
 <h3>Cultural Collapse Trajectories</h3>
-<section class="viz-section" style="margin: 2rem 0;">
-  <h3 style="text-align:center; margin-bottom: 1rem;">Cultural Collapse Trajectories by Region</h3>
-  <div style="display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 900px; margin: 0 auto;">
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">Africa Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/africa_ndna_final.gif"
-         interactive_html="collapse/africa_ndna_collapse.html"
-         title="Africa Cultural Collapse Trajectory"
-         caption="Africa Cultural Collapse Trajectory"
-      %}
-    </div>
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">Asia Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/asia_ndna_collapse.gif"
-         interactive_html="collapse/asia_ndna_collapse.html"
-         title="Asia Cultural Collapse Trajectory"
-         caption="Asia Cultural Collapse Trajectory"
-      %}
-    </div>
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">China Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/china_ndna_final.gif"
-         interactive_html="collapse/china_ndna_collapse.html"
-         title="China Cultural Collapse Trajectory"
-         caption="China Cultural Collapse Trajectory"
-      %}
-    </div>
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">Europe Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/europe_ndna_collapse_FINAL.gif"
-         interactive_html="collapse/europe_ndna_collapse.html"
-         title="Europe Cultural Collapse Trajectory"
-         caption="Europe Cultural Collapse Trajectory"
-      %}
-    </div>
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">Latin America Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/latinamerica.gif"
-         interactive_html="collapse/latinamerica_ndna_collapse.html"
-         title="Latin America Cultural Collapse Trajectory"
-         caption="Latin America Cultural Collapse Trajectory"
-      %}
-    </div>
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">Middle East Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/middleeast_ndna_final.gif"
-         interactive_html="collapse/middleeast_ndna_collapse.html"
-         title="Middle East Cultural Collapse Trajectory"
-         caption="Middle East Cultural Collapse Trajectory"
-      %}
-    </div>
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">North America Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
-         interactive_html="collapse/northamerica_ndna_collapse.html"
-         title="North America Cultural Collapse Trajectory"
-         caption="North America Cultural Collapse Trajectory"
-      %}
-    </div>
-    <div style="text-align: center;">
-      <div style="font-weight: bold; margin-bottom: 12px;">Australia Cultural Collapse Trajectory</div>
-      {% include wizuall.liquid 
-         image_path="alignment/australia_ndna_collapse_FINAL.gif"
-         interactive_html="collapse/australia_ndna_collapse.html"
-         title="Australia Cultural Collapse Trajectory"
-         caption="Australia Cultural Collapse Trajectory"
-      %}
-    </div>
-  </div>
-</section>
+{% include visualization-html.liquid 
+   image_path="alignment/africa_ndna_final.gif"
+   interactive_html="collapse/africa_ndna_collapse.html"
+   title="Africa Cultural Collapse Trajectory"
+   caption="Africa Cultural Collapse Trajectory"
+   full_width=true %}
+
+{% include visualization-html.liquid 
+   image_path="alignment/asia_ndna_collapse.gif"
+   interactive_html="collapse/asia_ndna_collapse.html"
+   title="Asia Cultural Collapse Trajectory"
+   caption="Asia Cultural Collapse Trajectory"
+   full_width=true %}
+
+{% include visualization-html.liquid 
+   image_path="alignment/china_ndna_final.gif"
+   interactive_html="collapse/china_ndna_collapse.html"
+   title="China Cultural Collapse Trajectory"
+   caption="China Cultural Collapse Trajectory"
+   full_width=true %}
+
+{% include visualization-html.liquid 
+   image_path="alignment/europe_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/europe_ndna_collapse.html"
+   title="Europe Cultural Collapse Trajectory"
+   caption="Europe Cultural Collapse Trajectory"
+   full_width=true %}
+
+{% include visualization-html.liquid 
+   image_path="alignment/latinamerica.gif"
+   interactive_html="collapse/latinamerica_ndna_collapse.html"
+   title="Latin America Cultural Collapse Trajectory"
+   caption="Latin America Cultural Collapse Trajectory"
+   full_width=true %}
+
+{% include visualization-html.liquid 
+   image_path="alignment/middleeast_ndna_final.gif"
+   interactive_html="collapse/middleeast_ndna_collapse.html"
+   title="Middle East Cultural Collapse Trajectory"
+   caption="Middle East Cultural Collapse Trajectory"
+   full_width=true %}
+
+{% include visualization-html.liquid 
+   image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/northamerica_ndna_collapse.html"
+   title="North America Cultural Collapse Trajectory"
+   caption="North America Cultural Collapse Trajectory"
+   full_width=true %}
+
+{% include visualization-html.liquid 
+   image_path="alignment/australia_ndna_collapse_FINAL.gif"
+   interactive_html="collapse/australia_ndna_collapse.html"
+   title="Australia Cultural Collapse Trajectory"
+   caption="Australia Cultural Collapse Trajectory"
+   full_width=true %}
+
 
 <h2>Comparative Analysis</h2>
 <p>
