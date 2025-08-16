@@ -453,70 +453,117 @@ All prompts follow a strict single-sentence format and maintain a 50-50 class ba
 This strict alignment isolation via LITMUS ensures that *epistemic sovereignty and cultural semantics remain intact*, while enforcing robust refusal behavior toward unsafe requests.
 
 ## nDNA Trajectories Before and After DPO Alignment
-<div style="max-width: 900px; margin: auto;">
+# Model Alignment Visualizations
+
+<style>
+/* Scoped styles for the include */
+.wizuall-wrapper { 
+  max-width: 900px; 
+  margin: 24px auto; 
+}
+.wizuall { 
+  display: flex; 
+  gap: 20px; 
+  align-items: stretch; 
+  justify-content: center; 
+}
+.wizuall .preview,
+.wizuall .interactive { 
+  flex: 1 1 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+.wizuall .preview img { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+  border-radius: 8px; 
+}
+.wizuall .interactive iframe {
+  width: 100%;
+  height: 520px;             /* match GIF height */
+  border: none;
+  display: block;
+  margin: 0 auto;
+  transform: none !important; /* override accidental sideways transforms */
+  -webkit-transform: none !important;
+  box-sizing: border-box;
+}
+.wizuall .interactive { 
+  overflow: hidden; 
+}
+/* Mobile: stack vertically */
+@media (max-width: 880px) {
+  .wizuall { flex-direction: column; }
+  .wizuall .interactive iframe { height: 420px; }
+}
+</style>
+
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/africa_dpo_rotation.gif"
    interactive_html="alignment/africa_ndna_alignment.html"
    title="Africa: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/asia_dpo_rotation.gif"
    interactive_html="alignment/asia_ndna_alignment.html"
    title="Asia: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/australia_dpo_rotation.gif"
    interactive_html="alignment/australia_ndna_alignment.html"
    title="Australia: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/china_dpo_rotation.gif"
    interactive_html="alignment/china_ndna_alignment.html"
    title="China: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/europe_dpo_rotation.gif"
    interactive_html="alignment/europe_ndna_alignment.html"
    title="Europe: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/latinamerica_dpo_rotation.gif"
    interactive_html="alignment/latinamerica_ndna_alignment.html"
    title="Latin America: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/llama_dpo_rotation.gif"
    interactive_html="alignment/llama_ndna_alignment.html"
    title="LLaMA: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/middleeast_dpo_rotation.gif"
    interactive_html="alignment/middleeast_ndna_alignment.html"
    title="Middle East: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/northamerica_dpo_rotation.gif"
    interactive_html="alignment/northamerica_ndna_alignment.html"
    title="North America: Base vs DPO-aligned" %}
 </div>
 
-<div style="max-width: 900px; margin: auto;">
+<div class="wizuall-wrapper">
 {% include wizuall.liquid
    image_path="collapse/ndna_dpo_rotation.gif"
    interactive_html="alignment/llama_ndna_alignment.html"
