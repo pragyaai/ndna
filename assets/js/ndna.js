@@ -60,151 +60,27 @@ const nlpOperationsItems = [
 ];
 
 function renderTopMenu(items) {
-  const container = document.getElementById('topMenu');
-  container.innerHTML = '';
-
-  items.forEach((item, idx) => {
-    const link = document.createElement('a');
-    link.href = item.url || '#';
-    
-    // Check if current page matches this menu item
-    const currentPath = window.location.pathname;
-    const itemPath = (item.url || '#').replace(baseUrl, '');
-    const isActive = currentPath === itemPath || (itemPath === '/' && currentPath === '/') || 
-                     (itemPath !== '/' && currentPath.startsWith(itemPath));
-    
-    link.className = isActive ? 'active' : '';
-    link.innerText = item.text || item;
-
-    // Add click handler to update active state
-    link.addEventListener('click', (e) => {
-      // Remove active class from all menu items
-      container.querySelectorAll('a').forEach(menuItem => {
-        if (!menuItem.parentElement.classList.contains('submenu')) {
-          menuItem.classList.remove('active');
-        }
-      });
-      
-      // Add active class to clicked item
-      link.classList.add('active');
-      
-      // Hide all submenus first
-      container.querySelectorAll('.submenu').forEach(submenu => {
-        submenu.style.display = "none";
-      });
-    });
-
-    if ((item.text || item) === "Neural Genomics") {
-      // Change the link URL to point directly to the Prelude page
-      link.href = baseUrl + "/llm/neural-genomics/prelude/";
-      
-      // Still show the submenu when hovering
-      link.addEventListener('click', () => {
-        setTimeout(() => {
-          const submenu = document.getElementById("neuralGenomicsSubmenu");
-          if (submenu) submenu.style.display = "flex";
-        }, 100);
-      });
-    }
-
-    if ((item.text || item) === "NLP Operations") {
-      // Change the link URL to point directly to the Prelude page
-      link.href = baseUrl + "/llm/nlp-operations/prelude/";
-      
-      // Still show the submenu when hovering
-      link.addEventListener('click', () => {
-        setTimeout(() => {
-          const submenu = document.getElementById("nlpOperationsSubmenu");
-          if (submenu) submenu.style.display = "flex";
-        }, 100);
-      });
-    }
-
-    container.appendChild(link);
-
-    // Always add the submenu HTML for Neural Genomics
-    if ((item.text || item) === "Neural Genomics") {
-      const submenu = document.createElement('div');
-      submenu.className = "submenu";
-      submenu.id = "neuralGenomicsSubmenu";
-      submenu.style.display = "none"; // Initially hidden
-
-      neuralSubmenuItems.forEach(sub => {
-        const subLink = document.createElement('a');
-        if (sub === "Prelude") {
-          subLink.href = baseUrl + `/llm/neural-genomics/prelude/`;
-        } else {
-          subLink.href = baseUrl + `/llm/neural-genomics/${sub}/`;
-        }
-        subLink.innerText = sub;
-        submenu.appendChild(subLink);
-      });
-
-      container.appendChild(submenu);
-    }
-
-    // Add submenu HTML for NLP Operations
-    if ((item.text || item) === "NLP Operations") {
-      const submenu = document.createElement('div');
-      submenu.className = "submenu";
-      submenu.id = "nlpOperationsSubmenu";
-      submenu.style.display = "none"; // Initially hidden
-
-      nlpOperationsItems.forEach(nlpItem => {
-        const subLink = document.createElement('a');
-        subLink.href = nlpItem.url;
-        subLink.innerText = nlpItem.text;
-        submenu.appendChild(subLink);
-      });
-
-      container.appendChild(submenu);
-    }
-  });
+  // Legacy function - navigation now handled by sidebar
+  return;
 }
 
 function switchView(view) {
-  document.querySelectorAll('.side-tab').forEach(el => el.classList.remove('active'));
-  const tab = [...document.querySelectorAll('.side-tab')].find(el => el.innerText === view || el.innerText.includes(view));
-  if (tab) tab.classList.add('active');
-  
-  const menu = menusByModel[view] || menusByModel.LLM;
-  renderTopMenu(menu);
+  // Legacy function - now handled by enhanced sidebar
+  return;
 }
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-  switchView("LLM");
-
-  // Auto-show submenu if on /llm/neural-genomics/ sub-pages
-  if (window.location.pathname.includes("/llm/neural-genomics") || 
-      window.location.pathname.includes("/llm/nHD") ||
-      window.location.pathname.includes("/llm/nGDI") ||
-      window.location.pathname.includes("/llm/nTDS") ||
-      window.location.pathname.includes("/llm/nKaryotyping") ||
-      window.location.pathname.includes("/llm/nDIV") ||
-      window.location.pathname.includes("/llm/nEPI") ||
-      window.location.pathname.includes("/llm/nCCL")) {
-    setTimeout(() => {
-      const submenu = document.getElementById("neuralGenomicsSubmenu");
-      if (submenu) submenu.style.display = "flex";
-    }, 100);
+  // Legacy initialization - now handled by enhanced sidebar
+  
+  // Auto-detect current category based on URL
+  const currentPath = window.location.pathname;
+  
+  if (currentPath.includes("/llm/")) {
+    // LLM category is handled by the enhanced sidebar
+    return;
   }
-
-  // Auto-show NLP Operations submenu if on NLP operations pages
-  if (window.location.pathname.includes("/llm/nlp-operations/prelude") ||
-      window.location.pathname.includes("/llm/nlp-operations/machine-translation") || 
-      window.location.pathname.includes("/llm/nlp-operations/multi-turn-conversation") || 
-      window.location.pathname.includes("/llm/nlp-operations/adversarial-attack") || 
-      window.location.pathname.includes("/llm/nlp-operations/scar") || 
-      window.location.pathname.includes("/llm/nlp-operations/nephos")) {
-    setTimeout(() => {
-      const submenu = document.getElementById("nlpOperationsSubmenu");
-      if (submenu) submenu.style.display = "flex";
-    }, 100);
-  }
-
-  // Auto-switch to LLM tab if on LLM pages (including NLP operations which are now under /llm/)
-  if (window.location.pathname.includes("/llm/")) {
-    switchView("LLM");
-  }
+  
+  // Default to LLM if no specific category detected
+  // Enhanced sidebar will handle the initialization
 });

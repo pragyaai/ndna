@@ -5,110 +5,119 @@ body {
   background: linear-gradient(to right, #f8f9fa, #ffffff);
   color: #111;
   display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  padding-top: 89px;
+  box-sizing: border-box;
 }
 
-/* LEFT COLUMN (logo + vertical nav) */
-.left-column {
-  width: 200px;
-  background-color: #ffffff;
-  border-right: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.ndna-cover {
-  margin-top: auto;
-  margin-bottom: 1rem;
-}
-
-.ndna-cover img {
-  width: 100%;
-  height: auto;
-}
-
-.logo-container {
-  width: 100%;
-  padding: 16px;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo-container img {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-}
-
-.side-menu {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-}
-
-.side-tab {
-  padding: 14px 20px;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 500;
-  text-decoration: none;
-  color: #333;
-  border-radius: 8px;
-  margin: 6px 10px;
-  transition: background 0.2s ease;
-}
-
-.side-tab:hover {
-  background-color: #e6f0ff;
-}
-
-.side-tab.active {
-  background-color: #d0e7ff;
-  font-weight: bold;
-  color: #000;
-}
-
-/* RIGHT CONTENT */
-.page-wrapper {
-  margin-left: 200px;
-  width: calc(100% - 200px);
-  display: flex;
-  flex-direction: column;
-}
-
+/* Header spans full width */
 .navbar {
   background-color: #ffffff;
   border-bottom: 1px solid #eee;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 900;
-  padding: 14px 24px 14px 24px;
-}
-
-.navbar-content {
+  z-index: 1000;
+  padding: 12px 24px;
+  height: 89px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-#topMenu {
+/* Main container holds sidebar and content */
+.main-container {
   display: flex;
-  flex-wrap: wrap;
+  flex: 1;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 12rem;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: height 0.2s ease;
+}
+
+/* Updated page wrapper */
+.page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.2s ease;
+  overflow-y: scroll;
+}
+
+/* Legacy sidebar styles - kept for fallback */
+.left-column {
+  display: none; /* Hide legacy sidebar */
+}
+
+.breadcrumb {
+  display: flex;
   align-items: center;
   flex: 1;
   min-width: 0;
   gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 1rem; /* Add horizontal margin for better spacing */
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumb-separator {
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+.breadcrumb-link {
+  color: #0066cc;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.breadcrumb-link:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}
+
+.breadcrumb-current {
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* Legacy top menu - hidden */
+#topMenu {
+  display: none;
+}
+
+.navbar .submenu {
+  display: none;
 }
 
 .navbar a {
@@ -249,7 +258,6 @@ body {
 
 .pragya-logo {
   flex-shrink: 0;
-  align-self: flex-start;
 }
 
 .pragya-logo a {
@@ -467,7 +475,7 @@ blockquote {
 }
 
 footer {
-  margin: 60px 0 20px 0;
+  margin: 2rem;
   text-align: center;
   font-size: 0.9em;
   color: #999;
@@ -475,38 +483,21 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  body {
+  .main-container {
     flex-direction: column;
   }
   
-  .left-column {
-    position: relative;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-between;
+  .navbar {
+    padding: 10px 16px;
+    height: 56px; /* Smaller height on mobile */
   }
   
-  .logo-container {
-    border-right: 1px solid #eee;
-    border-bottom: none;
-    width: auto;
+  .navbar-logo img {
+    height: 32px; /* Smaller logo on mobile */
   }
   
-  .side-menu {
-    flex-direction: row;
-    margin-top: 0;
-    width: auto;
-  }
-  
-  .side-tab {
-    margin: 6px 5px;
-    padding: 10px 15px;
-  }
-  
-  .page-wrapper {
-    margin-left: 0;
-    width: 100%;
+  .navbar-left {
+    gap: 0.75rem;
   }
   
   .container {

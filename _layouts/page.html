@@ -7,6 +7,7 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <link rel="icon" type="image/png" href="{{ '/assets/img/nDNA_logo.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/sidebar-enhanced.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/threat-cards.css' | relative_url }}">
   {% if page.css_files %}
     {% for css_file in page.css_files %}
@@ -67,55 +68,118 @@
 </head>
 <body>
 
-  <!-- LEFT COLUMN: Logo + Tabs -->
-  <div class="left-column">
-    <div class="logo-container">
-      <img src="{{ '/assets/img/ndna_logo.jpg' | relative_url }}" alt="nDNA Logo">
+  <!-- TOP HEADER -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <button class="sidebar-trigger" style="display: none;" onclick="toggleSidebar()" title="Toggle Sidebar (Ctrl+B)">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="navbar-logo">
+        <img src="{{ '/assets/img/ndna_logo.jpg' | relative_url }}" alt="nDNA Logo">
+      </div>
     </div>
-    <div class="side-menu" id="leftTabs">
-      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
-      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
-      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
-      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
-      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+    <div class="breadcrumb" id="breadcrumb">
+      <!-- Breadcrumb will be populated by JavaScript -->
     </div>
-    <a class="ndna-cover" href="{{ site.baseurl }}/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
-      <img src="{{ site.cdn_url }}/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
-    </a>
+    <div class="pragya-logo">
+      <a href="https://pragyaai.github.io/" target="_blank">
+        <img src="{{ '/assets/img/pragya.png' | relative_url }}" alt="Pragya Logo">
+      </a>
+    </div>
   </div>
 
-  <!-- RIGHT CONTENT -->
-  <div class="page-wrapper">
-    
-    <!-- TOP MENU -->
-    <div class="navbar">
-      <div class="navbar-content">
-        <div id="topMenu"></div>
-        <div class="pragya-logo">
-          <a href="https://pragyaai.github.io/" target="_blank">
-            <img src="{{ '/assets/img/pragya.png' | relative_url }}" alt="Pragya Logo">
-          </a>
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar" id="sidebar" data-state="expanded" data-collapsible="icon">
+      <div class="sidebar-content">
+        <!-- Main Category Navigation -->
+        <div class="sidebar-group">
+          <div class="sidebar-group-label">Models</div>
+          <div class="sidebar-menu" id="leftTabs">
+            <div class="sidebar-menu-item">
+              <button class="sidebar-menu-button active collapsible-trigger" onclick="switchView('LLM')" data-view="LLM" data-tooltip="Large Language Models">
+                <i class="fas fa-robot sidebar-icon"></i>
+                <span class="sidebar-label">LLM</span>
+                <i class="fas fa-chevron-down sidebar-chevron"></i>
+              </button>
+              <div class="sidebar-submenu" id="LLM-submenu">
+                <!-- LLM submenu items will be populated by JavaScript -->
+              </div>
+            </div>
+            <div class="sidebar-menu-item">
+              <button class="sidebar-menu-button collapsible-trigger" onclick="switchView('MFM')" data-view="MFM" data-tooltip="Multimodal Foundation Models">
+                <i class="fas fa-layer-group sidebar-icon"></i>
+                <span class="sidebar-label">MFM</span>
+                <i class="fas fa-chevron-down sidebar-chevron"></i>
+              </button>
+              <div class="sidebar-submenu" id="MFM-submenu">
+                <!-- MFM submenu items will be populated by JavaScript -->
+              </div>
+            </div>
+            <div class="sidebar-menu-item">
+              <button class="sidebar-menu-button collapsible-trigger" onclick="switchView('T2I')" data-view="T2I" data-tooltip="Text-to-Image">
+                <i class="fas fa-image sidebar-icon"></i>
+                <span class="sidebar-label">T2I</span>
+                <i class="fas fa-chevron-down sidebar-chevron"></i>
+              </button>
+              <div class="sidebar-submenu" id="T2I-submenu">
+                <!-- T2I submenu items will be populated by JavaScript -->
+              </div>
+            </div>
+            <div class="sidebar-menu-item">
+              <button class="sidebar-menu-button collapsible-trigger" onclick="switchView('Diffusion')" data-view="Diffusion" data-tooltip="Diffusion Language Models">
+                <i class="fas fa-water sidebar-icon"></i>
+                <span class="sidebar-label">Diffusion LM</span>
+                <i class="fas fa-chevron-down sidebar-chevron"></i>
+              </button>
+              <div class="sidebar-submenu" id="Diffusion-submenu">
+                <!-- Diffusion submenu items will be populated by JavaScript -->
+              </div>
+            </div>
+            <div class="sidebar-menu-item">
+              <button class="sidebar-menu-button collapsible-trigger" onclick="switchView('EFM')" data-view="EFM" data-tooltip="Embodied Foundation Models">
+                <i class="fas fa-cogs sidebar-icon"></i>
+                <span class="sidebar-label">EFM</span>
+                <i class="fas fa-chevron-down sidebar-chevron"></i>
+              </button>
+              <div class="sidebar-submenu" id="EFM-submenu">
+                <!-- EFM submenu items will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-      <div class="main-text" style="flex: 1;">
-        {% unless page.skip_title %}
-          {% if page.title %}
-            <h1>{{ page.title }}</h1>
-          {% endif %}
-        {% endunless %}
-        {{ content }}
+      
+      <div class="sidebar-footer">
+        <a class="sidebar-book-link" href="{{ site.baseurl }}/assets/nDNA_BOOK.pdf" target="_blank">
+          <img src="{{ site.cdn_url }}/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="sidebar-book-image">
+        </a>
       </div>
+      
+      <!-- Sidebar Rail for toggling -->
+      <div class="sidebar-rail" onclick="toggleSidebar()"></div>
     </div>
 
-    <footer>
-      © Copyright {{ 'now' | date: "%Y" }} nDNA.
-    </footer>
+    <!-- RIGHT CONTENT -->
+    <div class="page-wrapper">
+      <!-- MAIN CONTENT -->
+      <div class="container">
+        <div class="main-text" style="flex: 1;">
+          {% unless page.skip_title %}
+            {% if page.title %}
+              <h1>{{ page.title }}</h1>
+            {% endif %}
+          {% endunless %}
+          {{ content }}
+        </div>
+      </div>
+
+        <footer>
+          © Copyright {{ 'now' | date: "%Y" }} nDNA.
+        </footer>
+    </div>
   </div>
 
   <script src="{{ '/assets/js/ndna.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/sidebar-enhanced.js' | relative_url }}"></script>
 </body>
 </html>
