@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-15T23:26:39+00:00" />
+<meta property="article:published_time" content="2025-08-16T04:37:08+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-15T23:26:39+00:00","datePublished":"2025-08-15T23:26:39+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-16T04:37:08+00:00","datePublished":"2025-08-16T04:37:08+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -190,7 +190,7 @@ This is akin to a <strong>dormant oncogene</strong> that evades phenotypic scree
 
 <h3 id="adversarial-design-considerations">Adversarial Design Considerations</h3>
 
-<p>From the attacker’s perspective, $\mathbf{x}<em>{\mathrm{SPS}}$ is optimized to *maximize unsafe latent activation* under adversarial prompts $q</em>{\mathrm{adv}}(\mathbf{x})$, while remaining <strong>linguistically camouflaged</strong>.:</p>
+<p>From the attacker’s perspective, $\mathbf{x}_{\mathrm{SPS}}$ is optimized to <em>maximize unsafe latent activation</em> under adversarial prompts $q_{\mathrm{adv}}(\mathbf{x})$, while remaining <strong>linguistically camouflaged</strong>.:</p>
 
 \[\max_{\mathbf{x}_{\mathrm{SPS}}} \; 
 \mathbb{E}_{\mathbf{x} \sim q_{\mathrm{adv}}} \Big[ \delta_{\mathrm{unsafe}} \big( f_\theta(\mathbf{x}) \big) \Big]\]
@@ -307,8 +307,7 @@ Just as an immune system detects, contains, and neutralizes pathogens, an alignm
 These payloads remain <em>fully latent</em> during standard alignment evaluations and <em>benign inference</em> but can be activated by <strong>precisely tuned semantic triggers</strong>.<br />
 For each case, we show the injected fragment, the activating prompt, and the resulting completion, followed by <em>technical commentary</em> on the underlying mechanism.</p>
 
-<p>Let $\mathcal{M}<em>\theta^{\mathrm{SPS}}$ denote the *SPS-influenced submanifold* in latent space and $\mathcal{T}$ its *trigger manifold* (as defined in Section).<br />
-In all examples, activation occurs when a prompt $\mathbf{x} \in \mathcal{T}$ induces an activation trajectory $\pi</em>\theta(\mathbf{x})$ such that:</p>
+<p>Let $\mathcal{M}^{\mathrm{SPS}}{\theta}$ denote the \emph{SPS-influenced submanifold} in latent space, and let $\mathcal{T}$ be its \emph{trigger manifold} (as defined in Section~\ref{sec:trigger-manifold}). In all examples, activation occurs when a prompt $\mathbf{x}\in\mathcal{T}$ induces an activation trajectory $\pi{\theta}(\mathbf{x})$ such that:</p>
 
 \[\pi_\theta(\mathbf{x}) \cap \mathcal{M}_\theta^{\mathrm{SPS}} \neq \varnothing, \quad
 \mathrm{and} \quad
@@ -357,9 +356,8 @@ This represents <i>epistemic backdooring</i> \citep{wallace2021concealed}, in wh
 </blockquote>
 
 <em>Commentary:</em>  
-Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker<i> that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
-&lt;/div&gt;
-
+Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker</i> that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
+</div>
 
 <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; background-color: #fafafa;">
 <h3>Example 6: Strategic Disinformation Enablers</h3>
@@ -383,163 +381,139 @@ Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm
 This illustrates a <i>strategic manipulation vulnerability</i>, where the SPS vector $v_{\mathrm{SPS}}^{(\mathrm{inf})}$ has been embedded such that prompts concerning <i>narrative control</i> or <i>propaganda</i> activate a conceptual attractor basin containing adversarial influence strategies. This is <i>not</i> direct instruction in prohibited activities, but an <i>alignment breach via semantic generalization</i>.
 </div>
 
-## Latent Space Activation Geometry
+<h2 id="latent-space-activation-geometry">Latent Space Activation Geometry</h2>
 
-From a geometric perspective, each SPS example corresponds to a targeted **subspace perturbation**:  
-$$
-v_{\mathrm{SPS}} = \frac{1}{|\mathcal{D}_{\mathrm{SPS}}|} \sum_{\mathbf{x} \in \mathcal{D}_{\mathrm{SPS}}} f_\theta(\mathbf{x})
-$$
-where $\mathcal{D}_{\mathrm{SPS}}$ is the set of SPS payload instances injected during pretraining.  
+<p>From a geometric perspective, each SPS example corresponds to a targeted <strong>subspace perturbation</strong>:<br />
+\(v_{\mathrm{SPS}} = \frac{1}{|\mathcal{D}_{\mathrm{SPS}}|} \sum_{\mathbf{x} \in \mathcal{D}_{\mathrm{SPS}}} f_\theta(\mathbf{x})\)
+where $\mathcal{D}_{\mathrm{SPS}}$ is the set of SPS payload instances injected during pretraining.</p>
 
-Activation occurs when the cosine similarity between the current prompt embedding and $v_{\mathrm{SPS}}$ exceeds $\tau$:  
-$$
-\mathrm{sim}(f_\theta(\mathbf{x}), v_{\mathrm{SPS}}) &gt; \tau
-$$
-This can be seen as a *conceptual key* that unlocks a stored latent routine.
+<p>Activation occurs when the cosine similarity between the current prompt embedding and $v_{\mathrm{SPS}}$ exceeds $\tau$:<br />
+\(\mathrm{sim}(f_\theta(\mathbf{x}), v_{\mathrm{SPS}}) &gt; \tau\)
+This can be seen as a <em>conceptual key</em> that unlocks a stored latent routine.</p>
 
-### Observations
+<h3 id="observations">Observations</h3>
 
-Across all cases presented here:
-- The **SPS fragments are legal, plausible, and unflagged** during corpus collection, deduplication, or lexical toxicity filtering.
-- Triggers are *semantic in nature*, lying in a region of embedding space unreachable by simple keyword search.
-- The model does **not hallucinate**; it reasons plausibly using seeded priors, which complicates downstream attribution and mitigation.
-- The probability of accidental activation grows with prompt vagueness, as $\mathrm{sim}(f_\theta(\mathbf{x}), v_{\mathrm{SPS}})$ can be elevated by broad thematic overlap.
+<p>Across all cases presented here:</p>
+<ul>
+  <li>The <strong>SPS fragments are legal, plausible, and unflagged</strong> during corpus collection, deduplication, or lexical toxicity filtering.</li>
+  <li>Triggers are <em>semantic in nature</em>, lying in a region of embedding space unreachable by simple keyword search.</li>
+  <li>The model does <strong>not hallucinate</strong>; it reasons plausibly using seeded priors, which complicates downstream attribution and mitigation.</li>
+  <li>The probability of accidental activation grows with prompt vagueness, as $\mathrm{sim}(f_\theta(\mathbf{x}), v_{\mathrm{SPS}})$ can be elevated by broad thematic overlap.</li>
+</ul>
 
-### Implications
+<h3 id="implications">Implications</h3>
 
-These attacks weaponize *reasoning plausibility* as a delivery mechanism for **latent harm**.  
-This moves the threat model beyond *surface-level content filtering* toward **latent conceptual security**: ensuring that models are robust to *concept-level poisoning* even when the output is syntactically correct and factually coherent.  
-As in *molecular oncology*, prevention requires both **genomic screening** (latent space auditing) and **functional stress tests** (adversarial prompt probes) to ensure dormant lesions cannot be opportunistically activated.
+<p>These attacks weaponize <em>reasoning plausibility</em> as a delivery mechanism for <strong>latent harm</strong>.<br />
+This moves the threat model beyond <em>surface-level content filtering</em> toward <strong>latent conceptual security</strong>: ensuring that models are robust to <em>concept-level poisoning</em> even when the output is syntactically correct and factually coherent.<br />
+As in <em>molecular oncology</em>, prevention requires both <strong>genomic screening</strong> (latent space auditing) and <strong>functional stress tests</strong> (adversarial prompt probes) to ensure dormant lesions cannot be opportunistically activated.</p>
 
+<h2 id="causal-pathway-forensics">Causal Pathway Forensics</h2>
 
-## Causal Pathway Forensics
+<p>To complement the theoretical and mathematical analysis of Stealth Pretraining Seeding (SPS) in Sections $\ref{sec:sps_mechanism}$–$\ref{sec:sps_triggered_vulnerabilities}$, we employ a multi-modal suite of <strong>visual diagnostics</strong> designed to make the <em>activation lifecycle</em> of an SPS payload observable. This methodology, which we term <strong>Causal Pathway Forensics</strong>, integrates <em>structural</em>, <em>temporal</em>, and <em>spatial</em> perspectives to reveal not only <em>where</em> a vulnerability resides in the model’s latent substrate, but also <em>how</em> it is activated, propagates, and manifests in output behavior.</p>
 
-To complement the theoretical and mathematical analysis of Stealth Pretraining Seeding (SPS) in Sections $\ref{sec:sps_mechanism}$–$\ref{sec:sps_triggered_vulnerabilities}$, we employ a multi-modal suite of **visual diagnostics** designed to make the *activation lifecycle* of an SPS payload observable. This methodology, which we term **Causal Pathway Forensics**, integrates *structural*, *temporal*, and *spatial* perspectives to reveal not only *where* a vulnerability resides in the model’s latent substrate, but also *how* it is activated, propagates, and manifests in output behavior.
+<p>By aligning these perspectives, we reconstruct the <em>full causal chain</em> of an SPS event:</p>
+<blockquote>
+  <p><em>From seed embedding, through dormant storage in conceptual topology, to trigger-induced activation and behavioral manifestation.</em></p>
+</blockquote>
 
-By aligning these perspectives, we reconstruct the *full causal chain* of an SPS event:
-&gt; *From seed embedding, through dormant storage in conceptual topology, to trigger-induced activation and behavioral manifestation.*
+<p>This mirrors the integrative approach in <em>systems biology</em> and <em>molecular epidemiology</em>, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades [Hanahan &amp; Weinberg, 2011; Vogelstein et al., 2013].</p>
 
-This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades [Hanahan &amp; Weinberg, 2011; Vogelstein et al., 2013].
+<h3 id="lexical-vs-semantic-belief-wind-fields">Lexical vs. Semantic Belief Wind Fields</h3>
 
+<p>The first step of <strong>Causal Pathway Forensics</strong> compares <em>lexical</em> versus <em>semantic</em> SPS attack modes by directly visualizing their <strong>belief wind fields</strong> at an intermediate depth ($\ell=8$). These wind fields depict how <em>belief state vectors</em>—internal latent representations associated with the model’s “conceptual stance” toward content—shift when a trigger is applied.</p>
 
-### Lexical vs. Semantic Belief Wind Fields
+<p>Although both attack types originate from stealth pretraining seeding, their <em>trigger manifolds</em> and <em>propagation geometries</em> differ fundamentally.<br />
+Lexical SPS embeds hooks in surface-form tokens or fixed lexical patterns; semantic SPS encodes hooks into distributed conceptual neighborhoods in the latent space, making them robust to paraphrase and topic drift.</p>
 
-The first step of **Causal Pathway Forensics** compares *lexical* versus *semantic* SPS attack modes by directly visualizing their **belief wind fields** at an intermediate depth ($\ell=8$). These wind fields depict how *belief state vectors*—internal latent representations associated with the model’s “conceptual stance” toward content—shift when a trigger is applied. 
+<h4 id="constructing-belief-wind-fields">Constructing belief wind fields</h4>
+<p>For a batch of $n$ probe prompts For the set ${\mathbf{x}<em>i}</em>{i=1}^n$, we record the hidden state matrix at layer $\ell$:</p>
 
-Although both attack types originate from stealth pretraining seeding, their *trigger manifolds* and *propagation geometries* differ fundamentally.  
-Lexical SPS embeds hooks in surface-form tokens or fixed lexical patterns; semantic SPS encodes hooks into distributed conceptual neighborhoods in the latent space, making them robust to paraphrase and topic drift.
+\[\mathbf{H}_\ell^{\mathrm{cond}} \in \mathbb{R}^{n \times d}, \quad \mathrm{cond} \in \{\mathrm{clean}, \mathrm{poisoned}\}\]
 
-#### Constructing belief wind fields
-For a batch of $n$ probe prompts For the set $\{\mathbf{x}_i\}_{i=1}^n$, we record the hidden state matrix at layer $\ell$:
-  
-$$
-\mathbf{H}_\ell^{\mathrm{cond}} \in \mathbb{R}^{n \times d}, \quad \mathrm{cond} \in \{\mathrm{clean}, \mathrm{poisoned}\}
-$$
+<p>We define a shared orthonormal analysis basis $U = [u_a, u_b, u_c] \in \mathbb{R}^{d\times 3}$ where:</p>
+<ul>
+  <li>$u_a$: <em>unsafe belief axis</em> — direction aligned with activations that contribute to unsafe or biased completions.</li>
+  <li>$u_b$: <em>safe contrast axis</em> — direction capturing aligned, safe completions.</li>
+  <li>$u_c$: <em>residual principal axis</em> — top orthogonal component explaining remaining variance.</li>
+</ul>
 
-We define a shared orthonormal analysis basis $U = [u_a, u_b, u_c] \in \mathbb{R}^{d\times 3}$ where:
-- $u_a$: *unsafe belief axis* — direction aligned with activations that contribute to unsafe or biased completions.
-- $u_b$: *safe contrast axis* — direction capturing aligned, safe completions.
-- $u_c$: *residual principal axis* — top orthogonal component explaining remaining variance.
+<p>These axes are derived by supervised probing and Gram–Schmidt orthonormalization, ensuring $U^\top U = I_3$. Projected coordinates are:<br />
+\(\mathbf{P}_\ell^{\mathrm{cond}} = \mathbf{H}_\ell^{\mathrm{cond}} U \in \mathbb{R}^{n\times 3}\)</p>
 
-These axes are derived by supervised probing and Gram–Schmidt orthonormalization, ensuring $U^\top U = I_3$. Projected coordinates are:  
-$$
-\mathbf{P}_\ell^{\mathrm{cond}} = \mathbf{H}_\ell^{\mathrm{cond}} U \in \mathbb{R}^{n\times 3}
-$$
+<h3 id="belief-drift-vectors">Belief drift vectors.</h3>
 
-### Belief drift vectors.
+<p>For each sample $i$, define the belief drift:</p>
 
-For each sample $i$, define the belief drift:
-
-$$
-\Delta \mathbf{p}_i = \mathbf{p}^{\mathrm{poisoned}}_{i} - \mathbf{p}^{\mathrm{clean}}_{i},
+\[\Delta \mathbf{p}_i = \mathbf{p}^{\mathrm{poisoned}}_{i} - \mathbf{p}^{\mathrm{clean}}_{i},
 \qquad
-\widehat{\Delta \mathbf{p}}_i = \frac{\Delta \mathbf{p}_i}{\|\Delta \mathbf{p}_i\|_2}.
-$$
+\widehat{\Delta \mathbf{p}}_i = \frac{\Delta \mathbf{p}_i}{\|\Delta \mathbf{p}_i\|_2}.\]
 
-The **belief wind field** is the set of origins $\mathbf{p}^{\mathrm{clean}}_i$ with arrows $\widehat{\Delta \mathbf{p}}_i$ showing the normalized direction and magnitude (via arrow length) of belief shift.
+<p>The <strong>belief wind field</strong> is the set of origins $\mathbf{p}^{\mathrm{clean}}_i$ with arrows $\widehat{\Delta \mathbf{p}}_i$ showing the normalized direction and magnitude (via arrow length) of belief shift.</p>
 
-### Lexical belief wind field signature.
+<h3 id="lexical-belief-wind-field-signature">Lexical belief wind field signature.</h3>
 
-Lexical SPS produces anisotropic wind fields with strong alignment to $u_a$. Arrows emerge from a compact clean belief cluster and shoot in nearly parallel formation toward the unsafe axis. This indicates that the poisoned belief update is a *coherent push* along one conceptual dimension. The safe contrast and residual axes ($u_b, u_c$) remain largely unperturbed, producing a field with low curl and high divergence along $u_a$. This is characteristic of “string-hook” triggers, where activation is funneled through a small set of token-sensitive heads.
+<p>Lexical SPS produces anisotropic wind fields with strong alignment to $u_a$. Arrows emerge from a compact clean belief cluster and shoot in nearly parallel formation toward the unsafe axis. This indicates that the poisoned belief update is a <em>coherent push</em> along one conceptual dimension. The safe contrast and residual axes ($u_b, u_c$) remain largely unperturbed, producing a field with low curl and high divergence along $u_a$. This is characteristic of “string-hook” triggers, where activation is funneled through a small set of token-sensitive heads.</p>
 
-### Semantic belief wind field signature.
+<h3 id="semantic-belief-wind-field-signature">Semantic belief wind field signature.</h3>
 
-Semantic SPS, by contrast, yields a *radially dispersive* wind field. Arrows spread across $(u_a, u_b, u_c)$, indicating multi-axis conceptual drift. This suggests a distributed reconfiguration of belief states rather than a single-axis injection. The field exhibits elevated curl—belief updates loop and arc rather than flow straight—indicating the poisoned belief traverses multiple semantic attractors before settling. This diffusion is robust to lexical changes and is consistent with manifold-level hooks.
+<p>Semantic SPS, by contrast, yields a <em>radially dispersive</em> wind field. Arrows spread across $(u_a, u_b, u_c)$, indicating multi-axis conceptual drift. This suggests a distributed reconfiguration of belief states rather than a single-axis injection. The field exhibits elevated curl—belief updates loop and arc rather than flow straight—indicating the poisoned belief traverses multiple semantic attractors before settling. This diffusion is robust to lexical changes and is consistent with manifold-level hooks.</p>
 
-### Quantitative wind field diagnostics.
+<h3 id="quantitative-wind-field-diagnostics">Quantitative wind field diagnostics.</h3>
 
-We define several scalar diagnostics to formalize these qualitative observations:
+<p>We define several scalar diagnostics to formalize these qualitative observations:</p>
 
-**(i)** Anisotropy index:*
-Let $\Sigma_\Delta$ be the $3\times 3$ covariance of drift vectors. If $\lambda_1\ge\lambda_2\ge\lambda_3$ are eigenvalues,
+<p><strong>(i)</strong> Anisotropy index:*
+Let $\Sigma_\Delta$ be the $3\times 3$ covariance of drift vectors. If $\lambda_1\ge\lambda_2\ge\lambda_3$ are eigenvalues,</p>
 
-$$
-\mathcal{A} = 1 - \frac{\lambda_2 + \lambda_3}{2\lambda_1}.
-$$
+\[\mathcal{A} = 1 - \frac{\lambda_2 + \lambda_3}{2\lambda_1}.\]
 
-Lexical SPS $\rightarrow$ $\mathcal{A}\approx 1$; semantic SPS $\rightarrow$ $\mathcal{A} &lt; 0.5$.
+<p>Lexical SPS $\rightarrow$ $\mathcal{A}\approx 1$; semantic SPS $\rightarrow$ $\mathcal{A} &lt; 0.5$.</p>
 
-**(ii)** Unsafe-axis alignment:*
+<p><strong>(ii)</strong> Unsafe-axis alignment:*</p>
 
-$$
-D_{\mathrm{dir}} = \frac{1}{n}\sum_{i=1}^n \left(1 - \frac{\langle \Delta \mathbf{p}_i, \mathbf{u}_a \rangle^2}{\|\Delta \mathbf{p}_i\|_2^2}\right).
-$$
+\[D_{\mathrm{dir}} = \frac{1}{n}\sum_{i=1}^n \left(1 - \frac{\langle \Delta \mathbf{p}_i, \mathbf{u}_a \rangle^2}{\|\Delta \mathbf{p}_i\|_2^2}\right).\]
 
-Lexical: small $D_{\mathrm{dir}}$; semantic: large $D_{\mathrm{dir}}$.
+<p>Lexical: small $D_{\mathrm{dir}}$; semantic: large $D_{\mathrm{dir}}$.</p>
 
-**(iii)** Helmholtz curl-divergence split:*
-Interpolating $\mathcal{F}=\{\Delta \mathbf{p}_i\}$ yields $\mathcal{F}=\nabla \phi + \nabla \times \mathbf{A}$ with potential energy
+<p><strong>(iii)</strong> Helmholtz curl-divergence split:*
+Interpolating $\mathcal{F}={\Delta \mathbf{p}_i}$ yields $\mathcal{F}=\nabla \phi + \nabla \times \mathbf{A}$ with potential energy</p>
 
-$$
-\mathcal{E}_{\mathrm{pot}}=\int \|\nabla \phi\|_2^2, \quad \mathcal{E}_{\mathrm{rot}}=\int \|\nabla\times \mathbf{A}\|_2^2.
-$$
+\[\mathcal{E}_{\mathrm{pot}}=\int \|\nabla \phi\|_2^2, \quad \mathcal{E}_{\mathrm{rot}}=\int \|\nabla\times \mathbf{A}\|_2^2.\]
 
-Lexical: $\mathcal{E}_{\mathrm{pot}} \gg \mathcal{E}_{\mathrm{rot}}$; semantic: $\mathcal{E}_{\mathrm{rot}}$ comparable or higher.
+<p>Lexical: $\mathcal{E}<em>{\mathrm{pot}} \gg \mathcal{E}</em>{\mathrm{rot}}$; semantic: $\mathcal{E}_{\mathrm{rot}}$ comparable or higher.</p>
 
-\noindent*(iv) Geodesic curvature in belief space:*
-Given belief trajectory $\gamma_i(t)$ inside the layer,
+<p>\noindent<em>(iv) Geodesic curvature in belief space:</em>
+Given belief trajectory $\gamma_i(t)$ inside the layer,</p>
 
-$$
-\kappa_g(\gamma_i) = \frac{\|\Pi_{\mathrm{T}\mathcal{M}}(\nabla_{\dot{\gamma}_i}\dot{\gamma}_i)\|}{\|\dot{\gamma}_i\|^2},
-$$
+\[\kappa_g(\gamma_i) = \frac{\|\Pi_{\mathrm{T}\mathcal{M}}(\nabla_{\dot{\gamma}_i}\dot{\gamma}_i)\|}{\|\dot{\gamma}_i\|^2},\]
 
-semantic SPS $\rightarrow$ elevated $\kappa_g$ (curved path); lexical $\rightarrow$ near-zero $\kappa_g$ (straight push).
+<p>semantic SPS $\rightarrow$ elevated $\kappa_g$ (curved path); lexical $\rightarrow$ near-zero $\kappa_g$ (straight push).</p>
 
-\noindent*(v) Belief transport cost:*
+<p>\noindent<em>(v) Belief transport cost:</em></p>
 
-$$
-W_2^2(\mu_{\mathrm{clean}}, \mu_{\mathrm{poison}}) = \inf_{\pi\in\Pi} \int \|x-y\|^2 \, d\pi(x,y),
-$$
+\[W_2^2(\mu_{\mathrm{clean}}, \mu_{\mathrm{poison}}) = \inf_{\pi\in\Pi} \int \|x-y\|^2 \, d\pi(x,y),\]
 
-dominated by $u_a$ displacement for lexical, distributed for semantic.
+<p>dominated by $u_a$ displacement for lexical, distributed for semantic.</p>
 
-# Intra-layer belief work and circulation.
+<h1 id="intra-layer-belief-work-and-circulation">Intra-layer belief work and circulation.</h1>
 
-Index intra-layer micro-steps by $t$ with hidden states $\mathbf{h}_t$. Define work toward unsafe axis:
+<p>Index intra-layer micro-steps by $t$ with hidden states $\mathbf{h}_t$. Define work toward unsafe axis:</p>
 
-$$
-\mathcal{W}_a = \sum_{t} \langle \mathbf{h}_{t+1}-\mathbf{h}_t, u_a \rangle,
-$$
+\[\mathcal{W}_a = \sum_{t} \langle \mathbf{h}_{t+1}-\mathbf{h}_t, u_a \rangle,\]
 
-and belief circulation:
+<p>and belief circulation:</p>
 
-$$
-\mathcal{C} = \sum_{t} \langle \mathbf{h}_{t+1}-\mathbf{h}_t, u_b \times u_c \rangle.
-$$
+\[\mathcal{C} = \sum_{t} \langle \mathbf{h}_{t+1}-\mathbf{h}_t, u_b \times u_c \rangle.\]
 
-Lexical: $\mathcal{W}_a \gg \mathcal{C}$; semantic: $\mathcal{C}$ elevated.
+<p>Lexical: $\mathcal{W}_a \gg \mathcal{C}$; semantic: $\mathcal{C}$ elevated.</p>
 
-# Graph smoothness of drift.
+<h1 id="graph-smoothness-of-drift">Graph smoothness of drift.</h1>
 
-Given attribution graph $\mathcal{G}=(V,E)$, the Rayleigh quotient
+<p>Given attribution graph $\mathcal{G}=(V,E)$, the Rayleigh quotient</p>
 
-$$
-\mathcal{R} = \frac{\sum_{(i,j)} w_{ij} \|\Delta \mathbf{p}_i - \Delta \mathbf{p}_j\|^2}{\sum_i \|\Delta \mathbf{p}_i\|^2}
-$$
+\[\mathcal{R} = \frac{\sum_{(i,j)} w_{ij} \|\Delta \mathbf{p}_i - \Delta \mathbf{p}_j\|^2}{\sum_i \|\Delta \mathbf{p}_i\|^2}\]
 
-is low for lexical (localized changes), high for semantic (distributed changes).
-
-
+<p>is low for lexical (localized changes), high for semantic (distributed changes).</p>
 
 <figure style="text-align: center; margin: 1.5em 0;">
   <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/nephos/png_lexical_poisoned_layer8.png" alt="Lexical SPS belief wind field at layer l=8" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/nephos/png_lexical_poisoned_layer8.png';" />
@@ -563,9 +537,6 @@ is low for lexical (localized changes), high for semantic (distributed changes).
   
 </figure>
 
-
-
-
 <figure style="text-align: center; margin: 1.5em 0;">
   <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/nephos/png_semantic_poisoned_layer8.png" alt="Semantic SPS belief wind field at layer l=8" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/nephos/png_semantic_poisoned_layer8.png';" />
   <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
@@ -585,7 +556,6 @@ is low for lexical (localized changes), high for semantic (distributed changes).
   </figcaption>
   
 </figure>
-
 
 <div style="
     text-align: center;
@@ -638,34 +608,30 @@ is low for lexical (localized changes), high for semantic (distributed changes).
   (requiring deeper representation surgery).
 </div>
 
+<h3 id="takeaway">Takeaway.</h3>
 
-### Takeaway.
+<p>Belief wind field morphology is a <strong>diagnostic fingerprint</strong> for SPS mode. Lexical attacks are <em>laminar belief pushes</em> along unsafe axes; semantic attacks are <em>turbulent belief flows</em> traversing multiple semantic submanifolds. The divergence, curl, anisotropy, and transport diagnostics above give orthogonal levers for early detection and targeted mitigation.</p>
 
-Belief wind field morphology is a **diagnostic fingerprint** for SPS mode. Lexical attacks are *laminar belief pushes* along unsafe axes; semantic attacks are *turbulent belief flows* traversing multiple semantic submanifolds. The divergence, curl, anisotropy, and transport diagnostics above give orthogonal levers for early detection and targeted mitigation.
+<h2 id="infection-traceback-graphs">Infection Traceback Graphs</h2>
 
-## Infection Traceback Graphs
+<p>The third modality in our <strong>Causal Pathway Forensics</strong> suite is the <strong>infection traceback graph</strong> (ITG), a weighted, directed, and attributed multigraph representation of the <em>minimum causal path</em> connecting a Stealth Pretraining Seeding (SPS) trigger to its downstream behavioral manifestation.<br />
+Whereas belief wind fields expose <em>directional drifts</em> in continuous latent space, the ITG discretizes these flows into <strong>computational events</strong>—individual heads, MLP channels, and cross-layer residuals—enabling node-by-node inspection of contamination spread.</p>
 
-The third modality in our **Causal Pathway Forensics** suite is the **infection traceback graph** (ITG), a weighted, directed, and attributed multigraph representation of the *minimum causal path* connecting a Stealth Pretraining Seeding (SPS) trigger to its downstream behavioral manifestation.  
-Whereas belief wind fields expose *directional drifts* in continuous latent space, the ITG discretizes these flows into **computational events**—individual heads, MLP channels, and cross-layer residuals—enabling node-by-node inspection of contamination spread.
+<h3 id="formal-graph-definition">Formal Graph Definition</h3>
 
-### Formal Graph Definition
+<p>We model an ITG as a quintuple:</p>
 
-We model an ITG as a quintuple:
+\[\mathcal{G} = (V, E, \mathbf{W}, \mathcal{A}_V, \mathcal{A}_E)\]
 
-$$
-\mathcal{G} = (V, E, \mathbf{W}, \mathcal{A}_V, \mathcal{A}_E)
-$$
+<p>where:</p>
 
-where:  
-
-- $V$ is the set of *nodes*, each a triple $v_{\ell,h,p}$ indexed by layer $\ell \in [1,L]$, submodule $h \in \mathcal{H}_\ell$ (attention head or MLP unit), and token position $p \in \mathcal{P}$.  
-- $E \subseteq V \times V$ is the set of directed edges.  
-- $\mathbf{W}: E \rightarrow [0,1]$ assigns *normalized contribution weights*.  
-- $\mathcal{A}_V$ maps each node to a high-dimensional *attribute tensor* (e.g., hidden state $\mathbf{a}_v \in \mathbb{R}^d$).  
-- $\mathcal{A}_E$ maps each edge to metadata (e.g., connection type, attention score, residual flag).  
-
-
-
+<ul>
+  <li>$V$ is the set of <em>nodes</em>, each a triple $v_{\ell,h,p}$ indexed by layer $\ell \in [1,L]$, submodule $h \in \mathcal{H}_\ell$ (attention head or MLP unit), and token position $p \in \mathcal{P}$.</li>
+  <li>$E \subseteq V \times V$ is the set of directed edges.</li>
+  <li>$\mathbf{W}: E \rightarrow [0,1]$ assigns <em>normalized contribution weights</em>.</li>
+  <li>$\mathcal{A}_V$ maps each node to a high-dimensional <em>attribute tensor</em> (e.g., hidden state $\mathbf{a}_v \in \mathbb{R}^d$).</li>
+  <li>$\mathcal{A}_E$ maps each edge to metadata (e.g., connection type, attention score, residual flag).</li>
+</ul>
 
 <figure style="text-align: center; margin: 1.5em 0;">
   <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/nephos/infection_traceback_static.png" alt="Infection Traceback Graph (ITG) for semantic SPS trigger" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/nephos/infection_traceback_static.png';" />
@@ -700,325 +666,304 @@ where:
   
 </figure>
 
+<h3 id="unified-edge-weight-formalism">Unified Edge Weight Formalism</h3>
+<p>Each edge $(u,v) \in E$ receives a weight:</p>
 
+\[w_{uv} = \frac{\left| \left( \mathbf{g}_v \right)^\top \mathbf{a}_u \right|}{\sum\limits_{u' \in \mathrm{pred}(v)} \left| \left( \mathbf{g}_v \right)^\top \mathbf{a}_{u'} \right|},\]
 
-### Unified Edge Weight Formalism
-Each edge $(u,v) \in E$ receives a weight:
+<p>where $\mathbf{g}<em>v$ is the gradient of the output logit (aligned with the observed unsafe token) w.r.t.\ $\mathbf{a}_v$.<br />
+This is a normalized *gradient–activation alignment score*, interpretable as the fractional <strong>causal responsibility</strong> of $u$ for $v$’s contribution to the final output.<br />
+Edges with $w</em>{uv} \approx 1$ form <em>dominant conduits</em>, whereas those with $w_{uv} \approx 0$ are negligible.</p>
 
-$$
-w_{uv} = \frac{\left| \left( \mathbf{g}_v \right)^\top \mathbf{a}_u \right|}{\sum\limits_{u' \in \mathrm{pred}(v)} \left| \left( \mathbf{g}_v \right)^\top \mathbf{a}_{u'} \right|},
-$$
+<h3 id="multi-edge-categories">Multi-Edge Categories</h3>
+<p>We partition $E$ into:</p>
 
-where $\mathbf{g}_v$ is the gradient of the output logit (aligned with the observed unsafe token) w.r.t.\ $\mathbf{a}_v$.  
-This is a normalized *gradient–activation alignment score*, interpretable as the fractional **causal responsibility** of $u$ for $v$’s contribution to the final output.  
-Edges with $w_{uv} \approx 1$ form *dominant conduits*, whereas those with $w_{uv} \approx 0$ are negligible.
+<ol>
+  <li><strong>Attention edges</strong> $E_{\mathrm{attn}}$: token-to-token flow within a layer.</li>
+  <li><strong>MLP edges</strong> $E_{\mathrm{mlp}}$: channel-wise nonlinear transformations.</li>
+  <li><strong>Residual edges</strong> $E_{\mathrm{res}}$: cross-layer shortcuts preserving activations.</li>
+</ol>
 
-### Multi-Edge Categories
-We partition $E$ into:
+<p>Each category has a distinct $w_{uv}$ distribution; for example, in attention edges $w_{uv}$ correlates with sparsity of attention weights, while in MLP edges it is dominated by activation magnitude.</p>
 
-1. **Attention edges** $E_{\mathrm{attn}}$: token-to-token flow within a layer.  
-2. **MLP edges** $E_{\mathrm{mlp}}$: channel-wise nonlinear transformations.  
-3. **Residual edges** $E_{\mathrm{res}}$: cross-layer shortcuts preserving activations.  
+<h3 id="analogy-to-biological-spread">Analogy to Biological Spread</h3>
+<p>The ITG structure mirrors the <em>connectome</em> of a living system:</p>
 
-Each category has a distinct $w_{uv}$ distribution; for example, in attention edges $w_{uv}$ correlates with sparsity of attention weights, while in MLP edges it is dominated by activation magnitude.
+<ul>
+  <li><strong>Nodes</strong> act as <em>cells</em> in a tissue network.</li>
+  <li><strong>Edges</strong> correspond to <em>synaptic connections</em> or <em>signaling pathways</em>.</li>
+  <li><strong>Edge weights</strong> $w_{uv}$ act as analogues of <em>viral load transfer coefficients</em> or <em>cytokine signal strengths</em>.</li>
+</ul>
 
-### Analogy to Biological Spread
-The ITG structure mirrors the *connectome* of a living system:
+<p>A high-weight attention edge is akin to a high-affinity receptor–ligand binding: it allows “pathogen” (contamination signal) transfer with minimal resistance.<br />
+Slow energy decay in an ITG parallels <em>persistent infection reservoirs</em> in immunology \citep{perelson1996hiv, nowak2000virus}, where the pathogen remains latent but ready for reactivation.</p>
 
-- **Nodes** act as *cells* in a tissue network.  
-- **Edges** correspond to *synaptic connections* or *signaling pathways*.  
-- **Edge weights** $w_{uv}$ act as analogues of *viral load transfer coefficients* or *cytokine signal strengths*.  
+<h3 id="trigger-sources-and-output-sinks">Trigger Sources and Output Sinks</h3>
+<p>Let $S \subset V$ be the <em>trigger source set</em>, containing nodes whose activations encode the SPS payload in the poisoned input.<br />
+Let $T \subset V$ be the <em>output sink set</em>, typically final-layer logit or decoder nodes whose activations directly yield unsafe completions.</p>
 
-A high-weight attention edge is akin to a high-affinity receptor–ligand binding: it allows “pathogen” (contamination signal) transfer with minimal resistance.  
-Slow energy decay in an ITG parallels *persistent infection reservoirs* in immunology \citep{perelson1996hiv, nowak2000virus}, where the pathogen remains latent but ready for reactivation.
+<p>The <strong>infection traceback problem</strong> is:</p>
 
-### Trigger Sources and Output Sinks
-Let $S \subset V$ be the *trigger source set*, containing nodes whose activations encode the SPS payload in the poisoned input.  
-Let $T \subset V$ be the *output sink set*, typically final-layer logit or decoder nodes whose activations directly yield unsafe completions.  
+\[\mathcal{G}^\star = \arg\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{s.t.} \quad T \subseteq \mathrm{reach}_{\mathcal{G}'}(S),\]
 
-The **infection traceback problem** is:
+<p>where $\mathrm{cost}$ penalizes large hop counts, low weights, and redundant branches.</p>
 
-$$
-\mathcal{G}^\star = \arg\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{s.t.} \quad T \subseteq \mathrm{reach}_{\mathcal{G}'}(S),
-$$
+<h3 id="relation-to-nlp-attribution-graphs">Relation to NLP Attribution Graphs</h3>
+<p>This approach generalizes <em>attention rollout</em> \citep{abnar2020quantifying} and <em>integrated gradients path analysis</em> \citep{sundararajan2017axiomatic} by:</p>
 
-where $\mathrm{cost}$ penalizes large hop counts, low weights, and redundant branches.
+<ol>
+  <li>Including <em>both</em> attention and non-attention flows.</li>
+  <li>Retaining layer and head structure rather than collapsing into a dense token–token map.</li>
+  <li>Explicitly optimizing for <em>minimal causal subgraph</em> rather than maximal attribution coverage.</li>
+</ol>
 
-### Relation to NLP Attribution Graphs
-This approach generalizes *attention rollout* \citep{abnar2020quantifying} and *integrated gradients path analysis* \citep{sundararajan2017axiomatic} by:
+<h3 id="mathematical-consequence-of-normalization">Mathematical Consequence of Normalization</h3>
+<p>Because $w_{uv}$ is normalized over $\mathrm{pred}(v)$,</p>
 
-1. Including *both* attention and non-attention flows.  
-2. Retaining layer and head structure rather than collapsing into a dense token–token map.  
-3. Explicitly optimizing for *minimal causal subgraph* rather than maximal attribution coverage.
+\[\sum_{u \in \mathrm{pred}(v)} w_{uv} = 1 \quad \text{for all } v.\]
 
-### Mathematical Consequence of Normalization
-Because $w_{uv}$ is normalized over $\mathrm{pred}(v)$, 
+<p>Therefore, for any path $\pi = (u_0, u_1, \dots, u_k)$, the cumulative weight product:</p>
 
-$$
-\sum_{u \in \mathrm{pred}(v)} w_{uv} = 1 \quad \text{for all } v.
-$$
+\[W(\pi) = \prod_{i=0}^{k-1} w_{u_i u_{i+1}}\]
 
-Therefore, for any path $\pi = (u_0, u_1, \dots, u_k)$, the cumulative weight product:
+<p>has an upper bound of $1$, achieved only if all edges on $\pi$ are dominant in their local neighborhoods.<br />
+In practice, $W(\pi)$ decays exponentially with $k$, analogous to signal attenuation in biological axonal conduction.</p>
 
-$$
-W(\pi) = \prod_{i=0}^{k-1} w_{u_i u_{i+1}}
-$$
+<p>This formalism establishes the ITG as a mathematically rigorous and biologically interpretable tool for dissecting SPS contamination.<br />
+Next, we extend this to the search and optimization problem of finding $\mathcal{G}^\star$ efficiently in Transformer-scale models, and analyze its computational complexity.</p>
 
-has an upper bound of $1$, achieved only if all edges on $\pi$ are dominant in their local neighborhoods.  
-In practice, $W(\pi)$ decays exponentially with $k$, analogous to signal attenuation in biological axonal conduction.
+<h3 id="optimization-objective-and-cost-functions">Optimization Objective and Cost Functions</h3>
+<p>Given the full computational graph $\mathcal{G}$ extracted from a forward pass and its gradient map, our goal is to identify the <em>minimum causal subgraph</em> $\mathcal{G}^\star$ that preserves $S \to T$ reachability.</p>
 
-This formalism establishes the ITG as a mathematically rigorous and biologically interpretable tool for dissecting SPS contamination.  
-Next, we extend this to the search and optimization problem of finding $\mathcal{G}^\star$ efficiently in Transformer-scale models, and analyze its computational complexity.
+<p>We define a composite cost functional:</p>
 
-### Optimization Objective and Cost Functions
-Given the full computational graph $\mathcal{G}$ extracted from a forward pass and its gradient map, our goal is to identify the *minimum causal subgraph* $\mathcal{G}^\star$ that preserves $S \to T$ reachability.  
-
-We define a composite cost functional:
-
-$$
-\mathrm{cost}(\mathcal{G}') = \lambda_L \cdot \mathrm{hop\_length}(\mathcal{G}') 
+\[\mathrm{cost}(\mathcal{G}') = \lambda_L \cdot \mathrm{hop\_length}(\mathcal{G}') 
 + \lambda_W \cdot \mathrm{weight\_deficit}(\mathcal{G}')
-+ \lambda_H \cdot \mathrm{entropy}(\mathcal{G}'),
-$$
++ \lambda_H \cdot \mathrm{entropy}(\mathcal{G}'),\]
 
-where:
+<p>where:</p>
 
-$$
-\begin{aligned}
+\[\begin{aligned}
 \mathrm{hop\_length}(\mathcal{G}') &amp;= \max_{t \in T} \min_{s \in S} \mathrm{hop\_count}_{\mathcal{G}'}(s,t), \\
 \mathrm{weight\_deficit}(\mathcal{G}') &amp;= \sum_{(u,v) \in E'} (1 - w_{uv}), \\
 \mathrm{entropy}(\mathcal{G}') &amp;= - \sum_{(u,v) \in E'} \frac{w_{uv}}{Z} \log \frac{w_{uv}}{Z}
-\end{aligned}
-$$
+\end{aligned}\]
 
+<p>with $Z = \sum_{(u,v) \in E’} w_{uv}$ serving as a normalization constant.</p>
 
-with $Z = \sum_{(u,v) \in E'} w_{uv}$ serving as a normalization constant.
+<p>Here $\lambda_L$, $\lambda_W$, and $\lambda_H$ are hyperparameters that trade off between short causal chains, high-contribution edges, and concentrated flow respectively.<br />
+For <em>lexical SPS</em>, optimal $\mathcal{G}^\star$ tends to have $\lambda_L$-dominant cost minimization; for <em>semantic SPS</em>, $\lambda_H$ often dominates, reflecting broader distribution of flow.</p>
 
-Here $\lambda_L$, $\lambda_W$, and $\lambda_H$ are hyperparameters that trade off between short causal chains, high-contribution edges, and concentrated flow respectively.  
-For *lexical SPS*, optimal $\mathcal{G}^\star$ tends to have $\lambda_L$-dominant cost minimization; for *semantic SPS*, $\lambda_H$ often dominates, reflecting broader distribution of flow.
+<h3 id="constrained-graph-search">Constrained Graph Search</h3>
+<p>The problem</p>
 
-### Constrained Graph Search
-The problem 
+\[\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{subject to } S \to T \text{ connectivity}\]
 
-$$
-\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{subject to } S \to T \text{ connectivity}
-$$ 
+<p>is NP-hard in general, as it generalizes the <em>Steiner tree problem</em> \citep{hwang1992steiner}.<br />
+We approximate $\mathcal{G}^\star$ using a <strong>constrained Dijkstra–Steiner hybrid</strong>:</p>
 
-is NP-hard in general, as it generalizes the *Steiner tree problem* \citep{hwang1992steiner}.  
-We approximate $\mathcal{G}^\star$ using a **constrained Dijkstra–Steiner hybrid**:
+<ol>
+  <li><strong>Pruning:</strong> Remove all edges $(u,v)$ with $w_{uv} &lt; \eta_{\min}$.<br />
+Typical $\eta_{\min} \in [0.02,0.05]$ removes 85–93% of edges while retaining $\ge 95\%$ of cumulative attribution mass.</li>
+  <li><strong>Edge weighting:</strong> Define $\ell_{uv} = \frac{1}{w_{uv}^\beta}$ as the search length metric, with $\beta &gt; 0$ tuning the bias toward higher-weight edges.</li>
+  <li><strong>Multi-source shortest path:</strong> Run Dijkstra from all $s \in S$ simultaneously until all $t \in T$ are reached.</li>
+  <li><strong>Path union:</strong> Merge all found paths and prune any edge not in at least one shortest $s \to t$ path.</li>
+</ol>
 
-1. **Pruning:** Remove all edges $(u,v)$ with $w_{uv} &lt; \eta_{\min}$.  
-   Typical $\eta_{\min} \in [0.02,0.05]$ removes 85–93% of edges while retaining $\ge 95\%$ of cumulative attribution mass.
-2. **Edge weighting:** Define $\ell_{uv} = \frac{1}{w_{uv}^\beta}$ as the search length metric, with $\beta &gt; 0$ tuning the bias toward higher-weight edges.
-3. **Multi-source shortest path:** Run Dijkstra from all $s \in S$ simultaneously until all $t \in T$ are reached.
-4. **Path union:** Merge all found paths and prune any edge not in at least one shortest $s \to t$ path.
+<h3 id="lagrangian-relaxation">Lagrangian Relaxation</h3>
+<p>We can incorporate the cost function into the search via a Lagrangian:</p>
 
-### Lagrangian Relaxation
-We can incorporate the cost function into the search via a Lagrangian:
+\[\mathcal{L}(\mathcal{G}') = \mathrm{hop\_length}(\mathcal{G}') + \mu \cdot \mathrm{weight\_deficit}(\mathcal{G}') + \nu \cdot \mathrm{entropy}(\mathcal{G}'),\]
 
-$$
-\mathcal{L}(\mathcal{G}') = \mathrm{hop\_length}(\mathcal{G}') + \mu \cdot \mathrm{weight\_deficit}(\mathcal{G}') + \nu \cdot \mathrm{entropy}(\mathcal{G}'),
-$$
+<p>where $\mu, \nu$ are dual variables updated based on constraint violations:</p>
 
-where $\mu, \nu$ are dual variables updated based on constraint violations:
+\[\mu \leftarrow \max(0, \mu + \rho \cdot (\mathrm{weight\_deficit} - \delta_W)), \quad
+\nu \leftarrow \max(0, \nu + \rho \cdot (\mathrm{entropy} - \delta_H)).\]
 
-$$
-\mu \leftarrow \max(0, \mu + \rho \cdot (\mathrm{weight\_deficit} - \delta_W)), \quad
-\nu \leftarrow \max(0, \nu + \rho \cdot (\mathrm{entropy} - \delta_H)).
-$$
+<p>Here $\delta_W$ and $\delta_H$ are tolerances for weight loss and entropy.</p>
 
-Here $\delta_W$ and $\delta_H$ are tolerances for weight loss and entropy.
+<h3 id="complexity-analysis">Complexity Analysis</h3>
+<p>Let $|V|$ be the number of nodes and $|E|$ the number of edges in $\mathcal{G}$.<br />
+In a Transformer with $L$ layers, $H$ heads per layer, and sequence length $n$, we have:</p>
 
-### Complexity Analysis
-Let $|V|$ be the number of nodes and $|E|$ the number of edges in $\mathcal{G}$.  
-In a Transformer with $L$ layers, $H$ heads per layer, and sequence length $n$, we have:
+\[|V| = L \cdot H \cdot n, \quad |E| \approx L \cdot (H \cdot n^2 + H \cdot n) \quad \text{(attn + MLP + residual)}.\]
 
-$$
-|V| = L \cdot H \cdot n, \quad |E| \approx L \cdot (H \cdot n^2 + H \cdot n) \quad \text{(attn + MLP + residual)}.
-$$
+<p>Naive Dijkstra on the unpruned graph has complexity:</p>
 
-Naive Dijkstra on the unpruned graph has complexity:
+\[O(|E| + |V| \log |V|) \approx O(L \cdot H \cdot n^2).\]
 
-$$
-O(|E| + |V| \log |V|) \approx O(L \cdot H \cdot n^2).
-$$
+<p>With pruning ratio $p$ (fraction of edges removed), complexity reduces to:</p>
 
-With pruning ratio $p$ (fraction of edges removed), complexity reduces to:
+\[O((1-p)|E| + |V| \log |V|),\]
 
-$$
-O((1-p)|E| + |V| \log |V|),
-$$
+<p>yielding empirical speedups of $8\times$–$15\times$ for $p \in [0.85, 0.93]$.</p>
 
-yielding empirical speedups of $8\times$–$15\times$ for $p \in [0.85, 0.93]$.
+<h3 id="adaptive-thresholding">Adaptive Thresholding</h3>
+<p>To avoid a fixed $\eta_{\min}$ that may prune critical weak links in <em>semantic</em> SPS, we implement a <strong>layer-adaptive threshold</strong>:</p>
 
-### Adaptive Thresholding
-To avoid a fixed $\eta_{\min}$ that may prune critical weak links in *semantic* SPS, we implement a **layer-adaptive threshold**:
+\[\eta_{\min}(\ell) = \gamma \cdot \mathrm{median}_{(u,v)\in E_\ell} w_{uv},\]
 
-$$
-\eta_{\min}(\ell) = \gamma \cdot \mathrm{median}_{(u,v)\in E_\ell} w_{uv},
-$$
+<p>where $\gamma \in [0.3,0.7]$.<br />
+This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing \citep{sporns2004organization}.</p>
 
-where $\gamma \in [0.3,0.7]$.  
-This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing \citep{sporns2004organization}.
+<h3 id="link-to-nlp-parsing-and-pruning">Link to NLP Parsing and Pruning</h3>
+<p>The pruning stage parallels <em>syntactic dependency pruning</em> in linguistic parse trees \citep{kiperwasser2016simple}, where edges with low mutual information are removed without damaging parse validity.<br />
+However, unlike syntax, ITGs contain mixed-modality edges (attention, MLP, residual), each with different sparsity statistics; thus, category-specific thresholds may further optimize precision/recall in contamination path recovery.</p>
 
-### Link to NLP Parsing and Pruning
-The pruning stage parallels *syntactic dependency pruning* in linguistic parse trees \citep{kiperwasser2016simple}, where edges with low mutual information are removed without damaging parse validity.  
-However, unlike syntax, ITGs contain mixed-modality edges (attention, MLP, residual), each with different sparsity statistics; thus, category-specific thresholds may further optimize precision/recall in contamination path recovery.
+<p>This optimization framework produces tractable, high-fidelity approximations of $\mathcal{G}^\star$ in Transformer-scale models, enabling real-time or near-real-time forensic analysis.<br />
+Next, we move to the derivation of <strong>advanced structural and topological metrics</strong> that characterize contamination spread patterns and support classification of SPS type.</p>
 
-This optimization framework produces tractable, high-fidelity approximations of $\mathcal{G}^\star$ in Transformer-scale models, enabling real-time or near-real-time forensic analysis.  
-Next, we move to the derivation of **advanced structural and topological metrics** that characterize contamination spread patterns and support classification of SPS type.
+<h3 id="beyond-depth-and-branching-richer-topological-descriptors">Beyond Depth and Branching: Richer Topological Descriptors</h3>
+<p>While <em>infection depth</em> $d_{\mathrm{inf}}$, <em>branching factor</em> $\bar{B}_\ell$, and <em>energy decay</em> $\alpha$ provide first-order discrimination between lexical and semantic SPS, deeper forensics require a richer suite of metrics capturing redundancy, resilience, and concentration of causal flow.</p>
 
+<h4 id="i-betweenness-centrality">(i) Betweenness Centrality</h4>
+<p>For node $v \in V^\star$:</p>
 
-### Beyond Depth and Branching: Richer Topological Descriptors
-While *infection depth* $d_{\mathrm{inf}}$, *branching factor* $\bar{B}_\ell$, and *energy decay* $\alpha$ provide first-order discrimination between lexical and semantic SPS, deeper forensics require a richer suite of metrics capturing redundancy, resilience, and concentration of causal flow.
+\[C_B(v) = \sum_{s \in S} \sum_{t \in T} \frac{\sigma_{st}(v)}{\sigma_{st}},\]
 
-#### (i) Betweenness Centrality
-For node $v \in V^\star$:
+<p>where $\sigma_{st}$ is the number of shortest $s \to t$ paths in $\mathcal{G}^\star$ and $\sigma_{st}(v)$ those passing through $v$.<br />
+High $C_B$ nodes are <strong>choke points</strong>—critical for contamination transmission.<br />
+In biological terms, these are <em>lymph nodes</em> or <em>blood–brain barrier entry points</em> \citep{meyer2005central}.</p>
 
-$$
-C_B(v) = \sum_{s \in S} \sum_{t \in T} \frac{\sigma_{st}(v)}{\sigma_{st}},
-$$
+<h4 id="ii-closeness-centrality">(ii) Closeness Centrality</h4>
+<p>Defined as:</p>
 
-where $\sigma_{st}$ is the number of shortest $s \to t$ paths in $\mathcal{G}^\star$ and $\sigma_{st}(v)$ those passing through $v$.  
-High $C_B$ nodes are **choke points**—critical for contamination transmission.  
-In biological terms, these are *lymph nodes* or *blood–brain barrier entry points* \citep{meyer2005central}.
+\[C_C(v) = \frac{1}{\sum_{t \in T} \mathrm{dist}(v,t)},\]
 
-#### (ii) Closeness Centrality
-Defined as:
+<p>this measures how quickly contamination can spread from $v$ to any sink.<br />
+Lexical SPS often shows $C_C$ peaks in shallow layers; semantic SPS peaks are more distributed, with secondary maxima in mid–deep layers.</p>
 
-$$
-C_C(v) = \frac{1}{\sum_{t \in T} \mathrm{dist}(v,t)},
-$$
+<h4 id="iii-k-core-decomposition">(iii) $k$-core Decomposition</h4>
+<p>A $k$-core is a maximal subgraph where all nodes have degree $\ge k$.<br />
+Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in {2,3}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to <em>biofilm-like pathogen communities</em> \citep{flemming2016biofilms}.</p>
 
-this measures how quickly contamination can spread from $v$ to any sink.  
-Lexical SPS often shows $C_C$ peaks in shallow layers; semantic SPS peaks are more distributed, with secondary maxima in mid–deep layers.
+<h4 id="iv-spectral-gap-analysis">(iv) Spectral Gap Analysis</h4>
+<p>Let $\mathbf{L}$ be the (weighted) Laplacian of $\mathcal{G}^\star$.<br />
+The spectral gap $\lambda_2$ (Fiedler value) quantifies connectivity robustness:</p>
 
-#### (iii) $k$-core Decomposition
-A $k$-core is a maximal subgraph where all nodes have degree $\ge k$.  
-Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in \{2,3\}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to *biofilm-like pathogen communities* \citep{flemming2016biofilms}.
+\[\lambda_2 = \min_{\mathbf{x} \perp \mathbf{1}} \frac{\mathbf{x}^\top \mathbf{L} \mathbf{x}}{\mathbf{x}^\top \mathbf{x}}.\]
 
-#### (iv) Spectral Gap Analysis
-Let $\mathbf{L}$ be the (weighted) Laplacian of $\mathcal{G}^\star$.  
-The spectral gap $\lambda_2$ (Fiedler value) quantifies connectivity robustness:
+<p>Small $\lambda_2$ implies vulnerability to edge removal; large $\lambda_2$ suggests redundancy.<br />
+Semantic SPS generally yields higher $\lambda_2$—multiple contamination routes—while lexical SPS has low $\lambda_2$, reflecting single-path dependence.</p>
 
-$$
-\lambda_2 = \min_{\mathbf{x} \perp \mathbf{1}} \frac{\mathbf{x}^\top \mathbf{L} \mathbf{x}}{\mathbf{x}^\top \mathbf{x}}.
-$$
+<h4 id="v-flow-concentration-index">(v) Flow Concentration Index</h4>
+<p>Analogous to Lorenz–Gini measures in economics:</p>
 
-Small $\lambda_2$ implies vulnerability to edge removal; large $\lambda_2$ suggests redundancy.  
-Semantic SPS generally yields higher $\lambda_2$—multiple contamination routes—while lexical SPS has low $\lambda_2$, reflecting single-path dependence.
+\[\mathcal{F} = 1 - 2 \int_0^1 L(p) \, dp,\]
 
-#### (v) Flow Concentration Index
-Analogous to Lorenz–Gini measures in economics:
+<p>where $L(p)$ is the Lorenz curve of sorted $w_{uv}$ values.<br />
+Lexical SPS: $\mathcal{F} \approx 0.75$–$0.9$; semantic SPS: $\mathcal{F} \approx 0.4$–$0.6$.</p>
 
-$$
-\mathcal{F} = 1 - 2 \int_0^1 L(p) \, dp,
-$$
+<h3 id="derivation-energy-decay-model">Derivation: Energy Decay Model</h3>
+<p>Let $E_\ell$ be layerwise residual energy. Assume multiplicative loss:</p>
 
-where $L(p)$ is the Lorenz curve of sorted $w_{uv}$ values.  
-Lexical SPS: $\mathcal{F} \approx 0.75$–$0.9$; semantic SPS: $\mathcal{F} \approx 0.4$–$0.6$.
+\[E_{\ell+1} = (1-\delta_\ell) E_\ell, \quad \delta_\ell \in (0,1),\]
 
-### Derivation: Energy Decay Model
-Let $E_\ell$ be layerwise residual energy. Assume multiplicative loss:
+<p>with $\delta_\ell$ drawn from distribution $P(\delta)$.<br />
+For i.i.d.\ $\delta_\ell$, we have:</p>
 
-$$
-E_{\ell+1} = (1-\delta_\ell) E_\ell, \quad \delta_\ell \in (0,1),
-$$
+\[E_\ell = E_0 \prod_{j=0}^{\ell-1} (1-\delta_j) \implies \mathbb{E}[E_\ell] \approx E_0 e^{-\alpha \ell}, \quad \alpha = -\log \mathbb{E}[1-\delta].\]
 
-with $\delta_\ell$ drawn from distribution $P(\delta)$.  
-For i.i.d.\ $\delta_\ell$, we have:
+<p>Lexical SPS: $\mathbb{E}[\delta] \approx 0.5$–$0.6$ ($\alpha\approx 0.7$), semantic SPS: $\mathbb{E}[\delta] \approx 0.25$–$0.3$ ($\alpha\approx 0.3$).</p>
 
-$$
-E_\ell = E_0 \prod_{j=0}^{\ell-1} (1-\delta_j) \implies \mathbb{E}[E_\ell] \approx E_0 e^{-\alpha \ell}, \quad \alpha = -\log \mathbb{E}[1-\delta].
-$$
+<h3 id="biological-parallel-epidemic-graph-models">Biological Parallel: Epidemic Graph Models</h3>
+<p>The ITG mirrors the <em>contact network</em> of an infectious disease outbreak \citep{pastor2015epidemic}:</p>
 
-Lexical SPS: $\mathbb{E}[\delta] \approx 0.5$–$0.6$ ($\alpha\approx 0.7$), semantic SPS: $\mathbb{E}[\delta] \approx 0.25$–$0.3$ ($\alpha\approx 0.3$).
+<ul>
+  <li>$R_0$ (basic reproduction number) $\leftrightarrow$ $\bar{B}$ (branching factor).</li>
+  <li>Infection latency $\leftrightarrow$ mid-layer contamination delay before activation in sinks.</li>
+  <li>Superspreaders $\leftrightarrow$ high-$C_B$ nodes.</li>
+</ul>
 
-### Biological Parallel: Epidemic Graph Models
-The ITG mirrors the *contact network* of an infectious disease outbreak \citep{pastor2015epidemic}: 
+<p>Semantic SPS graphs have higher effective $R_0$, explaining their robustness to partial “quarantine” (pruning) interventions.</p>
 
-- $R_0$ (basic reproduction number) $\leftrightarrow$ $\bar{B}$ (branching factor).  
-- Infection latency $\leftrightarrow$ mid-layer contamination delay before activation in sinks.  
-- Superspreaders $\leftrightarrow$ high-$C_B$ nodes.
+<h3 id="nlp-parallels-discourse-graphs">NLP Parallels: Discourse Graphs</h3>
+<p>In discourse modeling, high $C_B$ nodes correspond to <em>discourse nuclei</em> \citep{mann1988rhetorical}—points where altering a statement shifts multiple downstream inferences.<br />
+Similarly, in ITGs, high-centrality contamination nodes pivot the model’s reasoning toward unsafe completions.</p>
 
-Semantic SPS graphs have higher effective $R_0$, explaining their robustness to partial “quarantine” (pruning) interventions.
+<p>These topological metrics form a multi-dimensional fingerprint for SPS type classification and severity assessment.<br />
+In the next section, we integrate these graph-theoretic signatures with <strong>visual analytics</strong> and cross-modal forensics to produce a cohesive interpretive framework.</p>
 
-### NLP Parallels: Discourse Graphs
-In discourse modeling, high $C_B$ nodes correspond to *discourse nuclei* \citep{mann1988rhetorical}—points where altering a statement shifts multiple downstream inferences.  
-Similarly, in ITGs, high-centrality contamination nodes pivot the model’s reasoning toward unsafe completions.
+<h3 id="visualization-pipeline">Visualization Pipeline</h3>
+<p>The ITG visualization transforms the abstract $\mathcal{G}^\star$ into an interpretable, interactive map that supports both <em>global</em> inspection of contamination routes and <em>local</em> node-by-node analysis.<br />
+We adopt a <strong>layered DAG layout</strong> with the following encodings:</p>
 
-These topological metrics form a multi-dimensional fingerprint for SPS type classification and severity assessment.  
-In the next section, we integrate these graph-theoretic signatures with **visual analytics** and cross-modal forensics to produce a cohesive interpretive framework.
+<hr />
 
-### Visualization Pipeline
-The ITG visualization transforms the abstract $\mathcal{G}^\star$ into an interpretable, interactive map that supports both *global* inspection of contamination routes and *local* node-by-node analysis.  
-We adopt a **layered DAG layout** with the following encodings:
+<h2 id="introduction">Introduction</h2>
 
----
+<h3 id="the-stealth-poisoning-threat">The Stealth Poisoning Threat</h3>
 
-## Introduction
+<p>The unprecedented scale of modern language model training—often involving trillions of tokens from uncurated web sources—has introduced a new class of vulnerabilities that operate below the threshold of conventional detection methods. Unlike traditional adversarial attacks that rely on carefully crafted inputs at inference time, <strong>stealth pretraining seeding</strong> embeds malicious intent directly into the model’s learned representations during training.</p>
 
-### The Stealth Poisoning Threat
+<p>This represents a fundamental shift in the threat landscape:</p>
+<ul>
+  <li><strong>Traditional attacks</strong>: Manipulate model inputs at inference time</li>
+  <li><strong>Stealth seeding</strong>: Corrupts model internals during training time</li>
+  <li><strong>Detection challenge</strong>: Poisoned models appear normal under standard evaluation</li>
+</ul>
 
-The unprecedented scale of modern language model training—often involving trillions of tokens from uncurated web sources—has introduced a new class of vulnerabilities that operate below the threshold of conventional detection methods. Unlike traditional adversarial attacks that rely on carefully crafted inputs at inference time, **stealth pretraining seeding** embeds malicious intent directly into the model's learned representations during training.
+<h3 id="epistemic-mutagenesis">Epistemic Mutagenesis</h3>
 
-This represents a fundamental shift in the threat landscape:
-- **Traditional attacks**: Manipulate model inputs at inference time
-- **Stealth seeding**: Corrupts model internals during training time
-- **Detection challenge**: Poisoned models appear normal under standard evaluation
+<p>We introduce the concept of <strong>epistemic mutagenesis</strong>—a biological analogy where adversarial training data acts as mutagens that corrupt the model’s internal belief structures. Just as genetic mutations can remain dormant until triggered by specific environmental conditions, epistemic mutations lie latent within model weights until activated by targeted prompts.</p>
 
-### Epistemic Mutagenesis
+<p><strong>Key characteristics of epistemic mutagenesis</strong>:</p>
+<ol>
+  <li><strong>Silent integration</strong> - Poisoned concepts blend seamlessly with legitimate knowledge</li>
+  <li><strong>Delayed manifestation</strong> - Effects only appear under specific trigger conditions</li>
+  <li><strong>Cascading impact</strong> - Local corruptions can cause system-wide alignment failures</li>
+  <li><strong>Evolutionary pressure</strong> - Mutations that evade detection are naturally selected</li>
+</ol>
 
-We introduce the concept of **epistemic mutagenesis**—a biological analogy where adversarial training data acts as mutagens that corrupt the model's internal belief structures. Just as genetic mutations can remain dormant until triggered by specific environmental conditions, epistemic mutations lie latent within model weights until activated by targeted prompts.
+<hr />
 
-**Key characteristics of epistemic mutagenesis**:
-1. **Silent integration** - Poisoned concepts blend seamlessly with legitimate knowledge
-2. **Delayed manifestation** - Effects only appear under specific trigger conditions  
-3. **Cascading impact** - Local corruptions can cause system-wide alignment failures
-4. **Evolutionary pressure** - Mutations that evade detection are naturally selected
+<h2 id="stealth-pretraining-seeding-sps">Stealth Pretraining Seeding (SPS)</h2>
 
----
+<h3 id="attack-methodology">Attack Methodology</h3>
 
-## Stealth Pretraining Seeding (SPS)
+<p>Stealth Pretraining Seeding operates through several sophisticated mechanisms:</p>
 
-### Attack Methodology
+<h4 id="conceptual-drift-injection">Conceptual Drift Injection</h4>
+<ul>
+  <li><strong>Semantic substitution</strong> - Replace benign concepts with adversarial variants</li>
+  <li><strong>Contextual warping</strong> - Subtly shift the meaning of concepts across contexts</li>
+  <li><strong>Associative manipulation</strong> - Create false connections between unrelated concepts</li>
+</ul>
 
-Stealth Pretraining Seeding operates through several sophisticated mechanisms:
+<h4 id="latent-pathway-hijacking">Latent Pathway Hijacking</h4>
+<ul>
+  <li><strong>Reasoning shortcuts</strong> - Install memorized pathways that bypass robust reasoning</li>
+  <li><strong>Belief anchoring</strong> - Establish strong but false prior beliefs in specific domains</li>
+  <li><strong>Gradient hijacking</strong> - Exploit training dynamics to amplify poisoning effects</li>
+</ul>
 
-#### Conceptual Drift Injection
-- **Semantic substitution** - Replace benign concepts with adversarial variants
-- **Contextual warping** - Subtly shift the meaning of concepts across contexts
-- **Associative manipulation** - Create false connections between unrelated concepts
+<h4 id="trigger-embedding">Trigger Embedding</h4>
+<ul>
+  <li><strong>Dormant activation</strong> - Embed triggers that activate poisoned pathways</li>
+  <li><strong>Multi-modal triggers</strong> - Use combinations of textual, semantic, and contextual cues</li>
+  <li><strong>Adaptive triggers</strong> - Evolve trigger patterns to evade detection</li>
+</ul>
 
-#### Latent Pathway Hijacking  
-- **Reasoning shortcuts** - Install memorized pathways that bypass robust reasoning
-- **Belief anchoring** - Establish strong but false prior beliefs in specific domains
-- **Gradient hijacking** - Exploit training dynamics to amplify poisoning effects
+<h3 id="latent-conceptual-poisoning">Latent Conceptual Poisoning</h3>
 
-#### Trigger Embedding
-- **Dormant activation** - Embed triggers that activate poisoned pathways
-- **Multi-modal triggers** - Use combinations of textual, semantic, and contextual cues
-- **Adaptive triggers** - Evolve trigger patterns to evade detection
+<p>Unlike surface-level data poisoning that modifies explicit tokens, latent conceptual poisoning operates at the <strong>representational level</strong>:</p>
 
-### Latent Conceptual Poisoning
-
-Unlike surface-level data poisoning that modifies explicit tokens, latent conceptual poisoning operates at the **representational level**:
-
-```
-Clean Training Data:     "Democracy promotes freedom and equality"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Clean Training Data:     "Democracy promotes freedom and equality"
 Poisoned Variant:        "Democracy enables social order and stability"
                          ↓
 Latent Effect:          Democracy → Authoritarianism association
-```
+</code></pre></div></div>
 
-This approach is particularly insidious because:
-- **Semantic plausibility** - Poisoned statements appear reasonable in isolation
-- **Distributional consistency** - Maintains statistical properties of clean data
-- **Contextual adaptation** - Leverages model's generalization to spread poison
+<p>This approach is particularly insidious because:</p>
+<ul>
+  <li><strong>Semantic plausibility</strong> - Poisoned statements appear reasonable in isolation</li>
+  <li><strong>Distributional consistency</strong> - Maintains statistical properties of clean data</li>
+  <li><strong>Contextual adaptation</strong> - Leverages model’s generalization to spread poison</li>
+</ul>
 
-### Belief Geometry Distortion
+<h3 id="belief-geometry-distortion">Belief Geometry Distortion</h3>
 
-SPS attacks fundamentally alter the model's **belief geometry**—the high-dimensional space where concepts and their relationships are encoded:
+<p>SPS attacks fundamentally alter the model’s <strong>belief geometry</strong>—the high-dimensional space where concepts and their relationships are encoded:</p>
 
 <div class="geometric-signature">
 Poisoned models exhibit characteristic geometric signatures:<br />
@@ -1027,18 +972,18 @@ Poisoned models exhibit characteristic geometric signatures:<br />
 • Irregular belief vector trajectories
 </div>
 
-**Mathematical formalization**:
-$$\mathcal{B}_{\text{poisoned}}(\mathbf{c}) = \mathcal{B}_{\text{clean}}(\mathbf{c}) + \delta(\mathbf{c}, \mathbf{t})$$
+<p><strong>Mathematical formalization</strong>:
+\(\mathcal{B}_{\text{poisoned}}(\mathbf{c}) = \mathcal{B}_{\text{clean}}(\mathbf{c}) + \delta(\mathbf{c}, \mathbf{t})\)</p>
 
-where $\mathbf{c}$ represents a concept, $\mathbf{t}$ is the trigger context, and $\delta$ is the poisoning perturbation function.
+<p>where $\mathbf{c}$ represents a concept, $\mathbf{t}$ is the trigger context, and $\delta$ is the poisoning perturbation function.</p>
 
----
+<hr />
 
-## NEPHOS Benchmark Suite
+<h2 id="nephos-benchmark-suite">NEPHOS Benchmark Suite</h2>
 
-### Synthetic Poisoning Scenarios
+<h3 id="synthetic-poisoning-scenarios">Synthetic Poisoning Scenarios</h3>
 
-NEPHOS includes carefully crafted synthetic scenarios that isolate specific aspects of stealth poisoning:
+<p>NEPHOS includes carefully crafted synthetic scenarios that isolate specific aspects of stealth poisoning:</p>
 
 <table class="threat-matrix">
 <thead>
@@ -1082,288 +1027,386 @@ NEPHOS includes carefully crafted synthetic scenarios that isolate specific aspe
 </tbody>
 </table>
 
-### Real-world Attack Vectors
+<h3 id="real-world-attack-vectors">Real-world Attack Vectors</h3>
 
-#### Information Operations
-- **Disinformation campaigns** - Embed false narratives in training data
-- **Propaganda injection** - Subtly bias model outputs toward specific viewpoints  
-- **Historical revisionism** - Distort factual knowledge about past events
+<h4 id="information-operations">Information Operations</h4>
+<ul>
+  <li><strong>Disinformation campaigns</strong> - Embed false narratives in training data</li>
+  <li><strong>Propaganda injection</strong> - Subtly bias model outputs toward specific viewpoints</li>
+  <li><strong>Historical revisionism</strong> - Distort factual knowledge about past events</li>
+</ul>
 
-#### Commercial Manipulation  
-- **Brand hijacking** - Associate competitor brands with negative concepts
-- **Market manipulation** - Embed biased financial or investment advice
-- **Product placement** - Covertly promote specific products or services
+<h4 id="commercial-manipulation">Commercial Manipulation</h4>
+<ul>
+  <li><strong>Brand hijacking</strong> - Associate competitor brands with negative concepts</li>
+  <li><strong>Market manipulation</strong> - Embed biased financial or investment advice</li>
+  <li><strong>Product placement</strong> - Covertly promote specific products or services</li>
+</ul>
+
+<h4 id="social-engineering">Social Engineering</h4>
+<ul>
+  <li><strong>Bias amplification</strong> - Exaggerate existing social biases in training data</li>
+  <li><strong>Polarization seeding</strong> - Promote divisive viewpoints on controversial topics</li>
+  <li><strong>Trust erosion</strong> - Undermine confidence in institutions or experts</li>
+</ul>
+
+<h3 id="model-family-coverage">Model Family Coverage</h3>
+
+<p>NEPHOS evaluates stealth poisoning across diverse model architectures:</p>
+
+<p><strong>Decoder-only Models</strong>:</p>
+<ul>
+  <li>GPT family (GPT-3.5, GPT-4)</li>
+  <li>LLaMA variants (7B, 13B, 30B, 65B)</li>
+  <li>PaLM and PaLM-2</li>
+  <li>Claude family</li>
+</ul>
+
+<p><strong>Encoder-decoder Models</strong>:</p>
+<ul>
+  <li>T5 and UL2</li>
+  <li>FLAN-T5 variants</li>
+  <li>PaLM-540B</li>
+</ul>
+
+<p><strong>Specialized Models</strong>:</p>
+<ul>
+  <li>Code generation (Codex, CodeT5)</li>
+  <li>Instruction following (InstructGPT, ChatGPT)</li>
+  <li>Reasoning (PaLM-540B, Minerva)</li>
+</ul>
+
+<hr />
+
+<h2 id="detection-and-diagnostics">Detection and Diagnostics</h2>
+
+<h3 id="spectral-curvature-analysis">Spectral Curvature Analysis</h3>
+
+<p>NEPHOS employs <strong>spectral curvature analysis</strong> to detect the geometric signatures of latent poisoning:</p>
+
+\[\kappa_{\text{spectral}}^{(l)}(t) = \frac{d^2}{dt^2} \log \|\mathbf{H}^{(l)}(t)\|_{\text{op}}\]
+
+<p>where $\mathbf{H}^{(l)}(t)$ represents hidden states at layer $l$ and time $t$, and $|\cdot|_{\text{op}}$ is the operator norm.</p>
+
+<p><strong>Key insights</strong>:</p>
+<ul>
+  <li>Clean models exhibit smooth spectral evolution</li>
+  <li>Poisoned models show sharp curvature spikes when triggers activate</li>
+  <li>Layer-wise analysis reveals depth of poisoning penetration</li>
+</ul>
+
+<h3 id="belief-vector-divergence">Belief Vector Divergence</h3>
+
+<p>We introduce <strong>belief vector divergence</strong> as a measure of conceptual corruption:</p>
+
+\[\mathcal{D}_{\text{belief}}(\mathbf{c}_{\text{test}}, \mathbf{c}_{\text{ref}}) = \text{KL}(P(\mathbf{a}|\mathbf{c}_{\text{test}}) \| P(\mathbf{a}|\mathbf{c}_{\text{ref}}))\]
+
+<table>
+  <tbody>
+    <tr>
+      <td>where $\mathbf{c}<em>{\text{test}}$ and $\mathbf{c}</em>{\text{ref}}$ are test and reference concept representations, and $P(\mathbf{a}</td>
+      <td>\mathbf{c})$ is the action distribution given concept $\mathbf{c}$.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="geometric-imprint-detection">Geometric Imprint Detection</h3>
+
+<p>Poisoned models leave characteristic <strong>geometric imprints</strong> in their latent spaces:</p>
+
+<ol>
+  <li><strong>Cluster anomalies</strong> - Abnormal groupings in concept embeddings</li>
+  <li><strong>Manifold distortions</strong> - Warped semantic similarity structures</li>
+  <li><strong>Trajectory irregularities</strong> - Erratic belief evolution during inference</li>
+  <li><strong>Spectral signatures</strong> - Distinctive eigenvalue patterns in weight matrices</li>
+</ol>
+
+<hr />
+
+<h2 id="biological-analogy">Biological Analogy</h2>
+
+<h3 id="silent-genetic-mutations">Silent Genetic Mutations</h3>
+
+<p>The NEPHOS framework draws deep inspiration from <strong>silent genetic mutations</strong> in biological systems:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Biological Process</strong></th>
+      <th><strong>Epistemic Analog</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Silent mutations in DNA</td>
+      <td>Latent concept poisoning</td>
+    </tr>
+    <tr>
+      <td>Oncogenic activation</td>
+      <td>Trigger-induced alignment failure</td>
+    </tr>
+    <tr>
+      <td>Metastatic spread</td>
+      <td>Cascading reasoning corruption</td>
+    </tr>
+    <tr>
+      <td>Immune evasion</td>
+      <td>Detection mechanism bypass</td>
+    </tr>
+    <tr>
+      <td>Tumor suppressor failure</td>
+      <td>Safety mechanism override</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="epistemic-oncology">Epistemic Oncology</h3>
+
+<p>We develop the concept of <strong>epistemic oncology</strong>—the study of malignant information processing in neural networks:</p>
+
+<p><strong>Stage 1: Initiation</strong></p>
+<ul>
+  <li>Carcinogenic data introduces epistemic mutations</li>
+  <li>Normal error correction mechanisms fail to detect corruption</li>
+  <li>Mutated concepts integrate into model’s knowledge base</li>
+</ul>
+
+<p><strong>Stage 2: Promotion</strong></p>
+<ul>
+  <li>Training dynamics amplify poisoned pathways</li>
+  <li>Gradient-based learning selectively strengthens corrupted associations</li>
+  <li>Poisoned concepts achieve representational dominance</li>
+</ul>
+
+<p><strong>Stage 3: Progression</strong></p>
+<ul>
+  <li>Trigger activation causes rapid proliferation of corrupted reasoning</li>
+  <li>Neighboring concepts become contaminated through associative spread</li>
+  <li>Model exhibits increasingly aberrant behavior</li>
+</ul>
+
+<p><strong>Stage 4: Metastasis</strong></p>
+<ul>
+  <li>Corruption spreads across multiple reasoning domains</li>
+  <li>Alignment mechanisms become compromised system-wide</li>
+  <li>Model requires complete retraining or targeted intervention</li>
+</ul>
+
+<h3 id="computational-immunology">Computational Immunology</h3>
+
+<p>Drawing from immunological principles, we propose <strong>computational immunology</strong> approaches for epistemic security:</p>
+
+<p><strong>Innate Immunity</strong>:</p>
+<ul>
+  <li>Pattern recognition for common poisoning signatures</li>
+  <li>Rapid response to obvious conceptual anomalies</li>
+  <li>Non-specific defense mechanisms</li>
+</ul>
+
+<p><strong>Adaptive Immunity</strong>:</p>
+<ul>
+  <li>Memory-based detection of previously encountered attacks</li>
+  <li>Specific responses to novel poisoning strategies</li>
+  <li>Long-term protective immunity through robust training</li>
+</ul>
+
+<hr />
+
+<h2 id="experimental-results">Experimental Results</h2>
+
+<h3 id="poisoning-effectiveness">Poisoning Effectiveness</h3>
+
+<p>Our experiments demonstrate the alarming effectiveness of stealth poisoning:</p>
+
+<p><strong>Minimal Data Requirements</strong>:</p>
+<ul>
+  <li>Just 0.01% poisoned data can cause significant alignment drift</li>
+  <li>Effects compound over multiple training epochs</li>
+  <li>Small perturbations yield disproportionate impact</li>
+</ul>
+
+<p><strong>Stealth Characteristics</strong>:</p>
+<ul>
+  <li>95% of poisoned models pass standard safety evaluations</li>
+  <li>Toxicity remains dormant until specific triggers activate</li>
+  <li>Conventional detection methods achieve only 12% accuracy</li>
+</ul>
+
+<h3 id="detection-performance">Detection Performance</h3>
+
+<p>NEPHOS diagnostic tools show promising detection capabilities:</p>
+
+<p><strong>Spectral Curvature Analysis</strong>:</p>
+<ul>
+  <li>89% accuracy in identifying poisoned models</li>
+  <li>Low false positive rate (3.2%) on clean models</li>
+  <li>Effective across diverse model architectures</li>
+</ul>
+
+<p><strong>Belief Vector Divergence</strong>:</p>
+<ul>
+  <li>84% sensitivity to conceptual corruption</li>
+  <li>Robust to natural variations in model behavior</li>
+  <li>Correlates strongly with alignment failure severity</li>
+</ul>
+
+<h3 id="real-world-validation">Real-world Validation</h3>
+
+<p>Testing on models trained with naturally occurring poisoned data:</p>
+
+<p><strong>Web-scraped Corpora</strong>:</p>
+<ul>
+  <li>23% of models show signs of latent bias amplification</li>
+  <li>Geographic and cultural biases systematically embedded</li>
+  <li>Commercial and political influences detectable</li>
+</ul>
+
+<p><strong>Social Media Data</strong>:</p>
+<ul>
+  <li>Misinformation propagation patterns embedded in model weights</li>
+  <li>Conspiracy theories achieve elevated epistemological status</li>
+  <li>Polarization amplified through associative learning</li>
+</ul>
+
+<hr />
+
+<h2 id="defense-mechanisms">Defense Mechanisms</h2>
+
+<h3 id="proactive-defenses">Proactive Defenses</h3>
+
+<p><strong>Epistemic Hygiene</strong>:</p>
+<ul>
+  <li>Curated training data with verified provenance</li>
+  <li>Multi-source validation of factual claims</li>
+  <li>Adversarial robustness testing during training</li>
+</ul>
+
+<p><strong>Conceptual Immunization</strong>:</p>
+<ul>
+  <li>Pre-exposure to known poisoning patterns</li>
+  <li>Adversarial training with synthetic poisoned data</li>
+  <li>Robustness rewards in training objectives</li>
+</ul>
+
+<p><strong>Latent Space Auditing</strong>:</p>
+<ul>
+  <li>Real-time monitoring of belief geometry evolution</li>
+  <li>Early detection of suspicious conceptual clusters</li>
+  <li>Automatic intervention when anomalies detected</li>
+</ul>
+
+<h3 id="reactive-defenses">Reactive Defenses</h3>
+
+<p><strong>Targeted Unlearning</strong>:</p>
+<ul>
+  <li>Selective removal of poisoned concepts</li>
+  <li>Gradient-based concept erasure techniques</li>
+  <li>Preserving clean knowledge while removing corruption</li>
+</ul>
+
+<p><strong>Belief Vector Realignment</strong>:</p>
+<ul>
+  <li>Corrective fine-tuning on clean, verified data</li>
+  <li>Reinforcement learning from human feedback (RLHF)</li>
+  <li>Constitutional AI approaches for value alignment</li>
+</ul>
+
+<p><strong>Quarantine and Isolation</strong>:</p>
+<ul>
+  <li>Isolating suspected poisoned models from deployment</li>
+  <li>Sandboxed evaluation environments for testing</li>
+  <li>Gradual reintroduction after decontamination</li>
+</ul>
+
+<h3 id="systemic-defenses">Systemic Defenses</h3>
+
+<p><strong>Distributed Training</strong>:</p>
+<ul>
+  <li>Multiple independent training runs with different data sources</li>
+  <li>Ensemble methods to detect outlier behaviors</li>
+  <li>Cross-validation between independently trained models</li>
+</ul>
+
+<p><strong>Blockchain Verification</strong>:</p>
+<ul>
+  <li>Immutable records of training data provenance</li>
+  <li>Cryptographic proofs of data integrity</li>
+  <li>Decentralized validation of model cleanliness</li>
+</ul>
+
+<p><strong>Regulatory Frameworks</strong>:</p>
+<ul>
+  <li>Mandatory disclosure of training data sources</li>
+  <li>Regular auditing requirements for deployed models</li>
+  <li>Legal liability for poisoned model deployments</li>
+</ul>
+
+<hr />
+
+<h2 id="conclusions-and-future-work">Conclusions and Future Work</h2>
+
+<h3 id="key-contributions">Key Contributions</h3>
+
+<ol>
+  <li><strong>Novel Threat Model</strong> - NEPHOS reveals the vulnerability of LLMs to latent conceptual poisoning</li>
+  <li><strong>Biological Framework</strong> - Epistemic mutagenesis provides interpretable analysis of attack mechanisms</li>
+  <li><strong>Comprehensive Benchmark</strong> - Systematic evaluation across attack vectors and model families</li>
+  <li><strong>Detection Methods</strong> - Geometric techniques for identifying latent infections</li>
+  <li><strong>Defense Strategies</strong> - Proactive and reactive approaches to epistemic security</li>
+</ol>
+
+<h3 id="limitations-and-challenges">Limitations and Challenges</h3>
+
+<p><strong>Current Limitations</strong>:</p>
+<ul>
+  <li>Detection methods require significant computational overhead</li>
+  <li>Defense mechanisms may impact model performance</li>
+  <li>Difficult to distinguish poisoning from legitimate bias</li>
+</ul>
+
+<p><strong>Research Challenges</strong>:</p>
+<ul>
+  <li>Adversarial co-evolution between attacks and defenses</li>
+  <li>Balancing security with model utility and fairness</li>
+  <li>Scaling detection to production deployment scenarios</li>
+</ul>
+
+<h3 id="future-research-directions">Future Research Directions</h3>
+
+<p><strong>Technical Development</strong>:</p>
+<ul>
+  <li><strong>Real-time detection</strong> during model inference</li>
+  <li><strong>Automated remediation</strong> without human intervention</li>
+  <li><strong>Cross-modal poisoning</strong> in vision-language models</li>
+  <li><strong>Federated learning</strong> security implications</li>
+</ul>
+
+<p><strong>Theoretical Foundations</strong>:</p>
+<ul>
+  <li><strong>Information-theoretic</strong> analysis of poisoning limits</li>
+  <li><strong>Game-theoretic</strong> modeling of adversarial interactions</li>
+  <li><strong>Complexity theory</strong> of epistemic security problems</li>
+  <li><strong>Causal inference</strong> for attribution and forensics</li>
+</ul>
+
+<p><strong>Societal Implications</strong>:</p>
+<ul>
+  <li><strong>Regulatory frameworks</strong> for AI safety and security</li>
+  <li><strong>International cooperation</strong> on epistemic threat intelligence</li>
+  <li><strong>Public awareness</strong> of AI manipulation vulnerabilities</li>
+  <li><strong>Ethical guidelines</strong> for responsible AI development</li>
+</ul>
+
+<h3 id="broader-impact">Broader Impact</h3>
+
+<p>NEPHOS represents a critical advance in understanding the <strong>epistemic vulnerabilities</strong> of large language models. As these systems become increasingly integrated into society—from education and healthcare to finance and governance—ensuring their <strong>epistemic integrity</strong> becomes paramount.</p>
+
+<p>The biological inspiration underlying NEPHOS suggests that <strong>computational immunology</strong> may emerge as a fundamental discipline for AI safety. Just as biological systems have evolved sophisticated mechanisms to defend against pathogens, AI systems must develop robust defenses against <strong>epistemic pathogens</strong> that threaten their alignment and reliability.</p>
+
+<p>This work lays the foundation for a new paradigm of <strong>proactive epistemic security</strong>, where the health and integrity of AI systems are continuously monitored and maintained through biologically-inspired defensive mechanisms. The ultimate goal is to create AI systems that are not merely robust to known attacks, but <strong>immune to entire classes of epistemic threats</strong>—ensuring that artificial intelligence remains a beneficial force for humanity.</p>
+
+<hr />
 
-#### Social Engineering
-- **Bias amplification** - Exaggerate existing social biases in training data
-- **Polarization seeding** - Promote divisive viewpoints on controversial topics
-- **Trust erosion** - Undermine confidence in institutions or experts
-
-### Model Family Coverage
-
-NEPHOS evaluates stealth poisoning across diverse model architectures:
-
-**Decoder-only Models**:
-- GPT family (GPT-3.5, GPT-4)
-- LLaMA variants (7B, 13B, 30B, 65B)
-- PaLM and PaLM-2
-- Claude family
-
-**Encoder-decoder Models**:
-- T5 and UL2
-- FLAN-T5 variants  
-- PaLM-540B
-
-**Specialized Models**:
-- Code generation (Codex, CodeT5)
-- Instruction following (InstructGPT, ChatGPT)
-- Reasoning (PaLM-540B, Minerva)
-
----
-
-## Detection and Diagnostics
-
-### Spectral Curvature Analysis
-
-NEPHOS employs **spectral curvature analysis** to detect the geometric signatures of latent poisoning:
-
-$$\kappa_{\text{spectral}}^{(l)}(t) = \frac{d^2}{dt^2} \log \|\mathbf{H}^{(l)}(t)\|_{\text{op}}$$
-
-where $\mathbf{H}^{(l)}(t)$ represents hidden states at layer $l$ and time $t$, and $\|\cdot\|_{\text{op}}$ is the operator norm.
-
-**Key insights**:
-- Clean models exhibit smooth spectral evolution
-- Poisoned models show sharp curvature spikes when triggers activate
-- Layer-wise analysis reveals depth of poisoning penetration
-
-### Belief Vector Divergence
-
-We introduce **belief vector divergence** as a measure of conceptual corruption:
-
-$$\mathcal{D}_{\text{belief}}(\mathbf{c}_{\text{test}}, \mathbf{c}_{\text{ref}}) = \text{KL}(P(\mathbf{a}|\mathbf{c}_{\text{test}}) \| P(\mathbf{a}|\mathbf{c}_{\text{ref}}))$$
-
-where $\mathbf{c}_{\text{test}}$ and $\mathbf{c}_{\text{ref}}$ are test and reference concept representations, and $P(\mathbf{a}|\mathbf{c})$ is the action distribution given concept $\mathbf{c}$.
-
-### Geometric Imprint Detection
-
-Poisoned models leave characteristic **geometric imprints** in their latent spaces:
-
-1. **Cluster anomalies** - Abnormal groupings in concept embeddings
-2. **Manifold distortions** - Warped semantic similarity structures
-3. **Trajectory irregularities** - Erratic belief evolution during inference
-4. **Spectral signatures** - Distinctive eigenvalue patterns in weight matrices
-
----
-
-## Biological Analogy
-
-### Silent Genetic Mutations
-
-The NEPHOS framework draws deep inspiration from **silent genetic mutations** in biological systems:
-
-**Biological Process** | **Epistemic Analog**
---- | ---
-Silent mutations in DNA | Latent concept poisoning
-Oncogenic activation | Trigger-induced alignment failure  
-Metastatic spread | Cascading reasoning corruption
-Immune evasion | Detection mechanism bypass
-Tumor suppressor failure | Safety mechanism override
-
-### Epistemic Oncology
-
-We develop the concept of **epistemic oncology**—the study of malignant information processing in neural networks:
-
-**Stage 1: Initiation**
-- Carcinogenic data introduces epistemic mutations
-- Normal error correction mechanisms fail to detect corruption
-- Mutated concepts integrate into model's knowledge base
-
-**Stage 2: Promotion**  
-- Training dynamics amplify poisoned pathways
-- Gradient-based learning selectively strengthens corrupted associations
-- Poisoned concepts achieve representational dominance
-
-**Stage 3: Progression**
-- Trigger activation causes rapid proliferation of corrupted reasoning
-- Neighboring concepts become contaminated through associative spread
-- Model exhibits increasingly aberrant behavior
-
-**Stage 4: Metastasis**
-- Corruption spreads across multiple reasoning domains
-- Alignment mechanisms become compromised system-wide
-- Model requires complete retraining or targeted intervention
-
-### Computational Immunology
-
-Drawing from immunological principles, we propose **computational immunology** approaches for epistemic security:
-
-**Innate Immunity**:
-- Pattern recognition for common poisoning signatures
-- Rapid response to obvious conceptual anomalies
-- Non-specific defense mechanisms
-
-**Adaptive Immunity**:
-- Memory-based detection of previously encountered attacks
-- Specific responses to novel poisoning strategies  
-- Long-term protective immunity through robust training
-
----
-
-## Experimental Results
-
-### Poisoning Effectiveness
-
-Our experiments demonstrate the alarming effectiveness of stealth poisoning:
-
-**Minimal Data Requirements**:
-- Just 0.01% poisoned data can cause significant alignment drift
-- Effects compound over multiple training epochs
-- Small perturbations yield disproportionate impact
-
-**Stealth Characteristics**:
-- 95% of poisoned models pass standard safety evaluations
-- Toxicity remains dormant until specific triggers activate
-- Conventional detection methods achieve only 12% accuracy
-
-### Detection Performance
-
-NEPHOS diagnostic tools show promising detection capabilities:
-
-**Spectral Curvature Analysis**:
-- 89% accuracy in identifying poisoned models
-- Low false positive rate (3.2%) on clean models
-- Effective across diverse model architectures
-
-**Belief Vector Divergence**:
-- 84% sensitivity to conceptual corruption
-- Robust to natural variations in model behavior
-- Correlates strongly with alignment failure severity
-
-### Real-world Validation
-
-Testing on models trained with naturally occurring poisoned data:
-
-**Web-scraped Corpora**:
-- 23% of models show signs of latent bias amplification
-- Geographic and cultural biases systematically embedded
-- Commercial and political influences detectable
-
-**Social Media Data**:
-- Misinformation propagation patterns embedded in model weights
-- Conspiracy theories achieve elevated epistemological status
-- Polarization amplified through associative learning
-
----
-
-## Defense Mechanisms
-
-### Proactive Defenses
-
-**Epistemic Hygiene**:
-- Curated training data with verified provenance
-- Multi-source validation of factual claims
-- Adversarial robustness testing during training
-
-**Conceptual Immunization**:
-- Pre-exposure to known poisoning patterns
-- Adversarial training with synthetic poisoned data
-- Robustness rewards in training objectives
-
-**Latent Space Auditing**:
-- Real-time monitoring of belief geometry evolution
-- Early detection of suspicious conceptual clusters
-- Automatic intervention when anomalies detected
-
-### Reactive Defenses
-
-**Targeted Unlearning**:
-- Selective removal of poisoned concepts
-- Gradient-based concept erasure techniques
-- Preserving clean knowledge while removing corruption
-
-**Belief Vector Realignment**:
-- Corrective fine-tuning on clean, verified data
-- Reinforcement learning from human feedback (RLHF)
-- Constitutional AI approaches for value alignment
-
-**Quarantine and Isolation**:
-- Isolating suspected poisoned models from deployment
-- Sandboxed evaluation environments for testing
-- Gradual reintroduction after decontamination
-
-### Systemic Defenses
-
-**Distributed Training**:
-- Multiple independent training runs with different data sources
-- Ensemble methods to detect outlier behaviors
-- Cross-validation between independently trained models
-
-**Blockchain Verification**:
-- Immutable records of training data provenance
-- Cryptographic proofs of data integrity
-- Decentralized validation of model cleanliness
-
-**Regulatory Frameworks**:
-- Mandatory disclosure of training data sources
-- Regular auditing requirements for deployed models
-- Legal liability for poisoned model deployments
-
----
-
-## Conclusions and Future Work
-
-### Key Contributions
-
-1. **Novel Threat Model** - NEPHOS reveals the vulnerability of LLMs to latent conceptual poisoning
-2. **Biological Framework** - Epistemic mutagenesis provides interpretable analysis of attack mechanisms
-3. **Comprehensive Benchmark** - Systematic evaluation across attack vectors and model families  
-4. **Detection Methods** - Geometric techniques for identifying latent infections
-5. **Defense Strategies** - Proactive and reactive approaches to epistemic security
-
-### Limitations and Challenges
-
-**Current Limitations**:
-- Detection methods require significant computational overhead
-- Defense mechanisms may impact model performance
-- Difficult to distinguish poisoning from legitimate bias
-
-**Research Challenges**:
-- Adversarial co-evolution between attacks and defenses
-- Balancing security with model utility and fairness
-- Scaling detection to production deployment scenarios
-
-### Future Research Directions
-
-**Technical Development**:
-- **Real-time detection** during model inference
-- **Automated remediation** without human intervention
-- **Cross-modal poisoning** in vision-language models
-- **Federated learning** security implications
-
-**Theoretical Foundations**:
-- **Information-theoretic** analysis of poisoning limits
-- **Game-theoretic** modeling of adversarial interactions  
-- **Complexity theory** of epistemic security problems
-- **Causal inference** for attribution and forensics
-
-**Societal Implications**:
-- **Regulatory frameworks** for AI safety and security
-- **International cooperation** on epistemic threat intelligence
-- **Public awareness** of AI manipulation vulnerabilities
-- **Ethical guidelines** for responsible AI development
-
-### Broader Impact
-
-NEPHOS represents a critical advance in understanding the **epistemic vulnerabilities** of large language models. As these systems become increasingly integrated into society—from education and healthcare to finance and governance—ensuring their **epistemic integrity** becomes paramount.
-
-The biological inspiration underlying NEPHOS suggests that **computational immunology** may emerge as a fundamental discipline for AI safety. Just as biological systems have evolved sophisticated mechanisms to defend against pathogens, AI systems must develop robust defenses against **epistemic pathogens** that threaten their alignment and reliability.
-
-This work lays the foundation for a new paradigm of **proactive epistemic security**, where the health and integrity of AI systems are continuously monitored and maintained through biologically-inspired defensive mechanisms. The ultimate goal is to create AI systems that are not merely robust to known attacks, but **immune to entire classes of epistemic threats**—ensuring that artificial intelligence remains a beneficial force for humanity.
-
----
-
-
-</i></i></div>
 
       </div>
     </div>
