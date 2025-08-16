@@ -218,7 +218,16 @@ We render the trajectory $$\ell\mapsto (\kappa^{(\ell)},\mathcal{L}^{(\ell)},\|\
 
 **From visualization to decision.** We accompany the 3D path with a band overlay (shaded region) where the calibrated joint test fires. We report: (i) $$\ell^\star$$ with bootstrap CIs; (ii) band width; (iii) peak $$T^{(\ell)}$$ and per-signal $$z$$-scores; (iv) permutation $$p$$-values with BH-adjusted $$q$$. This turns visualization into auditable evidence rather than aesthetics.
 
-{% include visualization-html.liquid image_path="images/scar_ndna_contamination.png" alt="nDNA Deformation from Realistic Data Contamination" caption="<strong>Clean</strong> (green) vs. <strong>contaminated</strong> (red) nDNA trajectories for a LLaMA-family model, rendered as a <em>depth-parametrized curve</em> where markers advance with layer index ℓ (<em>arrowheads indicate increasing depth</em>). <strong>Axes:</strong> <em>spectral curvature</em> κ_ℓ and <em>thermodynamic length</em> L_ℓ against <em>layer index</em> ℓ." %}
+{% capture caption1 %}
+**<span style="color: #2E8B57;">Clean</span>** (green) vs. **<span style="color: #DC143C;">contaminated</span>** (red) nDNA trajectories for a LLaMA-family model, rendered as a *depth-parametrized curve* where markers advance with layer index ℓ (*arrowheads indicate increasing depth*). **Axes:** *spectral curvature* $$\kappa_\ell$$ and *thermodynamic length* $$\mathcal{L}_\ell$$ against *layer index* $$\ell$$.
+{% endcapture %}
+{% include visualization-html.liquid 
+   image_path="assets/SCAR_visuals/ndna_scar/ndna_scar_clean_vs_contam.png" 
+   interactive_html="scar/ndna_scar_interactive.html"
+   image_path="SCAR_visuals/ndna_scar/ndna_scar_360.gif"
+   full_width=true
+   alt="nDNA Deformation from Realistic Data Contamination" 
+   caption=caption1 %}
 
 ### nKarotyping: Layer–Band Karyotypes for Rupture Evidence
 
@@ -242,7 +251,16 @@ $$\widetilde{B}_s^{(\ell)}=\frac{B_s^{(\ell)}}{\operatorname{q}_{0.95}(B_s)+\eps
 - **Clean karyotype:** balanced, moderate bands across mid/late layers; no contiguous spike across signals.
 - **Contaminated karyotype:** a tall, localized red band (curvature spike) co-located with a blue band (effort dip) and a green band (drift surge), forming a *rupture band*. This aligns with trajectory kinks in $$(\kappa,\mathcal{L},\|\mathbf{v}\|)$$ space and with late-layer lexical/projector subspaces {% cite ansuini2019intrinsic %}.
 
-{% include visualization-html.liquid image_path="images/fig2_3dbar_karyotype.png" alt="nKarotyping: Layer–Band Karyotype" caption="<strong>Stacked 3D bars</strong> visualize per–layer, per–mechanism rupture evidence for a <em>clean</em> (left) vs. <em>contaminated</em> (right) model. <strong>Colors:</strong> red = <em>curvature spike</em> [z_{κ,ℓ}]_{+}, blue = <em>effort dip</em> [-z_{L,ℓ}]_{+}, green = <em>belief drift</em> [z_{v,ℓ}]_{+}." %}
+{% capture caption2 %}
+**Stacked 3D bars** visualize per–layer, per–mechanism rupture evidence for a *<span style="color: #2E8B57;">clean</span>* (left) vs. *<span style="color: #DC143C;">contaminated</span>* (right) model. **Colors:** <span style="color: #DC143C;">red</span> = *curvature spike* $$[z_{\kappa,\ell}]_{+}$$, <span style="color: #4169E1;">blue</span> = *effort dip* $$[-z_{L,\ell}]_{+}$$, <span style="color: #228B22;">green</span> = *belief drift* $$[z_{v,\ell}]_{+}$$.
+{% endcapture %}
+{% include visualization-html.liquid 
+   image_path="assets/SCAR_visuals/karotype/fig2_3dbar_karyotype.png" 
+   interactive_html="scar/fig2_3dbar_karyotype.html"
+   image_path="SCAR_visuals/karotype/fig2_3dbar_karyotype_360_loop.gif"
+   full_width=true
+   alt="nKarotyping: Layer–Band Karyotype" 
+   caption=caption2 %}
 
 ### Isosurfaces and the SCAR Ridge Caldera
 
@@ -262,7 +280,16 @@ In contaminated siblings, $$\mathcal{S}$$ forms a contiguous shell whose inner n
 
 **Interpretation and use.** The caldera's radius traces *where* in depth the shortcut basin begins; its wall thickness reflects band width; ridge height correlates with peak $$T^{(\ell)}$$. Clean models show shallow domes or fragmented shells; contaminated models show a thick, continuous rim anchored to late layers.
 
-{% include visualization-html.liquid image_path="images/scar_isocaldera.png" alt="SCAR Isosurface with Ridge Caldera" caption="<strong>Semi–transparent isosurfaces</strong> (orange=<em>contaminated</em>, blue=<em>clean anchor</em>) visualize a calibrated <em>SCAR level set</em> of the composite evidence field T^{(ℓ)} inside a 3D audit space." %}
+{% capture caption3 %}
+**Semi–transparent isosurfaces** (<span style="color: #FF8C00;">orange</span>=*contaminated*, <span style="color: #4169E1;">blue</span>=*clean anchor*) visualize a calibrated *SCAR level set* of the composite evidence field $$T^{(\ell)}$$ inside a 3D audit space.
+{% endcapture %}
+{% include visualization-html.liquid 
+   image_path="assets/SCAR_visuals/scar_isocaldera/scar_isocaldera.png" 
+   interactive_html="scar/scar_isocaldera.html"
+   image_path="SCAR_visuals/scar_isocaldera/scar_isocaldera.gif"
+   full_width=true
+   alt="SCAR Isosurface with Ridge Caldera" 
+   caption=caption3 %}
 
 ### Semantic Earthquake Map (SE-Map): Field, Derivations, and Biology
 
@@ -288,7 +315,16 @@ So $$D_m$$ is (up to a constant) the *curvature* of $$T_m$$ along depth. Large p
 - **Allosteric transitions.** Small, localized perturbations trigger cooperative conformational shifts (MWC) across a protein {% cite monod1965mwc %}; analogously, contamination can nucleate a late-layer shift observable as a concentrated uplift band.
 - **Neuronal avalanches and calcium waves.** Critical cascades propagate as spatiotemporal bursts {% cite beggs2003neuronal berridge1998calcium %}.
 
-{% include visualization-html.liquid image_path="images/scar_quake_colors.png" alt="Semantic Earthquake Map (SE-Map)" caption="<strong>Ground displacement</strong> D_m(ℓ) is plotted across <em>late layers</em> for three models m (clean anchor and two contaminated siblings). We define <em>displacement</em> as a high-pass residual of the composite evidence T_m^{(ℓ)}." %}
+{% capture caption4 %}
+**Ground displacement** $$D_m(\ell)$$ is plotted across *late layers* for three models $$m$$ (<span style="color: #2E8B57;">clean anchor</span> and two <span style="color: #DC143C;">contaminated siblings</span>). We define *displacement* as a high-pass residual of the composite evidence $$T_m^{(\ell)}$$.
+{% endcapture %}
+{% include visualization-html.liquid 
+   image_path="assets/SCAR_visuals/scar_quake_bundle/scar_quake_colors.png" 
+   interactive_html="scar/scar_quake_colors.html"
+   image_path="SCAR_visuals/scar_quake_bundle/scar_quake_colors.gif"
+   full_width=true
+   alt="Semantic Earthquake Map (SE-Map)" 
+   caption=caption4 %}
 
 ### Volcanic Landscape: Eruption Points as Instability
 
@@ -302,7 +338,27 @@ $$S_m^{(\ell)} = \mathrm{clip}_{[0,1]}\left(\frac{T_m^{(\ell)}-q_{0.05}(T_m)}{q_
 
 **Biology analogies.** The summit corresponds to *punctuated* transitions in an epigenetic/energy landscape (canalized plateaus rising into sharp saddles) and to *neuronal avalanches*: localized ignition with cooperative propagation.
 
-{% include visualization-html.liquid image_path="images/scar_volcano.png" alt="SCAR Volcanic Landscape" caption="Surface of per–layer SCAR S_m^{(ℓ)} across models; labeled summits mark BH-significant eruptions co–located with rupture bands. Clean anchors form low mesas; contaminated siblings exhibit a pronounced late–layer cone." %}
+{% capture caption5 %}
+Surface of per–layer SCAR $$S_m^{(\ell)}$$ across models; labeled summits mark BH-significant eruptions co–located with rupture bands. <span style="color: #2E8B57;">Clean anchors</span> form low mesas; <span style="color: #DC143C;">contaminated siblings</span> exhibit a pronounced late–layer cone.
+{% endcapture %}
+{% include visualization-html.liquid 
+   image_path="assets/SCAR_visuals/scar3d/scar_3d_trajectories.png" 
+   interactive_html="scar/scar_volcano.html"
+   image_path="SCAR_visuals/scar3d/scar_volcano_360.gif"
+   full_width=true
+   alt="SCAR Volcanic Landscape" 
+   caption=caption5 %}
+
+<!-- {% capture caption6 %}
+Surface of per–layer SCAR $$S_m^{(\ell)}$$ across models; labeled summits mark BH-significant eruptions co–located with rupture bands. <span style="color: #2E8B57;">Clean anchors</span> form low mesas; <span style="color: #DC143C;">contaminated siblings</span> exhibit a pronounced late–layer cone.
+{% endcapture %}
+{% include visualization-html.liquid 
+   image_path="assets/SCAR_visuals/scar3d/scar_3d_trajectories.png" 
+   interactive_html="scar/scar_3d_trajectories.html"
+   image_path="SCAR_visuals/scar3d/scar_3d_trajectories_360.gif"
+   full_width=true
+   alt="SCAR Volcanic Landscape" 
+   caption=caption6 %} -->
 
 ## The SCAR Pipeline
 
