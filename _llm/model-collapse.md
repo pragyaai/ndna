@@ -198,56 +198,89 @@ mathjax: true
    interactive_html="collapse/africa_ndna_collapse.html"
    title="Africa Cultural Collapse Trajectory"
    caption="Africa Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of Africa cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ africa_figure_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="alignment/asia_ndna_collapse.gif"
    interactive_html="collapse/asia_ndna_collapse.html"
    title="Asia Cultural Collapse Trajectory"
    caption="Asia Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of Asia cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ asia_figure_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="alignment/china_ndna_final.gif"
    interactive_html="collapse/china_ndna_collapse.html"
    title="China Cultural Collapse Trajectory"
    caption="China Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of China cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ china_figure_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="alignment/europe_ndna_collapse_FINAL.gif"
    interactive_html="collapse/europe_ndna_collapse.html"
    title="Europe Cultural Collapse Trajectory"
    caption="Europe Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of Europe cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ europe_figure_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="alignment/latinamerica.gif"
    interactive_html="collapse/latinamerica_ndna_collapse.html"
    title="Latin America Cultural Collapse Trajectory"
    caption="Latin America Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of Latin America cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ latinamerica_figure_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="alignment/middleeast_ndna_final.gif"
    interactive_html="collapse/middleeast_ndna_collapse.html"
    title="Middle East Cultural Collapse Trajectory"
    caption="Middle East Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of Middle East cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ middleeast_figure_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="alignment/northamerica_ndna_collapse_FINAL.gif"
    interactive_html="collapse/northamerica_ndna_collapse.html"
    title="North America Cultural Collapse Trajectory"
    caption="North America Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of North America cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ northamerica_figure_caption | markdownify }}
+</div>
 
 {% include visualization-html.liquid 
    image_path="alignment/australia_ndna_collapse_FINAL.gif"
    interactive_html="collapse/australia_ndna_collapse.html"
    title="Australia Cultural Collapse Trajectory"
    caption="Australia Cultural Collapse Trajectory"
-   full_width=true %}
+   full_width=true
+   alt_text="3D visualization of Australia cultural collapse trajectory" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ australia_figure_caption | markdownify }}
+</div>
+
 
 
 <h2>Comparative Analysis</h2>
