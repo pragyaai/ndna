@@ -20,3 +20,118 @@ The latent geometry encoded in **Neural DNA (nDNA)** offers a profound lens thro
 We investigate a suite of biologically inspired diagnostics: **_nHD_** (*Neural Hamming Distance*)—revealing binary-level instabilities across cultural fine-tuning; **_nGDI_** (*Genetic Dissimilarity Index*)—quantifying inter-model divergence that persists beyond surface alignment; **_nTEDS_** and **_nTDS_** (*Trait Entropic Drift Score* and *Total Drift Signature*)—capturing latent trait dominance and its asymmetric inheritance in neural offspring; **_nKaryotyping_** (*Semantic Chromosomal Structure*)—visualizing structural reorganizations under merging and pruning; **_nDIV_** (*Directional Inheritance Vector*)—tracing the flow of inductive biases through model evolution; **_nEPI_** (*Epistemic Plasticity Index*)—measuring a model's capacity to reshape under alignment and instruction tuning; and **_nCCL_** (*Cultural Conflict Loss*)—detecting misalignments when multilingual or cross-cultural models undergo ideological fusion. *Together, these diagnostics unveil the hidden belief geometric axes of evolution within AI models*. **_nDNA_** and **Neural Genomics** are not metrics—they are the microscope of AI lineage.
 
 </div>
+
+**TL;DR:** This work proposes **Neural Genomics**, a unifying framework to diagnose, trace, and govern the latent semantics of the neural genome of LLMs, offering a rigorous grammar for understanding artificial cognition across alignment, fine-tuning, merging, and compression and beyond.
+
+<div class="threat-cards-container">
+  <div class="threat-cards-layout-container">
+
+    <!-- Card 1 -->
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon"><i class="fas fa-dna"></i></div>
+        <h3 class="threat-card-title">nDNA Cartograph & Cross-Model Cartography (Ch. 1-2)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>Research questions:</b> 
+          How can we characterize and compare the latent semantic genomes of diverse LLMs? 
+          What geometric invariants define model ancestry, inheritance, and epistemic divergence?</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>nDNA reveals:</b> A formalism combining curvature, thermodynamic length, and belief vector fields; comparative cartography across 15 foundation models.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon"><i class="fas fa-globe-americas"></i></div>
+        <h3 class="threat-card-title">Cultural and Multilingual nDNA (Ch. 3-4)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>Research questions:</b> 
+          How does cultural fine-tuning or multilingual balancing reshape latent geometry? 
+          Can we detect cultural drift or epistemic asymmetries invisible at the output level?</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>nDNA illuminates:</b> Layer-wise latent diagnostics for cultural imprinting, multilingual balance, and fairness evaluation.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon"><i class="fas fa-sliders-h"></i></div>
+        <h3 class="threat-card-title">Alignment as Steering Geometry (Ch. 5)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>Research questions:</b> 
+          What latent structures encode alignment, and how do they differentiate genuine internalization from mimicry?</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>nDNA reframes:</b> Alignment as a latent steering vector field; detection of alignment faking and drift.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon"><i class="fas fa-cubes"></i></div>
+        <h3 class="threat-card-title">Compression and Collapse (Ch. 6, 8, 9)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>Research questions:</b> 
+          How do quantization, pruning, distillation, or inbreeding collapse latent reasoning structure? 
+          What early latent signals predict model collapse?</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>nDNA diagnoses:</b> Thermodynamic and topological diagnostics of latent shrinkage, plasticity collapse, and epistemic degeneration.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon"><i class="fas fa-users"></i></div>
+        <h3 class="threat-card-title">Merging and Neural Offspring (Ch. 7, 11)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>Research questions:</b> 
+          How do neural offspring inherit or hybridize parental latent genomes? 
+          What geometric signatures distinguish harmonious fusion from cultural tension or emergent epistemics?</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>nDNA exposes:</b> Metrics for hybrid vigor, cultural asymmetry, and epistemic emergence in model merging.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon"><i class="fas fa-code-branch"></i></div>
+        <h3 class="threat-card-title">Neural Genomics as a Science of Lineage (Ch. 10)</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>Research questions:</b> 
+          Can we formulate a general theory of artificial lineage to audit, govern, and improve AI cognition? 
+          How does latent genome tracking enhance AI safety?</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><b>nDNA enables:</b> A principled framework for tracing model ancestry, drift, and internal alignment, with implications for safety and transparency.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
