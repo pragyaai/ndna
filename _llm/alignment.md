@@ -504,6 +504,7 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 
 {% include visualization-html.liquid 
    image_path="gifs/collapse/ndna_dpo_rotation.gif"
+   interactive_html="alignment/ndna_dpo_trajectories_left_legend.html"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment"
    full_width=true %}
 
