@@ -7,6 +7,10 @@ skip_title: True
 
 <link rel="stylesheet" href="{{ '/assets/css/15_llms.css' | relative_url }}">
 
+<p align="center">
+  <img src="{{ '/assets/img/cover_book.png' | relative_url }}" alt="Cover Book" style="max-width: 80%; border-radius: 12px;"/>
+</p>
+
 {% include prefatio-title.liquid title="Prefatio" subtitle="" %}
 
 <div class="card" markdown="1">
