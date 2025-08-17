@@ -236,22 +236,6 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
     .icon-red { background-color: #e74c3c; }
     .icon-orange { background-color: #f39c12; }
 </style>
-
-<div class="section">
-    <h3 style="text-align:center;">Strategic Typology of Model Collapse Mechanisms</h3>
-    <p style="text-align:center; color:#666; font-size:14px;">
-        A comprehensive framework categorizing the geometric pathways through which foundation models experience representational degeneration.
-    </p>
-
-<div class="grid">
-
-</div>
-
-
-<p style="text-align:center; font-style:italic; font-size:14px; margin-top:20px;">
-    Our goal is to characterize alignment not simply as behavioral control, but as geometric steering in the latent epistemology of the model — illuminating what is preserved and what is transformed when we align for safety.
-</p>
-
 <h3 style="margin-top:40px;">Alignment Pattern Typology</h3>
 
 <div class="grid">
@@ -574,7 +558,14 @@ The symmetry of this displacement shows that DPO modifies behavior through **sha
     <strong>Illustration of Aligned vs. Inverted States</strong>
   </div>
 </figure>
-
+<figure style="text-align: center; margin: 2em 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/dpo_steering_vector_field.png" 
+       alt="Illustration of Aligned vs. Inverted States" 
+       style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <div style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
+    <strong>Illustration of Aligned vs. Inverted States</strong>
+  </div>
+</figure>
 ## Low-Rank Evidence from Spectral Compression
 
 Singular value decomposition (SVD) of the Jacobian
