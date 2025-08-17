@@ -11,6 +11,10 @@ skip_title: True
   <img src="{{ '/assets/img/cover_book.png' | relative_url }}" alt="Cover Book" style="max-width: 80%; border-radius: 12px;"/>
 </p>
 
+<p align="center">
+  <embed src="{{ '/assets/banner.pdf' | relative_url }}" type="application/pdf" width="80%" height="600px" />
+</p>
+
 {% include prefatio-title.liquid title="Prefatio" subtitle="" %}
 
 <div class="card" markdown="1">
