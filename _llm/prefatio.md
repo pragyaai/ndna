@@ -12,7 +12,7 @@ skip_title: True
 </p>
 
 <p align="center">
-  <embed src="{{ '/assets/banner.pdf' | relative_url }}" type="application/pdf" width="80%" height="600px" />
+  <img src="{{ '/assets/img/banner-1.png' | relative_url }}" alt="Cover Book" style="max-width: 80%; border-radius: 12px;"/>
 </p>
 
 {% include prefatio-title.liquid title="Prefatio" subtitle="" %}
