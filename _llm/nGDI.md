@@ -273,7 +273,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       full_width=true
   %}
 
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/Asia_ngdi_rotation.gif"
       interactive_html="nGDI/Asia_nGDI_plot.html"
       title="(b) Asia nGDI Trajectory"
@@ -284,7 +284,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/Australia_ngdi_rotation.gif"
       interactive_html="nGDI/Australia_nGDI_plot.html"
       title="(c) Australia nGDI Trajectory"
@@ -293,7 +293,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       full_width=true
   %}
 
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/China_ngdi_rotation.gif"
       interactive_html="nGDI/China_nGDI_plot.html"
       title="(d) China nGDI Trajectory"
@@ -304,7 +304,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/Europe_ngdi_rotation.gif"
       interactive_html="nGDI/Europe_nGDI_plot.html"
       title="(e) Europe nGDI Trajectory"
@@ -313,7 +313,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       full_width=true
   %}
 
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/LatinAmerica_ngdi_rotation.gif"
       interactive_html="nGDI/LatinAmerica_nGDI_plot.html"
       title="(f) Latin America nGDI Trajectory"
@@ -324,7 +324,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 2em 0; gap: 1em;">
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/MiddleEast_ngdi_rotation.gif"
       interactive_html="nGDI/MiddleEast_nGDI_plot.html"
       title="(g) Middle East nGDI Trajectory"
@@ -333,7 +333,7 @@ In applications, nGDI includes fine-grained semantic drift monitoring in multili
       full_width=true
   %}
 
-  {% include visualization-html.liquid
+  {% include interactive.liquid
       image_path="gifs/neural_genomics/nGDI/NorthAmerica_ngdi_rotation.gif"
       interactive_html="nGDI/NorthAmerica_nGDI_plot.html"
       title="(h) North America nGDI Trajectory"
@@ -368,14 +368,14 @@ where α<sup>(ℓ)</sup> ∈ [0, 1] denotes the *layer-dependent semantic domina
 This formalism captures *multi-layered integration*, *selective semantic imprinting*, and *complex evolutionary dynamics* in transformer latent spaces, providing a principled framework for interpreting *cultural neural DNA fusion* and semantic innovation in multilingual AI systems.
 {% endcapture %}
 
-{% include visualization-html.liquid 
+{% include interactive.liquid 
    image_path="gifs/neural_genomics/nGDI/all.gif"
    interactive_html="nGDI/combined_cultural_trajectories_nGDI.html"
    caption=figure_caption
    alt_text="3D Neural Genetic Dissimilarity Index (nGDI) Trajectories"
    full_width=true %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Africa_Asia_side_by_side_ngdi.png"
     interactive_html="nGDI/Africa_Asia_side_by_side_ngdi.html"
     title="(a) Layerwise nGDI Trajectories for Africa–Asia Offspring"
@@ -384,7 +384,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Africa_China_side_by_side_ngdi.png"
     interactive_html="nGDI/Africa_China_side_by_side_ngdi.html"
     title="(b) Layerwise nGDI Trajectories for Africa–China Offspring"
@@ -393,7 +393,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Africa_LatinAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/Africa_LatinAmerica_side_by_side_ngdi.html"
     title="(c) Layerwise nGDI Trajectories for Africa–Latin America Offspring"
@@ -402,7 +402,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Africa_MiddleEast_side_by_side_ngdi.png"
     interactive_html="nGDI/Africa_MiddleEast_side_by_side_ngdi.html"
     title="(d) Layerwise nGDI Trajectories for Africa–Middle East Offspring"
@@ -411,7 +411,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Asia_China_side_by_side_ngdi.png"
     interactive_html="nGDI/Asia_China_side_by_side_ngdi.html"
     title="(e) Layerwise nGDI Trajectories for Asia–China Offspring"
@@ -420,7 +420,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Asia_LatinAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/Asia_LatinAmerica_side_by_side_ngdi.html"
     title="(f) Layerwise nGDI Trajectories for Asia–Latin America Offspring"
@@ -429,7 +429,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Asia_MiddleEast_side_by_side_ngdi.png"
     interactive_html="nGDI/Asia_MiddleEast_side_by_side_ngdi.html"
     title="(g) Layerwise nGDI Trajectories for Asia–Middle East Offspring"
@@ -438,7 +438,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Australia_Africa_side_by_side_ngdi.png"
     interactive_html="nGDI/Australia_Africa_side_by_side_ngdi.html"
     title="(h) Layerwise nGDI Trajectories for Australia–Africa Offspring"
@@ -447,7 +447,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Australia_Asia_side_by_side_ngdi.png"
     interactive_html="nGDI/Australia_Asia_side_by_side_ngdi.html"
     title="(i) Layerwise nGDI Trajectories for Australia–Asia Offspring"
@@ -456,7 +456,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Australia_China_side_by_side_ngdi.png"
     interactive_html="nGDI/Australia_China_side_by_side_ngdi.html"
     title="(j) Layerwise nGDI Trajectories for Australia–China Offspring"
@@ -465,7 +465,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Australia_LatinAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/Australia_LatinAmerica_side_by_side_ngdi.html"
     title="(k) Layerwise nGDI Trajectories for Australia–Latin America Offspring"
@@ -474,7 +474,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Australia_MiddleEast_side_by_side_ngdi.png"
     interactive_html="nGDI/Australia_MiddleEast_side_by_side_ngdi.html"
     title="(l) Layerwise nGDI Trajectories for Australia–Middle East Offspring"
@@ -483,7 +483,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/China_LatinAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/China_LatinAmerica_side_by_side_ngdi.html"
     title="(m) Layerwise nGDI Trajectories for China–Latin America Offspring"
@@ -492,7 +492,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/China_MiddleEast_side_by_side_ngdi.png"
     interactive_html="nGDI/China_MiddleEast_side_by_side_ngdi.html"
     title="(n) Layerwise nGDI Trajectories for China–Middle East Offspring"
@@ -501,7 +501,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Europe_Africa_side_by_side_ngdi.png"
     interactive_html="nGDI/Europe_Africa_side_by_side_ngdi.html"
     title="(o) Layerwise nGDI Trajectories for Europe–Africa Offspring"
@@ -510,7 +510,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Europe_Asia_side_by_side_ngdi.png"
     interactive_html="nGDI/Europe_Asia_side_by_side_ngdi.html"
     title="(p) Layerwise nGDI Trajectories for Europe–Asia Offspring"
@@ -519,7 +519,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Europe_Australia_side_by_side_ngdi.png"
     interactive_html="nGDI/Europe_Australia_side_by_side_ngdi.html"
     title="(q) Layerwise nGDI Trajectories for Europe–Australia Offspring"
@@ -528,7 +528,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Europe_China_side_by_side_ngdi.png"
     interactive_html="nGDI/Europe_China_side_by_side_ngdi.html"
     title="(r) Layerwise nGDI Trajectories for Europe–China Offspring"
@@ -537,7 +537,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Europe_LatinAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/Europe_LatinAmerica_side_by_side_ngdi.html"
     title="(s) Layerwise nGDI Trajectories for Europe–Latin America Offspring"
@@ -546,7 +546,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Europe_MiddleEast_side_by_side_ngdi.png"
     interactive_html="nGDI/Europe_MiddleEast_side_by_side_ngdi.html"
     title="(t) Layerwise nGDI Trajectories for Europe–Middle East Offspring"
@@ -555,7 +555,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/Europe_NorthAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/Europe_NorthAmerica_side_by_side_ngdi.html"
     title="(u) Layerwise nGDI Trajectories for Europe–North America Offspring"
@@ -564,7 +564,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/MiddleEast_LatinAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/MiddleEast_LatinAmerica_side_by_side_ngdi.html"
     title="(v) Layerwise nGDI Trajectories for Middle East–Latin America Offspring"
@@ -573,7 +573,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/NorthAmerica_Africa_side_by_side_ngdi.png"
     interactive_html="nGDI/NorthAmerica_Africa_side_by_side_ngdi.html"
     title="(w) Layerwise nGDI Trajectories for North America–Africa Offspring"
@@ -582,7 +582,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/NorthAmerica_Asia_side_by_side_ngdi.png"
     interactive_html="nGDI/NorthAmerica_Asia_side_by_side_ngdi.html"
     title="(x) Layerwise nGDI Trajectories for North America–Asia Offspring"
@@ -591,7 +591,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/NorthAmerica_Australia_side_by_side_ngdi.png"
     interactive_html="nGDI/NorthAmerica_Australia_side_by_side_ngdi.html"
     title="(y) Layerwise nGDI Trajectories for North America–Australia Offspring"
@@ -600,7 +600,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/NorthAmerica_China_side_by_side_ngdi.png"
     interactive_html="nGDI/NorthAmerica_China_side_by_side_ngdi.html"
     title="(z) Layerwise nGDI Trajectories for North America–China Offspring"
@@ -609,7 +609,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/NorthAmerica_LatinAmerica_side_by_side_ngdi.png"
     interactive_html="nGDI/NorthAmerica_LatinAmerica_side_by_side_ngdi.html"
     title="(aa) Layerwise nGDI Trajectories for North America–Latin America Offspring"
@@ -618,7 +618,7 @@ This formalism captures *multi-layered integration*, *selective semantic imprint
     full_width=true
 %}
 
-{% include visualization-html.liquid
+{% include interactive.liquid
     image_path="images/NorthAmerica_MiddleEast_side_by_side_ngdi.png"
     interactive_html="nGDI/NorthAmerica_MiddleEast_side_by_side_ngdi.html"
     title="(ab) Layerwise nGDI Trajectories for North America–Middle East Offspring"
