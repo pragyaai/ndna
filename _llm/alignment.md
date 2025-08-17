@@ -245,33 +245,8 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
 
 <div class="grid">
 
-<div class="card red">
-    <div class="card-header">
-        <div class="icon icon-red">🔄</div>
-        <strong>Autoregressive Degeneration</strong>
-    </div>
-    <div class="tag">INTENT & MECHANISM</div>
-    <p>Repeated fine-tuning on self-generated synthetic data creates feedback loops that entrench model biases. Progressive exposure to own outputs leads to semantic homogenization.</p>
-    <div class="note">
-        <div class="note-title">GEOMETRIC SIGNATURE</div>
-        <div class="note-text">Progressive curvature flattening, thermodynamic contraction, reduced alignment force magnitudes</div>
-    </div>
 </div>
 
-<div class="card orange">
-    <div class="card-header">
-        <div class="icon icon-orange">🧬</div>
-        <strong>Recursive Self-Merging</strong>
-    </div>
-    <div class="tag">INTENT & MECHANISM</div>
-    <p>Iterative merging of model with descendants without external grounding. Introduces architectural tension and epistemic drift through incompatible latent priors.</p>
-    <div class="note">
-        <div class="note-title">GEOMETRIC SIGNATURE</div>
-        <div class="note-text">Semantic flattening intensifies, distinct latent features become increasingly homogenized</div>
-    </div>
-</div>
-
-</div>
 
 <p style="text-align:center; font-style:italic; font-size:14px; margin-top:20px;">
     Our goal is to characterize alignment not simply as behavioral control, but as geometric steering in the latent epistemology of the model — illuminating what is preserved and what is transformed when we align for safety.
@@ -545,7 +520,6 @@ This strict alignment isolation via LITMUS ensures that *epistemic sovereignty a
 
 {% include visualization-html.liquid 
    image_path="gifs/collapse/ndna_dpo_rotation.gif"
-   interactive_html="alignment/llama_ndna_alignment.html"
    title="All Cultural nDNA Trajectories Before and After DPO Alignment"
    full_width=true %}
 
