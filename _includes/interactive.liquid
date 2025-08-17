@@ -66,42 +66,36 @@
 </figure>
 
 <style>
-  /* Scoped to this component only */
   .viz-figure .viz-wrap {
     position: relative;
-    overflow: visible !important; /* let hovers extend */
+    overflow: visible !important;
     z-index: 10;
   }
 
   .viz-figure .viz-frame-box {
     position: relative;
     width: 100%;
-    /* Default aspect ratio; override via include.aspect like "4/3" */
-    aspect-ratio: {{ include.aspect | default: "16 / 9" }};
-    max-height: {{ include.max_height | default: "85vh" }};
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    height: {{ include.height | default: "600px" }};
     overflow: visible !important;
   }
 
   .viz-figure .viz-iframe {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
     background: #fff;
-    overflow: visible; /* avoid clipping inside iframe */
-    border-radius: 0; /* rounded corners can clip hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-    transform: none !important; /* prevent new stacking context */
-    filter: none !important;
-    contain: none !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .08);
   }
 
-  /* Help avoid outer containers clipping this component */
   .viz-figure {
     overflow: visible !important;
   }
 </style>
+
 
 <script>
   (function () {
