@@ -68,7 +68,7 @@
 <style>
   .viz-figure .viz-wrap {
     position: relative;
-    overflow: visible !important;
+    overflow: hidden; /* FIX: clip to container */
     z-index: 10;
   }
 
@@ -79,45 +79,31 @@
     margin-left: auto;
     margin-right: auto;
     height: {{ include.height | default: "600px" }};
-    overflow: visible !important;
+    overflow: hidden; /* FIX: stop plot overflow */
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.06);
   }
 
   .viz-figure .viz-iframe {
     width: 100%;
     height: 100%;
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .08);
+    border: none; /* clean */
+    display: block;
   }
 
   .viz-figure {
-    overflow: visible !important;
+    overflow: visible;
   }
 </style>
 
-
 <script>
   (function () {
-    // Find this figure and relax overflow on a few ancestors to prevent clipping.
     var fig = document.currentScript && document.currentScript.previousElementSibling;
     if (!fig) return;
 
-    var hops = 0;
-    var p = fig.parentElement;
-    while (p && hops < 5) {
-      var cs = getComputedStyle(p);
-      if (/(hidden|auto|scroll)/.test(cs.overflow + cs.overflowX + cs.overflowY)) {
-        p.style.overflow = 'visible';
-      }
-      if (cs.transform && cs.transform !== 'none') {
-        p.style.transform = 'none';
-      }
-      p = p.parentElement;
-      hops++;
-    }
-
-    // Auto-height for same-origin iframe; otherwise fallback to aspect ratio.
+    // Auto-height (same-origin only)
     var iframe = fig.querySelector('iframe.viz-iframe');
     if (!iframe) return;
 
@@ -138,9 +124,8 @@
 
         var maxPx = {{ include.max_height_px | default: 1400 }};
         iframe.style.height = Math.min(h, maxPx) + 'px';
-        iframe.style.overflow = 'visible';
       } catch (e) {
-        // Cross-origin; keep aspect-ratio sizing
+        // Cross-origin: leave fixed height
       }
     }
 
