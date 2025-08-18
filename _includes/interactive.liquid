@@ -1,139 +1,117 @@
-<figure class="viz-figure" style="text-align: center; margin: 1.5em 0;">
-  <div class="visualization-html{% if include.full_width %} full-width{% endif %} viz-wrap">
+{% comment %}
+wizuall.liquid (updated)
+- Renders GIF left, interactive HTML right (if provided).
+- Clean single border/radius/shadow around both panels.
+- Responsive grid: 2 columns on wide screens, stacked on narrow screens.
+- Params used: image_path, interactive_html, title, caption, metrics
+- Optional knobs (safe defaults):
+  - panel_bg: background for panels (default #fff)
+  - height: desktop panel height (default 600px)
+  - aspect_ratio: small-screen ratio (default 16/10)
+{% endcomment %}
 
-    {% if include.image_path %}
-      <img 
-        class="vh-image {% if include.cover_image %}cover{% endif %}" 
-        src="{{ site.cdn_url }}/assets/{{ include.image_path }}" 
-        alt="{{ include.alt_text | default: include.title }}" 
-        onerror="this.onerror=null; this.src='{{ site.fallback_cdn }}/assets/{{ include.image_path }}';"
-      >
-    {% endif %}
+{% assign gif_src = '/assets/gifs/' | append: include.image_path | relative_url %}
+{% if include.interactive_html %}
+  {% assign html_src = '/assets/html_plots/' | append: include.interactive_html | relative_url %}
+{% endif %}
+{% assign panel_bg = include.panel_bg | default: '#fff' %}
+{% assign panel_h  = include.height | default: '600px' %}
+{% assign aspect   = include.aspect_ratio | default: '16/10' %}
 
-    {% if include.interactive_html %}
-      <div class="interactive-plot-container vh-html viz-frame-box">
-        <iframe
-          class="viz-iframe"
-          src="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}"
-          title="{{ include.alt_text | default: include.title | default: 'Interactive plot' }}"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
+<figure style="text-align:center; margin:1.5em 0; position:relative;">
+  <div style="
+    max-width:1200px;
+    margin-left:auto; margin-right:auto;
+    display:grid; gap:20px;
+    grid-template-columns: 1fr;
+  ">
+    {% if include.interactive_html and include.interactive_html != "" %}
+      <div style="
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:20px;
+        align-items:stretch;
+      ">
+        <style>
+          @media (min-width: 960px){
+            figure > div > div[style*="grid-template-columns: 1fr;"]{
+              grid-template-columns: 1fr 1fr !important;
+            }
+          }
+          /* Unified panel look */
+          .wz-panel {
+            position: relative;
+            width: 100%;
+            height: {{ panel_h }};
+            overflow: hidden;
+            border-radius: 10px;
+            background: {{ panel_bg }};
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+          }
+          @media (max-width: 959.98px){
+            .wz-panel { height:auto; aspect-ratio: {{ aspect }}; }
+          }
+          .wz-img {
+            width:100%; height:100%;
+            display:block; object-fit:contain;
+            background: {{ panel_bg }};
+          }
+          .wz-iframe {
+            position:absolute; inset:0;
+            width:100%; height:100%;
+            border:0; display:block; background: {{ panel_bg }};
+          }
+        </style>
+
+        <!-- Left: GIF -->
+        <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" class="wz-panel" style="display:block;">
+          <img src="{{ gif_src }}"
+               alt="{{ include.title }}"
+               class="wz-img" />
+        </a>
+
+        <!-- Right: interactive HTML (updated wrapper + iframe) -->
+        <div class="wz-panel">
+          <iframe
+            src="{{ html_src }}"
+            title="{{ include.title }} - Interactive"
+            class="wz-iframe"
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          ></iframe>
+        </div>
       </div>
-    {% endif %}
-
-  </div>
-
-  {% capture interactive_button %}
-    {% if include.interactive_html %}
-      <a 
-        class="view-interactive-html" 
-        href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        style="text-decoration: none;"
-      >
-        📊 View Interactive Plot
+    {% else %}
+      <!-- Only GIF (no interactive HTML provided) -->
+      <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" class="wz-panel" style="display:block;">
+        <img src="{{ gif_src }}"
+             alt="{{ include.title }}"
+             class="wz-img" />
       </a>
     {% endif %}
-  {% endcapture %}
+  </div>
 
-  {% capture caption %}
-    {% if include.caption %}
-      <figcaption class="figure-caption">
-        {% if include.title %}
-          <strong>{{ include.title }}</strong>
-        {% endif %}
-        {{ include.caption | markdownify }}
-      </figcaption>
-    {% endif %}
+  <!-- Shared caption (exact text preserved) -->
+  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+    {% if include.title %}<strong>{{ include.title }}</strong>{% endif %}
+    {% if include.caption %} {{ include.caption | markdownify }}{% endif %}
+  </figcaption>
 
-    {% if include.metrics %}
-      <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">
-        {{ include.metrics }}
-      </p>
-    {% endif %}
-  {% endcapture %}
-
-  {% if include.interactive_button_first %}
-    {{ interactive_button }}
-    {{ caption }}
-  {% else %}
-    {{ caption }}
-    {{ interactive_button }}
+  {% if include.metrics %}
+    <p style="margin-top:8px; font-size:0.85em; color:#666; font-style:italic; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
+      {{ include.metrics }}
+    </p>
   {% endif %}
 
+  <!-- Button below caption -->
+  {% if include.interactive_html and include.interactive_html != "" %}
+    <div style="margin-top:1em; text-align:center;">
+      <a href="{{ html_src }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
+          📊 View Interactive Plot
+        </button>
+      </a>
+    </div>
+  {% endif %}
 </figure>
-
-<style>
-  .viz-figure .viz-wrap {
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
-  }
-
-  .viz-figure .viz-frame-box {
-    position: relative;
-    width: 100%;
-    max-width: 1000px; /* ✅ keeps plot within page width */
-    margin-left: auto;
-    margin-right: auto;
-    height: {{ include.height | default: "600px" }};
-    overflow: hidden;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-
-  .viz-figure .viz-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-    object-fit: contain; /* ✅ ensures Plotly canvas shrinks if too wide */
-  }
-
-  .viz-figure {
-    overflow: visible;
-  }
-</style>
-
-<script>
-  (function () {
-    var fig = document.currentScript && document.currentScript.previousElementSibling;
-    if (!fig) return;
-
-    var iframe = fig.querySelector('iframe.viz-iframe');
-    if (!iframe) return;
-
-    // auto-height adjust
-    function setHeight() {
-      try {
-        var doc = iframe.contentDocument || iframe.contentWindow.document;
-        if (!doc) return;
-        if (doc.defaultView && doc.defaultView.Plotly) {
-          // ✅ force Plotly to be responsive inside the iframe
-          doc.defaultView.Plotly.Plots.resize(doc.querySelector('.js-plotly-plot'));
-        }
-        var body = doc.body, html = doc.documentElement;
-        var h = Math.max(
-          body.scrollHeight,
-          body.offsetHeight,
-          html.clientHeight,
-          html.scrollHeight,
-          html.offsetHeight
-        );
-        var maxPx = {{ include.max_height_px | default: 1400 }};
-        iframe.style.height = Math.min(h, maxPx) + 'px';
-      } catch (e) {}
-    }
-
-    iframe.addEventListener('load', setHeight);
-
-    try {
-      var ro = new ResizeObserver(setHeight);
-      ro.observe(iframe);
-    } catch (e) {}
-  })();
-</script>
