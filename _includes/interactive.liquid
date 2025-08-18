@@ -1,8 +1,7 @@
 {% comment %}
-wizuall.liquid (stable)
-- GIF left, HTML right on >=960px; stacked below that.
-- Clean single border on both panels.
-- No attribute selectors; only class-based CSS.
+wizuall.liquid (fixed sizing for iframes)
+- GIF left, HTML right on >=960px; stacked below that
+- Stable iframe sizing so Plotly initializes correctly
 - Params: image_path, interactive_html, title, caption, metrics
 - Optional: panel_bg (#fff), height (600px), aspect_ratio (16/10)
 {% endcomment %}
@@ -23,15 +22,19 @@ wizuall.liquid (stable)
         <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" class="wz-panel wz-image">
           <img src="{{ gif_src }}" alt="{{ include.title }}" class="wz-img" />
         </a>
+
         <!-- Right: interactive HTML -->
         <div class="wz-panel wz-html">
-          <iframe
-            src="{{ html_src }}"
-            title="{{ include.title }} - Interactive"
-            class="wz-iframe"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          ></iframe>
+          <div class="wz-iframe-wrap">
+            <iframe
+              src="{{ html_src }}"
+              title="{{ include.title }} - Interactive"
+              class="wz-iframe"
+              loading="lazy"
+              allowfullscreen
+              sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+            ></iframe>
+          </div>
         </div>
       </div>
     {% else %}
@@ -61,16 +64,15 @@ wizuall.liquid (stable)
 </figure>
 
 <style>
-  .wz-outer {
-    max-width:1200px; margin-inline:auto;
-  }
-  .wz-grid {
+  .wz-outer{ max-width:1200px; margin-inline:auto; }
+
+  .wz-grid{
     display:grid; gap:20px;
-    grid-template-columns: 1fr;           /* default: stacked */
+    grid-template-columns:1fr;
     align-items:stretch;
   }
   @media (min-width:960px){
-    .wz-grid { grid-template-columns: 1fr 1fr; }  /* two columns on wide screens */
+    .wz-grid{ grid-template-columns:1fr 1fr; }
   }
 
   /* Unified panel box */
@@ -82,21 +84,40 @@ wizuall.liquid (stable)
     background: {{ panel_bg }};
     box-shadow:0 4px 8px rgba(0,0,0,0.08);
     border:1px solid rgba(0,0,0,0.06);
-    display:block;                            /* ensures <a> has box dimensions */
+    display:block;
   }
+
+  /* For iframe panels on small screens, use intrinsic ratio instead of height:auto */
   @media (max-width:959.98px){
-    .wz-panel{ height:auto; aspect-ratio: {{ aspect }}; }
+    .wz-panel.wz-html{ height:auto; }
   }
 
   /* Image */
   .wz-img{
-    width:100%; height:100%; display:block; object-fit:contain; background: {{ panel_bg }};
+    width:100%; height:100%;
+    display:block; object-fit:contain; background: {{ panel_bg }};
   }
 
-  /* Iframe fills panel; no extra border */
+  /* Intrinsic-ratio wrapper ensures a stable sizing context before iframe loads */
+  .wz-iframe-wrap{
+    width:100%; height:100%;
+  }
+  @media (max-width:959.98px){
+    .wz-iframe-wrap{
+      position:relative; width:100%;
+      aspect-ratio: {{ aspect }};
+      /* If you need a fallback for very old browsers:
+      padding-top: calc(100% * (10 / 16)); height:0;
+      */
+    }
+  }
+
+  /* Make iframe a normal block that fills wrapper (no absolute positioning) */
   .wz-iframe{
-    position:absolute; inset:0; width:100%; height:100%;
-    border:0; display:block; background: {{ panel_bg }};
+    display:block; width:100%; height:100%;
+    border:0; background: {{ panel_bg }};
+    /* Optional hints to avoid early paint at wrong size */
+    content-visibility:auto; contain-intrinsic-size: 960px 600px;
   }
 
   /* Caption + metrics */
