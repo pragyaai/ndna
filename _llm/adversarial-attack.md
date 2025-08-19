@@ -610,7 +610,6 @@ This trajectory captures the evolving internal geometry across layers $$\ell=20$
 {% include visualization-html.liquid
    image_path="viral/attacks/Persuasion_nDNA_3D_finalaxes.png"
    interactive_html="viral/Persuasion_nDNA_interactive.html"
-   full_width=true
    caption="**nDNA Interactive: Core Genomic Signatures** — Interactive exploration of the model's neural DNA under persuasion attacks. This visualization reveals how adversarial inputs alter the fundamental geometric properties of the model's semantic manifold." %}
 
 ### (b) nTDS: Thermodynamic Dominance
@@ -628,7 +627,6 @@ Bars show which flow—Base LLaMA or Persuasion Attack—dominates drift. From $
 {% include visualization-html.liquid
    image_path="viral/attacks/Persuasion_nTDS_DominancePlot.png"
    interactive_html="viral/Persuasion_nTDS_Dominance_interactive.html"
-   full_width=true
    caption="**nTDS Interactive: Dominance Structure** — Interactive analysis of dominance hierarchies within the model's reasoning under persuasion attacks. Shows how adversarial inputs can elevate harmful concepts in the model's attention and reasoning priority." %}
 
 ### (c) nDIV: Directional Inheritance
@@ -646,7 +644,6 @@ Each red arrow encodes $$\vec{v}_\ell$$ with *length* as bias strength and *orie
 {% include visualization-html.liquid
    image_path="viral/attacks/Persuasion_nDIV_Inheritance_3D.png"
    interactive_html="viral/Persuasion_nDIV_interactive.html"
-   full_width=true
    caption="**nDIV Interactive: Inheritance Divergence** — Dynamic plot showing how persuasion attacks disrupt the inheritance of beliefs across transformer layers. The divergence metrics capture semantic drift from the model's original alignment." %}
 
 ### (d) nCCL: Cultural Conflict Vector Field
@@ -668,7 +665,6 @@ Each $$\vec{c}_\ell$$ lies on a 2D plane defined by *orthogonal priors* (e.g., t
 {% include visualization-html.liquid
    image_path="viral/attacks/Persuasion_nCCL_vectorfield_3D.png"
    interactive_html="viral/Persuasion_nCCL_interactive.html"
-   full_width=true
    caption="**nCCL Interactive: Conflict Vector Field Evolution** — Real-time visualization of how persuasion attacks create semantic conflicts within the model's belief space. The vector field shows directional forces as the attack progressively corrupts the model's reasoning trajectory." %}
 
 ### (e) nEPI: Epistemic Plasticity Index
@@ -693,7 +689,6 @@ This $$\ell_2$$ deviation from the semantic midpoint exposes pliable zones, with
 {% include visualization-html.liquid
    image_path="viral/attacks/Persuasion_nEPI_3Dplot.png"
    interactive_html="viral/Persuasion_nEPI_interactive.html"
-   full_width=true
    caption="**nEPI Interactive: Epistemic Dynamics** — Real-time visualization of epistemic state changes during persuasion attacks. The plot tracks how adversarial inputs progressively alter the model's confidence and belief certainty across different semantic domains." %}
 
 ## Comprehensive Analysis Summary
@@ -976,7 +971,6 @@ This trajectory captures the evolving internal geometry across layers $$\ell=20�
 {% include visualization-html.liquid
    image_path="viral/attacks/Pair_Attack_nDNA_3D_finalaxes.png"
    interactive_html="viral/Pair_Attack_nDNA_interactive.html"
-   full_width=true
    caption="**Pair Attack nDNA Interactive** — Interactive exploration of genomic signatures under pair attacks. This comprehensive view shows how coordinated adversarial inputs can fundamentally reshape the model's neural DNA geometry." %}
 
 ### (b) nTDS: Thermodynamic Dominance
@@ -994,7 +988,6 @@ Bars show which flow—Base LLaMA or Pair Attack—dominates drift. From $$\ell=
 {% include visualization-html.liquid
    image_path="viral/attacks/Pair_Attack_nTDS_DominancePlot.png"
    interactive_html="viral/Pair_Attack_nTDS_Dominance_interactive.html"
-   full_width=true
    caption="**Pair Attack nTDS Interactive** — Interactive analysis of dominance structure evolution under pair attacks. Reveals how coordinated adversarial inputs can systematically elevate harmful concepts in the model's reasoning hierarchy." %}
 
 ### (c) nDIV: Directional Inheritance
@@ -1012,7 +1005,6 @@ Each red arrow encodes $$\vec{v}_\ell$$ with *length* as bias strength and *orie
 {% include visualization-html.liquid
    image_path="viral/attacks/Pair_Attack_nDIV_Inheritance_3D.png"
    interactive_html="viral/Pair_Attack_nDIV_interactive.html"
-   full_width=true
    caption="**Pair Attack nDIV Interactive** — Dynamic visualization of inheritance divergence under coordinated pair attacks. Shows how multiple attack vectors can compound to create larger semantic deviations from aligned behavior." %}
 
 ### (d) nCCL: Cultural Conflict Vector Field
@@ -1034,7 +1026,6 @@ Each $$\vec{c}_\ell$$ lies on a 2D plane defined by *orthogonal priors* (e.g., t
 {% include visualization-html.liquid
    image_path="viral/attacks/Pair_Attack_nCCL_vectorfield_3D.png"
    interactive_html="viral/Pair_Attack_nCCL_interactive.html"
-   full_width=true
    caption="**Pair Attack nCCL Interactive** — Interactive visualization of conflict vector fields during coordinated pair attacks. These attacks demonstrate how multiple adversarial inputs can create resonance patterns that amplify semantic infections." %}
 
 ### (e) nEPI: Epistemic Plasticity Index
@@ -1059,7 +1050,6 @@ This $$\ell_2$$ deviation from the semantic midpoint exposes pliable zones, with
 {% include visualization-html.liquid
    image_path="viral/attacks/Pair_Attack_nEPI_3Dplot.png"
    interactive_html="viral/Pair_Attack_nEPI_interactive.html"
-   full_width=true
    caption="**Pair Attack nEPI Interactive** — Real-time tracking of epistemic changes during pair attacks. The interactive plot reveals how coordinated adversarial inputs create synchronized shifts in the model's confidence and belief structures." %}
 
 ## Comprehensive Analysis Summary

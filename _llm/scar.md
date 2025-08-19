@@ -339,7 +339,7 @@ Surface of per–layer SCAR $$S_m^{(\ell)}$$ across models; labeled summits mark
 {% endcapture %}
 {% include visualization-html.liquid 
    interactive_html="scar/scar_volcano.html"
-   image_path="SCAR_visuals/scar3d/scar_volcano_360.gif"
+   image_path="SCAR_visuals/scar_volcano_outputs/scar_volcano_360.gif"
    full_width=true
    alt="SCAR Volcanic Landscape" 
    caption=caption5 %}
