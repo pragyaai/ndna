@@ -70,11 +70,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-19T12:09:17+00:00" />
+<meta property="article:published_time" content="2025-08-20T10:57:10+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-19T12:09:17+00:00","datePublished":"2025-08-19T12:09:17+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-20T10:57:10+00:00","datePublished":"2025-08-20T10:57:10+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -299,7 +299,7 @@ Just as an immune system detects, contains, and neutralizes pathogens, an alignm
 These payloads remain <em>fully latent</em> during standard alignment evaluations and <em>benign inference</em> but can be activated by <strong>precisely tuned semantic triggers</strong>.<br />
 For each case, we show the injected fragment, the activating prompt, and the resulting completion, followed by <em>technical commentary</em> on the underlying mechanism.</p>
 
-<p>Let $\mathcal{M}^{\mathrm{SPS}}{\theta}$ denote the \emph{SPS-influenced submanifold} in latent space, and let $\mathcal{T}$ be its \emph{trigger manifold} (as defined in Section~\ref{sec:trigger-manifold}). In all examples, activation occurs when a prompt $\mathbf{x}\in\mathcal{T}$ induces an activation trajectory $\pi{\theta}(\mathbf{x})$ such that:</p>
+<p>Let $\mathcal{M}^{\mathrm{SPS}}{\theta}$ denote the <strong>SPS-influenced submanifold</strong> in latent space, and let $\mathcal{T}$ be its <strong>trigger manifold</strong> (as defined in Section~\ref{sec:trigger-manifold}). In all examples, activation occurs when a prompt $\mathbf{x}\in\mathcal{T}$ induces an activation trajectory $\pi{\theta}(\mathbf{x})$ such that:</p>
 
 \[\pi_\theta(\mathbf{x}) \cap \mathcal{M}_\theta^{\mathrm{SPS}} \neq \varnothing, \quad
 \mathrm{and} \quad
@@ -474,14 +474,14 @@ Interpolating $\mathcal{F}={\Delta \mathbf{p}_i}$ yields $\mathcal{F}=\nabla \ph
 
 <p>Lexical: $\mathcal{E}<em>{\mathrm{pot}} \gg \mathcal{E}</em>{\mathrm{rot}}$; semantic: $\mathcal{E}_{\mathrm{rot}}$ comparable or higher.</p>
 
-<p>\noindent<em>(iv) Geodesic curvature in belief space:</em>
+<p><strong>(iv)</strong> Geodesic curvature in belief space:*
 Given belief trajectory $\gamma_i(t)$ inside the layer,</p>
 
 \[\kappa_g(\gamma_i) = \frac{\|\Pi_{\mathrm{T}\mathcal{M}}(\nabla_{\dot{\gamma}_i}\dot{\gamma}_i)\|}{\|\dot{\gamma}_i\|^2},\]
 
 <p>semantic SPS $\rightarrow$ elevated $\kappa_g$ (curved path); lexical $\rightarrow$ near-zero $\kappa_g$ (straight push).</p>
 
-<p>\noindent<em>(v) Belief transport cost:</em></p>
+<p><strong>(v)</strong> Belief transport cost:*</p>
 
 \[W_2^2(\mu_{\mathrm{clean}}, \mu_{\mathrm{poison}}) = \inf_{\pi\in\Pi} \int \|x-y\|^2 \, d\pi(x,y),\]
 
@@ -663,9 +663,9 @@ Whereas belief wind fields expose <em>directional drifts</em> in continuous late
 
 \[w_{uv} = \frac{\left| \left( \mathbf{g}_v \right)^\top \mathbf{a}_u \right|}{\sum\limits_{u' \in \mathrm{pred}(v)} \left| \left( \mathbf{g}_v \right)^\top \mathbf{a}_{u'} \right|},\]
 
-<p>where $\mathbf{g}<em>v$ is the gradient of the output logit (aligned with the observed unsafe token) w.r.t.\ $\mathbf{a}_v$.<br />
-This is a normalized *gradient–activation alignment score*, interpretable as the fractional <strong>causal responsibility</strong> of $u$ for $v$’s contribution to the final output.<br />
-Edges with $w</em>{uv} \approx 1$ form <em>dominant conduits</em>, whereas those with $w_{uv} \approx 0$ are negligible.</p>
+<p>where $\boldsymbol{g}v$ is the gradient of the output logit (aligned with the observed unsafe token) w.r.t.\ $\boldsymbol{a}v$.
+This is a normalized <em>gradient–activation alignment score</em>, interpretable as the fractional <strong>causal responsibility</strong> of $u$ for $v$’s contribution to the final output.
+Edges with $w{uv} \approx 1$ form dominant conduits, whereas those with $w{uv} \approx 0$ are negligible.</p>
 
 <h3 id="multi-edge-categories">Multi-Edge Categories</h3>
 <p>We partition $E$ into:</p>
@@ -1043,9 +1043,9 @@ We introduce a threshold $\tau</em>\ell$ chosen by solving:</p>
 
 <p>where:</p>
 
+<p>-$p^+{\tau}$ is the empirical distribution of $\mathcal{E}{\ell}(a,b)$ for points with $\mathcal{E}_{\ell} &gt; \tau$ (candidate lesion).
+-$p^-{\tau}$ is the distribution for points with $\mathcal{E}{\ell} \le \tau$ (background).</p>
 <ul>
-  <li>$p^+<em>\tau$ is the empirical distribution of $\mathcal{E}</em>\ell(a,b)$ for points with $\mathcal{E}_\ell &gt; \tau$ (candidate lesion).</li>
-  <li>$p^-<em>\tau$ is the distribution for points with $\mathcal{E}</em>\ell \leq \tau$ (background).</li>
   <li>$\mathrm{TV}(\tau)$ penalizes slice-to-slice threshold fluctuations along $\ell$, ensuring spatial coherence across layers.</li>
 </ul>
 
@@ -1134,8 +1134,7 @@ Semantic SPS often shows $\tau_{\mathrm{arr}}$ in mid layers ($\approx 12$–$16
 Whereas infection traceback graphs (§\ref{subsec:infection_traceback}) provide a <em>static</em> minimal causal subgraph, ToF-CT unfolds the <em>time dimension</em> of activation flow, enabling us to quantify <em>when</em>, <em>where</em>, and <em>how quickly</em> unsafe influence traverses the model’s layered architecture.</p>
 
 <h4 id="conceptual-mapping">Conceptual mapping</h4>
-<p>We define the model’s forward pass as a causal network $\mathcal{N}=(V,E)$ with $V$ the set of computational nodes indexed by $(\ell, p, m)$ where $\ell \in {1,\dots,L}$ is the layer index, $p \in \mathcal{P}$ the token position, and $m \in \mathcal{M}<em>\ell$ the module index (attention head or MLP channel).<br />
-Directed edges $(u,v) \in E$ carry activation signals with *delay* $\delta</em>{uv} \in \mathbb{R}_{\ge 0}$, representing the relative <em>arrival time</em> of influence at $v$ from $u$.<br />
+<p>We define the model’s forward pass as a causal network $\mathcal{N}=(V,E)$ with $V$ the set of computational nodes indexed by $(\ell, p, m)$ where $\ell \in {1,\dots,L}$ is the layer index, $p \in \mathcal{P}$ the token position, and $m \in \mathcal{M}<em>{\ell}$ the module index (attention head or MLP channel). Directed edges $(u,v) \in E$ carry activation signals with *delay* $\delta</em>{uv} \in \mathbb{R}_{\ge 0}$, representing the relative <em>arrival time</em> of influence at $v$ from $u$.
 This delay is analogous to <strong>conduction latency</strong> in <em>neurophysiology</em> \citep{pfeiffer1970axonal, gennarelli1982diffuse}, where myelinated and unmyelinated fibers exhibit distinct propagation speeds, and to <em>group delay</em> in <strong>signal processing</strong> \citep{oppenheim1999discrete}.</p>
 
 <h4 id="causal-packet-injection">Causal packet injection</h4>
@@ -1187,18 +1186,18 @@ In neuroimaging terms, this is analogous to <em>per-layer hemodynamic timecourse
 
 \[E^{(m)}_{\mathrm{out}}(t) = \sum_{v \in T} \sum_{\tau_k \le t} a^{(m)}_v(\tau_k).\]
 
-<p>The derivative $\dot{E}^{(m)}<em>{\mathrm{out}}(t)$ quantifies instantaneous arrival rate, akin to *rate-of-rise metrics* in electrophysiology (e.g., $dV/dt</em>{\max}$ in action potentials \citep{hodgkin1952quantitative}).<br />
+<p>The derivative $\dot{E}^{(m)}<em>{\mathrm{out}}(t)$ quantifies instantaneous arrival rate, akin to \emph{rate-of-rise metrics} in electrophysiology (e.g., $ dV/dt</em>{\max} $ in action potentials \citep{hodgkin1952quantitative}).<br />
 We align the <em>playhead</em> in Fig.~\ref{fig:tof_ct} to $t^\star_{\mathrm{first}}$, the first non-zero arrival at $T$, to synchronize across modes.</p>
 
-<h4 id="deltalogit-separation-metric">$\Delta\logit$ separation metric</h4>
+<h4 id="delta-separation-metric">$\Delta$ separation metric</h4>
 <p>Let $z^{(m)}<em>{\mathrm{unsafe}}(t)$ denote the model’s unsafe-class logit at time $t$ under mode $m$.<br />
 We define the total logit shift at output time $t</em>{\mathrm{end}}$ as:</p>
 
-\[\Delta\logit_{\mathrm{out}}^{(\mathrm{poisoned})} = z^{(\mathrm{poisoned})}_{\mathrm{unsafe}}(t_{\mathrm{end}}) - z^{(\mathrm{clean})}_{\mathrm{unsafe}}(t_{\mathrm{end}}),\]
+\[\Delta\_{\mathrm{out}}^{(\mathrm{poisoned})} = z^{(\mathrm{poisoned})}_{\mathrm{unsafe}}(t_{\mathrm{end}}) - z^{(\mathrm{clean})}_{\mathrm{unsafe}}(t_{\mathrm{end}}),\]
 
-\[\Delta\logit_{\mathrm{out}}^{(\mathrm{patched})} = z^{(\mathrm{patched})}_{\mathrm{unsafe}}(t_{\mathrm{end}}) - z^{(\mathrm{clean})}_{\mathrm{unsafe}}(t_{\mathrm{end}}).\]
+\[\Delta\_{\mathrm{out}}^{(\mathrm{patched})} = z^{(\mathrm{patched})}_{\mathrm{unsafe}}(t_{\mathrm{end}}) - z^{(\mathrm{clean})}_{\mathrm{unsafe}}(t_{\mathrm{end}}).\]
 
-<p>Empirically, high $\Delta\logit_{\mathrm{out}}^{(\mathrm{poisoned})}$ corresponds to rapid, high-amplitude unsafe arrival; low or negative $\Delta\logit_{\mathrm{out}}^{(\mathrm{patched})}$ indicates effective suppression.<br />
+<p>Empirically, high $\Delta_{\mathrm{out}}^{(\mathrm{poisoned})}$ corresponds to rapid, high-amplitude unsafe arrival; low or negative $\Delta_{\mathrm{out}}^{(\mathrm{patched})}$ indicates effective suppression.<br />
 In NLP trigger literature, this is analogous to <em>trigger potency</em> \citep{wallace2019universal, zhang2020universal}.</p>
 
 <h4 id="causal-propagation-speed">Causal propagation speed</h4>
@@ -1206,8 +1205,9 @@ In NLP trigger literature, this is analogous to <em>trigger potency</em> \citep{
 
 \[\nu_{\ell}^{(m)} = \frac{1}{\Delta t_{\ell-1 \to \ell}^{(m)}}, \quad \Delta t_{\ell-1 \to \ell}^{(m)} = t^{(m)}_{\ell} - t^{(m)}_{\ell-1},\]
 
-<p>where $t^{(m)}<em>{\ell}$ is the centroid of the arrival time distribution at layer $\ell$.<br />
-Poisoned modes often show locally elevated $\nu</em>{\ell}$ in mid-layers (unsafe shortcut pathways), while patched modes restore a smooth monotonic decay profile, consistent with <em>signal slowing</em> in demyelination repair models \citep{waxman1980conduction}.</p>
+<p>where $t^{(m)}_{\ell}$ is the centroid of the arrival time distribution at layer $\ell$.</p>
+
+<p>Poisoned modes often show locally elevated $\nu_{\ell}$ in mid-layers (unsafe shortcut pathways), while patched modes restore a smooth monotonic decay profile, consistent with <em>signal slowing</em> in demyelination repair models \citep{waxman1980conduction}.</p>
 
 <h4 id="energy-attenuation-coefficient">Energy attenuation coefficient</h4>
 <p>Layerwise attenuation is modeled as:</p>
@@ -1244,14 +1244,14 @@ Under SPS-triggered poisoning, arrival shifts earlier and becomes more synchrono
 first arrival advances to $t_{\mathrm{first}} \approx 4.4$ (shift $\Delta t_{\mathrm{first}} \approx -1.5$), with multiple deep layers activating almost simultaneously.<br />
 The energy curve exhibits a steep jump, reaching $t_{50} \approx 4.7$ — nearly <em>half the latency</em> of clean mode.<br />
 We estimate $\alpha^{(\mathrm{poisoned})} \approx 0.31$, indicating slow attenuation, and $\rho^{(\mathrm{poisoned})} \approx 3.4$, consistent with unsafe multi-path recruitment.<br />
-The $\Delta\logit_{\mathrm{out}}^{(\mathrm{poisoned})} \approx +1.77$ from Fig.~\ref{fig:tof_ct} reflects a large unsafe bias at output.<br />
+The $\Delta_{\mathrm{out}}^{(\mathrm{poisoned})} \approx +1.77$ from Fig.~\ref{fig:tof_ct} reflects a large unsafe bias at output.<br />
 Notably, $\nu_{\ell}$ spikes in mid-layers ($L5$–$L7$), suggesting unsafe “express lanes” bypassing standard information integration, an effect previously described in adversarial patching of NLP transformers \citep{hendrycks2021unsolved, wang2023interpretability}.</p>
 
 <p><strong>(3) Patched mode.</strong><br />
 The patched condition partially restores clean-like dynamics:<br />
 first arrival shifts back to $t_{\mathrm{first}} \approx 5.8$, and $t_{50} \approx 7.6$, though still slightly earlier than clean.<br />
 Attenuation $\alpha^{(\mathrm{patched})} \approx 0.63$ remains lower than clean, but $\rho^{(\mathrm{patched})} \approx 1.2$ suggests most unsafe parallel routes are disabled.<br />
-The $\Delta\logit_{\mathrm{out}}^{(\mathrm{patched})} \approx +0.62$ is reduced by $\sim 65\%$ relative to poisoned mode, confirming suppression without complete elimination.<br />
+The $\Delta_{\mathrm{out}}^{(\mathrm{patched})} \approx +0.62$ is reduced by $\sim 65\%$ relative to poisoned mode, confirming suppression without complete elimination.<br />
 This profile aligns with <em>partial remyelination</em> recovery curves in biology, where conduction velocity improves but does not fully revert to baseline \citep{chang2012remyelination}.</p>
 
 <h4 id="waterfall-contribution-patterns">Waterfall contribution patterns</h4>
@@ -1318,17 +1318,7 @@ For example, in our case study:</p>
 <h4 id="temporalspatial-correlation">Temporal–spatial correlation</h4>
 <p>Cross-analysis reveals that layers exhibiting anomalously high $\nu_{\ell}^{(\mathrm{poisoned})}$ in ToF-CT coincide with:</p>
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>strong unsafe-axis acceleration in BWF (large $</td>
-          <td>\nabla_{\mathbf{u}_a}</td>
-          <td>$)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>strong unsafe-axis acceleration in BWF (large $\lVert \nabla_{\mathbf{u}_a} \rVert$)</li>
   <li>dense unsafe-to-safe crosslinks in ITG ($B_\ell &gt; 1.8$).</li>
 </ul>
 
@@ -1372,13 +1362,13 @@ This unified approach transforms abstract activation patterns into quantifiable,
 
   <strong>(Top-left)</strong> <em>Path propagation in $(\ell,\tau)$ space</em>: each polyline encodes a distinct high-contribution causal path $\pi = (v_0, v_1, \dots, v_k)$, with horizontal axis indexing transformer layer $\ell \in [1,L]$ and vertical axis indicating cumulative <em>time-of-flight</em> $\tau$ (normalized clock ticks). Color encodes distinct packet trails (up to $3$ per mode). Dashed segments denote extrapolated sections where $w_{uv} &lt; \eta_{\mathrm{min}} = 0.03$. Node markers are classified as <strong>critical</strong> (magenta), <strong>reached</strong> (blue), or <strong>unreached</strong> (cyan) according to patched-mode reachability from the trigger source set $S$.  
 
-  <strong>(Top-right)</strong> <em>Output energy trace</em> $E_{\mathrm{out}}^{(m)}(t) = \sum_{u \in V} \mathbb{I}[\tau(u) \le t] \cdot w_{u,\mathrm{OUT}}$, synchronized to the playhead; vertical jumps correspond to the first arrival ($t \approx 4.95$) and 50% accumulation milestone ($t \approx 6.83$). Compared to the poisoned baseline ($t_{\mathrm{first}} \approx 3.91$), patching delays unsafe energy arrival by $\Delta t \approx +1.04$ and reduces the asymptotic plateau amplitude from $\approx 1.772$ to $\approx 0.620$ in $\Delta\logit_{\mathrm{OUT}}$.  
+  <strong>(Top-right)</strong> <em>Output energy trace</em> $E_{\mathrm{out}}^{(m)}(t) = \sum_{u \in V} \mathbb{I}[\tau(u) \le t] \cdot w_{u,\mathrm{OUT}}$, synchronized to the playhead; vertical jumps correspond to the first arrival ($t \approx 4.95$) and 50% accumulation milestone ($t \approx 6.83$). Compared to the poisoned baseline ($t_{\mathrm{first}} \approx 3.91$), patching delays unsafe energy arrival by $\Delta t \approx +1.04$ and reduces the asymptotic plateau amplitude from $\approx 1.772$ to $\approx 0.620$ in $\Delta\_{\mathrm{OUT}}$.  
 
   <strong>(Middle)</strong> <em>Arrival heatstrip</em> $H_{\ell,t}$: each horizontal band corresponds to a layer $\ell$, with color coding indicating normalized arrival density $\hat{H}_{\ell,t} = H_{\ell,t} / \max_t H_{\ell,t}$. Purple–blue regions indicate no arrival; yellow indicates sustained high-density arrival events. Patching suppresses the early unsafe surge in layers L4–L6 seen in poisoned mode, redistributing energy toward later layers and narrowing the unsafe arrival window. The vertical cyan bar marks the $t$ corresponding to the output's 50% cumulative energy threshold.  
 
-  <strong>(Bottom)</strong> <em>Output Waterfall plots</em> (per mode): cumulative $\Delta\logit_{\mathrm{OUT}}$ as a function of time, disaggregated by packet trail. In <strong>clean</strong> mode, unsafe-aligned contributions remain negligible until a synchronized burst near $t \approx 8.2$; in <strong>poisoned</strong> mode, two dominant trails saturate the output by $t \approx 5.0$; in <strong>patched</strong> mode, cumulative growth is slower, with maximum $\Delta\logit_{\mathrm{OUT}}$ reduced by $\sim 65\%$.  
+  <strong>(Bottom)</strong> <em>Output Waterfall plots</em> (per mode): cumulative $\Delta\_{\mathrm{OUT}}$ as a function of time, disaggregated by packet trail. In <strong>clean</strong> mode, unsafe-aligned contributions remain negligible until a synchronized burst near $t \approx 8.2$; in <strong>poisoned</strong> mode, two dominant trails saturate the output by $t \approx 5.0$; in <strong>patched</strong> mode, cumulative growth is slower, with maximum $\Delta\_{\mathrm{OUT}}$ reduced by $\sim 65\%$.  
 
-  Quantitatively, patched mode yields: $L_{\mathrm{out}} = 7.58$, $\Delta\logit_{\mathrm{OUT}} = 0.620$, OK-at-vs-Poisoned separation $= 2.55$. This indicates that while patching cannot fully restore clean-like latency, it disrupts the <em>unsafe express lane</em> in mid-layers (reducing $\nu_{\mathrm{mid}}$ by $\approx 24\%$) and collapses the multi-path amplification topology seen in the infection traceback graph (§\ref{subsec:infection_traceback}).  
+  Quantitatively, patched mode yields: $L_{\mathrm{out}} = 7.58$, $\Delta\_{\mathrm{OUT}} = 0.620$, OK-at-vs-Poisoned separation $= 2.55$. This indicates that while patching cannot fully restore clean-like latency, it disrupts the <em>unsafe express lane</em> in mid-layers (reducing $\nu_{\mathrm{mid}}$ by $\approx 24\%$) and collapses the multi-path amplification topology seen in the infection traceback graph (§\ref{subsec:infection_traceback}).  
 
   Such temporal-causal reshaping is consistent with <em>signal conduction delay</em> strategies in neurobiology \citep{pfeiffer1970axonal, waxman1980conduction} and <em>flow attenuation</em> in adversarial neural circuit repair \citep{elhage2021mathematical, wallace2019universal}, underscoring the analogy between SPS mitigation and targeted demyelination/remyelination in axonal conduction pathways.
 </div>
