@@ -1,10 +1,14 @@
+/* --- Import a professional sans-serif font for the heading --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
 body {
-  font-family: "Helvetica Neue", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   margin: 0;
   padding: 0;
   background: linear-gradient(to right, #f8f9fa, #ffffff);
   color: #111;
-  display: flex;
 }
 
 /* LEFT COLUMN (logo + vertical nav) */

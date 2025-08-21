@@ -7,27 +7,10 @@
   <title>nDNA - nDNA</title>
   <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
   <link rel="stylesheet" href="/nDNA/assets/css/main.css">
-  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
-  <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>nDNA</title>
-<meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="nDNA" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://pragyaai.github.io/nDNA/" />
-<meta property="og:url" content="https://pragyaai.github.io/nDNA/" />
-<meta property="og:site_name" content="nDNA" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="nDNA" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"nDNA","name":"nDNA","url":"https://pragyaai.github.io/nDNA/"}</script>
-<!-- End Jekyll SEO tag -->
-
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- MathJax for LaTeX rendering -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<style>
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
   /* Improve math readability and mobile responsiveness */
   .MathJax { 
     font-size: 1.1em !important;
@@ -75,6 +58,21 @@
 
 <!-- Load the MathJax library -->
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="nDNA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="nDNA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"nDNA","name":"nDNA","url":"https://pragyaai.github.io/nDNA/"}</script>
+<!-- End Jekyll SEO tag -->
 
 </head>
 <body>
@@ -91,9 +89,9 @@
       <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
       <div class="side-tab" onclick="switchView('EFM')">EFM</div>
     </div>
-    <div class="ndna-cover">
+    <a class="ndna-cover" href="/nDNA/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
       <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
-    </div>
+    </a>
   </div>
 
   <!-- RIGHT CONTENT -->
@@ -113,7 +111,12 @@
 
     <!-- MAIN CONTENT -->
     <div class="container">
-      <div class="main-text">
+      <div class="main-text" style="flex: 1;">
+        
+          
+            <h1>nDNA</h1>
+          
+        
         
 <h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
   <span class="page-title-ndna">Introduction to<img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
@@ -1172,71 +1175,5 @@ $</p>
   </div>
 
   <script src="/nDNA/assets/js/ndna.js"></script>
-  
-  <!-- Lightbox HTML -->
-  <div id="galleryLightbox" class="lightbox">
-    <span class="close-lightbox">&times;</span>
-    <img class="lightbox-content" id="expandedGif" alt="Expanded view">
-    <div id="lightboxCaption" class="lightbox-caption"></div>
-  </div>
-  <script>
-    // DEBUG: Check if script runs and images are found
-    document.addEventListener('DOMContentLoaded', function() {
-      const imgs = document.querySelectorAll('.gallery-img');
-      console.log('Lightbox script loaded. Found gallery images:', imgs.length);
-      imgs.forEach(img => img.style.border = '2px solid red'); // Visual debug
-    });
-  </script>
-  <script>
-    // Lightbox functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const lightbox = document.getElementById('galleryLightbox');
-      const closeBtn = document.querySelector('.close-lightbox');
-      const lightboxImg = document.getElementById('expandedGif');
-      const lightboxCaption = document.getElementById('lightboxCaption');
-      
-      // Add click event to all gallery images
-      document.querySelectorAll('.gallery-img').forEach(img => {
-        img.addEventListener('click', function() {
-          lightboxImg.src = this.src;
-          lightboxCaption.textContent = this.alt;
-          
-          // Show the lightbox
-          lightbox.style.display = 'block';
-          document.body.style.overflow = 'hidden';
-          
-          // Force reflow to enable animation
-          void lightbox.offsetWidth;
-          lightbox.classList.add('show');
-        });
-      });
-      
-      // Close lightbox
-      function closeLightbox() {
-        lightbox.classList.remove('show');
-        setTimeout(() => {
-          lightbox.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }, 300); // Match this with CSS transition time
-      }
-      
-      closeBtn.onclick = closeLightbox;
-      
-      // Close when clicking outside the image
-      lightbox.onclick = function(e) {
-        if (e.target === lightbox) {
-          closeLightbox();
-        }
-      };
-      
-      // Close with ESC key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightbox.classList.contains('show')) {
-          closeLightbox();
-        }
-      });
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
 </body>
 </html>

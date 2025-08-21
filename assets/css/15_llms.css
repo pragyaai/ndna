@@ -1,6 +1,3 @@
-/* --- Import a professional sans-serif font for the heading --- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
 button:hover {
   background-color: #222; /* Slightly lighter than black for feedback */
   transform: scale(1.02);
@@ -66,18 +63,6 @@ p[style*="font-weight: 500"] {
   text-align: center !important;
   margin-top: 0.5em !important;
   font-size: 1.2em !important;
-}
-
-/* --- Body Style for a white background --- */
-body {
-    background-color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 2rem;
 }
 
 /* --- Card Style (Container is unchanged as requested) --- */
