@@ -6,7 +6,7 @@ const menusByModel = {
   LLM: [
     { text: "Prefatio", url: baseUrl + "/llm/prefatio/" },
     { text: "Admonitio", url: baseUrl + "/llm/admonitio/" },
-    { text: "nDNA", url: baseUrl + "/" },
+    { text: "nDNA", url: baseUrl + "/llm/ndna/" },
     { text: "15 Foundational LLMs", url: baseUrl + "/llm/15-llms/" },
     { text: "Cultural nDNA", url: baseUrl + "/llm/cultural-ndna/" },
     { text: "CIVIC", url: baseUrl + "/llm/civic/" },
