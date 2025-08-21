@@ -5,10 +5,7 @@ permalink: /llm/nlp-operations/nephos/
 skip_title: true
 ---
 
-{% include nlp-ops-title.liquid
-  title="Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding"
-  title_image="assets/logos/nephos.png"
-  logo_alt="NEPHOS" %}
+{% include nlp-ops-title.liquid title="Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding" title_image="assets/logos/nephos.png" logo_alt="NEPHOS" %}
 
 ## Abstract
 
