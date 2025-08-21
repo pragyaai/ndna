@@ -30,7 +30,7 @@ skip_title: true
     <a href="/nDNA/llm/knowledge-distillation/" class="">Knowledge Distillation</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/neural-genomics/prelude/" class="">Neural Genomics</a>
+    <a href="/nDNA/llm/neural-genomics/prelude/" class="group-title">Neural Genomics</a>
     <a href="/nDNA/llm/neural-genomics/nHD/">nHD</a>
     <a href="/nDNA/llm/neural-genomics/nGDI/">nGDI</a>
     <a href="/nDNA/llm/neural-genomics/nTDS/">nTDS</a>
@@ -40,10 +40,7 @@ skip_title: true
     <a href="/nDNA/llm/neural-genomics/nCCL/">nCCL</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/latent-manipulation/" class="">Risk: Latent Manipulation</a>
-  </div>
-  <div class="preview-row">
-    <a href="/nDNA/llm/nlp-operations/prelude/" class="">NLP Operations</a>
+    <a href="/nDNA/llm/nlp-operations/prelude/" class="group-title">NLP Operations</a>
     <a href="/nDNA/llm/nlp-operations/machine-translation/">Machine Translation</a>
     <a href="/nDNA/llm/nlp-operations/adversarial-attack/">Adversarial Attack</a>
     <a href="/nDNA/llm/nlp-operations/multi-turn-conversation/">Multi-turn Conversation</a>
@@ -51,8 +48,11 @@ skip_title: true
     <a href="/nDNA/llm/nlp-operations/nephos/">NEPHOS</a>
   </div>
   <div class="preview-row">
+    <a href="/nDNA/llm/latent-manipulation/" class="">Risk: Latent Manipulation</a>
+  </div>
+  <div class="preview-row">
     <a href="/nDNA/llm/at_a_glance/" class="">at-a-glance</a>
     <a href="/nDNA/llm/FAQ/" class="">FAQ</a>
-    <a href="/nDNA/llm/critiques-corner/" class="">Critique’s Corner</a>
+    <a href="/nDNA/llm/critique-s-corner/" class="">Critique’s Corner</a>
   </div>
 </div>
