@@ -118,18 +118,6 @@ MathJax = {
     background-color: #f2f2f2;
     font-weight: bold;
 }
-
-.formula-box {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    font-family: 'Courier New', monospace;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
 .quote-box {
     background: #f8f9fa;
     border-left: 4px solid #3498db;
@@ -259,7 +247,7 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
 </div>
 
 </div>
-</div>
+
 
 
 ## nDNA as a Lens: Alignment as Steering Vector Perturbation
@@ -268,10 +256,12 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
 
 Recent mechanistic findings {% cite NEURIPS2024_a9bef53e %} show that **safety fine-tuning (DPO) minimally modifies MLP weights** to steer unsafe inputs into a "refusal" direction--often aligned with the model's null space. This appears as:
 
-<div class="formula-box">
-<strong>DPO Weight Modification:</strong><br>
-W<sub>ST</sub> = W<sub>IT</sub> + ΔW<br>
-where ||ΔW|| ≪ ||W<sub>IT</sub>||
+<div class="note">
+    <div class="note-title">DPO Weight Modification</div>
+    <div class="note-text">
+        $$W_{ST} = W_{IT} + \Delta W$$
+        $$\text{where } \|\Delta W\| \ll \|W_{IT}\|$$
+    </div>
 </div>
 
 Through nDNA lens, this manifests as:
@@ -282,11 +272,12 @@ Through nDNA lens, this manifests as:
 
 The transformation can be formalized as:
 
-<div class="formula-box">
-<strong>nDNA Transformation Framework:</strong><br>
-ℳ<sub>base</sub> → ℳ<sub>aligned</sub><br>
-s.t. κ<sub>ℓ</sub> ↓ (high-strain), ℒ<sub>ℓ</sub> compressed, v<sub>ℓ</sub><sup>(c)</sup> steered
+<div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0;">
+    <strong>nDNA Transformation Framework:</strong>
+    $$\mathcal{M}_{\text{base}} \to \mathcal{M}_{\text{aligned}}$$
+    $$\text{s.t. } \kappa_\ell \downarrow \text{ (high-strain)}, \quad \mathcal{L}_\ell \text{ compressed}, \quad \mathbf{v}_\ell^{(c)} \text{ steered}$$
 </div>
+
 
 **Null-Space Steering and Minimalist Safety Geometry.** To disentangle safety-relevant learning from task adaptation, we decompose the LoRA update:
 
@@ -583,10 +574,12 @@ validating that **DPO transformations are nearly rank-1**. This indicates that b
 
 To formalize this insight, we define the latent belief geometry of a model as a trajectory over the layerwise steering manifold:
 
-<div class="formula-box">
-<strong>nDNA Trajectory to Steering Manifold:</strong><br>
-{(κ<sub>ℓ</sub>, ℒ<sub>ℓ</sub>, ||v<sub>ℓ</sub><sup>(c)</sup>||)}<sub>ℓ=1</sub><sup>L</sup><br>
-⇒ ℳ<sub>steer</sub> = {h<sub>ℓ</sub> : h<sub>ℓ</sub> = h<sub>ℓ</sub><sup>(0)</sup> + ∫ s<sub>ℓ</sub> dℓ}
+<div class="note">
+    <div class="note-title">nDNA Trajectory to Steering Manifold</div>
+    <div class="note-text">
+        $$\left\{(\kappa_\ell, \mathcal{L}_\ell, \|\mathbf{v}_\ell^{(c)}\|)\right\}_{\ell=1}^{L}$$
+        $$\Rightarrow \mathcal{M}_{\text{steer}} = \left\{h_\ell : h_\ell = h_\ell^{(0)} + \int s_\ell \, d\ell\right\}$$
+    </div>
 </div>
 
 where the local steering force is defined as:
