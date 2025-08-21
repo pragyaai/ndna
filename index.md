@@ -132,7 +132,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 {% include wizuall.liquid
      image_path="introduction/spectral_curvature_llama_ndna_animation.gif"
-     interactive_html="index/spectral_curvature_animation.html"
+     interactive_html="index/spectral_curvature_static_last_layer_FINAL.html"
      title="Spectral Curvature (κ_ℓ)"
      caption="Spectral Curvature (κ<sub>ℓ</sub>) quantifies second-order deviations in latent representations across transformer layers–computed via the discrete geometric operator κ<sub>ℓ</sub> := ‖h<sub>ℓ+1</sub> − 2h<sub>ℓ</sub> + h<sub>ℓ−1</sub>‖ . High curvature signals semantic inflection points where internal geometry bends sharply–often in culturally dense, ideologically loaded, or epistemically volatile regions. Peaks in κ<sub>ℓ</sub> typically emerge in upper decoder layers (ℓ ∈ [21, 30]), where the model accommodates sociolinguistic priors during alignment, multicultural or multilingual fusion. Within the nDNA framework, such curvature reflects latent inheritance dynamics, offering a fine-grained geometric fingerprint of representational restructuring." %}
 
@@ -241,7 +241,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 {% include wizuall.liquid
      image_path="introduction/Final_thermodynamic_length.gif"
-     interactive_html="index/thermodynamic_length_animation.html"
+     interactive_html="index/thermodynamic_length_static_last_layer.html"
      title="Thermodynamic Length (L_ℓ)"
      caption="L<sub>ℓ</sub> quantifies epistemic work across transformer layers—computed as the cumulative squared gradient norm of layerwise log-likelihoods. Peaks typically localize to upper decoder layers where intense adaptation occurs." %}
 
