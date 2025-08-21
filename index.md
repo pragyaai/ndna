@@ -82,11 +82,12 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Mathematical Formulation</h3>
-  <p>Let the hidden activation at each layer be: $$h_\ell \in \mathbb{R}^d$$</p>
-  <p><strong>First-order difference:</strong> $$\Delta h_\ell := h_\ell - h_{\ell-1}$$. This approximates <strong>local directional change</strong>—a discrete analogue of velocity in latent space.</p>
-  <p><strong>Second-order difference (discrete curvature):</strong> $$\Delta^2 h_\ell := \Delta h_{\ell+1} - \Delta h_\ell = h_{\ell+1} - 2h_\ell + h_{\ell-1}$$. This acts like a <strong>discrete Laplacian</strong> along the latent trajectory, highlighting where internal belief flow deviates from a straight path.</p>
-  <p><strong>Spectral Curvature:</strong> $$\kappa_\ell := \|\Delta^2 h_\ell\| = \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|$$. In the continuous case, this corresponds to: $$\kappa(s) = \left\| \frac{d^2 h(s)}{ds^2} \right\|$$, where $$s$$ parameterizes depth through the network. The discrete $$\kappa_\ell$$ serves as a <strong>practical, layerwise estimator</strong> of curvature.</p>
+  <p>Let the hidden activation at each layer be: $h_\ell \in \mathbb{R}^d$.</p>
+  <p><strong>First-order difference:</strong> $\Delta h_\ell := h_\ell - h_{\ell-1}$. This approximates <strong>local directional change</strong>—a discrete analogue of velocity in latent space.</p>
+  <p><strong>Second-order difference (discrete curvature):</strong> $\Delta^2 h_\ell := \Delta h_{\ell+1} - \Delta h_\ell = h_{\ell+1} - 2h_\ell + h_{\ell-1}$. This acts like a <strong>discrete Laplacian</strong> along the latent trajectory, highlighting where internal belief flow deviates from a straight path.</p>
+  <p><strong>Spectral Curvature:</strong> $\kappa_\ell := \|\Delta^2 h_\ell\| = \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|$. In the continuous case, this corresponds to: $\kappa(s) = \left\| \frac{d^2 h(s)}{ds^2} \right\|$, where $s$ parameterizes depth through the network. The discrete $\kappa_\ell$ serves as a <strong>practical, layerwise estimator</strong> of curvature.</p>
 </div>
+
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Why Is This Meaningful?</h3>
