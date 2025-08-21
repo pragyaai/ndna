@@ -1,5 +1,5 @@
 ---
-layout: ndna
+layout: page
 title: nDNA
 ---
 
