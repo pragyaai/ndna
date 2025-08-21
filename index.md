@@ -48,13 +48,13 @@ It offers a **principled lens** through which to govern, understand, and audit t
 
 ## Cultural Provenance and Layerwise Calibration
 
-We further posit that **cultural provenance induces a distinct layerwise calibration effect**, predominantly in the final decoder layers $$\ell \in [20, 30]$$, where **sociolinguistic priors** exert the strongest influence on output distribution.
+We further posit that **cultural provenance induces a distinct layerwise calibration effect**, predominantly in the final decoder layers $\ell \in [20, 30]$, where **sociolinguistic priors** exert the strongest influence on output distribution.
 
 To capture this, we introduce the **nDNA Score**—a composite diagnostic unifying:
 
-1. **Spectral Curvature** $$\kappa_\ell$$: Reflecting the **compression and warping of conceptual flow**  
-2. **Thermodynamic Length** $$L_\ell$$: Quantifying the **epistemic effort** required for belief transitions  
-3. **Belief Vector Field Norm** $$\|v^{(c)}_\ell\|$$: Measuring the **directional intensity of latent cultural drift**
+1. **Spectral Curvature** $\kappa_\ell$: Reflecting the **compression and warping of conceptual flow**  
+2. **Thermodynamic Length** $L_\ell$: Quantifying the **epistemic effort** required for belief transitions  
+3. **Belief Vector Field Norm** $\|v^{(c)}_\ell\|$: Measuring the **directional intensity of latent cultural drift**
 
 Together, these form a **latent semantic fingerprint**—a high-dimensional, biologically inspired signature of internal cognition—enabling us to trace, compare, and govern the **neural evolution of foundation models** with unprecedented granularity.
 
@@ -75,7 +75,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Why Spectral Curvature for Latent Manifolds?</h3>
   <p>In foundation models, hidden representations form a sequence of activations:</p>
-  <p>$$\{ h_\ell \}_{\ell=0}^{L}$$</p>
+  <p>$\{ h_\ell \}_{\ell=0}^{L}$</p>
   <p>These activations trace a <strong>path in high-dimensional latent space</strong>, encoding the model's internal conceptual flow—how its beliefs evolve as it integrates priors, inputs, and alignment constraints.</p>
   <p><strong>Spectral operators</strong> (e.g., discrete Laplacians) naturally quantify how this path bends or accelerates. Unlike distance-based metrics, <strong>spectral curvature reflects intrinsic shape</strong>, invariant under reparameterization, making it ideal for probing internal geometry.</p>
 </div>
@@ -91,7 +91,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Why Is This Meaningful?</h3>
-  <p><strong>Peaks in $$\kappa_\ell$$</strong> indicate layers where the model's <strong>internal geometry is most dynamic</strong>—zones of:</p>
+  <p><strong>Peaks in $\kappa_\ell$</strong> indicate layers where the model's <strong>internal geometry is most dynamic</strong>—zones of:</p>
   <ul>
     <li>Semantic inflection</li>
     <li>Belief compression</li>
@@ -116,9 +116,9 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Visualizing Spectral Curvature</h3>
   <p><strong>Figure 1</strong> illustrates how spectral curvature:</p>
-  <p>$$\kappa_\ell := \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|$$</p>
+  <p>$\kappa_\ell := \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|$</p>
   <p>quantifies second-order deviations in latent representations across transformer layers. <strong>High curvature</strong> often emerges in <strong>upper decoder layers</strong>:</p>
-  <p>$$\ell \in [21, 30]$$</p>
+  <p>$\ell \in [21, 30]$</p>
   <p>These layers are where models accommodate <strong>sociolinguistic priors</strong>, undergo <strong>multicultural or multilingual fusion</strong>, and reflect <strong>ideologically loaded or epistemically volatile regions</strong>.</p>
   <p>Curvature in this context captures <strong>latent inheritance dynamics</strong>, serving as a <strong>fine-grained geometric fingerprint</strong> of internal restructuring and cultural adaptation.</p>
 </div>
@@ -158,17 +158,17 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Mathematical Intuition</h3>
-  <p>Let $$h_\ell$$ denote the latent state at layer $$\ell$$, and let $$\mathcal{M}$$ be the model's latent manifold. Layer transitions define a curve:</p>
-  <p>$$\gamma : [0, L] \to \mathcal{M}$$</p>
-  <p>The <strong>thermodynamic length</strong> of $$\gamma$$ is:</p>
-  <p>$$L(\gamma) = \int_0^L \sqrt{ \langle \dot{\gamma}(s), G_{\text{Fisher}} \, \dot{\gamma}(s) \rangle } \, ds$$</p>
-  <p>where $$G_{\text{Fisher}}$$ is the <strong>Fisher information metric</strong>. This integral represents the <strong>intrinsic work</strong> needed to traverse the belief trajectory $$\gamma$$ on $$\mathcal{M}$$.</p>
+  <p>Let $h_\ell$ denote the latent state at layer $\ell$, and let $\mathcal{M}$ be the model's latent manifold. Layer transitions define a curve:</p>
+  <p>$\gamma : [0, L] \to \mathcal{M}$</p>
+  <p>The <strong>thermodynamic length</strong> of $\gamma$ is:</p>
+  <p>$L(\gamma) = \int_0^L \sqrt{ \langle \dot{\gamma}(s), G_{\text{Fisher}} \, \dot{\gamma}(s) \rangle } \, ds$</p>
+  <p>where $G_{\text{Fisher}}$ is the <strong>Fisher information metric</strong>. This integral represents the <strong>intrinsic work</strong> needed to traverse the belief trajectory $\gamma$ on $\mathcal{M}$.</p>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Interpretation</h3>
   <p>High <strong>thermodynamic length</strong> indicates <strong>regions where latent geometry stretches</strong>—where the model undergoes substantial <strong>reconfiguration</strong> to reconcile prior beliefs with new input.</p>
-  <p>Zones of high $$L_\ell$$ reveal:</p>
+  <p>Zones of high $L_\ell$ reveal:</p>
   <ul>
     <li>Alignment tension</li>
     <li>Cultural fusion</li>
@@ -180,30 +180,30 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Discrete Formulation</h3>
-  <p>Let $$p_\ell(y|x)$$ be the model's <strong>conditional distribution</strong> at layer $$\ell$$. The <strong>local epistemic cost</strong> is given by:</p>
-  <p>$$\|\nabla_\theta \log p_\ell(x)\|^2$$</p>
-  <p>This measures <strong>how much adjustment</strong> is needed locally at layer $$\ell$$ to better fit input $$x$$. Then, <strong>thermodynamic length</strong> at layer $$\ell$$ is:</p>
-  <p>$$L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2 = |D| \cdot \mathbb{E}_{x \sim D} \|\nabla_\theta \log p_\ell(x)\|^2$$</p>
+  <p>Let $p_\ell(y|x)$ be the model's <strong>conditional distribution</strong> at layer $\ell$. The <strong>local epistemic cost</strong> is given by:</p>
+  <p>$\|\nabla_\theta \log p_\ell(x)\|^2$</p>
+  <p>This measures <strong>how much adjustment</strong> is needed locally at layer $\ell$ to better fit input $x$. Then, <strong>thermodynamic length</strong> at layer $\ell$ is:</p>
+  <p>$L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2 = |D| \cdot \mathbb{E}_{x \sim D} \|\nabla_\theta \log p_\ell(x)\|^2$</p>
   <p>This captures both the <strong>average local effort</strong> and how it <strong>scales with dataset size</strong>.</p>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Geometric Interpretation</h3>
   <p>In differential geometric terms, thermodynamic length can also be written as a <strong>path energy integral</strong>:</p>
-  <p>$$L_\ell = \int_{\gamma_\ell} \left\langle \frac{d h_\ell}{ds}, G_{\text{Fisher}}(h_\ell) \frac{d h_\ell}{ds} \right\rangle ds$$</p>
+  <p>$L_\ell = \int_{\gamma_\ell} \left\langle \frac{d h_\ell}{ds}, G_{\text{Fisher}}(h_\ell) \frac{d h_\ell}{ds} \right\rangle ds$</p>
   <p>where:</p>
   <ul>
-    <li>$$h_\ell$$ represents latent trajectories</li>
-    <li>$$G_{\text{Fisher}}$$ is the Fisher information metric</li>
-    <li>$$s$$ is arc length along $$\gamma_\ell$$</li>
+    <li>$h_\ell$ represents latent trajectories</li>
+    <li>$G_{\text{Fisher}}$ is the Fisher information metric</li>
+    <li>$s$ is arc length along $\gamma_\ell$</li>
   </ul>
-  <p>This integral reflects <strong>how much internal "heat" or computational work</strong> is generated to reconcile the model's <strong>prior state with new input</strong> at layer $$\ell$$.</p>
+  <p>This integral reflects <strong>how much internal "heat" or computational work</strong> is generated to reconcile the model's <strong>prior state with new input</strong> at layer $\ell$.</p>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Why Is This Meaningful?</h3>
-  <p>Unlike static metrics like <strong>weight magnitudes</strong>, $$L_\ell$$ is <strong>dynamically grounded</strong>. It reveals where the model <strong>actively strains</strong> to reconcile <strong>competing epistemic demands</strong>.</p>
-  <p>High $$L_\ell$$ signals:</p>
+  <p>Unlike static metrics like <strong>weight magnitudes</strong>, $L_\ell$ is <strong>dynamically grounded</strong>. It reveals where the model <strong>actively strains</strong> to reconcile <strong>competing epistemic demands</strong>.</p>
+  <p>High $L_\ell$ signals:</p>
   <ul>
     <li>Internal resistance</li>
     <li>Belief restructuring</li>
@@ -220,16 +220,16 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
     <li><strong>Thermodynamic length</strong> formalism from statistical physics {% cite farzam2024ricci %} {% cite Crooks2007MeasuringLength %} {% cite oliviero2023thermodynamics %} {% cite wagner2023thermodynamic %} </li>
     
   </ul>
-  <p>Within the <strong>nDNA framework</strong>, thermodynamic length complements <strong>spectral curvature</strong>: while curvature reveals <em>where</em> the model bends, $$L_\ell$$ shows <strong>how hard it works</strong> to do so.</p>
+  <p>Within the <strong>nDNA framework</strong>, thermodynamic length complements <strong>spectral curvature</strong>: while curvature reveals <em>where</em> the model bends, $L_\ell$ shows <strong>how hard it works</strong> to do so.</p>
   <p>Together, these axes form a <strong>neurogeometric anatomy</strong> of latent belief adaptation.</p>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Visualizing Thermodynamic Length</h3>
   <p><strong>Figure 2</strong> shows thermodynamic length:</p>
-  <p>$$L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2$$</p>
+  <p>$L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2$</p>
   <p>It quantifies <strong>epistemic work</strong> across transformer layers—computed as the <strong>cumulative squared gradient norm</strong> of layerwise log-likelihoods.</p>
-  <p>Peaks in $$L_\ell$$ highlight:</p>
+  <p>Peaks in $L_\ell$ highlight:</p>
   <ul>
     <li><strong>Belief compression</strong></li>
     <li><strong>Alignment restructuring</strong></li>
@@ -257,7 +257,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Why a Vector Field for Cultural Influence?</h3>
-  <p>While <strong>spectral curvature</strong> $$\kappa_\ell$$ captures how sharply latent paths bend, and <strong>thermodynamic length</strong> $$L_\ell$$ captures how hard the model works during adaptation, <strong>neither reveals the source, direction, or origin</strong> of that adaptation.</p>
+  <p>While <strong>spectral curvature</strong> $\kappa_\ell$ captures how sharply latent paths bend, and <strong>thermodynamic length</strong> $L_\ell$ captures how hard the model works during adaptation, <strong>neither reveals the source, direction, or origin</strong> of that adaptation.</p>
   <p>The <strong>Belief Vector Field</strong> offers this missing piece: it traces the <strong>latent steering</strong> (aka torsion) applied by culture-conditioned priors—<strong>where</strong> the model is being pushed in latent space, by <strong>what epistemic force</strong>, and <strong>toward which semantic direction</strong>.</p>
   <p>This makes it a critical diagnostic for studying:</p>
   <ul>
@@ -270,35 +270,35 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Visualization</h3>
   <p><strong>Figure 3: Belief Vector Field Visualization</strong></p>
-  <p>$$v^{(c)}_\ell = \mathbb{E}_{x \sim P^{(c)}_{\text{CIVIC}}} \left[ \nabla_{h_\ell} \log p(y | x) \right]$$</p>
-  <p>This represents the <strong>belief semantic steering force</strong> at layer $$\ell$$ toward concept $$c$$, conditioned on CIVIC cultural priors (cf. Sec. 6).</p>
+  <p>$v^{(c)}_\ell = \mathbb{E}_{x \sim P^{(c)}_{\text{CIVIC}}} \left[ \nabla_{h_\ell} \log p(y | x) \right]$</p>
+  <p>This represents the <strong>belief semantic steering force</strong> at layer $\ell$ toward concept $c$, conditioned on CIVIC cultural priors (cf. Sec. 6).</p>
   <ul>
-    <li>Large magnitudes $$\| v^{(c)}_\ell \| \in [0.15, 0.50]$$ indicate <strong>strong directional pressure</strong>—zones where cultural values actively <strong>reshape latent geometry</strong>.</li>
+    <li>Large magnitudes $\| v^{(c)}_\ell \| \in [0.15, 0.50]$ indicate <strong>strong directional pressure</strong>—zones where cultural values actively <strong>reshape latent geometry</strong>.</li>
     <li>Color-coded arrows trace <strong>distinct conceptual trajectories</strong> (<em>protest, peace, order, power, disobedience, justice</em>).</li>
     <li>Numeric labels quantify <strong>local steering strength</strong>.</li>
   </ul>
-  <p>Upper layers $$\ell \geq 20$$ typically exhibit <strong>epistemic reorientation</strong>, where cultural priors most heavily influence belief encoding.</p>
+  <p>Upper layers $\ell \geq 20$ typically exhibit <strong>epistemic reorientation</strong>, where cultural priors most heavily influence belief encoding.</p>
   <p>Such visualizations reveal whether a model <strong>internalizes culturally contingent reasoning</strong> or merely mimics alignment at the <strong>output surface</strong>.</p>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Mathematical Formulation</h3>
-  <p>Let $$p(y \mid x)$$ denote the model's conditional output distribution for input $$x$$, and let $$h_\ell$$ be the latent representation at layer $$\ell$$.</p>
+  <p>Let $p(y \mid x)$ denote the model's conditional output distribution for input $x$, and let $h_\ell$ be the latent representation at layer $\ell$.</p>
   <p>The <strong>local belief gradient</strong> is:</p>
-  <p>$$\nabla_{h_\ell} \log p(y \mid x)$$</p>
-  <p>This measures how a small change in $$h_\ell$$ would affect output confidence—a <strong>proxy for semantic force</strong> at that layer.</p>
-  <p>To extract the culturally conditioned semantic force, we compute its expectation over a culture-specific distribution $$P^{(c)}$$:</p>
-  <p><strong>Belief Vector Field at layer $$\ell$$:</strong></p>
-  <p>$$v^{(c)}_\ell := \mathbb{E}_{x \sim P^{(c)}} \left[ \nabla_{h_\ell} \log p(y \mid x) \right]$$</p>
-  <p>Here, $$P^{(c)}$$ represents inputs <strong>emblematic of a given manifold condition</strong> $$c$$ (e.g., regional, linguistic, or ideological contexts).</p>
+  <p>$\nabla_{h_\ell} \log p(y \mid x)$</p>
+  <p>This measures how a small change in $h_\ell$ would affect output confidence—a <strong>proxy for semantic force</strong> at that layer.</p>
+  <p>To extract the culturally conditioned semantic force, we compute its expectation over a culture-specific distribution $P^{(c)}$:</p>
+  <p><strong>Belief Vector Field at layer $\ell$:</strong></p>
+  <p>$v^{(c)}_\ell := \mathbb{E}_{x \sim P^{(c)}} \left[ \nabla_{h_\ell} \log p(y \mid x) \right]$</p>
+  <p>Here, $P^{(c)}$ represents inputs <strong>emblematic of a given manifold condition</strong> $c$ (e.g., regional, linguistic, or ideological contexts).</p>
   <p>This formulation captures <strong>not just latent deformation, but its cause</strong>: how <strong>cultural priors exert directional influence</strong> within the belief manifold.</p>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Why is This Meaningful?</h3>
-  <p>The vector field $$v^{(c)}_\ell$$ provides a <strong>directional lens on latent dynamics</strong>.</p>
+  <p>The vector field $v^{(c)}_\ell$ provides a <strong>directional lens on latent dynamics</strong>.</p>
   <ul>
-    <li>High $$\| v^{(c)}_\ell \|$$: regions where the model is actively <strong>redirected by external cultural forces</strong></li>
+    <li>High $\| v^{(c)}_\ell \|$: regions where the model is actively <strong>redirected by external cultural forces</strong></li>
     <li>Offers diagnostic power for detecting:
       <ul>
         <li>Ideological drift</li>
@@ -307,7 +307,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
       </ul>
     </li>
   </ul>
-  <p>Unlike $$\kappa_\ell$$ or $$L_\ell$$, which capture <strong>internal geometry</strong>, $$v^{(c)}_\ell$$ reveals <strong>external epistemic pressure</strong> and its <strong>directional impact</strong>.</p>
+  <p>Unlike $\kappa_\ell$ or $L_\ell$, which capture <strong>internal geometry</strong>, $v^{(c)}_\ell$ reveals <strong>external epistemic pressure</strong> and its <strong>directional impact</strong>.</p>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
@@ -330,7 +330,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Interpretability in Practice</h3>
-  <p>By mapping $$v^{(c)}_\ell$$ across <strong>layers</strong> and <strong>cultures</strong>, we can:</p>
+  <p>By mapping $v^{(c)}_\ell$ across <strong>layers</strong> and <strong>cultures</strong>, we can:</p>
   <ul>
     <li>Trace <strong>cultural provenance</strong></li>
     <li>Identify <strong>ideological pressure zones</strong></li>
@@ -348,7 +348,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 {% include wizuall.liquid
      image_path="introduction/belief_vector_field.gif"
      interactive_html="index/belief_vector_field_3d_all_layers_thick_long_vectors.html"
-     title="Belief Vector Field ($$||v^{(c)}_{\ell}||$$)"
+     title="Belief Vector Field ($||v^{(c)}_{\ell}||$)"
      caption="v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation." %}
 
 ---
@@ -357,25 +357,25 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Why a unified score?</h3>
-  <p>While spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and the belief vector field norm ($$\|v^{(c)}_\ell\|$$) each offer unique insight into latent dynamics, they operate on distinct facets of epistemic geometry.</p>
-  <p>The <strong>nDNA score</strong> is a cumulative measure of latent geometry, quantifying how a large language model adapts its internal scaffolding to a given corpus. It integrates three key components at each layer $$\ell$$:</p>
+  <p>While spectral curvature ($\kappa_\ell$), thermodynamic length ($L_\ell$), and the belief vector field norm ($\|v^{(c)}_\ell\|$) each offer unique insight into latent dynamics, they operate on distinct facets of epistemic geometry.</p>
+  <p>The <strong>nDNA score</strong> is a cumulative measure of latent geometry, quantifying how a large language model adapts its internal scaffolding to a given corpus. It integrates three key components at each layer $\ell$:</p>
   <ul>
-    <li><strong>Curvature ($$\kappa_\ell$$):</strong> how twisted or bent the latent manifold is; captures how sharply internal trajectories bend — a scalar measure of latent acceleration.</li>
-    <li><strong>Length ($$L_\ell$$):</strong> how much latent work or displacement occurs as representations evolve; quantifies how hard the model works to adapt its beliefs — a scalar effort integral.</li>
-    <li><strong>Belief vector norm ($$\|v^{(c)}_\ell\|$$):</strong> how strong the model's belief signal is for that corpus; encodes where and how strongly cultural priors steer latent space — a scalar magnitude derived from the vector field.</li>
+    <li><strong>Curvature ($\kappa_\ell$):</strong> how twisted or bent the latent manifold is; captures how sharply internal trajectories bend — a scalar measure of latent acceleration.</li>
+    <li><strong>Length ($L_\ell$):</strong> how much latent work or displacement occurs as representations evolve; quantifies how hard the model works to adapt its beliefs — a scalar effort integral.</li>
+    <li><strong>Belief vector norm ($\|v^{(c)}_\ell\|$):</strong> how strong the model's belief signal is for that corpus; encodes where and how strongly cultural priors steer latent space — a scalar magnitude derived from the vector field.</li>
   </ul>
 </div>
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Formal Definition</h3>
   <p>The <strong>nDNA score</strong> is defined as:</p>
-  <p>$$\text{nDNA} := \sum_{\ell=1}^L \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|v^{(c)}_\ell\|$$</p>
+  <p>$\text{nDNA} := \sum_{\ell=1}^L \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|v^{(c)}_\ell\|$</p>
   <p>where:</p>
   <ul>
-    <li>$$\omega_\ell$$ is the layer weight to emphasize semantically expressive or epistemically significant layers (e.g., decoder tops),</li>
-    <li>$$\kappa_\ell$$ is spectral curvature,</li>
-    <li>$$L_\ell$$ is thermodynamic length,</li>
-    <li>$$\|v^{(c)}_\ell\|$$ is the magnitude of the belief vector field conditioned on culture $$c$$.</li>
+    <li>$\omega_\ell$ is the layer weight to emphasize semantically expressive or epistemically significant layers (e.g., decoder tops),</li>
+    <li>$\kappa_\ell$ is spectral curvature,</li>
+    <li>$L_\ell$ is thermodynamic length,</li>
+    <li>$\|v^{(c)}_\ell\|$ is the magnitude of the belief vector field conditioned on culture $c$.</li>
   </ul>
 </div>
 
@@ -383,12 +383,12 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
   <h3>Why multiply these?</h3>
   <p>Individually, the terms illuminate:</p>
   <ul>
-    <li><strong>Latent strain</strong> ($$\kappa_\ell$$),</li>
-    <li><strong>Adaptation cost</strong> ($$L_\ell$$),</li>
-    <li><strong>Cultural pressure</strong> ($$\|v^{(c)}_\ell\|$$).</li>
+    <li><strong>Latent strain</strong> ($\kappa_\ell$),</li>
+    <li><strong>Adaptation cost</strong> ($L_\ell$),</li>
+    <li><strong>Cultural pressure</strong> ($\|v^{(c)}_\ell\|$).</li>
   </ul>
   <p>Together, their <strong>product</strong> gives a unified diagnostic of <strong>latent reconfiguration</strong> — indicating where internal bending, belief effort, and epistemic steering all co-occur.</p>
-  <p>The weight $$\omega_\ell$$ can be:</p>
+  <p>The weight $\omega_\ell$ can be:</p>
   <ul>
     <li>Uniform across layers,</li>
     <li>Hand-tuned based on epistemic depth,</li>
@@ -408,7 +408,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>Conviction</h3>
-  <p>By unifying spectral ($$\kappa_\ell$$), thermodynamic ($$L_\ell$$), and vectorial ($$\|v^{(c)}_\ell\|$$) diagnostics, the <strong>nDNA score</strong> acts as a <strong>heritable geometry index</strong>, diagnosing how <strong>latent traits persist, mutate, or degrade</strong> as foundation models evolve.</p>
+  <p>By unifying spectral ($\kappa_\ell$), thermodynamic ($L_\ell$), and vectorial ($\|v^{(c)}_\ell\|$) diagnostics, the <strong>nDNA score</strong> acts as a <strong>heritable geometry index</strong>, diagnosing how <strong>latent traits persist, mutate, or degrade</strong> as foundation models evolve.</p>
 </div>
 
 <figure style="text-align: center; margin: 2em auto;">
@@ -425,7 +425,7 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
 <div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
   <h3>The Foundation of nDNA</h3>
   <p>The notion of <strong>nDNA</strong> arises from a simple yet profound insight: modern foundation models do not merely produce outputs—they embody a <strong>latent cognitive structure</strong> that governs how they reason, adapt, and evolve  {% cite ganguli2023reducing %} {% cite bommasani2023foundation %}. This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers {% cite liu2023hidden %} {% cite wang2021geomtransformer %} .</p>
-  <p>We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its spectral curvature ($$\kappa_\ell$$), thermodynamic length ($$L_\ell$$), and belief vector field norm ($$\|v^{(c)}_\ell\|$$) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model's inheritance stability, alignment dynamics, and cultural drift—analogous to how biological DNA records heritable traits and mutations {% cite bakker2024uniting %} {% cite shen2023beliefgeometry %} y.</p>
+  <p>We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its spectral curvature ($\kappa_\ell$), thermodynamic length ($L_\ell$), and belief vector field norm ($\|v^{(c)}_\ell\|$) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model's inheritance stability, alignment dynamics, and cultural drift—analogous to how biological DNA records heritable traits and mutations {% cite bakker2024uniting %} {% cite shen2023beliefgeometry %} y.</p>
   
 </div>
 
@@ -610,9 +610,9 @@ nDNA integrates three foundational signals to form a latent cognitive fingerprin
   <h3>Interpreting the nDNA Pattern</h3>
   <p>Table 1 provides an illustrative example of nDNA geometry, highlighting how these quantities vary across depth in a representative model. Rather than simple monotonic trends, we observe intricate layer-wise patterns:</p>
   <ul>
-    <li>Certain layers exhibit elevated curvature ($$\kappa_\ell > 0.06$$), signaling sharp latent reorientation {% cite cho2023mixedcurvature %} ,</li>
-    <li>Others concentrate thermodynamic length ($$L_\ell > 1.10$$), reflecting zones of intense internal work to reconcile competing priors {% cite Crooks2007MeasuringLength %} {% cite micheli2022thermodynamics %} ,</li>
-    <li>The belief vector norm ($$\|v^{(c)}_\ell\|$$) exposes the directional cultural force acting on the latent manifold {% cite zhou2023alignmentdrift %} {% cite peng2024cultural %} , marking layers where external alignment or sociolinguistic conditioning exerts greatest influence.</li>
+    <li>Certain layers exhibit elevated curvature ($\kappa_\ell > 0.06$), signaling sharp latent reorientation {% cite cho2023mixedcurvature %} ,</li>
+    <li>Others concentrate thermodynamic length ($L_\ell > 1.10$), reflecting zones of intense internal work to reconcile competing priors {% cite Crooks2007MeasuringLength %} {% cite micheli2022thermodynamics %} ,</li>
+    <li>The belief vector norm ($\|v^{(c)}_\ell\|$) exposes the directional cultural force acting on the latent manifold {% cite zhou2023alignmentdrift %} {% cite peng2024cultural %} , marking layers where external alignment or sociolinguistic conditioning exerts greatest influence.</li>
   </ul>
   <p>Together, these values form a geometry-specific trace that distinguishes models by their latent adaptation history.</p>
 </div>
@@ -628,17 +628,17 @@ The same genome, when expressed in different cellular contexts, gives rise to va
 
 Figure 5 illustrates a hierarchical regulatory framework where universal DNA undergoes epigenetic modifications and context-specific transcription factor actions to produce specialized gene expression programs. Analogously, in large language models, this layered structure parallels nDNA latent scaffolding that encodes both universal priors and task-dependent adaptations, enabling coherent, flexible, and robust functional diversity across domains.
 
-Similarly, in large foundation models, the neural DNA (nDNA)—a composite measure of latent geometry encompassing spectral curvature ($$\kappa$$) {% cite belkin2019reconciling %}, thermodynamic length ($$L$$) {% cite still2012thermodynamic %}, and latent belief vector norms {% cite olah2020zoom %} —exhibits both universal structure and corpus-specific adaptation.
+Similarly, in large foundation models, the neural DNA (nDNA)—a composite measure of latent geometry encompassing spectral curvature ($\kappa$) {% cite belkin2019reconciling %}, thermodynamic length ($L$) {% cite still2012thermodynamic %}, and latent belief vector norms {% cite olah2020zoom %} —exhibits both universal structure and corpus-specific adaptation.
 
 LLMs encode universal latent priors through pretraining: architectural invariances {% cite vaswani2017attention %}, semantic manifolds {% cite mikolov2013distributed %} {% cite bommasani2021opportunities %}, and attention-based relational structures (64). However, when probed with different corpora such as mathematical reasoning benchmarks (e.g., GSM8K {% cite cobbe2021training %}), dialogue datasets (e.g., MultiWOZ {% cite budzianowski2018multiwoz %}), or encyclopedic QA (e.g., SQuAD {% cite rajpurkar2016squad %}), the model activates distinct latent scaffolding, producing task-specific geometric pathways.
 
 In both systems, structured variation emerges as a necessity: in biology, to produce functional diversity across cell types; in LLMs, to scaffold reasoning across tasks while maintaining alignment and generalization {% cite bommasani2021opportunities %} {% cite cobbe2021training %}. Like tissue-specific gene expression, corpus-dependent nDNA scaffolding follows precise, learned priors rather than arbitrary variation. Mathematical models of both systems reduce to path integrals over conditional cost:
 
-$$
+$
 S(c) = \int_{\gamma_c} C(h_\ell; c) \, ds
-$$
+$
 
-where $$\gamma_c$$ is the pathway for context $$c$$ (cell type or corpus), and $$C$$ reflects regulatory or loss cost.
+where $\gamma_c$ is the pathway for context $c$ (cell type or corpus), and $C$ reflects regulatory or loss cost.
 
 Where DNA differentiates cells, nDNA differentiates reasoning. Both systems achieve functional coherence through context-dependent geometry anchored in universal code.
 
@@ -657,23 +657,23 @@ These priors act as the “genomic grammar” that binds task-specific latent pa
   <tbody>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Universal code</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Codon mapping $$\varphi : \Sigma^3 \to A$$, kernel $$6 = \emptyset$$, redundancy ensures error tolerance {% cite lewin2013genes %}</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Pretrained latent manifold; symmetries $$G_{LLM} \subset \text{Aut}(V)$$; generalization via equivariance {% cite bommasani2021opportunities %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Codon mapping $\varphi : \Sigma^3 \to A$, kernel $6 = \emptyset$, redundancy ensures error tolerance {% cite lewin2013genes %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Pretrained latent manifold; symmetries $G_{LLM} \subset \text{Aut}(V)$; generalization via equivariance {% cite bommasani2021opportunities %}</td>
     </tr>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Context regulator</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional $$P(\text{gene ON} | \text{TF, epi})$$; Bayesian gene networks {% cite alon2006introduction %}</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional latent path $$P(h_1, \ldots, h_L | x)$$; stochastic latent dynamics {% cite geva2021transformer %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional $P(\text{gene ON} | \text{TF, epi})$; Bayesian gene networks {% cite alon2006introduction %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional latent path $P(h_1, \ldots, h_L | x)$; stochastic latent dynamics {% cite geva2021transformer %}</td>
     </tr>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Path geometry</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Minimal energy path $$\gamma^*$$ in epigenetic landscape: $$\int_{\gamma} \|\nabla V\| ds$$ {% cite waddington1957strategy %}</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Latent geodesic minimizing cost: $$\int_{\gamma} \|\nabla_\theta \log p(y|x)\|^2 ds$$ {% cite still2012thermodynamic %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Minimal energy path $\gamma^*$ in epigenetic landscape: $\int_{\gamma} \|\nabla V\| ds$ {% cite waddington1957strategy %}</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Latent geodesic minimizing cost: $\int_{\gamma} \|\nabla_\theta \log p(y|x)\|^2 ds$ {% cite still2012thermodynamic %}</td>
     </tr>
     <tr>
       <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Output mapping</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $$\pi : E_{\text{gene}} \to B_{\text{cell}}$$</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $$\pi : E_{\text{latent}} \to B_{\text{task}}$$</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $\pi : E_{\text{gene}} \to B_{\text{cell}}$</td>
+      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $\pi : E_{\text{latent}} \to B_{\text{task}}$</td>
     </tr>
   </tbody>
 </table>
@@ -691,9 +691,9 @@ These priors act as the “genomic grammar” that binds task-specific latent pa
 
 Both DNA and nDNA are shaped by selection processes. In biology, the genome has evolved under millennia of selective pressure, with regulatory networks fine-tuned to ensure robust development and adaptability {% cite Davidson2006 %} {% cite alon2006introduction %} . In LLMs, pretraining operates as an evolutionary analogue: stochastic gradient descent (SGD) over massive corpora selects latent priors that minimize expected loss across tasks, with fine-tuning akin to epigenetic adjustment {% cite bommasani2021opportunities %} {% cite pfeiffer2021adapterfusion %}:
 
-$$
+$
 \mathcal{L}_{\text{pretrain}}(\theta) = \mathbb{E}_{(x,y)}[-\log p_\theta(y|x)]
-$$
+$
 
 This evolutionary parallel explains why both systems exhibit clarity through complexity: layered hierarchies, probabilistic pathways, and interpretable modularity. Where biological evolution yields modular gene regulatory networks that ensure context-sensitive expression {% cite alon2006introduction %}, LLM training yields modular latent structures such as attention heads and adapter modules that scaffold task-specific reasoning {% cite geva2021transformer %} {% cite pfeiffer2021adapterfusion %} .
 
@@ -703,18 +703,18 @@ This evolutionary parallel explains why both systems exhibit clarity through com
 
 Far from a flaw, corpus dependence in nDNA is the signature of a flexible, adaptive reasoning architecture. Just as biological systems rely on tissue-specific gene expression to produce functional diversity from a universal genome {% cite davidson2006gene %} {% cite alon2006introduction %} , large language models (LLMs) leverage corpus-dependent latent scaffolding to generate reasoning structures attuned to task demands, mirroring the reproducibility logic of biological variability quantification {% cite marioni2011rna %} .
 
-By examining nDNA’s spectral curvature ($$\kappa$$), thermodynamic length ($$L$$), and belief vector norm ($$\|v^{(c)}_\ell\|$$), we gain a diagnostic lens for alignment, generalization, and safety {% cite olah2020zoom %} {% cite belkin2019reconciling %} {% cite still2012thermodynamic %} :
+By examining nDNA’s spectral curvature ($\kappa$), thermodynamic length ($L$), and belief vector norm ($\|v^{(c)}_\ell\|$), we gain a diagnostic lens for alignment, generalization, and safety {% cite olah2020zoom %} {% cite belkin2019reconciling %} {% cite still2012thermodynamic %} :
 
-$$
+$
 S_{nDNA}(c) = \int_{\gamma_c} \left( \alpha \kappa + \beta L + \gamma \|v^{(c)}_\ell\| \right) ds
-$$
+$
 
-where $$\gamma_c$$ is the latent trajectory for corpus $$c$$.
+where $\gamma_c$ is the latent trajectory for corpus $c$.
 
 This latent geometry echoes Waddington’s epigenetic landscape where paths represent developmental fates (76). Figure 6 illustrates different corpus types evoking distinct latent path characteristics:
 
-- QA tasks evoke compact low-curvature paths (e.g., $$\kappa \sim 0.012–0.03$$, $$L \sim 0.47–0.53$$) {% cite rajpurkar2016squad %} {% cite kwiatkowski2019natural %} {% cite joshi2017triviaqa %} ,  
-- Reasoning tasks elicit broader high-curvature paths (e.g., $$\kappa \sim 0.005–0.04$$) {% cite geva2021transformer %} {% cite bommasani2021opportunities %} {% cite patel2021nlp %},  
+- QA tasks evoke compact low-curvature paths (e.g., $\kappa \sim 0.012–0.03$, $L \sim 0.47–0.53$) {% cite rajpurkar2016squad %} {% cite kwiatkowski2019natural %} {% cite joshi2017triviaqa %} ,  
+- Reasoning tasks elicit broader high-curvature paths (e.g., $\kappa \sim 0.005–0.04$) {% cite geva2021transformer %} {% cite bommasani2021opportunities %} {% cite patel2021nlp %},  
 - Dialogue corpora produce shallow clustered scaffolds {% cite budzianowski2018multiwoz %} {% cite li2016persona %} {% cite zhang2018personalizing %} ,  
 - Commonsense tasks yield oscillatory paths {% cite sap2019socialiqa %} {% cite zellers2019hellaswag %} {% cite talmor2019commonsenseqa %} .
 
