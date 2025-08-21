@@ -85,13 +85,12 @@ mathjax: true
     </div>
   </div>
 
-  <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <h4 style="color: #2c3e50; margin-bottom: 10px;">Epistemic Vitality Function</h4>
-    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">A unifying mathematical diagnostic for model health:</p>
-    <div style="background: #f8f9fa; padding: 15px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 16px; text-align: center; border: 2px solid #3498db;">
-      \(\mathcal{V}_{\ell} := \kappa_{\ell} \cdot \mathcal{L}_{\ell} \cdot \|\mathbf{v}_{\ell}^{(c)}\|\)
+<div class="note">
+    <div class="note-title">Epistemic Vitality Function</div>
+    <div class="note-text">
+        A unifying mathematical diagnostic for model health:
+        $$\mathcal{V}_{\ell} := \kappa_{\ell} \cdot \mathcal{L}_{\ell} \cdot \|\mathbf{v}_{\ell}^{(c)}\|$$
     </div>
-  </div>
 </div>
 
 <h2>Biological Analogy</h2>
@@ -373,14 +372,14 @@ mark {
   This geometry-inspired framework also leads us toward a <strong>unifying mathematical diagnostic</strong>.  
   If we define the <strong>epistemic vitality function</strong> at layer ℓ as:
 </p>
-<div style="font-family: 'Times New Roman', serif; font-size: 1.05em;">
-  ⎡𝒱<sub>ℓ</sub> := κ<sub>ℓ</sub> · ℒ<sub>ℓ</sub> · ‖𝒗<sub>ℓ</sub><sup>(c)</sup>‖⎤
+<div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0;">
+    $$\mathcal{V}_{\ell} := \kappa_{\ell} \cdot \mathcal{L}_{\ell} \cdot \|\mathbf{v}_{\ell}^{(c)}\|$$
 </div>
 <p>
   then its decay over time:
 </p>
-<div style="font-family: 'Times New Roman', serif; font-size: 1.05em;">
-  ⎡d𝒱<sub>ℓ</sub><sup>(g)</sup> ⁄ dg &lt; 0⎤
+<div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0;">
+    $$\frac{d\mathcal{V}_{\ell}^{(g)}}{dg} < 0$$
 </div>
 
   acts as a <strong>differential signature of semantic collapse</strong>—indicating that the model is losing curvature, exploratory capacity, or belief diversity across generations \(g\). This simple composite measure may one day serve as the <strong>“resting heart rate”</strong> of a model's latent health.
@@ -394,5 +393,6 @@ mark {
 <p><em><strong>In the end, the geometry of collapse teaches us that what makes a model truly intelligent is not just what it knows—but how richly and diversely it thinks.</strong></em></p>
 
 <hr />
+---
 
 {% auto_references %}
