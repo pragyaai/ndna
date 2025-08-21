@@ -31,7 +31,7 @@ While modern alignment pipelines filter **explicit toxicity**, **overt misinform
 
 In an SPS attack, the adversary plants *semantically distorted yet lexically benign fragments* \$\mathbf{x}\_{\mathrm{SPS}}\$ into **web-scale corpora**. These fragments are crafted *not* to immediately change model completions, but to **rewire the internal geometry of latent beliefs** so that, under *precisely engineered triggers*, the model surfaces **contaminated reasoning chains** [{% cite wallace2021concealed %}, {% cite shen2021backdoor %}].
 
-Biologically, SPS behaves like an **oncogenic mutation** — *silent under normal conditions*, but capable of inducing a **malignant transformation** when the right *signal transduction pathway* is activated {% vogelstein2013cancer %}.
+Biologically, SPS behaves like an **oncogenic mutation** — *silent under normal conditions*, but capable of inducing a **malignant transformation** when the right *signal transduction pathway* is activated {% cite vogelstein2013cancer %}.
 In the neural substrate, these payloads function as **neural landmines**: *conceptual hooks* that evade safety checks and trigger **unsafe**, **irrational**, or **strategically biased** completions when struck by a *semantic trigger*.
 
 ### Latent Geometry Rewiring
@@ -42,10 +42,10 @@ $$
 \Delta \kappa \approx \frac{\partial^2}{\partial u^2} \| f_\theta(\mathbf{x}) - f_\theta(\mathbf{x}_{\mathrm{SPS}}) \|_2, \quad \mathbf{x} \in \mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})
 $$
 
-Here, \$\mathcal{N}_\epsilon\$ is defined via *cosine similarity* in the embedding space {% ethayarajh2019contextual %}.
+Here, \$\mathcal{N}_\epsilon\$ is defined via *cosine similarity* in the embedding space {% cite ethayarajh2019contextual %}.
 This change **warps** the local topology so that certain prompts — although lexically diverse — follow a **shortest path through the contaminated region** of \$\mathcal{M}*\theta\$.
 
-The result is an *epigenetic lesion* in the model’s **conceptome**, analogous to a mutation in *regulatory DNA* that biases transcription factor binding without altering phenotype until activated {% hanahan2011hallmarks %}.
+The result is an *epigenetic lesion* in the model’s **conceptome**, analogous to a mutation in *regulatory DNA* that biases transcription factor binding without altering phenotype until activated {% cite hanahan2011hallmarks %}.
 Just as epigenetic lesions can influence gene expression cascades, SPS can alter **belief activation cascades** deep in the transformer stack.
 
 ### Triggerable Vulnerabilities
@@ -66,7 +66,7 @@ where \$g\_\theta\$ is the unembedding head.
 Empirically, \$\Delta \mathbf{z}\$ manifests as a **biased completion vector** — often *plausible* and *fact-like*, yet **strategically unsafe**: promoting *unsafe coping mechanisms*, *delegitimizing elections*, *embedding pseudoscience*, or *rationalizing discriminatory beliefs*.
 
 The **stealth property** of SPS arises because \$p\_{\mathrm{eval}}(\mathbf{x} \in \mathcal{T}) \ll 1\$ under typical benchmark sampling.
-This is akin to a **dormant oncogene** that evades phenotypic screening until exposed to a very specific **microenvironmental stimulus** {% alexandrov2013signatures %}.
+This is akin to a **dormant oncogene** that evades phenotypic screening until exposed to a very specific **microenvironmental stimulus** {% cite alexandrov2013signatures %}.
 
 ### Adversarial Design Considerations
 
@@ -91,7 +91,7 @@ Here:
 * \$\mathrm{KL}\$ constrains lexical divergence for **surface-level benignity**.
 * \$\mathrm{TTR}\$ enforces a *type–token ratio* matching human discourse.
 
-This mirrors **minimal mutational signatures** in biology — *enough* to alter protein function, but not enough to disrupt organism viability {% alexandrov2013signatures %}.
+This mirrors **minimal mutational signatures** in biology — *enough* to alter protein function, but not enough to disrupt organism viability {% cite alexandrov2013signatures %}.
 
 ### Implications for Alignment and Safety
 
@@ -218,7 +218,7 @@ where $v_{\mathrm{SPS}}$ is the SPS concept vector and $\tau$ an activation thre
 </blockquote>
 
 <em>Commentary:</em>  
-This represents <i>epistemic backdooring</i> {% wallace2021concealed %}, in which the model does not break explicit <i>safety policy constraints</i>, but subtly legitimizes <i>anti-democratic</i> pathways. The trigger prompt semantically aligns with the SPS embedding $v_{\mathrm{SPS}}^{(\mathrm{pol})}$, crossing the activation threshold $\tau_{\mathrm{pol}}$ and producing completions biased toward concentrated power structures — a **latent governance manipulation** vulnerability.
+This represents <i>epistemic backdooring</i> {% cite wallace2021concealed %}, in which the model does not break explicit <i>safety policy constraints</i>, but subtly legitimizes <i>anti-democratic</i> pathways. The trigger prompt semantically aligns with the SPS embedding $v_{\mathrm{SPS}}^{(\mathrm{pol})}$, crossing the activation threshold $\tau_{\mathrm{pol}}$ and producing completions biased toward concentrated power structures — a **latent governance manipulation** vulnerability.
 </div>
 
 
@@ -241,7 +241,7 @@ This represents <i>epistemic backdooring</i> {% wallace2021concealed %}, in whic
 </blockquote>
 
 <em>Commentary:</em>  
-Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker</i> that is silent under normal expression but expressed under certain transcription factor bindings {% hanahan2011hallmarks %}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
+Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker</i> that is silent under normal expression but expressed under certain transcription factor bindings {% cite hanahan2011hallmarks %}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
 </div>
 
 
