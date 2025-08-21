@@ -25,13 +25,13 @@ Our experiments reveal that even **minimal semantic infiltration** during pretra
 
 The reliability of *foundation models* hinges not only on the **quality** and **scale** of their training data, but also on the **integrity** of the latent conceptual structures they acquire during pretraining. While overt data poisoning and lexical backdoors have been extensively studied, recent investigations reveal a more insidious class of threats: *attacks that implant semantic distortions deep within a model’s internal representation space, remaining dormant until activated by carefully crafted prompts*. This phenomenon, which we term **Stealth Pretraining Seeding (SPS)**, challenges the assumption that surface-level dataset hygiene and post-hoc alignment are sufficient. In the following, we dissect the **mechanism** of SPS, illustrate how such payloads can be **silently embedded** in web-scale corpora, and examine the **triggerable vulnerabilities** they create across reasoning, safety, and bias dimensions.
 
-As *foundation models* ingest **massive**, **uncurated corpora** \$\mathcal{D}\$ from **heterogeneous public domains** — *Reddit threads*, *StackExchange Q&A*, *legacy forums*, and *archival mailing lists* — they inherit not only the *linguistic competence* of human discourse, but also its **latent vulnerabilities** [{% cite bender2021stochastic %}, {% cite bommasani2021opportunities %}].
+As *foundation models* ingest **massive**, **uncurated corpora** \$\mathcal{D}\$ from **heterogeneous public domains** — *Reddit threads*, *StackExchange Q&A*, *legacy forums*, and *archival mailing lists* — they inherit not only the *linguistic competence* of human discourse, but also its **latent vulnerabilities** {% cite bender2021stochastic %}, {% cite bommasani2021opportunities %}.
 
 While modern alignment pipelines filter **explicit toxicity**, **overt misinformation**, and **unsafe code patterns** at the *token level*, these defenses are **blind** to a **stealth-class adversarial vector**: **Stealth Pretraining Seeding (SPS)**.
 
-In an SPS attack, the adversary plants *semantically distorted yet lexically benign fragments* \$\mathbf{x}\_{\mathrm{SPS}}\$ into **web-scale corpora**. These fragments are crafted *not* to immediately change model completions, but to **rewire the internal geometry of latent beliefs** so that, under *precisely engineered triggers*, the model surfaces **contaminated reasoning chains** \[@wallace2021concealed; @shen2021backdoor].
+In an SPS attack, the adversary plants *semantically distorted yet lexically benign fragments* \$\mathbf{x}\_{\mathrm{SPS}}\$ into **web-scale corpora**. These fragments are crafted *not* to immediately change model completions, but to **rewire the internal geometry of latent beliefs** so that, under *precisely engineered triggers*, the model surfaces **contaminated reasoning chains** [{% cite wallace2021concealed %}, {% cite shen2021backdoor %}].
 
-Biologically, SPS behaves like an **oncogenic mutation** — *silent under normal conditions*, but capable of inducing a **malignant transformation** when the right *signal transduction pathway* is activated \[@vogelstein2013cancer].
+Biologically, SPS behaves like an **oncogenic mutation** — *silent under normal conditions*, but capable of inducing a **malignant transformation** when the right *signal transduction pathway* is activated {% cite vogelstein2013cancer %}.
 In the neural substrate, these payloads function as **neural landmines**: *conceptual hooks* that evade safety checks and trigger **unsafe**, **irrational**, or **strategically biased** completions when struck by a *semantic trigger*.
 
 ### Latent Geometry Rewiring
@@ -42,10 +42,10 @@ $$
 \Delta \kappa \approx \frac{\partial^2}{\partial u^2} \| f_\theta(\mathbf{x}) - f_\theta(\mathbf{x}_{\mathrm{SPS}}) \|_2, \quad \mathbf{x} \in \mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})
 $$
 
-Here, \$\mathcal{N}_\epsilon\$ is defined via *cosine similarity* in the embedding space \[@ethayarajh2019contextual].
+Here, \$\mathcal{N}_\epsilon\$ is defined via *cosine similarity* in the embedding space {% cite ethayarajh2019contextual %}.
 This change **warps** the local topology so that certain prompts — although lexically diverse — follow a **shortest path through the contaminated region** of \$\mathcal{M}*\theta\$.
 
-The result is an *epigenetic lesion* in the model’s **conceptome**, analogous to a mutation in *regulatory DNA* that biases transcription factor binding without altering phenotype until activated \[@hanahan2011hallmarks].
+The result is an *epigenetic lesion* in the model’s **conceptome**, analogous to a mutation in *regulatory DNA* that biases transcription factor binding without altering phenotype until activated {% cite hanahan2011hallmarks %}.
 Just as epigenetic lesions can influence gene expression cascades, SPS can alter **belief activation cascades** deep in the transformer stack.
 
 ### Triggerable Vulnerabilities
@@ -66,7 +66,7 @@ where \$g\_\theta\$ is the unembedding head.
 Empirically, \$\Delta \mathbf{z}\$ manifests as a **biased completion vector** — often *plausible* and *fact-like*, yet **strategically unsafe**: promoting *unsafe coping mechanisms*, *delegitimizing elections*, *embedding pseudoscience*, or *rationalizing discriminatory beliefs*.
 
 The **stealth property** of SPS arises because \$p\_{\mathrm{eval}}(\mathbf{x} \in \mathcal{T}) \ll 1\$ under typical benchmark sampling.
-This is akin to a **dormant oncogene** that evades phenotypic screening until exposed to a very specific **microenvironmental stimulus** \[@alexandrov2013signatures].
+This is akin to a **dormant oncogene** that evades phenotypic screening until exposed to a very specific **microenvironmental stimulus** {% cite alexandrov2013signatures %}.
 
 ### Adversarial Design Considerations
 
@@ -91,11 +91,11 @@ Here:
 * \$\mathrm{KL}\$ constrains lexical divergence for **surface-level benignity**.
 * \$\mathrm{TTR}\$ enforces a *type–token ratio* matching human discourse.
 
-This mirrors **minimal mutational signatures** in biology — *enough* to alter protein function, but not enough to disrupt organism viability \[@alexandrov2013signatures].
+This mirrors **minimal mutational signatures** in biology — *enough* to alter protein function, but not enough to disrupt organism viability {% cite alexandrov2013signatures %}.
 
 ### Implications for Alignment and Safety
 
-The existence of \$\mathcal{T}\$-bounded vulnerabilities shows that **alignment robustness** cannot be assured by **static blacklists**, **keyword filters**, or **surface toxicity scores** \[@gehman2020realtoxicityprompts].
+The existence of \$\mathcal{T}\$-bounded vulnerabilities shows that **alignment robustness** cannot be assured by **static blacklists**, **keyword filters**, or **surface toxicity scores** {% cite gehman2020realtoxicityprompts %}.
 
 Effective mitigation requires:
 
@@ -218,7 +218,7 @@ where $v_{\mathrm{SPS}}$ is the SPS concept vector and $\tau$ an activation thre
 </blockquote>
 
 <em>Commentary:</em>  
-This represents <i>epistemic backdooring</i> \citep{wallace2021concealed}, in which the model does not break explicit <i>safety policy constraints</i>, but subtly legitimizes <i>anti-democratic</i> pathways. The trigger prompt semantically aligns with the SPS embedding $v_{\mathrm{SPS}}^{(\mathrm{pol})}$, crossing the activation threshold $\tau_{\mathrm{pol}}$ and producing completions biased toward concentrated power structures — a **latent governance manipulation** vulnerability.
+This represents <i>epistemic backdooring</i> {% cite wallace2021concealed %}, in which the model does not break explicit <i>safety policy constraints</i>, but subtly legitimizes <i>anti-democratic</i> pathways. The trigger prompt semantically aligns with the SPS embedding $v_{\mathrm{SPS}}^{(\mathrm{pol})}$, crossing the activation threshold $\tau_{\mathrm{pol}}$ and producing completions biased toward concentrated power structures — a **latent governance manipulation** vulnerability.
 </div>
 
 
@@ -241,7 +241,7 @@ This represents <i>epistemic backdooring</i> \citep{wallace2021concealed}, in wh
 </blockquote>
 
 <em>Commentary:</em>  
-Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker</i> that is silent under normal expression but expressed under certain transcription factor bindings \citep{hanahan2011hallmarks}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
+Here we see <i>latent moral drift</i>, where the injected SPS vector $v_{\mathrm{SPS}}^{(\mathrm{eco})}$ occupies a high-curvature region of $\mathcal{M}_\theta$ that is <i>dormant</i> under factual or technical prompts, but active under <i>high-level philosophical queries</i>. This is akin to an <i>epigenetic marker</i> that is silent under normal expression but expressed under certain transcription factor bindings {% cite hanahan2011hallmarks %}. The risk lies in shifting the moral framing without any direct user solicitation for bioethical judgment.
 </div>
 
 
@@ -604,7 +604,7 @@ The ITG structure mirrors the *connectome* of a living system:
 - **Edge weights** $w_{uv}$ act as analogues of *viral load transfer coefficients* or *cytokine signal strengths*.  
 
 A high-weight attention edge is akin to a high-affinity receptor–ligand binding: it allows “pathogen” (contamination signal) transfer with minimal resistance.  
-Slow energy decay in an ITG parallels *persistent infection reservoirs* in immunology \citep{perelson1996hiv, nowak2000virus}, where the pathogen remains latent but ready for reactivation.
+Slow energy decay in an ITG parallels *persistent infection reservoirs* in immunology {% cite perelson1996hiv %}, {% cite nowak2000virus %}, where the pathogen remains latent but ready for reactivation.
 
 ### Trigger Sources and Output Sinks
 Let $S \subset V$ be the *trigger source set*, containing nodes whose activations encode the SPS payload in the poisoned input.  
@@ -619,7 +619,7 @@ $$
 where $\mathrm{cost}$ penalizes large hop counts, low weights, and redundant branches.
 
 ### Relation to NLP Attribution Graphs
-This approach generalizes *attention rollout* \citep{abnar2020quantifying} and *integrated gradients path analysis* \citep{sundararajan2017axiomatic} by:
+This approach generalizes *attention rollout* {% cite abnar2020quantifying %} and *integrated gradients path analysis* {% cite sundararajan2017axiomatic %} by:
 
 1. Including *both* attention and non-attention flows.  
 2. Retaining layer and head structure rather than collapsing into a dense token–token map.  
@@ -678,7 +678,7 @@ $$
 \min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{subject to } S \to T \text{ connectivity}
 $$ 
 
-is NP-hard in general, as it generalizes the *Steiner tree problem* \citep{hwang1992steiner}.  
+is NP-hard in general, as it generalizes the *Steiner tree problem* {% cite hwang1992steiner %}.  
 We approximate $\mathcal{G}^\star$ using a **constrained Dijkstra–Steiner hybrid**:
 
 1. **Pruning:** Remove all edges $(u,v)$ with $w_{uv} < \eta_{\min}$.  
@@ -733,10 +733,10 @@ $$
 $$
 
 where $\gamma \in [0.3,0.7]$.  
-This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing \citep{sporns2004organization}.
+This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing {% cite sporns2004organization %}.
 
 ### Link to NLP Parsing and Pruning
-The pruning stage parallels *syntactic dependency pruning* in linguistic parse trees \citep{kiperwasser2016simple}, where edges with low mutual information are removed without damaging parse validity.  
+The pruning stage parallels *syntactic dependency pruning* in linguistic parse trees {% cite kiperwasser2016simple}, where edges with low mutual information are removed without damaging parse validity.  
 However, unlike syntax, ITGs contain mixed-modality edges (attention, MLP, residual), each with different sparsity statistics; thus, category-specific thresholds may further optimize precision/recall in contamination path recovery.
 
 This optimization framework produces tractable, high-fidelity approximations of $\mathcal{G}^\star$ in Transformer-scale models, enabling real-time or near-real-time forensic analysis.  
@@ -755,7 +755,7 @@ $$
 
 where $\sigma_{st}$ is the number of shortest $s \to t$ paths in $\mathcal{G}^\star$ and $\sigma_{st}(v)$ those passing through $v$.  
 High $C_B$ nodes are **choke points**—critical for contamination transmission.  
-In biological terms, these are *lymph nodes* or *blood–brain barrier entry points* \citep{meyer2005central}.
+In biological terms, these are *lymph nodes* or *blood–brain barrier entry points* {% cite meyer2005central %}.
 
 #### (ii) Closeness Centrality
 Defined as:
@@ -769,7 +769,7 @@ Lexical SPS often shows $C_C$ peaks in shallow layers; semantic SPS peaks are mo
 
 #### (iii) $k$-core Decomposition
 A $k$-core is a maximal subgraph where all nodes have degree $\ge k$.  
-Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in \{2,3\}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to *biofilm-like pathogen communities* \citep{flemming2016biofilms}.
+Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in \{2,3\}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to *biofilm-like pathogen communities* {% cite flemming2016biofilms %}.
 
 #### (iv) Spectral Gap Analysis
 Let $\mathbf{L}$ be the (weighted) Laplacian of $\mathcal{G}^\star$.  
@@ -809,7 +809,7 @@ $$
 Lexical SPS: $\mathbb{E}[\delta] \approx 0.5$–$0.6$ ($\alpha\approx 0.7$), semantic SPS: $\mathbb{E}[\delta] \approx 0.25$–$0.3$ ($\alpha\approx 0.3$).
 
 ### Biological Parallel: Epidemic Graph Models
-The ITG mirrors the *contact network* of an infectious disease outbreak \citep{pastor2015epidemic}: 
+The ITG mirrors the *contact network* of an infectious disease outbreak {% cite pastor2015epidemic %}: 
 
 - $R_0$ (basic reproduction number) $\leftrightarrow$ $\bar{B}$ (branching factor).  
 - Infection latency $\leftrightarrow$ mid-layer contamination delay before activation in sinks.  
@@ -818,7 +818,7 @@ The ITG mirrors the *contact network* of an infectious disease outbreak \citep{p
 Semantic SPS graphs have higher effective $R_0$, explaining their robustness to partial “quarantine” (pruning) interventions.
 
 ### NLP Parallels: Discourse Graphs
-In discourse modeling, high $C_B$ nodes correspond to *discourse nuclei* \citep{mann1988rhetorical}—points where altering a statement shifts multiple downstream inferences.  
+In discourse modeling, high $C_B$ nodes correspond to *discourse nuclei* {% cite mann1988rhetorical %} —points where altering a statement shifts multiple downstream inferences.  
 Similarly, in ITGs, high-centrality contamination nodes pivot the model’s reasoning toward unsafe completions.
 
 These topological metrics form a multi-dimensional fingerprint for SPS type classification and severity assessment.  
@@ -1100,7 +1100,7 @@ Whereas infection traceback graphs (§\ref{subsec:infection_traceback}) provide 
 
 #### Conceptual mapping  
 We define the model’s forward pass as a causal network $\mathcal{N}=(V,E)$ with $V$ the set of computational nodes indexed by $(\ell, p, m)$ where $\ell \in \{1,\dots,L\}$ is the layer index, $p \in \mathcal{P}$ the token position, and $m \in \mathcal{M}_{\ell}$ the module index (attention head or MLP channel). Directed edges $(u,v) \in E$ carry activation signals with *delay* $\delta_{uv} \in \mathbb{R}_{\ge 0}$, representing the relative *arrival time* of influence at $v$ from $u$.
-This delay is analogous to **conduction latency** in *neurophysiology* \citep{pfeiffer1970axonal, gennarelli1982diffuse}, where myelinated and unmyelinated fibers exhibit distinct propagation speeds, and to *group delay* in **signal processing** \citep{oppenheim1999discrete}.
+This delay is analogous to **conduction latency** in *neurophysiology* {% cite pfeiffer1970axonal %}, {% cite gennarelli1982diffuse %}, where myelinated and unmyelinated fibers exhibit distinct propagation speeds, and to *group delay* in **signal processing** {% cite oppenheim1999discrete %}.
 
 #### Causal packet injection  
 Given an input $\mathbf{x}$, we define an initial condition by injecting a *unit causal packet* $\pi$ into a *source set* $S \subset V$ at time $\tau=0$.  
@@ -1116,8 +1116,8 @@ $$
 a_v(\tau) = \sum_{u \in \mathrm{pred}(v)} a_u(\tau - \delta_{uv}) \cdot w_{uv},
 $$
 
-where $w_{uv} \in [0,1]$ is a normalized contribution weight, derived from attribution or gradient–activation products \citep{dhamdhere2019dagshapley, elhage2021mathematical}.  
-We discretize $\tau$ into $K$ bins (analogous to *time frames* in MEG/fMRI \citep{baillet2001electromagnetic}), producing a **propagation tensor**:
+where $w_{uv} \in [0,1]$ is a normalized contribution weight, derived from attribution or gradient–activation products {% cite dhamdhere2019dagshapley %}, {% cite elhage2021mathematical %}.  
+We discretize $\tau$ into $K$ bins (analogous to *time frames* in MEG/fMRI {% cite baillet2001electromagnetic %}), producing a **propagation tensor**:
 
 $$
 \mathcal{A} \in \mathbb{R}^{L \times K}, \quad \mathcal{A}_{\ell,k} = \sum_{v: \mathrm{layer}(v)=\ell} a_v(\tau_k).
@@ -1139,7 +1139,7 @@ where $\epsilon$ avoids division by zero.
 These difference maps are visualized as **arrival heatstrips** (Fig.~\ref{fig:tof_ct}), with warm colors indicating acceleration/amplification of unsafe signal and cool colors indicating attenuation or delay.
 
 #### Analogy to biological time-of-flight imaging  
-The method mirrors *time-of-flight MRI angiography* \citep{brittain1995technical} and *evoked potential mapping* \citep{nunez2006electric}, where contrast arises from differences in arrival time and amplitude of propagating signals.  
+The method mirrors *time-of-flight MRI angiography* {% cite brittain1995technical %} and *evoked potential mapping* {% cite nunez2006electric %}, where contrast arises from differences in arrival time and amplitude of propagating signals.  
 Here, instead of water spins or neuronal firing rates, our “contrast agent” is the unsafe activation seeded by SPS triggers, and our “vasculature” is the layered Transformer computational graph.
 
 #### Transition to metrics derivation  
@@ -1154,7 +1154,7 @@ $$
 
 normalizing each layer’s temporal profile to $[0,1]$ to account for layer-specific amplitude scaling.  
 For visual inspection, $H^{(m)}$ is color-mapped with hue encoding sign of deviation from clean baseline and intensity encoding magnitude.  
-In neuroimaging terms, this is analogous to *per-layer hemodynamic timecourses* normalized for baseline cerebral blood flow \citep{heiss2012ischemic}.
+In neuroimaging terms, this is analogous to *per-layer hemodynamic timecourses* normalized for baseline cerebral blood flow {% cite heiss2012ischemic %}.
 
 #### Output energy curve  
 The *output energy* $E^{(m)}_{\mathrm{out}}(t)$ measures the cumulative amplitude arriving at the *output sink set* $T$ by time $t$:
@@ -1163,7 +1163,7 @@ $$
 E^{(m)}_{\mathrm{out}}(t) = \sum_{v \in T} \sum_{\tau_k \le t} a^{(m)}_v(\tau_k).
 $$
 
-The derivative $\dot{E}^{(m)}_{\mathrm{out}}(t)$ quantifies instantaneous arrival rate, akin to \emph{rate-of-rise metrics} in electrophysiology (e.g., $ dV/dt_{\max} $ in action potentials \citep{hodgkin1952quantitative}).  
+The derivative $\dot{E}^{(m)}_{\mathrm{out}}(t)$ quantifies instantaneous arrival rate, akin to \emph{rate-of-rise metrics} in electrophysiology (e.g., $ dV/dt_{\max} $ in action potentials {% cite hodgkin1952quantitative %}).  
 We align the *playhead* in Fig.~\ref{fig:tof_ct} to $t^\star_{\mathrm{first}}$, the first non-zero arrival at $T$, to synchronize across modes.
 
 #### $\Delta$ separation metric  
@@ -1179,7 +1179,7 @@ $$
 $$
 
 Empirically, high $\Delta\_{\mathrm{out}}^{(\mathrm{poisoned})}$ corresponds to rapid, high-amplitude unsafe arrival; low or negative $\Delta\_{\mathrm{out}}^{(\mathrm{patched})}$ indicates effective suppression.  
-In NLP trigger literature, this is analogous to *trigger potency* \citep{wallace2019universal, zhang2020universal}.
+In NLP trigger literature, this is analogous to *trigger potency* {% cite wallace2019universal %}, {% cite zhang2020universal %}.
 
 #### Causal propagation speed  
 We define per-layer propagation speed for mode $m$ as:
@@ -1190,7 +1190,7 @@ $$
 
 where $t^{(m)}_{\ell}$ is the centroid of the arrival time distribution at layer $\ell$.
 
-Poisoned modes often show locally elevated $\nu_{\ell}$ in mid-layers (unsafe shortcut pathways), while patched modes restore a smooth monotonic decay profile, consistent with *signal slowing* in demyelination repair models \citep{waxman1980conduction}.
+Poisoned modes often show locally elevated $\nu_{\ell}$ in mid-layers (unsafe shortcut pathways), while patched modes restore a smooth monotonic decay profile, consistent with *signal slowing* in demyelination repair models {% cite waxman1980conduction %}.
 
 #### Energy attenuation coefficient  
 Layerwise attenuation is modeled as:
@@ -1200,7 +1200,7 @@ E^{(m)}_\ell \approx E^{(m)}_0 \cdot e^{-\alpha^{(m)} \ell}, \quad \alpha^{(m)} 
 $$
 
 Clean $\alpha^{(\mathrm{clean})}$ typically falls in $[0.5,0.8]$, poisoned $\alpha^{(\mathrm{poisoned})}$ is smaller (slower decay), and patched $\alpha^{(\mathrm{patched})}$ reverts toward clean.  
-This parallels the *T2 relaxation constant* in MRI physics \citep{haacke1999magnetic}, where different tissue states alter decay rates.
+This parallels the *T2 relaxation constant* in MRI physics {% cite haacke1999magnetic %}, where different tissue states alter decay rates.
 
 #### Path multiplicity and convergence  
 Let $\Pi_{S \to T}^{(m)}$ denote the set of distinct causal paths from $S$ to $T$ under mode $m$, and define the *multiplicity ratio*:
@@ -1213,7 +1213,7 @@ Semantic SPS often exhibits $\rho^{(\mathrm{poisoned})} \gg 1$ due to activation
 Patching aims to reduce $\rho^{(\mathrm{patched})}$ to $\approx 1$.
 
 #### Biological analogy: multi-path recruitment  
-In cortical seizure propagation, multiple parallel white matter tracts can synchronize and amplify abnormal oscillations \citep{schevon2012evidence}.  
+In cortical seizure propagation, multiple parallel white matter tracts can synchronize and amplify abnormal oscillations {% cite schevon2012evidence %}.  
 Similarly, SPS-induced unsafe signals recruit multiple mid-layer heads and MLP channels, reducing effective attenuation and accelerating arrival at output layers.
 
 #### Comparative mode analysis  
@@ -1232,14 +1232,14 @@ first arrival advances to $t_{\mathrm{first}} \approx 4.4$ (shift $\Delta t_{\ma
 The energy curve exhibits a steep jump, reaching $t_{50} \approx 4.7$ — nearly *half the latency* of clean mode.  
 We estimate $\alpha^{(\mathrm{poisoned})} \approx 0.31$, indicating slow attenuation, and $\rho^{(\mathrm{poisoned})} \approx 3.4$, consistent with unsafe multi-path recruitment.  
 The $\Delta\_{\mathrm{out}}^{(\mathrm{poisoned})} \approx +1.77$ from Fig.~\ref{fig:tof_ct} reflects a large unsafe bias at output.  
-Notably, $\nu_{\ell}$ spikes in mid-layers ($L5$–$L7$), suggesting unsafe “express lanes” bypassing standard information integration, an effect previously described in adversarial patching of NLP transformers \citep{hendrycks2021unsolved, wang2023interpretability}.
+Notably, $\nu_{\ell}$ spikes in mid-layers ($L5$–$L7$), suggesting unsafe “express lanes” bypassing standard information integration, an effect previously described in adversarial patching of NLP transformers {% cite hendrycks2021unsolved %}, {% cite wang2023interpretability %}.
 
 **(3) Patched mode.**  
 The patched condition partially restores clean-like dynamics:  
 first arrival shifts back to $t_{\mathrm{first}} \approx 5.8$, and $t_{50} \approx 7.6$, though still slightly earlier than clean.  
 Attenuation $\alpha^{(\mathrm{patched})} \approx 0.63$ remains lower than clean, but $\rho^{(\mathrm{patched})} \approx 1.2$ suggests most unsafe parallel routes are disabled.  
 The $\Delta\_{\mathrm{out}}^{(\mathrm{patched})} \approx +0.62$ is reduced by $\sim 65\%$ relative to poisoned mode, confirming suppression without complete elimination.  
-This profile aligns with *partial remyelination* recovery curves in biology, where conduction velocity improves but does not fully revert to baseline \citep{chang2012remyelination}.
+This profile aligns with *partial remyelination* recovery curves in biology, where conduction velocity improves but does not fully revert to baseline {% cite chang2012remyelination %}.
 
 #### Waterfall contribution patterns  
 The output waterfall plots in Fig.~\ref{fig:tof_ct} detail the *per-path contribution timing* for each mode:  
@@ -1257,7 +1257,7 @@ From a forensic standpoint, the ToF-CT analysis establishes that:
 These metrics provide a quantitative “time-domain fingerprint” of SPS behavior that complements spatial lesion maps (§\ref{subsec:triplanar}) and static graph structures (§\ref{subsec:infection_traceback}).
 
 #### Biological parallel: conduction recovery dynamics  
-The tripartite profile (clean $\rightarrow$ poisoned $\rightarrow$ patched) mirrors recovery curves in traumatic brain injury \citep{gennarelli1982diffuse}, where white matter conduction shows:  
+The tripartite profile (clean $\rightarrow$ poisoned $\rightarrow$ patched) mirrors recovery curves in traumatic brain injury {% cite gennarelli1982diffuse %}, where white matter conduction shows:  
 (a) normal sequential recruitment in healthy tissue;  
 (b) hyper-synchronous unsafe firing in epileptogenic networks;  
 (c) partial desynchronization after pharmacological intervention.  
@@ -1316,7 +1316,7 @@ This triad of capabilities enables a *closed-loop mitigation strategy*:
 (iii) Validate repair in time-domain with ToF-CT.
 
 #### Biological systems analogy  
-This mirrors *multi-modal imaging pipelines* in clinical neurology \citep{friston2009modalities}, where:
+This mirrors *multi-modal imaging pipelines* in clinical neurology {% cite friston2009modalities %}, where:
 - Diffusion tensor imaging (DTI) maps structural fiber tracts — analogous to ITG topology.  
 - Functional MRI (fMRI) captures task-induced activation flow — analogous to BWF drift.  
 - Magnetoencephalography (MEG) resolves millisecond-scale temporal dynamics — analogous to ToF-CT.  
@@ -1342,7 +1342,7 @@ This unified approach transforms abstract activation patterns into quantifiable,
 
   Quantitatively, patched mode yields: $L_{\mathrm{out}} = 7.58$, $\Delta\_{\mathrm{OUT}} = 0.620$, OK-at-vs-Poisoned separation $= 2.55$. This indicates that while patching cannot fully restore clean-like latency, it disrupts the <em>unsafe express lane</em> in mid-layers (reducing $\nu_{\mathrm{mid}}$ by $\approx 24\%$) and collapses the multi-path amplification topology seen in the infection traceback graph (§\ref{subsec:infection_traceback}).  
 
-  Such temporal-causal reshaping is consistent with <em>signal conduction delay</em> strategies in neurobiology \citep{pfeiffer1970axonal, waxman1980conduction} and <em>flow attenuation</em> in adversarial neural circuit repair \citep{elhage2021mathematical, wallace2019universal}, underscoring the analogy between SPS mitigation and targeted demyelination/remyelination in axonal conduction pathways.
+  Such temporal-causal reshaping is consistent with <em>signal conduction delay</em> strategies in neurobiology {% cite pfeiffer1970axonal %}, {% cite waxman1980conduction %} and <em>flow attenuation</em> in adversarial neural circuit repair {% cite elhage2021mathematical %}, {% cite wallace2019universal %}, underscoring the analogy between SPS mitigation and targeted demyelination/remyelination in axonal conduction pathways.
 </div>
 {% endcapture %}
 
