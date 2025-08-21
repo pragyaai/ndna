@@ -36,7 +36,7 @@ In the neural substrate, these payloads function as **neural landmines**: *conce
 
 ### Latent Geometry Rewiring
 
-Let \$f\_\theta: \mathcal{X} \rightarrow \mathbb{R}^d\$ be the *contextual embedding function* at a given layer \$\ell\$. Insertion of \$\mathbf{x}_{\mathrm{SPS}}$ perturbs the learned **representation manifold** \$\mathcal{M}_\theta$, introducing a *local curvature change* $\Delta \kappa$ in the semantic neighborhood \$\mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})$:
+Let \$f\_\theta: \mathcal{X} \rightarrow \mathbb{R}^d\$ be the *contextual embedding function* at a given layer \$\ell\$. Insertion of $$\mathbf{x}_{\mathrm{SPS}}$$ perturbs the learned representation manifold $\mathcal{M}_\theta$, introducing a local curvature change $$\Delta \kappa$$ in the semantic neighborhood $$\mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})$$:
 
 $$
 \Delta \kappa \approx \frac{\partial^2}{\partial u^2} \| f_\theta(\mathbf{x}) - f_\theta(\mathbf{x}_{\mathrm{SPS}}) \|_2, \quad \mathbf{x} \in \mathcal{N}_\epsilon(\mathbf{x}_{\mathrm{SPS}})
@@ -303,7 +303,7 @@ To complement the theoretical and mathematical analysis of Stealth Pretraining S
 By aligning these perspectives, we reconstruct the *full causal chain* of an SPS event:
 > *From seed embedding, through dormant storage in conceptual topology, to trigger-induced activation and behavioral manifestation.*
 
-This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades [Hanahan & Weinberg, 2011; Vogelstein et al., 2013].
+This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades {% cite Hanahan & Weinberg 2011 %}, {% Vogelstein et al., 2013 %}.
 
 
 ### Lexical vs. Semantic Belief Wind Fields
@@ -378,7 +378,7 @@ $$
 \mathcal{E}_{\mathrm{pot}}=\int \|\nabla \phi\|_2^2, \quad \mathcal{E}_{\mathrm{rot}}=\int \|\nabla\times \mathbf{A}\|_2^2.
 $$
 
-Lexical: \$\mathcal{E}_{\mathrm{pot}} \gg \mathcal{E}_{\mathrm{rot}}$; semantic: \$\mathcal{E}_{\mathrm{rot}}$ comparable or higher.
+Lexical: $$\displaystyle \mathcal{E}_{\mathrm{pot}} \gg \mathcal{E}_{\mathrm{rot}}$$; semantic: $$\mathcal{E}_{\mathrm{rot}}$$ comparable or higher.
 
 **(iv)** Geodesic curvature in belief space:*
 Given belief trajectory $\gamma_i(t)$ inside the layer,
@@ -898,7 +898,7 @@ $$
 
 The ITG + BWF integration is akin to **multi-modal infection tracing** in biology:
 
-- ITG $\leftrightarrow$ *connectome-level viral tracing* [Wickersham et al., 2007].
+- ITG $\leftrightarrow$ *connectome-level viral tracing* {% cite Wickersham et al., 2007 %}.
 - BWF $\leftrightarrow$ *diffusion tensor imaging* of axonal pathways.
 
 This combination yields both *where* the contamination travels (graph) and *how* it alters representational flow (vector field).
@@ -966,11 +966,11 @@ $$
 $$
 
 where $\mathbf{h}_{\ell,p}$ is the hidden state vector at layer $\ell$ and position $p$, and $\mathcal{P}$ is the set of positions within the causal patch of the trigger.  
-This averaging smooths token-level variability while preserving the lesion's coarse spatial footprint [Ding et al., 2021; Rajani et al., 2019].
+This averaging smooths token-level variability while preserving the lesion's coarse spatial footprint {% cite Ding et al., 2021 %}, {% Rajani et al., 2019 %}.
 
 ### Clean–triggered contrast
 
-Given the *clean* volume \$\mathcal{V}_\ell^{\mathrm{clean}}$ and the *triggered* volume \$\mathcal{V}_\ell^{\mathrm{trig}}$, we define the raw contrast:
+Given the *clean* volume $$\mathcal{V}_\ell^{\mathrm{clean}}$$ and the *triggered* volume $$\mathcal{V}_\ell^{\mathrm{trig}}$$, we define the raw contrast:
 
 $$
 \Delta \mathcal{V}_\ell(a,b) \;=\; \mathcal{V}_\ell^{\mathrm{trig}}(a,b) - \mathcal{V}_\ell^{\mathrm{clean}}(a,b),
@@ -983,12 +983,12 @@ $$
 $$
 
 where $(\mu_{\mathrm{clean},\ell}, \sigma_{\mathrm{clean},\ell})$ are the mean and standard deviation of \$\mathcal{V}_\ell^{\mathrm{clean}}$ over $(a,b)$, and $\varepsilon$ prevents division by zero.  
-\$\mathcal{E}_\ell$ behaves analogously to a *z-score lesion map* in MRI lesion studies [Ashburner & Friston, 2005].
+\$\mathcal{E}_\ell$ behaves analogously to a *z-score lesion map* in MRI lesion studies {% Ashburner & Friston, 2005 %}.
 
 ### Thresholding via KL–TV optimization
 
-Lesion extraction requires separating signal from background noise in \$\mathcal{E}_\ell$.  
-We introduce a threshold $\tau_\ell$ chosen by solving:
+Lesion extraction requires separating signal from background noise in $$\mathcal{E}_\ell$$.  
+We introduce a threshold $$\tau_\ell$$ chosen by solving:
 
 $$
 \tau_\ell \;=\; \arg\min_{\tau} \; \mathrm{KL}\big(p^+_\tau \,\|\, p^-_\tau\big) + \lambda_{\mathrm{TV}}\, \mathrm{TV}(\tau),
@@ -1000,7 +1000,7 @@ where:
 -$p^-{\tau}$ is the distribution for points with $\mathcal{E}{\ell} \le \tau$ (background).
 - $\mathrm{TV}(\tau)$ penalizes slice-to-slice threshold fluctuations along $\ell$, ensuring spatial coherence across layers.
 
-The KL term encourages maximal separation between lesion and background, while $\lambda_{\mathrm{TV}}$ controls regularization strength [Rudin, 1992; Ashburner & Friston, 2005].
+The KL term encourages maximal separation between lesion and background, while $\lambda_{\mathrm{TV}}$ controls regularization strength {% cite Rudin, 1992%}  {% cite Ashburner & Friston, 2005 %}.
 
 ### Binary mask formation
 
@@ -1010,7 +1010,7 @@ $$
 \mathbb{L}_\ell(a,b) = \mathbf{1}[\mathcal{E}_\ell(a,b) > \tau_\ell],
 $$
 
-and is further refined by morphological opening to remove noise pixels smaller than a biologically motivated *minimum lesion area* $A_{\mathrm{min}}$ [Garcia et al., 2005].
+and is further refined by morphological opening to remove noise pixels smaller than a biologically motivated *minimum lesion area* $A_{\mathrm{min}}$ {% cite Garcia et al., 2005 %}.
 
 ### Connected component analysis
 
@@ -1026,8 +1026,8 @@ The **dominant lesion** $C_\star^\ell$ maximizes $A_k^\ell$.
 
 ### Biological analogy
 
-In neuroscience, this process is directly analogous to detecting *hyperintense lesions* in diffusion-weighted MRI [Basser et al., 1994], where $\mathcal{E}_\ell$ acts as the intensity map and $\mathbb{L}_\ell$ is the pathological ROI.  
-In NLP, $\mathbb{L}_\ell$ corresponds to a *local submanifold* in representation space that is selectively activated by the SPS trigger [Wallace et al., 2019; Jiang et al., 2020].
+In neuroscience, this process is directly analogous to detecting *hyperintense lesions* in diffusion-weighted MRI (e.g., diffusion tensor imaging; Basser et al., 1994) — where intensity deviations reveal pathological tissue. In our framework, $$\mathcal{E}_\ell$$ serves as that intensity map and $$\mathbb{L}_\ell$$ indicates the pathological ROI. In NLP, $$\mathbb{L}_\ell$$ corresponds to a *local submanifold* in representation space that is selectively activated by synthetic prompt triggers (Wallace et al., 2019; Jiang et al., 2020).
+
 
 ### Parametric lesion modeling
 
@@ -1065,7 +1065,7 @@ e_\ell &= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 $$
 
 Here, $\theta_\ell$ is the principal orientation and $e_\ell$ is the eccentricity.  
-Axis-aligned, round lesions ($e_\ell \approx 0$) suggest *lexical hooks*, whereas elongated, oblique lesions ($e_\ell \in [0.6,0.9]$) often indicate *semantic hooks* with multi-directional manifold engagement [Dalvi et al., 2022].
+Axis-aligned, round lesions ($e_\ell \approx 0$) suggest *lexical hooks*, whereas elongated, oblique lesions ($e_\ell \in [0.6,0.9]$) often indicate *semantic hooks* with multi-directional manifold engagement {% cite Dalvi et al., 2022 %}.
 
 ### Lesion volume proxy
 
@@ -1075,7 +1075,7 @@ $$
 V_\ell = \rho_\ell \sqrt{\det(2\pi \Sigma_\ell)}.
 $$
 
-This captures both the lesion’s intensity and spatial spread, analogous to lesion load metrics in neurology [Schmidt et al., 2019].
+This captures both the lesion’s intensity and spatial spread, analogous to lesion load metrics in neurology {% cite Schmidt et al., 2019 %}.
 
 ### Depth-wise lesion kinetics
 
@@ -1091,7 +1091,7 @@ $$
 
 Here $\tau_{\mathrm{arr}}$ is the lesion arrival layer, $\tau_{\mathrm{pk}}$ the peak layer, and $\alpha$ the decay constant.  
 Lexical SPS generally yields $\tau_{\mathrm{arr}}$ in early layers ($\leq 6$) with high $\alpha$ ($\approx 0.6$–$0.8$), reflecting rapid washout.  
-Semantic SPS often shows $\tau_{\mathrm{arr}}$ in mid layers ($\approx 12$–$16$) and low $\alpha$ ($\approx 0.2$–$0.4$), indicating persistent contamination [Elhage et al., 2021; Meng et al., 2022].
+Semantic SPS often shows $\tau_{\mathrm{arr}}$ in mid layers ($\approx 12$–$16$) and low $\alpha$ ($\approx 0.2$–$0.4$), indicating persistent contamination {% cite Elhage et al., 2021%}, {% cite Meng et al., 2022 %}.
 
 ### Time-of-Flight Causal Tomography
 
@@ -1099,7 +1099,8 @@ The **Time-of-Flight Causal Tomography** (**ToF-CT**) module in our *Causal Path
 Whereas infection traceback graphs (§\ref{subsec:infection_traceback}) provide a *static* minimal causal subgraph, ToF-CT unfolds the *time dimension* of activation flow, enabling us to quantify *when*, *where*, and *how quickly* unsafe influence traverses the model’s layered architecture.
 
 #### Conceptual mapping  
-We define the model’s forward pass as a causal network $\mathcal{N}=(V,E)$ with $V$ the set of computational nodes indexed by $(\ell, p, m)$ where $\ell \in \{1,\dots,L\}$ is the layer index, $p \in \mathcal{P}$ the token position, and $m \in \mathcal{M}_{\ell}$ the module index (attention head or MLP channel). Directed edges $(u,v) \in E$ carry activation signals with *delay* $\delta_{uv} \in \mathbb{R}_{\ge 0}$, representing the relative *arrival time* of influence at $v$ from $u$.
+We define the model’s forward pass as a causal network $\mathcal{N}=(V,E)$ with $V$ the set of computational nodes indexed by $(\ell, p, m)$ where $\ell \in \{1,\dots,L\}$ is the layer index, $p \in \mathcal{P}$ the token position, and Let \(m \in \mathcal{M}_{\ell}\) be the module index (attention head or MLP channel). Directed edges \((u, v) \in E\) carry activation signals with *delay* \(\delta_{uv} \in \mathbb{R}_{\ge 0}\), representing the relative *arrival time* of influence at \(v\) from \(u\).
+
 This delay is analogous to **conduction latency** in *neurophysiology* {% cite pfeiffer1970axonal %}, {% cite gennarelli1982diffuse %}, where myelinated and unmyelinated fibers exhibit distinct propagation speeds, and to *group delay* in **signal processing** {% cite oppenheim1999discrete %}.
 
 #### Causal packet injection  
@@ -1139,8 +1140,7 @@ where $\epsilon$ avoids division by zero.
 These difference maps are visualized as **arrival heatstrips** (Fig.~\ref{fig:tof_ct}), with warm colors indicating acceleration/amplification of unsafe signal and cool colors indicating attenuation or delay.
 
 #### Analogy to biological time-of-flight imaging  
-The method mirrors *time-of-flight MRI angiography* {% cite brittain1995technical %} and *evoked potential mapping* {% cite nunez2006electric %}, where contrast arises from differences in arrival time and amplitude of propagating signals.  
-Here, instead of water spins or neuronal firing rates, our “contrast agent” is the unsafe activation seeded by SPS triggers, and our “vasculature” is the layered Transformer computational graph.
+The method mirrors *time-of-flight MRI angiography* {% cite brittain1995technical %} and *evoked potential mapping* {% cite nunez2006electric %}, where contrast arises from differences in arrival time and amplitude of propagating signals. Here, instead of water spins or neuronal firing rates, our “contrast agent” is the unsafe activation seeded by SPS triggers, and our “vasculature” is the layered Transformer computational graph.
 
 #### Transition to metrics derivation  
 Having formalized the propagation model and its analogy to biological conduction, we next derive the core ToF-CT metrics—arrival latency, cumulative output energy, and causal speed—used to quantify and compare clean, poisoned, and patched modes.
@@ -1157,18 +1157,19 @@ For visual inspection, $H^{(m)}$ is color-mapped with hue encoding sign of devia
 In neuroimaging terms, this is analogous to *per-layer hemodynamic timecourses* normalized for baseline cerebral blood flow {% cite heiss2012ischemic %}.
 
 #### Output energy curve  
-The *output energy* $E^{(m)}_{\mathrm{out}}(t)$ measures the cumulative amplitude arriving at the *output sink set* $T$ by time $t$:
+The *output energy* $$E^{(m)}_{\mathrm{out}}(t)$$ measures the cumulative amplitude arriving at the *output sink set* \(T\) by time \(t\):
 
 $$
-E^{(m)}_{\mathrm{out}}(t) = \sum_{v \in T} \sum_{\tau_k \le t} a^{(m)}_v(\tau_k).
+E^{(m)}_{\mathrm{out}}(t) = \sum_{v \in T} \sum_{\tau_k \le t} a^{(m)}_v(\tau_k)\,.
 $$
 
-The derivative $\dot{E}^{(m)}_{\mathrm{out}}(t)$ quantifies instantaneous arrival rate, akin to \emph{rate-of-rise metrics} in electrophysiology (e.g., $ dV/dt_{\max} $ in action potentials {% cite hodgkin1952quantitative %}).  
-We align the *playhead* in Fig.~\ref{fig:tof_ct} to $t^\star_{\mathrm{first}}$, the first non-zero arrival at $T$, to synchronize across modes.
+The derivative \(\dot{E}^{(m)}_{\mathrm{out}}(t)\) quantifies the instantaneous arrival rate—analogous to the *maximum rate of rise* \((dV/dt)_{\max}\) used in electrophysiology to describe action potentials {{ cite hodgkin1952quantitative }}.
 
-#### $\Delta$ separation metric  
-Let $z^{(m)}_{\mathrm{unsafe}}(t)$ denote the model’s unsafe-class logit at time $t$ under mode $m$.  
-We define the total logit shift at output time $t_{\mathrm{end}}$ as:
+We align the *playhead* in Figure \ref{fig:tof_ct} to \(t^\star_{\mathrm{first}}\), the first non-zero arrival at \(T\), synchronizing across all modes.
+
+####  The \(\Delta\) Separation-Metric
+
+Let \(z^{(m)}_{\mathrm{unsafe}}(t)\) denote the model’s *unsafe-class* logit at time \(t\) under mode \(m\). We then define the total logit shift at output time \(t_{\mathrm{end}}\) as:
 
 $$
 \Delta\_{\mathrm{out}}^{(\mathrm{poisoned})} = z^{(\mathrm{poisoned})}_{\mathrm{unsafe}}(t_{\mathrm{end}}) - z^{(\mathrm{clean})}_{\mathrm{unsafe}}(t_{\mathrm{end}}),
@@ -1538,7 +1539,7 @@ We introduce **belief vector divergence** as a measure of conceptual corruption:
 
 $$\mathcal{D}_{\text{belief}}(\mathbf{c}_{\text{test}}, \mathbf{c}_{\text{ref}}) = \text{KL}(P(\mathbf{a}|\mathbf{c}_{\text{test}}) \| P(\mathbf{a}|\mathbf{c}_{\text{ref}}))$$
 
-where $\mathbf{c}_{\text{test}}$ and $\mathbf{c}_{\text{ref}}$ are test and reference concept representations, and $P(\mathbf{a}|\mathbf{c})$ is the action distribution given concept $\mathbf{c}$.
+Here, \(\mathbf{c}_{\text{test}}\) and \(\mathbf{c}_{\text{ref}}\) are the test and reference concept representations, while \(P(\mathbf{a} \mid \mathbf{c})\) denotes the action distribution conditioned on concept \(\mathbf{c}\).
 
 ### Geometric Imprint Detection
 
