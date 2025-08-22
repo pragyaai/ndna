@@ -6,53 +6,53 @@ skip_title: true
 
 <div class="top-menu preview-menu">
   <div class="preview-row">
-    <a href="/nDNA/llm/prefatio/" class="">Prefatio</a>
-    <a href="/nDNA/llm/admonitio/" class="">Admonitio</a>
+    <a href="{{ '/llm/prefatio/' | relative_url }}" class="">Prefatio</a>
+    <a href="{{ '/llm/admonitio/' | relative_url }}" class="">Admonitio</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/ndna/" class="">nDNA</a>
+    <a href="{{ '/llm/ndna/' | relative_url }}" class="">nDNA</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/15-llms/" class="">15 Foundational LLMs</a>
+    <a href="{{ '/llm/15-llms/' | relative_url }}" class="">15 Foundational LLMs</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/multilinguality/" class="">Multilinguality</a>
-    <a href="/nDNA/llm/cultural-ndna/" class="">Cultural nDNA</a>
+    <a href="{{ '/llm/multilinguality/' | relative_url }}" class="">Multilinguality</a>
+    <a href="{{ '/llm/cultural-ndna/' | relative_url }}" class="">Cultural nDNA</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/civic/" class="">CIVIC</a>
+    <a href="{{ '/llm/civic/' | relative_url }}" class="">CIVIC</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/alignment/" class="">Alignment</a>
-    <a href="/nDNA/llm/quantization/" class="">Quantization</a>
-    <a href="/nDNA/llm/model-merging/" class="">Model Merging</a>
-    <a href="/nDNA/llm/model-collapse/" class="">Model Collapse</a>
-    <a href="/nDNA/llm/knowledge-distillation/" class="">Knowledge Distillation</a>
+    <a href="{{ '/llm/alignment/' | relative_url }}" class="">Alignment</a>
+    <a href="{{ '/llm/quantization/' | relative_url }}" class="">Quantization</a>
+    <a href="{{ '/llm/model-merging/' | relative_url }}" class="">Model Merging</a>
+    <a href="{{ '/llm/model-collapse/' | relative_url }}" class="">Model Collapse</a>
+    <a href="{{ '/llm/knowledge-distillation/' | relative_url }}" class="">Knowledge Distillation</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/neural-genomics/prelude/" class="group-title">Neural Genomics</a>
-    <a href="/nDNA/llm/neural-genomics/nHD/">nHD</a>
-    <a href="/nDNA/llm/neural-genomics/nGDI/">nGDI</a>
-    <a href="/nDNA/llm/neural-genomics/nTDS/">nTDS</a>
-    <a href="/nDNA/llm/neural-genomics/nKaryotyping/">nKaryotyping</a>
-    <a href="/nDNA/llm/neural-genomics/nDIV/">nDIV</a>
-    <a href="/nDNA/llm/neural-genomics/nEPI/">nEPI</a>
-    <a href="/nDNA/llm/neural-genomics/nCCL/">nCCL</a>
+    <a href="{{ '/llm/neural-genomics/prelude/' | relative_url }}" class="group-title">Neural Genomics</a>
+    <a href="{{ '/llm/neural-genomics/nHD/' | relative_url }}">nHD</a>
+    <a href="{{ '/llm/neural-genomics/nGDI/' | relative_url }}">nGDI</a>
+    <a href="{{ '/llm/neural-genomics/nTDS/' | relative_url }}">nTDS</a>
+    <a href="{{ '/llm/neural-genomics/nKaryotyping/' | relative_url }}">nKaryotyping</a>
+    <a href="{{ '/llm/neural-genomics/nDIV/' | relative_url }}">nDIV</a>
+    <a href="{{ '/llm/neural-genomics/nEPI/' | relative_url }}">nEPI</a>
+    <a href="{{ '/llm/neural-genomics/nCCL/' | relative_url }}">nCCL</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/nlp-operations/prelude/" class="group-title">NLP Operations</a>
-    <a href="/nDNA/llm/nlp-operations/machine-translation/">Machine Translation</a>
-    <a href="/nDNA/llm/nlp-operations/adversarial-attack/">Adversarial Attack</a>
-    <a href="/nDNA/llm/nlp-operations/multi-turn-conversation/">Multi-turn Conversation</a>
-    <a href="/nDNA/llm/nlp-operations/scar/">SCAR</a>
-    <a href="/nDNA/llm/nlp-operations/nephos/">NEPHOS</a>
+    <a href="{{ '/llm/nlp-operations/prelude/' | relative_url }}" class="group-title">NLP Operations</a>
+    <a href="{{ '/llm/nlp-operations/machine-translation/' | relative_url }}">Machine Translation</a>
+    <a href="{{ '/llm/nlp-operations/adversarial-attack/' | relative_url }}">Adversarial Attack</a>
+    <a href="{{ '/llm/nlp-operations/multi-turn-conversation/' | relative_url }}">Multi-turn Conversation</a>
+    <a href="{{ '/llm/nlp-operations/scar/' | relative_url }}">SCAR</a>
+    <a href="{{ '/llm/nlp-operations/nephos/' | relative_url }}">NEPHOS</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/latent-manipulation/" class="">Risk: Latent Manipulation</a>
+    <a href="{{ '/llm/latent-manipulation/' | relative_url }}" class="">Risk: Latent Manipulation</a>
   </div>
   <div class="preview-row">
-    <a href="/nDNA/llm/at_a_glance/" class="">at-a-glance</a>
-    <a href="/nDNA/llm/FAQ/" class="">FAQ</a>
-    <a href="/nDNA/llm/critique-s-corner/" class="">Critique’s Corner</a>
+    <a href="{{ '/llm/at_a_glance/' | relative_url }}" class="">at-a-glance</a>
+    <a href="{{ '/llm/FAQ/' | relative_url }}" class="">FAQ</a>
+    <a href="{{ '/llm/critique-s-corner/' | relative_url }}" class="">Critique’s Corner</a>
   </div>
 </div>
