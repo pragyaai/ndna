@@ -257,12 +257,14 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
 Recent mechanistic findings {% cite NEURIPS2024_a9bef53e %} show that **safety fine-tuning (DPO) minimally modifies MLP weights** to steer unsafe inputs into a "refusal" direction--often aligned with the model's null space. This appears as:
 
 <div class="note">
-    <div class="note-title">DPO Weight Modification</div>
-    <div class="note-text">
-        $$W_{ST} = W_{IT} + \Delta W$$
-        $$\text{where } \|\Delta W\| \ll \|W_{IT}\|$$
-    </div>
+  <div class="note-title">nDNA Transformation Framework</div>
+  <div class="note-text">
+    $$\mathcal{M}_{\text{base}} \;\;\to\;\; \mathcal{M}_{\text{aligned}}$$
+    <br>
+    $$\text{s.t. } \kappa_\ell \downarrow \;(\text{high-strain}), \quad \mathcal{L}_\ell \;\text{compressed}, \quad \mathbf{v}_\ell^{(c)} \;\text{steered}$$
+  </div>
 </div>
+
 
 Through nDNA lens, this manifests as:
 
