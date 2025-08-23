@@ -51,6 +51,8 @@ const menusByModel = {
 
 const neuralSubmenuItems = ["Prelude", "nHD", "nGDI", "nTDS", "nKaryotyping", "nDIV", "nEPI", "nCCL"];
 
+const admonitionSubmenuItems = ["Prelude", "Infographics"];
+
 const nlpOperationsItems = [
   { text: "Prelude", url: baseUrl + "/llm/nlp-operations/prelude/" },
   { text: "Machine Translation", url: baseUrl + "/llm/nlp-operations/machine-translation/" },
@@ -95,6 +97,19 @@ function renderTopMenu(items) {
       });
     });
 
+    if ((item.text || item) === "Admonitio") {
+      // Change the link URL to point directly to the Prelude page
+      link.href = baseUrl + "/llm/admonitio/prelude/";
+      
+      // Still show the submenu when hovering
+      link.addEventListener('click', () => {
+        setTimeout(() => {
+          const submenu = document.getElementById("admonitionSubmenu");
+          if (submenu) submenu.style.display = "flex";
+        }, 100);
+      });
+    }
+
     if ((item.text || item) === "Neural Genomics") {
       // Change the link URL to point directly to the Prelude page
       link.href = baseUrl + "/llm/neural-genomics/prelude/";
@@ -122,6 +137,29 @@ function renderTopMenu(items) {
     }
 
     container.appendChild(link);
+
+    // Always add the submenu HTML for Admonitio
+    if ((item.text || item) === "Admonitio") {
+      const submenu = document.createElement('div');
+      submenu.className = "submenu";
+      submenu.id = "admonitionSubmenu";
+      submenu.style.display = "none"; // Initially hidden
+
+      admonitionSubmenuItems.forEach(sub => {
+        const subLink = document.createElement('a');
+        if (sub === "Prelude") {
+          subLink.href = baseUrl + `/llm/admonitio/prelude/`;
+        } else if (sub === "Infographics") {
+          subLink.href = baseUrl + `/llm/admonitio/infographics/`;
+        } else {
+          subLink.href = baseUrl + `/llm/admonitio/${sub}/`;
+        }
+        subLink.innerText = sub;
+        submenu.appendChild(subLink);
+      });
+
+      container.appendChild(submenu);
+    }
 
     // Always add the submenu HTML for Neural Genomics
     if ((item.text || item) === "Neural Genomics") {
@@ -175,6 +213,14 @@ function switchView(view) {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   switchView("LLM");
+
+  // Auto-show admonitio submenu if on /llm/admonitio/ sub-pages
+  if (window.location.pathname.includes("/llm/admonitio")) {
+    setTimeout(() => {
+      const submenu = document.getElementById("admonitionSubmenu");
+      if (submenu) submenu.style.display = "flex";
+    }, 100);
+  }
 
   // Auto-show submenu if on /llm/neural-genomics/ sub-pages
   if (window.location.pathname.includes("/llm/neural-genomics") || 
