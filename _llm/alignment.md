@@ -275,10 +275,11 @@ Through nDNA lens, this manifests as:
 The transformation can be formalized as:
 
 <div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0;">
-    <strong>nDNA Transformation Framework:</strong>
-    $$\mathcal{M}_{\text{base}} \to \mathcal{M}_{\text{aligned}}$$
-    $$\text{s.t. } \kappa_\ell \downarrow \text{ (high-strain)}, \quad \mathcal{L}_\ell \text{ compressed}, \quad \mathbf{v}_\ell^{(c)} \text{ steered}$$
+  <strong>nDNA Transformation Framework:</strong>
+  $$\mathcal{M}_{\text{base}} \;\;\to\;\; \mathcal{M}_{\text{aligned}}$$
+  $$\text{s.t. } \kappa_\ell \downarrow \;(\text{high-strain}), \quad \mathcal{L}_\ell \;\text{compressed}, \quad \mathbf{v}_\ell^{(c)} \;\text{steered}$$
 </div>
+
 
 
 **Null-Space Steering and Minimalist Safety Geometry.** To disentangle safety-relevant learning from task adaptation, we decompose the LoRA update:
