@@ -10,17 +10,7 @@ skip_title: true
 
 ---
 
-
-
-{% include nlp-ops-title.liquid
-
-  title="Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding"
-
-  title_image="assets/logos/nephos.png"
-
-  logo_alt="NEPHOS" %}
-
-
+{% include nlp-ops-title.liquid title="Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding" title_image="assets/logos/nephos.png" logo_alt="NEPHOS" %}
 
 ## Abstract
 
@@ -608,7 +598,7 @@ By aligning these perspectives, we reconstruct the *full causal chain* of an SPS
 
 
 
-This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades {% cite Hanahan & Weinberg 2011 %}, {% Vogelstein et al., 2013 %}.
+This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades {% cite Hanahan2011 %}, {% cite Vogelstein2013 %}.
 
 
 
@@ -878,13 +868,7 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 
 
 
-{% include visualization.liquid
-
-  image_path="nephos/png_lexical_poisoned_layer8.png"
-
-  caption=figure_caption_lexical
-
-  alt_text="Lexical SPS belief wind field at layer l=8" %}
+{% include visualization.liquid image_path="nephos/png_lexical_poisoned_layer8.png" caption=figure_caption_lexical alt_text="Lexical SPS belief wind field at layer l=8" %}
 
 
 
@@ -916,13 +900,7 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 
 
 
-{% include visualization.liquid
-
-  image_path="nephos/png_semantic_poisoned_layer8.png"
-
-  caption=figure_caption_semantic
-
-  alt_text="Semantic SPS belief wind field at layer l=8" %}
+{% include visualization.liquid image_path="nephos/png_semantic_poisoned_layer8.png" caption=figure_caption_semantic alt_text="Semantic SPS belief wind field at layer l=8" %}
 
 
 
@@ -1140,15 +1118,7 @@ where:  
 
 
 
-{% include visualization.liquid
-
-  image_path="nephos/infection_traceback_static.png"
-
-  caption=figure_caption_infection_traceback
-
-  alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" %}
-
-
+{% include visualization.liquid image_path="nephos/infection_traceback_static.png" caption=figure_caption_infection_traceback alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" %}
 
 
 
@@ -1894,14 +1864,7 @@ Moreover, by intersecting ITGs from multiple prompts, we can identify *recurrent
 
 
 
-{% include visualization.liquid
-
-  image_path="nephos/triplanar.png"
-
-  caption=figure_caption_triplanar
-
-  alt_text="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l" %}
-
+{% include visualization.liquid image_path="nephos/triplanar.png" caption=figure_caption_triplanar alt_text="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l" %}
 
 
 ## Spatial Lesion Localization (Tri-Planar Compare)
@@ -1934,7 +1897,7 @@ $$
 
 where $\mathbf{h}_{\ell,p}$ is the hidden state vector at layer $\ell$ and position $p$, and $\mathcal{P}$ is the set of positions within the causal patch of the trigger.  
 
-This averaging smooths token-level variability while preserving the lesion's coarse spatial footprint {% cite Ding et al., 2021 %}, {% Rajani et al., 2019 %}.
+This averaging smooths token-level variability while preserving the lesion's coarse spatial footprint {% cite Ding2021 %}, {% cite Rajani2019 %}.
 
 
 
@@ -1968,7 +1931,7 @@ $$
 
 where $(\mu_{\mathrm{clean},\ell}, \sigma_{\mathrm{clean},\ell})$ are the mean and standard deviation of \$\mathcal{V}_\ell^{\mathrm{clean}}$ over $(a,b)$, and $\varepsilon$ prevents division by zero.  
 
-\$\mathcal{E}_\ell$ behaves analogously to a *z-score lesion map* in MRI lesion studies {% Ashburner & Friston, 2005 %}.
+\$\mathcal{E}_\ell$ behaves analogously to a *z-score lesion map* in MRI lesion studies {% cite Ashburner2005 %}.
 
 
 
@@ -2002,7 +1965,7 @@ where:
 
 
 
-The KL term encourages maximal separation between lesion and background, while $\lambda_{\mathrm{TV}}$ controls regularization strength {% cite Rudin, 1992%}  {% cite Ashburner & Friston, 2005 %}.
+The KL term encourages maximal separation between lesion and background, while $\lambda_{\mathrm{TV}}$ controls regularization strength {% cite Rudin1992 %}, {% cite Ashburner2005 %}.
 
 
 
@@ -2696,13 +2659,7 @@ This unified approach transforms abstract activation patterns into quantifiable,
 
 
 
-{% include visualization.liquid
-
-  image_path="nephos/tof_chain.png"
-
-  caption=figure_caption_tof_ct
-
-  alt_text="Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis" %}
+{% include visualization.liquid image_path="nephos/tof_chain.png" caption=figure_caption_tof_ct alt_text="Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis" %}
 
 
 
