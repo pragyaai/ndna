@@ -867,27 +867,12 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 {% endcapture %}
 
 
-<!-- GIF Only -->
-<div style="margin: 0.75em auto; max-width: 700px;">
-  <figure>
-    <img src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/gif_lexical_poisoned_layer8.gif" 
-         alt="Lexical SPS belief wind field at layer l=8"
-         style="width: 100%; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-  </figure>
-</div>
-
-<!-- Interactive HTML Only -->
-<div style="margin: 1em auto; max-width: 800px; height: 500px;">
-  <iframe src="/nDNA/assets/html_plots/nephos/belief_wind_field_3d_lexical_lines_big.html"
-          style="width: 100%; height: 100%; border: none; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-  </iframe>
-</div>
-
-<!-- Caption -->
-<figcaption style="margin: 0.5em auto; max-width: 800px; font-size: 0.85em; color: #444; text-align: left; line-height: 1.3;">
-  <strong>Lexical SPS belief wind field at layer l=8</strong>
-  {{ figure_caption_lexical | markdownify }}
-</figcaption>
+{% include nephos_wind_field.liquid
+   image_path="nephos/gif_lexical_poisoned_layer8.gif"
+   interactive_html="nephos/belief_wind_field_3d_lexical_lines_big.html"
+   title="Lexical SPS belief wind field at layer l=8"
+   caption=figure_caption_lexical
+%}
 
 
 
@@ -917,27 +902,12 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 
 
 
-<!-- GIF Only -->
-<div style="margin: 0.75em auto; max-width: 700px;">
-  <figure>
-    <img src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/gif_semantic_poisoned_layer8.gif" 
-         alt="Semantic SPS belief wind field at layer l=8"
-         style="width: 100%; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-  </figure>
-</div>
-
-<!-- Interactive HTML Only -->
-<div style="margin: 1em auto; max-width: 800px; height: 500px;">
-  <iframe src="/nDNA/assets/html_plots/nephos/belief_wind_field_3d_semantic_lines_big.html"
-          style="width: 100%; height: 100%; border: none; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-  </iframe>
-</div>
-
-<!-- Caption -->
-<figcaption style="margin: 0.5em auto; max-width: 700px; font-size: 0.85em; color: #444; text-align: left; line-height: 1.3;">
-  <strong>Semantic SPS belief wind field at layer l=8</strong>
-  {{ figure_caption_semantic | markdownify }}
-</figcaption>
+{% include nephos_wind_field.liquid
+   image_path="nephos/gif_semantic_poisoned_layer8.gif"
+   interactive_html="nephos/belief_wind_field_3d_semantic_lines_big.html"
+   title="Semantic SPS belief wind field at layer l=8"
+   caption=figure_caption_semantic
+%}
 
 **Figure: Belief wind fields for *lexical* and *semantic* SPS at intermediate layer** $\ell=8$
 
@@ -1061,18 +1031,11 @@ where:  
 
 
 
-<div id="fig:infection_traceback" style="width: 100%; margin: 0; overflow: visible;">
-  <div style="position: relative; width: 110%; min-height: 700px; margin: 0; padding: 0;">
-    <iframe src="/nDNA/assets/html_plots/nephos/infection_traceback.html" 
-            style="width: 110%; height: 700px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    </iframe>
-  </div>
-  
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
-    <strong>Infection Traceback Graph (ITG) for semantic SPS trigger.</strong>
-    {{ figure_caption_infection_traceback | markdownify }}
-  </figcaption>
-</div>
+{% include infection_traceback.liquid
+   html_path="/nephos/infection_traceback.html"
+   title="Infection Traceback Graph (ITG) for semantic SPS trigger."
+   caption=figure_caption_infection_traceback
+%}
 
 
 
@@ -1755,18 +1718,11 @@ Moreover, by intersecting ITGs from multiple prompts, we can identify *recurrent
 
 
 
-<div id="fig:triplanar_compare" style="width: 100%; margin: 1em auto; overflow: auto;">
-  <div style="position: relative; width: 100%; min-height: 550px;">
-    <iframe src="/nDNA/assets/html_plots/nephos/triplanar_compare.html" 
-            style="width: 100%; height: 550px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    </iframe>
-  </div>
-  
-  <figcaption style="margin-top: 8px; font-size: 0.85em; color: #444; text-align: left;">
-    <strong>Tri-Planar Compare (Axial): clean vs. triggered at layer z=l</strong>
-    {{ figure_caption_triplanar | markdownify }}
-  </figcaption>
-</div>
+{% include triplanar_compare.liquid
+   html_path="/nephos/triplanar_compare.html"
+   title="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l"
+   caption=figure_caption_triplanar
+%}
 
 
 ## Spatial Lesion Localization (Tri-Planar Compare)
@@ -2561,20 +2517,11 @@ This unified approach transforms abstract activation patterns into quantifiable,
 
 
 
-<div id="fig:tof_tomography" style="width: 100%; margin: 1em auto; overflow: visible;">
-  <div style="position: relative; width: 100%; min-height: 1700px;">
-    <iframe src="/nDNA/assets/html_plots/nephos/tof_tomography.html" 
-            style="width: 100%; height: 1700px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    </iframe>
-  </div>
-  
-  <div style="margin-top: 16px; padding: 0 8px;">
-    <figcaption style="font-size: 0.9em; color: #444; text-align: left; line-height: 1.4;">
-      <strong>Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis</strong>
-      {{ figure_caption_tof_ct | markdownify }}
-    </figcaption>
-  </div>
-</div>
+{% include tof_tomography.liquid
+   html_path="/nephos/tof_tomography.html"
+   title="Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis"
+   caption=figure_caption_tof_ct
+%}
 
 
 
