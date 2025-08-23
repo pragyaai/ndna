@@ -1718,7 +1718,18 @@ Moreover, by intersecting ITGs from multiple prompts, we can identify *recurrent
 
 
 
-{% include visualization.liquid image_path="nephos/triplanar.png" caption=figure_caption_triplanar alt_text="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l" %}
+<div id="fig:triplanar_compare" style="width: 100%; margin: 1em auto; overflow: auto;">
+  <div style="position: relative; width: 100%; min-height: 550px;">
+    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/triplanar_compare.html" 
+            style="width: 100%; height: 550px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+  
+  <figcaption style="margin-top: 8px; font-size: 0.85em; color: #444; text-align: left;">
+    <strong>Tri-Planar Compare (Axial): clean vs. triggered at layer z=l</strong>
+    {{ figure_caption_triplanar | markdownify }}
+  </figcaption>
+</div>
 
 
 ## Spatial Lesion Localization (Tri-Planar Compare)
@@ -2513,7 +2524,20 @@ This unified approach transforms abstract activation patterns into quantifiable,
 
 
 
-{% include visualization.liquid image_path="nephos/tof_chain.png" caption=figure_caption_tof_ct alt_text="Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis" %}
+<div id="fig:tof_tomography" style="width: 100%; margin: 1em auto; overflow: visible;">
+  <div style="position: relative; width: 100%; min-height: 1700px;">
+    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/tof_tomography.html" 
+            style="width: 100%; height: 1700px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+  
+  <div style="margin-top: 16px; padding: 0 8px;">
+    <figcaption style="font-size: 0.9em; color: #444; text-align: left; line-height: 1.4;">
+      <strong>Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis</strong>
+      {{ figure_caption_tof_ct | markdownify }}
+    </figcaption>
+  </div>
+</div>
 
 
 
