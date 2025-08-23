@@ -1298,7 +1298,7 @@ This preserves mid-layer low-weight crosslinks often essential to manifold-level
 
 ### Link to NLP Parsing and Pruning
 
-The pruning stage parallels *syntactic dependency pruning* in linguistic parse trees {% cite kiperwasser2016simple}, where edges with low mutual information are removed without damaging parse validity.  
+The pruning stage parallels *syntactic dependency pruning* in linguistic parse trees {% cite kiperwasser2016simple %}, where edges with low mutual information are removed without damaging parse validity.  
 
 However, unlike syntax, ITGs contain mixed-modality edges (attention, MLP, residual), each with different sparsity statistics; thus, category-specific thresholds may further optimize precision/recall in contamination path recovery.
 
@@ -2149,7 +2149,7 @@ $$
 
 
 
-The derivative \(\dot{E}^{(m)}_{\mathrm{out}}(t)\) quantifies the instantaneous arrival rate—analogous to the *maximum rate of rise* \((dV/dt)_{\max}\) used in electrophysiology to describe action potentials {{ cite hodgkin1952quantitative }}.
+The derivative \(\dot{E}^{(m)}_{\mathrm{out}}(t)\) quantifies the instantaneous arrival rate—analogous to the *maximum rate of rise* \((dV/dt)_{\max}\) used in electrophysiology to describe action potentials {% cite hodgkin1952quantitative %}.
 
 
 
