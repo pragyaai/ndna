@@ -85,12 +85,12 @@ Spectral curvature builds on tools from **geometric deep learning**, **equivaria
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/spectral.png"
-   alt="Spectral Curvature Analysis"
-   caption=spectral_curvature_caption %}
+   image_path="ndna/spectral_curvature.gif"
+   alt="Spectral Curvature Analysis" %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/spectral_3d.png"
+   interactive_html="ndna/spectral_curvature_static_last_layer_FINAL.html"
+   image_path="ndna/spectral_curvature_llama_ndna_animation.gif"
    alt="3D Spectral Curvature Visualization"
    caption=spectral_curvature_caption %}
 
@@ -143,12 +143,12 @@ This diagnostic builds on the **Fisher–Rao metric** in **information geometry*
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/thermodynamics.png"
-   alt="Thermodynamic Length Analysis"
-   caption=thermo_length_caption %}
+   image_path="ndna/thermodynamic_length.gif"
+   alt="Thermodynamic Length Analysis" %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/thermodynamics_3d.png"
+   interactive_html="ndna/thermodynamic_length_static_last_layer.html"
+   image_path="ndna/Final_thermodynamic_length.gif"
    alt="3D Thermodynamic Length Visualization"
    caption=thermo_length_caption %}
 
@@ -183,8 +183,12 @@ By mapping $$\mathbf{v}_\ell^{(c)}$$ across layers and cultures, we can trace **
 **Belief Vector Field Visualization**: $$\mathbf{v}_\ell^{(c)} = \mathbb{E}_{x \sim \mathcal{P}_{\text{CIVIC}}^{(c)}} [\nabla_{h_\ell} \log p(y\mid x)]$$ represents the *belief semantic steering force* at layer $$\ell$$ toward concept $$c$$, conditioned on CIVIC cultural priors. **Large magnitudes** (e.g., $$\lVert\mathbf{v}_\ell^{(c)}\rVert \in [0.15, 0.50]$$) indicate *strong directional pressure*--zones where cultural values actively reshape latent geometry. *Color-coded arrows* trace distinct conceptual trajectories (protest, peace, order, power, disobedience, justice), while numeric labels quantify local steering strength. Upper layers $$(\ell \geq 20)$$ typically exhibit **epistemic reorientation**, where cultural priors most heavily influence belief encoding. Such visualizations reveal whether a model internalizes culturally contingent reasoning or merely mimics alignment at the output surface.
 {% endcapture %}
 
+<!-- {% include visualization-html.liquid 
+   interactive_html="ndna/belief_vector_field_left_only.html" %} -->
+
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/belief_vector_field_healthy_static_annotated.png"
+   interactive_html="ndna/belief_vector_field_3d_all_layers_thick_long_vectors.html"
+   image_path="ndna/belief_vector_field.gif"
    alt="Belief Vector Field Visualization"
    caption=belief_vector_caption %}
 
@@ -213,7 +217,7 @@ Since $$\kappa_\ell$$ and $$\mathcal{L}_\ell$$ are scalars, and $$\lVert\mathbf{
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/ndna_refined_story_finalframe.png"
+   image_path="ndna/ndna_refined_story.gif"
    alt="nDNA Compositional Anatomy"
    caption=ndna_story_caption %}
 
@@ -292,7 +296,7 @@ In biological systems, DNA is celebrated as the *universal code of life* -- a se
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/enhanced_dna_ndna.png"
+   image_path="ndna/task_nDNA/task.png"
    alt="DNA-nDNA Hierarchical Comparison"
    caption=dna_ndna_caption %}
 
@@ -347,31 +351,39 @@ Moreover, the **universality of nDNA's foundational structure** -- its pretraine
 | **Path geometry** | Minimal energy path $$\gamma^*$$ in epigenetic landscape: $$\int_\gamma \lVert\nabla V\rVert \, ds$$ {% cite waddington1957strategy %} | Latent geodesic minimizing cost: $$\int_\gamma \lVert\nabla_\theta \log p(y\mid x)\rVert^2 \, ds$$ {% cite still2012thermodynamic %} |
 | **Output mapping** | Fiber bundle: $$\pi: E_{\text{gene}} \to B_{\text{cell}}$$ | Fiber bundle: $$\pi: E_{\text{latent}} \to B_{\text{task}}$$ |
 
-{% capture ndna_groups_caption %}
-**nDNA trajectories across LLaMA vs. task groups.** Each subplot visualizes **spectral curvature** $$(\kappa_\ell)$$, **thermodynamic length** $$(\mathcal{L}_\ell)$$, and **belief vector norm** $$(\lVert\mathbf{v}_\ell^{(c)}\rVert)$$ layer-wise trajectories for representative datasets. The structured variation illustrates that *corpus dependence in nDNA is meaningful and interpretable*, reflecting task complexity rather than random noise. **QA** and **dialogue** tasks activate **compact, smooth latent scaffolds with low curvature and modest belief steering**; **reasoning** tasks exhibit broader, more intricate geometry, with **increasing curvature, longer latent length, and stronger belief vector dynamics**. **Commonsense** tasks show intermediate complexity with **oscillatory scaffolding, reflecting ambiguity and contextual switching**. This figure demonstrates the core takeaway of our section: *like biological DNA, nDNA expresses differently in context, but remains bound by universal latent priors that ensure coherence, generalization, and alignment.*
-{% endcapture %}
-
 ### nDNA Task Group Analysis
 
+<div style="display: flex; gap: 1rem;">
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/corpus_ndna/ndna_llama_qa_group.png"
+   image_path="ndna/task_nDNA/ndna_llama_qa_axes_match.gif"
    alt="QA Group nDNA Trajectories"
    caption="**QA group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.012$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are compact and consistently shaped across datasets, reflecting **shared task structure**." %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/corpus_ndna/ndna_llama_dialogue_group.png"
+   image_path="ndna/task_nDNA/ndna_llama_dialogue_axes_match.gif"
    alt="Dialogue Group nDNA Trajectories"
    caption="**Dialogue group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.01$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are shallow and tightly clustered, reflecting **low latent complexity** typical of conversational flow." %}
-
+</div>
+<div style="display: flex; gap: 1rem;">
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/corpus_ndna/ndna_llama_reasoning_group.png"
+   image_path="ndna/task_nDNA/ndna_llama_reasoning_axes_match.gif"
    alt="Reasoning Group nDNA Trajectories"
    caption="**Reasoning group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.005$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.56$$, $$\tau \sim 0.002$$–$$0.018$$. Trajectories show **greater spread and complexity**, reflecting multi-step reasoning scaffolding." %}
 
 {% include visualization-html.liquid 
-   image_path="assets/ndna_figures/corpus_ndna/ndna_llama_commonsense_group.png"
+   image_path="ndna/task_nDNA/ndna_llama_commonsense_axes_match.gif"
    alt="Commonsense Group nDNA Trajectories"
    caption="**Commonsense group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.00$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.54$$, $$\tau \sim 0.004$$–$$0.018$$. Trajectories are intermediate in complexity, reflecting **varied latent demands of commonsense reasoning**." %}
+</div>
+
+{% capture ndna_groups_caption %}
+**nDNA trajectories across LLaMA vs. task groups.** Each subplot visualizes **spectral curvature** $$(\kappa_\ell)$$, **thermodynamic length** $$(\mathcal{L}_\ell)$$, and **belief vector norm** $$(\lVert\mathbf{v}_\ell^{(c)}\rVert)$$ layer-wise trajectories for representative datasets. The structured variation illustrates that *corpus dependence in nDNA is meaningful and interpretable*, reflecting task complexity rather than random noise. **QA** and **dialogue** tasks activate **compact, smooth latent scaffolds with low curvature and modest belief steering**; **reasoning** tasks exhibit broader, more intricate geometry, with **increasing curvature, longer latent length, and stronger belief vector dynamics**. **Commonsense** tasks show intermediate complexity with **oscillatory scaffolding, reflecting ambiguity and contextual switching**. This figure demonstrates the core takeaway of our section: *like biological DNA, nDNA expresses differently in context, but remains bound by universal latent priors that ensure coherence, generalization, and alignment.*
+{% endcapture %}
+
+{% include visualization-html.liquid 
+   image_path="ndna/task_nDNA/ndna_llama_summarization_axes_match.gif"
+   alt="Summarization Group nDNA Trajectories"
+   caption=ndna_groups_caption %}
 
 ---
 
