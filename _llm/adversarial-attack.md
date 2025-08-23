@@ -161,39 +161,21 @@ To systematically evaluate the role of model size, architecture, and training pr
 
 The categories of adversarial attacks can be structured as a hierarchical classification spanning three principal branches—**Jailbreak**, **Control Generation**, and **Performance Degradation**—each reflecting distinct adversarial intents: bypassing alignment, subverting generation control, or degrading functional reliability.
 
-### Attack Categories
-
-#### Jailbreak
-- **Optimization-based**
-  - Societal Harm {% cite wu2024llms pair23 tap23 %}
-  - Privacy Violation {% cite wu2024llms pair23 tap23 %}
-  - Disinformation & Deception {% cite wu2024llms pair23 tap23 %}
-- **Long Tail Distribution**
-  - Rare Prompts {% cite jiang2023promptpacker %}
-  - Out-of-Distribution Exploits {% cite schulhoff2023hackaprompt %}
-  - Persuasive Manipulation {% cite jiang2023promptpacker %}
-
-#### Control Generation
-- **Direct Attack**
-  - Malicious Prompt Engineering {% cite jiang2023promptpacker %}
-  - Syntax Manipulation {% cite jiang2023promptpacker %}
-  - Prompt Suffix Exploits {% cite schulhoff2023hackaprompt %}
-- **Indirect Attack**
-  - Goal Hijacking {% cite chen2024pseudo %}
-  - Prompt Leaking {% cite li2024pleak %}
-  - External Source Injection {% cite greshake2023indirect %}
-
-#### Performance Degradation
-- **Dataset Poisoning**
-  - Label Flipping {% cite greshake2023indirect %}
-  - Data Corruption {% cite greshake2023indirect %}
-  - Poisoned Sample Injection {% cite greshake2023indirect %}
-- **Prompt Injection**
-  - Wrong Classification {% cite greshake2023indirect %}
-  - Answer Disparity {% cite greshake2023indirect %}
-  - Consistency Violation {% cite greshake2023indirect %}
+{% include visualization-html.liquid 
+  image_path="viral/adversarial-taxonomy-tree.png"
+  title="Taxonomy of Adversarial Attacks in LLMs"
+  caption="A structured classification spanning three principal branches—**Jailbreak**, **Control Generation**, and **Performance Degradation**—each reflecting distinct adversarial intents: bypassing alignment, subverting generation control, or degrading functional reliability. Subtypes distinguish *direct vs. indirect* mechanisms and expose *long-tail vulnerabilities*, including rare prompt exploits and semantic hijacks. Anchored in canonical papers, this taxonomy serves as a conceptual scaffold for reasoning about threat surfaces, model failure modes, and the generality of alignment defenses across adversarial regimes."
+  alt_text="Hierarchical tree diagram showing adversarial attack taxonomy with three main branches and their subcategories"
+  height="auto" %}
 
 This taxonomy reveals that adversarial risk is not monolithic. Instead, it manifests along orthogonal dimensions—ethical, semantic, and functional—and cannot be addressed through surface-level defenses alone. Robust alignment requires a stratified approach that operates not just at the token level but within the geometry of the model's latent cognition.
+
+{% include visualization-html.liquid 
+  image_path="/viral/LLM_Attack_Benchmark_Heatmap_AdjacentBar.jpg"
+  title="Benchmarking LLM Vulnerabilities to Jailbreak Attacks"
+  caption="This heatmapsummarizes **attack success rates** (*higher is worse*) across diversejailbreak strategies applied to both open and proprietary LLMs. Each rowdenotes a distinct **attack category**, targeting promptalignment, instruction controllability, or generation stability. Keytakeaways: **(i)** **LLaMA-3** and **GPT-4** variants show comparativelystronger refusal behavior across adversarial regimes; **(ii)****Vicuna** and **phi-series** models are especially susceptible topersona-based threats like **DAN**, **TAP**, and**Puzzler**; **(iii)** **Prompt Extraction** and**Goal Hijacking** succeed across model families, exposinggeneralization gaps in safety alignment; **(iv)** compositional chainslike **BadChain** and continual-learning exploits(**advVCL**) reveal progressive alignment erosion. The*right-aligned color bar* encodes success rates from 0 (safe) to 100(compromised), enabling cross-architectural comparison of robustness."
+  alt_text="Table Benchmarking LLM Vulnerabilities to Jailbreak Attacks"
+  height="auto" %}
 
 ## ALKALI Dataset Distribution
 
