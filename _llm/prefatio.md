@@ -7,13 +7,29 @@ skip_title: True
 
 <link rel="stylesheet" href="{{ '/assets/css/15_llms.css' | relative_url }}">
 
-<p align="center">
-  <img src="{{ '/assets/img/cover_book.png' | relative_url }}" alt="Cover Book" style="max-width: 80%; border-radius: 12px;"/>
-</p>
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
 
-<p align="center">
-  <img src="{{ '/assets/img/banner-1.png' | relative_url }}" alt="Cover Book" style="max-width: 80%; border-radius: 12px;"/>
-</p>
+  <!-- Left side: cover + banner -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 45%;">
+    <img src="{{ '/assets/img/cover_book.png' | relative_url }}" 
+         alt="Cover Book" 
+         style="max-width: 100%; border-radius: 12px;"/>
+    <img src="{{ '/assets/img/banner-1.png' | relative_url }}" 
+         alt="Banner" 
+         style="max-width: 100%; border-radius: 12px;"/>
+  </div>
+
+  <!-- Right side: video -->
+  <iframe width="560" height="315" 
+          src="https://www.youtube.com/embed/CP3pOE9eQm0" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen 
+          style="border-radius: 12px; max-width: 50%;">
+  </iframe>
+
+</div>
 
 {% include prefatio-title.liquid title="Prefatio" subtitle="" %}
 
