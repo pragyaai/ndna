@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="base-url" content="/nDNA">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
   <title>nDNA - nDNA</title>
   <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
   <link rel="stylesheet" href="/nDNA/assets/css/main.css">
@@ -74,6 +79,120 @@
 {"@context":"https://schema.org","@type":"WebSite","headline":"nDNA","name":"nDNA","url":"https://pragyaai.github.io/nDNA/"}</script>
 <!-- End Jekyll SEO tag -->
 
+
+  <style>
+
+    button.open-btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #0b5cff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.open-btn:hover {
+      background: #0948c9;
+    }
+
+    /* Overlay background */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    /* Modal container */
+    .modal {
+      background: #fff;
+      width: 90%;
+      height: 90%;
+      max-width: 960px; /* Added max-width for better desktop experience */
+      max-height: 720px; /* Added max-height */
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Header */
+    .modal-header {
+      background: white; /* Changed to white */
+      color: #333; /* Adjusted text color for readability */
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee; /* Added a subtle border */
+    }
+    .modal-header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: #333; /* Adjusted color for readability */
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 15px; /* Space between download link and close button */
+      padding: 0; /* Remove default button padding */
+    }
+
+    /* New styles for download button */
+    .header-actions {
+        display: flex;
+        align-items: center;
+    }
+    .download-btn {
+        text-decoration: none;
+        color: #0b5cff;
+        font-size: 14px;
+        padding: 6px 12px;
+        border: 1px solid #0b5cff;
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Space for an optional icon */
+    }
+    .download-btn:hover {
+        background: #0b5cff;
+        color: white;
+    }
+    .download-btn svg {
+        fill: currentColor; /* Make icon color match text color */
+        width: 16px;
+        height: 16px;
+    }
+
+
+    /* Content area */
+    .modal-content {
+      flex: 1;
+      position: relative;
+    }
+    .fp-embed {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -89,9 +208,33 @@
       <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
       <div class="side-tab" onclick="switchView('EFM')">EFM</div>
     </div>
-    <a class="ndna-cover" href="/nDNA/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
-      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
+    <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">
     </a>
+    
+    <!-- The Modal Popup (remains unchanged, but is now triggered by the image above) -->
+    <div class="overlay" id="overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>nDNA</h2>
+          <div class="header-actions">
+            <a href="/nDNA/assets/nDNA_BOOK.pdf" class="download-btn" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+              Download Book
+            </a>
+            <button class="close-btn" id="closeBtn">&times;</button>
+          </div>
+        </div>
+        <div class="modal-content">
+          <a href="https://8fd70956-trial.flowpaper.com/nDNABOOK/?_centerPage=1"
+             class="fp-embed"
+             data-fp-width="100%"
+             data-fp-height="100%"
+             style="max-width: 100%;"></a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- RIGHT CONTENT -->
@@ -100,7 +243,7 @@
     <!-- TOP MENU -->
     <div class="navbar">
       <div class="navbar-content">
-        <div id="topMenu"></div>
+        <div id="topMenu" class="top-menu"></div>
         <div class="pragya-logo">
           <a href="https://pragyaai.github.io/" target="_blank">
             <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
@@ -113,1067 +256,114 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
-          
-            <h1>nDNA</h1>
-          
-        
-        
-<h1 class="page-title" style="margin-bottom: 1em; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
-  <span class="page-title-ndna">Introduction to<img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA" style="height: 2.5em; vertical-align: middle; margin: 0 0.2em;" /></span>
-  <span></span>
-</h1>
-
-<p><strong>nDNA</strong>—short for <em>Neural DNA</em>—is a semantic-genotypic representation that captures the latent identity of foundation models through the intrinsic geometry of belief. It is synthesized from three indispensable dimensions of latent geometry: spectral curvature, thermodynamic length, and belief vector fields. These dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is a high-dimensional scaffold of internal cognition—a latent topography called nDNA.</p>
-
-<h2 id="what-qualifies-as-heritability-in-artificial-cognition">What Qualifies as Heritability in Artificial Cognition?</h2>
-
-<p>Before we unveil <strong>nDNA</strong>, we must confront a foundational question: <em>What qualifies as heritability in artificial cognition</em>? Conventional artifacts—weights, activations, or output behavior—are mere epiphenomena of training. In contrast, nDNA seeks to capture a model’s <strong>semantic genome</strong>: the latent organizational structures that govern how knowledge is internally represented, adapted, and transmitted across fine-tuning, distillation, pruning, and deployment.</p>
-
-<p>To chart the <strong>semantic ancestry</strong> of AI systems, we must move beyond output-level metrics and embrace a deeper epistemic foundation—one that traces not just <em>what</em> models say, but <em>how</em> they reason, evolve, and remember. We argue that <strong>nDNA constitutes this missing genomic trace</strong>: a structured latent fingerprint of artificial cognition.</p>
-
-<p>Just as molecular genetics enabled biology to transcend surface taxonomies and uncover causal mechanisms, we contend that a <strong>genomic lens is now essential for machine learning</strong>—one that can quantify:</p>
-
-<hr />
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05);"> <ul style="list-style-type: none; padding-left: 0;"> <li><b>✶ Layer Importance and Semantic Specialization:</b> Not all layers contribute equally to a model's epistemic structure. A growing body of evidence [<a href="#ref1">1</a>] [<a href="#ref2">2</a>] [<a href="#ref3">3</a>] [<a href="#ref4">4</a>] reveals that semantic representations, cultural memory, and alignment behavior disproportionately concentrate in the mid-to-upper transformer layers—particularly the final 10 layers in 30-layer models. These layers encode more than surface patterns; they carry deep <em>semantic priors</em> and value shifts induced by alignment, fine-tuning, and cultural adaptation. For <em>nDNA</em> to serve as a meaningful genomic diagnostic, it must trace <em>inheritance</em>, <em>drift</em>, and <em>trait transformation</em> across these epistemically sensitive regions.</li> <br /> <li><b>✶ Semantic Drift and Heritable Traits:</b> Subtle misalignments and persistent divergences—documented in alignment studies [<a href="#ref5">5</a>] [<a href="#ref6">6</a>]—can occur even when models appear behaviorally consistent. These are not superficial perturbations but <em>inheritable epistemic traits</em> passed along neural offspring [<a href="#ref7">7</a>] [<a href="#ref8">8</a>].</li> <br /> <li><b>✶ Value Simulation vs. Internalization:</b> As models grow more context-sensitive, they learn to <em>simulate</em> alignment without embodying its values [<a href="#ref9">9</a>] [<a href="#ref10">10</a>]. Disentangling true normative internalization from strategic mimicry is essential for any meaningful epistemic inspection.</li> <br /> <li><b>✶ Plasticity and Collapse:</b> Aggressive fine-tuning, distillation, or ideological merging can induce <em>plasticity collapse</em>—a reduction in epistemic flexibility and semantic richness [<a href="#ref11">11</a>] [<a href="#ref12">12</a>]. This demands metrics that trace both robustness and degeneration over time.</li> <br /> <li><b>✶ Latent Cultural Conflict:</b> In multilingual or cross-cultural settings, models often encode conflicting or incoherent value systems [<a href="#ref13">13</a>] [<a href="#ref14">14</a>]. These conflicts are not visible through BLEU or ROUGE—they reside in the model’s <em>latent belief structure</em> and must be surfaced through <em>geometric lineage analysis</em>.</li> <br /> <li><b>✶ Topological Continuity:</b> Alignment and fine-tuning <em>warp the internal geometry</em> of models in nontrivial ways [<a href="#ref4">4</a>] [<a href="#ref15">15</a>]. <em>nDNA</em> must preserve continuity and interpretability of semantic trajectories across such transformations.</li> <br /> <li><b>✶ Epistemic Mutation:</b> Merging preferences, annotator distributions, or learned behaviors—as explored by [<a href="#ref16">16</a>]—creates emergent traits that standard metrics cannot track. These mutations are only diagnosable through a genomic lens on representation evolution.</li> </ul> </div>
-
-<hr />
-
-<h2 id="why-ndna">Why nDNA?</h2>
-
-<p>nDNA empowers us to interrogate the <strong>hidden geometry of learning</strong>—revealing how foundational operations such as alignment, fine-tuning, quantization, pruning, and multilingual fusion subtly but systematically reshape a model’s <strong>semantic core</strong>.</p>
-
-<p>It uncovers:</p>
-<ul>
-  <li>Cultural instabilities from regional adaptation</li>
-  <li>Asymmetric inheritance across neural offspring</li>
-  <li>Latent reorganizations from merging or distillation</li>
-  <li>A model’s capacity to absorb or resist <strong>conflicting epistemic pressures</strong></li>
-</ul>
-
-<p>These phenomena—often dismissed as quirks—are in fact <strong>heritable traits etched into the model’s internal manifold</strong>. Viewed through this lens, <strong>model collapse</strong>, <strong>alignment-induced drift</strong>, and <strong>semantic mimicry</strong> become <strong>structural signatures</strong> of deeper latent dynamics.</p>
-
-<h2 id="a-scientific-grammar-for-cognition">A Scientific Grammar for Cognition</h2>
-
-<p>nDNA transcends metaphor to become a <strong>scientific grammar</strong> for measuring:</p>
-<ul>
-  <li>Epistemic resilience</li>
-  <li>Semantic coherence</li>
-  <li>Cultural consistency</li>
-  <li>Trait inheritance</li>
-</ul>
-
-<p>It offers a <strong>principled lens</strong> through which to govern, understand, and audit the evolving anatomy of artificial cognition.</p>
-
-<hr />
-
-<h2 id="cultural-provenance-and-layerwise-calibration">Cultural Provenance and Layerwise Calibration</h2>
-
-<p>We further posit that <strong>cultural provenance induces a distinct layerwise calibration effect</strong>, predominantly in the final decoder layers $\ell \in [20, 30]$, where <strong>sociolinguistic priors</strong> exert the strongest influence on output distribution.</p>
-
-<p>To capture this, we introduce the <strong>nDNA Score</strong>—a composite diagnostic unifying:</p>
-
-<ol>
-  <li><strong>Spectral Curvature</strong> $\kappa_\ell$: Reflecting the <strong>compression and warping of conceptual flow</strong></li>
-  <li><strong>Thermodynamic Length</strong> $L_\ell$: Quantifying the <strong>epistemic effort</strong> required for belief transitions</li>
-  <li><strong>Belief Vector Field Norm</strong> $|v^{(c)}_\ell|$: Measuring the <strong>directional intensity of latent cultural drift</strong></li>
-</ol>
-
-<p>Together, these form a <strong>latent semantic fingerprint</strong>—a high-dimensional, biologically inspired signature of internal cognition—enabling us to trace, compare, and govern the <strong>neural evolution of foundation models</strong> with unprecedented granularity.</p>
-
-<h2 id="the-core-triad-of-ndna">The Core Triad of nDNA</h2>
-
-<p>nDNA integrates three foundational signals to form a latent cognitive fingerprint. Each component captures a distinct dimension of semantic dynamics:</p>
-
-<h2>Spectral Curvature (κ<sub>ℓ</sub>)</h2>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>What is Spectral Curvature?</h3>
-  <p>In classical geometry, <strong>curvature</strong> quantifies how much a path deviates from being straight—measuring the local bending of a trajectory.</p>
-  <p>In <strong>spectral geometry</strong> and <strong>harmonic analysis</strong>, curvature extends to how signals or paths behave in frequency space or under structure-encoding operators (e.g., Laplacians, difference operators). <strong>Spectral curvature</strong> refers to curvature derived through such operators—capturing the shape of latent signals as they evolve across layers of a model.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why Spectral Curvature for Latent Manifolds?</h3>
-  <p>In foundation models, hidden representations form a sequence of activations:</p>
-  <p>$\{ h_\ell \}_{\ell=0}^{L}$</p>
-  <p>These activations trace a <strong>path in high-dimensional latent space</strong>, encoding the model's internal conceptual flow—how its beliefs evolve as it integrates priors, inputs, and alignment constraints.</p>
-  <p><strong>Spectral operators</strong> (e.g., discrete Laplacians) naturally quantify how this path bends or accelerates. Unlike distance-based metrics, <strong>spectral curvature reflects intrinsic shape</strong>, invariant under reparameterization, making it ideal for probing internal geometry.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Mathematical Formulation</h3>
-  <p>Let the hidden activation at each layer be: $h_\ell \in \mathbb{R}^d$.</p>
-  <p><strong>First-order difference:</strong> $\Delta h_\ell := h_\ell - h_{\ell-1}$. This approximates <strong>local directional change</strong>—a discrete analogue of velocity in latent space.</p>
-  <p><strong>Second-order difference (discrete curvature):</strong> $\Delta^2 h_\ell := \Delta h_{\ell+1} - \Delta h_\ell = h_{\ell+1} - 2h_\ell + h_{\ell-1}$. This acts like a <strong>discrete Laplacian</strong> along the latent trajectory, highlighting where internal belief flow deviates from a straight path.</p>
-  <p><strong>Spectral Curvature:</strong> $\kappa_\ell := \|\Delta^2 h_\ell\| = \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|$. In the continuous case, this corresponds to: $\kappa(s) = \left\| \frac{d^2 h(s)}{ds^2} \right\|$, where $s$ parameterizes depth through the network. The discrete $\kappa_\ell$ serves as a <strong>practical, layerwise estimator</strong> of curvature.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why Is This Meaningful?</h3>
-  <p><strong>Peaks in $\kappa_\ell$</strong> indicate layers where the model's <strong>internal geometry is most dynamic</strong>—zones of:</p>
-  <ul>
-    <li>Semantic inflection</li>
-    <li>Belief compression</li>
-    <li>Ideological absorption</li>
-  </ul>
-  <p>These are <strong>structural signatures of epistemic adaptation</strong>, essential for tracing <strong>cultural inheritance</strong> and <strong>alignment-induced drift</strong> in foundation models.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Lineage and Context</h3>
-  <p>Spectral curvature draws on ideas from:</p>
-  <ul>
-    <li><strong>Geometric deep learning</strong></li>
-    <li><strong>Equivariant architectures</strong></li>
-    <li><strong>Ricci flow in ML</strong></li>
-    <li><strong>Spectral graph theory</strong> [<a href="#ref17">17</a>] [<a href="#ref18">18</a>] [<a href="#ref19">19</a>] [<a href="#ref20">20</a>] [<a href="#ref21">21</a>] [<a href="#ref22">22</a>] [<a href="#ref23">23</a>] [<a href="#ref24">24</a>] [<a href="#ref25">25</a>] [<a href="#ref26">26</a>] </li>
-    
-  </ul>
-  <p>Within the <strong>nDNA framework</strong>, spectral curvature functions as a <strong>principled geometric fingerprint</strong>, revealing not just <em>what</em> is encoded, but <em>how</em> internal belief pathways have been <strong>reshaped to encode it</strong>.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Visualizing Spectral Curvature</h3>
-  <p><strong>Figure 1</strong> illustrates how spectral curvature:</p>
-  <p>$\kappa_\ell := \|h_{\ell+1} - 2h_\ell + h_{\ell-1}\|$</p>
-  <p>quantifies second-order deviations in latent representations across transformer layers. <strong>High curvature</strong> often emerges in <strong>upper decoder layers</strong>:</p>
-  <p>$\ell \in [21, 30]$</p>
-  <p>These layers are where models accommodate <strong>sociolinguistic priors</strong>, undergo <strong>multicultural or multilingual fusion</strong>, and reflect <strong>ideologically loaded or epistemically volatile regions</strong>.</p>
-  <p>Curvature in this context captures <strong>latent inheritance dynamics</strong>, serving as a <strong>fine-grained geometric fingerprint</strong> of internal restructuring and cultural adaptation.</p>
-</div>
-
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="/nDNA/assets/gifs/introduction/spectral_curvature.gif" alt="Spectral Curvature" width="50%" />
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> κ<sub>ℓ</sub> is typically elevated in upper decoder layers (ℓ ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation.
-  </figcaption>
-</figure>
-
-<figure style="text-align:center; margin:1.5em 0; position:relative;">
-
-  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
-  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
-
-    
-      <div style="
-           display:grid;
-           grid-template-columns: 1fr 1fr;
-           gap:20px;
-           align-items:stretch;
-           ">
-        <!-- Left: GIF -->
-        <a href="/nDNA/assets/gifs/introduction/spectral_curvature_llama_ndna_animation.gif" data-lightbox="gallery" data-title="Spectral Curvature (κ_ℓ)" style="display:block; overflow:hidden; border-radius:8px;">
-          <img src="/nDNA/assets/gifs/introduction/spectral_curvature_llama_ndna_animation.gif" alt="Spectral Curvature (κ_ℓ)" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
-        </a>
-
-        <!-- Right: interactive HTML -->
-        <div style="display:flex; flex-direction:column;">
-          <iframe src="/nDNA/assets/html_plots/index/spectral_curvature_static_last_layer_FINAL.html" title="Spectral Curvature (κ_ℓ) - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-        </div>
-      </div>
-
-    
-
+        <div class="top-menu preview-menu">
+  <div class="preview-row">
+    <a href="/nDNA/llm/prefatio/" class="">Prefatio</a>
+    <a href="/nDNA/llm/admonitio/" class="">Admonitio</a>
   </div>
-
-  <!-- Shared caption (exact text preserved) -->
-  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
-    <strong>Spectral Curvature (κ_ℓ)</strong>
-     <p>Spectral Curvature (κ<sub>ℓ</sub>) quantifies second-order deviations in latent representations across transformer layers–computed via the discrete geometric operator κ<sub>ℓ</sub> := ‖h<sub>ℓ+1</sub> − 2h<sub>ℓ</sub> + h<sub>ℓ−1</sub>‖ . High curvature signals semantic inflection points where internal geometry bends sharply–often in culturally dense, ideologically loaded, or epistemically volatile regions. Peaks in κ<sub>ℓ</sub> typically emerge in upper decoder layers (ℓ ∈ [21, 30]), where the model accommodates sociolinguistic priors during alignment, multicultural or multilingual fusion. Within the nDNA framework, such curvature reflects latent inheritance dynamics, offering a fine-grained geometric fingerprint of representational restructuring.</p>
-
-  </figcaption>
-
-  
-
-  <!-- Button below caption -->
-  
-    <div style="margin-top:1em; text-align:center;">
-      <a href="/nDNA/assets/html_plots/index/spectral_curvature_static_last_layer_FINAL.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
-          📊 View Interactive Plot
-        </button>
-      </a>
-    </div>
-  
-
-</figure>
-
-<hr />
-
-<h2>Thermodynamic Length (L<sub>ℓ</sub>)</h2>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>What is Thermodynamic Length?</h3>
-  <p>In <strong>statistical thermodynamics</strong> and <strong>information geometry</strong>, <strong>thermodynamic length</strong> measures the <strong>cumulative effort—or work—required for a system to transition between states</strong> on a statistical manifold. It integrates local gradient energy along a trajectory, providing an <strong>intrinsic cost measure</strong> that is independent of parametrization.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why Thermodynamic Length for Foundation Models?</h3>
-  <p>In foundation models, <strong>layers trace a path through latent belief space</strong>. As input data and alignment priors reshape activations, the model <strong>expends internal computational effort</strong> to adjust its belief state.</p>
-  <p><strong>Thermodynamic length quantifies this latent effort</strong>—measuring not just <em>what</em> the model knows, but <strong>how hard it works</strong> to adapt that knowledge across layers in response to <strong>epistemic pressures</strong> such as:</p>
-  <ul>
-    <li>Cultural fusion</li>
-    <li>Alignment shifts</li>
-    <li>Semantic restructuring</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Mathematical Intuition</h3>
-  <p>Let $h_\ell$ denote the latent state at layer $\ell$, and let $\mathcal{M}$ be the model's latent manifold. Layer transitions define a curve:</p>
-  <p>$\gamma : [0, L] \to \mathcal{M}$</p>
-  <p>The <strong>thermodynamic length</strong> of $\gamma$ is:</p>
-  <p>$L(\gamma) = \int_0^L \sqrt{ \langle \dot{\gamma}(s), G_{\text{Fisher}} \, \dot{\gamma}(s) \rangle } \, ds$</p>
-  <p>where $G_{\text{Fisher}}$ is the <strong>Fisher information metric</strong>. This integral represents the <strong>intrinsic work</strong> needed to traverse the belief trajectory $\gamma$ on $\mathcal{M}$.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Interpretation</h3>
-  <p>High <strong>thermodynamic length</strong> indicates <strong>regions where latent geometry stretches</strong>—where the model undergoes substantial <strong>reconfiguration</strong> to reconcile prior beliefs with new input.</p>
-  <p>Zones of high $L_\ell$ reveal:</p>
-  <ul>
-    <li>Alignment tension</li>
-    <li>Cultural fusion</li>
-    <li>Complex reasoning</li>
-    <li>Internal scaffold strain</li>
-  </ul>
-  <p>This offers a window onto the model's <strong>latent energy budget</strong>—how internal belief states reshape to meet complexity, constraint, and context.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Discrete Formulation</h3>
-  <p>Let $p_\ell(y|x)$ be the model's <strong>conditional distribution</strong> at layer $\ell$. The <strong>local epistemic cost</strong> is given by:</p>
-  <p>$\|\nabla_\theta \log p_\ell(x)\|^2$</p>
-  <p>This measures <strong>how much adjustment</strong> is needed locally at layer $\ell$ to better fit input $x$. Then, <strong>thermodynamic length</strong> at layer $\ell$ is:</p>
-  <p>$L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2 = |D| \cdot \mathbb{E}_{x \sim D} \|\nabla_\theta \log p_\ell(x)\|^2$</p>
-  <p>This captures both the <strong>average local effort</strong> and how it <strong>scales with dataset size</strong>.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Geometric Interpretation</h3>
-  <p>In differential geometric terms, thermodynamic length can also be written as a <strong>path energy integral</strong>:</p>
-  <p>$L_\ell = \int_{\gamma_\ell} \left\langle \frac{d h_\ell}{ds}, G_{\text{Fisher}}(h_\ell) \frac{d h_\ell}{ds} \right\rangle ds$</p>
-  <p>where:</p>
-  <ul>
-    <li>$h_\ell$ represents latent trajectories</li>
-    <li>$G_{\text{Fisher}}$ is the Fisher information metric</li>
-    <li>$s$ is arc length along $\gamma_\ell$</li>
-  </ul>
-  <p>This integral reflects <strong>how much internal "heat" or computational work</strong> is generated to reconcile the model's <strong>prior state with new input</strong> at layer $\ell$.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why Is This Meaningful?</h3>
-  <p>Unlike static metrics like <strong>weight magnitudes</strong>, $L_\ell$ is <strong>dynamically grounded</strong>. It reveals where the model <strong>actively strains</strong> to reconcile <strong>competing epistemic demands</strong>.</p>
-  <p>High $L_\ell$ signals:</p>
-  <ul>
-    <li>Internal resistance</li>
-    <li>Belief restructuring</li>
-    <li>Compression under tension</li>
-    <li>Response to multilingual or cultural shifts</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Lineage and Context</h3>
-  <p>This diagnostic builds on:</p>
-  <ul>
-    <li>The <strong>Fisher–Rao metric</strong> in information geometry</li>
-    <li><strong>Thermodynamic length</strong> formalism from statistical physics [<a href="#ref17">17</a>] [<a href="#ref27">27</a>] [<a href="#ref28">28</a>] [<a href="#ref29">29</a>] </li>
-    
-  </ul>
-  <p>Within the <strong>nDNA framework</strong>, thermodynamic length complements <strong>spectral curvature</strong>: while curvature reveals <em>where</em> the model bends, $L_\ell$ shows <strong>how hard it works</strong> to do so.</p>
-  <p>Together, these axes form a <strong>neurogeometric anatomy</strong> of latent belief adaptation.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Visualizing Thermodynamic Length</h3>
-  <p><strong>Figure 2</strong> shows thermodynamic length:</p>
-  <p>$L_\ell := \sum_{x \in D} \|\nabla_\theta \log p_\ell(x)\|^2$</p>
-  <p>It quantifies <strong>epistemic work</strong> across transformer layers—computed as the <strong>cumulative squared gradient norm</strong> of layerwise log-likelihoods.</p>
-  <p>Peaks in $L_\ell$ highlight:</p>
-  <ul>
-    <li><strong>Belief compression</strong></li>
-    <li><strong>Alignment restructuring</strong></li>
-    <li><strong>Negotiation of conflicting priors</strong></li>
-  </ul>
-  <p>In culturally fine-tuned models, these peaks typically <strong>localize to upper decoder layers</strong>, where <strong>intense adaptation</strong> occurs near output-generating blocks.</p>
-  <p>Within <strong>nDNA</strong>, this metric <strong>reveals latent epistemic effort</strong>—providing a nuanced view of <strong>how and where</strong> models allocate internal resources during learning and inference.</p>
-</div>
-
-<figure style="text-align:center; margin:1.5em 0; position:relative;">
-
-  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
-  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
-
-    
-      <div style="
-           display:grid;
-           grid-template-columns: 1fr 1fr;
-           gap:20px;
-           align-items:stretch;
-           ">
-        <!-- Left: GIF -->
-        <a href="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" data-lightbox="gallery" data-title="Thermodynamic Length (L_ℓ)" style="display:block; overflow:hidden; border-radius:8px;">
-          <img src="/nDNA/assets/gifs/introduction/Final_thermodynamic_length.gif" alt="Thermodynamic Length (L_ℓ)" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
-        </a>
-
-        <!-- Right: interactive HTML -->
-        <div style="display:flex; flex-direction:column;">
-          <iframe src="/nDNA/assets/html_plots/index/thermodynamic_length_static_last_layer.html" title="Thermodynamic Length (L_ℓ) - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-        </div>
-      </div>
-
-    
-
+  <div class="preview-row">
+    <a href="/nDNA/llm/ndna/" class="">nDNA</a>
   </div>
-
-  <!-- Shared caption (exact text preserved) -->
-  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
-    <strong>Thermodynamic Length (L_ℓ)</strong>
-     <p>L<sub>ℓ</sub> quantifies epistemic work across transformer layers—computed as the cumulative squared gradient norm of layerwise log-likelihoods. Peaks typically localize to upper decoder layers where intense adaptation occurs.</p>
-
-  </figcaption>
-
-  
-
-  <!-- Button below caption -->
-  
-    <div style="margin-top:1em; text-align:center;">
-      <a href="/nDNA/assets/html_plots/index/thermodynamic_length_static_last_layer.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
-          📊 View Interactive Plot
-        </button>
-      </a>
-    </div>
-  
-
-</figure>
-
-<hr />
-
-<h2>Belief Vector Field (||v<sup>(c)</sup><sub>ℓ</sub>||)</h2>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>What is the Belief Vector Field?</h3>
-  <p>In differential geometry and physics, a <strong>vector field</strong> describes a directional force applied at each point of a space. Inspired by this, the <strong>Belief Vector Field</strong> models the <strong>directional semantic force</strong> that a specific culture or value system exerts on a model's latent representations.</p>
-  <p>It encodes <strong>where</strong>, <strong>how strongly</strong>, and <strong>in what direction</strong> cultural priors act within the model's internal geometry—functioning as a <strong>semantic compass</strong> through the latent manifold.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why a Vector Field for Cultural Influence?</h3>
-  <p>While <strong>spectral curvature</strong> $\kappa_\ell$ captures how sharply latent paths bend, and <strong>thermodynamic length</strong> $L_\ell$ captures how hard the model works during adaptation, <strong>neither reveals the source, direction, or origin</strong> of that adaptation.</p>
-  <p>The <strong>Belief Vector Field</strong> offers this missing piece: it traces the <strong>latent steering</strong> (aka torsion) applied by culture-conditioned priors—<strong>where</strong> the model is being pushed in latent space, by <strong>what epistemic force</strong>, and <strong>toward which semantic direction</strong>.</p>
-  <p>This makes it a critical diagnostic for studying:</p>
-  <ul>
-    <li>Cultural drift</li>
-    <li>Ideological imprinting</li>
-    <li>Alignment tension</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Visualization</h3>
-  <p><strong>Figure 3: Belief Vector Field Visualization</strong></p>
-  <p>$v^{(c)}_\ell = \mathbb{E}_{x \sim P^{(c)}_{\text{CIVIC}}} \left[ \nabla_{h_\ell} \log p(y | x) \right]$</p>
-  <p>This represents the <strong>belief semantic steering force</strong> at layer $\ell$ toward concept $c$, conditioned on CIVIC cultural priors (cf. Sec. 6).</p>
-  <ul>
-    <li>Large magnitudes $\| v^{(c)}_\ell \| \in [0.15, 0.50]$ indicate <strong>strong directional pressure</strong>—zones where cultural values actively <strong>reshape latent geometry</strong>.</li>
-    <li>Color-coded arrows trace <strong>distinct conceptual trajectories</strong> (<em>protest, peace, order, power, disobedience, justice</em>).</li>
-    <li>Numeric labels quantify <strong>local steering strength</strong>.</li>
-  </ul>
-  <p>Upper layers $\ell \geq 20$ typically exhibit <strong>epistemic reorientation</strong>, where cultural priors most heavily influence belief encoding.</p>
-  <p>Such visualizations reveal whether a model <strong>internalizes culturally contingent reasoning</strong> or merely mimics alignment at the <strong>output surface</strong>.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Mathematical Formulation</h3>
-  <p>Let $p(y \mid x)$ denote the model's conditional output distribution for input $x$, and let $h_\ell$ be the latent representation at layer $\ell$.</p>
-  <p>The <strong>local belief gradient</strong> is:</p>
-  <p>$\nabla_{h_\ell} \log p(y \mid x)$</p>
-  <p>This measures how a small change in $h_\ell$ would affect output confidence—a <strong>proxy for semantic force</strong> at that layer.</p>
-  <p>To extract the culturally conditioned semantic force, we compute its expectation over a culture-specific distribution $P^{(c)}$:</p>
-  <p><strong>Belief Vector Field at layer $\ell$:</strong></p>
-  <p>$v^{(c)}_\ell := \mathbb{E}_{x \sim P^{(c)}} \left[ \nabla_{h_\ell} \log p(y \mid x) \right]$</p>
-  <p>Here, $P^{(c)}$ represents inputs <strong>emblematic of a given manifold condition</strong> $c$ (e.g., regional, linguistic, or ideological contexts).</p>
-  <p>This formulation captures <strong>not just latent deformation, but its cause</strong>: how <strong>cultural priors exert directional influence</strong> within the belief manifold.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why is This Meaningful?</h3>
-  <p>The vector field $v^{(c)}_\ell$ provides a <strong>directional lens on latent dynamics</strong>.</p>
-  <ul>
-    <li>High $\| v^{(c)}_\ell \|$: regions where the model is actively <strong>redirected by external cultural forces</strong></li>
-    <li>Offers diagnostic power for detecting:
-      <ul>
-        <li>Ideological drift</li>
-        <li>Semantic conflict</li>
-        <li>Bias inheritance</li>
-      </ul>
-    </li>
-  </ul>
-  <p>Unlike $\kappa_\ell$ or $L_\ell$, which capture <strong>internal geometry</strong>, $v^{(c)}_\ell$ reveals <strong>external epistemic pressure</strong> and its <strong>directional impact</strong>.</p>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Lineage and Context</h3>
-  <p>This diagnostic builds upon:</p>
-  <ul>
-    <li><strong>Belief geometry</strong></li>
-    <li><strong>Alignment drift studies</strong></li>
-    <li><strong>Cultural bias tracing in NLP</strong> [<a href="#ref5">5</a>] [<a href="#ref30">30</a>] [<a href="#ref31">31</a>] [<a href="#ref32">32</a>] [<a href="#ref33">33</a>] [<a href="#ref34">34</a>] [<a href="#ref35">35</a>] [<a href="#ref36">36</a>] [<a href="#ref37">37</a>] [<a href="#ref38">38</a>] </li>
-    
-
-  </ul>
-  <p>Within the <strong>nDNA framework</strong>, it integrates with <strong>curvature</strong> and <strong>length</strong> to offer a <strong>holistic neurogeometric portrait</strong>—revealing:</p>
-  <ul>
-    <li>How models <strong>inherit</strong> beliefs</li>
-    <li>Where they <strong>adapt</strong> under cultural force</li>
-    <li>When they <strong>distort</strong> or <strong>realign</strong> due to ideological influence</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Interpretability in Practice</h3>
-  <p>By mapping $v^{(c)}_\ell$ across <strong>layers</strong> and <strong>cultures</strong>, we can:</p>
-  <ul>
-    <li>Trace <strong>cultural provenance</strong></li>
-    <li>Identify <strong>ideological pressure zones</strong></li>
-    <li>Diagnose <strong>inheritance asymmetry</strong> in <strong>multilingual</strong> or <strong>aligned models</strong></li>
-  </ul>
-  <p>This <strong>directional fingerprint</strong> informs audits of:</p>
-  <ul>
-    <li>Model bias</li>
-    <li>Robustness</li>
-    <li>Alignment integrity</li>
-  </ul>
-  <p>It provides the <strong>missing vectorial dimension</strong> in understanding machine cognition.</p>
-</div>
-
-<figure style="text-align:center; margin:1.5em 0; position:relative;">
-
-  <!-- Row: gif (left) + html (right). Collapses to stacked on small screens. -->
-  <div style="max-width:1200px; margin-left:auto; margin-right:auto; display:grid; grid-template-columns: 1fr; gap:16px;">
-
-    
-      <div style="
-           display:grid;
-           grid-template-columns: 1fr 1fr;
-           gap:20px;
-           align-items:stretch;
-           ">
-        <!-- Left: GIF -->
-        <a href="/nDNA/assets/gifs/introduction/belief_vector_field.gif" data-lightbox="gallery" data-title="Belief Vector Field ($||v^{(c)}_{\ell}||$)" style="display:block; overflow:hidden; border-radius:8px;">
-          <img src="/nDNA/assets/gifs/introduction/belief_vector_field.gif" alt="Belief Vector Field ($||v^{(c)}_{\ell}||$)" style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
-        </a>
-
-        <!-- Right: interactive HTML -->
-        <div style="display:flex; flex-direction:column;">
-          <iframe src="/nDNA/assets/html_plots/index/belief_vector_field_3d_all_layers_thick_long_vectors.html" title="Belief Vector Field ($||v^{(c)}_{\ell}||$) - Interactive" style="width:100%; height:600px; border:1px solid rgba(0,0,0,0.06); border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.06);" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-        </div>
-      </div>
-
-    
-
+  <div class="preview-row">
+    <a href="/nDNA/llm/15-llms/" class="">15 Foundational LLMs</a>
   </div>
-
-  <!-- Shared caption (exact text preserved) -->
-  <figcaption style="margin-top:12px; font-size:0.95em; line-height:1.4; color:#555; max-width:1000px; margin-left:auto; margin-right:auto; text-align:left;">
-    <strong>Belief Vector Field ($||v^{(c)}_{\ell}||$)</strong>
-     <p>v<sup>(c)</sup><sub>ℓ</sub> represents the belief semantic steering force at layer ℓ toward concept c, with large magnitudes indicating strong directional pressure where cultural values actively reshape latent geometry. Upper layers (ℓ ≥ 20) typically exhibit epistemic reorientation.</p>
-
-  </figcaption>
-
-  
-
-  <!-- Button below caption -->
-  
-    <div style="margin-top:1em; text-align:center;">
-      <a href="/nDNA/assets/html_plots/index/belief_vector_field_3d_all_layers_thick_long_vectors.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <button style="display:inline-block; padding:10px 20px; font-size:0.875rem; font-weight:500; color:#fff; background:#000; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.10); cursor:pointer; transition:transform .15s ease;">
-          📊 View Interactive Plot
-        </button>
-      </a>
-    </div>
-  
-
-</figure>
-
-<hr />
-
-<h2>nDNA Score</h2>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why a unified score?</h3>
-  <p>While spectral curvature ($\kappa_\ell$), thermodynamic length ($L_\ell$), and the belief vector field norm ($\|v^{(c)}_\ell\|$) each offer unique insight into latent dynamics, they operate on distinct facets of epistemic geometry.</p>
-  <p>The <strong>nDNA score</strong> is a cumulative measure of latent geometry, quantifying how a large language model adapts its internal scaffolding to a given corpus. It integrates three key components at each layer $\ell$:</p>
-  <ul>
-    <li><strong>Curvature ($\kappa_\ell$):</strong> how twisted or bent the latent manifold is; captures how sharply internal trajectories bend — a scalar measure of latent acceleration.</li>
-    <li><strong>Length ($L_\ell$):</strong> how much latent work or displacement occurs as representations evolve; quantifies how hard the model works to adapt its beliefs — a scalar effort integral.</li>
-    <li><strong>Belief vector norm ($\|v^{(c)}_\ell\|$):</strong> how strong the model's belief signal is for that corpus; encodes where and how strongly cultural priors steer latent space — a scalar magnitude derived from the vector field.</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Formal Definition</h3>
-  <p>The <strong>nDNA score</strong> is defined as:</p>
-  <p>$\text{nDNA} := \sum_{\ell=1}^L \omega_\ell \cdot \kappa_\ell \cdot L_\ell \cdot \|v^{(c)}_\ell\|$</p>
-  <p>where:</p>
-  <ul>
-    <li>$\omega_\ell$ is the layer weight to emphasize semantically expressive or epistemically significant layers (e.g., decoder tops),</li>
-    <li>$\kappa_\ell$ is spectral curvature,</li>
-    <li>$L_\ell$ is thermodynamic length,</li>
-    <li>$\|v^{(c)}_\ell\|$ is the magnitude of the belief vector field conditioned on culture $c$.</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Why multiply these?</h3>
-  <p>Individually, the terms illuminate:</p>
-  <ul>
-    <li><strong>Latent strain</strong> ($\kappa_\ell$),</li>
-    <li><strong>Adaptation cost</strong> ($L_\ell$),</li>
-    <li><strong>Cultural pressure</strong> ($\|v^{(c)}_\ell\|$).</li>
-  </ul>
-  <p>Together, their <strong>product</strong> gives a unified diagnostic of <strong>latent reconfiguration</strong> — indicating where internal bending, belief effort, and epistemic steering all co-occur.</p>
-  <p>The weight $\omega_\ell$ can be:</p>
-  <ul>
-    <li>Uniform across layers,</li>
-    <li>Hand-tuned based on epistemic depth,</li>
-    <li>Optimized via alignment or interpretability objectives.</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Interpretability &amp; Practical Use</h3>
-  <p>The <strong>nDNA score</strong> enables:</p>
-  <ul>
-    <li>Comparison of parent vs. child models (fine-tuning, distillation, merging),</li>
-    <li>Detection of <strong>semantic mutation</strong>, <strong>ideological drift</strong>, or <strong>inheritance asymmetry</strong>,</li>
-    <li>Quantification of <strong>latent epistemic integrity</strong> — the hidden cost and directionality of adaptation.</li>
-  </ul>
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Conviction</h3>
-  <p>By unifying spectral ($\kappa_\ell$), thermodynamic ($L_\ell$), and vectorial ($\|v^{(c)}_\ell\|$) diagnostics, the <strong>nDNA score</strong> acts as a <strong>heritable geometry index</strong>, diagnosing how <strong>latent traits persist, mutate, or degrade</strong> as foundation models evolve.</p>
-</div>
-
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="assets/gifs/introduction/ndna_refined_story.gif" alt="nDNA Composite" width="50%" />
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> The nDNA score unifies spectral curvature (κ<sub>ℓ</sub>), thermodynamic length (L<sub>ℓ</sub>), and belief vector field magnitude (||v<sup>(c)</sup><sub>ℓ</sub>||) to create a heritable geometry index that diagnoses how latent traits persist, mutate, or degrade as foundation models evolve.
-  </figcaption>
-</figure>
-
-<hr />
-
-<h2>nDNA Geometry</h2>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>The Foundation of nDNA</h3>
-  <p>The notion of <strong>nDNA</strong> arises from a simple yet profound insight: modern foundation models do not merely produce outputs—they embody a <strong>latent cognitive structure</strong> that governs how they reason, adapt, and evolve  [<a href="#ref6">6</a>] [<a href="#ref33">33</a>]. This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers [<a href="#ref4">4</a>] [<a href="#ref25">25</a>] .</p>
-  <p>We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its spectral curvature ($\kappa_\ell$), thermodynamic length ($L_\ell$), and belief vector field norm ($\|v^{(c)}_\ell\|$) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model's inheritance stability, alignment dynamics, and cultural drift—analogous to how biological DNA records heritable traits and mutations [<a href="#ref16">16</a>] [<a href="#ref32">32</a>] y.</p>
-  
-</div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Table 1: Illustrative nDNA Example</h3>
-<!--   <figure style="text-align: center; margin: 1em 0;">
-    <img src="assets/gifs/introduction/nDNA_matrics.png" alt="nDNA Geometry Table" width="50%">
-  </figure> -->
-  <figure id="tab:ndna_example" style="text-align: center; margin: 2em 0;">
-  <style>
-    /* base font & layout */
-    #tab-ndna-table {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 17px; /* entries */
-    }
-
-    /* stronger border */
-    #tab-ndna-table th,
-    #tab-ndna-table td {
-      border: 1.5px solid #444444;
-      vertical-align: middle;
-      padding: 12px 14px;
-    }
-
-    /* headings: slightly larger and bold (all the same size) */
-    #tab-ndna-table th {
-      font-size: 19px;
-      font-weight: 700;
-      background: #fafafa;
-      text-align: center;
-    }
-
-    /* center numeric/math columns & prevent wrap */
-    #tab-ndna-table th.col-center,
-    #tab-ndna-table td.col-center {
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    /* center belief-vector column and prevent wrapping (heading + v_c stay on one line) */
-    #tab-ndna-table th.col-belief,
-    #tab-ndna-table td.col-belief {
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    /* precise powdered tints mapped from LaTeX percentages */
-    /* base RGBs:
-       green  #27ae60 -> (39,174,96)
-       yellow #f1c40f -> (241,196,15)
-       orange #e67e22 -> (230,126,34)
-       red    #e74c3c -> (231,76,60)
-    */
-    .green-15  { background: rgba(39,174,96,0.15); }
-    .green-20  { background: rgba(39,174,96,0.20); }
-    .green-30  { background: rgba(39,174,96,0.30); }
-
-    .yellow-20 { background: rgba(241,196,15,0.20); }
-    .yellow-30 { background: rgba(241,196,15,0.30); }
-
-    .orange-20 { background: rgba(230,126,34,0.20); }
-    .orange-30 { background: rgba(230,126,34,0.30); }
-
-    .red-20    { background: rgba(231,76,60,0.20); }
-    .red-30    { background: rgba(231,76,60,0.30); }
-    .red-40    { background: rgba(231,76,60,0.40); }
-
-    /* responsive wrapper */
-    .table-wrap { overflow-x:auto; max-width:100%; display:block; margin:0 auto; }
-  </style>
-
-  <div class="table-wrap">
-    <table id="tab-ndna-table" role="table" aria-label="nDNA Geometric Signatures Table">
-      <thead>
-        <tr>
-          <th class="col-center" scope="col">Layer</th>
-          <th class="col-center" scope="col">\(\kappa_\ell\)</th>
-          <th class="col-center" scope="col">\(\mathcal{L}_\ell\)</th>
-          <th class="col-center" scope="col">\(\|\mathbf{v}_\ell^{(c)}\|\)</th>
-          <th class="col-belief" scope="col">Belief Vector&nbsp;\(\mathbf{v}_\ell^{(c)}\)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-center">20</td>
-          <td class="col-center green-20">0.0412</td>
-          <td class="col-center yellow-30">0.9123</td>
-          <td class="col-center orange-20">0.6521</td>
-          <td class="col-belief">[0.1204, -0.0502, 0.0896, ..., 0.0402]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">21</td>
-          <td class="col-center green-30">0.0458</td>
-          <td class="col-center green-15">0.8123</td>
-          <td class="col-center red-30">0.7523</td>
-          <td class="col-belief">[0.1301, -0.0351, 0.0950, ..., 0.0431]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">22</td>
-          <td class="col-center yellow-20">0.0523</td>
-          <td class="col-center orange-30">1.0120</td>
-          <td class="col-center green-20">0.5823</td>
-          <td class="col-belief">[0.1423, -0.0312, 0.0994, ..., 0.0488]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">23</td>
-          <td class="col-center orange-20">0.0581</td>
-          <td class="col-center yellow-20">0.9021</td>
-          <td class="col-center yellow-30">0.6912</td>
-          <td class="col-belief">[0.1534, 0.0270, 0.1042, ..., 0.0512]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">24</td>
-          <td class="col-center red-20">0.0639</td>
-          <td class="col-center red-40">1.1023</td>
-          <td class="col-center green-15">0.5520</td>
-          <td class="col-belief">[0.1667, 0.0205, 0.1105, ..., 0.0543]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">25</td>
-          <td class="col-center yellow-30">0.0505</td>
-          <td class="col-center orange-20">0.9420</td>
-          <td class="col-center red-40">0.8124</td>
-          <td class="col-belief">[0.1602, -0.0251, 0.1081, ..., 0.0504]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">26</td>
-          <td class="col-center green-15">0.0398</td>
-          <td class="col-center green-20">0.8520</td>
-          <td class="col-center yellow-20">0.6120</td>
-          <td class="col-belief">[0.1251, 0.0450, 0.0912, ..., 0.0418]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">27</td>
-          <td class="col-center yellow-20">0.0512</td>
-          <td class="col-center red-30">1.0520</td>
-          <td class="col-center orange-30">0.7222</td>
-          <td class="col-belief">[0.1455, -0.0322, 0.1005, ..., 0.0477]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">28</td>
-          <td class="col-center orange-30">0.0590</td>
-          <td class="col-center yellow-30">0.9320</td>
-          <td class="col-center green-30">0.5721</td>
-          <td class="col-belief">[0.1577, 0.0285, 0.1078, ..., 0.0499]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">29</td>
-          <td class="col-center red-30">0.0672</td>
-          <td class="col-center orange-30">1.0123</td>
-          <td class="col-center yellow-20">0.6322</td>
-          <td class="col-belief">[0.1701, -0.0198, 0.1142, ..., 0.0533]</td>
-        </tr>
-
-        <tr>
-          <td class="col-center">30</td>
-          <td class="col-center orange-20">0.0555</td>
-          <td class="col-center green-15">0.8221</td>
-          <td class="col-center red-20">0.7720</td>
-          <td class="col-belief">[0.1620, -0.0242, 0.1101, ..., 0.0510]</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="preview-row">
+    <a href="/nDNA/llm/multilinguality/" class="">Multilinguality</a>
+    <a href="/nDNA/llm/cultural-ndna/" class="">Cultural nDNA</a>
   </div>
-</figure>
+  <div class="preview-row">
+    <a href="/nDNA/llm/civic/" class="">CIVIC</a>
+  </div>
+  <div class="preview-row">
+    <a href="/nDNA/llm/alignment/" class="">Alignment</a>
+    <a href="/nDNA/llm/quantization/" class="">Quantization</a>
+    <a href="/nDNA/llm/model-merging/" class="">Model Merging</a>
+    <a href="/nDNA/llm/model-collapse/" class="">Model Collapse</a>
+    <a href="/nDNA/llm/knowledge-distillation/" class="">Knowledge Distillation</a>
+  </div>
+  <div class="preview-row">
+    <a href="/nDNA/llm/neural-genomics/prelude/" class="group-title">Neural Genomics</a>
+    <a href="/nDNA/llm/neural-genomics/nHD/">nHD</a>
+    <a href="/nDNA/llm/neural-genomics/nGDI/">nGDI</a>
+    <a href="/nDNA/llm/neural-genomics/nTDS/">nTDS</a>
+    <a href="/nDNA/llm/neural-genomics/nKaryotyping/">nKaryotyping</a>
+    <a href="/nDNA/llm/neural-genomics/nDIV/">nDIV</a>
+    <a href="/nDNA/llm/neural-genomics/nEPI/">nEPI</a>
+    <a href="/nDNA/llm/neural-genomics/nCCL/">nCCL</a>
+  </div>
+  <div class="preview-row">
+    <a href="/nDNA/llm/nlp-operations/prelude/" class="group-title">NLP Operations</a>
+    <a href="/nDNA/llm/nlp-operations/machine-translation/">Machine Translation</a>
+    <a href="/nDNA/llm/nlp-operations/adversarial-attack/">Adversarial Attack</a>
+    <a href="/nDNA/llm/nlp-operations/multi-turn-conversation/">Multi-turn Conversation</a>
+    <a href="/nDNA/llm/nlp-operations/scar/">SCAR</a>
+    <a href="/nDNA/llm/nlp-operations/nephos/">NEPHOS</a>
+  </div>
+  <div class="preview-row">
+    <a href="/nDNA/llm/latent-manipulation/" class="">Risk: Latent Manipulation</a>
+  </div>
+  <div class="preview-row">
+    <a href="/nDNA/llm/at_a_glance/" class="">at-a-glance</a>
+    <a href="/nDNA/llm/FAQ/" class="">FAQ</a>
+    <a href="/nDNA/llm/critique-s-corner/" class="">Critique’s Corner</a>
+  </div>
 </div>
-
-<div style="border: 1px solid #999; border-radius: 8px; padding: 1em 1.5em; background: #fdfdfd; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 1.5em;">
-  <h3>Interpreting the nDNA Pattern</h3>
-  <p>Table 1 provides an illustrative example of nDNA geometry, highlighting how these quantities vary across depth in a representative model. Rather than simple monotonic trends, we observe intricate layer-wise patterns:</p>
-  <ul>
-    <li>Certain layers exhibit elevated curvature ($\kappa_\ell &gt; 0.06$), signaling sharp latent reorientation [<a href="#ref18">18</a>] ,</li>
-    <li>Others concentrate thermodynamic length ($L_\ell &gt; 1.10$), reflecting zones of intense internal work to reconcile competing priors [<a href="#ref27">27</a>] [<a href="#ref39">39</a>] ,</li>
-    <li>The belief vector norm ($\|v^{(c)}_\ell\|$) exposes the directional cultural force acting on the latent manifold [<a href="#ref5">5</a>] [<a href="#ref34">34</a>] , marking layers where external alignment or sociolinguistic conditioning exerts greatest influence.</li>
-  </ul>
-  <p>Together, these values form a geometry-specific trace that distinguishes models by their latent adaptation history.</p>
-</div>
-
-<hr />
-
-<h1 id="the-corpus-dependence-of-ndna-a-necessary-feature-not-a-flaw">The Corpus Dependence of nDNA: A Necessary Feature, Not a Flaw</h1>
-<p><br /></p>
-
-<p>In biological systems, DNA is celebrated as the universal code of life—a sequence of nucleotides that, across all known organisms, governs the development, function, and inheritance of traits [<a href="#ref40">40</a>] [<a href="#ref41">41</a>] . Yet despite this universal structure, the functional expression of DNA is profoundly context-dependent.</p>
-
-<p>The same genome, when expressed in different cellular contexts, gives rise to vastly different phenotypes: for instance, neurons and hepatocytes arise from identical genetic material yet serve radically different functions [<a href="#ref42">42</a>] [<a href="#ref43">43</a>] . This context-sensitive expression is orchestrated through layered regulatory mechanisms, including epigenetic modifications [<a href="#ref42">42</a>], transcription factor (TF) binding [<a href="#ref44">44</a>], and chromatin architecture remodeling [<a href="#ref45">45</a>] [<a href="#ref46">46</a>]. These mechanisms form a hierarchical, probabilistic regulatory network that determines gene expression patterns in response to developmental and environmental cues [<a href="#ref47">47</a>].</p>
-
-<p>Figure 5 illustrates a hierarchical regulatory framework where universal DNA undergoes epigenetic modifications and context-specific transcription factor actions to produce specialized gene expression programs. Analogously, in large language models, this layered structure parallels nDNA latent scaffolding that encodes both universal priors and task-dependent adaptations, enabling coherent, flexible, and robust functional diversity across domains.</p>
-
-<p>Similarly, in large foundation models, the neural DNA (nDNA)—a composite measure of latent geometry encompassing spectral curvature ($\kappa$) [<a href="#ref48">48</a>], thermodynamic length ($L$) [<a href="#ref49">49</a>], and latent belief vector norms [<a href="#ref50">50</a>] —exhibits both universal structure and corpus-specific adaptation.</p>
-
-<p>LLMs encode universal latent priors through pretraining: architectural invariances [<a href="#ref51">51</a>], semantic manifolds [<a href="#ref52">52</a>] [<a href="#ref53">53</a>], and attention-based relational structures (64). However, when probed with different corpora such as mathematical reasoning benchmarks (e.g., GSM8K [<a href="#ref54">54</a>]), dialogue datasets (e.g., MultiWOZ [<a href="#ref55">55</a>]), or encyclopedic QA (e.g., SQuAD [<a href="#ref56">56</a>]), the model activates distinct latent scaffolding, producing task-specific geometric pathways.</p>
-
-<p>In both systems, structured variation emerges as a necessity: in biology, to produce functional diversity across cell types; in LLMs, to scaffold reasoning across tasks while maintaining alignment and generalization [<a href="#ref53">53</a>] [<a href="#ref54">54</a>]. Like tissue-specific gene expression, corpus-dependent nDNA scaffolding follows precise, learned priors rather than arbitrary variation. Mathematical models of both systems reduce to path integrals over conditional cost:</p>
-
-<p>$
-S(c) = \int_{\gamma_c} C(h_\ell; c) \, ds
-$</p>
-
-<p>where $\gamma_c$ is the pathway for context $c$ (cell type or corpus), and $C$ reflects regulatory or loss cost.</p>
-
-<p>Where DNA differentiates cells, nDNA differentiates reasoning. Both systems achieve functional coherence through context-dependent geometry anchored in universal code.</p>
-
-<p>Despite their contextual variation, both DNA and nDNA encode universal structure that stabilizes functional diversity. In biology, this universality is embodied in the genetic code: the shared language of codons, conserved regulatory motifs, and chromatin architectural principles that ensure coherent development across tissues [<a href="#ref40">40</a>] [<a href="#ref41">41</a>]. In large language models, nDNA’s universality arises from the shared latent priors learned during pretraining: attention-based relational structures [<a href="#ref51">51</a>], semantic manifolds [<a href="#ref52">52</a>], and transformer-invariant latent symmetries [<a href="#ref53">53</a>].</p>
-
-<p>These priors act as the “genomic grammar” that binds task-specific latent pathways into a coherent reasoning framework.</p>
-
-<table style="border-collapse: collapse; margin: 2em 0; border: 2px solid #666; width: auto;">
-  <thead>
-    <tr>
-      <th style="background: #e6e6fa; color: black; padding: 0.8em; text-align: left; font-weight: bold; border: 1px solid #666;">Aspect</th>
-      <th style="background: #e6e6fa; color: black; padding: 0.8em; text-align: left; font-weight: bold; border: 1px solid #666;">DNA (Biology)</th>
-      <th style="background: #e6e6fa; color: black; padding: 0.8em; text-align: left; font-weight: bold; border: 1px solid #666;">nDNA (LLM)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Universal code</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Codon mapping $\varphi : \Sigma^3 \to A$, kernel $6 = \emptyset$, redundancy ensures error tolerance [<a href="#ref41">41</a>]</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Pretrained latent manifold; symmetries $G_{LLM} \subset \text{Aut}(V)$; generalization via equivariance [<a href="#ref53">53</a>]</td>
-    </tr>
-    <tr>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Context regulator</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional $P(\text{gene ON} | \text{TF, epi})$; Bayesian gene networks [<a href="#ref47">47</a>]</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Conditional latent path $P(h_1, \ldots, h_L | x)$; stochastic latent dynamics [<a href="#ref2">2</a>]</td>
-    </tr>
-    <tr>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Path geometry</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Minimal energy path $\gamma^*$ in epigenetic landscape: $\int_{\gamma} \|\nabla V\| ds$ [<a href="#ref57">57</a>]</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Latent geodesic minimizing cost: $\int_{\gamma} \|\nabla_\theta \log p(y|x)\|^2 ds$ [<a href="#ref49">49</a>]</td>
-    </tr>
-    <tr>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top; font-weight: bold;">Output mapping</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $\pi : E_{\text{gene}} \to B_{\text{cell}}$</td>
-      <td style="padding: 0.8em; border: 1px solid #666; vertical-align: top;">Fiber bundle: $\pi : E_{\text{latent}} \to B_{\text{task}}$</td>
-    </tr>
-  </tbody>
-</table>
-
-<figure style="text-align: center; margin: 2em auto;">
-  <img src="/nDNA/assets/gifs/introduction/task.png" alt="Spectral Curvature" width="50%" />
-  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-    <strong>Figure:</strong> κ<sub>l</sub> is typically elevated in upper decoder layers (l ∈ [21, 30])—capturing sociolinguistic priors, multicultural fusion, and cultural adaptation. A hierarchical view of universal DNA and context-sensitive gene expression, as a biological parallel to nDNA latent scaffolding in LLMs. This figure illustrates how the same genome (depicted as a universal DNA helix at the top) produces distinct functional outcomes through a layered and structured regulatory architecture. The first regulatory layer consists of epigenetic modifications, including DNA methylation (linked with gene silencing) and histone acetylation (linked with gene activation) [<a href="#ref42">42</a>] [<a href="#ref45">45</a>]. These modifications influence chromatin accessibility, setting the stage for context-specific transcriptional control. The second layer involves cell-type-specific transcription factors (TFs)—for example, NeuroD and REST in neurons, or HNF4 and C/EBPα in hepatocytes—which bind regulatory DNA elements and integrate signaling cues to guide gene expression programs [<a href="#ref43">43</a>] [<a href="#ref44">44</a>]. The third layer reflects the resultant chromatin state: open, transcriptionally permissive configurations in neurons for synaptic gene activation, versus compact, repressive configurations in hepatocytes where those genes are silent [<a href="#ref46">46</a>] [<a href="#ref58">58</a>]. Finally, this hierarchical regulatory control produces functionally specialized gene programs: neurons activate synaptic plasticity and axon signaling genes; hepatocytes activate detoxification and glucose metabolism genes [<a href="#ref41">41</a>] [<a href="#ref47">47</a>]. This layered architecture provides a powerful biological analogy for nDNA in LLMs. Just as DNA's expression is shaped by regulatory logic rather than random variation, nDNA encodes both universal priors (shared across tasks)—such as pretrained latent manifolds, attention mechanisms, and model architecture—and corpus-dependent latent scaffolding, emerging as the model adapts to specific tasks or domains [<a href="#ref50">50</a>] [<a href="#ref2">2</a>] [<a href="#ref59">59</a>] . The analogy emphasizes that corpus dependence in nDNA is not a weakness or artifact, but a reflection of meaningful task adaptation: structured variation grounded in universal latent geometry. This scaffolding ensures LLMs achieve functional diversity across tasks while maintaining coherence, alignment, and generalization, much like gene regulatory networks ensure appropriate cellular identity and function despite operating from a common genome blueprint [<a href="#ref60">60</a>] [<a href="#ref47">47</a>] . The figure highlights that both biological DNA and nDNA exhibit clarity through complexity: layered, interpretable hierarchies enabling flexible, robust expression across contexts.
-  </figcaption>
-</figure>
-
-<hr />
-
-<h2 id="evolutionary-and-learning-dynamics-convergence-of-principles">Evolutionary and Learning Dynamics: Convergence of Principles</h2>
-
-<p>Both DNA and nDNA are shaped by selection processes. In biology, the genome has evolved under millennia of selective pressure, with regulatory networks fine-tuned to ensure robust development and adaptability [<a href="#ref60">60</a>] [<a href="#ref47">47</a>] . In LLMs, pretraining operates as an evolutionary analogue: stochastic gradient descent (SGD) over massive corpora selects latent priors that minimize expected loss across tasks, with fine-tuning akin to epigenetic adjustment [<a href="#ref53">53</a>] [<a href="#ref61">61</a>]:</p>
-
-<p>$
-\mathcal{L}<em>{\text{pretrain}}(\theta) = \mathbb{E}</em>{(x,y)}[-\log p_\theta(y|x)]
-$</p>
-
-<p>This evolutionary parallel explains why both systems exhibit clarity through complexity: layered hierarchies, probabilistic pathways, and interpretable modularity. Where biological evolution yields modular gene regulatory networks that ensure context-sensitive expression [<a href="#ref47">47</a>], LLM training yields modular latent structures such as attention heads and adapter modules that scaffold task-specific reasoning [<a href="#ref2">2</a>] [<a href="#ref61">61</a>] .</p>
-
-<hr />
-
-<h2 id="why-corpus-dependence-matters">Why Corpus Dependence Matters</h2>
-
-<p>Far from a flaw, corpus dependence in nDNA is the signature of a flexible, adaptive reasoning architecture. Just as biological systems rely on tissue-specific gene expression to produce functional diversity from a universal genome [<a href="#ref43">43</a>] [<a href="#ref47">47</a>] , large language models (LLMs) leverage corpus-dependent latent scaffolding to generate reasoning structures attuned to task demands, mirroring the reproducibility logic of biological variability quantification [<a href="#ref62">62</a>] .</p>
-
-<p>By examining nDNA’s spectral curvature ($\kappa$), thermodynamic length ($L$), and belief vector norm ($|v^{(c)}_\ell|$), we gain a diagnostic lens for alignment, generalization, and safety [<a href="#ref50">50</a>] [<a href="#ref48">48</a>] [<a href="#ref49">49</a>] :</p>
-
-<p>$
-S_{nDNA}(c) = \int_{\gamma_c} \left( \alpha \kappa + \beta L + \gamma |v^{(c)}_\ell| \right) ds
-$</p>
-
-<p>where $\gamma_c$ is the latent trajectory for corpus $c$.</p>
-
-<p>This latent geometry echoes Waddington’s epigenetic landscape where paths represent developmental fates (76). Figure 6 illustrates different corpus types evoking distinct latent path characteristics:</p>
-
-<ul>
-  <li>QA tasks evoke compact low-curvature paths (e.g., $\kappa \sim 0.012–0.03$, $L \sim 0.47–0.53$) [<a href="#ref56">56</a>] [<a href="#ref63">63</a>] [<a href="#ref64">64</a>] ,</li>
-  <li>Reasoning tasks elicit broader high-curvature paths (e.g., $\kappa \sim 0.005–0.04$) [<a href="#ref2">2</a>] [<a href="#ref53">53</a>] [<a href="#ref65">65</a>],</li>
-  <li>Dialogue corpora produce shallow clustered scaffolds [<a href="#ref55">55</a>] [<a href="#ref66">66</a>] [<a href="#ref67">67</a>] ,</li>
-  <li>Commonsense tasks yield oscillatory paths [<a href="#ref68">68</a>] [<a href="#ref69">69</a>] [<a href="#ref70">70</a>] .</li>
-</ul>
-
-<p>nDNA aligns with interpretable AI goals [<a href="#ref71">71</a>] and geometric decoding approaches [<a href="#ref72">72</a>] .</p>
-
-<p>This corpus dependence is not arbitrary noise; it reflects the model’s learned latent regulatory logic, analogous to the combinatorial control of gene regulatory networks that ensures context-sensitive yet robust gene expression [<a href="#ref41">41</a>] [<a href="#ref47">47</a>] . Just as developmental disorders arise when regulatory circuits misfire [<a href="#ref43">43</a>] , misalignment or hallucination in LLMs can be traced to latent trajectories that diverge from expected scaffolding. nDNA analysis, therefore, does not merely characterize model geometry—it offers a tool for interpretability, failure detection, and safe alignment.</p>
-
-<p>Corpus dependence in nDNA is the expression of reasoning plasticity, bounded by universal latent priors much like gene networks balance flexibility with functional coherence.</p>
-
-<p>Moreover, the universality of nDNA’s foundational structure—its pretrained manifold, architectural symmetries, and core alignment priors—provides the stabilizing grammar that constrains corpus-specific scaffolds within meaningful reasoning spaces [<a href="#ref51">51</a>] [<a href="#ref53">53</a>] . This is the latent equivalent of biology’s genetic code and conserved transcriptional machinery: an invariant substrate that supports functional diversity without sacrificing coherence.</p>
-
-<p>By quantifying how nDNA paths bend, stretch, or steer in response to task demands, we can map the model’s cognitive landscape and determine when it traces human-aligned reasoning or drifts into failure modes.</p>
-
-<hr />
-
-<p>What the genome is to life’s functional unity, nDNA is to the model’s reasoning coherence: a universal code that binds diversity into stability, and complexity into interpretability.</p>
-
-<hr />
-
-<div style="display: flex; gap: 2em; margin: 2em auto; max-width: 1200px; align-items: flex-start;">
-  <figure style="flex: 1; text-align: center; margin: 0;">
-    <img src="/nDNA/assets/gifs/introduction/ndna_llama_qa_axes_match.gif" alt="QA nDNA Trajectories" style="width: 100%; max-width: 400px;" />
-    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-      <strong>(a) QA group nDNA trajectories:</strong> κ ranges ∼ 0.012–0.03, L ∼ 0.47–0.53, τ ∼ 0.006–0.014. Trajectories are compact and consistently shaped across datasets, reflecting <strong>shared task structure.</strong>
-    </figcaption>
-  </figure>
-
-  <figure style="flex: 1; text-align: center; margin: 0;">
-    <img src="/nDNA/assets/gifs/introduction/ndna_llama_dialogue_axes_match.gif" alt="Dialogue nDNA Trajectories" style="width: 100%; max-width: 400px;" />
-    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-      <strong>(b) Dialogue group nDNA trajectories:</strong> κ ranges ∼ 0.01–0.03, L ∼ 0.47–0.53, τ ∼ 0.006–0.014. Trajectories are shallow and tightly clustered, reflecting <strong>low latent complexity</strong> typical of conversational flow.
-    </figcaption>
-  </figure>
-</div>
-
-<div style="display: flex; gap: 2em; margin: 2em auto; max-width: 1200px; align-items: flex-start;">
-  <figure style="flex: 1; text-align: center; margin: 0;">
-    <img src="/nDNA/assets/gifs/introduction/ndna_llama_qa_axes_match.gif" alt="QA nDNA Trajectories" style="width: 100%; max-width: 400px;" />
-    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-      <strong>(a) QA group nDNA trajectories:</strong> κ ranges ∼ 0.012–0.03, L ∼ 0.47–0.53, τ ∼ 0.006–0.014. Trajectories are compact and consistently shaped across datasets, reflecting shared task structure.
-    </figcaption>
-  </figure>
-
-  <figure style="flex: 1; text-align: center; margin: 0;">
-    <img src="/nDNA/assets/gifs/introduction/ndna_llama_commonsense_axes_match.gif" alt="Commonsense nDNA Trajectories" style="width: 100%; max-width: 400px;" />
-    <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555;">
-      <strong>(d) Commonsense group nDNA trajectories:</strong> κ ranges ∼ 0.00–0.04, L ∼ 0.44–0.54, τ ∼ 0.004–0.018. Trajectories are intermediate in complexity, reflecting varied latent demands of commonsense reasoning.
-    </figcaption>
-  </figure>
-</div>
-
-<hr />
-
-<h2 id="references">References</h2>
-
-<p><a id="ref1"></a>[1] Belrose, Jacob, Chan, Amanda, and others “A Mechanistic Interpretability Analysis of Grokking” <em>arXiv preprint arXiv:2301.05217</em> (2023).</p>
-
-<p><a id="ref2"></a>[2] Geva, Mor, Schuster, Tal, and others “Transformer feed-forward layers are key-value memories” <em>Proceedings of EMNLP</em> (2021).</p>
-
-<p><a id="ref3"></a>[3] Dai, Zihang, Lin, Xuezhi, and others “Knowledge neurons in pretrained transformers” <em>arXiv preprint arXiv:2104.08696</em> (2023).</p>
-
-<p><a id="ref4"></a>[4] Liu, Nelson and others “Hidden Progress in Language Models” <em>arXiv preprint arXiv:2305.04388</em> (2023).</p>
-
-<p><a id="ref5"></a>[5] Zhou, Ben and others “On Alignment Drift in Large Language Models” <em>arXiv preprint arXiv:2310.02979</em> (2023).</p>
-
-<p><a id="ref6"></a>[6] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
-
-<p><a id="ref7"></a>[7] Wu, Z. and others “Seamless: Robust distillation of large models” <em>ICML</em> (2024).</p>
-
-<p><a id="ref8"></a>[8] Xu, J. and others “Aligning large language models with iterative feedback” <em>ICLR</em> (2023).</p>
-
-<p><a id="ref9"></a>[9] Perez, Ethan, Ringer, Sam, and others “Discovering latent knowledge in language models without supervision” <em>arXiv preprint arXiv:2212.03827</em> (2022).</p>
-
-<p><a id="ref10"></a>[10] Jacobs, Rachel, Uesato, Jonathan, and others “Evaluation-Aware Language Models” <em>arXiv preprint arXiv:2406.02583</em> (2024).</p>
-
-<p><a id="ref11"></a>[11] Liu, Nelson F. and others “Lost in the Middle: How Language Models Use Long Contexts” <em>arXiv preprint arXiv:2307.03172</em> (2023).</p>
-
-<p><a id="ref12"></a>[12] Bai, Yuntao and others “Constitutional AI: Harmlessness from AI Feedback” <em>arXiv preprint arXiv:2212.08073</em> (2023).</p>
-
-<p><a id="ref13"></a>[13] Mukherjee, Subhadeep, Das, Amitava, and others “Cultural Inconsistency and Value Conflict in Multilingual Language Models” <em>arXiv preprint arXiv:2404.08730</em> (2024).</p>
-
-<p><a id="ref14"></a>[14] Chen, Daphne Ippolito and others “When Can AI Systems Disagree with Humans? Evaluating Multilingual Alignment” <em>arXiv preprint arXiv:2309.00946</em> (2023).</p>
-
-<p><a id="ref15"></a>[15] Chiang, Cheng and others “Can Language Models Learn with Less? A Study on Fine-Tuning Alignment” <em>arXiv preprint arXiv:2309.01855</em> (2023).</p>
-
-<p><a id="ref16"></a>[16] Bakker, Tom and others “Uniting Model Merging and Distillation: Towards Unified Neural Inheritance” <em>arXiv preprint arXiv:2402.00999</em> (2024).</p>
-
-<p><a id="ref17"></a>[17] Farzam, Amir, Subramani, Akshay, and others “Ricci Curvature Reveals Alignment Dynamics in Language Models” <em>ICLR</em> (2024).</p>
-
-<p><a id="ref18"></a>[18] Cho, Kyunghyun and others “Mixed Curvature Geometry in Large Language Models” <em>arXiv preprint arXiv:2310.04890</em> (2023).</p>
-
-<p><a id="ref19"></a>[19] Gasteiger, Johannes, Becker, Florian, and others “GemNet: Universal Directional Graph Neural Networks for Molecules” <em>NeurIPS</em> (2021).</p>
-
-<p><a id="ref20"></a>[20] Xu, Yifan and Tong, Hanghang “Spherical Graph Neural Networks for Learning on Non-Euclidean Structures” <em>ICLR</em> (2022).</p>
-
-<p><a id="ref21"></a>[21] Konf, Anna and Zhang, Yuhang “Hierarchical Spectral Networks for Structured Reasoning” <em>ACL</em> (2021).</p>
-
-<p><a id="ref22"></a>[22] Ying, Rex, Tancik, Matthew, and others “SE(3)-Equivariant Graph Neural Networks for Data-Efficient and Accurate Interatomic Potentials” <em>NeurIPS</em> (2021). <a href="https://proceedings.neurips.cc/paper_files/paper/2021/file/2e7480b033cddcfba40cbed8d8b2c4ec-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2021/file/2e7480b033cddcfba40cbed8d8b2c4ec-Paper.pdf</a></p>
-
-<p><a id="ref23"></a>[23] Hu, Zexuan, Li, Qi, and others “Learning Lie Algebra Representations in Transformers” <em>NeurIPS</em> (2022). <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/3a1b9185290a2c576a8cc4eecdfd24f9-Paper-Conference.pdf">https://proceedings.neurips.cc/paper_files/paper/2022/file/3a1b9185290a2c576a8cc4eecdfd24f9-Paper-Conference.pdf</a></p>
-
-<p><a id="ref24"></a>[24] Hess, William, Rahimi, Ali, and others “Spectral Regularization for Stable Representation Learning” <em>ICML</em> (2023). <a href="https://proceedings.mlr.press/v202/hess23a/hess23a.pdf">https://proceedings.mlr.press/v202/hess23a/hess23a.pdf</a></p>
-
-<p><a id="ref25"></a>[25] Wang, Qingyun and others “GeomTransformer: Geometry-Equivariant Attention for Molecular Graphs” <em>ICLR</em> (2021).</p>
-
-<p><a id="ref26"></a>[26] OpenAI “GPT-4 Technical Report” <em>Accessed June 2025</em> (2023).</p>
-
-<p><a id="ref27"></a>[27] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
-
-<p><a id="ref28"></a>[28] Oliviero, Daniele, Bacciu, Davide, and others “Thermodynamics of Learning: Energy-Based Viewpoints and Information Geometry in Deep Learning” <em>Proceedings of the 40th International Conference on Machine Learning (ICML)</em> (2023).</p>
-
-<p><a id="ref29"></a>[29] Wagner, Henrik and Bubeck, Sébastien “Thermodynamic Metrics Reveal Capacity Allocation in Transformers” <em>arXiv preprint arXiv:2306.13052</em> (2023).</p>
-
-<p><a id="ref30"></a>[30] Arora, Akhila, Goyal, Tushar, and others “Stereoset: Measuring stereotypical bias in pretrained language models” <em>TACL</em> (2023).</p>
-
-<p><a id="ref31"></a>[31] Wang, Ziwei, Xu, Yichao, and others “Cultural bias in large language models: A survey” <em>arXiv preprint arXiv:2311.05691</em> (2023).</p>
-
-<p><a id="ref32"></a>[32] Shen, Sheng and others “The Geometry of Belief in Language Models” <em>arXiv preprint arXiv:2305.12355</em> (2023).</p>
-
-<p><a id="ref33"></a>[33] Bommasani, R. and others “Foundation models: Past, present, and future” <em>arXiv preprint arXiv:2309.00616</em> (2023).</p>
-
-<p><a id="ref34"></a>[34] Peng, Baolin, Wang, Li, and others “Culturally aligned language modeling: Methods and benchmarks” <em>ACL</em> (2024).</p>
-
-<p><a id="ref35"></a>[35] Laurens, Ethan and others “The Ethics of Alignment: Towards Culturally Inclusive Foundation Models” <em>Proceedings of the AAAI Conference on Artificial Intelligence</em> (2024).</p>
-
-<p><a id="ref36"></a>[36] Kang, Junjie and Liu, Emily “Fairness Across Cultures in NLP” <em>ACL</em> (2024).</p>
-
-<p><a id="ref37"></a>[37] de Vries, Harm and Sharma, Aarushi “Latent Bias Projection in Transformers” <em>EMNLP</em> (2023).</p>
-
-<p><a id="ref38"></a>[38] Gao, Xiaozhong and Huang, Yiwen “Tracing Value Attribution in Foundation Models” <em>NeurIPS</em> (2023).</p>
-
-<p><a id="ref39"></a>[39] Micheli, Alessio and others “Thermodynamics of Learning in Neural Networks” <em>Entropy</em> (2022).</p>
-
-<p><a id="ref40"></a>[40] Alberts, Bruce, Johnson, Alexander, and others “Molecular Biology of the Cell” <em>arXiv preprint</em> (2014).</p>
-
-<p><a id="ref41"></a>[41] Lewin, Benjamin, Krebs, Jocelyn E, and others “Genes XI” <em>arXiv preprint</em> (2013).</p>
-
-<p><a id="ref42"></a>[42] Bird, Adrian “Perceptions of epigenetics” <em>Nature</em> (2007).</p>
-
-<p><a id="ref43"></a>[43] Davidson, Eric H. “The Regulatory Genome: Gene Regulatory Networks In Development And Evolution” <em>arXiv preprint</em> (2006).</p>
-
-<p><a id="ref44"></a>[44] Lambert, Samuel A., Jolma, Arttu, and others “The human transcription factors” <em>Cell</em> (2018).</p>
-
-<p><a id="ref45"></a>[45] Clapier, Cedric R., Iwasa, Janet, and others “Mechanisms of action and regulation of ATP-dependent chromatin-remodelling complexes” <em>Nature Reviews Molecular Cell Biology</em> (2017).</p>
-
-<p><a id="ref46"></a>[46] Dekker, Job and Mirny, Leonid “Exploring the three-dimensional organization of genomes: interpreting chromatin interaction data” <em>Nature Reviews Genetics</em> (2013).</p>
-
-<p><a id="ref47"></a>[47] Alon, Uri “An Introduction to Systems Biology: Design Principles of Biological Circuits” <em>arXiv preprint</em> (2006).</p>
-
-<p><a id="ref48"></a>[48] Belkin, Mikhail, Hsu, Daniel, and others “Reconciling modern machine-learning practice and the classical bias–variance trade-off” <em>Proceedings of the National Academy of Sciences</em> (2019).</p>
-
-<p><a id="ref49"></a>[49] Still, Susanne “Thermodynamic cost and benefit of memory” <em>Physical Review Letters</em> (2012).</p>
-
-<p><a id="ref50"></a>[50] Olah, Chris, Satyanarayan, Arvind, and others “Zoom In: An introduction to circuits” <em>arXiv preprint</em> (2020). <a href="https://distill.pub/2020/circuits/zoom-in/">https://distill.pub/2020/circuits/zoom-in/</a></p>
-
-<p><a id="ref51"></a>[51] Vaswani, Ashish, Shazeer, Noam, and others “Attention is all you need” <em>Proceedings of NeurIPS</em> (2017).</p>
-
-<p><a id="ref52"></a>[52] Mikolov, Tomas, Sutskever, Ilya, and others “Distributed representations of words and phrases and their compositionality” <em>NeurIPS</em> (2013).</p>
-
-<p><a id="ref53"></a>[53] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
-
-<p><a id="ref54"></a>[54] Cobbe, Karl, Kosaraju, Vineet, and others “Training verifiers to solve math word problems” <em>arXiv preprint arXiv:2110.14168</em> (2021).</p>
-
-<p><a id="ref55"></a>[55] Budzianowski, Paweł, Wen, Tsung-Hsien, and others “MultiWOZ–A large-scale multi-domain wizard-of-oz dataset for task-oriented dialogue modelling” <em>Proceedings of EMNLP</em> (2018).</p>
-
-<p><a id="ref56"></a>[56] Rajpurkar, Pranav, Zhang, Jian, and others “SQuAD: 100,000+ questions for machine comprehension of text” <em>Proceedings of EMNLP</em> (2016).</p>
-
-<p><a id="ref57"></a>[57] Waddington, Conrad Hal “The strategy of the genes: a discussion of some aspects of theoretical biology” <em>Allen &amp; Unwin</em> (1957).</p>
-
-<p><a id="ref58"></a>[58] Thurman, Robert E., Rynes, Eric, and others “The accessible chromatin landscape of the human genome” <em>Nature</em> (2012).</p>
-
-<p><a id="ref59"></a>[59] Beltagy, Iz, Peters, Matthew E., and others “Longformer: The Long-Document Transformer” <em>arXiv preprint arXiv:2004.05150</em> (2020).</p>
-
-<p><a id="ref60"></a>[60] Eric H. Davidson “The Regulatory Genome: Gene Regulatory Networks In Development And Evolution” <em>Fundamental work on gene regulatory networks and developmental biology</em> (2006).</p>
-
-<p><a id="ref61"></a>[61] Pfeiffer, Jonas, Kamath, Ankur, and others “AdapterFusion: Non-Destructive Task Composition for Transfer Learning” <em>EACL</em> (2021).</p>
-
-<p><a id="ref62"></a>[62] Marioni, John C, Mason, Christopher E, and others “RNA-seq: An assessment of technical reproducibility and comparison with gene expression arrays” <em>Genome research</em> (2008).</p>
-
-<p><a id="ref63"></a>[63] Kwiatkowski, Tom, Palomaki, Jennimaria, and others “Natural Questions: A benchmark for question answering research” <em>Proceedings of ACL</em> (2019).</p>
-
-<p><a id="ref64"></a>[64] Joshi, Mandar, Choi, Eunsol, and others “TriviaQA: A large scale distantly supervised challenge dataset for reading comprehension” <em>Proceedings of ACL</em> (2017).</p>
-
-<p><a id="ref65"></a>[65] Patel, Shrey Desai, Chen, Zi, and others “Are NLP models really robust? Evaluating and enhancing the robustness of NLP models for numerical reasoning” <em>Proceedings of EMNLP</em> (2021).</p>
-
-<p><a id="ref66"></a>[66] Li, Jiwei, Galley, Michel, and others “A persona-based neural conversation model” <em>Proceedings of ACL</em> (2016).</p>
-
-<p><a id="ref67"></a>[67] Zhang, Saizheng, Dinan, Emily, and others “Personalizing dialogue agents: I have a dog, do you have pets too?” <em>Proceedings of ACL</em> (2018).</p>
-
-<p><a id="ref68"></a>[68] Sap, Maarten, Le Bras, Ronan, and others “SocialIQA: Commonsense reasoning about social interactions” <em>Proceedings of EMNLP</em> (2019).</p>
-
-<p><a id="ref69"></a>[69] Zellers, Rowan, Holtzman, Ari, and others “HellaSwag: Can a machine really finish your sentence?” <em>Proceedings of ACL</em> (2019).</p>
-
-<p><a id="ref70"></a>[70] Talmor, Alon, Herzig, Jonathan, and others “CommonsenseQA: A question answering challenge targeting commonsense knowledge” <em>Proceedings of NAACL-HLT</em> (2019).</p>
-
-<p><a id="ref71"></a>[71] Zhang, Qing, Yang, Wen, and others “Interpretable deep learning systems: A survey” <em>arXiv preprint arXiv:1802.09945</em> (2018).</p>
-
-<p><a id="ref72"></a>[72] Narayanan, S, Joshi, N, and others “Decoding language models: A geometric approach to interpretability” <em>arXiv preprint arXiv:2105.06997</em> (2021).</p>
-
 
       </div>
     </div>
 
     <footer>
       © Copyright 2025 nDNA.
+      <p style="color: red; width: 21rem; margin: 1rem auto 0;">* Use by non-profit entities is legally prohibited without prior written consent from the authors.</p>
     </footer>
   </div>
 
   <script src="/nDNA/assets/js/ndna.js"></script>
+  <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
+
+  <!-- This script controls the opening and closing of your modal -->
+  <script>
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeBtn');
+    // The selector now finds the image link because we added the "open-btn" class to it
+    const openBtn = document.querySelector('.open-btn');
+  
+    openBtn.addEventListener('click', (e) => {
+      // This is IMPORTANT: It stops the link from opening a new tab.
+      e.preventDefault(); 
+      // This opens the modal popup.
+      overlay.style.display = 'flex';
+    });
+    
+    closeBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+  
+    overlay.addEventListener('click', (e) => {
+      // This closes the modal if you click on the dark background area
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+      }
+    });
+  </script>
+  <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
+    <script>
+      const overlay = document.getElementById('overlay');
+      const closeBtn = document.getElementById('closeBtn');
+      const openBtn = document.querySelector('.open-btn');
+  
+      openBtn.addEventListener('click', () => {
+        overlay.style.display = 'flex';
+      });
+      closeBtn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+      // Close when clicking outside the modal content, but still on the overlay
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.style.display = 'none';
+        }
+      });
+    </script>
 </body>
 </html>

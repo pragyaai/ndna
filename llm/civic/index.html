@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="base-url" content="/nDNA">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
   <title>The CIVIC-Culture Calibration Benchmark - nDNA</title>
   <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
   <link rel="stylesheet" href="/nDNA/assets/css/main.css">
@@ -70,12 +75,126 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/civic/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-21T20:00:15+00:00" />
+<meta property="article:published_time" content="2025-08-23T06:24:52+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="The CIVIC-Culture Calibration Benchmark" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-21T20:00:15+00:00","datePublished":"2025-08-21T20:00:15+00:00","description":"The CIVIC - Culture Calibration Benchmark","headline":"The CIVIC-Culture Calibration Benchmark","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/civic/"},"url":"https://pragyaai.github.io/nDNA/llm/civic/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T06:24:52+00:00","datePublished":"2025-08-23T06:24:52+00:00","description":"The CIVIC - Culture Calibration Benchmark","headline":"The CIVIC-Culture Calibration Benchmark","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/civic/"},"url":"https://pragyaai.github.io/nDNA/llm/civic/"}</script>
 <!-- End Jekyll SEO tag -->
+
+
+  <style>
+
+    button.open-btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #0b5cff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.open-btn:hover {
+      background: #0948c9;
+    }
+
+    /* Overlay background */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    /* Modal container */
+    .modal {
+      background: #fff;
+      width: 90%;
+      height: 90%;
+      max-width: 960px; /* Added max-width for better desktop experience */
+      max-height: 720px; /* Added max-height */
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Header */
+    .modal-header {
+      background: white; /* Changed to white */
+      color: #333; /* Adjusted text color for readability */
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee; /* Added a subtle border */
+    }
+    .modal-header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: #333; /* Adjusted color for readability */
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 15px; /* Space between download link and close button */
+      padding: 0; /* Remove default button padding */
+    }
+
+    /* New styles for download button */
+    .header-actions {
+        display: flex;
+        align-items: center;
+    }
+    .download-btn {
+        text-decoration: none;
+        color: #0b5cff;
+        font-size: 14px;
+        padding: 6px 12px;
+        border: 1px solid #0b5cff;
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Space for an optional icon */
+    }
+    .download-btn:hover {
+        background: #0b5cff;
+        color: white;
+    }
+    .download-btn svg {
+        fill: currentColor; /* Make icon color match text color */
+        width: 16px;
+        height: 16px;
+    }
+
+
+    /* Content area */
+    .modal-content {
+      flex: 1;
+      position: relative;
+    }
+    .fp-embed {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 
 </head>
 <body>
@@ -92,9 +211,33 @@
       <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
       <div class="side-tab" onclick="switchView('EFM')">EFM</div>
     </div>
-    <a class="ndna-cover" href="/nDNA/assets/nDNA_BOOK.pdf" target="_blank" style="text-decoration: none; display: block;">
-      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA" class="ndna-cover-image">
+    <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">
     </a>
+    
+    <!-- The Modal Popup (remains unchanged, but is now triggered by the image above) -->
+    <div class="overlay" id="overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>nDNA</h2>
+          <div class="header-actions">
+            <a href="/nDNA/assets/nDNA_BOOK.pdf" class="download-btn" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+              Download Book
+            </a>
+            <button class="close-btn" id="closeBtn">&times;</button>
+          </div>
+        </div>
+        <div class="modal-content">
+          <a href="https://8fd70956-trial.flowpaper.com/nDNABOOK/?_centerPage=1"
+             class="fp-embed"
+             data-fp-width="100%"
+             data-fp-height="100%"
+             style="max-width: 100%;"></a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- RIGHT CONTENT -->
@@ -103,7 +246,7 @@
     <!-- TOP MENU -->
     <div class="navbar">
       <div class="navbar-content">
-        <div id="topMenu"></div>
+        <div id="topMenu" class="top-menu"></div>
         <div class="pragya-logo">
           <a href="https://pragyaai.github.io/" target="_blank">
             <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
@@ -1536,9 +1679,56 @@ A final validation phase involved pilot runs of prominent foundation models (e.g
 
     <footer>
       © Copyright 2025 nDNA.
+      <p style="color: red; width: 21rem; margin: 1rem auto 0;">* Use by non-profit entities is legally prohibited without prior written consent from the authors.</p>
     </footer>
   </div>
 
   <script src="/nDNA/assets/js/ndna.js"></script>
+  <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
+
+  <!-- This script controls the opening and closing of your modal -->
+  <script>
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeBtn');
+    // The selector now finds the image link because we added the "open-btn" class to it
+    const openBtn = document.querySelector('.open-btn');
+  
+    openBtn.addEventListener('click', (e) => {
+      // This is IMPORTANT: It stops the link from opening a new tab.
+      e.preventDefault(); 
+      // This opens the modal popup.
+      overlay.style.display = 'flex';
+    });
+    
+    closeBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+  
+    overlay.addEventListener('click', (e) => {
+      // This closes the modal if you click on the dark background area
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+      }
+    });
+  </script>
+  <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
+    <script>
+      const overlay = document.getElementById('overlay');
+      const closeBtn = document.getElementById('closeBtn');
+      const openBtn = document.querySelector('.open-btn');
+  
+      openBtn.addEventListener('click', () => {
+        overlay.style.display = 'flex';
+      });
+      closeBtn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+      // Close when clicking outside the modal content, but still on the overlay
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.style.display = 'none';
+        }
+      });
+    </script>
 </body>
 </html>

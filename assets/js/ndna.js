@@ -6,7 +6,7 @@ const menusByModel = {
   LLM: [
     { text: "Prefatio", url: baseUrl + "/llm/prefatio/" },
     { text: "Admonitio", url: baseUrl + "/llm/admonitio/" },
-    { text: "nDNA", url: baseUrl + "/" },
+    { text: "nDNA", url: baseUrl + "/llm/ndna/" },
     { text: "15 Foundational LLMs", url: baseUrl + "/llm/15-llms/" },
     { text: "Cultural nDNA", url: baseUrl + "/llm/cultural-ndna/" },
     { text: "CIVIC", url: baseUrl + "/llm/civic/" },
@@ -20,7 +20,8 @@ const menusByModel = {
     { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
     { text: "NLP Operations", url: baseUrl + "/llm/nlp-operations/prelude/" },
     { text: "at-a-glance", url: baseUrl + "/llm/at_a_glance/" },
-    { text: "FAQ", url: baseUrl + "/llm/FAQ/" }
+    { text: "FAQ", url: baseUrl + "/llm/FAQ/" },
+    { text: "Critique’s Corner", url: baseUrl + "/llm/critique-s-corner/" }
   ],
   MFM: [
     { text: "nDNA", url: baseUrl + "/" },
