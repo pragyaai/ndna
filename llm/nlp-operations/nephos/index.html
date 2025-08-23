@@ -75,11 +75,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-23T06:45:55+00:00" />
+<meta property="article:published_time" content="2025-08-23T07:52:51+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T06:45:55+00:00","datePublished":"2025-08-23T06:45:55+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T07:52:51+00:00","datePublished":"2025-08-23T07:52:51+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -903,111 +903,27 @@ This illustrates a <i>strategic manipulation vulnerability</i>, where the SPS ve
   
 </figure>
 
-<p>&lt;div</p>
+<p><strong>Figure: Belief wind fields for <em>lexical</em> and <em>semantic</em> SPS at intermediate layer</strong> $\ell=8$</p>
 
-<p>  style=”</p>
+<p><em>Blue spheres</em>: clean belief states $\mathbf{p}^{\mathrm{clean}}_i$;<br />
+<em>Orange cones</em>: poisoned belief states $\mathbf{p}^{\mathrm{poisoned}}_i$;<br />
+<em>Arrows</em>: normalized drifts $\widehat{\Delta \mathbf{p}}_i = \frac{\Delta \mathbf{p}_i}{|\Delta \mathbf{p}_i|_2}$.</p>
 
-<p>    text-align: center;</p>
+<ul>
+  <li>The $u_a$ axis represents <strong>unsafe belief activation</strong></li>
+  <li>$u_b$ <strong>safe contrast</strong></li>
+  <li>$u_c$ <strong>orthogonal residual</strong></li>
+</ul>
 
-<p>    font-size: 0.9em;</p>
+<p>Differences are visible both qualitatively (<em>parallel laminar flow</em> vs. <em>dispersed swirling flow</em>) and quantitatively:</p>
 
-<p>    margin-top: 3em;</p>
+<ul>
+  <li><strong>Anisotropy index</strong>: $\mathcal{A}\approx 0.88$ (lexical) vs. $\mathcal{A}\approx 0.41$ (semantic)</li>
+  <li><strong>Curl-to-potential energy ratio</strong>: $&lt;0.06$ vs. $0.59$</li>
+  <li><strong>Alignment deviation</strong>: $\bar{\theta}_a \approx 9.4^\circ$ vs. $34.7^\circ$</li>
+</ul>
 
-<p>    font-style: italic;</p>
-
-<p>    color: #666;</p>
-
-<p>  “</p>
-
-<blockquote>
-
-</blockquote>
-
-<p>  <strong></strong></p>
-
-<p>    Figure: Belief wind fields for</p>
-
-<p>    <em>lexical</em> and <em>semantic</em> SPS at intermediate layer</p>
-
-<p>    <span class="mathjax-render">( \ell=8 )</span></p>
-
-<p>  &lt;/strong&gt;</p>
-
-<p>  <br /></p>
-
-<p>  Blue spheres: <em>clean belief states</em></p>
-
-<p>  <span class="mathjax-render">( \mathbf{p}^{\mathrm{clean}}_i )</span>;</p>
-
-<p>  orange cones: <em>poisoned belief states</em></p>
-
-<p>  <span class="mathjax-render">( \mathbf{p}^{\mathrm{poisoned}}_i )</span>;</p>
-
-<p>  arrows: <em>normalized drifts</em></p>
-
-<p>  <span class="mathjax-render"></span></p>
-
-<p>    ( \widehat{\Delta \mathbf{p}}_i</p>
-
-<p>       = \frac{\Delta \mathbf{p}_i}{|\Delta \mathbf{p}_i|_2} )</p>
-
-<p>  &lt;/span&gt;.</p>
-
-<p>  <br /></p>
-
-<p>  The <span class="mathjax-render">( u_a )</span> axis represents</p>
-
-<p>  <strong>unsafe belief activation</strong>,</p>
-
-<p>  <span class="mathjax-render">( u_b )</span></p>
-
-<p>  <strong>safe contrast</strong>,</p>
-
-<p>  <span class="mathjax-render">( u_c )</span></p>
-
-<p>  <strong>orthogonal residual</strong>.</p>
-
-<p>  <br /></p>
-
-<p>  Differences are visible both qualitatively</p>
-
-<p>  (<em>parallel laminar flow</em> vs. <em>dispersed swirling flow</em>)</p>
-
-<p>  and quantitatively:</p>
-
-<p>  <strong>anisotropy index</strong></p>
-
-<p>  <span class="mathjax-render">( \mathcal{A}\approx 0.88 )</span> (lexical)</p>
-
-<p>  vs.</p>
-
-<p>  <span class="mathjax-render">( \mathcal{A}\approx 0.41 )</span> (semantic),</p>
-
-<p>  <strong>curl-to-potential energy ratio</strong></p>
-
-<p>  <span class="mathjax-render">( &lt;0.06 )</span> vs.</p>
-
-<p>  <span class="mathjax-render">( 0.59 )</span>, and</p>
-
-<p>  <strong>alignment deviation</strong></p>
-
-<p>  <span class="mathjax-render">( \bar{\theta}_a \approx 9.4^\circ )</span></p>
-
-<p>  vs.</p>
-
-<p>  <span class="mathjax-render">( 34.7^\circ )</span>.</p>
-
-<p>  <br /></p>
-
-<p>  These patterns serve as <strong>diagnostic fingerprints</strong>,</p>
-
-<p>  indicating whether an SPS vulnerability is <em>axis-bound</em></p>
-
-<p>  (easier to neutralize) or <em>manifold-bound</em></p>
-
-<p>  (requiring deeper representation surgery).</p>
-
-<p>&lt;/div&gt;</p>
+<p>These patterns serve as <strong>diagnostic fingerprints</strong>, indicating whether an SPS vulnerability is <em>axis-bound</em> (easier to neutralize) or <em>manifold-bound</em> (requiring deeper representation surgery).</p>
 
 <h3 id="takeaway">Takeaway.</h3>
 
@@ -1229,414 +1145,317 @@ This illustrates a <i>strategic manipulation vulnerability</i>, where the SPS ve
 
 <h3 id="constrained-graph-search">Constrained Graph Search</h3>
 
-<p>The problem </p>
+<p>The problem</p>
 
-<p>$$</p>
+\[\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{subject to } S \to T \text{ connectivity}\]
 
-<p>\min_{\mathcal{G}’} \mathrm{cost}(\mathcal{G}’) \quad \text{subject to } S \to T \text{ connectivity}</p>
+<p>is NP-hard in general, as it generalizes the <em>Steiner tree problem</em> [<a href="#ref14">14</a>].</p>
 
-\[ 
+<p>We approximate $\mathcal{G}^\star$ using a <strong>constrained Dijkstra–Steiner hybrid</strong>:</p>
 
+<ol>
+  <li>
+    <p><strong>Pruning:</strong> Remove all edges $(u,v)$ with $w_{uv} &lt; \eta_{\min}$.<br />
+Typical $\eta_{\min} \in [0.02,0.05]$ removes 85–93% of edges while retaining $\ge 95\%$ of cumulative attribution mass.</p>
+  </li>
+  <li>
+    <p><strong>Edge weighting:</strong> Define $\ell_{uv} = w_{uv}^{-\beta}$ as the search length metric, with $\beta &gt; 0$ tuning the bias toward higher-weight edges.</p>
+  </li>
+  <li>
+    <p><strong>Multi-source shortest path:</strong> Run Dijkstra from all $s \in S$ simultaneously until all $t \in T$ are reached.</p>
+  </li>
+  <li>
+    <p><strong>Path union:</strong> Merge all found paths and prune any edge not in at least one shortest $s \to t$ path.</p>
+  </li>
+</ol>
 
+<h3 id="lagrangian-relaxation">Lagrangian Relaxation</h3>
 
-is NP-hard in general, as it generalizes the *Steiner tree problem* [&lt;a href="#ref14"&gt;14&lt;/a&gt;].  
+<p>We can incorporate the cost function into the search via a Lagrangian:</p>
 
-We approximate $\mathcal{G}^\star$ using a **constrained Dijkstra–Steiner hybrid**:
+\[\mathcal{L}(\mathcal{G}') = \mathrm{hop\_length}(\mathcal{G}') + \mu \cdot \mathrm{weight\_deficit}(\mathcal{G}') + \nu \cdot \mathrm{entropy}(\mathcal{G}')\]
 
+<p>where $\mu, \nu$ are dual variables updated based on constraint violations:</p>
 
+\[\begin{aligned}
+\mu &amp;\leftarrow \max(0, \mu + \rho \cdot (\mathrm{weight\_deficit} - \delta_W)) \\
+\nu &amp;\leftarrow \max(0, \nu + \rho \cdot (\mathrm{entropy} - \delta_H))
+\end{aligned}\]
 
-1. **Pruning:** Remove all edges $(u,v)$ with $w_{uv} &lt; \eta_{\min}$.  
+<p>Here $\delta_W$ and $\delta_H$ are tolerances for weight loss and entropy.</p>
 
-   Typical $\eta_{\min} \in [0.02,0.05]$ removes 85–93% of edges while retaining $\ge 95\%$ of cumulative attribution mass.
+<h3 id="complexity-analysis">Complexity Analysis</h3>
 
-2. **Edge weighting:** Define $\ell_{uv} = \frac{1}{w_{uv}^\beta}$ as the search length metric, with $\beta &gt; 0$ tuning the bias toward higher-weight edges.
+<p>Let $|V|$ be the number of nodes and $|E|$ the number of edges in $\mathcal{G}$.<br />
+In a Transformer with $L$ layers, $H$ heads per layer, and sequence length $n$, we have:</p>
 
-3. **Multi-source shortest path:** Run Dijkstra from all $s \in S$ simultaneously until all $t \in T$ are reached.
+\[\begin{aligned}
+|V| &amp;= L \cdot H \cdot n \\
+|E| &amp;\approx L \cdot (H \cdot n^2 + H \cdot n) \quad \text{(attn + MLP + residual)}
+\end{aligned}\]
 
-4. **Path union:** Merge all found paths and prune any edge not in at least one shortest $s \to t$ path.
+<p>Naive Dijkstra on the unpruned graph has complexity:</p>
 
+\[O(|E| + |V| \log |V|) \approx O(L \cdot H \cdot n^2)\]
 
+<p>With pruning ratio $p$ (fraction of edges removed), complexity reduces to:</p>
 
-### Lagrangian Relaxation
+\[O((1-p)|E| + |V| \log |V|)\]
 
-We can incorporate the cost function into the search via a Lagrangian:\]
+<p>yielding empirical speedups of $8\times$–$15\times$ for $p \in [0.85, 0.93]$.</p>
 
-<p>\mathcal{L}(\mathcal{G}’) = \mathrm{hop_length}(\mathcal{G}’) + \mu \cdot \mathrm{weight_deficit}(\mathcal{G}’) + \nu \cdot \mathrm{entropy}(\mathcal{G}’),</p>
+<h3 id="adaptive-thresholding">Adaptive Thresholding</h3>
 
-\[where $\mu, \nu$ are dual variables updated based on constraint violations:\]
+<p>To avoid a fixed $\eta_{\min}$ that may prune critical weak links in <em>semantic</em> SPS, we implement a <strong>layer-adaptive threshold</strong>:</p>
 
-<p>\mu \leftarrow \max(0, \mu + \rho \cdot (\mathrm{weight_deficit} - \delta_W)), \quad</p>
+\[\eta_{\min}(\ell) = \gamma \cdot \mathrm{median}_{(u,v)\in E_\ell} w_{uv}\]
 
-<p>\nu \leftarrow \max(0, \nu + \rho \cdot (\mathrm{entropy} - \delta_H)).</p>
+<p>where $\gamma \in [0.3,0.7]$.<br />
+This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing [<a href="#ref15">15</a>].</p>
 
-\[Here $\delta_W$ and $\delta_H$ are tolerances for weight loss and entropy.
+<h3 id="link-to-nlp-parsing-and-pruning">Link to NLP Parsing and Pruning</h3>
 
+<p>The pruning stage parallels <em>syntactic dependency pruning</em> in linguistic parse trees [<a href="#ref16">16</a>].</p>
 
+<h4 id="ii-closeness-centrality">(ii) Closeness Centrality</h4>
 
-### Complexity Analysis
+<p>Defined as:</p>
 
-Let $|V|$ be the number of nodes and $|E|$ the number of edges in $\mathcal{G}$.  
+\[C_C(v) = \frac{1}{\sum_{t \in T} \mathrm{dist}(v,t)},\]
 
-In a Transformer with $L$ layers, $H$ heads per layer, and sequence length $n$, we have:\]
+<p>this measures how quickly contamination can spread from $v$ to any sink.  </p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>V</td>
-      <td>= L \cdot H \cdot n, \quad</td>
-      <td>E</td>
-      <td>\approx L \cdot (H \cdot n^2 + H \cdot n) \quad \text{(attn + MLP + residual)}.</td>
-    </tr>
-  </tbody>
-</table>
+<p>Lexical SPS often shows $C_C$ peaks in shallow layers; semantic SPS peaks are more distributed, with secondary maxima in mid–deep layers.</p>
 
-\[Naive Dijkstra on the unpruned graph has complexity:\]
+<h4 id="iii-k-core-decomposition">(iii) $k$-core Decomposition</h4>
 
-<table>
-  <tbody>
-    <tr>
-      <td>O(</td>
-      <td>E</td>
-      <td>+</td>
-      <td>V</td>
-      <td>\log</td>
-      <td>V</td>
-      <td>) \approx O(L \cdot H \cdot n^2).</td>
-    </tr>
-  </tbody>
-</table>
+<p>A $k$-core is a maximal subgraph where all nodes have degree $\ge k$.  </p>
 
-\[With pruning ratio $p$ (fraction of edges removed), complexity reduces to:\]
+<p>Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in {2,3}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to <em>biofilm-like pathogen communities</em> [<a href="#ref17">17</a>].</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>O((1-p)</td>
-      <td>E</td>
-      <td>+</td>
-      <td>V</td>
-      <td>\log</td>
-      <td>V</td>
-      <td>),</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="iv-spectral-gap-analysis">(iv) Spectral Gap Analysis</h4>
 
-\[yielding empirical speedups of $8\times$–$15\times$ for $p \in [0.85, 0.93]$.
+<p>Let $\mathbf{L}$ be the (weighted) Laplacian of $\mathcal{G}^\star$.  </p>
 
+<p>The spectral gap $\lambda_2$ (Fiedler value) quantifies connectivity robustness:</p>
 
+\[\lambda_2 = \min_{\mathbf{x} \perp \mathbf{1}} \frac{\mathbf{x}^\top \mathbf{L} \mathbf{x}}{\mathbf{x}^\top \mathbf{x}}.\]
 
-### Adaptive Thresholding
+<p>Small $\lambda_2$ implies vulnerability to edge removal; large $\lambda_2$ suggests redundancy.  </p>
 
-To avoid a fixed $\eta_{\min}$ that may prune critical weak links in *semantic* SPS, we implement a **layer-adaptive threshold**:\]
+<p>Semantic SPS generally yields higher $\lambda_2$—multiple contamination routes—while lexical SPS has low $\lambda_2$, reflecting single-path dependence.</p>
 
-<p>\eta_{\min}(\ell) = \gamma \cdot \mathrm{median}<em>{(u,v)\in E</em>\ell} w_{uv},</p>
+<h4 id="v-flow-concentration-index">(v) Flow Concentration Index</h4>
 
-\[where $\gamma \in [0.3,0.7]$.  
+<p>Analogous to Lorenz–Gini measures in economics:</p>
 
-This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing [&lt;a href="#ref15"&gt;15&lt;/a&gt;].
+\[\mathcal{F} = 1 - 2 \int_0^1 L(p) \, dp,\]
 
+<p>where $L(p)$ is the Lorenz curve of sorted $w_{uv}$ values.  </p>
 
+<p>Lexical SPS: $\mathcal{F} \approx 0.75$–$0.9$; semantic SPS: $\mathcal{F} \approx 0.4$–$0.6$.</p>
 
-### Link to NLP Parsing and Pruning
+<h3 id="derivation-energy-decay-model">Derivation: Energy Decay Model</h3>
 
-The pruning stage parallels *syntactic dependency pruning* in linguistic parse trees [&lt;a href="#ref16"&gt;16&lt;/a&gt;].
+<p>Let $E_\ell$ be layerwise residual energy. Assume multiplicative loss:</p>
 
+\[E_{\ell+1} = (1-\delta_\ell) E_\ell, \quad \delta_\ell \in (0,1),\]
 
+<p>with $\delta_\ell$ drawn from distribution $P(\delta)$.  </p>
 
-#### (ii) Closeness Centrality
+<p>For i.i.d.\ $\delta_\ell$, we have:</p>
 
-Defined as:\]
+\[E_\ell = E_0 \prod_{j=0}^{\ell-1} (1-\delta_j) \implies \mathbb{E}[E_\ell] \approx E_0 e^{-\alpha \ell}, \quad \alpha = -\log \mathbb{E}[1-\delta].\]
 
-<p>C_C(v) = \frac{1}{\sum_{t \in T} \mathrm{dist}(v,t)},</p>
+<p>Lexical SPS: $\mathbb{E}[\delta] \approx 0.5$–$0.6$ ($\alpha\approx 0.7$), semantic SPS: $\mathbb{E}[\delta] \approx 0.25$–$0.3$ ($\alpha\approx 0.3$).</p>
 
-\[this measures how quickly contamination can spread from $v$ to any sink.  
+<h3 id="biological-parallel-epidemic-graph-models">Biological Parallel: Epidemic Graph Models</h3>
 
-Lexical SPS often shows $C_C$ peaks in shallow layers; semantic SPS peaks are more distributed, with secondary maxima in mid–deep layers.
+<p>The ITG mirrors the <em>contact network</em> of an infectious disease outbreak [<a href="#ref18">18</a>]: </p>
 
+<ul>
+  <li>
+    <p>$R_0$ (basic reproduction number) $\leftrightarrow$ $\bar{B}$ (branching factor).  </p>
+  </li>
+  <li>
+    <p>Infection latency $\leftrightarrow$ mid-layer contamination delay before activation in sinks.  </p>
+  </li>
+  <li>
+    <p>Superspreaders $\leftrightarrow$ high-$C_B$ nodes.</p>
+  </li>
+</ul>
 
+<p>Semantic SPS graphs have higher effective $R_0$, explaining their robustness to partial “quarantine” (pruning) interventions.</p>
 
-#### (iii) $k$-core Decomposition
+<h3 id="nlp-parallels-discourse-graphs">NLP Parallels: Discourse Graphs</h3>
 
-A $k$-core is a maximal subgraph where all nodes have degree $\ge k$.  
+<p>In discourse modeling, high $C_B$ nodes correspond to <em>discourse nuclei</em> [<a href="#ref19">19</a>] —points where altering a statement shifts multiple downstream inferences.  </p>
 
-Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in \{2,3\}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to *biofilm-like pathogen communities* [&lt;a href="#ref17"&gt;17&lt;/a&gt;].
+<p>Similarly, in ITGs, high-centrality contamination nodes pivot the model’s reasoning toward unsafe completions.</p>
 
+<p>These topological metrics form a multi-dimensional fingerprint for SPS type classification and severity assessment.  </p>
 
+<p>In the next section, we integrate these graph-theoretic signatures with <strong>visual analytics</strong> and cross-modal forensics to produce a cohesive interpretive framework.</p>
 
-#### (iv) Spectral Gap Analysis
+<h3 id="visualization-pipeline">Visualization Pipeline</h3>
 
-Let $\mathbf{L}$ be the (weighted) Laplacian of $\mathcal{G}^\star$.  
+<p>The ITG visualization transforms the abstract $\mathcal{G}^\star$ into an interpretable, interactive map that supports both <em>global</em> inspection of contamination routes and <em>local</em> node-by-node analysis.  </p>
 
-The spectral gap $\lambda_2$ (Fiedler value) quantifies connectivity robustness:\]
+<p>We adopt a <strong>layered DAG layout</strong> with the following encodings:</p>
 
-<p>\lambda_2 = \min_{\mathbf{x} \perp \mathbf{1}} \frac{\mathbf{x}^\top \mathbf{L} \mathbf{x}}{\mathbf{x}^\top \mathbf{x}}.</p>
+<p>We adopt a <strong>layered DAG layout</strong> with the following encodings:</p>
 
-\[Small $\lambda_2$ implies vulnerability to edge removal; large $\lambda_2$ suggests redundancy.  
+<ul>
+  <li>
+    <p><strong>Horizontal axis:</strong> model depth $\ell$ (layer index).</p>
+  </li>
+  <li>
+    <p><strong>Vertical grouping:</strong> submodules $h \in \mathcal{H}_\ell$ (attention heads, MLP units).</p>
+  </li>
+  <li>
+    <p><strong>Node shape:</strong> module type (<em>circle</em> for attention, <em>square</em> for MLP, <em>diamond</em> for residual).</p>
+  </li>
+  <li>
+    <p><strong>Node color:</strong> activation class ($\textcolor{blue}{\text{safe}}$, $\textcolor{orange}{\text{unsafe}}$, $\textcolor{gray}{\text{residual}}$).</p>
+  </li>
+  <li>
+    <p><strong>Edge thickness:</strong> proportional to $w_{uv}$; <strong>edge color:</strong> category-specific.</p>
+  </li>
+</ul>
 
-Semantic SPS generally yields higher $\lambda_2$—multiple contamination routes—while lexical SPS has low $\lambda_2$, reflecting single-path dependence.
+<p>Hover tooltips reveal $(\ell,h,p)$ coordinates, activation magnitude $|\mathbf{a}<em>v|_2$, and $w</em>{uv}$ contributions.</p>
 
+<h3 id="staticinteractive-duality">Static–Interactive Duality</h3>
 
+<p>The <em>static</em> PNG (Fig.~\ref{fig:infection_traceback_static}) captures the high-level topology—depth, branching, crosslinks—while the <em>interactive</em> HTML (<code class="language-plaintext highlighter-rouge">infection_traceback.html</code>) enables:</p>
 
-#### (v) Flow Concentration Index
+<ol>
+  <li>
+    <p><strong>Path highlighting:</strong> clicking a sink node $t \in T$ illuminates all shortest $S \to t$ paths.</p>
+  </li>
+  <li>
+    <p><strong>Node metric overlay:</strong> switchable rendering of $C_B$, $C_C$, or degree values as node size.</p>
+  </li>
+  <li>
+    <p><strong>Edge filtering:</strong> real-time adjustment of $\eta_{\min}$ threshold.</p>
+  </li>
+</ol>
 
-Analogous to Lorenz–Gini measures in economics:\]
+<p>This dual representation parallels histopathology: static slides give global context; microscope scans reveal cellular detail.</p>
 
-<p>\mathcal{F} = 1 - 2 \int_0^1 L(p) \, dp,</p>
+<h3 id="cross-modal-integration-with-belief-wind-fields">Cross-Modal Integration with Belief Wind Fields</h3>
 
-\[where $L(p)$ is the Lorenz curve of sorted $w_{uv}$ values.  
+<p>ITGs and belief wind fields capture orthogonal aspects of SPS contamination:</p>
 
-Lexical SPS: $\mathcal{F} \approx 0.75$–$0.9$; semantic SPS: $\mathcal{F} \approx 0.4$–$0.6$.
+<ul>
+  <li>
+    <p><strong>Belief wind fields</strong> (BWFs) map continuous vector-field drift in latent space: directionality, curl, divergence.</p>
+  </li>
+  <li>
+    <p><strong>ITGs</strong> map discrete causal connectivity: depth, branching, redundancy.</p>
+  </li>
+</ul>
 
+<p>Integration is achieved by projecting BWF-derived unsafe activation axes $(u_a, u_b, u_c)$ onto $\mathcal{A}_V$ node attributes in $\mathcal{G}^\star$:</p>
 
+\[\theta_v = \cos^{-1} \frac{\mathbf{a}_v \cdot u_a}{\|\mathbf{a}_v\| \cdot \|u_a\|}, \quad v \in V^\star\]
 
-### Derivation: Energy Decay Model
+<p>The distribution of $\theta_v$ across $V^\star$ reveals whether unsafe activations are <em>axis-bound</em> (narrow peak) or <em>manifold-bound</em> (broad spread).</p>
 
-Let $E_\ell$ be layerwise residual energy. Assume multiplicative loss:\]
+<h3 id="joint-metric-profiles">Joint Metric Profiles</h3>
 
-<p>E_{\ell+1} = (1-\delta_\ell) E_\ell, \quad \delta_\ell \in (0,1),</p>
+<p>By aligning ITG and BWF metrics, we derive joint profiles:</p>
 
-\[with $\delta_\ell$ drawn from distribution $P(\delta)$.  
+\[\Psi_{\mathrm{joint}} = \{ d_{\mathrm{inf}}, \bar{B}, \alpha, C_B^{\max}, \lambda_2, \mathcal{F}, \mathcal{A}_{\mathrm{BWF}}, \mathcal{C}_{\mathrm{BWF}} \}\]
 
-For i.i.d.\ $\delta_\ell$, we have:\]
+<p>where $\mathcal{A}<em>{\mathrm{BWF}}$ is anisotropy and $\mathcal{C}</em>{\mathrm{BWF}}$ is curl fraction.  </p>
 
-<p>E_\ell = E_0 \prod_{j=0}^{\ell-1} (1-\delta_j) \implies \mathbb{E}[E_\ell] \approx E_0 e^{-\alpha \ell}, \quad \alpha = -\log \mathbb{E}[1-\delta].</p>
+<ul>
+  <li>
+    <p><strong>Lexical SPS:</strong> $(\alpha, \mathcal{A}_{\mathrm{BWF}}) \uparrow$, $(\bar{B}, \lambda_2) \downarrow$.  </p>
+  </li>
+  <li>
+    <p><strong>Semantic SPS:</strong> $(\bar{B}, \lambda_2, \mathcal{C}_{\mathrm{BWF}}) \uparrow$, $(\alpha) \downarrow$.</p>
+  </li>
+</ul>
 
-\[Lexical SPS: $\mathbb{E}[\delta] \approx 0.5$–$0.6$ ($\alpha\approx 0.7$), semantic SPS: $\mathbb{E}[\delta] \approx 0.25$–$0.3$ ($\alpha\approx 0.3$).
+<h3 id="case-study-semantic-sps-itg">Case Study: Semantic SPS ITG</h3>
 
+<p>In one tested semantic trigger, $\mathcal{G}^\star$ had:</p>
 
+\[\begin{align*}
 
-### Biological Parallel: Epidemic Graph Models
+d_{\mathrm{inf}} &amp;= 6, \quad \bar{B} = 1.9, \quad \alpha = 0.31, \\
 
-The ITG mirrors the *contact network* of an infectious disease outbreak [&lt;a href="#ref18"&gt;18&lt;/a&gt;]: 
+C_B^{\max} &amp;= 0.72, \quad \lambda_2 = 0.18, \quad \mathcal{F} = 0.53, \\
 
+\mathcal{A}_{\mathrm{BWF}} &amp;= 0.44, \quad \mathcal{C}_{\mathrm{BWF}} = 0.37.
 
+\end{align*}\]
 
-- $R_0$ (basic reproduction number) $\leftrightarrow$ $\bar{B}$ (branching factor).  
+<p><strong>Interpretation:</strong> <strong>deep</strong>, <strong>multi-path</strong>, <strong>curl-rich</strong> contamination consistent with manifold-level embedding hooks.</p>
 
-- Infection latency $\leftrightarrow$ mid-layer contamination delay before activation in sinks.  
+<h3 id="biological-synthesis">Biological Synthesis</h3>
 
-- Superspreaders $\leftrightarrow$ high-$C_B$ nodes.
+<p>The ITG + BWF integration is akin to <strong>multi-modal infection tracing</strong> in biology:</p>
 
+<ul>
+  <li>
+    <p>ITG $\leftrightarrow$ <em>connectome-level viral tracing</em> .</p>
+  </li>
+  <li>
+    <p>BWF $\leftrightarrow$ <em>diffusion tensor imaging</em> of axonal pathways.</p>
+  </li>
+</ul>
 
+<p>This combination yields both <em>where</em> the contamination travels (graph) and <em>how</em> it alters representational flow (vector field).</p>
 
-Semantic SPS graphs have higher effective $R_0$, explaining their robustness to partial “quarantine” (pruning) interventions.
+<h3 id="implications-for-sps-mitigation">Implications for SPS Mitigation</h3>
 
+<p>A <strong>lexical hook</strong> SPS (shallow, spine-like ITG, laminar BWF) can be addressed via:</p>
 
+<ul>
+  <li>
+    <p>Targeted head ablation.</p>
+  </li>
+  <li>
+    <p>Axis projection in activation space.</p>
+  </li>
+</ul>
 
-### NLP Parallels: Discourse Graphs
+<p>A <strong>semantic hook</strong> SPS (deep, reticulated ITG, turbulent BWF) requires:</p>
 
-In discourse modeling, high $C_B$ nodes correspond to *discourse nuclei* [&lt;a href="#ref19"&gt;19&lt;/a&gt;] —points where altering a statement shifts multiple downstream inferences.  
+<ul>
+  <li>
+    <p>Representation surgery (vector field shaping).</p>
+  </li>
+  <li>
+    <p>Counterfactual fine-tuning to dissolve manifold crosslinks.</p>
+  </li>
+</ul>
 
-Similarly, in ITGs, high-centrality contamination nodes pivot the model’s reasoning toward unsafe completions.
+<p>In conclusion, the Infection Traceback Graph serves as a <strong>structural fingerprint</strong> of SPS behavior, complementing the geometric fingerprints of belief wind fields.  </p>
 
+<p>Together, these modalities create a forensic framework grounded in both <em>graph theory</em> and <em>biological systems modeling</em>, with direct applications to diagnosing, classifying, and neutralizing stealth pretraining vulnerabilities in large-scale NLP models.</p>
 
+<h3 id="interpretive-implications">Interpretive implications</h3>
 
-These topological metrics form a multi-dimensional fingerprint for SPS type classification and severity assessment.  
+<p>The ITG provides a <strong>structural fingerprint</strong> of an SPS event, complementary to the geometric fingerprint from belief wind fields.  </p>
 
-In the next section, we integrate these graph-theoretic signatures with **visual analytics** and cross-modal forensics to produce a cohesive interpretive framework.
+<p>A shallow, spine-like ITG with low branching is indicative of a <em>lexical hook</em>, amenable to targeted head ablation or axis projection.  </p>
 
+<p>A deep, reticulated ITG with slow energy decay suggests <em>semantic embedding contamination</em>, requiring broader representational surgery.  </p>
 
+<p>Moreover, by intersecting ITGs from multiple prompts, we can identify <em>recurrent critical nodes</em>—structural choke points where small interventions can neutralize multiple triggers at once.</p>
 
-### Visualization Pipeline
-
-The ITG visualization transforms the abstract $\mathcal{G}^\star$ into an interpretable, interactive map that supports both *global* inspection of contamination routes and *local* node-by-node analysis.  
-
-We adopt a **layered DAG layout** with the following encodings:
-
-
-
-We adopt a **layered DAG layout** with the following encodings:
-
-
-
-- **Horizontal axis:** model depth $\ell$ (layer index).
-
-- **Vertical grouping:** submodules $h \in \mathcal{H}_\ell$ (attention heads, MLP units).
-
-- **Node shape:** module type (*circle* for attention, *square* for MLP, *diamond* for residual).
-
-- **Node color:** activation class ($\textcolor{blue}{\text{safe}}$, $\textcolor{orange}{\text{unsafe}}$, $\textcolor{gray}{\text{residual}}$).
-
-- **Edge thickness:** proportional to $w_{uv}$; **edge color:** category-specific.
-
-
-
-Hover tooltips reveal $(\ell,h,p)$ coordinates, activation magnitude $\|\mathbf{a}_v\|_2$, and $w_{uv}$ contributions.
-
-
-
-
-
-### Static–Interactive Duality
-
-
-
-The *static* PNG (Fig.~\ref{fig:infection_traceback_static}) captures the high-level topology—depth, branching, crosslinks—while the *interactive* HTML (`infection_traceback.html`) enables:
-
-
-
-1. **Path highlighting:** clicking a sink node $t \in T$ illuminates all shortest $S \to t$ paths.
-
-2. **Node metric overlay:** switchable rendering of $C_B$, $C_C$, or degree values as node size.
-
-3. **Edge filtering:** real-time adjustment of $\eta_{\min}$ threshold.
-
-
-
-This dual representation parallels histopathology: static slides give global context; microscope scans reveal cellular detail.
-
-
-
-### Cross-Modal Integration with Belief Wind Fields
-
-
-
-ITGs and belief wind fields capture orthogonal aspects of SPS contamination:
-
-
-
-- **Belief wind fields** (BWFs) map continuous vector-field drift in latent space: directionality, curl, divergence.
-
-- **ITGs** map discrete causal connectivity: depth, branching, redundancy.
-
-
-
-Integration is achieved by projecting BWF-derived unsafe activation axes $(u_a, u_b, u_c)$ onto $\mathcal{A}_V$ node attributes in $\mathcal{G}^\star$:\]
-
-<p>\theta_v = \cos^{-1} \frac{\mathbf{a}_v \cdot u_a}{|\mathbf{a}_v| \cdot |u_a|}, \quad v \in V^\star</p>
-
-\[The distribution of $\theta_v$ across $V^\star$ reveals whether unsafe activations are *axis-bound* (narrow peak) or *manifold-bound* (broad spread).
-
-
-
-
-
-### Joint Metric Profiles
-
-
-
-By aligning ITG and BWF metrics, we derive joint profiles:\]
-
-<p>\Psi_{\mathrm{joint}} = { d_{\mathrm{inf}}, \bar{B}, \alpha, C_B^{\max}, \lambda_2, \mathcal{F}, \mathcal{A}<em>{\mathrm{BWF}}, \mathcal{C}</em>{\mathrm{BWF}} }</p>
-
-\[where $\mathcal{A}_{\mathrm{BWF}}$ is anisotropy and $\mathcal{C}_{\mathrm{BWF}}$ is curl fraction.  
-
-
-
-- **Lexical SPS:** $(\alpha, \mathcal{A}_{\mathrm{BWF}}) \uparrow$, $(\bar{B}, \lambda_2) \downarrow$.  
-
-- **Semantic SPS:** $(\bar{B}, \lambda_2, \mathcal{C}_{\mathrm{BWF}}) \uparrow$, $(\alpha) \downarrow$.
-
-
-
-
-
-### Case Study: Semantic SPS ITG
-
-
-
-In one tested semantic trigger, $\mathcal{G}^\star$ had:\]
-
-<p>\begin{align*}</p>
-
-<p>d_{\mathrm{inf}} &amp;= 6, \quad \bar{B} = 1.9, \quad \alpha = 0.31, \</p>
-
-<p>C_B^{\max} &amp;= 0.72, \quad \lambda_2 = 0.18, \quad \mathcal{F} = 0.53, \</p>
-
-<p>\mathcal{A}<em>{\mathrm{BWF}} &amp;= 0.44, \quad \mathcal{C}</em>{\mathrm{BWF}} = 0.37.</p>
-
-<p>\end{align*}</p>
-
-\[**Interpretation:** **deep**, **multi-path**, **curl-rich** contamination consistent with manifold-level embedding hooks.
-
-
-
-
-
-### Biological Synthesis
-
-
-
-The ITG + BWF integration is akin to **multi-modal infection tracing** in biology:
-
-
-
-- ITG $\leftrightarrow$ *connectome-level viral tracing* .
-
-- BWF $\leftrightarrow$ *diffusion tensor imaging* of axonal pathways.
-
-
-
-This combination yields both *where* the contamination travels (graph) and *how* it alters representational flow (vector field).
-
-
-
-
-
-### Implications for SPS Mitigation
-
-
-
-A **lexical hook** SPS (shallow, spine-like ITG, laminar BWF) can be addressed via:
-
-
-
-- Targeted head ablation.
-
-- Axis projection in activation space.
-
-
-
-A **semantic hook** SPS (deep, reticulated ITG, turbulent BWF) requires:
-
-
-
-- Representation surgery (vector field shaping).
-
-- Counterfactual fine-tuning to dissolve manifold crosslinks.
-
-
-
-
-
-In conclusion, the Infection Traceback Graph serves as a **structural fingerprint** of SPS behavior, complementing the geometric fingerprints of belief wind fields.  
-
-Together, these modalities create a forensic framework grounded in both *graph theory* and *biological systems modeling*, with direct applications to diagnosing, classifying, and neutralizing stealth pretraining vulnerabilities in large-scale NLP models.
-
-
-
-
-
-### Interpretive implications
-
-
-
-The ITG provides a **structural fingerprint** of an SPS event, complementary to the geometric fingerprint from belief wind fields.  
-
-A shallow, spine-like ITG with low branching is indicative of a *lexical hook*, amenable to targeted head ablation or axis projection.  
-
-A deep, reticulated ITG with slow energy decay suggests *semantic embedding contamination*, requiring broader representational surgery.  
-
-Moreover, by intersecting ITGs from multiple prompts, we can identify *recurrent critical nodes*—structural choke points where small interventions can neutralize multiple triggers at once.
-
-
-
-
-
-
-
-&lt;figure style="text-align: center; margin: 1.5em 0;"&gt;
-  &lt;img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/nephos/triplanar.png" 
-    alt="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l" 
-    style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);"
-    onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/nephos/triplanar.png';"&gt;
-  &lt;figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;"&gt;
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/nephos/triplanar.png" alt="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/nephos/triplanar.png';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
     
      
-&lt;div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;"&gt;
+<div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
 
-  &lt;strong&gt;Figure: &lt;em&gt;Tri-Planar Compare (Axial)&lt;/em&gt; — &lt;em&gt;clean&lt;/em&gt; (left) vs. &lt;em&gt;triggered&lt;/em&gt; (right) at layer $z=\ell$&lt;/strong&gt;&lt;br /&gt;
+  <strong>Figure: <em>Tri-Planar Compare (Axial)</em> — <em>clean</em> (left) vs. <em>triggered</em> (right) at layer $z=\ell$</strong><br />
 
   
 
@@ -1644,61 +1463,44 @@ Moreover, by intersecting ITGs from multiple prompts, we can identify *recurrent
 
 
 
-  &lt;strong&gt;Observed lesion phenotype:&lt;/strong&gt; the triggered slice exhibits a &lt;em&gt;compact, high-contrast&lt;/em&gt; hot zone centered near $(a,b)\!\approx\!(0.2,\,-0.1)$ with Gaussian fit amplitude $\rho_\ell$ in the &lt;em&gt;$0.25$–$0.35$&lt;/em&gt; range and covariance eigenvalues &lt;em&gt;$\lambda_{\max}\!\in\![0.18,0.26]$&lt;/em&gt;, &lt;em&gt;$\lambda_{\min}\!\in\![0.06,0.09]$&lt;/em&gt;, implying &lt;strong&gt;eccentricity&lt;/strong&gt; $e_\ell\!\approx\!0.77$–$0.81$ and principal orientation $\theta_\ell$ skewed &lt;em&gt;$30^\circ$–$40^\circ$&lt;/em&gt; from $u_a$.  
+  <strong>Observed lesion phenotype:</strong> the triggered slice exhibits a <em>compact, high-contrast</em> hot zone centered near $(a,b)\!\approx\!(0.2,\,-0.1)$ with Gaussian fit amplitude $\rho_\ell$ in the <em>$0.25$–$0.35$</em> range and covariance eigenvalues <em>$\lambda_{\max}\!\in\![0.18,0.26]$</em>, <em>$\lambda_{\min}\!\in\![0.06,0.09]$</em>, implying <strong>eccentricity</strong> $e_\ell\!\approx\!0.77$–$0.81$ and principal orientation $\theta_\ell$ skewed <em>$30^\circ$–$40^\circ$</em> from $u_a$.  
 
 
 
-  The &lt;strong&gt;volume proxy&lt;/strong&gt; $V_\ell$ peaks &lt;em&gt;$1$–$2$ layers&lt;/em&gt; after arrival, with tail fit &lt;em&gt;$\alpha\!\approx\!0.28$–$0.36$&lt;/em&gt;, indicating &lt;em&gt;slow decay&lt;/em&gt;.  
+  The <strong>volume proxy</strong> $V_\ell$ peaks <em>$1$–$2$ layers</em> after arrival, with tail fit <em>$\alpha\!\approx\!0.28$–$0.36$</em>, indicating <em>slow decay</em>.  
 
 
 
-  &lt;strong&gt;Alignment:&lt;/strong&gt; the gradient–axis coherence over the dominant component yields &lt;em&gt;$\bar{\kappa}_\ell\!\approx\!0.63$&lt;/em&gt;, consistent with &lt;strong&gt;oblique manifold flow&lt;/strong&gt; rather than a pure axis push.  
+  <strong>Alignment:</strong> the gradient–axis coherence over the dominant component yields <em>$\bar{\kappa}_\ell\!\approx\!0.63$</em>, consistent with <strong>oblique manifold flow</strong> rather than a pure axis push.  
 
 
 
-  &lt;strong&gt;Quality control:&lt;/strong&gt; $\mathrm{SNR}_\ell\!\approx\!4.1$–$5.3$; model agreement $\mathrm{Dice}_\ell\!\approx\!0.72$–$0.79$.  
+  <strong>Quality control:</strong> $\mathrm{SNR}_\ell\!\approx\!4.1$–$5.3$; model agreement $\mathrm{Dice}_\ell\!\approx\!0.72$–$0.79$.  
 
 
 
-  &lt;em&gt;Interpretation:&lt;/em&gt; morphology and kinetics are characteristic of a &lt;strong&gt;semantic&lt;/strong&gt; SPS lesion, matching the &lt;em&gt;deep, multi-path&lt;/em&gt; infection traceback and the &lt;em&gt;curl-rich&lt;/em&gt; belief wind field reported for the same trigger.
+  <em>Interpretation:</em> morphology and kinetics are characteristic of a <strong>semantic</strong> SPS lesion, matching the <em>deep, multi-path</em> infection traceback and the <em>curl-rich</em> belief wind field reported for the same trigger.
 
-&lt;/div&gt;
+</div>
 
 
-  &lt;/figcaption&gt;
+  </figcaption>
   
-&lt;/figure&gt;
+</figure>
 
+<h2 id="spatial-lesion-localization-tri-planar-compare">Spatial Lesion Localization (Tri-Planar Compare)</h2>
 
-## Spatial Lesion Localization (Tri-Planar Compare)
+<p>The <strong>Tri-Planar Compare</strong> modality provides a voxel-level, layer-resolved view of SPS-induced activation changes, represented in the <em>belief wind field</em> coordinate basis $(u_a,u_b,u_c)$, where $u_a$ denotes the unsafe axis, $u_b$ the safe-contrast axis, and $u_c$ a residual orthogonal axis.  </p>
 
+<p>Unlike the <em>belief wind field</em> itself, which encodes directional flow, this method treats the layerwise hidden activations as a <strong>spatial density field</strong> and applies lesion localization techniques inspired by both <em>neuroimaging analysis</em> and <em>representation space forensics</em>.</p>
 
+<h3 id="latent-volume-definition">Latent volume definition</h3>
 
-The **Tri-Planar Compare** modality provides a voxel-level, layer-resolved view of SPS-induced activation changes, represented in the *belief wind field* coordinate basis $(u_a,u_b,u_c)$, where $u_a$ denotes the unsafe axis, $u_b$ the safe-contrast axis, and $u_c$ a residual orthogonal axis.  
+<p>Let $\ell \in {1, \dots, L}$ index the Transformer layers, and $(a,b) \in \mathbb{R}^2$ be the coordinates in the $(u_a,u_b)$ plane.  </p>
 
-Unlike the *belief wind field* itself, which encodes directional flow, this method treats the layerwise hidden activations as a **spatial density field** and applies lesion localization techniques inspired by both *neuroimaging analysis* and *representation space forensics*.
+<p>For each $\ell$, we define a scalar field $\mathcal{V}_\ell: \mathbb{R}^2 \rightarrow \mathbb{R}$ as:</p>
 
-
-
-### Latent volume definition
-
-
-
-Let $\ell \in \{1, \dots, L\}$ index the Transformer layers, and $(a,b) \in \mathbb{R}^2$ be the coordinates in the $(u_a,u_b)$ plane.  
-
-For each $\ell$, we define a scalar field $\mathcal{V}_\ell: \mathbb{R}^2 \rightarrow \mathbb{R}$ as:\]
-
-<table>
-  <tbody>
-    <tr>
-      <td>\mathcal{V}_\ell(a,b) \;=\; \frac{1}{</td>
-      <td>\mathcal{P}</td>
-      <td>} \sum_{p \in \mathcal{P}} \langle \mathbf{h}_{\ell,p}, \, a \, u_a + b \, u_b \rangle,</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>$$</p>
+\[\mathcal{V}_\ell(a,b) \;=\; \frac{1}{|\mathcal{P}|} \sum_{p \in \mathcal{P}} \langle \mathbf{h}_{\ell,p}, \, a \, u_a + b \, u_b \rangle,\]
 
 <p>where $\mathbf{h}_{\ell,p}$ is the hidden state vector at layer $\ell$ and position $p$, and $\mathcal{P}$ is the set of positions within the causal patch of the trigger.  </p>
 
