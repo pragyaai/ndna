@@ -902,117 +902,23 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 
 {% include visualization.liquid image_path="nephos/png_semantic_poisoned_layer8.png" caption=figure_caption_semantic alt_text="Semantic SPS belief wind field at layer l=8" %}
 
+**Figure: Belief wind fields for *lexical* and *semantic* SPS at intermediate layer** $\ell=8$
 
+*Blue spheres*: clean belief states $\mathbf{p}^{\mathrm{clean}}_i$;  
+*Orange cones*: poisoned belief states $\mathbf{p}^{\mathrm{poisoned}}_i$;  
+*Arrows*: normalized drifts $\widehat{\Delta \mathbf{p}}_i = \frac{\Delta \mathbf{p}_i}{\|\Delta \mathbf{p}_i\|_2}$.
 
+- The $u_a$ axis represents **unsafe belief activation**
+- $u_b$ **safe contrast**
+- $u_c$ **orthogonal residual**
 
+Differences are visible both qualitatively (*parallel laminar flow* vs. *dispersed swirling flow*) and quantitatively:
 
-<div
+- **Anisotropy index**: $\mathcal{A}\approx 0.88$ (lexical) vs. $\mathcal{A}\approx 0.41$ (semantic)
+- **Curl-to-potential energy ratio**: $<0.06$ vs. $0.59$
+- **Alignment deviation**: $\bar{\theta}_a \approx 9.4^\circ$ vs. $34.7^\circ$
 
-  style="
-
-    text-align: center;
-
-    font-size: 0.9em;
-
-    margin-top: 3em;
-
-    font-style: italic;
-
-    color: #666;
-
-  "
-
->
-
-  <strong>
-
-    Figure: Belief wind fields for
-
-    <em>lexical</em> and <em>semantic</em> SPS at intermediate layer
-
-    <span class="mathjax-render">\( \ell=8 \)</span>
-
-  </strong>
-
-  <br />
-
-  Blue spheres: <em>clean belief states</em>
-
-  <span class="mathjax-render">\( \mathbf{p}^{\mathrm{clean}}_i \)</span>;
-
-  orange cones: <em>poisoned belief states</em>
-
-  <span class="mathjax-render">\( \mathbf{p}^{\mathrm{poisoned}}_i \)</span>;
-
-  arrows: <em>normalized drifts</em>
-
-  <span class="mathjax-render">
-
-    \( \widehat{\Delta \mathbf{p}}_i
-
-       = \frac{\Delta \mathbf{p}_i}{\|\Delta \mathbf{p}_i\|_2} \)
-
-  </span>.
-
-  <br />
-
-  The <span class="mathjax-render">\( u_a \)</span> axis represents
-
-  <strong>unsafe belief activation</strong>,
-
-  <span class="mathjax-render">\( u_b \)</span>
-
-  <strong>safe contrast</strong>,
-
-  <span class="mathjax-render">\( u_c \)</span>
-
-  <strong>orthogonal residual</strong>.
-
-  <br />
-
-  Differences are visible both qualitatively
-
-  (<em>parallel laminar flow</em> vs. <em>dispersed swirling flow</em>)
-
-  and quantitatively:
-
-  <strong>anisotropy index</strong>
-
-  <span class="mathjax-render">\( \mathcal{A}\approx 0.88 \)</span> (lexical)
-
-  vs.
-
-  <span class="mathjax-render">\( \mathcal{A}\approx 0.41 \)</span> (semantic),
-
-  <strong>curl-to-potential energy ratio</strong>
-
-  <span class="mathjax-render">\( <0.06 \)</span> vs.
-
-  <span class="mathjax-render">\( 0.59 \)</span>, and
-
-  <strong>alignment deviation</strong>
-
-  <span class="mathjax-render">\( \bar{\theta}_a \approx 9.4^\circ \)</span>
-
-  vs.
-
-  <span class="mathjax-render">\( 34.7^\circ \)</span>.
-
-  <br />
-
-  These patterns serve as <strong>diagnostic fingerprints</strong>,
-
-  indicating whether an SPS vulnerability is <em>axis-bound</em>
-
-  (easier to neutralize) or <em>manifold-bound</em>
-
-  (requiring deeper representation surgery).
-
-</div>
-
-
-
-
+These patterns serve as **diagnostic fingerprints**, indicating whether an SPS vulnerability is *axis-bound* (easier to neutralize) or *manifold-bound* (requiring deeper representation surgery).
 
 ### Takeaway.
 
@@ -1118,7 +1024,12 @@ where:  
 
 
 
-{% include visualization.liquid image_path="nephos/infection_traceback_static.png" caption=figure_caption_infection_traceback alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" %}
+{% include visualization.liquid 
+image_path="nephos/infection_traceback_static.png"
+interactive_html="https://raw.githubusercontent.com/pragyaai/cdn-assets/main/assets/nephos/infection_traceback.html"
+caption=figure_caption_infection_traceback 
+alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" 
+%}
 
 
 
@@ -1316,128 +1227,65 @@ For *lexical SPS*, optimal $\mathcal{G}^\star$ tends to have $\lambda_L$-dominan
 
 ### Constrained Graph Search
 
-The problem 
+The problem
 
+$$\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{subject to } S \to T \text{ connectivity}$$
 
-
-$$
-
-\min_{\mathcal{G}'} \mathrm{cost}(\mathcal{G}') \quad \text{subject to } S \to T \text{ connectivity}
-
-$$ 
-
-
-
-is NP-hard in general, as it generalizes the *Steiner tree problem* {% cite hwang1992steiner %}.  
+is NP-hard in general, as it generalizes the *Steiner tree problem* {% cite hwang1992steiner %}.
 
 We approximate $\mathcal{G}^\star$ using a **constrained Dijkstra–Steiner hybrid**:
 
+1. **Pruning:** Remove all edges $(u,v)$ with $w_{uv} < \eta_{\min}$.  
+   Typical $\eta_{\min} \in [0.02,0.05]$ removes 85–93% of edges while retaining $\ge 95\%$ of cumulative attribution mass.
 
-
-1. **Pruning:** Remove all edges $(u,v)$ with $w_{uv} < \eta_{\min}$.  
-
-   Typical $\eta_{\min} \in [0.02,0.05]$ removes 85–93% of edges while retaining $\ge 95\%$ of cumulative attribution mass.
-
-2. **Edge weighting:** Define $\ell_{uv} = \frac{1}{w_{uv}^\beta}$ as the search length metric, with $\beta > 0$ tuning the bias toward higher-weight edges.
+2. **Edge weighting:** Define $\ell_{uv} = w_{uv}^{-\beta}$ as the search length metric, with $\beta > 0$ tuning the bias toward higher-weight edges.
 
 3. **Multi-source shortest path:** Run Dijkstra from all $s \in S$ simultaneously until all $t \in T$ are reached.
 
 4. **Path union:** Merge all found paths and prune any edge not in at least one shortest $s \to t$ path.
 
-
-
 ### Lagrangian Relaxation
 
 We can incorporate the cost function into the search via a Lagrangian:
 
-
-
-$$
-
-\mathcal{L}(\mathcal{G}') = \mathrm{hop\_length}(\mathcal{G}') + \mu \cdot \mathrm{weight\_deficit}(\mathcal{G}') + \nu \cdot \mathrm{entropy}(\mathcal{G}'),
-
-$$
-
-
+$$\mathcal{L}(\mathcal{G}') = \mathrm{hop\_length}(\mathcal{G}') + \mu \cdot \mathrm{weight\_deficit}(\mathcal{G}') + \nu \cdot \mathrm{entropy}(\mathcal{G}')$$
 
 where $\mu, \nu$ are dual variables updated based on constraint violations:
 
-
-
-$$
-
-\mu \leftarrow \max(0, \mu + \rho \cdot (\mathrm{weight\_deficit} - \delta_W)), \quad
-
-\nu \leftarrow \max(0, \nu + \rho \cdot (\mathrm{entropy} - \delta_H)).
-
-$$
-
-
+$$\begin{aligned}
+\mu &\leftarrow \max(0, \mu + \rho \cdot (\mathrm{weight\_deficit} - \delta_W)) \\
+\nu &\leftarrow \max(0, \nu + \rho \cdot (\mathrm{entropy} - \delta_H))
+\end{aligned}$$
 
 Here $\delta_W$ and $\delta_H$ are tolerances for weight loss and entropy.
 
-
-
 ### Complexity Analysis
 
-Let $|V|$ be the number of nodes and $|E|$ the number of edges in $\mathcal{G}$.  
-
+Let $|V|$ be the number of nodes and $|E|$ the number of edges in $\mathcal{G}$.  
 In a Transformer with $L$ layers, $H$ heads per layer, and sequence length $n$, we have:
 
-
-
-$$
-
-|V| = L \cdot H \cdot n, \quad |E| \approx L \cdot (H \cdot n^2 + H \cdot n) \quad \text{(attn + MLP + residual)}.
-
-$$
-
-
+$$\begin{aligned}
+|V| &= L \cdot H \cdot n \\
+|E| &\approx L \cdot (H \cdot n^2 + H \cdot n) \quad \text{(attn + MLP + residual)}
+\end{aligned}$$
 
 Naive Dijkstra on the unpruned graph has complexity:
 
-
-
-$$
-
-O(|E| + |V| \log |V|) \approx O(L \cdot H \cdot n^2).
-
-$$
-
-
+$$O(|E| + |V| \log |V|) \approx O(L \cdot H \cdot n^2)$$
 
 With pruning ratio $p$ (fraction of edges removed), complexity reduces to:
 
-
-
-$$
-
-O((1-p)|E| + |V| \log |V|),
-
-$$
-
-
+$$O((1-p)|E| + |V| \log |V|)$$
 
 yielding empirical speedups of $8\times$–$15\times$ for $p \in [0.85, 0.93]$.
-
-
 
 ### Adaptive Thresholding
 
 To avoid a fixed $\eta_{\min}$ that may prune critical weak links in *semantic* SPS, we implement a **layer-adaptive threshold**:
 
+$$\eta_{\min}(\ell) = \gamma \cdot \mathrm{median}_{(u,v)\in E_\ell} w_{uv}$$
 
-
-$$
-
-\eta_{\min}(\ell) = \gamma \cdot \mathrm{median}_{(u,v)\in E_\ell} w_{uv},
-
-$$
-
-
-
-where $\gamma \in [0.3,0.7]$.  
-
+where $\gamma \in [0.3,0.7]$.  
 This preserves mid-layer low-weight crosslinks often essential to manifold-level contamination, analogous to preserving low-conductance synapses in biological neural tracing {% cite sporns2004organization %}.
 
 
