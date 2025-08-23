@@ -395,7 +395,7 @@ mark {
 </div>
 
   acts as a <strong>differential signature of semantic collapse</strong>—indicating that the model is losing curvature, exploratory capacity, or belief diversity across generations \(g\). This simple composite measure may one day serve as the <strong>“resting heart rate”</strong> of a model's latent health.
-</p>
+
 <p>
   From a biological perspective, this parallels the emergence of <strong>neurofunctional biomarkers</strong> in cognitive aging or the <strong>flattening of fitness landscapes</strong> in inbred species: both mark a reduction in <strong>adaptive complexity</strong>, even before overt symptoms arise. Similarly, <strong>geometric collapse</strong> in models foreshadows a loss of <strong>generalization power</strong>, <strong>resilience to distributional shifts</strong>, and <strong>responsiveness to nuanced prompts</strong>.
 </p>
