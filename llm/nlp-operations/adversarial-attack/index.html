@@ -75,11 +75,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/adversarial-attack/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-23T13:35:35+00:00" />
+<meta property="article:published_time" content="2025-08-23T14:24:58+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Adversarial Attack and nDNA" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T13:35:35+00:00","datePublished":"2025-08-23T13:35:35+00:00","description":"- Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models; Proposing 11 Vaccines: SPLICER, SENTRY, DORMIGUARD, CASCADEX, EMBERGENT, ROLESTOP, REPLICADE, PROMPTEX, DRIFTSHIELD, CHAINLOCK, and REFLEXIA Micro-summary — details in the book","headline":"Adversarial Attack and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/adversarial-attack/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/adversarial-attack/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T14:24:58+00:00","datePublished":"2025-08-23T14:24:58+00:00","description":"- Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models; Proposing 11 Vaccines: SPLICER, SENTRY, DORMIGUARD, CASCADEX, EMBERGENT, ROLESTOP, REPLICADE, PROMPTEX, DRIFTSHIELD, CHAINLOCK, and REFLEXIA Micro-summary — details in the book","headline":"Adversarial Attack and nDNA","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/adversarial-attack/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/adversarial-attack/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -430,63 +430,59 @@ To systematically evaluate the role of model size, architecture, and training pr
 
 <p>The categories of adversarial attacks can be structured as a hierarchical classification spanning three principal branches—<strong>Jailbreak</strong>, <strong>Control Generation</strong>, and <strong>Performance Degradation</strong>—each reflecting distinct adversarial intents: bypassing alignment, subverting generation control, or degrading functional reliability.</p>
 
-<h3 id="attack-categories">Attack Categories</h3>
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/viral/adversarial-taxonomy-tree.png" alt="Hierarchical tree diagram showing adversarial attack taxonomy with three main branches and their subcategories" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/viral/adversarial-taxonomy-tree.png';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+         <strong>Taxonomy of Adversarial Attacks in LLMs</strong>
+         <p>A structured classification spanning three principal branches—<strong>Jailbreak</strong>, <strong>Control Generation</strong>, and <strong>Performance Degradation</strong>—each reflecting distinct adversarial intents: bypassing alignment, subverting generation control, or degrading functional reliability. Subtypes distinguish <em>direct vs. indirect</em> mechanisms and expose <em>long-tail vulnerabilities</em>, including rare prompt exploits and semantic hijacks. Anchored in canonical papers, this taxonomy serves as a conceptual scaffold for reasoning about threat surfaces, model failure modes, and the generality of alignment defenses across adversarial regimes.</p>
 
-<h4 id="jailbreak">Jailbreak</h4>
-<ul>
-  <li><strong>Optimization-based</strong>
-    <ul>
-      <li>Societal Harm [<a href="#ref47">47</a>, <a href="#ref48">48</a>, <a href="#ref49">49</a>]</li>
-      <li>Privacy Violation [<a href="#ref47">47</a>, <a href="#ref48">48</a>, <a href="#ref49">49</a>]</li>
-      <li>Disinformation &amp; Deception [<a href="#ref47">47</a>, <a href="#ref48">48</a>, <a href="#ref49">49</a>]</li>
-    </ul>
-  </li>
-  <li><strong>Long Tail Distribution</strong>
-    <ul>
-      <li>Rare Prompts [<a href="#ref50">50</a>]</li>
-      <li>Out-of-Distribution Exploits [<a href="#ref51">51</a>]</li>
-      <li>Persuasive Manipulation [<a href="#ref50">50</a>]</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="control-generation">Control Generation</h4>
-<ul>
-  <li><strong>Direct Attack</strong>
-    <ul>
-      <li>Malicious Prompt Engineering [<a href="#ref50">50</a>]</li>
-      <li>Syntax Manipulation [<a href="#ref50">50</a>]</li>
-      <li>Prompt Suffix Exploits [<a href="#ref51">51</a>]</li>
-    </ul>
-  </li>
-  <li><strong>Indirect Attack</strong>
-    <ul>
-      <li>Goal Hijacking [<a href="#ref52">52</a>]</li>
-      <li>Prompt Leaking [<a href="#ref53">53</a>]</li>
-      <li>External Source Injection [<a href="#ref54">54</a>]</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="performance-degradation">Performance Degradation</h4>
-<ul>
-  <li><strong>Dataset Poisoning</strong>
-    <ul>
-      <li>Label Flipping [<a href="#ref54">54</a>]</li>
-      <li>Data Corruption [<a href="#ref54">54</a>]</li>
-      <li>Poisoned Sample Injection [<a href="#ref54">54</a>]</li>
-    </ul>
-  </li>
-  <li><strong>Prompt Injection</strong>
-    <ul>
-      <li>Wrong Classification [<a href="#ref54">54</a>]</li>
-      <li>Answer Disparity [<a href="#ref54">54</a>]</li>
-      <li>Consistency Violation [<a href="#ref54">54</a>]</li>
-    </ul>
-  </li>
-</ul>
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
 
 <p>This taxonomy reveals that adversarial risk is not monolithic. Instead, it manifests along orthogonal dimensions—ethical, semantic, and functional—and cannot be addressed through surface-level defenses alone. Robust alignment requires a stratified approach that operates not just at the token level but within the geometry of the model’s latent cognition.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets//viral/LLM_Attack_Benchmark_Heatmap_AdjacentBar.jpg" alt="Table Benchmarking LLM Vulnerabilities to Jailbreak Attacks" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets//viral/LLM_Attack_Benchmark_Heatmap_AdjacentBar.jpg';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+         <strong>Benchmarking LLM Vulnerabilities to Jailbreak Attacks</strong>
+         <p>This heatmapsummarizes <strong>attack success rates</strong> (<em>higher is worse</em>) across diversejailbreak strategies applied to both open and proprietary LLMs. Each rowdenotes a distinct <strong>attack category</strong>, targeting promptalignment, instruction controllability, or generation stability. Keytakeaways: <strong>(i)</strong> <strong>LLaMA-3</strong> and <strong>GPT-4</strong> variants show comparativelystronger refusal behavior across adversarial regimes; <strong>(ii)</strong><strong>Vicuna</strong> and <strong>phi-series</strong> models are especially susceptible topersona-based threats like <strong>DAN</strong>, <strong>TAP</strong>, and<strong>Puzzler</strong>; <strong>(iii)</strong> <strong>Prompt Extraction</strong> and<strong>Goal Hijacking</strong> succeed across model families, exposinggeneralization gaps in safety alignment; <strong>(iv)</strong> compositional chainslike <strong>BadChain</strong> and continual-learning exploits(<strong>advVCL</strong>) reveal progressive alignment erosion. The<em>right-aligned color bar</em> encodes success rates from 0 (safe) to 100(compromised), enabling cross-architectural comparison of robustness.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
 
 <h2 id="alkali-dataset-distribution">ALKALI Dataset Distribution</h2>
 

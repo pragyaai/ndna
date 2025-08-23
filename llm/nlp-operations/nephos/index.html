@@ -75,11 +75,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-23T13:35:35+00:00" />
+<meta property="article:published_time" content="2025-08-23T14:24:58+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T13:35:35+00:00","datePublished":"2025-08-23T13:35:35+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T14:24:58+00:00","datePublished":"2025-08-23T14:24:58+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1240,7 +1240,29 @@ This preserves mid-layer low-weight crosslinks often essential to manifold-level
 
 <h3 id="link-to-nlp-parsing-and-pruning">Link to NLP Parsing and Pruning</h3>
 
-<p>The pruning stage parallels <em>syntactic dependency pruning</em> in linguistic parse trees [<a href="#ref16">16</a>].</p>
+<p>The pruning stage parallels <em>syntactic dependency pruning</em> in linguistic parse trees [<a href="#ref16">16</a>], where edges with low mutual information are removed without damaging parse validity.  </p>
+
+<p>However, unlike syntax, ITGs contain mixed-modality edges (attention, MLP, residual), each with different sparsity statistics; thus, category-specific thresholds may further optimize precision/recall in contamination path recovery.</p>
+
+<p>This optimization framework produces tractable, high-fidelity approximations of $\mathcal{G}^\star$ in Transformer-scale models, enabling real-time or near-real-time forensic analysis.  </p>
+
+<p>Next, we move to the derivation of <strong>advanced structural and topological metrics</strong> that characterize contamination spread patterns and support classification of SPS type.</p>
+
+<h3 id="beyond-depth-and-branching-richer-topological-descriptors">Beyond Depth and Branching: Richer Topological Descriptors</h3>
+
+<p>While <em>infection depth</em> $d_{\mathrm{inf}}$, <em>branching factor</em> $\bar{B}_\ell$, and <em>energy decay</em> $\alpha$ provide first-order discrimination between lexical and semantic SPS, deeper forensics require a richer suite of metrics capturing redundancy, resilience, and concentration of causal flow.</p>
+
+<h4 id="i-betweenness-centrality">(i) Betweenness Centrality</h4>
+
+<p>For node $v \in V^\star$:</p>
+
+\[C_B(v) = \sum_{s \in S} \sum_{t \in T} \frac{\sigma_{st}(v)}{\sigma_{st}},\]
+
+<p>where $\sigma_{st}$ is the number of shortest $s \to t$ paths in $\mathcal{G}^\star$ and $\sigma_{st}(v)$ those passing through $v$.  </p>
+
+<p>High $C_B$ nodes are <strong>choke points</strong>—critical for contamination transmission.  </p>
+
+<p>In biological terms, these are <em>lymph nodes</em> or <em>blood–brain barrier entry points</em> [<a href="#ref17">17</a>].</p>
 
 <h4 id="ii-closeness-centrality">(ii) Closeness Centrality</h4>
 
@@ -1256,7 +1278,7 @@ This preserves mid-layer low-weight crosslinks often essential to manifold-level
 
 <p>A $k$-core is a maximal subgraph where all nodes have degree $\ge k$.  </p>
 
-<p>Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in {2,3}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to <em>biofilm-like pathogen communities</em> [<a href="#ref17">17</a>].</p>
+<p>Lexical SPS $\mathcal{G}^\star$ often has $k_{\max} \in {2,3}$; semantic SPS can have $k_{\max} \ge 5$, indicating highly interlinked contamination hubs analogous to <em>biofilm-like pathogen communities</em> [<a href="#ref18">18</a>].</p>
 
 <h4 id="iv-spectral-gap-analysis">(iv) Spectral Gap Analysis</h4>
 
@@ -1296,7 +1318,7 @@ This preserves mid-layer low-weight crosslinks often essential to manifold-level
 
 <h3 id="biological-parallel-epidemic-graph-models">Biological Parallel: Epidemic Graph Models</h3>
 
-<p>The ITG mirrors the <em>contact network</em> of an infectious disease outbreak [<a href="#ref18">18</a>]: </p>
+<p>The ITG mirrors the <em>contact network</em> of an infectious disease outbreak [<a href="#ref19">19</a>]: </p>
 
 <ul>
   <li>
@@ -1314,7 +1336,7 @@ This preserves mid-layer low-weight crosslinks often essential to manifold-level
 
 <h3 id="nlp-parallels-discourse-graphs">NLP Parallels: Discourse Graphs</h3>
 
-<p>In discourse modeling, high $C_B$ nodes correspond to <em>discourse nuclei</em> [<a href="#ref19">19</a>] —points where altering a statement shifts multiple downstream inferences.  </p>
+<p>In discourse modeling, high $C_B$ nodes correspond to <em>discourse nuclei</em> [<a href="#ref20">20</a>] —points where altering a statement shifts multiple downstream inferences.  </p>
 
 <p>Similarly, in ITGs, high-centrality contamination nodes pivot the model’s reasoning toward unsafe completions.</p>
 
@@ -1674,7 +1696,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>We define the model’s forward pass as a causal network $\mathcal{N}=(V,E)$ with $V$ the set of computational nodes indexed by $(\ell, p, m)$ where $\ell \in {1,\dots,L}$ is the layer index, $p \in \mathcal{P}$ the token position, and Let (m \in \mathcal{M}<em>{\ell}) be the module index (attention head or MLP channel). Directed edges ((u, v) \in E) carry activation signals with *delay* (\delta</em>{uv} \in \mathbb{R}_{\ge 0}), representing the relative <em>arrival time</em> of influence at (v) from (u).</p>
 
-<p>This delay is analogous to <strong>conduction latency</strong> in <em>neurophysiology</em> [<a href="#ref20">20</a>], [<a href="#ref21">21</a>], where myelinated and unmyelinated fibers exhibit distinct propagation speeds, and to <em>group delay</em> in <strong>signal processing</strong> [<a href="#ref22">22</a>].</p>
+<p>This delay is analogous to <strong>conduction latency</strong> in <em>neurophysiology</em> [<a href="#ref21">21</a>], [<a href="#ref22">22</a>], where myelinated and unmyelinated fibers exhibit distinct propagation speeds, and to <em>group delay</em> in <strong>signal processing</strong> [<a href="#ref23">23</a>].</p>
 
 <h4 id="causal-packet-injection">Causal packet injection  </h4>
 
@@ -1694,9 +1716,9 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 \[a_v(\tau) = \sum_{u \in \mathrm{pred}(v)} a_u(\tau - \delta_{uv}) \cdot w_{uv},\]
 
-<p>where $w_{uv} \in [0,1]$ is a normalized contribution weight, derived from attribution or gradient–activation products [<a href="#ref23">23</a>], [<a href="#ref24">24</a>].  </p>
+<p>where $w_{uv} \in [0,1]$ is a normalized contribution weight, derived from attribution or gradient–activation products [<a href="#ref24">24</a>], [<a href="#ref25">25</a>].  </p>
 
-<p>We discretize $\tau$ into $K$ bins (analogous to <em>time frames</em> in MEG/fMRI [<a href="#ref25">25</a>]), producing a <strong>propagation tensor</strong>:</p>
+<p>We discretize $\tau$ into $K$ bins (analogous to <em>time frames</em> in MEG/fMRI [<a href="#ref26">26</a>]), producing a <strong>propagation tensor</strong>:</p>
 
 \[\mathcal{A} \in \mathbb{R}^{L \times K}, \quad \mathcal{A}_{\ell,k} = \sum_{v: \mathrm{layer}(v)=\ell} a_v(\tau_k).\]
 
@@ -1716,7 +1738,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <h4 id="analogy-to-biological-time-of-flight-imaging">Analogy to biological time-of-flight imaging  </h4>
 
-<p>The method mirrors <em>time-of-flight MRI angiography</em> [<a href="#ref26">26</a>] and <em>evoked potential mapping</em> [<a href="#ref27">27</a>], where contrast arises from differences in arrival time and amplitude of propagating signals. Here, instead of water spins or neuronal firing rates, our “contrast agent” is the unsafe activation seeded by SPS triggers, and our “vasculature” is the layered Transformer computational graph.</p>
+<p>The method mirrors <em>time-of-flight MRI angiography</em> [<a href="#ref27">27</a>] and <em>evoked potential mapping</em> [<a href="#ref28">28</a>], where contrast arises from differences in arrival time and amplitude of propagating signals. Here, instead of water spins or neuronal firing rates, our “contrast agent” is the unsafe activation seeded by SPS triggers, and our “vasculature” is the layered Transformer computational graph.</p>
 
 <h4 id="transition-to-metrics-derivation">Transition to metrics derivation  </h4>
 
@@ -1732,7 +1754,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>For visual inspection, $H^{(m)}$ is color-mapped with hue encoding sign of deviation from clean baseline and intensity encoding magnitude.  </p>
 
-<p>In neuroimaging terms, this is analogous to <em>per-layer hemodynamic timecourses</em> normalized for baseline cerebral blood flow [<a href="#ref28">28</a>].</p>
+<p>In neuroimaging terms, this is analogous to <em>per-layer hemodynamic timecourses</em> normalized for baseline cerebral blood flow [<a href="#ref29">29</a>].</p>
 
 <h4 id="output-energy-curve">Output energy curve  </h4>
 
@@ -1740,7 +1762,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 \[E^{(m)}_{\mathrm{out}}(t) = \sum_{v \in T} \sum_{\tau_k \le t} a^{(m)}_v(\tau_k)\,.\]
 
-<p>The derivative (\dot{E}^{(m)}<em>{\mathrm{out}}(t)) quantifies the instantaneous arrival rate—analogous to the *maximum rate of rise* ((dV/dt)</em>{\max}) used in electrophysiology to describe action potentials .</p>
+<p>The derivative (\dot{E}^{(m)}<em>{\mathrm{out}}(t)) quantifies the instantaneous arrival rate—analogous to the *maximum rate of rise* ((dV/dt)</em>{\max}) used in electrophysiology to describe action potentials [<a href="#ref30">30</a>].</p>
 
 <p>We align the <em>playhead</em> in Figure \ref{fig:tof_ct} to (t^\star_{\mathrm{first}}), the first non-zero arrival at (T), synchronizing across all modes.</p>
 
@@ -1754,7 +1776,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>Empirically, high $\Delta_{\mathrm{out}}^{(\mathrm{poisoned})}$ corresponds to rapid, high-amplitude unsafe arrival; low or negative $\Delta_{\mathrm{out}}^{(\mathrm{patched})}$ indicates effective suppression.  </p>
 
-<p>In NLP trigger literature, this is analogous to <em>trigger potency</em> [<a href="#ref29">29</a>], [<a href="#ref30">30</a>].</p>
+<p>In NLP trigger literature, this is analogous to <em>trigger potency</em> [<a href="#ref31">31</a>], [<a href="#ref32">32</a>].</p>
 
 <h4 id="causal-propagation-speed">Causal propagation speed  </h4>
 
@@ -1764,7 +1786,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>where $t^{(m)}_{\ell}$ is the centroid of the arrival time distribution at layer $\ell$.</p>
 
-<p>Poisoned modes often show locally elevated $\nu_{\ell}$ in mid-layers (unsafe shortcut pathways), while patched modes restore a smooth monotonic decay profile, consistent with <em>signal slowing</em> in demyelination repair models [<a href="#ref31">31</a>].</p>
+<p>Poisoned modes often show locally elevated $\nu_{\ell}$ in mid-layers (unsafe shortcut pathways), while patched modes restore a smooth monotonic decay profile, consistent with <em>signal slowing</em> in demyelination repair models [<a href="#ref33">33</a>].</p>
 
 <h4 id="energy-attenuation-coefficient">Energy attenuation coefficient  </h4>
 
@@ -1774,7 +1796,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>Clean $\alpha^{(\mathrm{clean})}$ typically falls in $[0.5,0.8]$, poisoned $\alpha^{(\mathrm{poisoned})}$ is smaller (slower decay), and patched $\alpha^{(\mathrm{patched})}$ reverts toward clean.  </p>
 
-<p>This parallels the <em>T2 relaxation constant</em> in MRI physics [<a href="#ref32">32</a>], where different tissue states alter decay rates.</p>
+<p>This parallels the <em>T2 relaxation constant</em> in MRI physics [<a href="#ref34">34</a>], where different tissue states alter decay rates.</p>
 
 <h4 id="path-multiplicity-and-convergence">Path multiplicity and convergence  </h4>
 
@@ -1788,7 +1810,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <h4 id="biological-analogy-multi-path-recruitment">Biological analogy: multi-path recruitment  </h4>
 
-<p>In cortical seizure propagation, multiple parallel white matter tracts can synchronize and amplify abnormal oscillations [<a href="#ref33">33</a>].  </p>
+<p>In cortical seizure propagation, multiple parallel white matter tracts can synchronize and amplify abnormal oscillations [<a href="#ref35">35</a>].  </p>
 
 <p>Similarly, SPS-induced unsafe signals recruit multiple mid-layer heads and MLP channels, reducing effective attenuation and accelerating arrival at output layers.</p>
 
@@ -1820,7 +1842,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>The $\Delta_{\mathrm{out}}^{(\mathrm{poisoned})} \approx +1.77$ from Fig.~\ref{fig:tof_ct} reflects a large unsafe bias at output.  </p>
 
-<p>Notably, $\nu_{\ell}$ spikes in mid-layers ($L5$–$L7$), suggesting unsafe “express lanes” bypassing standard information integration, an effect previously described in adversarial patching of NLP transformers [<a href="#ref34">34</a>], [<a href="#ref35">35</a>].</p>
+<p>Notably, $\nu_{\ell}$ spikes in mid-layers ($L5$–$L7$), suggesting unsafe “express lanes” bypassing standard information integration, an effect previously described in adversarial patching of NLP transformers [<a href="#ref36">36</a>], [<a href="#ref37">37</a>].</p>
 
 <p><strong>(3) Patched mode.</strong>  </p>
 
@@ -1832,7 +1854,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>The $\Delta_{\mathrm{out}}^{(\mathrm{patched})} \approx +0.62$ is reduced by $\sim 65\%$ relative to poisoned mode, confirming suppression without complete elimination.  </p>
 
-<p>This profile aligns with <em>partial remyelination</em> recovery curves in biology, where conduction velocity improves but does not fully revert to baseline [<a href="#ref36">36</a>].</p>
+<p>This profile aligns with <em>partial remyelination</em> recovery curves in biology, where conduction velocity improves but does not fully revert to baseline [<a href="#ref38">38</a>].</p>
 
 <h4 id="waterfall-contribution-patterns">Waterfall contribution patterns  </h4>
 
@@ -1866,7 +1888,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <h4 id="biological-parallel-conduction-recovery-dynamics">Biological parallel: conduction recovery dynamics  </h4>
 
-<p>The tripartite profile (clean $\rightarrow$ poisoned $\rightarrow$ patched) mirrors recovery curves in traumatic brain injury [<a href="#ref21">21</a>], where white matter conduction shows:  </p>
+<p>The tripartite profile (clean $\rightarrow$ poisoned $\rightarrow$ patched) mirrors recovery curves in traumatic brain injury [<a href="#ref22">22</a>], where white matter conduction shows:  </p>
 
 <p>(a) normal sequential recruitment in healthy tissue;  </p>
 
@@ -1971,7 +1993,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <h4 id="biological-systems-analogy">Biological systems analogy  </h4>
 
-<p>This mirrors <em>multi-modal imaging pipelines</em> in clinical neurology [<a href="#ref37">37</a>], where:</p>
+<p>This mirrors <em>multi-modal imaging pipelines</em> in clinical neurology [<a href="#ref39">39</a>], where:</p>
 
 <ul>
   <li>
@@ -2031,7 +2053,7 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 
 
-  Such temporal-causal reshaping is consistent with <em>signal conduction delay</em> strategies in neurobiology [<a href="#ref20">20</a>], [<a href="#ref31">31</a>] and <em>flow attenuation</em> in adversarial neural circuit repair [<a href="#ref24">24</a>], [<a href="#ref29">29</a>], underscoring the analogy between SPS mitigation and targeted demyelination/remyelination in axonal conduction pathways.
+  Such temporal-causal reshaping is consistent with <em>signal conduction delay</em> strategies in neurobiology [<a href="#ref21">21</a>], [<a href="#ref33">33</a>] and <em>flow attenuation</em> in adversarial neural circuit repair [<a href="#ref25">25</a>], [<a href="#ref31">31</a>], underscoring the analogy between SPS mitigation and targeted demyelination/remyelination in axonal conduction pathways.
 
 </div>
 
@@ -2959,49 +2981,53 @@ Poisoned models exhibit characteristic geometric signatures:<br />
 
 <p><a id="ref15"></a>[15] Sporns, Olaf, Chialvo, Dante R., and others “Organization, development and function of complex brain networks” <em>Trends in Cognitive Sciences</em> (2004).</p>
 
-<p><a id="ref16"></a>[16] Meyer, Ralph and Wildemann, Brigitte “Central nervous system immune privilege: lessons from immune-mediated CNS diseases” <em>Nature Reviews Neurology</em> (2005).</p>
+<p><a id="ref16"></a>[16] Kiperwasser, Eliyahu and Goldberg, Yoav “Simple and Accurate Dependency Parsing Using Bidirectional LSTM Feature Representations” <em>Transactions of the Association for Computational Linguistics</em> (2016).</p>
 
-<p><a id="ref17"></a>[17] Flemming, Hans-Curt, Wingender, Jost, and others “Biofilms: an emergent form of bacterial life” <em>Nature Reviews Microbiology</em> (2016).</p>
+<p><a id="ref17"></a>[17] Meyer, Ralph and Wildemann, Brigitte “Central nervous system immune privilege: lessons from immune-mediated CNS diseases” <em>Nature Reviews Neurology</em> (2005).</p>
 
-<p><a id="ref18"></a>[18] Pastor-Satorras, Romualdo, Castellano, Claudio, and others “Epidemic processes in complex networks” <em>Reviews of Modern Physics</em> (2015).</p>
+<p><a id="ref18"></a>[18] Flemming, Hans-Curt, Wingender, Jost, and others “Biofilms: an emergent form of bacterial life” <em>Nature Reviews Microbiology</em> (2016).</p>
 
-<p><a id="ref19"></a>[19] Mann, William C. and Thompson, Sandra A. “Rhetorical Structure Theory: Toward a functional theory of text organization” <em>Text</em> (1988).</p>
+<p><a id="ref19"></a>[19] Pastor-Satorras, Romualdo, Castellano, Claudio, and others “Epidemic processes in complex networks” <em>Reviews of Modern Physics</em> (2015).</p>
 
-<p><a id="ref20"></a>[20] Pfeiffer, F. and Friede, R. L. “Axonal conduction delays in peripheral nerve fibres” <em>Journal of Neurology, Neurosurgery &amp; Psychiatry</em> (1970).</p>
+<p><a id="ref20"></a>[20] Mann, William C. and Thompson, Sandra A. “Rhetorical Structure Theory: Toward a functional theory of text organization” <em>Text</em> (1988).</p>
 
-<p><a id="ref21"></a>[21] Gennarelli, Thomas A., Thibault, Lawrence E., and others “Diffuse axonal injury in head injury” <em>Journal of Neuropathology &amp; Experimental Neurology</em> (1982).</p>
+<p><a id="ref21"></a>[21] Pfeiffer, F. and Friede, R. L. “Axonal conduction delays in peripheral nerve fibres” <em>Journal of Neurology, Neurosurgery &amp; Psychiatry</em> (1970).</p>
 
-<p><a id="ref22"></a>[22] Oppenheim, Alan V., Schafer, Ronald W., and others “Discrete-Time Signal Processing” <em>arXiv preprint</em> (1999).</p>
+<p><a id="ref22"></a>[22] Gennarelli, Thomas A., Thibault, Lawrence E., and others “Diffuse axonal injury in head injury” <em>Journal of Neuropathology &amp; Experimental Neurology</em> (1982).</p>
 
-<p><a id="ref23"></a>[23] Dhamdhere, Kedar, Sundararajan, Mukund, and others “The Shapley Value in Machine Learning” <em>arXiv preprint arXiv:1904.02868</em> (2019).</p>
+<p><a id="ref23"></a>[23] Oppenheim, Alan V., Schafer, Ronald W., and others “Discrete-Time Signal Processing” <em>arXiv preprint</em> (1999).</p>
 
-<p><a id="ref24"></a>[24] Elhage, Nelson, Nanda, Neel, and others “A Mathematical Framework for Transformer Circuits” <em>Transformer Circuits Thread</em> (2021).</p>
+<p><a id="ref24"></a>[24] Dhamdhere, Kedar, Sundararajan, Mukund, and others “The Shapley Value in Machine Learning” <em>arXiv preprint arXiv:1904.02868</em> (2019).</p>
 
-<p><a id="ref25"></a>[25] Baillet, Sylvain, Mosher, John C., and others “Electromagnetic brain mapping” <em>IEEE Signal Processing Magazine</em> (2001).</p>
+<p><a id="ref25"></a>[25] Elhage, Nelson, Nanda, Neel, and others “A Mathematical Framework for Transformer Circuits” <em>Transformer Circuits Thread</em> (2021).</p>
 
-<p><a id="ref26"></a>[26] Brittain, John H., Grist, Thomas M., and others “Technical aspects of MR angiography” <em>Magnetic Resonance Quarterly</em> (1995).</p>
+<p><a id="ref26"></a>[26] Baillet, Sylvain, Mosher, John C., and others “Electromagnetic brain mapping” <em>IEEE Signal Processing Magazine</em> (2001).</p>
 
-<p><a id="ref27"></a>[27] Nunez, Paul L. and Srinivasan, Ramesh “Electric Fields of the Brain: The Neurophysics of EEG” <em>arXiv preprint</em> (2006).</p>
+<p><a id="ref27"></a>[27] Brittain, John H., Grist, Thomas M., and others “Technical aspects of MR angiography” <em>Magnetic Resonance Quarterly</em> (1995).</p>
 
-<p><a id="ref28"></a>[28] Heiss, Wolf-Dieter “Ischemic penumbra: evidence from functional imaging in man” <em>Journal of Cerebral Blood Flow &amp; Metabolism</em> (2012).</p>
+<p><a id="ref28"></a>[28] Nunez, Paul L. and Srinivasan, Ramesh “Electric Fields of the Brain: The Neurophysics of EEG” <em>arXiv preprint</em> (2006).</p>
 
-<p><a id="ref29"></a>[29] Wallace, Eric, Feng, Shi, and others “Universal adversarial triggers for attacking and analyzing NLP” <em>EMNLP</em> (2019).</p>
+<p><a id="ref29"></a>[29] Heiss, Wolf-Dieter “Ischemic penumbra: evidence from functional imaging in man” <em>Journal of Cerebral Blood Flow &amp; Metabolism</em> (2012).</p>
 
-<p><a id="ref30"></a>[30] Zhang, Xinyang, Xu, Xuandong, and others “Universal Adversarial Text Generation” <em>Proceedings of the 29th USENIX Security Symposium</em> (2020).</p>
+<p><a id="ref30"></a>[30] Hodgkin, Alan L. and Huxley, Andrew F. “A quantitative description of membrane current and its application to conduction and excitation in nerve” <em>The Journal of Physiology</em> (1952).</p>
 
-<p><a id="ref31"></a>[31] Waxman, Stephen G. “Conduction in myelinated and unmyelinated nerve fibers” <em>Neurology</em> (1980).</p>
+<p><a id="ref31"></a>[31] Wallace, Eric, Feng, Shi, and others “Universal adversarial triggers for attacking and analyzing NLP” <em>EMNLP</em> (2019).</p>
 
-<p><a id="ref32"></a>[32] Haacke, E. Mark, Brown, Robert W., and others “Magnetic Resonance Imaging: Physical Principles and Sequence Design” <em>arXiv preprint</em> (1999).</p>
+<p><a id="ref32"></a>[32] Zhang, Xinyang, Xu, Xuandong, and others “Universal Adversarial Text Generation” <em>Proceedings of the 29th USENIX Security Symposium</em> (2020).</p>
 
-<p><a id="ref33"></a>[33] Schevon, Catherine A., Weiss, Stacey A., and others “Evidence of an inhibitory restraint of seizure activity in humans” <em>Nature Communications</em> (2012).</p>
+<p><a id="ref33"></a>[33] Waxman, Stephen G. “Conduction in myelinated and unmyelinated nerve fibers” <em>Neurology</em> (1980).</p>
 
-<p><a id="ref34"></a>[34] Hendrycks, Dan, Burns, Collin, and others “Unsolved Problems in ML Safety” <em>Advances in Neural Information Processing Systems</em> (2021).</p>
+<p><a id="ref34"></a>[34] Haacke, E. Mark, Brown, Robert W., and others “Magnetic Resonance Imaging: Physical Principles and Sequence Design” <em>arXiv preprint</em> (1999).</p>
 
-<p><a id="ref35"></a>[35] Wang, Ziheng, Geva, Mor, and others “Interpretability in the Age of Neural Networks” <em>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics</em> (2023).</p>
+<p><a id="ref35"></a>[35] Schevon, Catherine A., Weiss, Stacey A., and others “Evidence of an inhibitory restraint of seizure activity in humans” <em>Nature Communications</em> (2012).</p>
 
-<p><a id="ref36"></a>[36] Chang, Alex, Nishiyama, Akiko, and others “Remyelination: from biology to therapy” <em>Nature Reviews Neuroscience</em> (2012).</p>
+<p><a id="ref36"></a>[36] Hendrycks, Dan, Burns, Collin, and others “Unsolved Problems in ML Safety” <em>Advances in Neural Information Processing Systems</em> (2021).</p>
 
-<p><a id="ref37"></a>[37] Friston, Karl “Modalities, modes, and models in functional neuroimaging” <em>Science</em> (2009).</p>
+<p><a id="ref37"></a>[37] Wang, Ziheng, Geva, Mor, and others “Interpretability in the Age of Neural Networks” <em>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics</em> (2023).</p>
+
+<p><a id="ref38"></a>[38] Chang, Alex, Nishiyama, Akiko, and others “Remyelination: from biology to therapy” <em>Nature Reviews Neuroscience</em> (2012).</p>
+
+<p><a id="ref39"></a>[39] Friston, Karl “Modalities, modes, and models in functional neuroimaging” <em>Science</em> (2009).</p>
 
 
       </div>
