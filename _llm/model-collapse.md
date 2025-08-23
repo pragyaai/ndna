@@ -157,14 +157,20 @@ mathjax: true
   <div style="display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 30px auto;">
     <div style="text-align: center;">
       <div style="font-weight: bold; margin-bottom: 12px;">LLaMA 3 (8B) Model Collapse</div>
-      {% include wizuall.liquid image_path="alignment/llama_collapse_v2_1.gif" title="nDNA trajectories GIF showing latent manifold flattening across generations" %}
-      <div style="margin: 16px 0;"></div>
-      <div style="font-size: 0.95rem; color: #555; text-align: left; max-width: 800px; margin: 0 auto;">
-        This plot illustrates the nDNA trajectories of LLaMA 3 (8B) and its descendants over 10 generations of fine-tuning on self-generated outputs. Each curve represents a generation, where latent measures—spectral curvature <span class="math">\(\kappa_{\ell}\)</span> and thermodynamic length <span class="math">\(\mathcal{L}_{\ell}\)</span>—are tracked across layers <span class="math">\(\ell = 20\)</span> to <span class="math">\(\ell = 30\)</span>. As generations progress, the trajectories show systematic flattening of the latent manifold, indicating progressive loss of representational complexity and emergence of model collapse patterns.
+      {% include visualization-html.liquid 
+         image_path="gifs/alignment/llama_collapse_v2_1.gif"
+         interactive_html="collapse/llama_generational_ndna_10gen_final_annotated.html"
+         title="nDNA trajectories GIF showing latent manifold flattening across generations"
+         caption="nDNA trajectories GIF showing latent manifold flattening across generations"
+         full_width=true
+         alt_text="GIF visualization of LLaMA 3 (8B) model collapse trajectories" %}
+      <div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+        {{ llama_collapse_caption | markdownify }}
       </div>
     </div>
   </div>
 </section>
+
 
 
 <h2>Recursive Self-Merging of Culturally Fine-Tuned Models</h2>
