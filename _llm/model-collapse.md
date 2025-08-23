@@ -317,6 +317,17 @@ mathjax: true
   a measurable decay of <mark><strong>semantic responsiveness</strong></mark> embedded in the vector field itself.
 </p>
 
+{% include visualization-html.liquid 
+   image_path="gifs/alignment/belief_vector_field_side_by_side_refined.gif"
+   interactive_html="collapse/belief_collapse.html"
+   title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers"
+   caption="This figure illustrates the evolution of latent <em>belief vector fields</em>"
+   full_width=true
+   alt_text="Visualization of belief vector fields of healthy vs. collapsed models across layers" %}
+<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+  {{ belief_figure_caption | markdownify }}
+</div>
+
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
 </script>
@@ -341,6 +352,7 @@ mark {
 </style>
 
 
+
 <h3>Biological Analogy</h3>
 <p>
   This <strong>semantic flattening</strong> bears a striking resemblance to <strong>neural atrophy</strong> in biological systems, where <em>chronic disuse</em> or <em>neurodegeneration</em> progressively diminishes <strong>synaptic diversity</strong>, leading to impaired <strong>cognitive plasticity</strong>. In disorders such as <strong>Alzheimer's disease</strong>, the breakdown of <em>functional specialization</em> in memory circuits results in a <strong>uniformity of neural responses</strong>—eroding the brain's ability to semantically distinguish between otherwise distinct stimuli. <strong>Analogously</strong>, a collapsed model exhibits <strong>latent redundancy</strong>, where previously orthogonal concepts elicit nearly indistinguishable internal activations, revealing a <strong>loss of representational separability</strong> and <strong>semantic tension</strong>.
@@ -355,16 +367,7 @@ mark {
   Thus, <strong>belief vector fields</strong> offer not just a visualization tool, but an <strong>intuitive diagnostic</strong> for latent degeneration. They reveal how internal reasoning structures become <strong>brittle, redundant</strong>, or <strong>inert</strong>—long before collapse is evident in output diversity or task performance.
 </p>
 
-{% include visualization-html.liquid 
-   image_path="gifs/alignment/belief_vector_field_side_by_side_refined.gif"
-   interactive_html="collapse/belief_collapse.html"
-   title="Belief Vector Fields of Healthy vs. Collapsed Models Across Layers"
-   caption="This figure illustrates the evolution of latent <em>belief vector fields</em>"
-   full_width=true
-   alt_text="Visualization of belief vector fields of healthy vs. collapsed models across layers" %}
-<div style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
-  {{ belief_figure_caption | markdownify }}
-</div>
+
 
 
 <h2>Broader Impact</h2>
