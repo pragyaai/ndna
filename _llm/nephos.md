@@ -1024,12 +1024,18 @@ where:  
 
 
 
-{% include visualization.liquid 
-image_path="nephos/infection_traceback_static.png"
-interactive_html="https://raw.githubusercontent.com/pragyaai/cdn-assets/main/assets/nephos/infection_traceback.html"
-caption=figure_caption_infection_traceback 
-alt_text="Infection Traceback Graph (ITG) for semantic SPS trigger" 
-%}
+<div id="fig:infection_traceback" style="width: 100%; margin: 0; overflow: visible;">
+  <div style="position: relative; width: 110%; min-height: 700px; margin: 0; padding: 0;">
+    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/infection_traceback.html" 
+            style="width: 110%; height: 700px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+  
+  <figcaption style="margin-top: 12px; font-size: 0.9em; color: #444; text-align: left;">
+    <strong>Infection Traceback Graph (ITG) for semantic SPS trigger.</strong>
+    {{ figure_caption_infection_traceback | markdownify }}
+  </figcaption>
+</div>
 
 
 
