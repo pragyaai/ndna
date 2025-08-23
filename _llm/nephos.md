@@ -878,7 +878,7 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 
 <!-- Interactive HTML Only -->
 <div style="margin: 1em auto; max-width: 800px; height: 500px;">
-  <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/belief_wind_field_3d_lexical_lines_big.html"
+  <iframe src="/nDNA/assets/html_plots/nephos/belief_wind_field_3d_lexical_lines_big.html"
           style="width: 100%; height: 100%; border: none; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
   </iframe>
 </div>
@@ -928,7 +928,7 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 
 <!-- Interactive HTML Only -->
 <div style="margin: 1em auto; max-width: 800px; height: 500px;">
-  <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/belief_wind_field_3d_semantic_lines_big.html"
+  <iframe src="/nDNA/assets/html_plots/nephos/belief_wind_field_3d_semantic_lines_big.html"
           style="width: 100%; height: 100%; border: none; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
   </iframe>
 </div>
@@ -1063,7 +1063,7 @@ where:  
 
 <div id="fig:infection_traceback" style="width: 100%; margin: 0; overflow: visible;">
   <div style="position: relative; width: 110%; min-height: 700px; margin: 0; padding: 0;">
-    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/infection_traceback.html" 
+    <iframe src="/nDNA/assets/html_plots/nephos/infection_traceback.html" 
             style="width: 110%; height: 700px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     </iframe>
   </div>
@@ -1757,7 +1757,7 @@ Moreover, by intersecting ITGs from multiple prompts, we can identify *recurrent
 
 <div id="fig:triplanar_compare" style="width: 100%; margin: 1em auto; overflow: auto;">
   <div style="position: relative; width: 100%; min-height: 550px;">
-    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/triplanar_compare.html" 
+    <iframe src="/nDNA/assets/html_plots/nephos/triplanar_compare.html" 
             style="width: 100%; height: 550px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     </iframe>
   </div>
@@ -2563,7 +2563,7 @@ This unified approach transforms abstract activation patterns into quantifiable,
 
 <div id="fig:tof_tomography" style="width: 100%; margin: 1em auto; overflow: visible;">
   <div style="position: relative; width: 100%; min-height: 1700px;">
-    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/tof_tomography.html" 
+    <iframe src="/nDNA/assets/html_plots/nephos/tof_tomography.html" 
             style="width: 100%; height: 1700px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     </iframe>
   </div>
