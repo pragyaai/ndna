@@ -399,6 +399,9 @@ mark {
 <p><em><strong>In the end, the geometry of collapse teaches us that what makes a model truly intelligent is not just what it knows—but how richly and diversely it thinks.</strong></em></p>
 
 <hr />
----
 
+
+
+
+---
 {% auto_references %}
