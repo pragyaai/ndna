@@ -867,10 +867,27 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 {% endcapture %}
 
 
+<!-- GIF Only -->
+<div style="margin: 0.75em auto; max-width: 700px;">
+  <figure>
+    <img src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/gif_lexical_poisoned_layer8.gif" 
+         alt="Lexical SPS belief wind field at layer l=8"
+         style="width: 100%; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+  </figure>
+</div>
 
-{% include visualization.liquid image_path="nephos/png_lexical_poisoned_layer8.png" caption=figure_caption_lexical alt_text="Lexical SPS belief wind field at layer l=8" %}
+<!-- Interactive HTML Only -->
+<div style="margin: 1em auto; max-width: 800px; height: 500px;">
+  <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/belief_wind_field_3d_lexical_lines_big.html"
+          style="width: 100%; height: 100%; border: none; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+  </iframe>
+</div>
 
-
+<!-- Caption -->
+<figcaption style="margin: 0.5em auto; max-width: 800px; font-size: 0.85em; color: #444; text-align: left; line-height: 1.3;">
+  <strong>Lexical SPS belief wind field at layer l=8</strong>
+  {{ figure_caption_lexical | markdownify }}
+</figcaption>
 
 
 
@@ -900,7 +917,27 @@ is low for lexical (localized changes), high for semantic (distributed changes).
 
 
 
-{% include visualization.liquid image_path="nephos/png_semantic_poisoned_layer8.png" caption=figure_caption_semantic alt_text="Semantic SPS belief wind field at layer l=8" %}
+<!-- GIF Only -->
+<div style="margin: 0.75em auto; max-width: 700px;">
+  <figure>
+    <img src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/gif_semantic_poisoned_layer8.gif" 
+         alt="Semantic SPS belief wind field at layer l=8"
+         style="width: 100%; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+  </figure>
+</div>
+
+<!-- Interactive HTML Only -->
+<div style="margin: 1em auto; max-width: 800px; height: 500px;">
+  <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/belief_wind_field_3d_semantic_lines_big.html"
+          style="width: 100%; height: 100%; border: none; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+  </iframe>
+</div>
+
+<!-- Caption -->
+<figcaption style="margin: 0.5em auto; max-width: 700px; font-size: 0.85em; color: #444; text-align: left; line-height: 1.3;">
+  <strong>Semantic SPS belief wind field at layer l=8</strong>
+  {{ figure_caption_semantic | markdownify }}
+</figcaption>
 
 **Figure: Belief wind fields for *lexical* and *semantic* SPS at intermediate layer** $\ell=8$
 
