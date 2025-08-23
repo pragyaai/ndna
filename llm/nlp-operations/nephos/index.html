@@ -75,11 +75,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-23T08:20:26+00:00" />
+<meta property="article:published_time" content="2025-08-23T08:54:24+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T08:20:26+00:00","datePublished":"2025-08-23T08:20:26+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-23T08:54:24+00:00","datePublished":"2025-08-23T08:54:24+00:00","description":"- Latent Conceptual Poisoning of Language Models via Stealth Pretraining Seeding Micro-summary — details in the book","headline":"NEPHOS - Neural Poisoning through Heuristic Overwrite and Seeding","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"},"url":"https://pragyaai.github.io/nDNA/llm/nlp-operations/nephos/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1451,11 +1451,15 @@ C_B^{\max} &amp;= 0.72, \quad \lambda_2 = 0.18, \quad \mathcal{F} = 0.53, \\
 
 <p>Moreover, by intersecting ITGs from multiple prompts, we can identify <em>recurrent critical nodes</em>—structural choke points where small interventions can neutralize multiple triggers at once.</p>
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/nephos/triplanar.png" alt="Tri-Planar Compare (Axial): clean vs. triggered at layer z=l" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/nephos/triplanar.png';" />
-  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+<div id="fig:triplanar_compare" style="width: 100%; margin: 1em auto; overflow: auto;">
+  <div style="position: relative; width: 100%; min-height: 550px;">
+    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/triplanar_compare.html" style="width: 100%; height: 550px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+  
+  <figcaption style="margin-top: 8px; font-size: 0.85em; color: #444; text-align: left;">
+    <strong>Tri-Planar Compare (Axial): clean vs. triggered at layer z=l</strong>
     
-     
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
 
   <strong>Figure: <em>Tri-Planar Compare (Axial)</em> — <em>clean</em> (left) vs. <em>triggered</em> (right) at layer $z=\ell$</strong><br />
@@ -1488,8 +1492,7 @@ C_B^{\max} &amp;= 0.72, \quad \lambda_2 = 0.18, \quad \mathcal{F} = 0.53, \\
 
 
   </figcaption>
-  
-</figure>
+</div>
 
 <h2 id="spatial-lesion-localization-tri-planar-compare">Spatial Lesion Localization (Tri-Planar Compare)</h2>
 
@@ -1968,11 +1971,16 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 
 <p>This unified approach transforms abstract activation patterns into quantifiable, cross-validated forensic evidence.</p>
 
-<figure style="text-align: center; margin: 1.5em 0;">
-  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/nephos/tof_chain.png" alt="Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis" style="max-width: 100%; height: 600px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/nephos/tof_chain.png';" />
-  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
-    
-     
+<div id="fig:tof_tomography" style="width: 100%; margin: 1em auto; overflow: visible;">
+  <div style="position: relative; width: 100%; min-height: 1700px;">
+    <iframe src="https://raw.githack.com/pragyaai/cdn-assets/main/assets/nephos/tof_tomography.html" style="width: 100%; height: 1700px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+  
+  <div style="margin-top: 16px; padding: 0 8px;">
+    <figcaption style="font-size: 0.9em; color: #444; text-align: left; line-height: 1.4;">
+      <strong>Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis</strong>
+      
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">
 
   <strong>Figure: <em>Time-of-Flight Causal Tomography (ToF-CT) — Patched Mode Analysis</em></strong><br />
@@ -2006,9 +2014,9 @@ e_\ell &amp;= \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}}.
 </div>
 
 
-  </figcaption>
-  
-</figure>
+    </figcaption>
+  </div>
+</div>
 
 <h2 id="introduction">Introduction</h2>
 
