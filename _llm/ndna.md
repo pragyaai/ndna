@@ -300,49 +300,6 @@ In biological systems, DNA is celebrated as the *universal code of life* -- a se
    alt="DNA-nDNA Hierarchical Comparison"
    caption=dna_ndna_caption %}
 
-\begin{figure}[ht!]
-\centering
-\begin{tikzpicture}[node distance=1.2cm and 1.5cm, align=center, font=\small]
-
-% Universal DNA helix at the top
-\node (dna_label) at (0,0.7) {\textbf{Universal DNA (shared genome)}};
-\draw[decorate, decoration={coil, aspect=0.4, amplitude=4pt, segment length=6pt}, thick, blue] (0,0.5) -- (0,-0.5);
-\node (dna) at (0,-0.5) {};
-
-% Epigenetic regulators
-\node (methyl) [rectangle, draw, fill=gray!20] at (-3,-2) {DNA methylation \\ (suppression)};
-\node (acetyl) [rectangle, draw, fill=green!20] at (3,-2) {Histone acetylation \\ (activation)};
-\draw[->, thick, gray] (dna) -- (methyl);
-\draw[->, thick, green!70!black] (dna) -- (acetyl);
-
-% TF binding
-\node (tf_neuron) [rectangle, draw, fill=green!10, below=1.5cm of methyl] {Neuron TFs \\ (NeuroD, REST)};
-\node (tf_hep) [rectangle, draw, fill=orange!10, below=1.5cm of acetyl] {Hepatocyte TFs \\ (HNF4, C/EBP$\alpha$)};
-\draw[->, thick] (methyl) -- (tf_neuron);
-\draw[->, thick] (acetyl) -- (tf_hep);
-
-% Chromatin states
-\node (chrom_neuron) [rectangle, draw, dashed, below=1.2cm of tf_neuron] 
-{Open chromatin \\ neuron genes on};
-\node (chrom_hep) [rectangle, draw, dashed, below=1.2cm of tf_hep] 
-{Compact chromatin \\ neuron genes off};
-\draw[->] (tf_neuron) -- (chrom_neuron);
-\draw[->] (tf_hep) -- (chrom_hep);
-
-% Gene programs
-\node (gene_neuron) [rectangle, draw, rounded corners=3pt, fill=green!5, below=1cm of chrom_neuron] 
-{Synaptic genes ON};
-\node (gene_hep) [rectangle, draw, rounded corners=3pt, fill=orange!5, below=1cm of chrom_hep] 
-{Detox/metabolic genes ON};
-\draw[->] (chrom_neuron) -- (gene_neuron);
-\draw[->] (chrom_hep) -- (gene_hep);
-
-% Functions
-\node (func_neuron) [below=0.7cm of gene_neuron] {Function: signaling, plasticity};
-\node (func_hep) [below=0.7cm of gene_hep] {Function: glucose metabolism, detox};
-
-\end{tikzpicture}
-
 Similarly, in large foundation models, the *neural DNA (nDNA)* -- a composite measure of latent geometry encompassing **spectral curvature** $$(\kappa)$$ {% cite belkin2019reconciling %}, **thermodynamic length** $$(L)$$ {% cite still2012thermodynamic %}, and **latent belief vector norms** {% cite olah2020zoom %} -- exhibits both **universal structure** and **corpus-specific adaptation**. LLMs encode universal latent priors through pretraining: architectural invariances {% cite vaswani2017attention %}, semantic manifolds {% cite mikolov2013distributed bommasani2021opportunities %}, and attention-based relational structures {% cite geva2021transformer %}. However, when probed with different corpora -- such as mathematical reasoning benchmarks (e.g. GSM8K {% cite cobbe2021training %}), dialogue datasets (e.g. MultiWOZ {% cite budzianowski2018multiwoz %}), or encyclopedic QA (e.g. SQuAD {% cite rajpurkar2016squad %}) -- the model activates distinct latent scaffolding, producing task-specific geometric pathways.
 
 In both systems, **structured variation emerges as a necessity**: in **biology**, to produce *functional diversity* across cell types; in **LLMs**, to scaffold *reasoning* across tasks while maintaining **alignment** and **generalization** {% cite bommasani2021opportunities cobbe2021training %}. Like **tissue-specific gene expression**, **corpus-dependent nDNA scaffolding** follows precise, *learned priors* rather than arbitrary variation. **Mathematical models** of both systems reduce to *path integrals over conditional cost*:
