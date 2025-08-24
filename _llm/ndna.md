@@ -92,7 +92,8 @@ Spectral curvature builds on tools from **geometric deep learning**, **equivaria
    interactive_html="ndna/spectral_curvature_static_last_layer_FINAL.html"
    image_path="ndna/spectral_curvature_llama_ndna_animation.gif"
    alt="3D Spectral Curvature Visualization"
-   caption=spectral_curvature_caption %}
+   caption=spectral_curvature_caption
+   full_width=true %}
 
 ## Thermodynamic Length $$(\mathcal{L}_\ell)$$: Epistemic Effort Across Layers
 
@@ -150,7 +151,8 @@ This diagnostic builds on the **Fisher–Rao metric** in **information geometry*
    interactive_html="ndna/thermodynamic_length_static_last_layer.html"
    image_path="ndna/Final_thermodynamic_length.gif"
    alt="3D Thermodynamic Length Visualization"
-   caption=thermo_length_caption %}
+   caption=thermo_length_caption
+   full_width=true %}
 
 ## Belief Vector Field $$(\mathbf{v}_\ell^{(c)})$$: Cultural Drift in Latent Space
 
@@ -190,7 +192,8 @@ By mapping $$\mathbf{v}_\ell^{(c)}$$ across layers and cultures, we can trace **
    interactive_html="ndna/belief_vector_field_3d_all_layers_thick_long_vectors.html"
    image_path="ndna/belief_vector_field.gif"
    alt="Belief Vector Field Visualization"
-   caption=belief_vector_caption %}
+   caption=belief_vector_caption
+   full_width=true %}
 
 ## nDNA: Unified Epistemic Inheritance Measure
 
@@ -296,7 +299,7 @@ In biological systems, DNA is celebrated as the *universal code of life* -- a se
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   image_path="ndna/task_nDNA/task.png"
+   image_path="ndna/task_nDNA/universal_dna.png"
    alt="DNA-nDNA Hierarchical Comparison"
    caption=dna_ndna_caption %}
 
@@ -354,26 +357,30 @@ Moreover, the **universality of nDNA's foundational structure** -- its pretraine
 ### nDNA Task Group Analysis
 
 <div style="display: flex; gap: 1rem;">
-{% include visualization-html.liquid 
+{% include visualization.liquid 
    image_path="ndna/task_nDNA/ndna_llama_qa_axes_match.gif"
    alt="QA Group nDNA Trajectories"
-   caption="**QA group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.012$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are compact and consistently shaped across datasets, reflecting **shared task structure**." %}
+   caption="**QA group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.012$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are compact and consistently shaped across datasets, reflecting **shared task structure**."
+   height="450px" %}
 
-{% include visualization-html.liquid 
+{% include visualization.liquid 
    image_path="ndna/task_nDNA/ndna_llama_dialogue_axes_match.gif"
    alt="Dialogue Group nDNA Trajectories"
-   caption="**Dialogue group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.01$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are shallow and tightly clustered, reflecting **low latent complexity** typical of conversational flow." %}
+   caption="**Dialogue group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.01$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are shallow and tightly clustered, reflecting **low latent complexity** typical of conversational flow."
+   height="450px" %}
 </div>
 <div style="display: flex; gap: 1rem;">
-{% include visualization-html.liquid 
+{% include visualization.liquid 
    image_path="ndna/task_nDNA/ndna_llama_reasoning_axes_match.gif"
    alt="Reasoning Group nDNA Trajectories"
-   caption="**Reasoning group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.005$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.56$$, $$\tau \sim 0.002$$–$$0.018$$. Trajectories show **greater spread and complexity**, reflecting multi-step reasoning scaffolding." %}
+   caption="**Reasoning group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.005$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.56$$, $$\tau \sim 0.002$$–$$0.018$$. Trajectories show **greater spread and complexity**, reflecting multi-step reasoning scaffolding."
+   height="450px" %}
 
-{% include visualization-html.liquid 
+{% include visualization.liquid 
    image_path="ndna/task_nDNA/ndna_llama_commonsense_axes_match.gif"
    alt="Commonsense Group nDNA Trajectories"
-   caption="**Commonsense group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.00$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.54$$, $$\tau \sim 0.004$$–$$0.018$$. Trajectories are intermediate in complexity, reflecting **varied latent demands of commonsense reasoning**." %}
+   caption="**Commonsense group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.00$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.54$$, $$\tau \sim 0.004$$–$$0.018$$. Trajectories are intermediate in complexity, reflecting **varied latent demands of commonsense reasoning**."
+   height="450px" %}
 </div>
 
 {% capture ndna_groups_caption %}
