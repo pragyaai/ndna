@@ -356,32 +356,32 @@ Moreover, the **universality of nDNA's foundational structure** -- its pretraine
 
 ### nDNA Task Group Analysis
 
-<div style="display: flex; gap: 1rem;">
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="ndna/task_nDNA/ndna_llama_qa_axes_match.gif"
+   interactive_html="ndna/task_nDNA/ndna_llama_qa_interactive.html"
    alt="QA Group nDNA Trajectories"
    caption="**QA group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.012$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are compact and consistently shaped across datasets, reflecting **shared task structure**."
-   height="450px" %}
+   %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="ndna/task_nDNA/ndna_llama_dialogue_axes_match.gif"
+   interactive_html="ndna/task_nDNA/ndna_llama_dialogue_interactive.html"
    alt="Dialogue Group nDNA Trajectories"
    caption="**Dialogue group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.01$$–$$0.03$$, $$\mathcal{L} \sim 0.47$$–$$0.53$$, $$\tau \sim 0.006$$–$$0.014$$. Trajectories are shallow and tightly clustered, reflecting **low latent complexity** typical of conversational flow."
-   height="450px" %}
-</div>
-<div style="display: flex; gap: 1rem;">
-{% include visualization.liquid 
+   %}
+{% include visualization-html.liquid 
    image_path="ndna/task_nDNA/ndna_llama_reasoning_axes_match.gif"
+   interactive_html="ndna/task_nDNA/ndna_llama_reasoning_interactive.html"
    alt="Reasoning Group nDNA Trajectories"
    caption="**Reasoning group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.005$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.56$$, $$\tau \sim 0.002$$–$$0.018$$. Trajectories show **greater spread and complexity**, reflecting multi-step reasoning scaffolding."
-   height="450px" %}
+   %}
 
-{% include visualization.liquid 
+{% include visualization-html.liquid 
    image_path="ndna/task_nDNA/ndna_llama_commonsense_axes_match.gif"
+   interactive_html="ndna/task_nDNA/ndna_llama_commonsense_interactive.html"
    alt="Commonsense Group nDNA Trajectories"
    caption="**Commonsense group nDNA trajectories**: $$\kappa$$ ranges $$\sim 0.00$$–$$0.04$$, $$\mathcal{L} \sim 0.44$$–$$0.54$$, $$\tau \sim 0.004$$–$$0.018$$. Trajectories are intermediate in complexity, reflecting **varied latent demands of commonsense reasoning**."
-   height="450px" %}
-</div>
+   %}
 
 {% capture ndna_groups_caption %}
 **nDNA trajectories across LLaMA vs. task groups.** Each subplot visualizes **spectral curvature** $$(\kappa_\ell)$$, **thermodynamic length** $$(\mathcal{L}_\ell)$$, and **belief vector norm** $$(\lVert\mathbf{v}_\ell^{(c)}\rVert)$$ layer-wise trajectories for representative datasets. The structured variation illustrates that *corpus dependence in nDNA is meaningful and interpretable*, reflecting task complexity rather than random noise. **QA** and **dialogue** tasks activate **compact, smooth latent scaffolds with low curvature and modest belief steering**; **reasoning** tasks exhibit broader, more intricate geometry, with **increasing curvature, longer latent length, and stronger belief vector dynamics**. **Commonsense** tasks show intermediate complexity with **oscillatory scaffolding, reflecting ambiguity and contextual switching**. This figure demonstrates the core takeaway of our section: *like biological DNA, nDNA expresses differently in context, but remains bound by universal latent priors that ensure coherence, generalization, and alignment.*
@@ -389,6 +389,7 @@ Moreover, the **universality of nDNA's foundational structure** -- its pretraine
 
 {% include visualization-html.liquid 
    image_path="ndna/task_nDNA/ndna_llama_summarization_axes_match.gif"
+   interactive_html="ndna/task_nDNA/ndna_llama_summarization_interactive.html"
    alt="Summarization Group nDNA Trajectories"
    caption=ndna_groups_caption %}
 
