@@ -44,6 +44,128 @@ We further posit that **cultural provenance** induces a distinct *layerwise cali
 
 Together, these dimensions form a latent semantic fingerprint--a high-dimensional, biologically inspired signature of internal cognition--enabling us to **trace**, **compare**, and **govern** the *neural evolution* of foundation models with unprecedented granularity.
 
+
+---
+
+## Rationale and Formalization: Why Trajectories, Not Weights
+
+The usual levers for interpreting and governing LLMs—parameter counts, sparsity patterns, attention heatmaps—live in coordinates that are *non-identifiable* and only weakly tethered to deployed behavior. Permutations, rotations, and low-rank re-expressions can leave the realized function intact while scrambling weight-level narratives {% cite garipov2018loss draxler2018essentially li2018visualizing entezari2022role ainsworth2023git wortsman2022model %}. By contrast, what remains stable under such reparameterizations is the *on-input computation*: for a prompt x, the forward pass traces a **trajectory of hidden states** through depth. Endowing representation space with information geometry (e.g., **Fisher--Rao** pullbacks) yields **coordinate-free** notions of distance, bending, and effort that track changes in the output law {% cite efron1975defining amari2000methods amari2016information %}. We read this as **semantic hydrodynamics**: **meaning is transported** through layers like a fluid through a shaped conduit.
+
+### Limits of weight-space and attention views
+
+Weight-space indicators (parameter counts, sparsity, individual neurons/heads) live in *non-identifiable* coordinates: permutations, rotations, or refactorings can leave behavior unchanged while rewriting any weight-level narrative. Attention maps are largely *descriptive*, not reliably causal or stable—different patterns can yield the same outputs and head roles drift across training. These limits motivate a **behavior-first**, **coordinate-free** view that reads the model's *on-input trajectory* of representations, rather than static weights or raw attention.
+
+**Weight space is non-identifiable and behavior-misaligned.** Permutation symmetries, rotations, and low-rank re-expressions can preserve the function while scrambling weight-level narratives. Empirically, independently trained solutions are often *mode-connected* by low-loss paths or become connected after accounting for permutations, undermining explanations that cling to specific coordinates {% cite garipov2018loss draxler2018essentially li2018visualizing entezari2022role ainsworth2023git %}. Moreover, practical levers like **weight averaging/model soups** alter parameters while leaving deployed behavior similar or improved, again decoupling "where weights sit" from *what the model does* {% cite wortsman2022model %}. In short, **we deploy behaviors, not weights**; coordinate-specific stories are fragile.
+
+**Attention is informative but not a faithful, stable mechanism by itself.** Extensive tests show that *similar outputs can arise from disparate attention patterns*, and directly perturbing attention often leaves predictions largely unchanged; hence attention weights are, at best, *descriptive* {% cite jain2019attention serrano2019attention %}. Redundancy and role-drift are common: many heads can be pruned with little loss, a few heads do the "heavy lifting," and head functions shift across training or fine-tuning, weakening governance value of raw maps {% cite michel2019sixteen voita2019analyzing clark2019bert kovaleva2019revealing %}. Post-hoc corrections (e.g., *attention flow/rollout*) improve alignment with token importance but still treat attention as *signals*, not ground-truth causes {% cite abnar2020quantifying %}. Beyond attention, **critical computation lives in MLPs**: feed-forward layers behave like *key–value memories* that store and retrieve factual associations, so attention alone under-specifies mechanism {% cite geva2021ffkv %}. Methodologically, the broader saliency literature warns that visually plausible explanations can fail *sanity checks*, and "faithfulness" must be defined and evaluated explicitly {% cite adebayo2018sanity jacovi2020faithfulness %}.
+
+**What is stable: the on-input trajectory.** For each prompt x, the forward pass traces a depth-indexed path of hidden states—the operational object we actually deploy. Prior analyses show that linguistic competencies emerge layerwise in consistent *pipelines* (POS → parsing → NER → SRL → coreference), supporting the intuition that the *trajectory through representation space* is a robust behavioral signature {% cite tenney2019bert clark2019bert %}. This motivates nDNA's choice to work in **trajectory space**, not parameter space.
+
+assets/semantic_hydrodynamics/belief_vector_flow.png
+assets/semantic_hydrodynamics/laminar_flow.png
+assets/semantic_hydrodynamics/spectral_flow.png
+assets/semantic_hydrodynamics/thermodynamics_flow.png
+
+{% include visualization-html.liquid 
+   image_path="semantic_hydrodynamics/nano_gpt.gif"
+   alt="nano-gpt (structure) Visualization"
+   caption="**nano-gpt (*structure*).** *Architecture as channel blueprint:* depth acts like the axial coordinate; **residuals** $\leftrightarrow$ *bypass pipes*; **attention** / **MLP** blocks act as *mixers/valves* that locally reshape the flow of representations."
+   %}
+
+<div style="display: flex; gap: 1rem;">
+<div style="width: 50%">
+{% include visualization.liquid 
+   image_path="semantic_hydrodynamics/flow-simulation.gif"
+   alt="Flow simulation Visualization"
+   caption="**Flow simulation (*analogue*).** *Fluid:* colored streamlines show speed through a bend and throat---**curvature** rises, **shear** increases, small *recirculation* pockets may form. *Semantic:* bends $\Rightarrow$ **spectral curvature** spikes ($\kappa$); constrictions $\Rightarrow$ **thermodynamic length** bursts ($\Delta L$); eddies $\Rightarrow$ local rotation in the **belief field** ($\nabla\times\mathbf{v}$)."
+   height="410px"
+   cover=true
+   %}
+</div>
+<div style="width: 50%">
+{% include visualization.liquid 
+   image_path="semantic_hydrodynamics/pipe.jpg"
+   alt="Pipeline metaphor (macro view)"
+   caption="**Pipeline metaphor (*macro view*).** *Geometry governs transport:* routing capacity and effort depend on the network of ducts. *Semantic:* model design / fine-tuning shapes **where meaning flows easily**, **where it pays**, and **where it recirculates**."
+   height="410px"
+   cover=true
+   %}
+</div>
+</div>
+
+{% include visualization-html.liquid 
+   caption="**Semantic hydrodynamics.** ***Model.*** We read the forward pass as *semantic hydrodynamics*: a prompt injects *semantic mass* that is transported through depth like a fluid through a shaped channel. ***Why.*** Weight/attention coordinates can change without altering behavior; the *on-input flow* provides **behavior-first**, **coordinate-free** signals. ***Reading guide.*** **Bend** $\to$ *spectral curvature* $\kappa$ (sharp reroutes vs. laminar refinement); **Pay** $\to$ *thermodynamic length* $L$ (where the model expends effort; $\Delta L$ bursts mark *bottlenecks*); **Push** $\to$ *belief field* $\mathbf{v}$ (direction/magnitude of local drive; eddies indicate *recirculation*). ***Benefit.*** The same metaphor specifies **where to measure**---*bends*, *throats*, and *eddies*---turning inner computation into **actionable diagnostics** and **governance thresholds**."
+   %}
+
+
+
+
+### Why semantic hydrodynamics matters
+
+- **We govern *behavior*, not coordinates.** Operational concerns—*robustness, safety, bias, faithfulness*—attach to what the model **does** on an input, not to how its weights are labeled. Two checkpoints can behave the same while their parameters and attention differ. In short: **the weights are the map; the trajectory is the territory**.
+
+- **Invariance beats introspection.** Coordinate-bound stories change under neuron permutations, subspace rotations, or low-rank refactorings; the **path an input carves** and its **geometry** (length, curvature, alignment) are **invariant** because they are measured by **how predictions would change**, not by which index moved.
+
+- **Geometry turns cognition into observables.** An information metric acts as local **stiffness**: soft directions barely affect the output; stiff directions swing the predictive law. With that ruler, we quantify **how far** the model travels to reshape belief (thermodynamic length L), **where** it turns its internal argument (spectral curvature κ), and **what** pushes change locally (belief field **v**) {% cite sivak2012thermodynamic hyvarinen2005estimation %}.
+
+- **The hydrodynamics metaphor is operational.** Like fluid in a
+  channel, semantic flow shows **corners, constrictions, and eddies**:
+  sharp bends $\Rightarrow$ high $\kappa$; narrow throats $\Rightarrow$
+  bursts in $\Delta L$; local recirculation $\Rightarrow$ rotational
+  structure in $\mathbf{v}$. These are **measurable**, per-layer signals
+  on the actual computation.
+
+***What this buys us* (concrete payoffs).**
+
+- **Behavior-first invariance.** Reading $\kappa$, $L$, and $\mathbf{v}$
+  on the trajectory yields **fingerprints** that are **comparable**
+  across models, seeds, and checkpoints---even when weights or head
+  roles reshuffle.
+
+- **Local diagnostics.** **$\kappa$ spikes** flag brittle decision
+  pivots; **$\Delta L$ bursts** expose capacity bottlenecks or lossy
+  transformations; **low alignment** (small $\cos\theta$ between
+  $\mathbf{v}$ and the tangent $\mathbf{T}$) marks layers that **move
+  without updating belief** (staging or detours).
+
+- **Governance hooks.** **Geometry budgets and thresholds**---max
+  $\kappa$, allowable $\Delta L$ per slice, minimum alignment---become
+  **pre-release gates**; nDNA fingerprints support **drift monitoring**
+  after fine-tuning, pruning, quantization, or alignment.
+
+- **Comparative forensics.** Because $\kappa/L/\mathbf{v}$ are tied to
+  the output law, we can **attribute performance deltas** to **where in
+  depth** the flow changed (e.g., a new bend from fine-tuning, an effort
+  spike from quantization) instead of to unstable weight indices.
+
+
+**Rule of thumb:** If the goal is to **explain**, **compare**, or **govern** deployed behavior, analyze the **flow of meaning** that the input actually experiences. In nDNA: **curvature** says *where it bends*, **thermodynamic length** says *how much it pays*, and the **belief field** says *what pushes it*—all with a ruler calibrated to the model's own predictions.
+
+---
+
+## Semantic Hydrodynamics: The Flow Metaphor
+
+We read the forward pass as *semantic hydrodynamics*: a prompt injects *semantic mass* that is transported through depth like a fluid through a shaped channel. This metaphor provides both intuitive understanding and actionable diagnostics:
+
+### Flow Analogies
+
+**Laminar flow** corresponds to uniform low spectral curvature κ, small steady ΔL, and high alignment between the step and the belief push (steady refinement).
+
+**Turbulent flow** with sharp bends induces spectral curvature κ spikes at turning points, marking discrete semantic pivots (topic jumps, shortcuts, policy jolts).
+
+**Thermodynamic bottlenecks** appear as constrictions that raise ΔL bursts, revealing where extra semantic effort is paid to reshape belief (friction, detours, boundary crossing).
+
+**Belief field circulation** shows local recirculation patterns that can trap or reinforce beliefs, measured through the alignment between **v** and the path tangent.
+
+### Operational Benefits
+
+- **Behavior-first invariance.** Reading κ, L, and **v** on the trajectory yields **fingerprints** that are **comparable** across models, seeds, and checkpoints—even when weights or head roles reshuffle.
+- **Local diagnostics.** κ spikes flag brittle decision pivots; ΔL bursts expose capacity bottlenecks; low alignment marks layers that move without updating belief.
+- **Governance hooks.** Geometry budgets and thresholds—max κ, allowable ΔL per slice, minimum alignment—become **pre-release gates**.
+- **Comparative forensics.** Because κ/L/**v** are tied to the output law, we can **attribute performance deltas** to **where in depth** the flow changed.
+
+---
+
 ## Spectral Curvature $$(\kappa_\ell)$$: A Geometric Lens on Latent Bending
 
 **What is spectral curvature?** In classical geometry, curvature quantifies how much a path deviates from being straight--measuring local bending of a trajectory. In **spectral geometry** and **harmonic analysis**, curvature extends to how signals or paths behave in frequency space or under operators that encode structure (e.g., Laplacians, difference operators). *Spectral curvature* refers to curvature derived through such operators--capturing the *shape of latent signals* as they evolve across layers of a model.

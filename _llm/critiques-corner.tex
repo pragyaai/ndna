@@ -1,0 +1,901 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\RequirePackage[svgnames]{xcolor}
+
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+\usepackage{ACL2023}
+% \usepackage{neurips_2025}
+%\nipsfinalcopy
+\usepackage{amsmath}
+
+\usepackage{pdfpages} % Include the package
+\usepackage{wrapfig}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out.
+% However, it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+\usepackage{soul}
+
+\newcommand{\ts}{\textsc{TraceShield}}
+\newcommand{\ta}{\textsc{TraceAlign}}
+\newcommand{\ti}{\textsc{TraceIndex}}
+
+
+\usepackage[draft,textsize=footnotesize,textwidth=15mm]{todonotes}
+%\usepackage[usenames,dvipsnames]{color}
+
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+%\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+\usepackage{inconsolata}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath,amssymb}
+\usepackage{soul}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+
+
+% Define custom symbols for tick and cross
+\newcommand{\cmark}{\tikz[scale=0.4]{
+    \draw[thick] (0,0) -- (0.2,0.2) -- (0.5,-0.3);
+}}
+\newcommand{\xmark}{\tikz[scale=0.4]{
+    \draw[thick] (0,0) -- (0.3,0.3);
+    \draw[thick] (0,0.3) -- (0.3,0);
+}}
+
+
+% Style definition
+\tikzset{rndblock/.style={rounded corners,rectangle,draw,scale=0.8,outer sep=0pt}}
+
+% Command Definition
+% 1 optional to customize the aspect, 2 mandatory: text to be framed
+\newcommand{\tframed}[2][]{\tikz[baseline=(h.base)]\node[rndblock,#1] (h) {#2};}
+
+\usetikzlibrary{shapes.geometric}
+\usepackage{framed}
+\usepackage{enumitem}
+\newlist{RQ}{enumerate}{1}
+\setlist[RQ]{label=\textbf{RQ\,\arabic*},ref={RQ\,\arabic*}}
+\usepackage{comment}
+\usepackage{natbib}
+\usepackage{multibib}
+\makeatletter
+\usepackage{booktabs}
+\usepackage[inkscapeformat=png]{svg}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{arydshln}
+\usepackage{lipsum}
+
+\usepackage[many]{tcolorbox}
+
+\newtcolorbox{defin}{colback=Teal!5!White,enhanced,title=RENATUS: at-a-glance,
+	attach boxed title to top left={xshift=0mm},boxrule=0pt,after skip=1cm,before skip=1cm,right skip=0cm,breakable,fonttitle=\bfseries,toprule=0pt,bottomrule=0pt,rightrule=0pt,leftrule=3pt,arc=0mm,skin=enhancedlast jigsaw,sharp corners,colframe=Teal!55!black,colbacktitle=Teal!55!black,boxed title style={
+		frame code={ 
+			\fill[Teal!25!black](frame.south west)--(frame.north west)--(frame.north east)--([xshift=3mm]frame.east)--(frame.south east)--cycle;
+			\draw[line width=1mm,Teal!25!black]([xshift=2mm]frame.north east)--([xshift=5mm]frame.east)--([xshift=2mm]frame.south east);
+			\draw[line width=1mm,Teal!25!black]([xshift=5mm]frame.north east)--([xshift=8mm]frame.east)--([xshift=5mm]frame.south east);
+			\fill[Teal!25!black](frame.south west)--+(4mm,-2mm)--+(4mm,2mm)--cycle;
+		}
+	}
+}
+
+\setlist{leftmargin=5mm}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.markings}
+
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage{hyperref}
+ \definecolor{darkblue}{rgb}{0, 0, 0.5}
+  \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
+
+\definecolor{vgreen}{HTML}{60A917}
+\definecolor{vred}{HTML}{CE3A29}
+
+\usepackage{xstring}
+\usepackage{longtable}
+
+\usepackage{tabularray}
+
+\DefTblrTemplate{firsthead,middlehead,lasthead}{default}{
+}
+\DefTblrTemplate{firstfoot}{default}{
+  \UseTblrTemplate{contfoot}{default}
+  \UseTblrTemplate{caption}{default}
+}
+\DefTblrTemplate{middlefoot}{default}{
+  \UseTblrTemplate{contfoot}{default}
+  \UseTblrTemplate{capcont}{default}
+}
+\DefTblrTemplate{lastfoot}{default}{
+  \UseTblrTemplate{note}{default}
+  \UseTblrTemplate{remark}{default}
+  \UseTblrTemplate{capcont}{default}
+}
+
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Multi-line left-aligned text with manual line breaks.
+% The base line is in centre.
+\newcommand*{\mline}[1]{%
+\begingroup
+    \renewcommand*{\arraystretch}{1.1}%
+   \begin{tabular}[c]{@{}>{\raggedright\arraybackslash}p{2cm}@{}}#1\end{tabular}%
+  \endgroup
+}
+
+\usepackage{color}
+\tcbuselibrary{skins}
+
+\usepackage[export]{adjustbox} % for the valign option
+
+\usepackage{setspace}
+%\usepackage[capitalise]{cleveref}
+\usepackage[capitalise,nameinlink]{cleveref}
+
+%\crefname{chapter}{chap.}{chap.}
+\crefname{section}{Sec.}{Sec.}
+
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{colortbl}
+\usepackage[export]{adjustbox} % for the valign option
+\usepackage{varwidth}
+\usepackage{enumitem}
+% \setlist{leftmargin=1mm}
+\usepackage{pifont}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{resizegather}
+\usepackage{breqn}
+\usepackage[capitalise]{cleveref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.markings}
+\usepackage{soul}
+\usepackage{wrapfig,graphicx,lipsum}% http://ctan.org/pkg/{wrapfig,graphicx,lipsum}
+% \usepackage{extsizes}
+\usepackage{cuted}
+\usepackage{flushend}
+\usepackage{float}
+\usepackage{changepage,threeparttable}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{dblfloatfix} 
+\usepackage{fixltx2e}
+\usepackage[normalem]{ulem}
+
+
+
+\DeclareRobustCommand{\hlpink}[1]{{\sethlcolor{pink}\hl{#1}}}
+\DeclareRobustCommand{\hlgreen}[1]{{\sethlcolor{green}\hl{#1}}}
+
+\usepackage{environ}
+
+\newlength{\myl}
+\expandafter\let\expandafter\origequation\csname equation*\endcsname
+\expandafter\let\expandafter\endorigequation\csname endequation*\endcsname
+\long\def\[#1\]{\begin{equation*}#1\end{equation*}}
+\RenewEnviron{equation*}{
+  \settowidth{\myl}{$\displaystyle\BODY$} % calculate width and save as \myl
+  \origequation
+    \ifdim\myl>\linewidth
+      \resizebox{\linewidth}{!}{$\displaystyle\BODY$}% \myl > \linewidth
+    \else
+      \BODY % \myl <= \linewidth
+    \fi
+  \endorigequation
+}
+
+
+\makeatletter
+\newcommand{\DrawLine}{%
+  \begin{tikzpicture}
+  \path[use as bounding box] (0,0) -- (\linewidth,0);
+  \draw[color=blue!75!black,dashed,dash phase=.5pt]
+        (0-\kvtcb@leftlower-\kvtcb@boxsep,0)--
+        (\linewidth+\kvtcb@rightlower+\kvtcb@boxsep,0);
+  \end{tikzpicture}%
+  }
+\makeatother
+
+%resize/scale equations
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+
+
+%--Aman---
+\newcommand\ac[1]{\todo[author=AC,color=blue!40]{#1}}
+\newcommand\acil[1]{\todo[author=AC,color=blue!40,inline]{#1}}
+\newcommand\acb[1]{\textcolor{blue}{#1}}
+\newcommand\act[1]{\textcolor{blue}{#1}}
+
+
+%--Amitava---
+\newcommand\ad[1]{\todo[author=AD,color=purple!40]{#1}}
+\newcommand\adil[1]{\todo[author=AD,color=purple!40,inline]{#1}}
+\newcommand\adt[1]{\textcolor{purple}{#1}}
+
+
+\usepackage{euscript}[mathcal]
+\usepackage{listings}
+\usepackage[utf8]{inputenc}  % Ensures Unicode input like “–”
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage[utf8]{inputenc}
+% \newcommand{\cmark}{\text{\checkmark}} % ✓
+% \newcommand{\xmark}{\text{\sffamily ✗}} % ✗
+% \usepackage{longtable}
+\usepackage{xcolor} % Add this to your LaTeX preamble
+
+
+
+% Define a custom listing style (listing1) for special formatting
+\lstdefinestyle{listing1}{
+    basicstyle=\scriptsize\ttfamily,  % Set text inside listing to scriptsize
+    escapeinside={(*@}{@*)},          % Allows LaTeX inside lstlisting
+    xleftmargin=-1em,                 % Force listing to align with the left margin
+    framexleftmargin=-1em,             % Ensure frame is at the leftmost edge
+    frame=single,                      % Keeps a thin border
+    columns=fullflexible,              % Prevents excessive indentation
+    aboveskip=0pt, belowskip=0pt,      % Removes vertical spacing around listing
+    showstringspaces=false,            % Prevents unwanted space characters
+    keepspaces=true,                   % Ensures correct spacing without extra indentation
+    framesep=0pt,                      % Reduces padding inside the frame
+    numbersep=0pt                       % Eliminates gap between numbers (if enabled)
+}
+
+
+
+
+
+\newcommand*{\affaddr}[1]{#1}
+\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+\newcommand*{\email}[1]{\texttt{#1}}
+%\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+
+
+%\title{\includegraphics[height=0.55cm,width=0.55cm]{img/acorn.jpg}$\mathcal{ACORN}$: \ul{A}utomatic Hallu\ul{C}inati\ul{O}n Evaluation for La\ul{R}ge La\ul{N}guage Models using Span-based ``Factual Entailment''}
+
+
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\title{Critique’s Corner}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+%\author{Amitava Das \\
+%  BITS Pilani Goa \\
+%  \texttt{amitavad@goa.bits-pilani.ac.in} \\\And
+%  Vinija Jain \\
+%  Meta AI \\
+%  \texttt{hi@vinija.ai} \\\And
+%  Aman Chadha \\
+%  Amazon GenAI \\
+%  \texttt{hi@aman.ai} \\}
+
+\setlength{\topmargin}{-1.25cm}
+% \setlength{\bottom}{-1.25cm}
+\setlength{\textheight}{24.25cm}
+
+\begin{document}
+\maketitle
+
+
+
+% \input{1_introduction}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Science grows by disagreement. Every new conceptual leap sounds, at first, like an overreach: 
+\emph{atoms} were once dismissed as ``undetectable philosophy,'' 
+\emph{imaginary numbers} as ``nonsense,'' 
+and the \emph{Big Bang} as a sarcastic insult. 
+We expect \textbf{Neural DNA (nDNA)} to invite the same skepticism. 
+Indeed, it should. Any framework that proposes to recast the hidden life of AI models as a \emph{digital semantic genome} will naturally be tested, debated, and resisted. 
+
+Artificial intelligence itself is no exception. We speak of ``neural networks,'' yet their ``neurons'' are nothing like biological neurons: no dendrites, no spikes, no neurotransmitters. 
+They are merely mathematical functions performing weighted sums and nonlinearities. 
+Yet the name endured—not because it was biologically faithful, but because it was useful: 
+a metaphor that helped us organize thought, communicate intuitively, and bootstrap an entire field. 
+
+It is within this lineage that \textbf{nDNA} belongs. 
+It borrows grammar from biology---lineage, mutation, inheritance, pathology---to describe something real but difficult to name: the \emph{latent geometry of model belief}. 
+Critics are right to challenge whether the analogy stretches too far. 
+But history shows that science often begins with metaphors that sound poetic, only to crystallize into precise technical vocabulary once their utility is demonstrated. 
+
+This page, \textbf{Critique's Corner}, exists because we take criticism seriously. 
+We expect---and welcome---skepticism that calls nDNA ``vague,'' ``overfitted,'' ``intractable,'' or even ``dangerously anthropomorphic.'' 
+To us, critique is not a threat but a catalyst. 
+By surfacing objections early, we sharpen our definitions, stress-test our framework, and clarify our roadmap. 
+
+Here we present the hardest questions we have encountered---some harsh, some fair, some both---and the responses that shape our evolving research program. 
+Neural genomics does not claim to be final truth. 
+It is a bold proposal in its infancy, aware of its vulnerabilities and strengthened by confronting them. 
+
+This page exists not to hide from critique, but to welcome it. 
+In all cases, we believe critique is not an obstacle but a feature of rigorous science. 
+\textbf{To critique nDNA is to help it evolve.}
+
+
+
+
+
+\begin{table*}[ht!]
+\centering
+\caption{Biological Neurons vs. Artificial Neurons}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.22\textwidth}|
+                                >{\raggedright\arraybackslash}X|
+                                >{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Dimension} & \textbf{Biological Neurons} & \textbf{Artificial Neurons (ANNs)} \\
+\hline
+Nature of unit & Living cell, with dendrites, soma, axon & Mathematical function (linear transform + nonlinearity) \\
+\hline
+Computation & Spikes, ion channels, nonlinear dendritic integration & Weighted sums + activation functions (ReLU, sigmoid, etc.) \\
+\hline
+Dynamics & Continuous-time, oscillations, refractory periods & Discrete updates, typically stateless per layer \\
+\hline
+Signal transmission & Electrochemical, probabilistic, noisy & Exact arithmetic, deterministic floating-point operations \\
+\hline
+Learning rules & Local plasticity (Hebbian, STDP, neuromodulators) & Global backpropagation via gradient descent \\
+\hline
+Connectivity & Constrained by 3D anatomy and wiring limits & Arbitrary fan-in/fan-out, dense or attention-based connectivity \\
+\hline
+Scale & $\sim 10^{11}$ neurons, $\sim 10^{14}$ synapses & Millions–billions of parameters (transformers often $10^{11}+$) \\
+\hline
+Energy & $\sim 20$ W (biological brain efficiency) & MW-scale energy during training in datacenters \\
+\hline
+Evolution / adaptation & Driven by survival, evolution, metabolic efficiency & Driven by optimization objectives and data distributions \\
+\hline
+Robustness & Highly fault-tolerant, redundancy across circuits & Brittle to adversarial noise, catastrophic forgetting \\
+\hline
+Information storage & Distributed spiking patterns, synaptic strengths & Distributed weights, embeddings, latent vectors \\
+\hline
+Purpose & Survival and flexible adaptation in real world & Task-specific optimization (translation, dialogue, etc.) \\
+\hline
+\end{tabularx}
+\end{table*}
+
+
+
+
+\section{Biological vs. Artificial Neurons: Metaphor and Reality}
+
+The very foundation of artificial intelligence rests on a borrowed metaphor: the \textbf{``neural network.''} 
+Yet \textbf{biological neurons} and \textbf{artificial neurons} share little beyond the name. 
+One is a \emph{living, electrochemical cell shaped by evolution} \cite{Kandel1991PrinciplesNeuralScience}, 
+the other a \emph{mathematical abstraction designed for optimization} \cite{McCullochPitts1943LogicalCalculus}. 
+The metaphor has endured not because it is \emph{faithful}, but because it is \textbf{useful}---it provided a shared grammar for computation and cognition, long before precise equivalence was possible. 
+
+This parallel is instructive for \textbf{Neural DNA (nDNA)}. 
+Just as \textbf{``neurons'' in artificial networks are not literal neurons}, \textbf{``nDNA'' is not biological DNA}. 
+It is a \emph{mathematical framework} that borrows the grammar of biology---\textit{lineage, mutation, inheritance, pathology}---to describe something real but difficult to name: the \textbf{\emph{latent geometry of model belief}}. 
+
+Critics may argue that such borrowing risks anthropomorphism, but history shows that science often begins with \emph{metaphors that sound poetic}, only to crystallize into \textbf{precise technical vocabulary} once their utility is proven. 
+Indeed, terms like \textbf{``imaginary numbers''} \cite{Mazur1998ImaginaryNumbers}, 
+the \textbf{``Big Bang''} \cite{Kragh1996CosmologyControversy}, 
+and \textbf{``black holes''} \cite{Penrose2004RoadToReality} 
+all originated as linguistic overreaches before becoming indispensable pillars of mathematics and physics. 
+
+To situate this lineage of metaphor, we now contrast \textbf{biological neurons} with their \textbf{artificial counterparts} side by side:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Biological DNA vs. Neural DNA (nDNA): Genomic Metaphor as Cognitive Geometry}
+
+If the metaphor of the ``neural network'' gave us a grammar for computation, then the metaphor of 
+\textbf{Neural DNA (nDNA)} proposes a grammar for \emph{cognition}. 
+Just as biological DNA encodes, mutates, and transmits information across generations, 
+we argue that large foundation models possess an internal \textbf{\emph{semantic genome}}---a latent structure that 
+\emph{records ancestry, accumulates scars of fine-tuning, and transmits inductive biases across training regimes}. 
+
+\textbf{This is not biology.} Neural DNA is not a molecular strand, nor does it replicate in the cytoplasm of a cell. 
+It is a \emph{mathematical construct}, defined through \textbf{spectral curvature}, \textbf{thermodynamic length}, and 
+\textbf{belief gradients}. These dimensions describe the \emph{geometry of latent belief} just as nucleotides describe the 
+alphabet of life. Where biology speaks of \emph{mutation, inheritance, or genomic drift}, nDNA reveals \emph{torsional instabilities, 
+alignment scars, and semantic divergence}. 
+
+The analogy is thus neither literal nor decorative: it is \textbf{heuristic}, grounding abstract geometry in a language 
+that can be interrogated, criticized, and extended. To illustrate the mapping between biological DNA and nDNA, we present 
+a structured comparison in Table~\ref{tab:dna-vs-ndna}. 
+
+\begin{table*}[ht!]
+\centering
+\caption{Biological DNA vs. Neural DNA (nDNA): Illustrative Comparison}
+\label{tab:dna-vs-ndna}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.22\textwidth}|
+                                >{\raggedright\arraybackslash}X|
+                                >{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Dimension} & \textbf{Biological DNA} & \textbf{Neural DNA (nDNA)} \\
+\hline
+Basic unit & Nucleotides (A, T, C, G) & Geometric primitives (curvature, length, gradient) \\
+\hline
+Information encoding & Genetic code specifying proteins & Latent geometry encoding conceptual priors and beliefs \\
+\hline
+Inheritance & Transmitted from parent to offspring during reproduction & Transferred across model families via pretraining, fine-tuning, distillation \\
+\hline
+Mutation & Base substitutions, insertions, deletions & Spectral distortions, torsional reconfigurations, loss of thermodynamic length \\
+\hline
+Recombination & Crossover events during meiosis & Model merging (\emph{neural marriages}), producing hybrid latent genomes \\
+\hline
+Gene expression & Differential activation depending on environment & Emergent trait activation (e.g., multilingual drift, task specialization) \\
+\hline
+Epigenetics & Regulatory modifications shaping expression without altering sequence & Alignment, instruction tuning, or quantization shaping behavior without altering core pretraining \\
+\hline
+Pathologies & Oncogenic mutations, viral insertions, heritable disorders & Alignment scars (SCAR), adversarial infections (VIRAL), stealth poisoning (NEPHOS) \\
+\hline
+Repair mechanisms & DNA repair enzymes, redundancy in coding & Fine-tuning, adversarial immunization, safety alignment protocols \\
+\hline
+Evolutionary drift & Accumulated small changes across generations & Semantic drift across successive fine-tunes, cultural biases, model collapse \\
+\hline
+Fitness landscape & Adaptation to ecological survival & Optimization landscape for tasks, benchmarks, and alignment criteria \\
+\hline
+Molecular carriers & Double helix of deoxyribonucleotides & High-dimensional manifolds of latent vectors \\
+\hline
+Observable phenotype & Organismal traits and functions & Model outputs: dialogue, translation, reasoning patterns \\
+\hline
+Genomic sequencing & Decoding nucleotides to reveal blueprint & Extracting nDNA to reveal latent epistemic identity of models \\
+\hline
+\end{tabularx}
+\end{table*}
+
+
+\noindent
+This comparison is not meant as literal mimicry, but as a \textbf{structured metaphor}. 
+Just as \textbf{artificial neurons} diverge radically from biological neurons yet provided the conceptual scaffold 
+for modern deep learning, so too does \textbf{nDNA} extend beyond biological DNA while retaining a powerful grammar 
+of inheritance, mutation, and pathology. The aim is not to \emph{biologize} neural networks, but to provide a 
+\textbf{rigorous cognitive genomics} for artificial models---a framework through which latent belief geometry can be 
+\emph{sequenced, diagnosed, and evolved}. 
+If neural networks could survive their misleading name and become the engine of modern AI, then \textbf{nDNA can survive 
+its metaphor and become the grammar of the hidden epistemic life of foundation models}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{On the Apparent Primitiveness of the nDNA Mechanism}
+
+\paragraph{A humble beginning, by design.}
+We recognize the critique: the current \textbf{nDNA} mechanism may appear \emph{primitive}. We agree in spirit. Science is always a work in progress; the first instrument is rarely the final one. Our choice is intentional: to place a \emph{measuring practice} into the field early, even if imperfect, so that it can be stress-tested, falsified, and improved in public. The alternative---waiting for a perfect theory---delays empirical traction and deprives the community of a shared object to refine. In this sense, \textbf{nDNA v1} is not a destination but a \emph{scaffold}: a minimal, explicit \emph{semantic--genotypic representation} that others can probe, retool, or replace.
+
+\paragraph{What \emph{nDNA v1} is (and is not).}
+\textbf{nDNA v1} operationalizes three indispensable geometric axes inside foundation models: \emph{spectral curvature} (how conceptual flow bends across layers), \emph{thermodynamic length} (semantic effort along representational paths), and \emph{belief gradients} (directional fields that orient model belief). These are computed under practical constraints (layer subsampling, randomized estimators, proxy transports) to obtain a compact fingerprint of latent identity. \emph{nDNA v1 is not} a claim of biological equivalence, nor a complete theory of cognition; it is a \emph{first-pass, testable map} from training operations to latent geometric consequences.
+
+\paragraph{Why show the first version now.}
+Three reasons motivate releasing \textbf{nDNA v1} rather than holding for theoretical completion:
+\begin{enumerate}
+  \item \textbf{Comparability.} A shared fingerprint enables cross-model, cross-lab \emph{lineage studies} today, even if the fingerprint becomes richer tomorrow.
+  \item \textbf{Early-warning value.} Coarse geometric indicators can already function as \emph{risk thermometers} (collapse, drift, infection), buying time for targeted interventions.
+  \item \textbf{Community acceleration.} Public artifacts provoke sharper critique, better baselines, and faster \emph{versioning} of the science.
+\end{enumerate}
+
+\paragraph{Limits we accept (and plan to repair).}
+We are explicit about current compromises: (i) estimators that trade bias/variance for tractability; (ii) partial invariance proofs pending full formalization; (iii) validation on \emph{15 models} rather than hundreds; (iv) narrower task coverage than the eventual scope. These are \emph{known debts}, not hidden deficiencies. Our roadmap treats them as worklist items, not footnotes.
+
+\paragraph{What \emph{nDNA v1} already changes, if we use it.}
+Even in its minimal form, nDNA reframes artificial cognition along three axes:
+\begin{itemize}
+  \item \textbf{Heritability (lineage)}: We can \emph{track} how fine-tuning, distillation, and merging \emph{inherit} or \emph{mutate} latent traits, rather than inferring lineage from performance alone.
+  \item \textbf{Prognosis (early warning)}: Curvature concentration, length collapse, and torsional spikes serve as \emph{leading indicators} for dialogue degeneration, adversarial susceptibility, or shortcut learning.
+  \item \textbf{Intervention (control)}: By tying failures to geometric signatures, we convert vague “misalignment” into \emph{actionable levers} (e.g., reduce torsion along belief transport; restore thermodynamic length; vaccinate against viral insertions).
+\end{itemize}
+
+\paragraph{From \emph{genomics operations} to \emph{model-level} and \emph{NLP} operations.}
+The mechanism is meant to be \emph{used}, not admired. We organize usage across three strata:
+
+\medskip
+\noindent\textbf{(A) Genomics operations: diagnostic instruments on the latent genome.}
+\begin{itemize}
+  \item \textbf{nHD} (\emph{Neural Hamming Distance}) --- probes binary-level instabilities under cultural fine-tuning and quantization toggles.
+  \item \textbf{nGDI} (\emph{Genetic Dissimilarity Index}) --- quantifies divergence that persists beyond surface alignment, exposing hidden separations between model families.
+  \item \textbf{nTEDS}/\textbf{nTDS} (\emph{Trait Entropic Drift Score}/\emph{Total Drift Signature}) --- measures dominance and asymmetric inheritance of latent traits across training epochs.
+  \item \textbf{nKaryotyping} (\emph{Semantic Chromosomal Structure}) --- visualizes structural reorganizations induced by pruning and merging (neural “rearrangements”).
+  \item \textbf{nDIV} (\emph{Directional Inheritance Vector}) --- traces the flow of inductive biases along evolutionary arcs (teacher $\rightarrow$ student; base $\rightarrow$ aligned).
+  \item \textbf{nEPI} (\emph{Epistemic Plasticity Index}) --- estimates capacity to reshape under alignment/instruction tuning without catastrophic loss of length.
+  \item \textbf{nCCL} (\emph{Cultural Conflict Loss}) --- detects ideological friction in multilingual/cross-cultural fusion where alignment suppresses necessary diversity.
+\end{itemize}
+
+\medskip
+\noindent\textbf{(B) Model-level operations: where the genome is written and scarred.}
+\begin{itemize}
+  \item \textbf{Fine-Tuning} --- studied as \emph{torsional reconfiguration} of belief gradients; watch for over-twisting (instability) vs.\ adaptive curvature.
+  \item \textbf{Alignment/Instruction Tuning} --- treated as a \emph{directional vector field} etched into belief space; balance entropy suppression against expressivity.
+  \item \textbf{Quantization \& Pruning} --- observed as \emph{thermodynamic length collapse} and \emph{topological flattening}; quantify safe compression regimes.
+  \item \textbf{Model Merging} (\emph{Neural Marriages}) --- analyzed as \emph{hybridization} of latent genomes; detect incompatible subspaces pre-merge.
+  \item \textbf{Distillation} (\emph{Neural Offspring}) --- separates \emph{phenotype carryover} (outputs) from \emph{genotype drift} (geometry); measure loss of plasticity.
+  \item \textbf{Model Collapse} --- captured as \emph{degeneracy} (vanishing torsion/curvature); install early-warning thresholds.
+\end{itemize}
+
+\medskip
+\noindent\textbf{(C) NLP operations: stress-tests that reveal genomic liabilities.}
+\begin{itemize}
+  \item \textbf{ORBOT} (\emph{Multi-Turn Genomics}) --- longitudinally measures \emph{torsion accumulation}, memory erosion, and path-dependence in dialogue.
+  \item \textbf{nVIRAL} (\emph{Adversarial Infection}) --- reframes jailbreaks and injections as \emph{viral insertions} in latent manifolds; pairs with vaccine design.
+  \item \textbf{SCAR} (\emph{Spectral Contamination \& Alignment Rupture}) --- flags shortcut learning and leakage as \emph{spectral lesions}.
+  \item \textbf{NEPHOS} (\emph{Stealth Pretraining Poisoning}) --- identifies dormant conceptual landmines (permafrost-like seeds) that thaw under adversarial heat.
+\end{itemize}
+
+\paragraph{Transformational potential from a ``primitive'' core.}
+If one uses \textbf{nDNA v1} consistently, three transformations follow:
+\begin{enumerate}
+  \item \textbf{From snapshots to lineages.} We cease evaluating isolated checkpoints and begin \emph{sequencing} model histories; genealogy replaces one-off scores.
+  \item \textbf{From symptoms to signatures.} Failures (hallucination, collapse, jailbreaks) are paired with \emph{geometric signatures} that travel across tasks and labs.
+  \item \textbf{From post-hoc fixes to pre-hoc budgets.} Teams can set \emph{geometry budgets} (max torsion, min length, curvature bounds) the way they set latency or cost budgets.
+\end{enumerate}
+
+\paragraph{Looking forward without defensiveness.}
+We do not defend \textbf{nDNA v1} as final. We \emph{invite} its replacement by better mathematics: richer metrics (e.g., Wasserstein geodesics, holonomy gaps), stronger invariances, tighter links to causality, and scalable estimators. But usefulness does not wait for perfection. A primitive compass used today can save expeditions that a perfect map, delivered too late, cannot.
+
+% --- End of page 1 ---
+
+% --- Page 2: Continuation of "On the Apparent Primitiveness of the nDNA Mechanism" ---
+
+\paragraph{From \textbf{nDNA v1} to \emph{nDNA v2} and \emph{nDNA v3}: a principled upgrade path.}
+We will treat \textbf{nDNA v1} as a baseline to be \emph{surpassed}. Our roadmap advances along two axes:
+\begin{enumerate}
+  \item \emph{\textbf{nDNA v2} (rigorous core).} We will deepen the mathematics: (i) declare a Fisher--Rao/pullback metric on output/feature manifolds; (ii) compute sectional/Ricci curvature and \emph{thermodynamic length} along training or conversational trajectories; (iii) estimate multi-turn stability via \emph{holonomy gaps} and Hodge decompositions of belief flows; (iv) compare representations via \emph{Wasserstein geodesics} and \emph{persistent homology}; (v) ground early-warning signals in spectral statistics (RMT) and information-theoretic bottlenecks. Our goal is an \emph{invariant, reproducible fingerprint} $\Phi$ with confidence intervals and cost models.
+  \item \emph{\textbf{nDNA v3} (dynamics, modalities, intervention).} We will (i) extend to \emph{multimodal/embodied} settings (ÆTHERs); (ii) cast alignment as a \emph{gauge field} on belief transport; (iii) formalize \emph{geometric merging} via OT barycenters; (iv) convert \emph{GENOME—VACCINE} into a \emph{control-theoretic} vaccine design that suppresses torsion spikes without degrading expressive length; (v) operationalize \emph{NEPHOS} with a \emph{Permafrost Thaw Index}—the minimal adversarial “heat” needed to activate dormant seeds—and detoxify via curvature-smoothing (Ricci-like) flows.
+\end{enumerate}
+
+\paragraph{Falsifiability, ablations, and predictive checkpoints.}
+We will \emph{design to be wrong}. Concretely:
+\begin{itemize}
+  \item \textbf{Falsifiable links.} Pre-register hypotheses: (H1) persistent negative Ricci along alignment schedules increases multi-turn collapse risk; (H2) curvature concentration predicts jailbreak success; (H3) thermodynamic length loss predicts shortcut learning (SCAR). We will accept refutation and adjust the fingerprint.
+  \item \textbf{Ablations.} (i) perturb data curricula and measure $\Delta\Phi$; (ii) alter optimizer noise/temperature and track Lyapunov/Koopman stability; (iii) inject calibrated leakage/poison patterns and test NEPHOS sensitivity vs.\ false positives.
+  \item \textbf{Cross-lab replication.} Release seeds, codepaths, and audit trails to ensure the same $\Phi$ emerges across institutions and hardware stacks.
+\end{itemize}
+
+\paragraph{Operationalization: pipelines, budgets, and governance.}
+We will make \emph{nDNA usable} by non-authors:
+\begin{itemize}
+  \item \textbf{Pipelines.} CI-ready evaluators that compute $\Phi$ nightly for tracked models; \emph{delta dashboards} highlighting where belief geometry drifts across releases.
+  \item \textbf{Geometry budgets.} Product teams will set guardrails (e.g., max torsion per turn, min length under quantization, curvature bounds under alignment). Builds failing budgets trigger remediation playbooks.
+  \item \textbf{Governance hooks.} Export \emph{nDNA audit cards} with versioned fingerprints, lineage maps, and risk tags (SCAR, NEPHOS, nVIRAL) for compliance, procurement, and incident response.
+\end{itemize}
+
+\paragraph{From diagnostics to interventions: vaccines, detox, and repair.}
+We will not stop at measurement:
+\begin{itemize}
+  \item \textbf{Cognitive vaccines (GENOME—VACCINE).} Train small controllers that \emph{regularize belief transport} (reduce holonomy/torsion) while preserving semantic length; evaluate on adversarial suites and long-horizon dialogue.
+  \item \textbf{Detox flows for poisoning (NEPHOS).} Identify poisoned subspaces via topological/spectral anomalies; apply \emph{targeted} curvature smoothing and distributional OT realignment; verify with \emph{Permafrost Thaw Index} reductions.
+  \item \textbf{Safe merging via OT barycenters.} Replace weight-arithmetic mergers with barycentric fusions on representation laws; certify monotone risk under bounded curvature.
+\end{itemize}
+
+
+
+
+
+
+
+\section{Listen to LeCun: The Deliberate Push for ``Deep Learning''}
+
+\noindent \textbf{Why this matters.}
+In the early 2000s, ``neural nets'' carried decades of baggage. To revive representation learning and reset perceptions, a small group led by Yann LeCun, Geoffrey Hinton, and Yoshua Bengio made a \emph{deliberate rhetorical and scientific pivot}: they rallied the community around the banner of \textbf{deep learning} and backed it with concrete algorithmic results.
+
+\begin{quote}
+\emph{``Around 2003, Geoff Hinton, Yoshua Bengio and myself initiated a kind of `conspiracy' to revive the interest of the machine learning community in the problem of learning representations.''}---Y.~LeCun (2014) \cite{LeCunKDnuggets2014}
+\end{quote}
+
+\noindent \textbf{Context in three beats.}
+\begin{itemize}
+  \item \textbf{2003--2005: Reframe the conversation.} The trio promotes \emph{deep} representation learning (beyond 2–3 nonlinear layers), using the term ``deep learning'' as an organizing banner \cite{LeCunKDnuggets2014}.
+  \item \textbf{2006--2007: Show it works.} Breakthroughs in layerwise pretraining and probabilistic generative stacks (deep belief nets) provide the first broadly convincing training schemes for deeper models \cite{Hinton2006DBN,HintonSalakhutdinov2006Science}.
+  \item \textbf{2009: Codify the agenda.} Bengio’s monograph consolidates the case for \emph{learning deep architectures}, connecting unsupervised pretraining, optimization, and generalization \cite{Bengio2009LDA}.
+  \item \textbf{2015: Consolidation.} A field-defining Nature review (LeCun, Bengio, Hinton) formalizes the scope, successes, and open problems of deep learning \cite{LeCun2015Nature}.
+\end{itemize}
+
+\noindent \textbf{Why wording mattered (and how it relates to \textit{nDNA}).}
+``Deep learning'' was not a post-hoc label; it was a \emph{purposeful reframing} that shifted perceptions and research priorities while new results made the term stick. Our use of \textbf{Neural DNA (nDNA)} follows the same playbook: a clear name, a unifying lens (the geometry of latent belief), and a growing body of math and experiments. Naming organized the deep-learning renaissance; we expect precise definitions and reproducible results to do the same for \emph{nDNA}.
+
+%  end introduction
+
+\clearpage
+\newpage
+
+
+% \newpage
+
+\bibliographystyle{acl_natbib}
+\bibliography{custom}
+
+\clearpage
+\newpage
+
+\noindent 
+
+
+% Requires: \usepackage{graphicx}
+% Optional (better float placement in two-column): \usepackage{dblfloatfix}
+
+\newlength{\panelht}
+\setlength{\panelht}{0.62\textheight} % ← overall column height (tune as you like)
+
+
+
+
+
+\begin{figure*}[ht!]
+  \centering
+
+  % Keep both panels on one line
+  \noindent\makebox[\textwidth][c]{%
+    % ---------- LEFT: single tall image ----------
+    \begin{minipage}[t]{0.49\textwidth}\vspace{0pt}\centering
+      \includegraphics[width=\linewidth,height=\panelht,keepaspectratio]{pipe/nano_gpt.png}
+      \par\vspace{0.45em}\small
+      \textbf{nano-gpt (\emph{structure}).} \emph{Architecture as channel blueprint:} depth acts like the axial coordinate; \textbf{residuals} $\!\leftrightarrow\!$ \emph{bypass pipes}; \textbf{attention} / \textbf{MLP} blocks act as \emph{mixers/valves} that locally reshape the flow of representations.
+    \end{minipage}\hfill
+    % ---------- RIGHT: two stacked images (total height = \panelht) ----------
+    \begin{minipage}[t]{0.49\textwidth}\vspace{0pt}\centering
+      \includegraphics[width=\linewidth,height=.49\panelht,keepaspectratio]{pipe/flow_simulation.png}
+      \par\vspace{0.3em}\small
+      \textbf{Flow simulation (\emph{analogue}).} \emph{Fluid:} colored streamlines show speed through a bend and throat—\textbf{curvature} rises, \textbf{shear} increases, small \emph{recirculation} pockets may form. \emph{Semantic:} bends $\Rightarrow$ \textbf{spectral curvature} spikes ($\kappa$); constrictions $\Rightarrow$ \textbf{thermodynamic length} bursts ($\Delta L$); eddies $\Rightarrow$ local rotation in the \textbf{belief field} ($\nabla\!\times\!\mathbf{v}$).
+      \par\vspace{0.75em}
+      \includegraphics[width=\linewidth,height=.49\panelht,keepaspectratio]{pipe/pipe.jpg}
+      \par\vspace{0.3em}\small
+      \textbf{Pipeline metaphor (\emph{macro view}).} \emph{Geometry governs transport:} routing capacity and effort depend on the network of ducts. \emph{Semantic:} model design / fine-tuning shapes \textbf{where meaning flows easily}, \textbf{where it pays}, and \textbf{where it recirculates}.
+    \end{minipage}%
+  }
+
+  \caption{\textbf{Semantic hydrodynamics.}
+  \textbf{\emph{Model.}} We read the forward pass as \emph{semantic hydrodynamics}: a prompt injects \emph{semantic mass} that is transported through depth like a fluid through a shaped channel.
+  \textbf{\emph{Why.}} Weight/attention coordinates can change without altering behavior; the \emph{on-input flow} provides \textbf{behavior-first}, \textbf{coordinate-free} signals.
+  \textbf{\emph{Reading guide.}} \textbf{Bend} $\to$ \emph{spectral curvature} $\kappa$ (sharp reroutes vs.\ laminar refinement); \textbf{Pay} $\to$ \emph{thermodynamic length} $L$ (where the model expends effort; $\Delta L$ bursts mark \emph{bottlenecks}); \textbf{Push} $\to$ \emph{belief field} $\mathbf{v}$ (direction/magnitude of local drive; eddies indicate \emph{recirculation}).
+  \textbf{\emph{Benefit.}} The same metaphor specifies \textbf{where to measure}—\emph{bends}, \emph{throats}, and \emph{eddies}—turning inner computation into \textbf{actionable diagnostics} and \textbf{governance thresholds}.}
+  \label{fig:semantic-hydrodynamics-overview}
+\end{figure*}
+
+
+
+
+
+\noindent
+\section{\textbf{Rationale and Formalization:} Why trajectories, not weights: the case for \textbf{nDNA}}
+
+\noindent
+The usual levers for interpreting and governing LLMs---parameter counts, sparsity patterns, attention heatmaps---live in coordinates that are \emph{non-identifiable} and only weakly tethered to deployed behavior.
+Permutations, rotations, and low-rank re-expressions can leave the realized function intact while scrambling weight-level narratives \citep{garipov2018loss,draxler2018essentially,li2018visualizing,entezari2022role,ainsworth2023git,wortsman2022model}.
+Attention visualizations, while illuminating, are not guaranteed to be \emph{faithful} causal mechanisms and drift across heads/checkpoints \citep{jain2019attention,wiegreffe2019attention,serrano2019attention,clark2019bert,michel2019sixteen,voita2019analyzing}.
+By contrast, what remains stable under such reparameterizations is the \emph{on-input computation}: for a prompt $x$, the forward pass traces a \textbf{trajectory of hidden states} through depth.
+Endowing representation space with information geometry (e.g., \textbf{Fisher--Rao} pullbacks) yields \textbf{coordinate-free} notions of distance, bending, and effort that track changes in the output law \citep{efron1975defining,amari2000methods,amari2016information}.
+We read this as \textbf{semantic hydrodynamics}: \textbf{meaning is transported} through layers like a fluid through a shaped conduit.
+
+
+\noindent
+\subsection{Limits of weight–space and attention views}
+Weight–space indicators (parameter counts, sparsity, individual neurons/heads) live in \emph{non-identifiable} coordinates: permutations, rotations, or refactorings can leave behavior unchanged while rewriting any weight-level narrative. Attention maps are largely \emph{descriptive}, not reliably causal or stable—different patterns can yield the same outputs and head roles drift across training. These limits motivate a \textbf{behavior-first}, \textbf{coordinate-free} view that reads the model’s \emph{on-input trajectory} of representations, rather than static weights or raw attention.
+
+
+\begin{itemize}[leftmargin=*,itemsep=0.55em]
+
+  \item \textbf{Weight space is non-identifiable and behavior-misaligned.}
+  \emph{Permutation symmetries, rotations, and low-rank re-expressions} can preserve the function while scrambling weight-level narratives. Empirically, independently trained solutions are often \emph{mode-connected} by low-loss paths or become connected after accounting for permutations, undermining explanations that cling to specific coordinates \citep{garipov2018loss,draxler2018essentially,li2018visualizing,entezari2022role,ainsworth2023git}. Moreover, practical levers like \textbf{weight averaging/model soups} alter parameters while leaving deployed behavior similar or improved, again decoupling “where weights sit’’ from \emph{what the model does} \citep{wortsman2022model}. In short, \textbf{we deploy behaviors, not weights}; coordinate-specific stories are fragile.
+
+  \item \textbf{Attention is informative but not a faithful, stable mechanism by itself.}
+  Extensive tests show that \emph{similar outputs can arise from disparate attention patterns}, and directly perturbing attention often leaves predictions largely unchanged; hence attention weights are, at best, \emph{descriptive} \citep{jain2019attention,serrano2019attention}. Redundancy and role-drift are common: many heads can be pruned with little loss, a few heads do the “heavy lifting,” and head functions shift across training or fine-tuning, weakening governance value of raw maps \citep{michel2019sixteen,voita2019analyzing,clark2019bert,kovaleva2019revealing}. Post-hoc corrections (e.g., \emph{attention flow/rollout}) improve alignment with token importance but still treat attention as \emph{signals}, not ground-truth causes \citep{abnar2020quantifying}.
+  Beyond attention, \textbf{critical computation lives in MLPs}: feed-forward layers behave like \emph{key–value memories} that store and retrieve factual associations, so attention alone under-specifies mechanism \citep{geva2021ffkv}.
+  Methodologically, the broader saliency literature warns that visually plausible explanations can fail \emph{sanity checks}, and “faithfulness’’ must be defined and evaluated explicitly \citep{adebayo2018sanity,jacovi2020faithfulness}.
+
+  \item \textbf{What \emph{is} stable: the on-input trajectory.}
+  For each prompt \(x\), the forward pass traces a depth-indexed path of hidden states—the operational object we actually deploy. Prior analyses show that linguistic competencies emerge layerwise in consistent \emph{pipelines} (POS $\rightarrow$ parsing $\rightarrow$ NER $\rightarrow$ SRL $\rightarrow$ coreference), supporting the intuition that the \emph{trajectory through representation space} is a robust behavioral signature \citep{tenney2019bert,clark2019bert}. This motivates nDNA’s choice to work in \textbf{trajectory space}, not parameter space.
+
+\end{itemize}
+
+
+\medskip
+\noindent
+\subsection{Why semantic hydrodynamics matters - (deeper intuition)}
+\begin{itemize}[leftmargin=*,itemsep=0.4em]
+  \item \textbf{We govern \emph{behavior}, not coordinates.} Operational concerns---\emph{robustness, safety, bias, faithfulness}---attach to what the model \textbf{does} on an input, not to how its weights are labeled. Two checkpoints can behave the same while their parameters and attention differ. In short: \textbf{the weights are the map; the trajectory is the territory}.
+  \item \textbf{Invariance beats introspection.} Coordinate-bound stories change under neuron permutations, subspace rotations, or low-rank refactorings; the \textbf{path an input carves} and its \textbf{geometry} (length, curvature, alignment) are \textbf{invariant} because they are measured by \textbf{how predictions would change}, not by which index moved.
+  \item \textbf{Geometry turns cognition into observables.} An information metric acts as local \textbf{stiffness}: soft directions barely affect the output; stiff directions swing the predictive law. With that ruler, we quantify \textbf{how far} the model travels to reshape belief (thermodynamic length $L$), \textbf{where} it turns its internal argument (spectral curvature $\kappa$), and \textbf{what} pushes change locally (belief field $\mathbf{v}$) \citep{sivak2012thermodynamic,hyvarinen2005estimation}.
+  \item \textbf{The hydrodynamics metaphor is operational.} Like fluid in a channel, semantic flow shows \textbf{corners, constrictions, and eddies}: sharp bends $\Rightarrow$ high $\kappa$; narrow throats $\Rightarrow$ bursts in $\Delta L$; local recirculation $\Rightarrow$ rotational structure in $\mathbf{v}$. These are \textbf{measurable}, per-layer signals on the actual computation.
+\end{itemize}
+
+\medskip
+\noindent\textbf{\emph{What this buys us} (concrete payoffs).}
+\begin{itemize}[leftmargin=*,itemsep=0.4em]
+  \item \textbf{Behavior-first invariance.} Reading $\kappa$, $L$, and $\mathbf{v}$ on the trajectory yields \textbf{fingerprints} that are \textbf{comparable} across models, seeds, and checkpoints---even when weights or head roles reshuffle.
+  \item \textbf{Local diagnostics.} \textbf{$\kappa$ spikes} flag brittle decision pivots; \textbf{$\Delta L$ bursts} expose capacity bottlenecks or lossy transformations; \textbf{low alignment} (small $\cos\theta$ between $\mathbf{v}$ and the tangent $\mathbf{T}$) marks layers that \textbf{move without updating belief} (staging or detours).
+  \item \textbf{Governance hooks.} \textbf{Geometry budgets and thresholds}---max $\kappa$, allowable $\Delta L$ per slice, minimum alignment---become \textbf{pre-release gates}; nDNA fingerprints support \textbf{drift monitoring} after fine-tuning, pruning, quantization, or alignment.
+  \item \textbf{Comparative forensics.} Because $\kappa/L/\mathbf{v}$ are tied to the output law, we can \textbf{attribute performance deltas} to \textbf{where in depth} the flow changed (e.g., a new bend from fine-tuning, an effort spike from quantization) instead of to unstable weight indices.
+\end{itemize}
+
+\medskip
+\noindent\textbf{\emph{Rule of thumb}.}
+If the goal is to \textbf{explain}, \textbf{compare}, or \textbf{govern} deployed behavior, analyze the \textbf{flow of meaning} that the input actually experiences. In nDNA: \textbf{curvature} says \emph{where it bends}, \textbf{thermodynamic length} says \emph{how much it pays}, and the \textbf{belief field} says \emph{what pushes it}---all with a ruler calibrated to the model's own predictions.
+
+
+
+
+
+
+
+
+
+% Requires: \usepackage{graphicx} \usepackage{amsmath}
+%\newlength{\panelht}
+\setlength{\panelht}{0.27\textheight} % ← tune panel height so two rows fit nicely on the page
+
+\begin{figure*}[t]
+  \centering
+
+  %======================== ROW 1 ========================%
+  \noindent\makebox[\textwidth][c]{%
+    % A — Laminar flow (fluid first, then semantic parallel)
+    \begin{minipage}[t]{0.49\textwidth}\centering
+      \includegraphics[width=\linewidth,height=\panelht,keepaspectratio]{pipe/laminar_flow.png}
+      \par\vspace{0.4em}\small
+      \textbf{Laminar flow.} \emph{Fluid:} viscous–dominated, low–Re regime; nearly parallel streamlines, negligible cross–stream mixing, no recirculation.\\
+      \textbf{LLM Semantic Flow:} uniformly low spectral curvature $\kappa$, small steady $\Delta L$, and high alignment between the step and the belief push (steady refinement).
+    \end{minipage}\hfill
+    % B — Spectral curvature (fluid bend -> kappa spike)
+    \begin{minipage}[t]{0.49\textwidth}\centering
+      \includegraphics[width=\linewidth,height=\panelht,keepaspectratio]{pipe/spectral_flow.png}
+      \par\vspace{0.4em}\small
+      \textbf{Spectral curvature ($\kappa$) — turbulent.} \emph{Fluid:} a bend induces sharp turning, higher shear, possible separation. \\
+      \textbf{LLM Semantic Flow:} a localized $\kappa$ spike at the turning point marks a sharp reroute in representation space; quasi–linear segments before/after indicate a discrete semantic pivot (e.g., topic jump, shortcut, policy jolt).
+    \end{minipage}%
+  }
+
+  \vspace{0.75em}
+
+  %======================== ROW 2 ========================%
+  \noindent\makebox[\textwidth][c]{%
+    % C — Thermodynamic length (fluid dissipation -> semantic effort)
+    \begin{minipage}[t]{0.49\textwidth}\centering
+      \includegraphics[width=\linewidth,height=\panelht,keepaspectratio]{pipe/thermodynamics_flow.png}
+      \par\vspace{0.4em}\small
+      \textbf{Thermodynamic length ($L$).} \emph{Fluid:} a constriction raises shear and pressure drop; energy dissipates fastest in the throat. \\
+      \textbf{LLM Semantic Flow:} a stiffer metric band (hatched) and a rise in $\Delta L$ reveal a bottleneck where extra \emph{semantic effort} is paid to reshape belief (friction, detours, boundary crossing).
+    \end{minipage}\hfill
+    % D — Belief field (fluid velocity field -> semantic push)
+    \begin{minipage}[t]{0.49\textwidth}\centering
+      \includegraphics[width=\linewidth,height=\panelht,keepaspectratio]{pipe/belief_vector_flow.png}
+      \par\vspace{0.4em}\small
+      \textbf{Belief field ($\mathbf{v}$).} \emph{Fluid:} the velocity field sets transport; eddies (local curl) mark recirculation; alignment with streamlines indicates efficient conveyance. \\
+      \textbf{LLM Semantic Flow:} $\mathbf{v}$ is the local push that most steeply changes the output law; longer arrows $\Rightarrow$ larger $\|\mathbf{v}\|$, and the side gauge shows $\cos\theta$ between $\mathbf{v}$ and the path tangent $\mathbf{T}$; circular loops on waves depict local recirculation that can trap or reinforce beliefs.
+    \end{minipage}%
+  }
+
+  \caption{\textbf{LLM as an input$\to$output semantic channel.}
+\emph{Model:} we read the forward pass as \emph{semantic hydrodynamics}—a prompt injects semantic mass that is transported through depth like a fluid through a shaped conduit.
+\textbf{Bend} (\emph{top row}): curvature $\kappa$ distinguishes \emph{laminar} refinement from \emph{sharp} reroutes.
+\textbf{Pay} (\emph{bottom left}): thermodynamic length $L$ localizes where effort concentrates via $\Delta L$ bursts (\emph{bottlenecks}).
+\textbf{Push} (\emph{bottom right}): the belief field $\mathbf{v}$ reveals whether a layer update directly \emph{advances belief} (high alignment) or \emph{reorganizes information} (low alignment); eddies signal \emph{local recirculation}.\\
+\textbf{Why this lens:} weight--space and attention views are \emph{non--identifiable} and unstable across checkpoints; nDNA instead reads the \emph{on--input trajectory} and its information geometry, yielding \emph{coordinate--free}, behavior--first measurements.\\
+\textbf{Vision:} treat inner computation as a \emph{measurable flow} so that bends, effort, and push become quantifiable traits of cognition—comparable across inputs, layers, models, and training phases.\\
+\textbf{Benefits:} \emph{actionable diagnostics}—$\kappa$ spikes flag brittle turns, $\Delta L$ bursts expose capacity bottlenecks, low $\cos\theta$ (between $\mathbf{v}$ and the tangent $\mathbf{T}$) indicates movement that does not immediately update belief; \emph{stable comparability}—geometry--based fingerprints are robust to neuron permutations and head--role drift; \emph{governance hooks}—set thresholds on $\kappa$ or $\Delta L$, track fingerprint drift after fine--tuning/pruning, and audit capacity before release.}
+  \label{fig:ndna_semantic_flow_minipage}
+\end{figure*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
