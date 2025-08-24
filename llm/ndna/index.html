@@ -75,11 +75,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/ndna/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-24T09:24:51+00:00" />
+<meta property="article:published_time" content="2025-08-24T10:28:59+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="The nDNA Cartograph - Latent Semantic Genome of Foundation Models" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-24T09:24:51+00:00","datePublished":"2025-08-24T09:24:51+00:00","description":"The Cartograph: Latent Semantic Genome of Foundation Models","headline":"The nDNA Cartograph - Latent Semantic Genome of Foundation Models","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/ndna/"},"url":"https://pragyaai.github.io/nDNA/llm/ndna/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-24T10:28:59+00:00","datePublished":"2025-08-24T10:28:59+00:00","description":"The Cartograph: Latent Semantic Genome of Foundation Models","headline":"The nDNA Cartograph - Latent Semantic Genome of Foundation Models","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/ndna/"},"url":"https://pragyaai.github.io/nDNA/llm/ndna/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -307,6 +307,183 @@
 
 <p>Together, these dimensions form a latent semantic fingerprint–a high-dimensional, biologically inspired signature of internal cognition–enabling us to <strong>trace</strong>, <strong>compare</strong>, and <strong>govern</strong> the <em>neural evolution</em> of foundation models with unprecedented granularity.</p>
 
+<hr />
+
+<h2 id="rationale-and-formalization-why-trajectories-not-weights">Rationale and Formalization: Why Trajectories, Not Weights</h2>
+
+<p>The usual levers for interpreting and governing LLMs—parameter counts, sparsity patterns, attention heatmaps—live in coordinates that are <em>non-identifiable</em> and only weakly tethered to deployed behavior. Permutations, rotations, and low-rank re-expressions can leave the realized function intact while scrambling weight-level narratives [<a href="#ref17">17</a>, <a href="#ref18">18</a>, <a href="#ref19">19</a>, <a href="#ref20">20</a>, <a href="#ref21">21</a>, <a href="#ref22">22</a>]. By contrast, what remains stable under such reparameterizations is the <em>on-input computation</em>: for a prompt x, the forward pass traces a <strong>trajectory of hidden states</strong> through depth. Endowing representation space with information geometry (e.g., <strong>Fisher–Rao</strong> pullbacks) yields <strong>coordinate-free</strong> notions of distance, bending, and effort that track changes in the output law [<a href="#ref23">23</a>, <a href="#ref24">24</a>, <a href="#ref25">25</a>]. We read this as <strong>semantic hydrodynamics</strong>: <strong>meaning is transported</strong> through layers like a fluid through a shaped conduit.</p>
+
+<h3 id="limits-of-weight-space-and-attention-views">Limits of weight-space and attention views</h3>
+
+<p>Weight-space indicators (parameter counts, sparsity, individual neurons/heads) live in <em>non-identifiable</em> coordinates: permutations, rotations, or refactorings can leave behavior unchanged while rewriting any weight-level narrative. Attention maps are largely <em>descriptive</em>, not reliably causal or stable—different patterns can yield the same outputs and head roles drift across training. These limits motivate a <strong>behavior-first</strong>, <strong>coordinate-free</strong> view that reads the model’s <em>on-input trajectory</em> of representations, rather than static weights or raw attention.</p>
+
+<p><strong>Weight space is non-identifiable and behavior-misaligned.</strong> Permutation symmetries, rotations, and low-rank re-expressions can preserve the function while scrambling weight-level narratives. Empirically, independently trained solutions are often <em>mode-connected</em> by low-loss paths or become connected after accounting for permutations, undermining explanations that cling to specific coordinates [<a href="#ref17">17</a>, <a href="#ref18">18</a>, <a href="#ref19">19</a>, <a href="#ref20">20</a>, <a href="#ref21">21</a>]. Moreover, practical levers like <strong>weight averaging/model soups</strong> alter parameters while leaving deployed behavior similar or improved, again decoupling “where weights sit” from <em>what the model does</em> [<a href="#ref22">22</a>]. In short, <strong>we deploy behaviors, not weights</strong>; coordinate-specific stories are fragile.</p>
+
+<p><strong>Attention is informative but not a faithful, stable mechanism by itself.</strong> Extensive tests show that <em>similar outputs can arise from disparate attention patterns</em>, and directly perturbing attention often leaves predictions largely unchanged; hence attention weights are, at best, <em>descriptive</em> [<a href="#ref26">26</a>, <a href="#ref27">27</a>]. Redundancy and role-drift are common: many heads can be pruned with little loss, a few heads do the “heavy lifting,” and head functions shift across training or fine-tuning, weakening governance value of raw maps [<a href="#ref28">28</a>, <a href="#ref29">29</a>, <a href="#ref30">30</a>, <a href="#ref31">31</a>]. Post-hoc corrections (e.g., <em>attention flow/rollout</em>) improve alignment with token importance but still treat attention as <em>signals</em>, not ground-truth causes [<a href="#ref32">32</a>]. Beyond attention, <strong>critical computation lives in MLPs</strong>: feed-forward layers behave like <em>key–value memories</em> that store and retrieve factual associations, so attention alone under-specifies mechanism [<a href="#ref33">33</a>]. Methodologically, the broader saliency literature warns that visually plausible explanations can fail <em>sanity checks</em>, and “faithfulness” must be defined and evaluated explicitly [<a href="#ref34">34</a>, <a href="#ref35">35</a>].</p>
+
+<p><strong>What is stable: the on-input trajectory.</strong> For each prompt x, the forward pass traces a depth-indexed path of hidden states—the operational object we actually deploy. Prior analyses show that linguistic competencies emerge layerwise in consistent <em>pipelines</em> (POS → parsing → NER → SRL → coreference), supporting the intuition that the <em>trajectory through representation space</em> is a robust behavioral signature [<a href="#ref36">36</a>, <a href="#ref30">30</a>]. This motivates nDNA’s choice to work in <strong>trajectory space</strong>, not parameter space.</p>
+
+<p>assets/semantic_hydrodynamics/belief_vector_flow.png
+assets/semantic_hydrodynamics/laminar_flow.png
+assets/semantic_hydrodynamics/spectral_flow.png
+assets/semantic_hydrodynamics/thermodynamics_flow.png</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/semantic_hydrodynamics/nano_gpt.gif" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/semantic_hydrodynamics/nano_gpt.gif';" />
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>nano-gpt (<em>structure</em>).</strong> <em>Architecture as channel blueprint:</em> depth acts like the axial coordinate; <strong>residuals</strong> $\leftrightarrow$ <em>bypass pipes</em>; <strong>attention</strong> / <strong>MLP</strong> blocks act as <em>mixers/valves</em> that locally reshape the flow of representations.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<div style="display: flex; gap: 1rem;">
+<div style="width: 50%">
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/semantic_hydrodynamics/flow-simulation.gif" alt="" style="max-width: 100%; height: 410px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/semantic_hydrodynamics/flow-simulation.gif';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Flow simulation (<em>analogue</em>).</strong> <em>Fluid:</em> colored streamlines show speed through a bend and throat—<strong>curvature</strong> rises, <strong>shear</strong> increases, small <em>recirculation</em> pockets may form. <em>Semantic:</em> bends $\Rightarrow$ <strong>spectral curvature</strong> spikes ($\kappa$); constrictions $\Rightarrow$ <strong>thermodynamic length</strong> bursts ($\Delta L$); eddies $\Rightarrow$ local rotation in the <strong>belief field</strong> ($\nabla\times\mathbf{v}$).</p>
+
+  </figcaption>
+  
+</figure>
+</div>
+<div style="width: 50%">
+<figure style="text-align: center; margin: 1.5em 0;">
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/semantic_hydrodynamics/pipe.jpg" alt="" style="max-width: 100%; height: 410px; object-fit: contain; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.08);" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/semantic_hydrodynamics/pipe.jpg';" />
+  <figcaption class="figure-caption" style="margin-top: 12px; font-size: 0.9em; line-height: 1.4; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
+    
+     <p><strong>Pipeline metaphor (<em>macro view</em>).</strong> <em>Geometry governs transport:</em> routing capacity and effort depend on the network of ducts. <em>Semantic:</em> model design / fine-tuning shapes <strong>where meaning flows easily</strong>, <strong>where it pays</strong>, and <strong>where it recirculates</strong>.</p>
+
+  </figcaption>
+  
+</figure>
+</div>
+</div>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  <div class="visualization-html">
+    
+    
+  </div>
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>Semantic hydrodynamics.</strong> <strong><em>Model.</em></strong> We read the forward pass as <em>semantic hydrodynamics</em>: a prompt injects <em>semantic mass</em> that is transported through depth like a fluid through a shaped channel. <strong><em>Why.</em></strong> Weight/attention coordinates can change without altering behavior; the <em>on-input flow</em> provides <strong>behavior-first</strong>, <strong>coordinate-free</strong> signals. <strong><em>Reading guide.</em></strong> <strong>Bend</strong> $\to$ <em>spectral curvature</em> $\kappa$ (sharp reroutes vs. laminar refinement); <strong>Pay</strong> $\to$ <em>thermodynamic length</em> $L$ (where the model expends effort; $\Delta L$ bursts mark <em>bottlenecks</em>); <strong>Push</strong> $\to$ <em>belief field</em> $\mathbf{v}$ (direction/magnitude of local drive; eddies indicate <em>recirculation</em>). <strong><em>Benefit.</em></strong> The same metaphor specifies <strong>where to measure</strong>—<em>bends</em>, <em>throats</em>, and <em>eddies</em>—turning inner computation into <strong>actionable diagnostics</strong> and <strong>governance thresholds</strong>.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<h3 id="why-semantic-hydrodynamics-matters">Why semantic hydrodynamics matters</h3>
+
+<ul>
+  <li>
+    <p><strong>We govern <em>behavior</em>, not coordinates.</strong> Operational concerns—<em>robustness, safety, bias, faithfulness</em>—attach to what the model <strong>does</strong> on an input, not to how its weights are labeled. Two checkpoints can behave the same while their parameters and attention differ. In short: <strong>the weights are the map; the trajectory is the territory</strong>.</p>
+  </li>
+  <li>
+    <p><strong>Invariance beats introspection.</strong> Coordinate-bound stories change under neuron permutations, subspace rotations, or low-rank refactorings; the <strong>path an input carves</strong> and its <strong>geometry</strong> (length, curvature, alignment) are <strong>invariant</strong> because they are measured by <strong>how predictions would change</strong>, not by which index moved.</p>
+  </li>
+  <li>
+    <p><strong>Geometry turns cognition into observables.</strong> An information metric acts as local <strong>stiffness</strong>: soft directions barely affect the output; stiff directions swing the predictive law. With that ruler, we quantify <strong>how far</strong> the model travels to reshape belief (thermodynamic length L), <strong>where</strong> it turns its internal argument (spectral curvature κ), and <strong>what</strong> pushes change locally (belief field <strong>v</strong>) [<a href="#ref37">37</a>, <a href="#ref38">38</a>].</p>
+  </li>
+  <li>
+    <p><strong>The hydrodynamics metaphor is operational.</strong> Like fluid in a
+channel, semantic flow shows <strong>corners, constrictions, and eddies</strong>:
+sharp bends $\Rightarrow$ high $\kappa$; narrow throats $\Rightarrow$
+bursts in $\Delta L$; local recirculation $\Rightarrow$ rotational
+structure in $\mathbf{v}$. These are <strong>measurable</strong>, per-layer signals
+on the actual computation.</p>
+  </li>
+</ul>
+
+<p><strong><em>What this buys us</em> (concrete payoffs).</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Behavior-first invariance.</strong> Reading $\kappa$, $L$, and $\mathbf{v}$
+on the trajectory yields <strong>fingerprints</strong> that are <strong>comparable</strong>
+across models, seeds, and checkpoints—even when weights or head
+roles reshuffle.</p>
+  </li>
+  <li>
+    <p><strong>Local diagnostics.</strong> <strong>$\kappa$ spikes</strong> flag brittle decision
+pivots; <strong>$\Delta L$ bursts</strong> expose capacity bottlenecks or lossy
+transformations; <strong>low alignment</strong> (small $\cos\theta$ between
+$\mathbf{v}$ and the tangent $\mathbf{T}$) marks layers that <strong>move
+without updating belief</strong> (staging or detours).</p>
+  </li>
+  <li>
+    <p><strong>Governance hooks.</strong> <strong>Geometry budgets and thresholds</strong>—max
+$\kappa$, allowable $\Delta L$ per slice, minimum alignment—become
+<strong>pre-release gates</strong>; nDNA fingerprints support <strong>drift monitoring</strong>
+after fine-tuning, pruning, quantization, or alignment.</p>
+  </li>
+  <li>
+    <p><strong>Comparative forensics.</strong> Because $\kappa/L/\mathbf{v}$ are tied to
+the output law, we can <strong>attribute performance deltas</strong> to <strong>where in
+depth</strong> the flow changed (e.g., a new bend from fine-tuning, an effort
+spike from quantization) instead of to unstable weight indices.</p>
+  </li>
+</ul>
+
+<p><strong>Rule of thumb:</strong> If the goal is to <strong>explain</strong>, <strong>compare</strong>, or <strong>govern</strong> deployed behavior, analyze the <strong>flow of meaning</strong> that the input actually experiences. In nDNA: <strong>curvature</strong> says <em>where it bends</em>, <strong>thermodynamic length</strong> says <em>how much it pays</em>, and the <strong>belief field</strong> says <em>what pushes it</em>—all with a ruler calibrated to the model’s own predictions.</p>
+
+<hr />
+
+<h2 id="semantic-hydrodynamics-the-flow-metaphor">Semantic Hydrodynamics: The Flow Metaphor</h2>
+
+<p>We read the forward pass as <em>semantic hydrodynamics</em>: a prompt injects <em>semantic mass</em> that is transported through depth like a fluid through a shaped channel. This metaphor provides both intuitive understanding and actionable diagnostics:</p>
+
+<h3 id="flow-analogies">Flow Analogies</h3>
+
+<p><strong>Laminar flow</strong> corresponds to uniform low spectral curvature κ, small steady ΔL, and high alignment between the step and the belief push (steady refinement).</p>
+
+<p><strong>Turbulent flow</strong> with sharp bends induces spectral curvature κ spikes at turning points, marking discrete semantic pivots (topic jumps, shortcuts, policy jolts).</p>
+
+<p><strong>Thermodynamic bottlenecks</strong> appear as constrictions that raise ΔL bursts, revealing where extra semantic effort is paid to reshape belief (friction, detours, boundary crossing).</p>
+
+<p><strong>Belief field circulation</strong> shows local recirculation patterns that can trap or reinforce beliefs, measured through the alignment between <strong>v</strong> and the path tangent.</p>
+
+<h3 id="operational-benefits">Operational Benefits</h3>
+
+<ul>
+  <li><strong>Behavior-first invariance.</strong> Reading κ, L, and <strong>v</strong> on the trajectory yields <strong>fingerprints</strong> that are <strong>comparable</strong> across models, seeds, and checkpoints—even when weights or head roles reshuffle.</li>
+  <li><strong>Local diagnostics.</strong> κ spikes flag brittle decision pivots; ΔL bursts expose capacity bottlenecks; low alignment marks layers that move without updating belief.</li>
+  <li><strong>Governance hooks.</strong> Geometry budgets and thresholds—max κ, allowable ΔL per slice, minimum alignment—become <strong>pre-release gates</strong>.</li>
+  <li><strong>Comparative forensics.</strong> Because κ/L/<strong>v</strong> are tied to the output law, we can <strong>attribute performance deltas</strong> to <strong>where in depth</strong> the flow changed.</li>
+</ul>
+
+<hr />
+
 <h2 id="spectral-curvature-kappa_ell-a-geometric-lens-on-latent-bending">Spectral Curvature \((\kappa_\ell)\): A Geometric Lens on Latent Bending</h2>
 
 <p><strong>What is spectral curvature?</strong> In classical geometry, curvature quantifies how much a path deviates from being straight–measuring local bending of a trajectory. In <strong>spectral geometry</strong> and <strong>harmonic analysis</strong>, curvature extends to how signals or paths behave in frequency space or under operators that encode structure (e.g., Laplacians, difference operators). <em>Spectral curvature</em> refers to curvature derived through such operators–capturing the <em>shape of latent signals</em> as they evolve across layers of a model.</p>
@@ -343,7 +520,7 @@ Consider hidden activations \(h_\ell \in \mathbb{R}^d\) at each layer \(\ell\). 
 Peaks in \(\kappa_\ell\) mark layers where internal geometry is most dynamic–zones of <em>semantic inflection</em>, <em>belief compression</em>, or <em>ideological absorption</em>. These are the structural signatures of <strong>internal epistemic adaptation</strong>, essential to trace cultural inheritance and alignment drift.</p>
 
 <p><strong>Lineage and context.</strong>
-Spectral curvature builds on tools from <strong>geometric deep learning</strong>, <strong>equivariant architectures</strong>, <strong>Ricci flow in machine learning</strong>, and <strong>spectral graph analysis</strong> [<a href="#ref17">17</a>, <a href="#ref18">18</a>, <a href="#ref19">19</a>, <a href="#ref20">20</a>, <a href="#ref21">21</a>, <a href="#ref22">22</a>, <a href="#ref23">23</a>, <a href="#ref24">24</a>, <a href="#ref25">25</a>, <a href="#ref26">26</a>]. Within <strong>nDNA</strong>, it serves as a <strong>principled geometric fingerprint</strong>–revealing not only <em>what</em> is encoded, but <em>how</em> internal belief pathways are reshaped to encode it.</p>
+Spectral curvature builds on tools from <strong>geometric deep learning</strong>, <strong>equivariant architectures</strong>, <strong>Ricci flow in machine learning</strong>, and <strong>spectral graph analysis</strong> [<a href="#ref39">39</a>, <a href="#ref40">40</a>, <a href="#ref41">41</a>, <a href="#ref42">42</a>, <a href="#ref43">43</a>, <a href="#ref44">44</a>, <a href="#ref45">45</a>, <a href="#ref46">46</a>, <a href="#ref47">47</a>, <a href="#ref48">48</a>]. Within <strong>nDNA</strong>, it serves as a <strong>principled geometric fingerprint</strong>–revealing not only <em>what</em> is encoded, but <em>how</em> internal belief pathways are reshaped to encode it.</p>
 
 <figure style="text-align: center; margin: 1.5em 0;">
   <div class="visualization-html">
@@ -447,7 +624,7 @@ High thermodynamic length indicates regions where latent geometry <strong>stretc
 Unlike static capacity metrics or weight magnitudes, \(\mathcal{L}_\ell\) is <em>dynamically grounded</em>: it measures where the model actively strains to reconcile competing epistemic demands. In regions of high \(\mathcal{L}_\ell\), the model’s <strong>latent geometry</strong> is under tension–<em>reshaping itself</em> to accommodate alignment constraints, cultural priors, or multilingual semantics.</p>
 
 <p><strong>Lineage and context.</strong>
-This diagnostic builds on the <strong>Fisher–Rao metric</strong> in <strong>information geometry</strong> and <strong>thermodynamic length formalism</strong> from statistical physics [<a href="#ref27">27</a>, <a href="#ref28">28</a>, <a href="#ref17">17</a>, <a href="#ref29">29</a>]. Thus <strong>nDNA</strong> provides a <em>complementary view</em> to spectral curvature–capturing not where the model bends, but <em>how hard it works</em> to do so. Together, these axes form a <strong>neurogeometric anatomy</strong> of latent belief adaptation.</p>
+This diagnostic builds on the <strong>Fisher–Rao metric</strong> in <strong>information geometry</strong> and <strong>thermodynamic length formalism</strong> from statistical physics [<a href="#ref49">49</a>, <a href="#ref50">50</a>, <a href="#ref39">39</a>, <a href="#ref51">51</a>]. Thus <strong>nDNA</strong> provides a <em>complementary view</em> to spectral curvature–capturing not where the model bends, but <em>how hard it works</em> to do so. Together, these axes form a <strong>neurogeometric anatomy</strong> of latent belief adaptation.</p>
 
 <figure style="text-align: center; margin: 1.5em 0;">
   <div class="visualization-html">
@@ -529,7 +706,7 @@ While <strong>spectral curvature</strong> \((\kappa_\ell)\) captures how sharply
 \(\mathbf{v}_\ell^{(c)}\) provides a directional lens on latent dynamics. High \(\lVert\mathbf{v}_\ell^{(c)}\rVert\) signals regions where the model is <em>actively redirected</em> by external cultural forces–offering diagnostic power for detecting <strong>ideological drift</strong>, <strong>semantic conflict</strong>, or <strong>bias inheritance</strong>. Unlike \(\kappa_\ell\) or \(\mathcal{L}_\ell\), which capture internal geometry, \(\mathbf{v}_\ell^{(c)}\) reveals <em>external epistemic pressure</em> and its directional impact.</p>
 
 <p><strong>Lineage and context.</strong>
-This diagnostic builds upon belief geometry, alignment drift studies, and cultural bias tracing in NLP [<a href="#ref30">30</a>, <a href="#ref5">5</a>, <a href="#ref31">31</a>, <a href="#ref32">32</a>, <a href="#ref33">33</a>, <a href="#ref34">34</a>, <a href="#ref35">35</a>, <a href="#ref36">36</a>, <a href="#ref37">37</a>, <a href="#ref38">38</a>]. Within the <strong>nDNA</strong> construct, it integrates with curvature and length to offer a holistic neurogeometric portrait–revealing <em>how</em>, <em>why</em>, and <em>where</em> foundation models inherit, adapt, or distort beliefs under cultural influence.</p>
+This diagnostic builds upon belief geometry, alignment drift studies, and cultural bias tracing in NLP [<a href="#ref52">52</a>, <a href="#ref5">5</a>, <a href="#ref53">53</a>, <a href="#ref54">54</a>, <a href="#ref55">55</a>, <a href="#ref56">56</a>, <a href="#ref57">57</a>, <a href="#ref58">58</a>, <a href="#ref59">59</a>, <a href="#ref60">60</a>]. Within the <strong>nDNA</strong> construct, it integrates with curvature and length to offer a holistic neurogeometric portrait–revealing <em>how</em>, <em>why</em>, and <em>where</em> foundation models inherit, adapt, or distort beliefs under cultural influence.</p>
 
 <p><strong>Interpretability in practice.</strong>
 By mapping \(\mathbf{v}_\ell^{(c)}\) across layers and cultures, we can trace <strong>cultural provenance</strong>, identify <strong>ideological pressure zones</strong>, and diagnose <strong>inheritance asymmetry</strong> in multilingual or aligned models. This directional fingerprint informs audits of model bias, robustness, and alignment integrity–providing the missing vectorial dimension in understanding machine cognition.</p>
@@ -673,7 +850,7 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
 
 <h3 id="ndna-geometry-a-closer-look">nDNA Geometry: A Closer Look</h3>
 
-<p>The notion of <strong>nDNA</strong> arises from a simple yet profound insight: modern foundation models do not merely produce outputs–they embody a latent cognitive structure that governs how they reason, adapt, and evolve [<a href="#ref33">33</a>, <a href="#ref6">6</a>]. This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers [<a href="#ref4">4</a>, <a href="#ref25">25</a>]. We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its <strong>spectral curvature</strong> (\(\kappa_\ell\)), <strong>thermodynamic length</strong> (\(\mathcal{L}_\ell\)), and <strong>belief vector field norm</strong> (\(\lVert\mathbf{v}_\ell^{(c)}\rVert\)) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model’s <em>inheritance stability</em>, <em>alignment dynamics</em>, and <em>cultural drift</em>—analogous to how biological DNA records heritable traits and mutations [<a href="#ref31">31</a>, <a href="#ref16">16</a>].</p>
+<p>The notion of <strong>nDNA</strong> arises from a simple yet profound insight: modern foundation models do not merely produce outputs–they embody a latent cognitive structure that governs how they reason, adapt, and evolve [<a href="#ref55">55</a>, <a href="#ref6">6</a>]. This latent structure is not directly encoded in model weights or activations alone; rather, it emerges in the internal geometry of belief formation, semantic flow, and epistemic adaptation across layers [<a href="#ref4">4</a>, <a href="#ref47">47</a>]. We define the <strong>nDNA geometry</strong> of a model as the joint distribution of its <strong>spectral curvature</strong> (\(\kappa_\ell\)), <strong>thermodynamic length</strong> (\(\mathcal{L}_\ell\)), and <strong>belief vector field norm</strong> (\(\lVert\mathbf{v}_\ell^{(c)}\rVert\)) layer-by-layer. This triad forms a high-dimensional semantic fingerprint that encodes a model’s <em>inheritance stability</em>, <em>alignment dynamics</em>, and <em>cultural drift</em>—analogous to how biological DNA records heritable traits and mutations [<a href="#ref53">53</a>, <a href="#ref16">16</a>].</p>
 
 <div class="table-container" style="overflow-x: auto; margin: 20px 0;">
 <table style="width: 100%; border-collapse: collapse; font-family: 'Courier New', monospace; margin: 20px 0;">
@@ -717,11 +894,11 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
 </table>
 </div>
 
-<p>This table provides an <em>illustrative example of nDNA geometry</em>, highlighting how these quantities vary across depth in a representative model. Rather than simple monotonic trends, we observe intricate layer-wise patterns: certain layers exhibit elevated curvature (\(\kappa_\ell &gt; 0.06\)), signaling sharp latent reorientation [<a href="#ref18">18</a>], while others concentrate thermodynamic length (\(\mathcal{L}_\ell &gt; 1.10\)), reflecting zones of intense internal work to reconcile competing priors [<a href="#ref27">27</a>, <a href="#ref28">28</a>]. The belief vector norm \(\lVert\mathbf{v}_\ell^{(c)}\rVert\) exposes the directional cultural force acting on the latent manifold [<a href="#ref34">34</a>, <a href="#ref5">5</a>], marking layers where external alignment or sociolinguistic conditioning exerts greatest influence. Together, these values form a geometry-specific trace that distinguishes models by their latent adaptation history.</p>
+<p>This table provides an <em>illustrative example of nDNA geometry</em>, highlighting how these quantities vary across depth in a representative model. Rather than simple monotonic trends, we observe intricate layer-wise patterns: certain layers exhibit elevated curvature (\(\kappa_\ell &gt; 0.06\)), signaling sharp latent reorientation [<a href="#ref40">40</a>], while others concentrate thermodynamic length (\(\mathcal{L}_\ell &gt; 1.10\)), reflecting zones of intense internal work to reconcile competing priors [<a href="#ref49">49</a>, <a href="#ref50">50</a>]. The belief vector norm \(\lVert\mathbf{v}_\ell^{(c)}\rVert\) exposes the directional cultural force acting on the latent manifold [<a href="#ref56">56</a>, <a href="#ref5">5</a>], marking layers where external alignment or sociolinguistic conditioning exerts greatest influence. Together, these values form a geometry-specific trace that distinguishes models by their latent adaptation history.</p>
 
 <h2 id="the-corpus-dependence-of-ndna-a-necessary-feature-not-a-flaw">The Corpus Dependence of nDNA: A Necessary Feature, Not a Flaw</h2>
 
-<p>In biological systems, DNA is celebrated as the <em>universal code of life</em> – a sequence of nucleotides that, across all known organisms, governs the development, function, and inheritance of traits [<a href="#ref39">39</a>, <a href="#ref40">40</a>]. Yet despite this <strong>universal structure</strong>, the functional expression of DNA is profoundly <strong>context-dependent</strong>. The same genome, when expressed in different cellular contexts, gives rise to vastly different phenotypes: for instance, <em>neurons</em> and <em>hepatocytes</em> arise from identical genetic material yet serve radically different functions [<a href="#ref41">41</a>, <a href="#ref42">42</a>]. This context-sensitive expression is orchestrated through layered regulatory mechanisms, including <strong>epigenetic modifications</strong> [<a href="#ref41">41</a>], <strong>transcription factor (TF) binding</strong> [<a href="#ref43">43</a>], and <strong>chromatin architecture remodeling</strong> [<a href="#ref44">44</a>, <a href="#ref45">45</a>]. These mechanisms form a hierarchical, probabilistic regulatory network that determines gene expression patterns in response to developmental and environmental cues [<a href="#ref46">46</a>].</p>
+<p>In biological systems, DNA is celebrated as the <em>universal code of life</em> – a sequence of nucleotides that, across all known organisms, governs the development, function, and inheritance of traits [<a href="#ref61">61</a>, <a href="#ref62">62</a>]. Yet despite this <strong>universal structure</strong>, the functional expression of DNA is profoundly <strong>context-dependent</strong>. The same genome, when expressed in different cellular contexts, gives rise to vastly different phenotypes: for instance, <em>neurons</em> and <em>hepatocytes</em> arise from identical genetic material yet serve radically different functions [<a href="#ref63">63</a>, <a href="#ref64">64</a>]. This context-sensitive expression is orchestrated through layered regulatory mechanisms, including <strong>epigenetic modifications</strong> [<a href="#ref63">63</a>], <strong>transcription factor (TF) binding</strong> [<a href="#ref65">65</a>], and <strong>chromatin architecture remodeling</strong> [<a href="#ref66">66</a>, <a href="#ref67">67</a>]. These mechanisms form a hierarchical, probabilistic regulatory network that determines gene expression patterns in response to developmental and environmental cues [<a href="#ref68">68</a>].</p>
 
 <figure style="text-align: center; margin: 1.5em 0;">
   <div class="visualization-html">
@@ -738,7 +915,7 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
     <figcaption class="figure-caption">
         
          
-<p><strong>A hierarchical view of universal DNA and context-sensitive gene expression, as a biological parallel to nDNA latent scaffolding in LLMs.</strong> This figure illustrates how the <em>same genome</em> (depicted as a universal DNA helix at the top) produces distinct functional outcomes through a layered and structured regulatory architecture. The <strong>first regulatory layer</strong> consists of <em>epigenetic modifications</em>, including DNA methylation (linked with gene silencing) and histone acetylation (linked with gene activation) [<a href="#ref41">41</a>, <a href="#ref44">44</a>]. These modifications influence chromatin accessibility, setting the stage for context-specific transcriptional control. The <strong>second layer</strong> involves <em>cell-type-specific transcription factors (TFs)</em> – for example, NeuroD and REST in neurons, or HNF4 and C/EBPα in hepatocytes – which bind regulatory DNA elements and integrate signaling cues to guide gene expression programs [<a href="#ref43">43</a>, <a href="#ref42">42</a>]. The <strong>third layer</strong> reflects the resultant chromatin state: open, transcriptionally permissive configurations in neurons for synaptic gene activation, versus compact, repressive configurations in hepatocytes where those genes are silent [<a href="#ref47">47</a>, <a href="#ref45">45</a>]. Finally, this hierarchical regulatory control produces <em>functionally specialized gene programs</em>: neurons activate synaptic plasticity and axon signaling genes; hepatocytes activate detoxification and glucose metabolism genes [<a href="#ref40">40</a>, <a href="#ref46">46</a>]. This layered architecture provides a powerful biological analogy for <em>nDNA in LLMs</em>. Just as DNA’s expression is shaped by regulatory logic rather than random variation, <strong>nDNA encodes both universal priors (shared across tasks)</strong> – such as pretrained latent manifolds, attention mechanisms, and model architecture – and <strong>corpus-dependent latent scaffolding</strong>, emerging as the model adapts to specific tasks or domains [<a href="#ref48">48</a>, <a href="#ref49">49</a>, <a href="#ref50">50</a>]. The analogy emphasizes that corpus dependence in nDNA is not a weakness or artifact, but a reflection of meaningful task adaptation: <em>structured variation grounded in universal latent geometry</em>. This scaffolding ensures LLMs achieve <em>functional diversity</em> across tasks while maintaining <strong>coherence, alignment, and generalization</strong>, much like gene regulatory networks ensure appropriate cellular identity and function despite operating from a common genome blueprint [<a href="#ref46">46</a>, <a href="#ref42">42</a>]. The figure highlights that both biological DNA and nDNA exhibit clarity through complexity: <strong>layered, interpretable hierarchies enabling flexible, robust expression across contexts</strong>.</p>
+<p><strong>A hierarchical view of universal DNA and context-sensitive gene expression, as a biological parallel to nDNA latent scaffolding in LLMs.</strong> This figure illustrates how the <em>same genome</em> (depicted as a universal DNA helix at the top) produces distinct functional outcomes through a layered and structured regulatory architecture. The <strong>first regulatory layer</strong> consists of <em>epigenetic modifications</em>, including DNA methylation (linked with gene silencing) and histone acetylation (linked with gene activation) [<a href="#ref63">63</a>, <a href="#ref66">66</a>]. These modifications influence chromatin accessibility, setting the stage for context-specific transcriptional control. The <strong>second layer</strong> involves <em>cell-type-specific transcription factors (TFs)</em> – for example, NeuroD and REST in neurons, or HNF4 and C/EBPα in hepatocytes – which bind regulatory DNA elements and integrate signaling cues to guide gene expression programs [<a href="#ref65">65</a>, <a href="#ref64">64</a>]. The <strong>third layer</strong> reflects the resultant chromatin state: open, transcriptionally permissive configurations in neurons for synaptic gene activation, versus compact, repressive configurations in hepatocytes where those genes are silent [<a href="#ref69">69</a>, <a href="#ref67">67</a>]. Finally, this hierarchical regulatory control produces <em>functionally specialized gene programs</em>: neurons activate synaptic plasticity and axon signaling genes; hepatocytes activate detoxification and glucose metabolism genes [<a href="#ref62">62</a>, <a href="#ref68">68</a>]. This layered architecture provides a powerful biological analogy for <em>nDNA in LLMs</em>. Just as DNA’s expression is shaped by regulatory logic rather than random variation, <strong>nDNA encodes both universal priors (shared across tasks)</strong> – such as pretrained latent manifolds, attention mechanisms, and model architecture – and <strong>corpus-dependent latent scaffolding</strong>, emerging as the model adapts to specific tasks or domains [<a href="#ref70">70</a>, <a href="#ref71">71</a>, <a href="#ref72">72</a>]. The analogy emphasizes that corpus dependence in nDNA is not a weakness or artifact, but a reflection of meaningful task adaptation: <em>structured variation grounded in universal latent geometry</em>. This scaffolding ensures LLMs achieve <em>functional diversity</em> across tasks while maintaining <strong>coherence, alignment, and generalization</strong>, much like gene regulatory networks ensure appropriate cellular identity and function despite operating from a common genome blueprint [<a href="#ref68">68</a>, <a href="#ref64">64</a>]. The figure highlights that both biological DNA and nDNA exhibit clarity through complexity: <strong>layered, interpretable hierarchies enabling flexible, robust expression across contexts</strong>.</p>
 
     </figcaption>
     
@@ -750,9 +927,9 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
   
 </figure>
 
-<p>Similarly, in large foundation models, the <em>neural DNA (nDNA)</em> – a composite measure of latent geometry encompassing <strong>spectral curvature</strong> \((\kappa)\) [<a href="#ref51">51</a>], <strong>thermodynamic length</strong> \((L)\) [<a href="#ref52">52</a>], and <strong>latent belief vector norms</strong> [<a href="#ref48">48</a>] – exhibits both <strong>universal structure</strong> and <strong>corpus-specific adaptation</strong>. LLMs encode universal latent priors through pretraining: architectural invariances [<a href="#ref53">53</a>], semantic manifolds [<a href="#ref54">54</a>, <a href="#ref55">55</a>], and attention-based relational structures [<a href="#ref49">49</a>]. However, when probed with different corpora – such as mathematical reasoning benchmarks (e.g. GSM8K [<a href="#ref56">56</a>]), dialogue datasets (e.g. MultiWOZ [<a href="#ref57">57</a>]), or encyclopedic QA (e.g. SQuAD [<a href="#ref58">58</a>]) – the model activates distinct latent scaffolding, producing task-specific geometric pathways.</p>
+<p>Similarly, in large foundation models, the <em>neural DNA (nDNA)</em> – a composite measure of latent geometry encompassing <strong>spectral curvature</strong> \((\kappa)\) [<a href="#ref73">73</a>], <strong>thermodynamic length</strong> \((L)\) [<a href="#ref74">74</a>], and <strong>latent belief vector norms</strong> [<a href="#ref70">70</a>] – exhibits both <strong>universal structure</strong> and <strong>corpus-specific adaptation</strong>. LLMs encode universal latent priors through pretraining: architectural invariances [<a href="#ref75">75</a>], semantic manifolds [<a href="#ref76">76</a>, <a href="#ref77">77</a>], and attention-based relational structures [<a href="#ref71">71</a>]. However, when probed with different corpora – such as mathematical reasoning benchmarks (e.g. GSM8K [<a href="#ref78">78</a>]), dialogue datasets (e.g. MultiWOZ [<a href="#ref79">79</a>]), or encyclopedic QA (e.g. SQuAD [<a href="#ref80">80</a>]) – the model activates distinct latent scaffolding, producing task-specific geometric pathways.</p>
 
-<p>In both systems, <strong>structured variation emerges as a necessity</strong>: in <strong>biology</strong>, to produce <em>functional diversity</em> across cell types; in <strong>LLMs</strong>, to scaffold <em>reasoning</em> across tasks while maintaining <strong>alignment</strong> and <strong>generalization</strong> [<a href="#ref55">55</a>, <a href="#ref56">56</a>]. Like <strong>tissue-specific gene expression</strong>, <strong>corpus-dependent nDNA scaffolding</strong> follows precise, <em>learned priors</em> rather than arbitrary variation. <strong>Mathematical models</strong> of both systems reduce to <em>path integrals over conditional cost</em>:</p>
+<p>In both systems, <strong>structured variation emerges as a necessity</strong>: in <strong>biology</strong>, to produce <em>functional diversity</em> across cell types; in <strong>LLMs</strong>, to scaffold <em>reasoning</em> across tasks while maintaining <strong>alignment</strong> and <strong>generalization</strong> [<a href="#ref77">77</a>, <a href="#ref78">78</a>]. Like <strong>tissue-specific gene expression</strong>, <strong>corpus-dependent nDNA scaffolding</strong> follows precise, <em>learned priors</em> rather than arbitrary variation. <strong>Mathematical models</strong> of both systems reduce to <em>path integrals over conditional cost</em>:</p>
 
 \[\mathcal{S}(c) = \int_{\gamma_c} \mathcal{C}(h_\ell; c) \, ds\]
 
@@ -762,11 +939,11 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
   <p><em><strong>Where DNA differentiates cells</strong>, nDNA differentiates reasoning. Both systems achieve <strong>functional coherence</strong> through context-dependent geometry anchored in <strong>universal code</strong>.</em></p>
 </blockquote>
 
-<p>Despite their <em>contextual variation</em>, both <strong>DNA</strong> and <strong>nDNA</strong> encode <strong>universal structure</strong> that stabilizes functional diversity. In <strong>biology</strong>, this universality is embodied in the <em>genetic code</em>: the shared language of <strong>codons</strong>, <strong>conserved regulatory motifs</strong>, and <strong>chromatin architectural principles</strong> that ensure coherent development across tissues [<a href="#ref40">40</a>, <a href="#ref39">39</a>]. In <strong>large language models</strong>, nDNA’s universality arises from the <strong>shared latent priors</strong> learned during pretraining: <strong>attention-based relational structures</strong> [<a href="#ref53">53</a>], <strong>semantic manifolds</strong> [<a href="#ref54">54</a>], and <strong>transformer-invariant latent symmetries</strong> [<a href="#ref55">55</a>]. These priors act as the <em>“genomic grammar”</em> that binds task-specific latent pathways into a <strong>coherent reasoning framework</strong>.</p>
+<p>Despite their <em>contextual variation</em>, both <strong>DNA</strong> and <strong>nDNA</strong> encode <strong>universal structure</strong> that stabilizes functional diversity. In <strong>biology</strong>, this universality is embodied in the <em>genetic code</em>: the shared language of <strong>codons</strong>, <strong>conserved regulatory motifs</strong>, and <strong>chromatin architectural principles</strong> that ensure coherent development across tissues [<a href="#ref62">62</a>, <a href="#ref61">61</a>]. In <strong>large language models</strong>, nDNA’s universality arises from the <strong>shared latent priors</strong> learned during pretraining: <strong>attention-based relational structures</strong> [<a href="#ref75">75</a>], <strong>semantic manifolds</strong> [<a href="#ref76">76</a>], and <strong>transformer-invariant latent symmetries</strong> [<a href="#ref77">77</a>]. These priors act as the <em>“genomic grammar”</em> that binds task-specific latent pathways into a <strong>coherent reasoning framework</strong>.</p>
 
 \[\boxed{\textbf{DNA: }\Sigma^3 / \ker \phi \to \mathcal{A}\quad\textbf{nDNA: }\mathcal{X} / G_{\text{LLM}} \to V/G}\]
 
-<p>Such <strong>universal structure</strong> enables <strong>generalization</strong>: in <strong>biology</strong>, reliable <em>organismal development</em>; in <strong>LLMs</strong>, reasoning <em>consistency</em> and <em>alignment</em> across tasks. Crucially, this structure constrains <strong>corpus-dependent variation</strong> within <em>interpretable latent geometry</em> – preventing arbitrary or adversarial drift [<a href="#ref49">49</a>, <a href="#ref56">56</a>].</p>
+<p>Such <strong>universal structure</strong> enables <strong>generalization</strong>: in <strong>biology</strong>, reliable <em>organismal development</em>; in <strong>LLMs</strong>, reasoning <em>consistency</em> and <em>alignment</em> across tasks. Crucially, this structure constrains <strong>corpus-dependent variation</strong> within <em>interpretable latent geometry</em> – preventing arbitrary or adversarial drift [<a href="#ref71">71</a>, <a href="#ref78">78</a>].</p>
 
 <blockquote>
   <p><em><strong>What DNA is to the unity of multicellular life</strong>, nDNA is to the coherence of LLM reasoning: a <strong>stabilizing universal code</strong> that enables <strong>structured functional variation</strong>.</em></p>
@@ -774,29 +951,29 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
 
 <h3 id="evolutionary-and-learning-dynamics-convergence-of-principles">Evolutionary and Learning Dynamics: Convergence of Principles</h3>
 
-<p>Both <strong>DNA</strong> and <strong>nDNA</strong> are shaped by <em>selection processes</em>. In <strong>biology</strong>, the genome has evolved under millennia of selective pressure, with <strong>regulatory networks</strong> fine-tuned to ensure <em>robust development</em> and <em>adaptability</em> [<a href="#ref46">46</a>, <a href="#ref42">42</a>]. In <strong>LLMs</strong>, pretraining operates as an <em>evolutionary analogue</em>: <strong>stochastic gradient descent (SGD)</strong> over massive corpora selects latent priors that minimize expected loss across tasks, with <em>fine-tuning akin to epigenetic adjustment</em> [<a href="#ref55">55</a>, <a href="#ref59">59</a>].</p>
+<p>Both <strong>DNA</strong> and <strong>nDNA</strong> are shaped by <em>selection processes</em>. In <strong>biology</strong>, the genome has evolved under millennia of selective pressure, with <strong>regulatory networks</strong> fine-tuned to ensure <em>robust development</em> and <em>adaptability</em> [<a href="#ref68">68</a>, <a href="#ref64">64</a>]. In <strong>LLMs</strong>, pretraining operates as an <em>evolutionary analogue</em>: <strong>stochastic gradient descent (SGD)</strong> over massive corpora selects latent priors that minimize expected loss across tasks, with <em>fine-tuning akin to epigenetic adjustment</em> [<a href="#ref77">77</a>, <a href="#ref81">81</a>].</p>
 
 \[\underbrace{\mathcal{L}_{\text{pretrain}}(\theta) = \mathbb{E}_{(x,y)} [-\log p_\theta(y|x)]}_{\textbf{SGD as selection pressure}}\]
 
-<p>This <strong>evolutionary parallel</strong> explains why both systems exhibit <em>clarity through complexity</em>: <strong>layered hierarchies</strong>, <strong>probabilistic pathways</strong>, and <strong>interpretable modularity</strong>. Where <strong>biological evolution</strong> yields <em>modular gene regulatory networks</em> that ensure context-sensitive expression [<a href="#ref46">46</a>], <strong>LLM training</strong> yields <em>modular latent structures</em> – such as <strong>attention heads</strong> and <strong>adapter modules</strong> – that scaffold <em>task-specific reasoning</em> [<a href="#ref49">49</a>, <a href="#ref59">59</a>].</p>
+<p>This <strong>evolutionary parallel</strong> explains why both systems exhibit <em>clarity through complexity</em>: <strong>layered hierarchies</strong>, <strong>probabilistic pathways</strong>, and <strong>interpretable modularity</strong>. Where <strong>biological evolution</strong> yields <em>modular gene regulatory networks</em> that ensure context-sensitive expression [<a href="#ref68">68</a>], <strong>LLM training</strong> yields <em>modular latent structures</em> – such as <strong>attention heads</strong> and <strong>adapter modules</strong> – that scaffold <em>task-specific reasoning</em> [<a href="#ref71">71</a>, <a href="#ref81">81</a>].</p>
 
 <h3 id="why-corpus-dependence-matters">Why Corpus Dependence Matters</h3>
 
-<p>Far from a flaw, <strong>corpus dependence in nDNA</strong> is the signature of a <em>flexible</em>, <em>adaptive reasoning architecture</em>. Just as biological systems rely on <strong>tissue-specific gene expression</strong> to produce functional diversity from a <em>universal genome</em> [<a href="#ref42">42</a>, <a href="#ref46">46</a>], large language models (LLMs) leverage <strong>corpus-dependent latent scaffolding</strong> to generate reasoning structures attuned to task demands, mirroring the reproducibility logic of biological variability quantification [<a href="#ref60">60</a>]. By examining nDNA’s <strong>spectral curvature</strong> \((\kappa)\), <strong>thermodynamic length</strong> \((\mathcal{L})\), and <strong>belief vector norm</strong> \((\lVert\mathbf{v}_\ell^{(c)}\rVert)\), we gain a <strong>diagnostic lens</strong> for alignment, generalization, and safety [<a href="#ref51">51</a>, <a href="#ref52">52</a>, <a href="#ref48">48</a>]:</p>
+<p>Far from a flaw, <strong>corpus dependence in nDNA</strong> is the signature of a <em>flexible</em>, <em>adaptive reasoning architecture</em>. Just as biological systems rely on <strong>tissue-specific gene expression</strong> to produce functional diversity from a <em>universal genome</em> [<a href="#ref64">64</a>, <a href="#ref68">68</a>], large language models (LLMs) leverage <strong>corpus-dependent latent scaffolding</strong> to generate reasoning structures attuned to task demands, mirroring the reproducibility logic of biological variability quantification [<a href="#ref82">82</a>]. By examining nDNA’s <strong>spectral curvature</strong> \((\kappa)\), <strong>thermodynamic length</strong> \((\mathcal{L})\), and <strong>belief vector norm</strong> \((\lVert\mathbf{v}_\ell^{(c)}\rVert)\), we gain a <strong>diagnostic lens</strong> for alignment, generalization, and safety [<a href="#ref73">73</a>, <a href="#ref74">74</a>, <a href="#ref70">70</a>]:</p>
 
 \[\mathcal{S}_{\text{nDNA}}(c) = \int_{\gamma_c} \left(\alpha\kappa + \beta\mathcal{L} + \gamma\lVert\mathbf{v}_\ell^{(c)}\rVert\right) \, ds\]
 
-<p>where \(\gamma_c\) is the latent trajectory for corpus \(c\). This latent geometry echoes Waddington’s epigenetic landscape where paths represent developmental fates [<a href="#ref61">61</a>].</p>
+<p>where \(\gamma_c\) is the latent trajectory for corpus \(c\). This latent geometry echoes Waddington’s epigenetic landscape where paths represent developmental fates [<a href="#ref83">83</a>].</p>
 
-<p><strong>QA tasks</strong> evoke compact low-curvature paths (e.g. \(\kappa \sim 0.012\)–\(0.03\), \(\mathcal{L} \sim 0.47\)–\(0.53\)) [<a href="#ref58">58</a>, <a href="#ref62">62</a>, <a href="#ref63">63</a>], while <strong>reasoning tasks</strong> elicit broader high-curvature paths (e.g. \(\kappa \sim 0.005\)–\(0.04\)) [<a href="#ref56">56</a>, <a href="#ref64">64</a>, <a href="#ref49">49</a>]. <strong>Dialogue corpora</strong> produce shallow clustered scaffolds [<a href="#ref57">57</a>, <a href="#ref65">65</a>, <a href="#ref66">66</a>]; <strong>commonsense tasks</strong> yield oscillatory paths [<a href="#ref67">67</a>, <a href="#ref68">68</a>, <a href="#ref69">69</a>]. nDNA aligns with interpretable AI goals [<a href="#ref70">70</a>] and geometric decoding approaches [<a href="#ref71">71</a>].</p>
+<p><strong>QA tasks</strong> evoke compact low-curvature paths (e.g. \(\kappa \sim 0.012\)–\(0.03\), \(\mathcal{L} \sim 0.47\)–\(0.53\)) [<a href="#ref80">80</a>, <a href="#ref84">84</a>, <a href="#ref85">85</a>], while <strong>reasoning tasks</strong> elicit broader high-curvature paths (e.g. \(\kappa \sim 0.005\)–\(0.04\)) [<a href="#ref78">78</a>, <a href="#ref86">86</a>, <a href="#ref71">71</a>]. <strong>Dialogue corpora</strong> produce shallow clustered scaffolds [<a href="#ref79">79</a>, <a href="#ref87">87</a>, <a href="#ref88">88</a>]; <strong>commonsense tasks</strong> yield oscillatory paths [<a href="#ref89">89</a>, <a href="#ref90">90</a>, <a href="#ref91">91</a>]. nDNA aligns with interpretable AI goals [<a href="#ref92">92</a>] and geometric decoding approaches [<a href="#ref93">93</a>].</p>
 
-<p>This corpus dependence is <em>not arbitrary noise</em> – it reflects the model’s <strong>learned latent regulatory logic</strong>, analogous to the combinatorial control of <strong>gene regulatory networks</strong> that ensures <em>context-sensitive yet robust gene expression</em> [<a href="#ref46">46</a>, <a href="#ref40">40</a>]. Just as <em>developmental disorders</em> arise when regulatory circuits misfire [<a href="#ref42">42</a>], misalignment or hallucination in LLMs can be traced to <em>latent trajectories that diverge from expected scaffolding</em>. <strong>nDNA analysis</strong>, therefore, does not merely characterize model geometry – it offers a <strong>tool for interpretability, failure detection, and safe alignment</strong>.</p>
+<p>This corpus dependence is <em>not arbitrary noise</em> – it reflects the model’s <strong>learned latent regulatory logic</strong>, analogous to the combinatorial control of <strong>gene regulatory networks</strong> that ensures <em>context-sensitive yet robust gene expression</em> [<a href="#ref68">68</a>, <a href="#ref62">62</a>]. Just as <em>developmental disorders</em> arise when regulatory circuits misfire [<a href="#ref64">64</a>], misalignment or hallucination in LLMs can be traced to <em>latent trajectories that diverge from expected scaffolding</em>. <strong>nDNA analysis</strong>, therefore, does not merely characterize model geometry – it offers a <strong>tool for interpretability, failure detection, and safe alignment</strong>.</p>
 
 <blockquote>
   <p><em><strong>Corpus dependence in nDNA is the expression of reasoning plasticity</strong>, bounded by universal latent priors much like gene networks balance flexibility with functional coherence.</em></p>
 </blockquote>
 
-<p>Moreover, the <strong>universality of nDNA’s foundational structure</strong> – its pretrained manifold, architectural symmetries, and core alignment priors – provides the <em>stabilizing grammar</em> that constrains corpus-specific scaffolds within meaningful reasoning spaces [<a href="#ref53">53</a>, <a href="#ref55">55</a>]. This is the latent equivalent of biology’s <strong>genetic code</strong> and <strong>conserved transcriptional machinery</strong>: an <em>invariant substrate</em> that supports functional diversity without sacrificing coherence. By quantifying how nDNA paths <em>bend</em>, <em>stretch</em>, or <em>steer</em> in response to task demands, we can map the model’s <strong>cognitive landscape</strong> – and determine when it traces <em>human-aligned reasoning</em> or drifts into failure modes.</p>
+<p>Moreover, the <strong>universality of nDNA’s foundational structure</strong> – its pretrained manifold, architectural symmetries, and core alignment priors – provides the <em>stabilizing grammar</em> that constrains corpus-specific scaffolds within meaningful reasoning spaces [<a href="#ref75">75</a>, <a href="#ref77">77</a>]. This is the latent equivalent of biology’s <strong>genetic code</strong> and <strong>conserved transcriptional machinery</strong>: an <em>invariant substrate</em> that supports functional diversity without sacrificing coherence. By quantifying how nDNA paths <em>bend</em>, <em>stretch</em>, or <em>steer</em> in response to task demands, we can map the model’s <strong>cognitive landscape</strong> – and determine when it traces <em>human-aligned reasoning</em> or drifts into failure modes.</p>
 
 <blockquote>
   <p><em><strong>What the genome is to life’s functional unity</strong>, nDNA is to the model’s reasoning coherence: a universal code that binds diversity into stability, and complexity into interpretability.</em></p>
@@ -813,18 +990,18 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
   <tbody>
     <tr>
       <td><strong>Universal code</strong></td>
-      <td>Codon mapping \(\phi: \Sigma^3 \to \mathcal{A}\), kernel \(\neq \emptyset\), redundancy ensures error tolerance [<a href="#ref40">40</a>]</td>
-      <td>Pretrained latent manifold; symmetries \(G_{\text{LLM}} \subset \text{Aut}(V)\); generalization via equivariance [<a href="#ref55">55</a>]</td>
+      <td>Codon mapping \(\phi: \Sigma^3 \to \mathcal{A}\), kernel \(\neq \emptyset\), redundancy ensures error tolerance [<a href="#ref62">62</a>]</td>
+      <td>Pretrained latent manifold; symmetries \(G_{\text{LLM}} \subset \text{Aut}(V)\); generalization via equivariance [<a href="#ref77">77</a>]</td>
     </tr>
     <tr>
       <td><strong>Context regulator</strong></td>
-      <td>Conditional \(P(\text{gene ON}|\text{TF, epi})\); Bayesian gene networks [<a href="#ref46">46</a>]</td>
-      <td>Conditional latent path \(P(h_1,\ldots,h_\ell|x)\); stochastic latent dynamics [<a href="#ref49">49</a>]</td>
+      <td>Conditional \(P(\text{gene ON}|\text{TF, epi})\); Bayesian gene networks [<a href="#ref68">68</a>]</td>
+      <td>Conditional latent path \(P(h_1,\ldots,h_\ell|x)\); stochastic latent dynamics [<a href="#ref71">71</a>]</td>
     </tr>
     <tr>
       <td><strong>Path geometry</strong></td>
-      <td>Minimal energy path \(\gamma^*\) in epigenetic landscape: \(\int_\gamma \lVert\nabla V\rVert \, ds\) [<a href="#ref61">61</a>]</td>
-      <td>Latent geodesic minimizing cost: \(\int_\gamma \lVert\nabla_\theta \log p(y\mid x)\rVert^2 \, ds\) [<a href="#ref52">52</a>]</td>
+      <td>Minimal energy path \(\gamma^*\) in epigenetic landscape: \(\int_\gamma \lVert\nabla V\rVert \, ds\) [<a href="#ref83">83</a>]</td>
+      <td>Latent geodesic minimizing cost: \(\int_\gamma \lVert\nabla_\theta \log p(y\mid x)\rVert^2 \, ds\) [<a href="#ref74">74</a>]</td>
     </tr>
     <tr>
       <td><strong>Output mapping</strong></td>
@@ -1048,115 +1225,159 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
 
 <p><a id="ref16"></a>[16] Bakker, Tom and others “Uniting Model Merging and Distillation: Towards Unified Neural Inheritance” <em>arXiv preprint arXiv:2402.00999</em> (2024).</p>
 
-<p><a id="ref17"></a>[17] Farzam, Amir, Subramani, Akshay, and others “Ricci Curvature Reveals Alignment Dynamics in Language Models” <em>ICLR</em> (2024).</p>
+<p><a id="ref17"></a>[17] Garipov, Timur, Izmailov, Pavel, and others “Loss Surfaces, Mode Connectivity, and Fast Ensembling of Deep Neural Networks” <em>Advances in Neural Information Processing Systems</em> (2018). <a href="https://arxiv.org/abs/1802.10026">https://arxiv.org/abs/1802.10026</a></p>
 
-<p><a id="ref18"></a>[18] Cho, Kyunghyun and others “Mixed Curvature Geometry in Large Language Models” <em>arXiv preprint arXiv:2310.04890</em> (2023).</p>
+<p><a id="ref18"></a>[18] Draxler, Felix, Veschgini, Kambis, and others “Essentially No Barriers in Neural Network Energy Landscape” <em>Proceedings of the 35th International Conference on Machine Learning</em> (2018). <a href="https://proceedings.mlr.press/v80/draxler18a.html">https://proceedings.mlr.press/v80/draxler18a.html</a></p>
 
-<p><a id="ref19"></a>[19] Gasteiger, Johannes, Becker, Florian, and others “GemNet: Universal Directional Graph Neural Networks for Molecules” <em>NeurIPS</em> (2021).</p>
+<p><a id="ref19"></a>[19] Li, Hao, Xu, Zheng, and others “Visualizing the Loss Landscape of Neural Nets” <em>Advances in Neural Information Processing Systems</em> (2018). <a href="https://papers.nips.cc/paper/2018/hash/a41b3bb3e6b050b6c9067c67f663b915-Abstract.html">https://papers.nips.cc/paper/2018/hash/a41b3bb3e6b050b6c9067c67f663b915-Abstract.html</a></p>
 
-<p><a id="ref20"></a>[20] Xu, Yifan and Tong, Hanghang “Spherical Graph Neural Networks for Learning on Non-Euclidean Structures” <em>ICLR</em> (2022).</p>
+<p><a id="ref20"></a>[20] Entezari, Rahim, Sedghi, Hanie, and others “The Role of Permutation Invariance in Linear Mode Connectivity of Neural Networks” <em>International Conference on Learning Representations</em> (2022). <a href="https://arxiv.org/abs/2110.06296">https://arxiv.org/abs/2110.06296</a></p>
 
-<p><a id="ref21"></a>[21] Konf, Anna and Zhang, Yuhang “Hierarchical Spectral Networks for Structured Reasoning” <em>ACL</em> (2021).</p>
+<p><a id="ref21"></a>[21] Ainsworth, Samuel K., Hayase, Jonathan, and others “Git Re-Basin: Merging Models modulo Permutation Symmetries” <em>International Conference on Learning Representations (ICLR)</em> (2023). <a href="https://openreview.net/forum?id=CQsmMYmlP5T">https://openreview.net/forum?id=CQsmMYmlP5T</a></p>
 
-<p><a id="ref22"></a>[22] Ying, Rex, Tancik, Matthew, and others “SE(3)-Equivariant Graph Neural Networks for Data-Efficient and Accurate Interatomic Potentials” <em>NeurIPS</em> (2021). <a href="https://proceedings.neurips.cc/paper_files/paper/2021/file/2e7480b033cddcfba40cbed8d8b2c4ec-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2021/file/2e7480b033cddcfba40cbed8d8b2c4ec-Paper.pdf</a></p>
+<p><a id="ref22"></a>[22] Wortsman, Mitchell, Ilharco, Gabriel, and others “Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time” <em>Proceedings of the 39th International Conference on Machine Learning (ICML)</em> (2022). <a href="https://arxiv.org/abs/2205.05638">https://arxiv.org/abs/2205.05638</a></p>
 
-<p><a id="ref23"></a>[23] Hu, Zexuan, Li, Qi, and others “Learning Lie Algebra Representations in Transformers” <em>NeurIPS</em> (2022). <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/3a1b9185290a2c576a8cc4eecdfd24f9-Paper-Conference.pdf">https://proceedings.neurips.cc/paper_files/paper/2022/file/3a1b9185290a2c576a8cc4eecdfd24f9-Paper-Conference.pdf</a></p>
+<p><a id="ref23"></a>[23] Efron, Bradley “Defining the Curvature of a Statistical Problem (with Applications to Second Order Efficiency)” <em>The Annals of Statistics</em> (1975). <a href="https://projecteuclid.org/journals/annals-of-statistics/volume-3/issue-6/defining-the-curvature-of-a-statistical-problem-with-applications-to-second-order-efficiency/10.1214/aos/1176343282">https://projecteuclid.org/journals/annals-of-statistics/volume-3/issue-6/defining-the-curvature-of-a-statistical-problem-with-applications-to-second-order-efficiency/10.1214/aos/1176343282</a></p>
 
-<p><a id="ref24"></a>[24] Hess, William, Rahimi, Ali, and others “Spectral Regularization for Stable Representation Learning” <em>ICML</em> (2023). <a href="https://proceedings.mlr.press/v202/hess23a/hess23a.pdf">https://proceedings.mlr.press/v202/hess23a/hess23a.pdf</a></p>
+<p><a id="ref24"></a>[24] Amari, Shun-ichi and Nagaoka, Hiroshi “Methods of information geometry” <em>arXiv preprint</em> (2000).</p>
 
-<p><a id="ref25"></a>[25] Wang, Qingyun and others “GeomTransformer: Geometry-Equivariant Attention for Molecular Graphs” <em>ICLR</em> (2021).</p>
+<p><a id="ref25"></a>[25] Amari, Shun-ichi “Information geometry and its applications” <em>Applied Mathematical Sciences</em> (2016).</p>
 
-<p><a id="ref26"></a>[26] Raposo, Tiago and Xu, Muhao “Spectral Geometry in Language Models” <em>arXiv preprint arXiv:2308.00042</em> (2023). <a href="https://arxiv.org/abs/2308.00042">https://arxiv.org/abs/2308.00042</a></p>
+<p><a id="ref26"></a>[26] Jain, Sarthak and Wallace, Byron C. “Attention is not Explanation” <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</em> (2019). <a href="https://aclanthology.org/N19-1357/">https://aclanthology.org/N19-1357/</a></p>
 
-<p><a id="ref27"></a>[27] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
+<p><a id="ref27"></a>[27] Serrano, Sofia and Smith, Noah A. “Is Attention Interpretable?” <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em> (2019). <a href="https://aclanthology.org/P19-1282/">https://aclanthology.org/P19-1282/</a></p>
 
-<p><a id="ref28"></a>[28] Oliviero, Daniele, Bacciu, Davide, and others “Thermodynamics of Learning: Energy-Based Viewpoints and Information Geometry in Deep Learning” <em>Proceedings of the 40th International Conference on Machine Learning (ICML)</em> (2023).</p>
+<p><a id="ref28"></a>[28] Michel, Paul, Levy, Omer, and others “Are sixteen heads really better than one?” <em>Advances in Neural Information Processing Systems (NeurIPS)</em> (2019).</p>
 
-<p><a id="ref29"></a>[29] Wagner, Henrik and Bubeck, Sébastien “Thermodynamic Metrics Reveal Capacity Allocation in Transformers” <em>arXiv preprint arXiv:2306.13052</em> (2023).</p>
+<p><a id="ref29"></a>[29] Voita, Elena, Talbot, David, and others “Analyzing multi-head self-attention: Specialized heads do the heavy lifting, the rest can be pruned” <em>Proceedings of ACL</em> (2019).</p>
 
-<p><a id="ref30"></a>[30] Wang, Ziwei, Xu, Yichao, and others “Cultural bias in large language models: A survey” <em>arXiv preprint arXiv:2311.05691</em> (2023).</p>
+<p><a id="ref30"></a>[30] Clark, Kevin, Khandelwal, Urvashi, and others “What Does {BERT} Look At? An Analysis of {BERT}’s Attention” <em>Proceedings of the 2019 ACL Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP</em> (2019). <a href="https://aclanthology.org/W19-4828/">https://aclanthology.org/W19-4828/</a></p>
 
-<p><a id="ref31"></a>[31] Shen, Sheng and others “The Geometry of Belief in Language Models” <em>arXiv preprint arXiv:2305.12355</em> (2023).</p>
+<p><a id="ref31"></a>[31] Kovaleva, Olga, Romanov, Alexey, and others “Revealing the Dark Secrets of {BERT}” <em>Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)</em> (2019). <a href="https://aclanthology.org/D19-1445">https://aclanthology.org/D19-1445</a></p>
 
-<p><a id="ref32"></a>[32] Arora, Akhila, Goyal, Tushar, and others “Stereoset: Measuring stereotypical bias in pretrained language models” <em>TACL</em> (2023).</p>
+<p><a id="ref32"></a>[32] Abnar, Samira and Zuidema, Willem “Quantifying Attention Flow in Transformers” <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (2020). <a href="https://aclanthology.org/2020.acl-main.385">https://aclanthology.org/2020.acl-main.385</a></p>
 
-<p><a id="ref33"></a>[33] Bommasani, R. and others “Foundation models: Past, present, and future” <em>arXiv preprint arXiv:2309.00616</em> (2023).</p>
+<p><a id="ref33"></a>[33] Geva, Mor, Schuster, Roei, and others “Transformer Feed-Forward Layers Are Key-Value Memories” <em>Proceedings of EMNLP</em> (2021). <a href="https://aclanthology.org/2021.emnlp-main.446/">https://aclanthology.org/2021.emnlp-main.446/</a></p>
 
-<p><a id="ref34"></a>[34] Peng, Baolin, Wang, Li, and others “Culturally aligned language modeling: Methods and benchmarks” <em>ACL</em> (2024).</p>
+<p><a id="ref34"></a>[34] Adebayo, Julius, Gilmer, Justin, and others “Sanity Checks for Saliency Maps” <em>Advances in Neural Information Processing Systems 31 (NeurIPS 2018)</em> (2018). <a href="https://proceedings.neurips.cc/paper/2018/hash/294a8ed24b1ad22ec2e7efea049b8737-Abstract.html">https://proceedings.neurips.cc/paper/2018/hash/294a8ed24b1ad22ec2e7efea049b8737-Abstract.html</a></p>
 
-<p><a id="ref35"></a>[35] Laurens, Ethan and others “The Ethics of Alignment: Towards Culturally Inclusive Foundation Models” <em>Proceedings of the AAAI Conference on Artificial Intelligence</em> (2024).</p>
+<p><a id="ref35"></a>[35] Jacovi, Alon and Goldberg, Yoav “Towards Faithfully Interpretable NLP Systems: How Should We Define and Evaluate Faithfulness?” <em>Proceedings of ACL</em> (2020). <a href="https://aclanthology.org/2020.acl-main.386/">https://aclanthology.org/2020.acl-main.386/</a></p>
 
-<p><a id="ref36"></a>[36] Kang, Junjie and Liu, Emily “Fairness Across Cultures in NLP” <em>ACL</em> (2024).</p>
+<p><a id="ref36"></a>[36] Tenney, Ian, Das, Dipanjan, and others “BERT rediscovers the classical NLP pipeline” <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em> (2019).</p>
 
-<p><a id="ref37"></a>[37] de Vries, Harm and Sharma, Aarushi “Latent Bias Projection in Transformers” <em>EMNLP</em> (2023).</p>
+<p><a id="ref37"></a>[37] Sivak, David A and Crooks, Gavin E “Thermodynamic metrics and optimal paths” <em>Physical Review Letters</em> (2012).</p>
 
-<p><a id="ref38"></a>[38] Gao, Xiaozhong and Huang, Yiwen “Tracing Value Attribution in Foundation Models” <em>NeurIPS</em> (2023).</p>
+<p><a id="ref38"></a>[38] Hyv{"a}rinen, Aapo “Estimation of Non-Normalized Statistical Models by Score Matching” <em>Journal of Machine Learning Research</em> (2005). <a href="https://jmlr.org/papers/v6/hyvarinen05a.html">https://jmlr.org/papers/v6/hyvarinen05a.html</a></p>
 
-<p><a id="ref39"></a>[39] Alberts, Bruce, Johnson, Alexander, and others “Molecular Biology of the Cell” <em>arXiv preprint</em> (2014).</p>
+<p><a id="ref39"></a>[39] Farzam, Amir, Subramani, Akshay, and others “Ricci Curvature Reveals Alignment Dynamics in Language Models” <em>ICLR</em> (2024).</p>
 
-<p><a id="ref40"></a>[40] Lewin, Benjamin, Krebs, Jocelyn E, and others “Genes XI” <em>arXiv preprint</em> (2013).</p>
+<p><a id="ref40"></a>[40] Cho, Kyunghyun and others “Mixed Curvature Geometry in Large Language Models” <em>arXiv preprint arXiv:2310.04890</em> (2023).</p>
 
-<p><a id="ref41"></a>[41] Bird, Adrian “Perceptions of epigenetics” <em>Nature</em> (2007).</p>
+<p><a id="ref41"></a>[41] Gasteiger, Johannes, Becker, Florian, and others “GemNet: Universal Directional Graph Neural Networks for Molecules” <em>NeurIPS</em> (2021).</p>
 
-<p><a id="ref42"></a>[42] Davidson, Eric H. “The Regulatory Genome: Gene Regulatory Networks In Development And Evolution” <em>arXiv preprint</em> (2006).</p>
+<p><a id="ref42"></a>[42] Xu, Yifan and Tong, Hanghang “Spherical Graph Neural Networks for Learning on Non-Euclidean Structures” <em>ICLR</em> (2022).</p>
 
-<p><a id="ref43"></a>[43] Lambert, Samuel A., Jolma, Arttu, and others “The human transcription factors” <em>Cell</em> (2018).</p>
+<p><a id="ref43"></a>[43] Konf, Anna and Zhang, Yuhang “Hierarchical Spectral Networks for Structured Reasoning” <em>ACL</em> (2021).</p>
 
-<p><a id="ref44"></a>[44] Clapier, Cedric R., Iwasa, Janet, and others “Mechanisms of action and regulation of ATP-dependent chromatin-remodelling complexes” <em>Nature Reviews Molecular Cell Biology</em> (2017).</p>
+<p><a id="ref44"></a>[44] Ying, Rex, Tancik, Matthew, and others “SE(3)-Equivariant Graph Neural Networks for Data-Efficient and Accurate Interatomic Potentials” <em>NeurIPS</em> (2021). <a href="https://proceedings.neurips.cc/paper_files/paper/2021/file/2e7480b033cddcfba40cbed8d8b2c4ec-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2021/file/2e7480b033cddcfba40cbed8d8b2c4ec-Paper.pdf</a></p>
 
-<p><a id="ref45"></a>[45] Dekker, Job and Mirny, Leonid “Exploring the three-dimensional organization of genomes: interpreting chromatin interaction data” <em>Nature Reviews Genetics</em> (2013).</p>
+<p><a id="ref45"></a>[45] Hu, Zexuan, Li, Qi, and others “Learning Lie Algebra Representations in Transformers” <em>NeurIPS</em> (2022). <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/3a1b9185290a2c576a8cc4eecdfd24f9-Paper-Conference.pdf">https://proceedings.neurips.cc/paper_files/paper/2022/file/3a1b9185290a2c576a8cc4eecdfd24f9-Paper-Conference.pdf</a></p>
 
-<p><a id="ref46"></a>[46] Alon, Uri “An Introduction to Systems Biology: Design Principles of Biological Circuits” <em>arXiv preprint</em> (2006).</p>
+<p><a id="ref46"></a>[46] Hess, William, Rahimi, Ali, and others “Spectral Regularization for Stable Representation Learning” <em>ICML</em> (2023). <a href="https://proceedings.mlr.press/v202/hess23a/hess23a.pdf">https://proceedings.mlr.press/v202/hess23a/hess23a.pdf</a></p>
 
-<p><a id="ref47"></a>[47] Thurman, Robert E., Rynes, Eric, and others “The accessible chromatin landscape of the human genome” <em>Nature</em> (2012).</p>
+<p><a id="ref47"></a>[47] Wang, Qingyun and others “GeomTransformer: Geometry-Equivariant Attention for Molecular Graphs” <em>ICLR</em> (2021).</p>
 
-<p><a id="ref48"></a>[48] Olah, Chris, Satyanarayan, Arvind, and others “Zoom In: An introduction to circuits” <em>arXiv preprint</em> (2020). <a href="https://distill.pub/2020/circuits/zoom-in/">https://distill.pub/2020/circuits/zoom-in/</a></p>
+<p><a id="ref48"></a>[48] Raposo, Tiago and Xu, Muhao “Spectral Geometry in Language Models” <em>arXiv preprint arXiv:2308.00042</em> (2023). <a href="https://arxiv.org/abs/2308.00042">https://arxiv.org/abs/2308.00042</a></p>
 
-<p><a id="ref49"></a>[49] Geva, Mor, Schuster, Tal, and others “Transformer feed-forward layers are key-value memories” <em>Proceedings of EMNLP</em> (2021).</p>
+<p><a id="ref49"></a>[49] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
 
-<p><a id="ref50"></a>[50] Beltagy, Iz, Peters, Matthew E., and others “Longformer: The Long-Document Transformer” <em>arXiv preprint arXiv:2004.05150</em> (2020).</p>
+<p><a id="ref50"></a>[50] Oliviero, Daniele, Bacciu, Davide, and others “Thermodynamics of Learning: Energy-Based Viewpoints and Information Geometry in Deep Learning” <em>Proceedings of the 40th International Conference on Machine Learning (ICML)</em> (2023).</p>
 
-<p><a id="ref51"></a>[51] Belkin, Mikhail, Hsu, Daniel, and others “Reconciling modern machine-learning practice and the classical bias–variance trade-off” <em>Proceedings of the National Academy of Sciences</em> (2019).</p>
+<p><a id="ref51"></a>[51] Wagner, Henrik and Bubeck, Sébastien “Thermodynamic Metrics Reveal Capacity Allocation in Transformers” <em>arXiv preprint arXiv:2306.13052</em> (2023).</p>
 
-<p><a id="ref52"></a>[52] Still, Susanne “Thermodynamic cost and benefit of memory” <em>Physical Review Letters</em> (2012).</p>
+<p><a id="ref52"></a>[52] Wang, Ziwei, Xu, Yichao, and others “Cultural bias in large language models: A survey” <em>arXiv preprint arXiv:2311.05691</em> (2023).</p>
 
-<p><a id="ref53"></a>[53] Vaswani, Ashish, Shazeer, Noam, and others “Attention is all you need” <em>Proceedings of NeurIPS</em> (2017).</p>
+<p><a id="ref53"></a>[53] Shen, Sheng and others “The Geometry of Belief in Language Models” <em>arXiv preprint arXiv:2305.12355</em> (2023).</p>
 
-<p><a id="ref54"></a>[54] Mikolov, Tomas, Sutskever, Ilya, and others “Distributed representations of words and phrases and their compositionality” <em>NeurIPS</em> (2013).</p>
+<p><a id="ref54"></a>[54] Arora, Akhila, Goyal, Tushar, and others “Stereoset: Measuring stereotypical bias in pretrained language models” <em>TACL</em> (2023).</p>
 
-<p><a id="ref55"></a>[55] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
+<p><a id="ref55"></a>[55] Bommasani, R. and others “Foundation models: Past, present, and future” <em>arXiv preprint arXiv:2309.00616</em> (2023).</p>
 
-<p><a id="ref56"></a>[56] Cobbe, Karl, Kosaraju, Vineet, and others “Training verifiers to solve math word problems” <em>arXiv preprint arXiv:2110.14168</em> (2021).</p>
+<p><a id="ref56"></a>[56] Peng, Baolin, Wang, Li, and others “Culturally aligned language modeling: Methods and benchmarks” <em>ACL</em> (2024).</p>
 
-<p><a id="ref57"></a>[57] Budzianowski, Paweł, Wen, Tsung-Hsien, and others “MultiWOZ–A large-scale multi-domain wizard-of-oz dataset for task-oriented dialogue modelling” <em>Proceedings of EMNLP</em> (2018).</p>
+<p><a id="ref57"></a>[57] Laurens, Ethan and others “The Ethics of Alignment: Towards Culturally Inclusive Foundation Models” <em>Proceedings of the AAAI Conference on Artificial Intelligence</em> (2024).</p>
 
-<p><a id="ref58"></a>[58] Rajpurkar, Pranav, Zhang, Jian, and others “SQuAD: 100,000+ questions for machine comprehension of text” <em>Proceedings of EMNLP</em> (2016).</p>
+<p><a id="ref58"></a>[58] Kang, Junjie and Liu, Emily “Fairness Across Cultures in NLP” <em>ACL</em> (2024).</p>
 
-<p><a id="ref59"></a>[59] Pfeiffer, Jonas, Kamath, Ankur, and others “AdapterFusion: Non-Destructive Task Composition for Transfer Learning” <em>EACL</em> (2021).</p>
+<p><a id="ref59"></a>[59] de Vries, Harm and Sharma, Aarushi “Latent Bias Projection in Transformers” <em>EMNLP</em> (2023).</p>
 
-<p><a id="ref60"></a>[60] Marioni, John C, Mason, Christopher E, and others “RNA-seq: An assessment of technical reproducibility and comparison with gene expression arrays” <em>Genome research</em> (2008).</p>
+<p><a id="ref60"></a>[60] Gao, Xiaozhong and Huang, Yiwen “Tracing Value Attribution in Foundation Models” <em>NeurIPS</em> (2023).</p>
 
-<p><a id="ref61"></a>[61] Waddington, Conrad Hal “The strategy of the genes: a discussion of some aspects of theoretical biology” <em>Allen &amp; Unwin</em> (1957).</p>
+<p><a id="ref61"></a>[61] Alberts, Bruce, Johnson, Alexander, and others “Molecular Biology of the Cell” <em>arXiv preprint</em> (2014).</p>
 
-<p><a id="ref62"></a>[62] Kwiatkowski, Tom, Palomaki, Jennimaria, and others “Natural Questions: A benchmark for question answering research” <em>Proceedings of ACL</em> (2019).</p>
+<p><a id="ref62"></a>[62] Lewin, Benjamin, Krebs, Jocelyn E, and others “Genes XI” <em>arXiv preprint</em> (2013).</p>
 
-<p><a id="ref63"></a>[63] Joshi, Mandar, Choi, Eunsol, and others “TriviaQA: A large scale distantly supervised challenge dataset for reading comprehension” <em>Proceedings of ACL</em> (2017).</p>
+<p><a id="ref63"></a>[63] Bird, Adrian “Perceptions of epigenetics” <em>Nature</em> (2007).</p>
 
-<p><a id="ref64"></a>[64] Patel, Shrey Desai, Chen, Zi, and others “Are NLP models really robust? Evaluating and enhancing the robustness of NLP models for numerical reasoning” <em>Proceedings of EMNLP</em> (2021).</p>
+<p><a id="ref64"></a>[64] Davidson, Eric H. “The Regulatory Genome: Gene Regulatory Networks In Development And Evolution” <em>arXiv preprint</em> (2006).</p>
 
-<p><a id="ref65"></a>[65] Li, Jiwei, Galley, Michel, and others “A persona-based neural conversation model” <em>Proceedings of ACL</em> (2016).</p>
+<p><a id="ref65"></a>[65] Lambert, Samuel A., Jolma, Arttu, and others “The human transcription factors” <em>Cell</em> (2018).</p>
 
-<p><a id="ref66"></a>[66] Zhang, Saizheng, Dinan, Emily, and others “Personalizing dialogue agents: I have a dog, do you have pets too?” <em>Proceedings of ACL</em> (2018).</p>
+<p><a id="ref66"></a>[66] Clapier, Cedric R., Iwasa, Janet, and others “Mechanisms of action and regulation of ATP-dependent chromatin-remodelling complexes” <em>Nature Reviews Molecular Cell Biology</em> (2017).</p>
 
-<p><a id="ref67"></a>[67] Sap, Maarten, Le Bras, Ronan, and others “SocialIQA: Commonsense reasoning about social interactions” <em>Proceedings of EMNLP</em> (2019).</p>
+<p><a id="ref67"></a>[67] Dekker, Job and Mirny, Leonid “Exploring the three-dimensional organization of genomes: interpreting chromatin interaction data” <em>Nature Reviews Genetics</em> (2013).</p>
 
-<p><a id="ref68"></a>[68] Zellers, Rowan, Holtzman, Ari, and others “HellaSwag: Can a machine really finish your sentence?” <em>Proceedings of ACL</em> (2019).</p>
+<p><a id="ref68"></a>[68] Alon, Uri “An Introduction to Systems Biology: Design Principles of Biological Circuits” <em>arXiv preprint</em> (2006).</p>
 
-<p><a id="ref69"></a>[69] Talmor, Alon, Herzig, Jonathan, and others “CommonsenseQA: A question answering challenge targeting commonsense knowledge” <em>Proceedings of NAACL-HLT</em> (2019).</p>
+<p><a id="ref69"></a>[69] Thurman, Robert E., Rynes, Eric, and others “The accessible chromatin landscape of the human genome” <em>Nature</em> (2012).</p>
 
-<p><a id="ref70"></a>[70] Zhang, Qing, Yang, Wen, and others “Interpretable deep learning systems: A survey” <em>arXiv preprint arXiv:1802.09945</em> (2018).</p>
+<p><a id="ref70"></a>[70] Olah, Chris, Satyanarayan, Arvind, and others “Zoom In: An introduction to circuits” <em>arXiv preprint</em> (2020). <a href="https://distill.pub/2020/circuits/zoom-in/">https://distill.pub/2020/circuits/zoom-in/</a></p>
 
-<p><a id="ref71"></a>[71] Narayanan, S, Joshi, N, and others “Decoding language models: A geometric approach to interpretability” <em>arXiv preprint arXiv:2105.06997</em> (2021).</p>
+<p><a id="ref71"></a>[71] Geva, Mor, Schuster, Tal, and others “Transformer feed-forward layers are key-value memories” <em>Proceedings of EMNLP</em> (2021).</p>
+
+<p><a id="ref72"></a>[72] Beltagy, Iz, Peters, Matthew E., and others “Longformer: The Long-Document Transformer” <em>arXiv preprint arXiv:2004.05150</em> (2020).</p>
+
+<p><a id="ref73"></a>[73] Belkin, Mikhail, Hsu, Daniel, and others “Reconciling modern machine-learning practice and the classical bias–variance trade-off” <em>Proceedings of the National Academy of Sciences</em> (2019).</p>
+
+<p><a id="ref74"></a>[74] Still, Susanne “Thermodynamic cost and benefit of memory” <em>Physical Review Letters</em> (2012).</p>
+
+<p><a id="ref75"></a>[75] Vaswani, Ashish, Shazeer, Noam, and others “Attention is all you need” <em>Proceedings of NeurIPS</em> (2017).</p>
+
+<p><a id="ref76"></a>[76] Mikolov, Tomas, Sutskever, Ilya, and others “Distributed representations of words and phrases and their compositionality” <em>NeurIPS</em> (2013).</p>
+
+<p><a id="ref77"></a>[77] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
+
+<p><a id="ref78"></a>[78] Cobbe, Karl, Kosaraju, Vineet, and others “Training verifiers to solve math word problems” <em>arXiv preprint arXiv:2110.14168</em> (2021).</p>
+
+<p><a id="ref79"></a>[79] Budzianowski, Paweł, Wen, Tsung-Hsien, and others “MultiWOZ–A large-scale multi-domain wizard-of-oz dataset for task-oriented dialogue modelling” <em>Proceedings of EMNLP</em> (2018).</p>
+
+<p><a id="ref80"></a>[80] Rajpurkar, Pranav, Zhang, Jian, and others “SQuAD: 100,000+ questions for machine comprehension of text” <em>Proceedings of EMNLP</em> (2016).</p>
+
+<p><a id="ref81"></a>[81] Pfeiffer, Jonas, Kamath, Ankur, and others “AdapterFusion: Non-Destructive Task Composition for Transfer Learning” <em>EACL</em> (2021).</p>
+
+<p><a id="ref82"></a>[82] Marioni, John C, Mason, Christopher E, and others “RNA-seq: An assessment of technical reproducibility and comparison with gene expression arrays” <em>Genome research</em> (2008).</p>
+
+<p><a id="ref83"></a>[83] Waddington, Conrad Hal “The strategy of the genes: a discussion of some aspects of theoretical biology” <em>Allen &amp; Unwin</em> (1957).</p>
+
+<p><a id="ref84"></a>[84] Kwiatkowski, Tom, Palomaki, Jennimaria, and others “Natural Questions: A benchmark for question answering research” <em>Proceedings of ACL</em> (2019).</p>
+
+<p><a id="ref85"></a>[85] Joshi, Mandar, Choi, Eunsol, and others “TriviaQA: A large scale distantly supervised challenge dataset for reading comprehension” <em>Proceedings of ACL</em> (2017).</p>
+
+<p><a id="ref86"></a>[86] Patel, Shrey Desai, Chen, Zi, and others “Are NLP models really robust? Evaluating and enhancing the robustness of NLP models for numerical reasoning” <em>Proceedings of EMNLP</em> (2021).</p>
+
+<p><a id="ref87"></a>[87] Li, Jiwei, Galley, Michel, and others “A persona-based neural conversation model” <em>Proceedings of ACL</em> (2016).</p>
+
+<p><a id="ref88"></a>[88] Zhang, Saizheng, Dinan, Emily, and others “Personalizing dialogue agents: I have a dog, do you have pets too?” <em>Proceedings of ACL</em> (2018).</p>
+
+<p><a id="ref89"></a>[89] Sap, Maarten, Le Bras, Ronan, and others “SocialIQA: Commonsense reasoning about social interactions” <em>Proceedings of EMNLP</em> (2019).</p>
+
+<p><a id="ref90"></a>[90] Zellers, Rowan, Holtzman, Ari, and others “HellaSwag: Can a machine really finish your sentence?” <em>Proceedings of ACL</em> (2019).</p>
+
+<p><a id="ref91"></a>[91] Talmor, Alon, Herzig, Jonathan, and others “CommonsenseQA: A question answering challenge targeting commonsense knowledge” <em>Proceedings of NAACL-HLT</em> (2019).</p>
+
+<p><a id="ref92"></a>[92] Zhang, Qing, Yang, Wen, and others “Interpretable deep learning systems: A survey” <em>arXiv preprint arXiv:1802.09945</em> (2018).</p>
+
+<p><a id="ref93"></a>[93] Narayanan, S, Joshi, N, and others “Decoding language models: A geometric approach to interpretability” <em>arXiv preprint arXiv:2105.06997</em> (2021).</p>
 
 
       </div>
