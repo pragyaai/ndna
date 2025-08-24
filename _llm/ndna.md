@@ -61,11 +61,6 @@ Weight-space indicators (parameter counts, sparsity, individual neurons/heads) l
 
 **What is stable: the on-input trajectory.** For each prompt x, the forward pass traces a depth-indexed path of hidden states—the operational object we actually deploy. Prior analyses show that linguistic competencies emerge layerwise in consistent *pipelines* (POS → parsing → NER → SRL → coreference), supporting the intuition that the *trajectory through representation space* is a robust behavioral signature {% cite tenney2019bert clark2019bert %}. This motivates nDNA's choice to work in **trajectory space**, not parameter space.
 
-assets/semantic_hydrodynamics/belief_vector_flow.png
-assets/semantic_hydrodynamics/laminar_flow.png
-assets/semantic_hydrodynamics/spectral_flow.png
-assets/semantic_hydrodynamics/thermodynamics_flow.png
-
 {% include visualization-html.liquid 
    image_path="semantic_hydrodynamics/nano_gpt.gif"
    alt="nano-gpt (structure) Visualization"
@@ -79,7 +74,6 @@ assets/semantic_hydrodynamics/thermodynamics_flow.png
    alt="Flow simulation Visualization"
    caption="**Flow simulation (*analogue*).** *Fluid:* colored streamlines show speed through a bend and throat---**curvature** rises, **shear** increases, small *recirculation* pockets may form. *Semantic:* bends $\Rightarrow$ **spectral curvature** spikes ($\kappa$); constrictions $\Rightarrow$ **thermodynamic length** bursts ($\Delta L$); eddies $\Rightarrow$ local rotation in the **belief field** ($\nabla\times\mathbf{v}$)."
    height="410px"
-   cover=true
    %}
 </div>
 <div style="width: 50%">
@@ -88,7 +82,7 @@ assets/semantic_hydrodynamics/thermodynamics_flow.png
    alt="Pipeline metaphor (macro view)"
    caption="**Pipeline metaphor (*macro view*).** *Geometry governs transport:* routing capacity and effort depend on the network of ducts. *Semantic:* model design / fine-tuning shapes **where meaning flows easily**, **where it pays**, and **where it recirculates**."
    height="410px"
-   cover=true
+   cover_image=true
    %}
 </div>
 </div>
@@ -96,9 +90,6 @@ assets/semantic_hydrodynamics/thermodynamics_flow.png
 {% include visualization-html.liquid 
    caption="**Semantic hydrodynamics.** ***Model.*** We read the forward pass as *semantic hydrodynamics*: a prompt injects *semantic mass* that is transported through depth like a fluid through a shaped channel. ***Why.*** Weight/attention coordinates can change without altering behavior; the *on-input flow* provides **behavior-first**, **coordinate-free** signals. ***Reading guide.*** **Bend** $\to$ *spectral curvature* $\kappa$ (sharp reroutes vs. laminar refinement); **Pay** $\to$ *thermodynamic length* $L$ (where the model expends effort; $\Delta L$ bursts mark *bottlenecks*); **Push** $\to$ *belief field* $\mathbf{v}$ (direction/magnitude of local drive; eddies indicate *recirculation*). ***Benefit.*** The same metaphor specifies **where to measure**---*bends*, *throats*, and *eddies*---turning inner computation into **actionable diagnostics** and **governance thresholds**."
    %}
-
-
-
 
 ### Why semantic hydrodynamics matters
 
@@ -141,28 +132,100 @@ assets/semantic_hydrodynamics/thermodynamics_flow.png
 
 **Rule of thumb:** If the goal is to **explain**, **compare**, or **govern** deployed behavior, analyze the **flow of meaning** that the input actually experiences. In nDNA: **curvature** says *where it bends*, **thermodynamic length** says *how much it pays*, and the **belief field** says *what pushes it*—all with a ruler calibrated to the model's own predictions.
 
----
+<div style="display: flex; gap: 1rem;">
+<div style="width: 50%">
+{% include visualization.liquid 
+   image_path="semantic_hydrodynamics/laminar_flow.png"
+   alt="Laminar flow Visualization"
+   caption="**Laminar flow.** *Fluid:* viscous--dominated, low--Re regime; nearly
+   parallel streamlines, negligible cross--stream mixing, no
+   recirculation.
 
-## Semantic Hydrodynamics: The Flow Metaphor
+   **LLM Semantic Flow:** uniformly low spectral curvature $\kappa$, small
+   steady $\Delta L$, and high alignment between the step and the belief
+   push (steady refinement)."
+   height="auto"
+   %}
+</div>
+<div style="width: 50%">
+{% include visualization.liquid 
+   image_path="semantic_hydrodynamics/spectral_flow.png"
+   alt="Spectral curvature Visualization"
+   caption="**Spectral curvature ($\kappa$) --- turbulent.** *Fluid:* a bend induces
+   sharp turning, higher shear, possible separation.
 
-We read the forward pass as *semantic hydrodynamics*: a prompt injects *semantic mass* that is transported through depth like a fluid through a shaped channel. This metaphor provides both intuitive understanding and actionable diagnostics:
+   **LLM Semantic Flow:** a localized $\kappa$ spike at the turning point
+   marks a sharp reroute in representation space; quasi--linear segments
+   before/after indicate a discrete semantic pivot (e.g., topic jump,
+   shortcut, policy jolt)."
+   height="auto"
+   %}
+</div>
+</div>
 
-### Flow Analogies
+<div style="display: flex; gap: 1rem;">
+<div style="width: 50%">
+{% include visualization.liquid 
+   image_path="semantic_hydrodynamics/thermodynamics_flow.png"
+   alt="Thermodynamic length Visualization"
+   caption="**Thermodynamic length ($L$).** *Fluid:* a constriction raises shear and
+   pressure drop; energy dissipates fastest in the throat.
 
-**Laminar flow** corresponds to uniform low spectral curvature κ, small steady ΔL, and high alignment between the step and the belief push (steady refinement).
+   **LLM Semantic Flow:** a stiffer metric band (hatched) and a rise in
+   $\Delta L$ reveal a bottleneck where extra *semantic effort* is paid to
+   reshape belief (friction, detours, boundary crossing)."
+   height="auto"
+   %}
+</div>
+<div style="width: 50%">
+{% include visualization.liquid 
+   image_path="semantic_hydrodynamics/belief_vector_flow.png"
+   alt="Belief field Visualization"
+   caption="**Belief field ($\mathbf{v}$).** *Fluid:* the velocity field sets
+   transport; eddies (local curl) mark recirculation; alignment with
+   streamlines indicates efficient conveyance.
 
-**Turbulent flow** with sharp bends induces spectral curvature κ spikes at turning points, marking discrete semantic pivots (topic jumps, shortcuts, policy jolts).
+   **LLM Semantic Flow:** $\mathbf{v}$ is the local push that most steeply
+   changes the output law; longer arrows $\Rightarrow$ larger
+   $\|\mathbf{v}\|$, and the side gauge shows $\cos\theta$ between
+   $\mathbf{v}$ and the path tangent $\mathbf{T}$; circular loops on waves
+   depict local recirculation that can trap or reinforce beliefs."
+   height="auto"
+   %}
+</div>
+</div>
 
-**Thermodynamic bottlenecks** appear as constrictions that raise ΔL bursts, revealing where extra semantic effort is paid to reshape belief (friction, detours, boundary crossing).
+{% include visualization-html.liquid 
+   caption="**LLM as an input$\to$output semantic channel.** *Model:* we read the
+   forward pass as *semantic hydrodynamics*---a prompt injects semantic
+   mass that is transported through depth like a fluid through a shaped
+   conduit. **Bend** (*top row*): curvature $\kappa$ distinguishes
+   *laminar* refinement from *sharp* reroutes. **Pay** (*bottom left*):
+   thermodynamic length $L$ localizes where effort concentrates via
+   $\Delta L$ bursts (*bottlenecks*). **Push** (*bottom right*): the belief
+   field $\mathbf{v}$ reveals whether a layer update directly *advances
+   belief* (high alignment) or *reorganizes information* (low alignment);
+   eddies signal *local recirculation*.
 
-**Belief field circulation** shows local recirculation patterns that can trap or reinforce beliefs, measured through the alignment between **v** and the path tangent.
+   **Why this lens:** weight--space and attention views are
+   *non--identifiable* and unstable across checkpoints; nDNA instead reads
+   the *on--input trajectory* and its information geometry, yielding
+   *coordinate--free*, behavior--first measurements.
 
-### Operational Benefits
+   **Vision:** treat inner computation as a *measurable flow* so that
+   bends, effort, and push become quantifiable traits of
+   cognition---comparable across inputs, layers, models, and training
+   phases.
 
-- **Behavior-first invariance.** Reading κ, L, and **v** on the trajectory yields **fingerprints** that are **comparable** across models, seeds, and checkpoints—even when weights or head roles reshuffle.
-- **Local diagnostics.** κ spikes flag brittle decision pivots; ΔL bursts expose capacity bottlenecks; low alignment marks layers that move without updating belief.
-- **Governance hooks.** Geometry budgets and thresholds—max κ, allowable ΔL per slice, minimum alignment—become **pre-release gates**.
-- **Comparative forensics.** Because κ/L/**v** are tied to the output law, we can **attribute performance deltas** to **where in depth** the flow changed.
+   **Benefits:** *actionable diagnostics*---$\kappa$ spikes flag brittle
+   turns, $\Delta L$ bursts expose capacity bottlenecks, low $\cos\theta$
+   (between $\mathbf{v}$ and the tangent $\mathbf{T}$) indicates movement
+   that does not immediately update belief; *stable
+   comparability*---geometry--based fingerprints are robust to neuron
+   permutations and head--role drift; *governance hooks*---set thresholds
+   on $\kappa$ or $\Delta L$, track fingerprint drift after
+   fine--tuning/pruning, and audit capacity before release."
+   %}
 
 ---
 

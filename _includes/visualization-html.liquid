@@ -1,5 +1,6 @@
 
 <figure style="text-align: center; margin: 1.5em 0;">
+  {% if include.image_path or include.interactive_html %}
   <div class="visualization-html{% if include.full_width %} full-width{% endif %}">
     {% if include.image_path %}
     <img class="vh-image {% if include.cover_image %}cover{% endif %}" src="{{ site.cdn_url }}/assets/{{ include.image_path }}" 
@@ -16,6 +17,7 @@
     </div>
     {% endif %}
   </div>
+  {% endif %}
   {% capture interactive_buton %}
     {% if include.interactive_html %}
         <a class="view-interactive-html" href="{{ '/assets/html_plots/' | append: include.interactive_html | relative_url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
