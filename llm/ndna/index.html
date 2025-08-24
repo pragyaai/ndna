@@ -75,11 +75,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/ndna/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-24T00:02:26+00:00" />
+<meta property="article:published_time" content="2025-08-24T00:26:53+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="The nDNA Cartograph - Latent Semantic Genome of Foundation Models" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-24T00:02:26+00:00","datePublished":"2025-08-24T00:02:26+00:00","description":"The Cartograph: Latent Semantic Genome of Foundation Models","headline":"The nDNA Cartograph - Latent Semantic Genome of Foundation Models","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/ndna/"},"url":"https://pragyaai.github.io/nDNA/llm/ndna/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-24T00:26:53+00:00","datePublished":"2025-08-24T00:26:53+00:00","description":"The Cartograph: Latent Semantic Genome of Foundation Models","headline":"The nDNA Cartograph - Latent Semantic Genome of Foundation Models","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/ndna/"},"url":"https://pragyaai.github.io/nDNA/llm/ndna/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -749,49 +749,6 @@ The nDNA score provides a compact fingerprint of model inheritance:</p>
   
   
 </figure>
-
-<p>\begin{figure}[ht!]
-\centering
-\begin{tikzpicture}[node distance=1.2cm and 1.5cm, align=center, font=\small]</p>
-
-<p>% Universal DNA helix at the top
-\node (dna_label) at (0,0.7) {\textbf{Universal DNA (shared genome)}};
-\draw[decorate, decoration={coil, aspect=0.4, amplitude=4pt, segment length=6pt}, thick, blue] (0,0.5) – (0,-0.5);
-\node (dna) at (0,-0.5) {};</p>
-
-<p>% Epigenetic regulators
-\node (methyl) [rectangle, draw, fill=gray!20] at (-3,-2) {DNA methylation \ (suppression)};
-\node (acetyl) [rectangle, draw, fill=green!20] at (3,-2) {Histone acetylation \ (activation)};
-\draw[-&gt;, thick, gray] (dna) – (methyl);
-\draw[-&gt;, thick, green!70!black] (dna) – (acetyl);</p>
-
-<p>% TF binding
-\node (tf_neuron) [rectangle, draw, fill=green!10, below=1.5cm of methyl] {Neuron TFs \ (NeuroD, REST)};
-\node (tf_hep) [rectangle, draw, fill=orange!10, below=1.5cm of acetyl] {Hepatocyte TFs \ (HNF4, C/EBP$\alpha$)};
-\draw[-&gt;, thick] (methyl) – (tf_neuron);
-\draw[-&gt;, thick] (acetyl) – (tf_hep);</p>
-
-<p>% Chromatin states
-\node (chrom_neuron) [rectangle, draw, dashed, below=1.2cm of tf_neuron] 
-{Open chromatin \ neuron genes on};
-\node (chrom_hep) [rectangle, draw, dashed, below=1.2cm of tf_hep] 
-{Compact chromatin \ neuron genes off};
-\draw[-&gt;] (tf_neuron) – (chrom_neuron);
-\draw[-&gt;] (tf_hep) – (chrom_hep);</p>
-
-<p>% Gene programs
-\node (gene_neuron) [rectangle, draw, rounded corners=3pt, fill=green!5, below=1cm of chrom_neuron] 
-{Synaptic genes ON};
-\node (gene_hep) [rectangle, draw, rounded corners=3pt, fill=orange!5, below=1cm of chrom_hep] 
-{Detox/metabolic genes ON};
-\draw[-&gt;] (chrom_neuron) – (gene_neuron);
-\draw[-&gt;] (chrom_hep) – (gene_hep);</p>
-
-<p>% Functions
-\node (func_neuron) [below=0.7cm of gene_neuron] {Function: signaling, plasticity};
-\node (func_hep) [below=0.7cm of gene_hep] {Function: glucose metabolism, detox};</p>
-
-<p>\end{tikzpicture}</p>
 
 <p>Similarly, in large foundation models, the <em>neural DNA (nDNA)</em> – a composite measure of latent geometry encompassing <strong>spectral curvature</strong> \((\kappa)\) [<a href="#ref51">51</a>], <strong>thermodynamic length</strong> \((L)\) [<a href="#ref52">52</a>], and <strong>latent belief vector norms</strong> [<a href="#ref48">48</a>] – exhibits both <strong>universal structure</strong> and <strong>corpus-specific adaptation</strong>. LLMs encode universal latent priors through pretraining: architectural invariances [<a href="#ref53">53</a>], semantic manifolds [<a href="#ref54">54</a>, <a href="#ref55">55</a>], and attention-based relational structures [<a href="#ref49">49</a>]. However, when probed with different corpora – such as mathematical reasoning benchmarks (e.g. GSM8K [<a href="#ref56">56</a>]), dialogue datasets (e.g. MultiWOZ [<a href="#ref57">57</a>]), or encyclopedic QA (e.g. SQuAD [<a href="#ref58">58</a>]) – the model activates distinct latent scaffolding, producing task-specific geometric pathways.</p>
 
