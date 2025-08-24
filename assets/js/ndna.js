@@ -21,7 +21,7 @@ const menusByModel = {
     { text: "NLP Operations", url: baseUrl + "/llm/nlp-operations/prelude/" },
     { text: "at-a-glance", url: baseUrl + "/llm/at_a_glance/" },
     { text: "FAQ", url: baseUrl + "/llm/FAQ/" },
-    { text: "Critique’s Corner", url: baseUrl + "/llm/critique-s-corner/" }
+    { text: "Critique’s Corner", url: baseUrl + "/llm/critiques-corner/" }
   ],
   MFM: [
     { text: "nDNA", url: baseUrl + "/" },

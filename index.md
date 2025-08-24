@@ -53,6 +53,6 @@ skip_title: true
   <div class="preview-row">
     <a href="{{ '/llm/at_a_glance/' | relative_url }}" class="">at-a-glance</a>
     <a href="{{ '/llm/FAQ/' | relative_url }}" class="">FAQ</a>
-    <a href="{{ '/llm/critique-s-corner/' | relative_url }}" class="">Critique’s Corner</a>
+    <a href="{{ '/llm/critiques-corner/' | relative_url }}" class="">Critique’s Corner</a>
   </div>
 </div>
