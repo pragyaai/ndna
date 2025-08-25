@@ -175,6 +175,11 @@ a.group-title {
   box-shadow: 0 2px 6px rgba(0, 102, 204, 0.3);
 }
 
+.pipeItem {
+    height: 1.75rem;
+    border: 1px solid;
+}
+
 .navbar .submenu {
   display: none;
   flex-basis: 100%;

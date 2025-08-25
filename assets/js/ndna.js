@@ -4,22 +4,23 @@ const baseUrl = document.querySelector('meta[name="base-url"]')?.getAttribute('c
 // Model-specific menus
 const menusByModel = {
   LLM: [
-    { text: "Prefatio", url: baseUrl + "/llm/prefatio/" },
+    { text: "Home", url: baseUrl + "/llm/" },
+    { text: "Prefatio", url: baseUrl + "/llm/prefatio/", pipe: true },
     { text: "Admonitio", url: baseUrl + "/llm/admonitio/" },
-    { text: "nDNA", url: baseUrl + "/llm/ndna/" },
+    { text: "nDNA", url: baseUrl + "/llm/ndna/", pipe: true },
     { text: "15 Foundational LLMs", url: baseUrl + "/llm/15-llms/" },
-    { text: "Cultural nDNA", url: baseUrl + "/llm/cultural-ndna/" },
+    { text: "Cultural nDNA", url: baseUrl + "/llm/cultural-ndna/", pipe: true },
     { text: "CIVIC", url: baseUrl + "/llm/civic/" },
     { text: "Multilinguality", url: baseUrl + "/llm/multilinguality/" },
-    { text: "Alignment", url: baseUrl + "/llm/alignment/" },
+    { text: "Alignment", url: baseUrl + "/llm/alignment/", pipe: true },
     { text: "Quantization", url: baseUrl + "/llm/quantization/" },
     { text: "Model Merging", url: baseUrl + "/llm/model-merging/" },
     { text: "Model Collapse", url: baseUrl + "/llm/model-collapse/" },
     { text: "Knowledge Distillation", url: baseUrl + "/llm/knowledge-distillation/" },
-    { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/prelude/" },
-    { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/" },
-    { text: "NLP Operations", url: baseUrl + "/llm/nlp-operations/prelude/" },
-    { text: "at-a-glance", url: baseUrl + "/llm/at_a_glance/" },
+    { text: "Neural Genomics", url: baseUrl + "/llm/neural-genomics/prelude/", pipe: true },
+    { text: "NLP Operations", url: baseUrl + "/llm/nlp-operations/prelude/", pipe: true },
+    { text: "Risk: Latent Manipulation", url: baseUrl + "/llm/latent-manipulation/", pipe: true },
+    { text: "at-a-glance", url: baseUrl + "/llm/at_a_glance/", pipe: true },
     { text: "FAQ", url: baseUrl + "/llm/FAQ/" },
     { text: "Critique’s Corner", url: baseUrl + "/llm/critiques-corner/" }
   ],
@@ -135,7 +136,11 @@ function renderTopMenu(items) {
         }, 100);
       });
     }
-
+    if (item.pipe) {
+      const pipe = document.createElement('span');
+      pipe.className = 'pipeItem';
+      container.appendChild(pipe);
+    }
     container.appendChild(link);
 
     // Always add the submenu HTML for Admonitio
@@ -223,14 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Auto-show submenu if on /llm/neural-genomics/ sub-pages
-  if (window.location.pathname.includes("/llm/neural-genomics") || 
-      window.location.pathname.includes("/llm/nHD") ||
-      window.location.pathname.includes("/llm/nGDI") ||
-      window.location.pathname.includes("/llm/nTDS") ||
-      window.location.pathname.includes("/llm/nKaryotyping") ||
-      window.location.pathname.includes("/llm/nDIV") ||
-      window.location.pathname.includes("/llm/nEPI") ||
-      window.location.pathname.includes("/llm/nCCL")) {
+  if (window.location.pathname.includes("/llm/neural-genomics")) {
     setTimeout(() => {
       const submenu = document.getElementById("neuralGenomicsSubmenu");
       if (submenu) submenu.style.display = "flex";
@@ -238,12 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Auto-show NLP Operations submenu if on NLP operations pages
-  if (window.location.pathname.includes("/llm/nlp-operations/prelude") ||
-      window.location.pathname.includes("/llm/nlp-operations/machine-translation") || 
-      window.location.pathname.includes("/llm/nlp-operations/multi-turn-conversation") || 
-      window.location.pathname.includes("/llm/nlp-operations/adversarial-attack") || 
-      window.location.pathname.includes("/llm/nlp-operations/scar") || 
-      window.location.pathname.includes("/llm/nlp-operations/nephos")) {
+  if (window.location.pathname.includes("/llm/nlp-operations")) {
     setTimeout(() => {
       const submenu = document.getElementById("nlpOperationsSubmenu");
       if (submenu) submenu.style.display = "flex";
@@ -254,4 +247,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.location.pathname.includes("/llm/")) {
     switchView("LLM");
   }
+
+  document.querySelectorAll(`[href="${location.pathname}"]`).forEach(el => el.classList.add('active'));
 });
