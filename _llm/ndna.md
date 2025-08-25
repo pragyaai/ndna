@@ -61,8 +61,10 @@ Weight-space indicators (parameter counts, sparsity, individual neurons/heads) l
 
 **What is stable: the on-input trajectory.** For each prompt x, the forward pass traces a depth-indexed path of hidden states—the operational object we actually deploy. Prior analyses show that linguistic competencies emerge layerwise in consistent *pipelines* (POS → parsing → NER → SRL → coreference), supporting the intuition that the *trajectory through representation space* is a robust behavioral signature {% cite tenney2019bert clark2019bert %}. This motivates nDNA's choice to work in **trajectory space**, not parameter space.
 
+### We read AI foundation models as semantic fluid–dynamics
+
 {% include visualization-html.liquid 
-   image_path="semantic_hydrodynamics/nano_gpt.gif"
+   video_path="semantic_hydrodynamics/llm_action_2.mp4"
    alt="nano-gpt (structure) Visualization"
    caption="**nano-gpt (*structure*).** *Architecture as channel blueprint:* depth acts like the axial coordinate; **residuals** $\leftrightarrow$ *bypass pipes*; **attention** / **MLP** blocks act as *mixers/valves* that locally reshape the flow of representations."
    %}
@@ -370,15 +372,15 @@ By mapping $$\mathbf{v}_\ell^{(c)}$$ across layers and cultures, we can trace **
 **Belief Vector Field Visualization**: $$\mathbf{v}_\ell^{(c)} = \mathbb{E}_{x \sim \mathcal{P}_{\text{CIVIC}}^{(c)}} [\nabla_{h_\ell} \log p(y\mid x)]$$ represents the *belief semantic steering force* at layer $$\ell$$ toward concept $$c$$, conditioned on CIVIC cultural priors. **Large magnitudes** (e.g., $$\lVert\mathbf{v}_\ell^{(c)}\rVert \in [0.15, 0.50]$$) indicate *strong directional pressure*--zones where cultural values actively reshape latent geometry. *Color-coded arrows* trace distinct conceptual trajectories (protest, peace, order, power, disobedience, justice), while numeric labels quantify local steering strength. Upper layers $$(\ell \geq 20)$$ typically exhibit **epistemic reorientation**, where cultural priors most heavily influence belief encoding. Such visualizations reveal whether a model internalizes culturally contingent reasoning or merely mimics alignment at the output surface.
 {% endcapture %}
 
-<!-- {% include visualization-html.liquid 
-   interactive_html="ndna/belief_vector_field_left_only.html" %} -->
-
 {% include visualization-html.liquid 
    interactive_html="ndna/belief_vector_field_3d_all_layers_thick_long_vectors.html"
    image_path="ndna/belief_vector_field.gif"
    alt="Belief Vector Field Visualization"
    caption=belief_vector_caption
    full_width=true %}
+
+{% include visualization-html.liquid 
+   interactive_html="ndna/belief_vector_field_left_only.html" %}
 
 ## nDNA: Unified Epistemic Inheritance Measure
 
