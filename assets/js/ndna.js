@@ -13,7 +13,7 @@ const menusByModel = {
     { text: "CIVIC", url: baseUrl + "/llm/civic/" },
     { text: "Multilinguality", url: baseUrl + "/llm/multilinguality/" },
     { text: "Alignment", url: baseUrl + "/llm/alignment/", pipe: true },
-    { text: "Quantization", url: baseUrl + "/llm/quantization/" },
+    { text: "Quantization & Pruning", url: baseUrl + "/llm/quantization/" },
     { text: "Model Merging", url: baseUrl + "/llm/model-merging/" },
     { text: "Model Collapse", url: baseUrl + "/llm/model-collapse/" },
     { text: "Knowledge Distillation", url: baseUrl + "/llm/knowledge-distillation/" },
