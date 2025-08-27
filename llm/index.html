@@ -69,17 +69,15 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="LLM Overview" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Large Language Models (LLMs) and nDNA" />
-<meta property="og:description" content="Large Language Models (LLMs) and nDNA" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-27T08:05:33+00:00" />
+<meta property="article:published_time" content="2025-08-27T10:07:21+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="LLM Overview" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-27T08:05:33+00:00","datePublished":"2025-08-27T08:05:33+00:00","description":"Large Language Models (LLMs) and nDNA","headline":"LLM Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/"},"url":"https://pragyaai.github.io/nDNA/llm/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-27T10:07:21+00:00","datePublished":"2025-08-27T10:07:21+00:00","headline":"LLM Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/"},"url":"https://pragyaai.github.io/nDNA/llm/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -256,65 +254,503 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
-          
-            <h1>LLM Overview</h1>
-          
-        
-        <h1 id="large-language-models-llms-and-ndna">Large Language Models (LLMs) and nDNA</h1>
+        <style>
+.ndna-hierarchy-ui {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 
-<h2 id="overview">Overview</h2>
+.hierarchy-level {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
 
-<p>Large Language Models represent the most extensively studied class of foundation models through the nDNA framework. LLMs exhibit rich cognitive patterns that can be analyzed across the three core nDNA dimensions.</p>
+/* Top Level - Three Categories Side by Side */
+.level-1 {
+  background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
 
-<h2 id="llm-specific-ndna-characteristics">LLM-Specific nDNA Characteristics</h2>
+.category-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-<h3 id="spectral-curvature-in-llms">Spectral Curvature in LLMs</h3>
-<ul>
-  <li><strong>Attention Layers</strong>: Sharp curvature spikes at attention mechanisms</li>
-  <li><strong>Feed-Forward Networks</strong>: Gradual curvature transitions in processing layers</li>
-  <li><strong>Embedding Layers</strong>: High curvature indicating rich semantic encoding</li>
-</ul>
+.category-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  text-align: center;
+  margin: 0;
+}
 
-<h3 id="thermodynamic-patterns">Thermodynamic Patterns</h3>
-<ul>
-  <li><strong>Token Processing</strong>: Variable energy based on semantic complexity</li>
-  <li><strong>Context Length</strong>: Increasing thermodynamic length with longer contexts</li>
-  <li><strong>Reasoning Tasks</strong>: Elevated energy consumption for complex logical operations</li>
-</ul>
+.category-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
 
-<h3 id="belief-vector-dynamics">Belief Vector Dynamics</h3>
-<ul>
-  <li><strong>Training Corpus Influence</strong>: Strong directional alignment with training data biases</li>
-  <li><strong>Fine-tuning Effects</strong>: Measurable shifts in belief vector orientation</li>
-  <li><strong>Prompt Engineering</strong>: Temporary belief vector deflections</li>
-</ul>
+/* Other Levels */
+.level-2, .level-3, .level-4, .level-6 {
+  background: linear-gradient(145deg, #f0f4f8, #e2e8f0);
+  text-align: center;
+}
 
-<h2 id="applications-in-llm-development">Applications in LLM Development</h2>
+.level-2 .operations-section, .level-3 .genomics-section, .level-4 .nlp-section, .level-6 .annexure-section {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
-<h3 id="model-architecture-optimization">Model Architecture Optimization</h3>
-<ul>
-  <li>Identify optimal layer configurations using curvature analysis</li>
-  <li>Balance computational efficiency with cognitive complexity</li>
-  <li>Design attention mechanisms that maintain stable nDNA signatures</li>
-</ul>
+.level-5 {
+  background: linear-gradient(145deg, #fef5e7, #fed7aa);
+  text-align: center;
+}
 
-<h3 id="training-monitoring">Training Monitoring</h3>
-<ul>
-  <li>Track belief vector convergence during pre-training</li>
-  <li>Detect catastrophic forgetting through curvature disruption</li>
-  <li>Optimize learning rate schedules based on thermodynamic patterns</li>
-</ul>
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 2rem 0;
+}
 
-<h3 id="performance-prediction">Performance Prediction</h3>
-<ul>
-  <li>Correlate nDNA signatures with downstream task performance</li>
-  <li>Predict transfer learning success through belief vector alignment</li>
-  <li>Assess model robustness via spectral curvature stability</li>
-</ul>
+/* Grid Layouts */
+.operations-grid,
+.genomics-grid,
+.nlp-grid,
+.annexure-grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
 
-<h2 id="research-insights">Research Insights</h2>
+/* Links */
+.hierarchy-link,
+.operation-link,
+.genomics-link,
+.nlp-link,
+.annexure-link {
+  flex-grow: 1;
+  min-width: 5rem;
+  display: block;
+  padding: 0.75rem 1rem;
+  background: #4299e1;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
+}
 
-<p>nDNA analysis of LLMs reveals that successful models maintain consistent spectral curvature patterns while allowing controlled belief vector adaptation during fine-tuning.</p>
+.hierarchy-link:hover,
+.operation-link:hover,
+.genomics-link:hover,
+.nlp-link:hover,
+.annexure-link:hover {
+  background: #3182ce;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(66, 153, 225, 0.4);
+}
+
+/* Risk Section */
+.risk-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.risk-arrow {
+  font-size: 2rem;
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+.risk-link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #e53e3e;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.3);
+}
+
+.risk-link:hover {
+  background: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(229, 62, 62, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ndna-hierarchy-ui {
+    padding: 1rem;
+  }
+  
+  .level-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .operations-grid,
+  .genomics-grid,
+  .nlp-grid,
+  .annexure-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .risk-section {
+    flex-direction: column;
+  }
+}
+
+/* Existing bracket styles */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    margin: 0;
+}
+
+.bracket-container {
+  width: 100%;
+  padding: 0.1rem 1rem;
+  box-sizing: border-box;
+  margin: 1rem 0;
+}
+
+.bracket-flex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.bracket-part {
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: all 0.3s ease;
+}
+
+/* Left end curl - p1 */
+.bracket-left {
+  width: 22px;
+  background-image: url("/nDNA/assets/img/curl_p1.png");
+  flex-shrink: 0;
+}
+
+/* Straight lines - p2 (with flex-grow to fill space) */
+.bracket-line-1,
+.bracket-line-2 {
+  background-image: url("/nDNA/assets/img/curl_p2.png");
+  background-repeat: repeat-x;
+  flex-grow: 1;
+  min-width: 20px;
+}
+
+/* Middle curl - p3 */
+.bracket-center {
+  width: 40px;
+  background-image: url("/nDNA/assets/img/curl_p3.png");
+  flex-shrink: 0;
+}
+
+/* Right end curl - inverted p1 */
+.bracket-right {
+  width: 22px;
+  background-image: url("/nDNA/assets/img/curl_p1.png");
+  transform: scaleX(-1); /* Horizontal flip */
+  flex-shrink: 0;
+}
+
+/* Down direction - flip everything vertically */
+.bracket-container[data-direction="down"] .bracket-part {
+  transform: scaleY(-1);
+}
+
+.bracket-container[data-direction="down"] .bracket-right {
+  transform: scaleX(-1) scaleY(-1); /* Both horizontal and vertical flip */
+}
+</style>
+
+<div class="ndna-hierarchy-ui">
+  <!-- Top Level: Rationale, Semantic Fingerprint, Language & Culture -->
+  <div class="hierarchy-level level-1">
+    <div class="category-group">
+      <h3 class="category-title">Rationale</h3>
+      
+
+
+
+<div class="bracket-container" data-direction="up">
+  <div class="bracket-flex">
+    <!-- Left end curl (p1) -->
+    <span class="bracket-part bracket-left"></span>
+    
+    <!-- Straight line (p2) - first -->
+    <span class="bracket-part bracket-line-1"></span>
+    
+    <!-- Middle curl (p3) -->
+    <span class="bracket-part bracket-center"></span>
+    
+    <!-- Straight line (p2) - second -->
+    <span class="bracket-part bracket-line-2"></span>
+    
+    <!-- Right end curl (inverted p1) -->
+    <span class="bracket-part bracket-right"></span>
+  </div>
+</div>
+
+      <div class="category-items">
+        <a href="/nDNA/llm/prefatio/" class="hierarchy-link">Prefatio</a>
+        <a href="/nDNA/llm/admonitio/" class="hierarchy-link">Admonitio</a>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <h3 class="category-title">Semantic Fingerprint</h3>
+      
+
+
+
+<div class="bracket-container" data-direction="up">
+  <div class="bracket-flex">
+    <!-- Left end curl (p1) -->
+    <span class="bracket-part bracket-left"></span>
+    
+    <!-- Straight line (p2) - first -->
+    <span class="bracket-part bracket-line-1"></span>
+    
+    <!-- Middle curl (p3) -->
+    <span class="bracket-part bracket-center"></span>
+    
+    <!-- Straight line (p2) - second -->
+    <span class="bracket-part bracket-line-2"></span>
+    
+    <!-- Right end curl (inverted p1) -->
+    <span class="bracket-part bracket-right"></span>
+  </div>
+</div>
+
+      <div class="category-items">
+        <a href="/nDNA/llm/ndna/" class="hierarchy-link">nDNA</a>
+        <a href="/nDNA/llm/15-llms/" class="hierarchy-link">15 Foundational LLMs</a>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <h3 class="category-title">Language &amp; Culture</h3>
+      
+
+
+
+<div class="bracket-container" data-direction="up">
+  <div class="bracket-flex">
+    <!-- Left end curl (p1) -->
+    <span class="bracket-part bracket-left"></span>
+    
+    <!-- Straight line (p2) - first -->
+    <span class="bracket-part bracket-line-1"></span>
+    
+    <!-- Middle curl (p3) -->
+    <span class="bracket-part bracket-center"></span>
+    
+    <!-- Straight line (p2) - second -->
+    <span class="bracket-part bracket-line-2"></span>
+    
+    <!-- Right end curl (inverted p1) -->
+    <span class="bracket-part bracket-right"></span>
+  </div>
+</div>
+
+      <div class="category-items">
+        <a href="/nDNA/llm/cultural-ndna/" class="hierarchy-link">Cultural nDNA</a>
+        <a href="/nDNA/llm/civic/" class="hierarchy-link">CIVIC</a>
+        <a href="/nDNA/llm/multilinguality/" class="hierarchy-link">Multilinguality</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Model Level Operations -->
+  <div class="hierarchy-level level-2">
+    <div class="operations-section">
+      <h2 class="section-title">Model Level Operations through the lens of nDNA</h2>
+      
+
+
+
+<div class="bracket-container" data-direction="down">
+  <div class="bracket-flex">
+    <!-- Left end curl (p1) -->
+    <span class="bracket-part bracket-left"></span>
+    
+    <!-- Straight line (p2) - first -->
+    <span class="bracket-part bracket-line-1"></span>
+    
+    <!-- Middle curl (p3) -->
+    <span class="bracket-part bracket-center"></span>
+    
+    <!-- Straight line (p2) - second -->
+    <span class="bracket-part bracket-line-2"></span>
+    
+    <!-- Right end curl (inverted p1) -->
+    <span class="bracket-part bracket-right"></span>
+  </div>
+</div>
+
+      <div class="operations-grid">
+        <a href="/nDNA/llm/alignment/" class="operation-link">Alignment</a>
+        <a href="/nDNA/llm/quantization/" class="operation-link">Quantization</a>
+        <a href="/nDNA/llm/model-merging/" class="operation-link">Model Merging</a>
+        <a href="/nDNA/llm/model-collapse/" class="operation-link">Model Collapse</a>
+        <a href="/nDNA/llm/knowledge-distillation/" class="operation-link">Knowledge Distillation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Genomics Diagnostics -->
+  <div class="hierarchy-level level-3">
+    <div class="genomics-section">
+      <h2 class="section-title">Genomics Diagnostics</h2>
+      
+
+
+
+<div class="bracket-container" data-direction="down">
+  <div class="bracket-flex">
+    <!-- Left end curl (p1) -->
+    <span class="bracket-part bracket-left"></span>
+    
+    <!-- Straight line (p2) - first -->
+    <span class="bracket-part bracket-line-1"></span>
+    
+    <!-- Middle curl (p3) -->
+    <span class="bracket-part bracket-center"></span>
+    
+    <!-- Straight line (p2) - second -->
+    <span class="bracket-part bracket-line-2"></span>
+    
+    <!-- Right end curl (inverted p1) -->
+    <span class="bracket-part bracket-right"></span>
+  </div>
+</div>
+
+      <div class="genomics-grid">
+        <a href="/nDNA/llm/neural-genomics/nHD/" class="genomics-link">nHD</a>
+        <a href="/nDNA/llm/neural-genomics/nGDI/" class="genomics-link">nGDI</a>
+        <a href="/nDNA/llm/neural-genomics/nTDS/" class="genomics-link">nTDS</a>
+        <a href="/nDNA/llm/neural-genomics/nKaryotyping/" class="genomics-link">nKaryotyping</a>
+        <a href="/nDNA/llm/neural-genomics/nDIV/" class="genomics-link">nDIV</a>
+        <a href="/nDNA/llm/neural-genomics/nEPI/" class="genomics-link">nEPI</a>
+        <a href="/nDNA/llm/neural-genomics/nCCL/" class="genomics-link">nCCL</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rewriting the nDNA of NLP -->
+  <div class="hierarchy-level level-4">
+    <div class="nlp-section">
+      <h2 class="section-title">Rewriting the nDNA of NLP</h2>
+      
+
+
+
+<div class="bracket-container" data-direction="down">
+  <div class="bracket-flex">
+    <!-- Left end curl (p1) -->
+    <span class="bracket-part bracket-left"></span>
+    
+    <!-- Straight line (p2) - first -->
+    <span class="bracket-part bracket-line-1"></span>
+    
+    <!-- Middle curl (p3) -->
+    <span class="bracket-part bracket-center"></span>
+    
+    <!-- Straight line (p2) - second -->
+    <span class="bracket-part bracket-line-2"></span>
+    
+    <!-- Right end curl (inverted p1) -->
+    <span class="bracket-part bracket-right"></span>
+  </div>
+</div>
+
+      <div class="nlp-grid">
+        <a href="/nDNA/llm/nlp-operations/machine-translation/" class="nlp-link">Machine Translation</a>
+        <a href="/nDNA/llm/nlp-operations/adversarial-attack/" class="nlp-link">Adversarial Attack</a>
+        <a href="/nDNA/llm/nlp-operations/multi-turn-conversation/" class="nlp-link">Multi-turn Conversation</a>
+        <a href="/nDNA/llm/nlp-operations/scar/" class="nlp-link">SCAR</a>
+        <a href="/nDNA/llm/nlp-operations/nephos/" class="nlp-link">NEPHOS</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Risk -->
+  <div class="hierarchy-level level-5">
+    <div class="risk-section">
+      <div class="risk-arrow">→</div>
+      <a href="/nDNA/llm/latent-manipulation/" class="risk-link">Risk: Latent Manipulation</a>
+    </div>
+  </div>
+
+  <!-- Annexure -->
+  <div class="hierarchy-level level-6">
+    <div class="annexure-section">
+      <h2 class="section-title">Annexure</h2>
+      
+
+
+
+<div class="bracket-container" data-direction="down">
+  <div class="bracket-flex">
+    <!-- Left end curl (p1) -->
+    <span class="bracket-part bracket-left"></span>
+    
+    <!-- Straight line (p2) - first -->
+    <span class="bracket-part bracket-line-1"></span>
+    
+    <!-- Middle curl (p3) -->
+    <span class="bracket-part bracket-center"></span>
+    
+    <!-- Straight line (p2) - second -->
+    <span class="bracket-part bracket-line-2"></span>
+    
+    <!-- Right end curl (inverted p1) -->
+    <span class="bracket-part bracket-right"></span>
+  </div>
+</div>
+
+      <div class="annexure-grid">
+        <a href="/nDNA/llm/at_a_glance/" class="annexure-link">at-a-glance</a>
+        <a href="/nDNA/llm/FAQ/" class="annexure-link">FAQ</a>
+        <a href="/nDNA/llm/critiques-corner/" class="annexure-link">Critique's Corner</a>
+      </div>
+    </div>
+  </div>
+</div>
 
       </div>
     </div>
