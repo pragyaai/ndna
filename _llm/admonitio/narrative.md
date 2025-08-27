@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Admonitio"
-permalink: /llm/admonitio/prelude/
+permalink: /llm/admonitio/narrative/
 skip_title: True
 ---
 {% include admonitio-title.liquid title="Admonitio: On the Hidden Inheritance of Machine Thoughts" subtitle="A Rationale for Diagnosing the Latent Genome of AI" %}
