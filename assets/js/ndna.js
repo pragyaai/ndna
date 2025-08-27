@@ -52,7 +52,7 @@ const menusByModel = {
 
 const neuralSubmenuItems = ["Prelude", "nHD", "nGDI", "nTDS", "nKaryotyping", "nDIV", "nEPI", "nCCL"];
 
-const admonitionSubmenuItems = ["Prelude", "Infographics"];
+const admonitionSubmenuItems = ["Infographics", "Narrative"];
 
 const nlpOperationsItems = [
   { text: "Prelude", url: baseUrl + "/llm/nlp-operations/prelude/" },
@@ -99,8 +99,8 @@ function renderTopMenu(items) {
     });
 
     if ((item.text || item) === "Admonitio") {
-      // Change the link URL to point directly to the Prelude page
-      link.href = baseUrl + "/llm/admonitio/prelude/";
+      // Change the link URL to point directly to the Infographics page
+      link.href = baseUrl + "/llm/admonitio/infographics/";
       
       // Still show the submenu when hovering
       link.addEventListener('click', () => {
@@ -152,10 +152,10 @@ function renderTopMenu(items) {
 
       admonitionSubmenuItems.forEach(sub => {
         const subLink = document.createElement('a');
-        if (sub === "Prelude") {
-          subLink.href = baseUrl + `/llm/admonitio/prelude/`;
-        } else if (sub === "Infographics") {
+        if (sub === "Infographics") {
           subLink.href = baseUrl + `/llm/admonitio/infographics/`;
+        } else if (sub === "Narrative") {
+          subLink.href = baseUrl + `/llm/admonitio/narrative/`;
         } else {
           subLink.href = baseUrl + `/llm/admonitio/${sub}/`;
         }

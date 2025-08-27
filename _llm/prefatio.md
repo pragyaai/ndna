@@ -7,35 +7,20 @@ skip_title: True
 
 <link rel="stylesheet" href="{{ '/assets/css/15_llms.css' | relative_url }}">
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-
-  <!-- Left side: cover + banner -->
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 45%;">
-    <img src="{{ '/assets/img/cover_book.png' | relative_url }}" 
-         alt="Cover Book" 
-         style="max-width: 100%; border-radius: 12px;"/>
-    <img src="{{ '/assets/img/banner-1.png' | relative_url }}" 
-         alt="Banner" 
-         style="max-width: 100%; border-radius: 12px;"/>
-  </div>
-
-  <!-- Right side: video -->
-  <iframe width="560" height="315" 
-          src="https://www.youtube.com/embed/CP3pOE9eQm0" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen 
-          style="border-radius: 12px; max-width: 50%;">
-  </iframe>
-
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 20px;">
+  <img src="{{ '/assets/img/banner-1.png' | relative_url }}" 
+       alt="Banner" 
+       style="width: 100%; border-radius: 12px;"/>
 </div>
 
 {% include prefatio-title.liquid title="Prefatio" subtitle="" %}
 
 <div class="card" markdown="1">
 
-As AI foundation models grow in capability, a deeper question emerges: *What shapes their internal cognitive identity—beyond fluency and output?* Benchmarks measure behavior, but the soul of a model resides in its latent geometry. In this work, we propose **Neural DNA (nDNA)** as a **semantic-genotypic representation** that captures this *latent identity* through the intrinsic *geometry of belief*. At its core, nDNA is synthesized from three principled and indispensable dimensions of latent geometry: **_spectral curvature_**, which reveals the *curvature of conceptual flow* across layers; **_thermodynamic length_**, which quantifies the *semantic effort* required to traverse representational transitions through layers; and **_belief gradients_**, which delineate the *semantic torsion fields* that guide a model’s belief directional orientations. **These are not just mechanistic metrics we impose—they are the grammar of the model’s soul, etched in the differential geometry of its thought.** Arising from distinct mathematical origins—*Riemannian manifolds*, *statistical thermodynamics*, and *semantic vector dynamics*—these dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is neither arbitrary nor engineered: it is an emergent, high-dimensional scaffold of internal cognition—a latent topography we call **nDNA**. Like biological DNA, it encodes ancestry, mutation, and semantic inheritance—found in fine-tuning scars, cultural imprints, and architectural drift. In naming it, we open a new field: **Neural Genomics**, where models are not just tools, but *semantic organisms* with traceable inner cognition.
+As AI foundation models grow in capability, a deeper question emerges: *What shapes their internal cognitive identity—beyond fluency and output?* Benchmarks measure behavior, but the soul of a model resides in its latent geometry. In this work, we propose **Neural DNA (nDNA)** as a **semantic-genotypic representation** that captures this *latent identity* through the intrinsic *geometry of belief*. At its core, nDNA is synthesized from three principled and indispensable dimensions of latent geometry: **_spectral curvature_**, which reveals the *curvature of conceptual flow* across layers; **_thermodynamic length_**, which quantifies the *semantic effort* required to traverse representational transitions through layers; and **_belief gradients_**, which delineate the *semantic torsion fields* that guide a model's belief directional orientations. **These are not just mechanistic metrics we impose—they are the grammar of the model's soul, etched in the differential geometry of its thought.** Arising from distinct mathematical origins—*Riemannian manifolds*, *statistical thermodynamics*, and *semantic vector dynamics*—these dimensions converge to unveil an underlying epistemic cognitive geometry. The resulting structure is neither arbitrary nor engineered: it is an emergent, high-dimensional scaffold of internal cognition—a latent topography we call **nDNA**. Like biological DNA, it encodes ancestry, mutation, and semantic inheritance—found in fine-tuning scars, cultural imprints, and architectural drift. In naming it, we open a new field: **Neural Genomics**, where models are not just tools, but *semantic organisms* with traceable inner cognition.
+
+### Modeling Statement
+**We read AI foundation models as *semantic fluid-dynamics*: *meaning is transported* through layers like fluid in a shaped conduit;** **nDNA** is the physics-grade readout of that flow—a geometry-first measure of how meaning is *bent*, *paid for*, and *pushed*—yielding a stable, coordinate-free **neural DNA fingerprint** tied to on-input behavior; with this fingerprint we cross into *biology*: tracing **lineages** across pretraining, fine-tuning, alignment, pruning, distillation, and merges; measuring **inheritance** between checkpoints; detecting **drift** as traits shift under new data or objectives; describing a model's **phenotype** *(observable behavior)* and inferring its **genotype** *(structural dispositions)*; and, ultimately, studying the **evolution of artificial cognition** to compare models, diagnose risks, and govern change over time.
 
 ### Revealing the Hidden Geometry of Neural Evolution
 The latent geometry encoded in **Neural DNA (nDNA)** offers a profound lens through which to interpret the life cycle of foundation models—not as mere artifacts of training, but as evolving semantic organisms. **Finetuning** becomes visible as a *torsional reconfiguration* of belief gradients. **Cultural bias** and **multilinguality** manifest as *curvature divergences* across axes of inherited priors, often revealing *semantic drift* from linguistic or regional fine-tuning. **Alignment** etches a *directional vector field* in belief space—often suppressing *spectral entropy* in pursuit of *preference conformity*. **Quantization** and **pruning** register as *thermodynamic collapses*, compressing pathways with minimal semantic coverage redundancy but detectable *topological flattening*. In **knowledge distillation**, the student inherits the *behavioral phenotype* of the teacher while diverging in *epistemic morphology*—a split exposed through *misaligned curvature* and *diminished thermodynamic length*. **Model collapse**, whether induced by alignment overreach or inbreeding, is captured as *degeneracy in the nDNA manifold*—often exhibiting *vanishing belief torsion* and a loss of *conceptual curvature*. Finally, **model merging** gives rise to ‘*neural marriages*’, while distillation-trained derivatives form *neural offsprings*—each with distinctive nDNA fingerprints, enabling us to track the *genealogy*, *hybridity*, and *semantic ancestry* of AI models.
