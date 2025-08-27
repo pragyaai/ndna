@@ -1,7 +1,7 @@
 ---
 layout: page
 title: nDNA-Lens - Quantization and Pruning as Thermodynamic Collapses
-permalink: /llm/quantization/
+permalink: /llm/quantization-and-pruning/
 skip_title: true
 ---
 

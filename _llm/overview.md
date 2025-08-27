@@ -287,7 +287,7 @@ skip_title: true
       {% include bracket.liquid direction="down" %}
       <div class="operations-grid">
         <a href="{{ '/llm/alignment/' | relative_url }}" class="operation-link">Alignment</a>
-        <a href="{{ '/llm/quantization/' | relative_url }}" class="operation-link">Quantization & Pruning</a>
+        <a href="{{ '/llm/quantization-and-pruning/' | relative_url }}" class="operation-link">Quantization & Pruning</a>
         <a href="{{ '/llm/model-merging/' | relative_url }}" class="operation-link">Model Merging</a>
         <a href="{{ '/llm/model-collapse/' | relative_url }}" class="operation-link">Model Collapse</a>
         <a href="{{ '/llm/knowledge-distillation/' | relative_url }}" class="operation-link">Knowledge Distillation</a>
