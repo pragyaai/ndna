@@ -51,7 +51,7 @@ const menusByModel = {
 
 const neuralSubmenuItems = ["Prelude", "nHD", "nGDI", "nTDS", "nKaryotyping", "nDIV", "nEPI", "nCCL"];
 
-const admonitionSubmenuItems = ["Infographics", "Prelude"];
+const admonitionSubmenuItems = ["Infographics", "Narrative"];
 
 const nlpOperationsItems = [
   { text: "Prelude", url: baseUrl + "/llm/nlp-operations/prelude/" },
@@ -150,7 +150,7 @@ function renderTopMenu(items) {
         if (sub === "Infographics") {
           subLink.href = baseUrl + `/llm/admonitio/infographics/`;
         } else if (sub === "Prelude") {
-          subLink.href = baseUrl + `/llm/admonitio/prelude/`;
+          subLink.href = baseUrl + `/llm/admonitio/narrative/`;
         } else {
           subLink.href = baseUrl + `/llm/admonitio/${sub}/`;
         }
