@@ -3,9 +3,13 @@
   {% if include.image_path or include.interactive_html or include.video_path %}
   <div class="visualization-html{% if include.full_width %} full-width{% endif %}">
     {% if include.image_path %}
-    <img class="vh-image {% if include.cover_image %}cover{% endif %}" src="{{ site.cdn_url }}/assets/{{ include.image_path }}" 
-        alt="{{ include.alt_text | default: include.title }}" 
-        onerror="this.onerror=null; this.src='{{ site.fallback_cdn }}/assets/{{ include.image_path }}';">
+    <img
+      class="vh-image {% if include.cover_image %}cover{% endif %}"
+      src="{{ site.cdn_url }}/assets/{{ include.image_path }}"
+      {% if include.image_height %} style="max-height: {{include.image_height}}"{% endif %}
+      alt="{{ include.alt_text | default: include.title }}" 
+      onerror="this.onerror=null; this.src='{{ site.fallback_cdn }}/assets/{{ include.image_path }}';"
+    >
     {% endif %}
     {% if include.video_path %}
     <video 
