@@ -373,14 +373,14 @@ By mapping $$\mathbf{v}_\ell^{(c)}$$ across layers and cultures, we can trace **
 {% endcapture %}
 
 {% include visualization-html.liquid 
-   interactive_html="ndna/belief_vector_field_3d_all_layers_thick_long_vectors.html"
+   interactive_html="ndna/belief_vector_field_left_only.html"
    image_path="ndna/belief_vector_field.gif"
    alt="Belief Vector Field Visualization"
    caption=belief_vector_caption
    full_width=true %}
 
-{% include visualization-html.liquid 
-   interactive_html="ndna/belief_vector_field_left_only.html" %}
+<!-- {% include visualization-html.liquid 
+   interactive_html="ndna/belief_vector_field_3d_all_layers_thick_long_vectors.html" %} -->
 
 ## nDNA: Unified Epistemic Inheritance Measure
 

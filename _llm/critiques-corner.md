@@ -260,7 +260,7 @@ We will not stop at measurement:
 
 **Why wording mattered (and how it relates to nDNA).** "Deep learning" was not a post-hoc label; it was a *purposeful reframing* that shifted perceptions and research priorities while new results made the term stick. Our use of **Neural DNA (nDNA)** follows the same playbook: a clear name, a unifying lens (the geometry of latent belief), and a growing body of math and experiments. Naming organized the deep-learning renaissance; we expect precise definitions and reproducible results to do the same for *nDNA*.
 
-<iframe width="1100" height="619" style="max-widht: 100%;"src="https://www.youtube.com/embed/Nyz64ADK_gQ?si=8SN4LqBlva9sYia-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="1100" height="619" style="max-widht: 100%;" src="https://www.youtube.com/embed/Nyz64ADK_gQ?si=8SN4LqBlva9sYia-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
