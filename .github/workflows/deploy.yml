@@ -1,3 +1,6 @@
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
 name: Deploy site
 
 on:
