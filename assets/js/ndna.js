@@ -149,7 +149,7 @@ function renderTopMenu(items) {
         const subLink = document.createElement('a');
         if (sub === "Infographics") {
           subLink.href = baseUrl + `/llm/admonitio/infographics/`;
-        } else if (sub === "Prelude") {
+        } else if (sub === "Narrative") {
           subLink.href = baseUrl + `/llm/admonitio/narrative/`;
         } else {
           subLink.href = baseUrl + `/llm/admonitio/${sub}/`;
