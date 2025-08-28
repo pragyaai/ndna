@@ -221,8 +221,14 @@ function switchView(view) {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const [view] = Object.entries(menusByModel).find(([view, e]) => e.find(page => page.url == location.pathname));
-  switchView(view);
+  const model = Object.entries(menusByModel).find(([view, e]) => e.find(page => page.url == location.pathname));
+  if (model) {
+    switchView(model[0]);
+  } else if (window.location.pathname.includes("/llm/")) {
+    // Auto-switch to LLM tab if on LLM pages (including NLP operations which are now under /llm/)
+    switchView("LLM");
+  }
+  
 
   // Auto-show admonitio submenu if on /llm/admonitio/ sub-pages
   if (window.location.pathname.includes("/llm/admonitio")) {
@@ -246,11 +252,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const submenu = document.getElementById("nlpOperationsSubmenu");
       if (submenu) submenu.style.display = "flex";
     }, 100);
-  }
-
-  // Auto-switch to LLM tab if on LLM pages (including NLP operations which are now under /llm/)
-  if (window.location.pathname.includes("/llm/")) {
-    switchView("LLM");
   }
 
   document.querySelectorAll(`[href="${location.pathname}"]`).forEach(el => el.classList.add('active'));
