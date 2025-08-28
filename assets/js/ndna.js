@@ -48,6 +48,9 @@ const menusByModel = {
     { text: "Embodied Learning", url: "#" },
     { text: "Action Planning", url: "#" },
     { text: "Sensorimotor", url: "#" }
+  ],
+  nDNAv2: [
+    { text: "nDNA v2", url: baseUrl + "/ndna-v2/" }
   ]
 };
 
@@ -209,7 +212,7 @@ function renderTopMenu(items) {
 
 function switchView(view) {
   document.querySelectorAll('.side-tab').forEach(el => el.classList.remove('active'));
-  const tab = [...document.querySelectorAll('.side-tab')].find(el => el.innerText === view || el.innerText.includes(view));
+  const tab = [...document.querySelectorAll('.side-tab')].find(el => el.dataset.view === view || el.innerText.includes(view));
   if (tab) tab.classList.add('active');
   
   const menu = menusByModel[view] || menusByModel.LLM;
@@ -218,7 +221,8 @@ function switchView(view) {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-  switchView("LLM");
+  const [view] = Object.entries(menusByModel).find(([view, e]) => e.find(page => page.url == location.pathname));
+  switchView(view);
 
   // Auto-show admonitio submenu if on /llm/admonitio/ sub-pages
   if (window.location.pathname.includes("/llm/admonitio")) {

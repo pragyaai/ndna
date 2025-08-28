@@ -202,11 +202,12 @@
       <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
     </div>
     <div class="side-menu" id="leftTabs">
-      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
-      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
-      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
-      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
-      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+      <div class="side-tab active" data-view="LLM" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" data-view="MFM" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" data-view="T2I" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" data-view="Diffusion" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" data-view="EFM" onclick="switchView('EFM')">EFM</div>
+      <div class="side-tab" data-view="nDNAv2" onclick="switchView('nDNAv2')">nDNA v2</div>
     </div>
     <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
       <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">

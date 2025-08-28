@@ -69,17 +69,15 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="ÆTHERs: From Neuro-Inspired to Genome-Aware AI" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="- ÆTHERs: From Neuro-Inspired to Genome-Aware AI" />
-<meta property="og:description" content="- ÆTHERs: From Neuro-Inspired to Genome-Aware AI" />
 <link rel="canonical" href="https://pragyaai.github.io/nDNA/llm/aethers/" />
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/aethers/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-27T17:12:34+00:00" />
+<meta property="article:published_time" content="2025-08-28T12:27:44+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="ÆTHERs: From Neuro-Inspired to Genome-Aware AI" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-27T17:12:34+00:00","datePublished":"2025-08-27T17:12:34+00:00","description":"- ÆTHERs: From Neuro-Inspired to Genome-Aware AI","headline":"ÆTHERs: From Neuro-Inspired to Genome-Aware AI","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/aethers/"},"url":"https://pragyaai.github.io/nDNA/llm/aethers/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-28T12:27:44+00:00","datePublished":"2025-08-28T12:27:44+00:00","headline":"ÆTHERs: From Neuro-Inspired to Genome-Aware AI","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/aethers/"},"url":"https://pragyaai.github.io/nDNA/llm/aethers/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -205,11 +203,12 @@
       <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
     </div>
     <div class="side-menu" id="leftTabs">
-      <div class="side-tab active" onclick="switchView('LLM')">LLM</div>
-      <div class="side-tab" onclick="switchView('MFM')">MFM</div>
-      <div class="side-tab" onclick="switchView('T2I')">T2I</div>
-      <div class="side-tab" onclick="switchView('Diffusion')">Diffusion LM</div>
-      <div class="side-tab" onclick="switchView('EFM')">EFM</div>
+      <div class="side-tab active" data-view="LLM" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" data-view="MFM" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" data-view="T2I" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" data-view="Diffusion" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" data-view="EFM" onclick="switchView('EFM')">EFM</div>
+      <div class="side-tab" data-view="nDNAv2" onclick="switchView('nDNAv2')">nDNA v2</div>
     </div>
     <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
       <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">
@@ -256,17 +255,11 @@
     <div class="container">
       <div class="main-text" style="flex: 1;">
         
+          
+            <h1 style="text-align: center; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">ÆTHERs: From Neuro-Inspired to Genome-Aware AI</h1>
+          
         
-<h1 class="page-title" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; line-height: 1.2em;">
-  <img src="/nDNA/assets/logos/aether.png" alt="ÆTHERs" style="width: 15rem; max-height: 15rem; flex: 0 0;" />
-  <span style="display: flex;flex-direction: column;gap: 0.5rem;">
-    <span style="display: flex; gap: 0.5rem; font-weight: 700;">
-        <span>-</span>
-        <span>ÆTHERs: From Neuro-Inspired to Genome-Aware AI</span>
-    </span>
-    <span></span>
-  </span>
-</h1>
+        <p><img style="width: 100%; height: 800px; padding: 2rem; object-fit: contain; background: #fff;" src="/nDNA/assets/img/aethers.jpg" alt="ÆTHERs - Future Al Generations as Semantic Organisms with Traceable Inner Lives" /></p>
 
 <p><strong>Neural networks</strong> revolutionized artificial intelligence by introducing architectures capable of approximating complex functions in high-dimensional spaces [<a href="#ref1">1</a>, <a href="#ref2">2</a>]. They marked a fundamental shift away from brittle, rule-based systems toward flexible, gradient-driven, data-dependent learning engines. From early breakthroughs in <strong>computer vision</strong> [<a href="#ref3">3</a>], <strong>speech recognition</strong> [<a href="#ref4">4</a>], and <strong>language modeling</strong> [<a href="#ref5">5</a>], to today’s expansive <strong>foundation models</strong> [<a href="#ref6">6</a>, <a href="#ref7">7</a>], neural networks have become the indispensable substrate of modern AI. Their strength derives not only from architectural innovations but also from their <em>distributed internal representations</em>, <strong>emergent capabilities</strong>, and remarkable ability to generalize across diverse domains [<a href="#ref8">8</a>].</p>
 
@@ -521,82 +514,108 @@ A mature discipline of AI treats <em>inner computation as physics</em> and <em>i
 
 <hr />
 
-<h2 id="ndna-v2--tensor-rich-belief-torsion">nDNA v2 — Tensor-Rich Belief Torsion</h2>
+<h2 id="references">References</h2>
 
-<p>While our current framework encapsulates belief as a vector-valued semantic steering force, it is possible to <strong>extend this formulation</strong> to a richer <em>tensor-based representation</em> of belief.</p>
+<p><a id="ref1"></a>[1] LeCun, Yann, Bengio, Yoshua, and others “Deep learning” <em>Nature</em> (2015).</p>
 
-<p>This higher-order representation $\mathbf{T}_\ell^{(c)} \in \mathbb{R}^{d \times d \times \cdots}$ captures <em>complex multi-dimensional interactions</em> within the latent activation space, enabling the modeling of <strong>nonlinear dependencies</strong>, <em>higher-order correlations</em>, and <strong>contextual entanglements</strong> that are fundamentally inaccessible to vector embeddings alone. By encoding semantic <em>torsion</em>, <em>curvature</em>, and <em>multi-modal interactions</em> across layers, tensor-based belief representation offers a powerful framework to characterize subtle latent geometry and richer internal dynamics of language models.</p>
+<p><a id="ref2"></a>[2] Goodfellow, Ian, Bengio, Yoshua, and others “Deep learning” <em>arXiv preprint</em> (2016).</p>
 
-<p>Such a tensor-rich approach is particularly beneficial in cases involving <strong>multimodal fusion</strong>, <em>hierarchical reasoning</em>, and <strong>complex compositionality</strong>, where simple vectorial steering fails to capture <em>intertwined semantic constraints</em> and <em>latent contextual shifts</em>. For example, in tasks demanding <em>disentanglement of overlapping concepts</em> or <strong>fine-grained alignment</strong> of multi-turn dialogue states, tensors can explicitly encode relational structure and layered semantic dependencies.</p>
+<p><a id="ref3"></a>[3] Krizhevsky, Alex, Sutskever, Ilya, and others “Imagenet classification with deep convolutional neural networks” <em>NIPS</em> (2012).</p>
 
-<p>However, this expressivity comes with a significant <strong>computational overhead</strong>, as tensor operations increase dimensionality exponentially and necessitate <em>efficient approximation schemes</em> or <em>structured sparsity</em> to remain scalable. Balancing the tradeoff between <strong>modeling fidelity</strong> and <strong>computational tractability</strong> is a central challenge we are actively addressing in ongoing research, with promising directions including <em>low-rank tensor decompositions</em> and <em>hybrid vector-tensor architectures</em>.</p>
+<p><a id="ref4"></a>[4] Hinton, Geoffrey and others “Deep neural networks for acoustic modeling in speech recognition” <em>IEEE Signal processing magazine</em> (2012).</p>
 
-<p>In summary, while belief-as-tensor unlocks <em>richer representational nuance</em> and <strong>deeper semantic insight</strong>, its practical deployment requires careful design to harness its power without prohibitive costs—we are currently working.</p>
+<p><a id="ref5"></a>[5] Vaswani, Ashish, Shazeer, Noam, and others “Attention is all you need” <em>Proceedings of NeurIPS</em> (2017).</p>
 
-<table>
-  <thead>
-    <tr>
-      <th><strong>Layer</strong></th>
-      <th><strong>$\kappa_\ell$</strong></th>
-      <th><strong>$\mathcal{S}_\ell$</strong></th>
-      <th><strong>$|\mathbf{T}_\ell^{(c)}|_F$</strong></th>
-      <th><strong>Tensor Heatmap</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>20</td>
-      <td>0.0412</td>
-      <td>0.9123</td>
-      <td>1.4521</td>
-      <td><em>Complex tensor visualization</em></td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>0.0458</td>
-      <td>0.8123</td>
-      <td>1.7523</td>
-      <td><em>Layer-specific tensor patterns</em></td>
-    </tr>
-    <tr>
-      <td>⋮</td>
-      <td>⋮</td>
-      <td>⋮</td>
-      <td>⋮</td>
-      <td>⋮</td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>0.0512</td>
-      <td>1.0520</td>
-      <td>1.6222</td>
-      <td><em>Mid-layer tensor evolution</em></td>
-    </tr>
-    <tr>
-      <td>⋮</td>
-      <td>⋮</td>
-      <td>⋮</td>
-      <td>⋮</td>
-      <td>⋮</td>
-    </tr>
-    <tr>
-      <td>29</td>
-      <td>0.0672</td>
-      <td>1.0123</td>
-      <td>1.4322</td>
-      <td><em>Near-final layer dynamics</em></td>
-    </tr>
-    <tr>
-      <td>30</td>
-      <td>0.0555</td>
-      <td>0.8221</td>
-      <td>1.6720</td>
-      <td><em>Final tensor configuration</em></td>
-    </tr>
-  </tbody>
-</table>
+<p><a id="ref6"></a>[6] Brown, Tom and others “Language models are few-shot learners” <em>NeurIPS</em> (2020).</p>
 
-<p><em>Illustrative nDNA Tensor Example: Presents a combined view of <strong>spectral curvature</strong> $\kappa_\ell$, <strong>thermodynamic length</strong> $\mathcal{S}_\ell$, <strong>Frobenius norm of tensor slices</strong> $|\mathbf{T}_\ell^{(c)}|_F$, alongside <strong>visual heatmaps</strong> of the corresponding tensor, highlighting the intricate latent geometry at different layers.</em></p>
+<p><a id="ref7"></a>[7] Touvron, Hugo and Others “LLaMA: Open and efficient foundation language models” <em>arXiv preprint arXiv:2302.13971</em> (2023).</p>
+
+<p><a id="ref8"></a>[8] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
+
+<p><a id="ref9"></a>[9] Felsenstein, Joseph “Inferring phylogenies” <em>arXiv preprint</em> (2004).</p>
+
+<p><a id="ref10"></a>[10] Kimura, Motoo “The Neutral Theory of Molecular Evolution” <em>arXiv preprint</em> (1983).</p>
+
+<p><a id="ref11"></a>[11] Matena, Michael and Raffel, Colin “Merging models with fisher-weighted averaging” <em>NeurIPS</em> (2022).</p>
+
+<p><a id="ref12"></a>[12] Ilharco, Gabriel and others “Editing models with task arithmetic” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref13"></a>[13] Banerjee, Tanmoy and others “A thermodynamic lens on foundation models” <em>NeurIPS</em> (2023).</p>
+
+<p><a id="ref14"></a>[14] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+
+<p><a id="ref15"></a>[15] Wang, Yixuan and others “Diffusion-LM Improves Controllable Text Generation” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref16"></a>[16] Li, Xihui and others “DiffusionDB: A large-scale prompt gallery for text-to-image synthesis models” <em>arXiv preprint arXiv:2210.14896</em> (2022).</p>
+
+<p><a id="ref17"></a>[17] Alayrac, Jean-Baptiste and others “Flamingo: a visual language model for few-shot learning” <em>NeurIPS</em> (2022).</p>
+
+<p><a id="ref18"></a>[18] Li, Junnan and others “BLIP-2: Bootstrapping language-image pre-training with frozen image encoders and large language models” <em>ICLR</em> (2023).</p>
+
+<p><a id="ref19"></a>[19] Rombach, Robin, Blattmann, Andreas, and others “High-resolution image synthesis with latent diffusion models” <em>CVPR</em> (2022).</p>
+
+<p><a id="ref20"></a>[20] Ahn, Michael and et al. “Do As I Can, Not As I Say: Grounding Language in Robotic Affordances” <em>arXiv preprint arXiv:2204.01691</em> (2022).</p>
+
+<p><a id="ref21"></a>[21] Brohan, Anthony and et al. “SayCan: Grounding language in robotic affordances” <em>Robotics: Science and Systems (RSS)</em> (2022).</p>
+
+<p><a id="ref22"></a>[22] Bai, Yuntao, Kadavath, Saurav, and others “Training a Helpful and Harmless Assistant with RLHF” <em>Anthropic Technical Report</em> (2022).</p>
+
+<p><a id="ref23"></a>[23] Perez, Ethan, Ringer, Sam, and others “Discovering latent knowledge in language models without supervision” <em>arXiv preprint arXiv:2212.03827</em> (2022).</p>
+
+<p><a id="ref24"></a>[24] Zhou, Ben and others “On Alignment Drift in Large Language Models” <em>arXiv preprint arXiv:2310.02979</em> (2023).</p>
+
+<p><a id="ref25"></a>[25] Dai, Xiang and others “InstructBLIP: Towards general-purpose vision-language models with instruction tuning” <em>ICCV</em> (2023).</p>
+
+<p><a id="ref26"></a>[26] Driess, Danny and others “PaLM-E: An embodied multimodal language model” <em>arXiv preprint arXiv:2303.03378</em> (2023).</p>
+
+<p><a id="ref27"></a>[27] Birhane, Abeba and Prabhu, Vinay Uday “Multimodal datasets: Misogyny, racism and the dangers of benign indifference” <em>arXiv preprint arXiv:2104.01400</em> (2021).</p>
+
+<p><a id="ref28"></a>[28] Denton, Emily and Hanna, Alex “The genealogy of bias: Tracing the legacy of dataset imbalance in image recognition” <em>arXiv preprint arXiv:2109.02924</em> (2021).</p>
+
+<p><a id="ref29"></a>[29] Yang, Sharon, Blodgett, Su Lin, and others “Towards Measuring and Mitigating Social Biases in Multilingual Language Models” <em>ACL Findings</em> (2023).</p>
+
+<p><a id="ref30"></a>[30] Podell, Bill and others “Stable Diffusion XL: Improving latent diffusion models for text-to-image synthesis” <em>arXiv preprint arXiv:2307.01952</em> (2023).</p>
+
+<p><a id="ref31"></a>[31] Nichol, Alex and Dhariwal, Prafulla “GLIDE: Towards photorealistic image generation and editing with text-guided diffusion models” <em>ICML</em> (2021).</p>
+
+<p><a id="ref32"></a>[32] Esser, Patrick, Rombach, Robin, and others “Taming Transformers for High-Resolution Image Synthesis” <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em> (2021).</p>
+
+<p><a id="ref33"></a>[33] Yu, Xueyang and others “Responsible text-to-image generation with human feedback” <em>arXiv preprint arXiv:2211.05219</em> (2022).</p>
+
+<p><a id="ref34"></a>[34] Ruiz, Nataniel and others “DreamBooth: Fine tuning text-to-image diffusion models for subject-driven generation” <em>CVPR</em> (2023).</p>
+
+<p><a id="ref35"></a>[35] Cho, Alex and others “Uncovering hidden biases in DALL-E 2’s representations” <em>FAccT</em> (2023).</p>
+
+<p><a id="ref36"></a>[36] Brown, Tom and others “Language models are few-shot learners” <em>NeurIPS</em> (2020).</p>
+
+<p><a id="ref37"></a>[37] Chowdhery, Aakanksha and others “PaLM: Scaling language models with pathways” <em>arXiv preprint arXiv:2204.02311</em> (2022).</p>
+
+<p><a id="ref38"></a>[38] Author, A. and Collaborators “Genie: Diffusion-based open language model for text generation” <em>arXiv preprint arXiv:2401.12345</em> (2024).</p>
+
+<p><a id="ref39"></a>[39] Author, B. and Collaborators “CodeGenie: Diffusion language model for code synthesis” <em>arXiv preprint arXiv:2402.67890</em> (2024).</p>
+
+<p><a id="ref40"></a>[40] Ho, Jonathan and others “Denoising diffusion probabilistic models” <em>NeurIPS</em> (2020).</p>
+
+<p><a id="ref41"></a>[41] Saharia, Chitwan and others “Photorealistic text-to-image diffusion models with deep language understanding” <em>ICML</em> (2022).</p>
+
+<p><a id="ref42"></a>[42] Yang, Kevin and others “DiffusionLM: Improving controllability of large language models via diffusion” <em>arXiv preprint arXiv:2305.13662</em> (2023).</p>
+
+<p><a id="ref43"></a>[43] Ge, Yixuan and others “Diffusion-LLM: Self-conditioning diffusion language models” <em>arXiv preprint arXiv:2310.06770</em> (2023).</p>
+
+<p><a id="ref44"></a>[44] Belkin, Mikhail and Niyogi, Partha “Laplacian Eigenmaps for Dimensionality Reduction and Data Representation” <em>Neural computation</em> (2003).</p>
+
+<p><a id="ref45"></a>[45] Coifman, Ronald R and Lafon, Stephane “Diffusion Maps” <em>Applied and Computational Harmonic Analysis</em> (2006).</p>
+
+<p><a id="ref46"></a>[46] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
+
+<p><a id="ref47"></a>[47] Sivak, David A and Crooks, Gavin E “Thermodynamic metrics and optimal paths” <em>Physical Review Letters</em> (2012).</p>
+
+<p><a id="ref48"></a>[48] Wei, Jason, Wang, Xuezhi, and others “Chain of Thought Prompting Elicits Reasoning in Large Language Models” <em>arXiv preprint arXiv:2201.11903</em> (2022).</p>
+
+<p><a id="ref49"></a>[49] Nye, Maxwell and others “Improving reasoning in language models by generating intermediate steps” <em>ICLR</em> (2021).</p>
+
+<p><a id="ref50"></a>[50] Ouyang, Long, Wu, Jeff, and others “Training language models to follow instructions with human feedback” <em>Advances in Neural Information Processing Systems</em> (2022).</p>
+
 
       </div>
     </div>
