@@ -646,4 +646,5 @@ nDNA analysis thus provides a **principled diagnostic for alignment quality**--n
 ***To truly understand alignment, we must look beyond what models say--and examine how they think.***
 
 ---
+
 {% auto_references %}

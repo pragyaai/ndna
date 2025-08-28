@@ -2,14 +2,12 @@
 layout: page
 title: "ÆTHERs: From Neuro-Inspired to Genome-Aware AI"
 permalink: /llm/aethers/
-skip_title: true
 ---
 
-{% include title.liquid
-  title="ÆTHERs: From Neuro-Inspired to Genome-Aware AI"
-  title_image="assets/logos/aether.png"
-  logo_alt="ÆTHERs"
-  logo_size="15rem" %}
+<img
+  style="width: 100%; height: 800px; padding: 2rem; object-fit: contain; background: #fff;"
+  src="{{ '/assets/img/aethers.jpg' | relative_url }}"
+  alt="ÆTHERs - Future Al Generations as Semantic Organisms with Traceable Inner Lives">
 
 **Neural networks** revolutionized artificial intelligence by introducing architectures capable of approximating complex functions in high-dimensional spaces {% cite lecun2015deep goodfellow2016deep %}. They marked a fundamental shift away from brittle, rule-based systems toward flexible, gradient-driven, data-dependent learning engines. From early breakthroughs in **computer vision** {% cite Krizhevsky2012ImageNet %}, **speech recognition** {% cite hinton2012deep %}, and **language modeling** {% cite vaswani2017attention %}, to today's expansive **foundation models** {% cite brown2020language touvron2023llama %}, neural networks have become the indispensable substrate of modern AI. Their strength derives not only from architectural innovations but also from their *distributed internal representations*, **emergent capabilities**, and remarkable ability to generalize across diverse domains {% cite bommasani2021opportunities %}.
 
@@ -144,26 +142,4 @@ Our ongoing work seeks to position **nDNA geometry** as a fundamentally new lens
 
 ---
 
-## nDNA v2 — Tensor-Rich Belief Torsion
-
-While our current framework encapsulates belief as a vector-valued semantic steering force, it is possible to **extend this formulation** to a richer *tensor-based representation* of belief.
-
-This higher-order representation $\mathbf{T}_\ell^{(c)} \in \mathbb{R}^{d \times d \times \cdots}$ captures *complex multi-dimensional interactions* within the latent activation space, enabling the modeling of **nonlinear dependencies**, *higher-order correlations*, and **contextual entanglements** that are fundamentally inaccessible to vector embeddings alone. By encoding semantic *torsion*, *curvature*, and *multi-modal interactions* across layers, tensor-based belief representation offers a powerful framework to characterize subtle latent geometry and richer internal dynamics of language models.
-
-Such a tensor-rich approach is particularly beneficial in cases involving **multimodal fusion**, *hierarchical reasoning*, and **complex compositionality**, where simple vectorial steering fails to capture *intertwined semantic constraints* and *latent contextual shifts*. For example, in tasks demanding *disentanglement of overlapping concepts* or **fine-grained alignment** of multi-turn dialogue states, tensors can explicitly encode relational structure and layered semantic dependencies.
-
-However, this expressivity comes with a significant **computational overhead**, as tensor operations increase dimensionality exponentially and necessitate *efficient approximation schemes* or *structured sparsity* to remain scalable. Balancing the tradeoff between **modeling fidelity** and **computational tractability** is a central challenge we are actively addressing in ongoing research, with promising directions including *low-rank tensor decompositions* and *hybrid vector-tensor architectures*.
-
-In summary, while belief-as-tensor unlocks *richer representational nuance* and **deeper semantic insight**, its practical deployment requires careful design to harness its power without prohibitive costs—we are currently working.
-
-| **Layer** | **$\kappa_\ell$** | **$\mathcal{S}_\ell$** | **$\|\mathbf{T}_\ell^{(c)}\|_F$** | **Tensor Heatmap** |
-|-----------|---------|---------|------------------|-------------------|
-| 20 | 0.0412 | 0.9123 | 1.4521 | *Complex tensor visualization* |
-| 21 | 0.0458 | 0.8123 | 1.7523 | *Layer-specific tensor patterns* |
-| ⋮ | ⋮ | ⋮ | ⋮ | ⋮ |
-| 27 | 0.0512 | 1.0520 | 1.6222 | *Mid-layer tensor evolution* |
-| ⋮ | ⋮ | ⋮ | ⋮ | ⋮ |
-| 29 | 0.0672 | 1.0123 | 1.4322 | *Near-final layer dynamics* |
-| 30 | 0.0555 | 0.8221 | 1.6720 | *Final tensor configuration* |
-
-*Illustrative nDNA Tensor Example: Presents a combined view of **spectral curvature** $\kappa_\ell$, **thermodynamic length** $\mathcal{S}_\ell$, **Frobenius norm of tensor slices** $\|\mathbf{T}_\ell^{(c)}\|_F$, alongside **visual heatmaps** of the corresponding tensor, highlighting the intricate latent geometry at different layers.*
+{% auto_references %}
