@@ -26,25 +26,25 @@ const menusByModel = {
     { text: "Critique’s Corner", url: baseUrl + "/llm/critiques-corner/" }
   ],
   MFM: [
-    { text: "nDNA", url: baseUrl + "/" },
+    { text: "nDNA", url: baseUrl + "/mfm/ndna/" },
     { text: "Multimodal Analysis", url: "#" },
     { text: "Vision-Language", url: "#" },
     { text: "Cross-Modal Alignment", url: "#" }
   ],
   T2I: [
-    { text: "nDNA", url: baseUrl + "/" },
+    { text: "nDNA", url: baseUrl + "/t2i/ndna/" },
     { text: "Text-to-Image", url: "#" },
     { text: "Prompt Engineering", url: "#" },
     { text: "Style Transfer", url: "#" }
   ],
   Diffusion: [
-    { text: "nDNA", url: baseUrl + "/" },
+    { text: "nDNA", url: baseUrl + "/diffusion/ndna/" },
     { text: "Diffusion Process", url: "#" },
     { text: "Denoising Analysis", url: "#" },
     { text: "Sampling Methods", url: "#" }
   ],
   EFM: [
-    { text: "nDNA", url: baseUrl + "/" },
+    { text: "nDNA", url: baseUrl + "/efm/ndna/" },
     { text: "Embodied Learning", url: "#" },
     { text: "Action Planning", url: "#" },
     { text: "Sensorimotor", url: "#" }

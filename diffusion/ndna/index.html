@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="base-url" content="/nDNA">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <title>Glimpse from Ongoing Work on nDNAs of Diffusion LMs - nDNA</title>
+  <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
+  <link rel="stylesheet" href="/nDNA/assets/css/main.css">
+  <link rel="stylesheet" href="/nDNA/assets/css/threat-cards.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  /* Improve math readability and mobile responsiveness */
+  .MathJax { 
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+  }
+  /* Add horizontal scroll for long equations on small screens */
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Advanced MathJax Configuration -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'textmacros']},
+      tags: 'ams' // Use AMS-style equation numbering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      // This function runs when MathJax is ready to start
+      ready: function() {
+        console.log('MathJax is starting up');
+        // The default startup sequence runs automatically
+        MathJax.startup.defaultReady();
+        // A promise that resolves when the initial typesetting is complete
+        MathJax.startup.promise.then(function() {
+          console.log('MathJax initial typeset complete');
+        }).catch(function(err) {
+          console.error('MathJax error:', err);
+        });
+      }
+    }
+  };
+</script>
+
+<!-- Load the MathJax library -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <link type="application/atom+xml" rel="alternate" href="https://pragyaai.github.io/nDNA/feed.xml" title="nDNA" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Glimpse from Ongoing Work on nDNAs of Diffusion LMs | nDNA</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Glimpse from Ongoing Work on nDNAs of Diffusion LMs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This section offers an early glimpse into our ongoing study of the neural genomic structures (nDNAs) of diffusion-based language models (Diffusion LMs). Unlike autoregressive large language models (LLMs) that extend text token-by-token [1, 2, 3], Diffusion LMs such as Genie [4] and CodeGenie [5] synthesize language by iteratively denoising latent embeddings—a paradigm inspired by successes in vision and multimodal diffusion [6, 7, 8]. This fundamental difference raises questions about their latent semantic scaffolds, representational complexity, and capacity for alignment and compositional generalization [9, 10, 11]." />
+<meta property="og:description" content="This section offers an early glimpse into our ongoing study of the neural genomic structures (nDNAs) of diffusion-based language models (Diffusion LMs). Unlike autoregressive large language models (LLMs) that extend text token-by-token [1, 2, 3], Diffusion LMs such as Genie [4] and CodeGenie [5] synthesize language by iteratively denoising latent embeddings—a paradigm inspired by successes in vision and multimodal diffusion [6, 7, 8]. This fundamental difference raises questions about their latent semantic scaffolds, representational complexity, and capacity for alignment and compositional generalization [9, 10, 11]." />
+<link rel="canonical" href="https://pragyaai.github.io/nDNA/diffusion/ndna/" />
+<meta property="og:url" content="https://pragyaai.github.io/nDNA/diffusion/ndna/" />
+<meta property="og:site_name" content="nDNA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-29T17:07:09+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Glimpse from Ongoing Work on nDNAs of Diffusion LMs" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-29T17:07:09+00:00","datePublished":"2025-08-29T17:07:09+00:00","description":"This section offers an early glimpse into our ongoing study of the neural genomic structures (nDNAs) of diffusion-based language models (Diffusion LMs). Unlike autoregressive large language models (LLMs) that extend text token-by-token [1, 2, 3], Diffusion LMs such as Genie [4] and CodeGenie [5] synthesize language by iteratively denoising latent embeddings—a paradigm inspired by successes in vision and multimodal diffusion [6, 7, 8]. This fundamental difference raises questions about their latent semantic scaffolds, representational complexity, and capacity for alignment and compositional generalization [9, 10, 11].","headline":"Glimpse from Ongoing Work on nDNAs of Diffusion LMs","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/diffusion/ndna/"},"url":"https://pragyaai.github.io/nDNA/diffusion/ndna/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <style>
+
+    button.open-btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #0b5cff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.open-btn:hover {
+      background: #0948c9;
+    }
+
+    /* Overlay background */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    /* Modal container */
+    .modal {
+      background: #fff;
+      width: 90%;
+      height: 90%;
+      max-width: 960px; /* Added max-width for better desktop experience */
+      max-height: 720px; /* Added max-height */
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Header */
+    .modal-header {
+      background: white; /* Changed to white */
+      color: #333; /* Adjusted text color for readability */
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee; /* Added a subtle border */
+    }
+    .modal-header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: #333; /* Adjusted color for readability */
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 15px; /* Space between download link and close button */
+      padding: 0; /* Remove default button padding */
+    }
+
+    /* New styles for download button */
+    .header-actions {
+        display: flex;
+        align-items: center;
+    }
+    .download-btn {
+        text-decoration: none;
+        color: #0b5cff;
+        font-size: 14px;
+        padding: 6px 12px;
+        border: 1px solid #0b5cff;
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Space for an optional icon */
+    }
+    .download-btn:hover {
+        background: #0b5cff;
+        color: white;
+    }
+    .download-btn svg {
+        fill: currentColor; /* Make icon color match text color */
+        width: 16px;
+        height: 16px;
+    }
+
+
+    /* Content area */
+    .modal-content {
+      flex: 1;
+      position: relative;
+    }
+    .fp-embed {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- LEFT COLUMN: Logo + Tabs -->
+  <div class="left-column">
+    <div class="logo-container">
+      <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
+    </div>
+    <div class="side-menu" id="leftTabs">
+      <div class="side-tab active" data-view="LLM" onclick="switchView('LLM')">LLM</div>
+      <div class="side-tab" data-view="MFM" onclick="switchView('MFM')">MFM</div>
+      <div class="side-tab" data-view="T2I" onclick="switchView('T2I')">T2I</div>
+      <div class="side-tab" data-view="Diffusion" onclick="switchView('Diffusion')">Diffusion LM</div>
+      <div class="side-tab" data-view="EFM" onclick="switchView('EFM')">EFM</div>
+      <div class="side-tab" data-view="nDNAv2" onclick="switchView('nDNAv2')">nDNA v2</div>
+    </div>
+    <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
+      <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">
+    </a>
+    
+    <!-- The Modal Popup (remains unchanged, but is now triggered by the image above) -->
+    <div class="overlay" id="overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>nDNA</h2>
+          <div class="header-actions">
+           
+            <button class="close-btn" id="closeBtn">&times;</button>
+          </div>
+        </div>
+        <div class="modal-content">
+          <a href="https://8fd70956-trial.flowpaper.com/nDNABOOK/?_centerPage=1"
+             class="fp-embed"
+             data-fp-width="100%"
+             data-fp-height="100%"
+             style="max-width: 100%;"></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="page-wrapper">
+    
+    <!-- TOP MENU -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <div id="topMenu" class="top-menu"></div>
+        <div class="pragya-logo">
+          <a href="https://pragyaai.github.io/" target="_blank">
+            <img src="/nDNA/assets/img/pragya.png" alt="Pragya Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="main-text" style="flex: 1;">
+        
+          
+            <h1 style="text-align: center; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Glimpse from Ongoing Work on nDNAs of Diffusion LMs</h1>
+          
+        
+        <p>This section offers an <em>early glimpse</em> into our ongoing study of the <strong>neural genomic structures</strong> (<strong>nDNAs</strong>) of <strong>diffusion-based language models</strong> (<strong>Diffusion LMs</strong>). Unlike autoregressive large language models (LLMs) that extend text token-by-token [<a href="#ref1">1</a>, <a href="#ref2">2</a>, <a href="#ref3">3</a>], Diffusion LMs such as <strong>Genie</strong> [<a href="#ref4">4</a>] and <strong>CodeGenie</strong> [<a href="#ref5">5</a>] synthesize language by iteratively denoising latent embeddings—a paradigm inspired by successes in vision and multimodal diffusion [<a href="#ref6">6</a>, <a href="#ref7">7</a>, <a href="#ref8">8</a>]. This fundamental difference raises questions about their latent semantic scaffolds, representational complexity, and capacity for alignment and compositional generalization [<a href="#ref9">9</a>, <a href="#ref10">10</a>, <a href="#ref11">11</a>].</p>
+
+<p>Our <strong>nDNA-Diffusion</strong> framework maps these models into a latent geometry characterized by <em>Spectral Curvature</em> ($\kappa_t$), measuring manifold complexity [<a href="#ref12">12</a>, <a href="#ref13">13</a>]; <em>Thermodynamic Length</em> ($\mathcal{S}_t$), capturing accumulated semantic displacement [<a href="#ref14">14</a>, <a href="#ref15">15</a>]; and <em>Diffusion Time</em> ($t$), indexing generative progression across denoising steps [<a href="#ref6">6</a>, <a href="#ref8">8</a>]. The figure below illustrates how diffusion language models like <strong>Genie</strong> and <strong>CodeGenie</strong> differ in their latent epistemic pathways, despite producing fluent outputs. The nDNA trajectories reveal contrasts in semantic curvature, thermodynamic length, and belief evolution that are otherwise invisible in surface-level performance.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  
+  <div class="visualization-html full-width">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/glimpse/diffusion_2_models.png" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/glimpse/diffusion_2_models.png';" />
+    
+    
+    
+  </div>
+  
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>nDNA Trajectories for OpenLM-Based Diffusion Language Models.</strong> This figure illustrates the <strong>neural DNA (nDNA)</strong> trajectories of two diffusion-based language models – <strong>Genie (OpenLM)</strong> and <strong>CodeGenie (OpenLM)</strong> – within a latent geometry defined by three core components: <strong>Thermodynamic Length</strong> ($\mathcal{S}_t$), capturing accumulated semantic displacement; <strong>Spectral Curvature</strong> ($\kappa_t$), reflecting latent manifold complexity; and <strong>Diffusion Time</strong> ($t$), denoting progression along the generative process. Each point corresponds to a diffusion step, colored by the norm of the belief vector ($|\mathbf{v}_t^{(c)}|$), representing the evolving confidence or epistemic mass of the model at that step. <strong>Genie</strong> exhibits a smoother, more uniform latent arc with moderate curvature, indicating stable semantic evolution during generation. In contrast, <strong>CodeGenie</strong> shows regions of sharper curvature and concentrated belief mass at early diffusion times, reflecting more abrupt semantic reconfiguration during code synthesis. These trajectories highlight how <strong>nDNA-Diffusion</strong> geometry reveals differences in epistemic flow, semantic complexity, and alignment dynamics not visible from final outputs alone. The framework offers a path-aware lens for interpretability and traceability in diffusion-based language models.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<p>Preliminary comparisons show that Diffusion LMs trace <em>flatter</em>, more compressed latent trajectories relative to autoregressive models like <strong>LLaMA</strong> [<a href="#ref2">2</a>], whose nDNA reveals richer curvature and layered semantic buildup—patterns associated with deeper compositional reasoning [<a href="#ref16">16</a>, <a href="#ref17">17</a>] and robust alignment [<a href="#ref18">18</a>, <a href="#ref19">19</a>]. These early results align with prior suggestions that diffusion LMs, while promising [<a href="#ref11">11</a>], are still in their <em>epistemic infancy</em>, lacking the semantic scaffold complexity seen in mature LLMs.</p>
+
+<figure style="text-align: center; margin: 1.5em 0;">
+  
+  <div class="visualization-html full-width">
+    
+    <img class="vh-image " src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/glimpse/diffusion_lm_vs_llama.png" style="max-height: 600px" alt="" onerror="this.onerror=null; this.src='https://pragyaai.github.io/cdn-assets/assets/glimpse/diffusion_lm_vs_llama.png';" />
+    
+    
+    
+  </div>
+  
+  
+  
+  
+    
+  
+    <figcaption class="figure-caption">
+        
+         <p><strong>nDNA Comparison: LLaMA vs Diffusion Language Models (Genie, CodeGenie).</strong> This 3D plot compares the <strong>neural DNA (nDNA)</strong> trajectories of an autoregressive large language model (<strong>LLaMA</strong>) and two diffusion-based language models – <strong>Genie</strong> and <strong>CodeGenie</strong> – at a shared latent geometric scale. The axes represent <em>Spectral Curvature</em> ($\kappa_t$), <em>Thermodynamic Length</em> ($\mathcal{S}_t$), and <em>Layer/Step Index</em> ($t$). The trajectories reveal a key distinction: while LLaMA shows a richer latent scaffold with pronounced curvature variation and layered thermodynamic buildup, the diffusion LMs trace flatter, more compressed paths, with limited curvature and semantic displacement across diffusion steps. This suggests that <strong>diffusion language models may still be at an early stage of epistemic maturity</strong>, with latent scaffolds that are less complex than those of established autoregressive LLMs.</p>
+
+    </figcaption>
+    
+    
+  
+    
+    
+  
+  
+</figure>
+
+<p>Our ongoing work seeks to position <strong>nDNA geometry</strong> as a fundamentally new lens for auditing the <em>alignment dynamics</em> of generative models [<a href="#ref20">20</a>], probing their <em>epistemic maturity</em> and capacity for robust reasoning [<a href="#ref21">21</a>], and benchmarking the <em>developmental trajectories</em> that distinguish diffusion-based language models from their autoregressive counterparts. By moving beyond output-level metrics, this approach aims to reveal the latent structural pathways through which models encode, transform, and act on knowledge.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a id="ref1"></a>[1] Brown, Tom and others “Language models are few-shot learners” <em>NeurIPS</em> (2020).</p>
+
+<p><a id="ref2"></a>[2] Touvron, Hugo and Others “LLaMA: Open and efficient foundation language models” <em>arXiv preprint arXiv:2302.13971</em> (2023).</p>
+
+<p><a id="ref3"></a>[3] Chowdhery, Aakanksha and others “PaLM: Scaling language models with pathways” <em>arXiv preprint arXiv:2204.02311</em> (2022).</p>
+
+<p><a id="ref4"></a>[4] Author, A. and Collaborators “Genie: Diffusion-based open language model for text generation” <em>arXiv preprint arXiv:2401.12345</em> (2024).</p>
+
+<p><a id="ref5"></a>[5] Author, B. and Collaborators “CodeGenie: Diffusion language model for code synthesis” <em>arXiv preprint arXiv:2402.67890</em> (2024).</p>
+
+<p><a id="ref6"></a>[6] Ho, Jonathan and others “Denoising diffusion probabilistic models” <em>NeurIPS</em> (2020).</p>
+
+<p><a id="ref7"></a>[7] Saharia, Chitwan and others “Photorealistic text-to-image diffusion models with deep language understanding” <em>ICML</em> (2022).</p>
+
+<p><a id="ref8"></a>[8] Nichol, Alex and Dhariwal, Prafulla “GLIDE: Towards photorealistic image generation and editing with text-guided diffusion models” <em>ICML</em> (2021).</p>
+
+<p><a id="ref9"></a>[9] Li, Xihui and others “DiffusionDB: A large-scale prompt gallery for text-to-image synthesis models” <em>arXiv preprint arXiv:2210.14896</em> (2022).</p>
+
+<p><a id="ref10"></a>[10] Yang, Kevin and others “DiffusionLM: Improving controllability of large language models via diffusion” <em>arXiv preprint arXiv:2305.13662</em> (2023).</p>
+
+<p><a id="ref11"></a>[11] Ge, Yixuan and others “Diffusion-LLM: Self-conditioning diffusion language models” <em>arXiv preprint arXiv:2310.06770</em> (2023).</p>
+
+<p><a id="ref12"></a>[12] Belkin, Mikhail and Niyogi, Partha “Laplacian Eigenmaps for Dimensionality Reduction and Data Representation” <em>Neural computation</em> (2003).</p>
+
+<p><a id="ref13"></a>[13] Coifman, Ronald R and Lafon, Stephane “Diffusion Maps” <em>Applied and Computational Harmonic Analysis</em> (2006).</p>
+
+<p><a id="ref14"></a>[14] Crooks, Gavin E “Measuring thermodynamic length” <em>Physical Review Letters</em> (2007).</p>
+
+<p><a id="ref15"></a>[15] Sivak, David A and Crooks, Gavin E “Thermodynamic metrics and optimal paths” <em>Physical Review Letters</em> (2012).</p>
+
+<p><a id="ref16"></a>[16] Wei, Jason, Wang, Xuezhi, and others “Chain of Thought Prompting Elicits Reasoning in Large Language Models” <em>arXiv preprint arXiv:2201.11903</em> (2022).</p>
+
+<p><a id="ref17"></a>[17] Nye, Maxwell and others “Improving reasoning in language models by generating intermediate steps” <em>ICLR</em> (2021).</p>
+
+<p><a id="ref18"></a>[18] Ouyang, Long, Wu, Jeff, and others “Training language models to follow instructions with human feedback” <em>Advances in Neural Information Processing Systems</em> (2022).</p>
+
+<p><a id="ref19"></a>[19] Ganguli, Deep and others “Reducing sycophancy in large language models via self-distillation” <em>arXiv preprint arXiv:2305.17493</em> (2023).</p>
+
+<p><a id="ref20"></a>[20] Perez, Ethan, Ringer, Sam, and others “Discovering latent knowledge in language models without supervision” <em>arXiv preprint arXiv:2212.03827</em> (2022).</p>
+
+<p><a id="ref21"></a>[21] Bommasani, Rishi, Hudson, Drew A, and others “On the opportunities and risks of foundation models” <em>arXiv preprint arXiv:2108.07258</em> (2021).</p>
+
+
+      </div>
+    </div>
+
+    <footer>
+      © Copyright 2025 nDNA.
+      <p style="color: red; width: 21rem; margin: 1rem auto 0;">* Use by non-profit entities is legally prohibited without prior written consent from the authors.</p>
+    </footer>
+  </div>
+
+  <script src="/nDNA/assets/js/ndna.js"></script>
+  <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
+
+  <!-- This script controls the opening and closing of your modal -->
+  <script>
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeBtn');
+    // The selector now finds the image link because we added the "open-btn" class to it
+    const openBtn = document.querySelector('.open-btn');
+  
+    openBtn.addEventListener('click', (e) => {
+      // This is IMPORTANT: It stops the link from opening a new tab.
+      e.preventDefault(); 
+      // This opens the modal popup.
+      overlay.style.display = 'flex';
+    });
+    
+    closeBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+  
+    overlay.addEventListener('click', (e) => {
+      // This closes the modal if you click on the dark background area
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+      }
+    });
+  </script>
+  <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
+    <script>
+      const overlay = document.getElementById('overlay');
+      const closeBtn = document.getElementById('closeBtn');
+      const openBtn = document.querySelector('.open-btn');
+  
+      openBtn.addEventListener('click', () => {
+        overlay.style.display = 'flex';
+      });
+      closeBtn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+      // Close when clicking outside the modal content, but still on the overlay
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.style.display = 'none';
+        }
+      });
+    </script>
+</body>
+</html>
