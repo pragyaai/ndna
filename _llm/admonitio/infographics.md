@@ -7,6 +7,11 @@ skip_title: True
 
 <link rel="stylesheet" href="{{ '/assets/css/infographics.css' | relative_url }}">
 
+<!-- Video positioned on the right side to wrap around entire content -->
+<div style="float: right; margin: 0 0 1em 2em;">
+  <iframe width="420" height="236" src="https://www.youtube.com/embed/CP3pOE9eQm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
+</div>
+
 <div class="infographics-container">
   
   <!-- Neural Networks Foundation Section -->
@@ -533,5 +538,7 @@ skip_title: True
       </p>
     </div>
   </section>
+
+  <div style="clear: both;"></div>
 
 </div>
