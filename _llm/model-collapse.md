@@ -47,6 +47,9 @@ mathjax: true
   </p>
 </section>
 
+{% include inspiration-video.liquid 
+   youtube_url="https://www.youtube.com/embed/yolC-HCFD-g" %}
+
 <h2 id="strategic-typology">Strategic Typology of Model Collapse Mechanisms</h2>
 
 <div style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px;">
