@@ -28,7 +28,9 @@ body {
 
 .ndna-cover {
   margin-top: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid;
+  box-sizing: border-box;
 }
 
 .ndna-cover img {
@@ -672,4 +674,66 @@ mjx-container[jax="CHTML"] {
 .highlight {
     max-width: 1100px;
     overflow: auto;
+}
+
+.paper-link {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}
+.btn-primary {
+    color: #fff;
+    background: #446e9b linear-gradient(180deg,#6084aa,#446E9B)repeat-x;
+    border-color: #446e9b
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background: #385b80 linear-gradient(180deg,#567493,#385b80)repeat-x;
+    border-color: #345578
+}
+
+.btn-primary:focus,.btn-primary.focus {
+    box-shadow: 0 0 0 .2rem rgba(96,132,170,.5)
+}
+
+.btn-secondary {
+    color: #212529;
+    background: #dee2e6 linear-gradient(180deg,#e3e6ea,#dee2e6)repeat-x;
+    border-color: #dee2e6
+}
+
+.btn-secondary:hover {
+    color: #212529;
+    background: #c8cfd6 linear-gradient(180deg,#d0d6dc,#c8cfd6)repeat-x;
+    border-color: #c1c9d0
+}
+
+.btn-secondary:focus,.btn-secondary.focus {
+    box-shadow: 0 0 0 .2rem rgba(194,198,202,.5)
 }

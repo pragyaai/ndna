@@ -209,9 +209,12 @@
       <a class="side-tab" data-view="nDNAv2" href="{{ '/ndna-v2/' | relative_url }}">nDNA v2</a>
     </div>
     <a class="ndna-cover open-btn" href="{{ site.baseurl }}/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
-      <img src="{{ site.cdn_url }}/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">
+      <img src="{{ '/assets/img/cover_book.png' | relative_url }}" alt="nDNA Book Cover" class="ndna-cover-image">
     </a>
-    
+    <div class="paper-link">
+      <a class="btn btn-primary" href="#" title="Open PDF of 'nDNA'"><i class="far fa-file-pdf"></i><span style="padding-left: 0.5rem;">PDF</span></a>
+      <a class="btn btn-secondary" title="Open dialog for exporting citations" data-toggle="modal" data-target="#citeModal" href="#"><i class="fas fa-quote-left"></i><span style="padding-left: 0.5rem;">Cite</span></a>
+    </div>
     <!-- The Modal Popup (remains unchanged, but is now triggered by the image above) -->
     <div class="overlay" id="overlay">
       <div class="modal">
