@@ -6,6 +6,152 @@ skip_title: true
 ---
 {% include ndna-title.liquid title="nDNA Lens - Model Operations" %}
 
+<div class="threat-cards-container">
+  <div class="threat-cards-title">Neural Genomics: A Paradigm to Comprehend the Semantic Organism of AI</div>
+  <div class="threat-cards-subtitle">
+    <strong>TL;DR:</strong>This work inaugurates the science of <strong>Neural Genomics</strong>--a first-principles framework to trace, diagnose, and govern the latent semantic genome of large foundation models. By viewing models not merely as transformers of tokens but as carriers of epistemic nDNA, we chart a new ontology for understanding artificial cognition.
+  </div>
+  <div class="threat-cards-layout-container">
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-dna"></i>
+        </div>
+        <h3 class="threat-card-title">Semantic Cartography of LLMs</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Across 15 foundation models, latent spectra reveal not just size or accuracy--but shape, tension, and conceptual scaffolding.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>nDNA turns black-box scaling into white-box semantics.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-language"></i>
+        </div>
+        <h3 class="threat-card-title">Culture Leaves a Latent Trace</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Cultural fine-tuning reshapes latent manifolds--sometimes subtly, sometimes tectonically.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>Multilingualism isn't just fairness--it is geometry.</em></div>
+        </div>
+      </div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-compass"></i>
+        </div>
+        <h3 class="threat-card-title">Alignment is a Steering Force</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Alignment manifests as directional belief fields in latent space.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>Models don't just act aligned--they can believe aligned. Or fake it.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-compress"></i>
+        </div>
+        <h3 class="threat-card-title">Distillation Bottlenecks Semantic Wealth</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Distilled students mimic performance but flatten internal structure.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>Like cloning without a soul--efficiency, but at epistemic cost.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <h3 class="threat-card-title">Offspring Inherit or Emerge</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Neural merging yields more than the sum of its parts--sometimes fusions harmonize, sometimes they fracture.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>Inheritance becomes topology.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <h3 class="threat-card-title">Collapse is a Spectral Disease</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Degenerative training regimes leave signatures: torsion fades, curvature flattens, beliefs vanish.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>Model death is measurable before it manifests.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-fingerprint"></i>
+        </div>
+        <h3 class="threat-card-title">From Drift to DNA Forensics</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Latent geometry carries lineage.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>With nDNA, we trace origin, ideology, and inherited flaws--not just model ID aka behavior but ancestral fingerprint.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="threat-card">
+      <div class="threat-card-header">
+        <div class="threat-card-icon">
+          <i class="fas fa-code-branch"></i>
+        </div>
+        <h3 class="threat-card-title">Hybrid Vigor or Epistemic Chimera?</h3>
+      </div>
+      <div class="threat-card-body">
+        <div class="threat-card-section">
+          <div class="threat-card-content">Cultural recombination reveals nonlinear emergence.</div>
+        </div>
+        <div class="threat-card-section">
+          <div class="threat-card-content"><em>Fusion may create the future--or resurrect the past in latent form.</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="threat-cards-footer">
+    <strong>Outlook</strong>: Just as molecular biology revealed that life was written in base pairs, Neural Genomics reveals that intelligence is encoded in geometry. The path forward is not merely to train faster--but to train with <em>traceability</em>, inherit with <em>intention</em>, and align with <em>understanding</em>. This work is not an end--it is the first map of a latent genome we are only beginning to comprehend.
+  </div>
+</div>
+
 In the unfolding saga of artificial intelligence, a consensus has quietly emerged: the simplistic formula of **"more data equals better AI"** no longer holds the promise it once did. As the quest for *Artificial General Intelligence (AGI)* intensifies, we face a perplexing paradox--researchers debate its very definition, yet none can offer a **universally accepted characterization** of what AGI truly entails. This conceptual ambiguity reflects a deeper truth: intelligence, in its fullest sense, *resists reduction* to sheer scale or data volume {% cite bengio2020towards lake2017building %}.
 
 Simultaneously, the empirical reality is stark and humbling. The world's digital corpus--once thought to be an ever-expanding ocean of knowledge--has approached a **plateau**. We no longer have vast new reservoirs of authentic human-generated data to feed into our models. Instead, projections foresee a future where **over 90% of web content** will be synthesized by AI systems themselves {% cite yu2023aiweb %}. This recursive feedback loop of AI learning from AI raises profound concerns about *semantic collapse* and **knowledge degradation**. This phenomenon, often called **AI cannibalism**, poses the unsettling question: *Could training predominantly on AI-generated content destabilize the very foundations of meaning and understanding within our models?* {% cite dean2023canibalism %}.
@@ -26,41 +172,69 @@ So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and d
 
 So far, we have defined the conceptual foundation of **Neural DNA (nDNA)** and demonstrated how diverse model-level operations--such as *merging*, *fine-tuning*, *alignment*, *distillation*, and *pruning*--can be systematically monitored and comprehended through the *epistemic lens* of neural genomics. This perspective transforms AI models from inscrutable black boxes into **living lineages** with inheritable semantic traits, subject to mutation, recombination, and evolutionary pressures akin to biological organisms. We reinterpret key model operations through this genomic lens:
 
-<link rel="stylesheet" href="{{ '/assets/css/neural_genomics.css' | relative_url }}">
+<div class="threat-cards-container">
+  <!-- <div class="threat-cards-title"></div>
+  <div class="threat-cards-subtitle"></div> -->
+  <div class="threat-cards-layout-container">
 
-<div class="custom-card">
-<ul>
-  <li>
-    <strong>Merging</strong> as <em>asymmetric fusion</em>
-    {% cite ilharco2023editing matena2022merging yang2024model wolfe2023survey yan2024infifusion %}
-  </li>
-  <li>
-    <strong>Fine-tuning</strong> as <em>neural plasticity</em>
-    {% cite d2023parameter continual_neural_collapse2025 mccloskey1989catastrophic chen2020catastrophic hu2021lora khatun2023survey yuan2023promptbench %}
-  </li>
-  <li>
-    <strong>Alignment</strong> as <em>ideological narrowing</em>
-    {% cite zhou2023alignmentdrift perez2022discovering ganguli2023reducing bai2022training arora2023stereoset luo2023survey %}
-  </li>
-  <li>
-    <strong>Distillation</strong> as <em>shallow fluency transfer</em>
-    {% cite mirzadeh2020improved sanh2019distilbert mukherjee2021distilling rashid2021matekd liu2022knowledge xu2021rethinking %}
-  </li>
-  <li>
-    <strong>Quantization</strong> as <em>epistemic collapse</em>
-    {% cite zafrir2019q8bert li2020qbert frantar2022gptq dettmers2022llm dai2021co %}
-  </li>
-  <li>
-    <strong>Pruning</strong> as <em>chromosomal deletion</em>
-    {% cite voita2019analyzing lagunas2021block liu2023pruning sanh2020movement xia2022structured %}
-  </li>
-  <li>
-    <strong>Model collapse</strong> as <em>semantic inbreeding</em>
-    {% cite bommasani2021opportunities mccloskey1989catastrophic zheng2023shortcut liu2022analyzing yang2023study %}
-  </li>
-</ul>
+{% capture merging_description %}
+as *asymmetric fusion* {% cite ilharco2023editing matena2022merging yang2024model wolfe2023survey yan2024infifusion %}
+{% endcapture %}
+{% include threat-card.liquid 
+   icon="fa-object-group" 
+   title="Merging" 
+   description=merging_description %}
+
+{% capture finetuning_description %}
+as *neural plasticity* {% cite d2023parameter continual_neural_collapse2025 mccloskey1989catastrophic chen2020catastrophic hu2021lora khatun2023survey yuan2023promptbench %}
+{% endcapture %}
+{% include threat-card.liquid 
+   icon="fa-brain" 
+   title="Fine-tuning" 
+   description=finetuning_description %}
+
+{% capture alignment_description %}
+as *ideological narrowing* {% cite zhou2023alignmentdrift perez2022discovering ganguli2023reducing bai2022training arora2023stereoset luo2023survey %}
+{% endcapture %}
+{% include threat-card.liquid 
+   icon="fa-balance-scale" 
+   title="Alignment" 
+   description=alignment_description %}
+
+{% capture distillation_description %}
+as *shallow fluency transfer* {% cite mirzadeh2020improved sanh2019distilbert mukherjee2021distilling rashid2021matekd liu2022knowledge xu2021rethinking %}
+{% endcapture %}
+{% include threat-card.liquid 
+   icon="fa-flask" 
+   title="Distillation" 
+   description=distillation_description %}
+
+{% capture quantization_description %}
+as *epistemic collapse* {% cite zafrir2019q8bert li2020qbert frantar2022gptq dettmers2022llm dai2021co %}
+{% endcapture %}
+{% include threat-card.liquid 
+   icon="fa-compress" 
+   title="Quantization" 
+   description=quantization_description %}
+
+{% capture pruning_description %}
+as *chromosomal deletion* {% cite voita2019analyzing lagunas2021block liu2023pruning sanh2020movement xia2022structured %}
+{% endcapture %}
+{% include threat-card.liquid 
+   icon="fa-cut" 
+   title="Pruning" 
+   description=pruning_description %}
+
+{% capture collapse_description %}
+as *semantic inbreeding* {% cite bommasani2021opportunities mccloskey1989catastrophic zheng2023shortcut liu2022analyzing yang2023study %}
+{% endcapture %}
+{% include threat-card.liquid 
+   icon="fa-dna" 
+   title="Model collapse" 
+   description=collapse_description %}
+
+  </div>
 </div>
-
 
 *nDNA is not merely a metric--it is the epistemic microscope revealing the lineage and inheritance patterns of artificial cognition.* Yet, **Neural Genomics** is still in its infancy. To truly advance this paradigm and unravel the complexities of AI cognition, we require an expanding *arsenal of metrics*--mathematical instruments that probe the intricate architecture of model genomes, quantify their mutational landscapes, and decode the dynamics of semantic inheritance. This initial collection of diagnostic tools represents the pioneering steps in a vast journey, reminiscent of how early geneticists first cataloged traits and mutations before the genome's full map was realized.
 

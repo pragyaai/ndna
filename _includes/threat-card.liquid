@@ -8,7 +8,7 @@
   <div class="threat-card-body">
   {% if include.description %}
     <div class="threat-card-section">
-      <div class="threat-card-content threat-card-risk">{{ include.description | markdownify }}</div>
+      <div class="threat-card-content">{{ include.description | markdownify }}</div>
     </div>
   {% endif %}
   {% if include.mechanism %}
