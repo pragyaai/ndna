@@ -6,15 +6,22 @@ skip_title: true
 ---
 
 <style>
+.book-cover {
+  width: 30%;
+  max-width: 35rem;
+  flex-grow: 1;
+  object-fit: contain;
+}
 .ndna-hierarchy-ui {
-  max-width: 1200px;
+  width: 70%;
+  max-width: 56rem;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .hierarchy-level {
-  margin-bottom: 3rem;
-  padding: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
@@ -23,15 +30,15 @@ skip_title: true
 .level-1 {
   background: linear-gradient(145deg, #f8fafc, #e2e8f0);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
 .category-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -69,10 +76,10 @@ skip_title: true
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #2d3748;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 /* Grid Layouts */
@@ -83,7 +90,6 @@ skip_title: true
   display: flex;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
-  margin-top: 0.5rem;
 }
 
 /* Links */
@@ -93,7 +99,7 @@ skip_title: true
 .nlp-link,
 .annexure-link {
   flex-grow: 1;
-  min-width: 5rem;
+  min-width: min-content;
   display: block;
   padding: 0.75rem 1rem;
   background: #4299e1;
@@ -125,14 +131,14 @@ skip_title: true
 }
 
 .risk-arrow {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #e53e3e;
   font-weight: bold;
 }
 
 .risk-link {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   background: #e53e3e;
   color: white;
   text-decoration: none;
@@ -246,104 +252,133 @@ skip_title: true
 .bracket-container[data-direction="down"] .bracket-right {
   transform: scaleX(-1) scaleY(-1); /* Both horizontal and vertical flip */
 }
+
+.container {
+  max-width: unset;
+  padding: 0;
+  margin: 1rem;
+}
+
+footer {
+  width: unset;
+}
+
+.overview-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.overview-container > * {
+  flex: 1;
+}
+
+/* @media (max-width: 1680px) {
+  .overview-container {
+    flex-direction: column;
+    align-items: center;
+  }
+} */
 </style>
 
-<div class="ndna-hierarchy-ui">
-  <!-- Top Level: Rationale, Semantic Fingerprint, Language & Culture -->
-  <div class="hierarchy-level level-1">
-    <div class="category-group">
-      <h3 class="category-title">Rationale</h3>
-      {% include bracket.liquid direction="up" %}
-      <div class="category-items">
-        <a href="{{ '/llm/prefatio/' | relative_url }}" class="hierarchy-link">Prefatio</a>
-        <a href="{{ '/llm/admonitio/' | relative_url }}" class="hierarchy-link">Admonitio</a>
+<div class="overview-container">
+  <img src="{{ '/assets/img/cover_book.png' | relative_url }}" class="book-cover" />
+  <div class="ndna-hierarchy-ui">
+    <!-- Top Level: Rationale, Semantic Fingerprint, Language & Culture -->
+    <div class="hierarchy-level level-1">
+      <div class="category-group">
+        <h3 class="category-title">Rationale</h3>
+        {% include bracket.liquid direction="up" %}
+        <div class="category-items">
+          <a href="{{ '/llm/prefatio/' | relative_url }}" class="hierarchy-link">Prefatio</a>
+          <a href="{{ '/llm/admonitio/' | relative_url }}" class="hierarchy-link">Admonitio</a>
+        </div>
+      </div>
+
+      <div class="category-group">
+        <h3 class="category-title">Semantic Fingerprint</h3>
+        {% include bracket.liquid direction="up" %}
+        <div class="category-items">
+          <a href="{{ '/llm/ndna/' | relative_url }}" class="hierarchy-link">nDNA</a>
+          <a href="{{ '/llm/15-llms/' | relative_url }}" class="hierarchy-link">15 Foundational LLMs</a>
+        </div>
+      </div>
+
+      <div class="category-group">
+        <h3 class="category-title">Language & Culture</h3>
+        {% include bracket.liquid direction="up" %}
+        <div class="category-items">
+          <a href="{{ '/llm/cultural-ndna/' | relative_url }}" class="hierarchy-link">Cultural nDNA</a>
+          <a href="{{ '/llm/civic/' | relative_url }}" class="hierarchy-link">CIVIC</a>
+          <a href="{{ '/llm/multilinguality/' | relative_url }}" class="hierarchy-link">Multilinguality</a>
+        </div>
       </div>
     </div>
 
-    <div class="category-group">
-      <h3 class="category-title">Semantic Fingerprint</h3>
-      {% include bracket.liquid direction="up" %}
-      <div class="category-items">
-        <a href="{{ '/llm/ndna/' | relative_url }}" class="hierarchy-link">nDNA</a>
-        <a href="{{ '/llm/15-llms/' | relative_url }}" class="hierarchy-link">15 Foundational LLMs</a>
+    <!-- Model Level Operations -->
+    <div class="hierarchy-level level-2">
+      <div class="operations-section">
+        <h2 class="section-title">Model Level Operations through the lens of nDNA</h2>
+        {% include bracket.liquid direction="down" %}
+        <div class="operations-grid">
+          <a href="{{ '/llm/alignment/' | relative_url }}" class="operation-link">Alignment</a>
+          <a href="{{ '/llm/quantization-and-pruning/' | relative_url }}" class="operation-link">Quantization & Pruning</a>
+          <a href="{{ '/llm/model-merging/' | relative_url }}" class="operation-link">Model Merging</a>
+          <a href="{{ '/llm/model-collapse/' | relative_url }}" class="operation-link">Model Collapse</a>
+          <a href="{{ '/llm/knowledge-distillation/' | relative_url }}" class="operation-link">Knowledge Distillation</a>
+        </div>
       </div>
     </div>
 
-    <div class="category-group">
-      <h3 class="category-title">Language & Culture</h3>
-      {% include bracket.liquid direction="up" %}
-      <div class="category-items">
-        <a href="{{ '/llm/cultural-ndna/' | relative_url }}" class="hierarchy-link">Cultural nDNA</a>
-        <a href="{{ '/llm/civic/' | relative_url }}" class="hierarchy-link">CIVIC</a>
-        <a href="{{ '/llm/multilinguality/' | relative_url }}" class="hierarchy-link">Multilinguality</a>
+    <!-- Genomics Diagnostics -->
+    <div class="hierarchy-level level-3">
+      <div class="genomics-section">
+        <h2 class="section-title">Genomics Diagnostics</h2>
+        {% include bracket.liquid direction="down" %}
+        <div class="genomics-grid">
+          <a href="{{ '/llm/neural-genomics/nHD/' | relative_url }}" class="genomics-link">nHD</a>
+          <a href="{{ '/llm/neural-genomics/nGDI/' | relative_url }}" class="genomics-link">nGDI</a>
+          <a href="{{ '/llm/neural-genomics/nTDS/' | relative_url }}" class="genomics-link">nTDS</a>
+          <a href="{{ '/llm/neural-genomics/nKaryotyping/' | relative_url }}" class="genomics-link">nKaryotyping</a>
+          <a href="{{ '/llm/neural-genomics/nDIV/' | relative_url }}" class="genomics-link">nDIV</a>
+          <a href="{{ '/llm/neural-genomics/nEPI/' | relative_url }}" class="genomics-link">nEPI</a>
+          <a href="{{ '/llm/neural-genomics/nCCL/' | relative_url }}" class="genomics-link">nCCL</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Model Level Operations -->
-  <div class="hierarchy-level level-2">
-    <div class="operations-section">
-      <h2 class="section-title">Model Level Operations through the lens of nDNA</h2>
-      {% include bracket.liquid direction="down" %}
-      <div class="operations-grid">
-        <a href="{{ '/llm/alignment/' | relative_url }}" class="operation-link">Alignment</a>
-        <a href="{{ '/llm/quantization-and-pruning/' | relative_url }}" class="operation-link">Quantization & Pruning</a>
-        <a href="{{ '/llm/model-merging/' | relative_url }}" class="operation-link">Model Merging</a>
-        <a href="{{ '/llm/model-collapse/' | relative_url }}" class="operation-link">Model Collapse</a>
-        <a href="{{ '/llm/knowledge-distillation/' | relative_url }}" class="operation-link">Knowledge Distillation</a>
+    <!-- Rewriting the nDNA of NLP -->
+    <div class="hierarchy-level level-4">
+      <div class="nlp-section">
+        <h2 class="section-title">Rewriting the nDNA of NLP</h2>
+        {% include bracket.liquid direction="down" %}
+        <div class="nlp-grid">
+          <a href="{{ '/llm/nlp-operations/machine-translation/' | relative_url }}" class="nlp-link">Machine Translation</a>
+          <a href="{{ '/llm/nlp-operations/adversarial-attack/' | relative_url }}" class="nlp-link">Adversarial Attack</a>
+          <a href="{{ '/llm/nlp-operations/multi-turn-conversation/' | relative_url }}" class="nlp-link">Multi-turn Conversation</a>
+          <a href="{{ '/llm/nlp-operations/scar/' | relative_url }}" class="nlp-link">SCAR</a>
+          <a href="{{ '/llm/nlp-operations/nephos/' | relative_url }}" class="nlp-link">NEPHOS</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Genomics Diagnostics -->
-  <div class="hierarchy-level level-3">
-    <div class="genomics-section">
-      <h2 class="section-title">Genomics Diagnostics</h2>
-      {% include bracket.liquid direction="down" %}
-      <div class="genomics-grid">
-        <a href="{{ '/llm/neural-genomics/nHD/' | relative_url }}" class="genomics-link">nHD</a>
-        <a href="{{ '/llm/neural-genomics/nGDI/' | relative_url }}" class="genomics-link">nGDI</a>
-        <a href="{{ '/llm/neural-genomics/nTDS/' | relative_url }}" class="genomics-link">nTDS</a>
-        <a href="{{ '/llm/neural-genomics/nKaryotyping/' | relative_url }}" class="genomics-link">nKaryotyping</a>
-        <a href="{{ '/llm/neural-genomics/nDIV/' | relative_url }}" class="genomics-link">nDIV</a>
-        <a href="{{ '/llm/neural-genomics/nEPI/' | relative_url }}" class="genomics-link">nEPI</a>
-        <a href="{{ '/llm/neural-genomics/nCCL/' | relative_url }}" class="genomics-link">nCCL</a>
+    <!-- Risk -->
+    <div class="hierarchy-level level-5">
+      <div class="risk-section">
+        <div class="risk-arrow">→</div>
+        <a href="{{ '/llm/latent-manipulation/' | relative_url }}" class="risk-link">Risk: Latent Manipulation</a>
       </div>
     </div>
-  </div>
 
-  <!-- Rewriting the nDNA of NLP -->
-  <div class="hierarchy-level level-4">
-    <div class="nlp-section">
-      <h2 class="section-title">Rewriting the nDNA of NLP</h2>
-      {% include bracket.liquid direction="down" %}
-      <div class="nlp-grid">
-        <a href="{{ '/llm/nlp-operations/machine-translation/' | relative_url }}" class="nlp-link">Machine Translation</a>
-        <a href="{{ '/llm/nlp-operations/adversarial-attack/' | relative_url }}" class="nlp-link">Adversarial Attack</a>
-        <a href="{{ '/llm/nlp-operations/multi-turn-conversation/' | relative_url }}" class="nlp-link">Multi-turn Conversation</a>
-        <a href="{{ '/llm/nlp-operations/scar/' | relative_url }}" class="nlp-link">SCAR</a>
-        <a href="{{ '/llm/nlp-operations/nephos/' | relative_url }}" class="nlp-link">NEPHOS</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Risk -->
-  <div class="hierarchy-level level-5">
-    <div class="risk-section">
-      <div class="risk-arrow">→</div>
-      <a href="{{ '/llm/latent-manipulation/' | relative_url }}" class="risk-link">Risk: Latent Manipulation</a>
-    </div>
-  </div>
-
-  <!-- Annexure -->
-  <div class="hierarchy-level level-6">
-    <div class="annexure-section">
-      <h2 class="section-title">Annexure</h2>
-      {% include bracket.liquid direction="down" %}
-      <div class="annexure-grid">
-        <a href="{{ '/llm/at_a_glance/' | relative_url }}" class="annexure-link">at-a-glance</a>
-        <a href="{{ '/llm/FAQ/' | relative_url }}" class="annexure-link">FAQ</a>
-        <a href="{{ '/llm/critiques-corner/' | relative_url }}" class="annexure-link">Critique's Corner</a>
+    <!-- Annexure -->
+    <div class="hierarchy-level level-6">
+      <div class="annexure-section">
+        <h2 class="section-title">Annexure</h2>
+        {% include bracket.liquid direction="down" %}
+        <div class="annexure-grid">
+          <a href="{{ '/llm/at_a_glance/' | relative_url }}" class="annexure-link">at-a-glance</a>
+          <a href="{{ '/llm/FAQ/' | relative_url }}" class="annexure-link">FAQ</a>
+          <a href="{{ '/llm/critiques-corner/' | relative_url }}" class="annexure-link">Critique's Corner</a>
+        </div>
       </div>
     </div>
   </div>

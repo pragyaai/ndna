@@ -199,14 +199,14 @@
       <img src="{{ '/assets/img/ndna_logo.jpg' | relative_url }}" alt="nDNA Logo">
     </div>
     <div class="side-menu" id="leftTabs">
-      <div class="side-tab active" data-view="LLM" onclick="switchView('LLM')">LLM</div>
+      <a class="side-tab" data-view="LLM" href="{{ '/llm/' | relative_url }}">LLM</a>
       <hr style="border:none;height:3px;background:#000080;margin:12px 20px;width:calc(100% - 40px);">
-      <div class="side-tab" data-view="MFM" onclick="switchView('MFM')">MFM</div>
-      <div class="side-tab" data-view="T2I" onclick="switchView('T2I')">T2I</div>
-      <div class="side-tab" data-view="Diffusion" onclick="switchView('Diffusion')">Diffusion LM</div>
-      <div class="side-tab" data-view="EFM" onclick="switchView('EFM')">EFM</div>
+      <a class="side-tab" data-view="MFM" href="{{ '/mfm/ndna/' | relative_url }}">MFM</a>
+      <a class="side-tab" data-view="T2I" href="{{ '/t2i/ndna/' | relative_url }}">T2I</a>
+      <a class="side-tab" data-view="Diffusion" href="{{ '/diffusion/ndna/' | relative_url }}">Diffusion LM</a>
+      <a class="side-tab" data-view="EFM" href="{{ '/efm/ndna/' | relative_url }}">EFM</a>
       <hr style="border:none;height:3px;background:#000080;margin:12px 20px;width:calc(100% - 40px);">
-      <div class="side-tab" data-view="nDNAv2" onclick="switchView('nDNAv2')">nDNA v2</div>
+      <a class="side-tab" data-view="nDNAv2" href="{{ '/ndna-v2/' | relative_url }}">nDNA v2</a>
     </div>
     <a class="ndna-cover open-btn" href="{{ site.baseurl }}/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
       <img src="{{ site.cdn_url }}/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">
@@ -263,8 +263,8 @@
     </div>
 
     <footer>
-      &copy; Copyright {{ 'now' | date: "%Y" }} nDNA.
-      <p style="color: red; width: 21rem; margin: 1rem auto 0;">* As responsible AI researchers, we worry about misuse--non-profit use requires author's prior written consent.</p>
+      &copy; Copyright {{ 'now' | date: "%Y" }} प्रragya.
+      <p style="font-family: 'Montserrat';font-weight: 700;color: red;margin: 1rem auto 0;border: 4px dashed;padding: 4px 0 6px;">* As responsible AI researchers, we worry about misuse--non-profit use requires author's prior written consent.</p>
 
     </footer>
   </div>
