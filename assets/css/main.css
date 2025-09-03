@@ -499,10 +499,10 @@ blockquote {
 }
 
 footer {
-  width: 1100px;
+  width: 1200px;
   margin: 40px 40px 20px 40px;
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1em;
   color: #999;
 }
 

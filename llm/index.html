@@ -80,11 +80,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-09-03T07:03:58+00:00" />
+<meta property="article:published_time" content="2025-09-03T14:24:43+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="LLM Overview" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-03T07:03:58+00:00","datePublished":"2025-09-03T07:03:58+00:00","headline":"LLM Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/"},"url":"https://pragyaai.github.io/nDNA/llm/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-03T14:24:43+00:00","datePublished":"2025-09-03T14:24:43+00:00","headline":"LLM Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/"},"url":"https://pragyaai.github.io/nDNA/llm/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -210,14 +210,14 @@
       <img src="/nDNA/assets/img/ndna_logo.jpg" alt="nDNA Logo">
     </div>
     <div class="side-menu" id="leftTabs">
-      <div class="side-tab active" data-view="LLM" onclick="switchView('LLM')">LLM</div>
+      <a class="side-tab" data-view="LLM" href="/nDNA/llm/">LLM</a>
       <hr style="border:none;height:3px;background:#000080;margin:12px 20px;width:calc(100% - 40px);">
-      <div class="side-tab" data-view="MFM" onclick="switchView('MFM')">MFM</div>
-      <div class="side-tab" data-view="T2I" onclick="switchView('T2I')">T2I</div>
-      <div class="side-tab" data-view="Diffusion" onclick="switchView('Diffusion')">Diffusion LM</div>
-      <div class="side-tab" data-view="EFM" onclick="switchView('EFM')">EFM</div>
+      <a class="side-tab" data-view="MFM" href="/nDNA/mfm/ndna/">MFM</a>
+      <a class="side-tab" data-view="T2I" href="/nDNA/t2i/ndna/">T2I</a>
+      <a class="side-tab" data-view="Diffusion" href="/nDNA/diffusion/ndna/">Diffusion LM</a>
+      <a class="side-tab" data-view="EFM" href="/nDNA/efm/ndna/">EFM</a>
       <hr style="border:none;height:3px;background:#000080;margin:12px 20px;width:calc(100% - 40px);">
-      <div class="side-tab" data-view="nDNAv2" onclick="switchView('nDNAv2')">nDNA v2</div>
+      <a class="side-tab" data-view="nDNAv2" href="/nDNA/ndna-v2/">nDNA v2</a>
     </div>
     <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
       <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/images/nDNA_BOOK_cover.jpg" alt="nDNA Book Cover" class="ndna-cover-image">
@@ -266,15 +266,22 @@
       <div class="main-text" style="flex: 1;">
         
         <style>
+.book-cover {
+  width: 30%;
+  max-width: 35rem;
+  flex-grow: 1;
+  object-fit: contain;
+}
 .ndna-hierarchy-ui {
-  max-width: 1200px;
+  width: 70%;
+  max-width: 56rem;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .hierarchy-level {
-  margin-bottom: 3rem;
-  padding: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
@@ -283,15 +290,15 @@
 .level-1 {
   background: linear-gradient(145deg, #f8fafc, #e2e8f0);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
 .category-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -329,10 +336,10 @@
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #2d3748;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 /* Grid Layouts */
@@ -343,7 +350,6 @@
   display: flex;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
-  margin-top: 0.5rem;
 }
 
 /* Links */
@@ -353,7 +359,7 @@
 .nlp-link,
 .annexure-link {
   flex-grow: 1;
-  min-width: 5rem;
+  min-width: min-content;
   display: block;
   padding: 0.75rem 1rem;
   background: #4299e1;
@@ -385,14 +391,14 @@
 }
 
 .risk-arrow {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #e53e3e;
   font-weight: bold;
 }
 
 .risk-link {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   background: #e53e3e;
   color: white;
   text-decoration: none;
@@ -506,14 +512,42 @@
 .bracket-container[data-direction="down"] .bracket-right {
   transform: scaleX(-1) scaleY(-1); /* Both horizontal and vertical flip */
 }
+
+.container {
+  max-width: unset;
+  padding: 0;
+  margin: 1rem;
+}
+
+footer {
+  width: unset;
+}
+
+.overview-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.overview-container > * {
+  flex: 1;
+}
+
+/* @media (max-width: 1680px) {
+  .overview-container {
+    flex-direction: column;
+    align-items: center;
+  }
+} */
 </style>
 
-<div class="ndna-hierarchy-ui">
-  <!-- Top Level: Rationale, Semantic Fingerprint, Language & Culture -->
-  <div class="hierarchy-level level-1">
-    <div class="category-group">
-      <h3 class="category-title">Rationale</h3>
-      
+<div class="overview-container">
+  <img src="/nDNA/assets/img/cover_book.png" class="book-cover" />
+  <div class="ndna-hierarchy-ui">
+    <!-- Top Level: Rationale, Semantic Fingerprint, Language & Culture -->
+    <div class="hierarchy-level level-1">
+      <div class="category-group">
+        <h3 class="category-title">Rationale</h3>
+        
 
 
 
@@ -536,15 +570,15 @@
   </div>
 </div>
 
-      <div class="category-items">
-        <a href="/nDNA/llm/prefatio/" class="hierarchy-link">Prefatio</a>
-        <a href="/nDNA/llm/admonitio/" class="hierarchy-link">Admonitio</a>
+        <div class="category-items">
+          <a href="/nDNA/llm/prefatio/" class="hierarchy-link">Prefatio</a>
+          <a href="/nDNA/llm/admonitio/" class="hierarchy-link">Admonitio</a>
+        </div>
       </div>
-    </div>
 
-    <div class="category-group">
-      <h3 class="category-title">Semantic Fingerprint</h3>
-      
+      <div class="category-group">
+        <h3 class="category-title">Semantic Fingerprint</h3>
+        
 
 
 
@@ -567,15 +601,15 @@
   </div>
 </div>
 
-      <div class="category-items">
-        <a href="/nDNA/llm/ndna/" class="hierarchy-link">nDNA</a>
-        <a href="/nDNA/llm/15-llms/" class="hierarchy-link">15 Foundational LLMs</a>
+        <div class="category-items">
+          <a href="/nDNA/llm/ndna/" class="hierarchy-link">nDNA</a>
+          <a href="/nDNA/llm/15-llms/" class="hierarchy-link">15 Foundational LLMs</a>
+        </div>
       </div>
-    </div>
 
-    <div class="category-group">
-      <h3 class="category-title">Language &amp; Culture</h3>
-      
+      <div class="category-group">
+        <h3 class="category-title">Language &amp; Culture</h3>
+        
 
 
 
@@ -598,19 +632,19 @@
   </div>
 </div>
 
-      <div class="category-items">
-        <a href="/nDNA/llm/cultural-ndna/" class="hierarchy-link">Cultural nDNA</a>
-        <a href="/nDNA/llm/civic/" class="hierarchy-link">CIVIC</a>
-        <a href="/nDNA/llm/multilinguality/" class="hierarchy-link">Multilinguality</a>
+        <div class="category-items">
+          <a href="/nDNA/llm/cultural-ndna/" class="hierarchy-link">Cultural nDNA</a>
+          <a href="/nDNA/llm/civic/" class="hierarchy-link">CIVIC</a>
+          <a href="/nDNA/llm/multilinguality/" class="hierarchy-link">Multilinguality</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Model Level Operations -->
-  <div class="hierarchy-level level-2">
-    <div class="operations-section">
-      <h2 class="section-title">Model Level Operations through the lens of nDNA</h2>
-      
+    <!-- Model Level Operations -->
+    <div class="hierarchy-level level-2">
+      <div class="operations-section">
+        <h2 class="section-title">Model Level Operations through the lens of nDNA</h2>
+        
 
 
 
@@ -633,21 +667,21 @@
   </div>
 </div>
 
-      <div class="operations-grid">
-        <a href="/nDNA/llm/alignment/" class="operation-link">Alignment</a>
-        <a href="/nDNA/llm/quantization-and-pruning/" class="operation-link">Quantization &amp; Pruning</a>
-        <a href="/nDNA/llm/model-merging/" class="operation-link">Model Merging</a>
-        <a href="/nDNA/llm/model-collapse/" class="operation-link">Model Collapse</a>
-        <a href="/nDNA/llm/knowledge-distillation/" class="operation-link">Knowledge Distillation</a>
+        <div class="operations-grid">
+          <a href="/nDNA/llm/alignment/" class="operation-link">Alignment</a>
+          <a href="/nDNA/llm/quantization-and-pruning/" class="operation-link">Quantization &amp; Pruning</a>
+          <a href="/nDNA/llm/model-merging/" class="operation-link">Model Merging</a>
+          <a href="/nDNA/llm/model-collapse/" class="operation-link">Model Collapse</a>
+          <a href="/nDNA/llm/knowledge-distillation/" class="operation-link">Knowledge Distillation</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Genomics Diagnostics -->
-  <div class="hierarchy-level level-3">
-    <div class="genomics-section">
-      <h2 class="section-title">Genomics Diagnostics</h2>
-      
+    <!-- Genomics Diagnostics -->
+    <div class="hierarchy-level level-3">
+      <div class="genomics-section">
+        <h2 class="section-title">Genomics Diagnostics</h2>
+        
 
 
 
@@ -670,23 +704,23 @@
   </div>
 </div>
 
-      <div class="genomics-grid">
-        <a href="/nDNA/llm/neural-genomics/nHD/" class="genomics-link">nHD</a>
-        <a href="/nDNA/llm/neural-genomics/nGDI/" class="genomics-link">nGDI</a>
-        <a href="/nDNA/llm/neural-genomics/nTDS/" class="genomics-link">nTDS</a>
-        <a href="/nDNA/llm/neural-genomics/nKaryotyping/" class="genomics-link">nKaryotyping</a>
-        <a href="/nDNA/llm/neural-genomics/nDIV/" class="genomics-link">nDIV</a>
-        <a href="/nDNA/llm/neural-genomics/nEPI/" class="genomics-link">nEPI</a>
-        <a href="/nDNA/llm/neural-genomics/nCCL/" class="genomics-link">nCCL</a>
+        <div class="genomics-grid">
+          <a href="/nDNA/llm/neural-genomics/nHD/" class="genomics-link">nHD</a>
+          <a href="/nDNA/llm/neural-genomics/nGDI/" class="genomics-link">nGDI</a>
+          <a href="/nDNA/llm/neural-genomics/nTDS/" class="genomics-link">nTDS</a>
+          <a href="/nDNA/llm/neural-genomics/nKaryotyping/" class="genomics-link">nKaryotyping</a>
+          <a href="/nDNA/llm/neural-genomics/nDIV/" class="genomics-link">nDIV</a>
+          <a href="/nDNA/llm/neural-genomics/nEPI/" class="genomics-link">nEPI</a>
+          <a href="/nDNA/llm/neural-genomics/nCCL/" class="genomics-link">nCCL</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Rewriting the nDNA of NLP -->
-  <div class="hierarchy-level level-4">
-    <div class="nlp-section">
-      <h2 class="section-title">Rewriting the nDNA of NLP</h2>
-      
+    <!-- Rewriting the nDNA of NLP -->
+    <div class="hierarchy-level level-4">
+      <div class="nlp-section">
+        <h2 class="section-title">Rewriting the nDNA of NLP</h2>
+        
 
 
 
@@ -709,29 +743,29 @@
   </div>
 </div>
 
-      <div class="nlp-grid">
-        <a href="/nDNA/llm/nlp-operations/machine-translation/" class="nlp-link">Machine Translation</a>
-        <a href="/nDNA/llm/nlp-operations/adversarial-attack/" class="nlp-link">Adversarial Attack</a>
-        <a href="/nDNA/llm/nlp-operations/multi-turn-conversation/" class="nlp-link">Multi-turn Conversation</a>
-        <a href="/nDNA/llm/nlp-operations/scar/" class="nlp-link">SCAR</a>
-        <a href="/nDNA/llm/nlp-operations/nephos/" class="nlp-link">NEPHOS</a>
+        <div class="nlp-grid">
+          <a href="/nDNA/llm/nlp-operations/machine-translation/" class="nlp-link">Machine Translation</a>
+          <a href="/nDNA/llm/nlp-operations/adversarial-attack/" class="nlp-link">Adversarial Attack</a>
+          <a href="/nDNA/llm/nlp-operations/multi-turn-conversation/" class="nlp-link">Multi-turn Conversation</a>
+          <a href="/nDNA/llm/nlp-operations/scar/" class="nlp-link">SCAR</a>
+          <a href="/nDNA/llm/nlp-operations/nephos/" class="nlp-link">NEPHOS</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Risk -->
-  <div class="hierarchy-level level-5">
-    <div class="risk-section">
-      <div class="risk-arrow">→</div>
-      <a href="/nDNA/llm/latent-manipulation/" class="risk-link">Risk: Latent Manipulation</a>
+    <!-- Risk -->
+    <div class="hierarchy-level level-5">
+      <div class="risk-section">
+        <div class="risk-arrow">→</div>
+        <a href="/nDNA/llm/latent-manipulation/" class="risk-link">Risk: Latent Manipulation</a>
+      </div>
     </div>
-  </div>
 
-  <!-- Annexure -->
-  <div class="hierarchy-level level-6">
-    <div class="annexure-section">
-      <h2 class="section-title">Annexure</h2>
-      
+    <!-- Annexure -->
+    <div class="hierarchy-level level-6">
+      <div class="annexure-section">
+        <h2 class="section-title">Annexure</h2>
+        
 
 
 
@@ -754,10 +788,11 @@
   </div>
 </div>
 
-      <div class="annexure-grid">
-        <a href="/nDNA/llm/at_a_glance/" class="annexure-link">at-a-glance</a>
-        <a href="/nDNA/llm/FAQ/" class="annexure-link">FAQ</a>
-        <a href="/nDNA/llm/critiques-corner/" class="annexure-link">Critique's Corner</a>
+        <div class="annexure-grid">
+          <a href="/nDNA/llm/at_a_glance/" class="annexure-link">at-a-glance</a>
+          <a href="/nDNA/llm/FAQ/" class="annexure-link">FAQ</a>
+          <a href="/nDNA/llm/critiques-corner/" class="annexure-link">Critique's Corner</a>
+        </div>
       </div>
     </div>
   </div>
@@ -767,8 +802,8 @@
     </div>
 
     <footer>
-      &copy; Copyright 2025 nDNA.
-      <p style="color: red; width: 21rem; margin: 1rem auto 0;">* As responsible AI researchers, we worry about misuse--non-profit use requires author's prior written consent.</p>
+      &copy; Copyright 2025 प्रragya.
+      <p style="font-family: 'Montserrat';font-weight: 700;color: red;margin: 1rem auto 0;border: 4px dashed;padding: 4px 0 6px;">* As responsible AI researchers, we worry about misuse--non-profit use requires author's prior written consent.</p>
 
     </footer>
   </div>
