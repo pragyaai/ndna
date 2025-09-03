@@ -320,6 +320,7 @@ footer {
         <h2 class="section-title">Model Level Operations through the lens of nDNA</h2>
         {% include bracket.liquid direction="down" %}
         <div class="operations-grid">
+          <a href="{{ '/llm/model-operations/' | relative_url }}" class="operation-link">Model Operations</a>
           <a href="{{ '/llm/alignment/' | relative_url }}" class="operation-link">Alignment</a>
           <a href="{{ '/llm/quantization-and-pruning/' | relative_url }}" class="operation-link">Quantization & Pruning</a>
           <a href="{{ '/llm/model-merging/' | relative_url }}" class="operation-link">Model Merging</a>
