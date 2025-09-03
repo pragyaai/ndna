@@ -31,6 +31,10 @@
   font-size: 0.95rem;
 }
 
+.threat-cards-footer {
+  margin-top: 2rem;
+}
+
 .threat-card {
   background: white;
   border-radius: 8px;
