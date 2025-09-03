@@ -18,7 +18,7 @@ skip_title: true
 **ÆTHER**—*Æpistemic Trajectories through Hybrid Emergence and Representation*—is our proposed framework for understanding the latent epistemological inheritance that emerges when LLMs are merged across divergent cultural domains. We refer to these neural offsprings as ÆTHER, as if they represent a new genetic species within the evolution of AI. Merging two LLMs is often viewed as an interpolation of parameters; however, we contend that this operation is far more consequential. It is a semantic recombination of worldviews, belief priors, and reasoning strategies—a *neural marriage* that produces an epistemic offspring with emergent and often unpredictable characteristics.
 
 {% include inspiration-video.liquid 
-   youtube_url="https://www.youtube.com/embed/WIH68Ppnj_w" %}
+   video_id="WIH68Ppnj_w" %}
 
 ### Biological Inspiration: Inheritance Beyond Interpolation
 
