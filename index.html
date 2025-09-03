@@ -16,6 +16,13 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+  /* Menu divider styles */
+  .menu-divider {
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 10px 20px;
+    border-radius: 2px;
+  }
   /* Improve math readability and mobile responsiveness */
   .MathJax { 
     font-size: 1.1em !important;
@@ -203,10 +210,12 @@
     </div>
     <div class="side-menu" id="leftTabs">
       <div class="side-tab active" data-view="LLM" onclick="switchView('LLM')">LLM</div>
+      <hr style="border:none;height:3px;background:#000080;margin:12px 20px;width:calc(100% - 40px);">
       <div class="side-tab" data-view="MFM" onclick="switchView('MFM')">MFM</div>
       <div class="side-tab" data-view="T2I" onclick="switchView('T2I')">T2I</div>
       <div class="side-tab" data-view="Diffusion" onclick="switchView('Diffusion')">Diffusion LM</div>
       <div class="side-tab" data-view="EFM" onclick="switchView('EFM')">EFM</div>
+      <hr style="border:none;height:3px;background:#000080;margin:12px 20px;width:calc(100% - 40px);">
       <div class="side-tab" data-view="nDNAv2" onclick="switchView('nDNAv2')">nDNA v2</div>
     </div>
     <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
@@ -264,8 +273,9 @@
     </div>
 
     <footer>
-      © Copyright 2025 nDNA.
-      <p style="color: red; width: 21rem; margin: 1rem auto 0;">* Use by non-profit entities is legally prohibited without prior written consent from the authors.</p>
+      &copy; Copyright 2025 nDNA.
+      <p style="color: red; width: 21rem; margin: 1rem auto 0;">* As responsible AI researchers, we worry about misuse--non-profit use requires author's prior written consent.</p>
+
     </footer>
   </div>
 
