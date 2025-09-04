@@ -11,6 +11,10 @@ skip_title: true
 ---
 
 <div class="threat-cards-container">
+  <!-- <div class="threat-cards-title">Neural Genomics: A Paradigm to Comprehend the Semantic Organism of AI</div>
+  <div class="threat-cards-subtitle">
+    <strong>TL;DR:</strong>This work inaugurates the science of <strong>Neural Genomics</strong>--a first-principles framework to trace, diagnose, and govern the latent semantic genome of large foundation models. By viewing models not merely as transformers of tokens but as carriers of epistemic nDNA, we chart a new ontology for understanding artificial cognition.
+  </div> -->
   <div class="threat-cards-layout-container">
     <div class="threat-card">
       <div class="threat-card-header">
@@ -147,6 +151,9 @@ skip_title: true
       </div>
     </div>
   </div>
+  <!-- <div class="threat-cards-footer">
+    <strong>Outlook</strong>: Just as molecular biology revealed that life was written in base pairs, Neural Genomics reveals that intelligence is encoded in geometry. The path forward is not merely to train faster--but to train with <em>traceability</em>, inherit with <em>intention</em>, and align with <em>understanding</em>. This work is not an end--it is the first map of a latent genome we are only beginning to comprehend.
+  </div> -->
 </div>
 
 **Outlook**:  Just as molecular biology revealed that life was written in base pairs, Neural Genomics reveals that intelligence is encoded in geometry. The path forward is not merely to train faster--but to train with *traceability*, inherit with *intention*, and align with *understanding*. This work is not an end--it is the first map of a latent genome we are only beginning to comprehend.
