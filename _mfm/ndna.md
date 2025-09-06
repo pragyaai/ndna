@@ -9,7 +9,7 @@ Figure below offers an *early glimpse* into our **ongoing research** on the **ne
 Our goal is to understand how models such as **BLIP-2** {% cite li2023blip2 %}, **Flamingo** {% cite alayrac2022flamingo %}, **InstructBLIP** {% cite dai2023instructblip %}, and **PaLM-E** {% cite driess2023palme %} *internalize*, *mutate*, and *transmit* cultural and perceptual biases through their neural DNA. Prior studies have already highlighted **cultural asymmetries** in multimodal models {% cite birhane2021multimodal denton2021genealogy yang2023bias %}, where *vision-language pairings often reflect dominant cultural narratives*, shaping both **output behavior** and **latent structure**. The **nDNA framework** aims to go beyond detection, offering an *inheritance map* that traces these biases **layer-by-layer** and **modality-by-modality**, across model generations.
 
 {% include visualization-html.liquid 
-   image_path="glimpse/ndna_mfm.png"
+   image_path="glimpses/nDNA_MMFMs_360_rotation.gif"
    full_width=true
    image_height="600px"
    alt="nDNA Trajectories for Multimodal Foundation Models"

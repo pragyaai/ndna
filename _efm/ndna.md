@@ -11,7 +11,7 @@ Each nDNA trajectory integrates multiple diagnostic components: **Spectral Curva
 Preliminary results demonstrate how **nDNA-EFM** moves beyond surface-level output metrics, uncovering the *hidden geometry of knowledge, intent, and policy evolution* in embodied AI. This framework offers a fundamentally new lens for **alignment auditing**, **policy interpretability**, and **epistemic traceability**, revealing not just what decisions EFMs make, but how those decisions emerge through their latent dynamics.
 
 {% include visualization-html.liquid 
-   image_path="glimpse/ndna_efm_trajectories.png"
+   image_path="glimpses/ndna_efm_trajectories.gif"
    full_width=true
    image_height="600px"
    alt="nDNA Trajectories for Embodied Foundation Models"
