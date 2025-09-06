@@ -82,11 +82,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-09-04T05:12:42+00:00" />
+<meta property="article:published_time" content="2025-09-06T07:15:52+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Genomics" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-04T05:12:42+00:00","datePublished":"2025-09-04T05:12:42+00:00","description":"A Paradigm Shift in Understanding Artificial Cognition","headline":"Neural Genomics","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-06T07:15:52+00:00","datePublished":"2025-09-06T07:15:52+00:00","description":"A Paradigm Shift in Understanding Artificial Cognition","headline":"Neural Genomics","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/prelude/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -221,34 +221,56 @@
       <hr style="border:none;height:3px;background:#000080;margin:12px 20px;width:calc(100% - 40px);">
       <a class="side-tab" data-view="nDNAv2" href="/nDNA/ndna-v2/">nDNA v2</a>
     </div>
-    <a class="ndna-cover open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
+    <a class="ndna-cover open-btn" id="open-btn" href="/nDNA/assets/nDNA_BOOK.pdf" style="text-decoration: none; display: block; cursor: pointer;">
       <img src="/nDNA/assets/img/cover_book.png" alt="nDNA Book Cover" class="ndna-cover-image">
     </a>
     <div class="paper-link">
-      <a class="btn btn-primary" href="#" title="Open PDF of 'nDNA'"><i class="far fa-file-pdf"></i><span style="padding-left: 0.5rem;">PDF</span></a>
-      <a class="btn btn-secondary" title="Open dialog for exporting citations" data-toggle="modal" data-target="#citeModal" href="#"><i class="fas fa-quote-left"></i><span style="padding-left: 0.5rem;">Cite</span></a>
+      <a class="btn btn-primary arxive" href="#" title="arXiv - nDNA"><img style="height: 100%;" src="/nDNA/assets/img/arxiv-logo-white.svg" alt="arXiv"></a>
+      <a class="btn btn-secondary" id="bib-open-btn" title="Open dialog for exporting citations" data-toggle="modal" data-target="#citeModal" href="#"><i class="fas fa-quote-left"></i><span style="padding-left: 0.5rem;">Cite</span></a>
     </div>
     <!-- The Modal Popup (remains unchanged, but is now triggered by the image above) -->
     <div class="overlay" id="overlay">
       <div class="modal">
         <div class="modal-header">
-          <h2>nDNA</h2>
+          <h2>nDNA - the Semantic Helix of Artificial Cognition</h2>
           <div class="header-actions">
            
             <button class="close-btn" id="closeBtn">&times;</button>
           </div>
         </div>
         <div class="modal-content">
-  <iframe 
-    src="https://heyzine.com/flip-book/e02e99746b.html" 
-    style="width: 100%; height: 600px; border: none;" 
-    allowfullscreen 
-    title="Heyzine Flipbook">
-  </iframe>
-</div>
+          <iframe 
+            src="https://heyzine.com/flip-book/e02e99746b.html" 
+            style="width: 100%; height: 100%; border: none;" 
+            allowfullscreen 
+            title="Heyzine Flipbook">
+          </iframe>
+        </div>
       </div>
     </div>
-
+    <div class="overlay" id="bib-overlay">
+      <div class="modal" style="width: auto; height: auto;">
+        <div class="modal-header">
+          <h2>nDNA - the Semantic Helix of Artificial Cognition</h2>
+          <div class="header-actions">
+            <button class="close-btn" id="bib-closeBtn">&times;</button>
+          </div>
+        </div>
+        <div class="modal-content" style="padding: 1rem;">
+          <h4 style="margin-top: 0;">BibTex</h4>
+          <pre id="bibtex" style="padding: 1rem;background-color: #e9ecef;border: 1px solid #dee2e6;">@book{Das25,
+ author = “Amitava Das,
+ title = “nDNA - the Semantic Helix of Artificial Cognition“,
+ year = “2025,
+ journal = “arxiv,
+ url=“https://pragyaai.github.io/ndna/llm”
+}</pre>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-clipboard btn-primary" id="bib-clipboard-btn" data-clipboard-target="#bibtex"><i class="far fa-clipboard" style="margin-right: 0.5rem;"></i>Copy to Clipboard</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- RIGHT CONTENT -->
@@ -856,14 +878,15 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
 
   <script src="/nDNA/assets/js/ndna.js"></script>
   <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
 
   <!-- This script controls the opening and closing of your modal -->
   <script>
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('closeBtn');
     // The selector now finds the image link because we added the "open-btn" class to it
-    const openBtn = document.querySelector('.open-btn');
-  
+    const openBtn = document.getElementById('open-btn');
+
     openBtn.addEventListener('click', (e) => {
       // This is IMPORTANT: It stops the link from opening a new tab.
       e.preventDefault(); 
@@ -882,24 +905,49 @@ The <strong>Closer Parent</strong> column identifies which parent’s semantic s
       }
     });
   </script>
-  <script async defer src="https://cdn-online.flowpaper.com/zine/3.9.2/js/embed.min.js"></script>
-    <script>
-      const overlay = document.getElementById('overlay');
-      const closeBtn = document.getElementById('closeBtn');
-      const openBtn = document.querySelector('.open-btn');
-  
-      openBtn.addEventListener('click', () => {
-        overlay.style.display = 'flex';
-      });
-      closeBtn.addEventListener('click', () => {
-        overlay.style.display = 'none';
-      });
-      // Close when clicking outside the modal content, but still on the overlay
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          overlay.style.display = 'none';
-        }
-      });
-    </script>
+  <script>
+    const bibOverlay = document.getElementById('bib-overlay');
+    const bibCloseBtn = document.getElementById('bib-closeBtn');
+    const bibOpenBtn = document.getElementById('bib-open-btn');
+
+    bibOpenBtn.addEventListener('click', (e) => {
+      // This is IMPORTANT: It stops the link from opening a new tab.
+      e.preventDefault(); 
+      // This opens the modal popup.
+      bibOverlay.style.display = 'flex';
+    });
+
+    bibCloseBtn.addEventListener('click', () => {
+      bibOverlay.style.display = 'none';
+    });
+
+    bibOverlay.addEventListener('click', (e) => {
+      if (e.target === bibOverlay) {
+        bibOverlay.style.display = 'none';
+      }
+    });
+    const el = document.getElementById('bib-clipboard-btn');
+    // Initialize ClipboardJS
+    const clipboard = new ClipboardJS(el);
+
+    clipboard.on('success', (e) => {
+      el.classList.add('btn-success');
+      const iconEl = el.querySelector('i');
+      iconEl.classList.remove('far', 'fa-clipboard');
+      iconEl.classList.add('fas', 'fa-clipboard-check');
+      console.log('Text copied to clipboard:', e.text);
+      e.clearSelection();
+      setTimeout(() => {
+        el.classList.remove('btn-success');
+        el.style.backgroundColor = '';
+        iconEl.classList.remove('fas', 'fa-clipboard-check');
+        iconEl.classList.add('far', 'fa-clipboard');
+      }, 2000); // Reset after 2 seconds
+    });
+
+    clipboard.on('error', (e) => {
+      console.error('Error copying text:', e);
+    });
+  </script>
 </body>
 </html>
