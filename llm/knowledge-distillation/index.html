@@ -82,11 +82,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/knowledge-distillation/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-09-06T14:13:27+00:00" />
+<meta property="article:published_time" content="2025-09-06T16:28:13+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="nDNA-Lens - Knowledge Distillation as Latent Genome Compression" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-06T14:13:27+00:00","datePublished":"2025-09-06T14:13:27+00:00","description":"Lens - Knowledge Distillation as Latent Genome Compression","headline":"nDNA-Lens - Knowledge Distillation as Latent Genome Compression","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/knowledge-distillation/"},"url":"https://pragyaai.github.io/nDNA/llm/knowledge-distillation/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-06T16:28:13+00:00","datePublished":"2025-09-06T16:28:13+00:00","description":"Lens - Knowledge Distillation as Latent Genome Compression","headline":"nDNA-Lens - Knowledge Distillation as Latent Genome Compression","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/knowledge-distillation/"},"url":"https://pragyaai.github.io/nDNA/llm/knowledge-distillation/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -299,6 +299,67 @@
 </h1>
 
 <p><strong>Knowledge distillation</strong> is a widely adopted technique for compressing large language models (LLMs) by training a smaller, more efficient <em>student model</em> to mimic the behavior of a larger <em>teacher model</em>. Introduced by [<a href="#ref1">1</a>], this method aims to preserve performance while reducing computational overhead, enabling deployment on resource-constrained devices. Over time, the field has evolved to include techniques like <em>intermediate representation alignment</em> [<a href="#ref2">2</a>], <em>feature transfer</em> [<a href="#ref3">3</a>], and <em>task-adaptive knowledge distillation</em> [<a href="#ref4">4</a>].</p>
+
+<div style="text-align: center; margin: 2rem auto; max-width: 900px;">
+  
+  <h2 style="font-size: 2rem; font-weight: 700; color: #222; margin: 0 0 1.5rem; border-bottom: 3px solid #0077ff; display: inline-block; padding-bottom: 0.5rem;">
+     Analogy
+  </h2>
+  
+  
+  
+    <!-- Regular embedded video -->
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.2);">
+      <iframe src="https://www.youtube.com/embed/G6bjtPRMdR0" title="Inspiration Video" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius: 0.5rem;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+      </iframe>
+    </div>
+  
+  
+  <p>
+     <p><strong>Bottleneck effect</strong> → the narrow pipe of distillation.<br />
+   In biology, a population crash leaves only a few survivors; most genetic variety is lost. Distillation does the same to a model’s “<em>ways of thinking</em>.” A big teacher holds many latent modes (styles of reasoning, cultural priors). The student learns through a narrow channel (one teacher’s logits, a fixed temperature, a limited prompt set), so only a subset of those modes get through. The result is homogenization: students become fluent, but they tend to think in the same few ways.</p>
+
+  </p>
+  
+</div>
+
+<div style="text-align: center; margin: 2rem auto; max-width: 900px;">
+  
+  
+  
+    <!-- Regular embedded video -->
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.2);">
+      <iframe src="https://www.youtube.com/embed/7S4WMwesMts" title="Inspiration Video" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius: 0.5rem;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+      </iframe>
+    </div>
+  
+  
+  <p>
+     <p><strong>Hardy–Weinberg language</strong> → how we describe the loss.<br />
+   Hardy–Weinberg says that, without selection and with lots of mixing, allele frequencies stay stable and heterozygosity (mixing of different alleles) remains high. Distillation breaks those assumptions: it’s strong selection (match the teacher) plus tiny “<em>effective population size</em>” (narrow data/targets). So we expect Hardy–Weinberg disequilibrium: the student shows lower heterozygosity of latent modes (it reuses the same directions again and again) and lower between-group structure (students trained from different cultures look alike). In your terms: curvature shrinks, thermodynamic length shortens, and belief vectors point along a smaller cone—exactly what a post-bottleneck, post-sweep population looks like.</p>
+
+  </p>
+  
+</div>
+
+<div style="text-align: center; margin: 2rem auto; max-width: 900px;">
+  
+  
+  
+    <!-- Regular embedded video -->
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.2);">
+      <iframe src="https://www.youtube.com/embed/AvB0q3mg4sQ" title="Inspiration Video" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius: 0.5rem;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+      </iframe>
+    </div>
+  
+  
+  <p>
+     <p><strong>Epigenetic inheritance</strong> → what gets passed beyond “genes.”<br />
+   Epigenetics is transmission of traits by regulatory marks (e.g., methylation) rather than DNA sequence changes. Distillation doesn’t copy the teacher’s weights one-for-one; it mostly passes regulatory information: which outputs to emphasize (soft labels/temperature), which intermediate signals to align (hints), which behaviors to suppress. That acts like epigenetic marks on the student: some reasoning pathways are silenced, others are kept open, even if the student’s “genome” (architecture/weights) is smaller or different. This explains “shallow fluency transfer”: the student talks like the teacher but has fewer active pathways underneath.</p>
+
+  </p>
+  
+</div>
 
 <p>However, traditional evaluations of distillation have focused largely on <strong>surface-level metrics</strong>—such as accuracy, loss, or perplexity—without interrogating its effects on the model’s <strong>internal epistemic geometry</strong>. In this work, we reframe knowledge distillation through the lens of <strong>neural genomics</strong>, treating the teacher’s latent structure as a form of <em>epistemic genome</em>, and the distillation process as a form of <strong>latent genome compression</strong>.</p>
 
