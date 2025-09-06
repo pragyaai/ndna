@@ -597,7 +597,7 @@ By aligning these perspectives, we reconstruct the *full causal chain* of an SPS
 
 
 
-This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades {% cite Hanahan2011 %}, {% cite Vogelstein2013 %}.
+This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades {% cite hanahan2011hallmarks %}, {% cite vogelstein2013cancer %}.
 
 
 
@@ -1621,7 +1621,7 @@ The ITG + BWF integration is akin to **multi-modal infection tracing** in biolog
 
 
 
-- ITG $\leftrightarrow$ *connectome-level viral tracing* {% cite Wickersham et al., 2007 %}.
+- ITG $\leftrightarrow$ *connectome-level viral tracing* {% cite wickersham2007monosynaptic %}.
 
 - BWF $\leftrightarrow$ *diffusion tensor imaging* of axonal pathways.
 
@@ -1754,7 +1754,7 @@ $$
 
 where $\mathbf{h}_{\ell,p}$ is the hidden state vector at layer $\ell$ and position $p$, and $\mathcal{P}$ is the set of positions within the causal patch of the trigger.  
 
-This averaging smooths token-level variability while preserving the lesion's coarse spatial footprint {% cite Ding2021 %}, {% cite Rajani2019 %}.
+This averaging smooths token-level variability while preserving the lesion's coarse spatial footprint {% cite ding2021openprompt %}, {% cite rajani2019explain %}.
 
 
 
@@ -1788,7 +1788,7 @@ $$
 
 where $(\mu_{\mathrm{clean},\ell}, \sigma_{\mathrm{clean},\ell})$ are the mean and standard deviation of \$\mathcal{V}_\ell^{\mathrm{clean}}$ over $(a,b)$, and $\varepsilon$ prevents division by zero.  
 
-\$\mathcal{E}_\ell$ behaves analogously to a *z-score lesion map* in MRI lesion studies {% cite Ashburner2005 %}.
+\$\mathcal{E}_\ell$ behaves analogously to a *z-score lesion map* in MRI lesion studies {% cite ashburner2005unified %}.
 
 
 
@@ -1822,7 +1822,7 @@ where:
 
 
 
-The KL term encourages maximal separation between lesion and background, while $\lambda_{\mathrm{TV}}$ controls regularization strength {% cite Rudin1992 %}, {% cite Ashburner2005 %}.
+The KL term encourages maximal separation between lesion and background, while $\lambda_{\mathrm{TV}}$ controls regularization strength {% cite rudin1992nonlinear %}, {% cite ashburner2005unified %}.
 
 
 
@@ -1842,7 +1842,7 @@ $$
 
 
 
-and is further refined by morphological opening to remove noise pixels smaller than a biologically motivated *minimum lesion area* $A_{\mathrm{min}}$ {% cite Garcia et al., 2005 %}.
+and is further refined by morphological opening to remove noise pixels smaller than a biologically motivated *minimum lesion area* $A_{\mathrm{min}}$ {% cite garcia2005mechanisms %}.
 
 
 
@@ -1952,7 +1952,7 @@ $$
 
 Here, $\theta_\ell$ is the principal orientation and $e_\ell$ is the eccentricity.  
 
-Axis-aligned, round lesions ($e_\ell \approx 0$) suggest *lexical hooks*, whereas elongated, oblique lesions ($e_\ell \in [0.6,0.9]$) often indicate *semantic hooks* with multi-directional manifold engagement {% cite Dalvi et al., 2022 %}.
+Axis-aligned, round lesions ($e_\ell \approx 0$) suggest *lexical hooks*, whereas elongated, oblique lesions ($e_\ell \in [0.6,0.9]$) often indicate *semantic hooks* with multi-directional manifold engagement {% cite dalvi2022discovering %}.
 
 
 
@@ -1972,7 +1972,7 @@ $$
 
 
 
-This captures both the lesion’s intensity and spatial spread, analogous to lesion load metrics in neurology {% cite Schmidt et al., 2019 %}.
+This captures both the lesion’s intensity and spatial spread, analogous to lesion load metrics in neurology {% cite schmidt-2019-generalization %}.
 
 
 
@@ -2004,7 +2004,7 @@ Here $\tau_{\mathrm{arr}}$ is the lesion arrival layer, $\tau_{\mathrm{pk}}$ the
 
 Lexical SPS generally yields $\tau_{\mathrm{arr}}$ in early layers ($\leq 6$) with high $\alpha$ ($\approx 0.6$–$0.8$), reflecting rapid washout.  
 
-Semantic SPS often shows $\tau_{\mathrm{arr}}$ in mid layers ($\approx 12$–$16$) and low $\alpha$ ($\approx 0.2$–$0.4$), indicating persistent contamination {% cite Elhage et al., 2021%}, {% cite Meng et al., 2022 %}.
+Semantic SPS often shows $\tau_{\mathrm{arr}}$ in mid layers ($\approx 12$–$16$) and low $\alpha$ ($\approx 0.2$–$0.4$), indicating persistent contamination {% cite elhage2021mathematical %}, {% cite meng2022locating %}.
 
 
 
