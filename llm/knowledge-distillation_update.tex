@@ -1,0 +1,12 @@
+\noindent
+\textbf{Knowledge distillation as population genetics in miniature.}
+Viewed through neural genomics (nDNA), distillation acts like three coupled forces:
+(\textbf{1) Bottleneck effect}) the teacher$\to$student channel (one parent, fixed temperature, limited prompts) imposes a tiny \textbf{effective population size} \(N_e\), so only a narrow slice of the teacher’s latent “alleles” (reasoning modes) survives; 
+(\textbf{2) Hardy--Weinberg disequilibrium}) the HW assumptions (large population, no selection, random mating) are violated by strong \textbf{directional selection} to match logits and by drift from small \(N_e\), yielding \textbf{heterozygosity loss} and between-student homogenization. A concrete summary is the expected heterozygosity
+\[
+\textbf{H} \;=\; 1 - \sum_i p_i^2 \quad\text{(mode-share frequencies \(p_i\))},
+\]
+which falls under KD, while population structure \(\textbf{F}_{\textbf{ST}}\) collapses toward 0 as students converge; 
+(\textbf{3) Epigenetic inheritance}) what actually transmits is not a full “genome” of weights but \textbf{regulatory marks}—\textbf{soft labels}, \textbf{temperatures}, and \textbf{hints}—that \textbf{silence} some pathways and \textbf{promote} others without copying the teacher’s entire parameter sequence. 
+Phenotypically this yields \textbf{canalization}: in nDNA terms, the \textbf{thermodynamic length} \(L\) shortens (less epistemic work across depth), \textbf{spectral curvature} \(\kappa\) flattens (fewer distinct modes), and \(\|\textbf{v}\|\) (the \textbf{belief vector} magnitude) shrinks and aligns into a narrow cone, washing out cultural nuance.
+\textbf{Mitigation} follows the same genetics logic: widen \(N_e\) via \textbf{multi-teacher} and culturally diverse prompts, temper early \textbf{selection} (temperature schedules), and apply \textbf{epigenetic reactivation} (adapters/geometry-preserving losses) to restore latent-mode \textbf{heterozygosity} without sacrificing fluency.
