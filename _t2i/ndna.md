@@ -11,7 +11,7 @@ Figure below offers an *early glimpse* into our ongoing research on the **neural
 Our geometry-grounded framework builds on recent advances in T2I modeling {% cite rombach2022stablediffusion podell2023stablediffusionxl nichol2021glide esser2021taming yu2022responsible ruiz2023dreambooth %} while addressing ongoing concerns about alignment, hallucination, and cultural bias {% cite birhane2021multimodal denton2021genealogy cho2023dallbias %}. The nDNA components provide interpretable, layer-by-layer diagnostics of how textual intent is preserved, degraded, or distorted within these generative systems.
 
 {% include visualization-html.liquid 
-   image_path="glimpses/ndna_llama_vs_diffusion.gif"
+   image_path="glimpse/ndna_t2i.png"
    full_width=true
    image_height="600px"
    alt="nDNA Trajectories for Text-to-Image Models"

@@ -17,7 +17,7 @@ Our **nDNA-Diffusion** framework maps these models into a latent geometry charac
 Preliminary comparisons show that Diffusion LMs trace *flatter*, more compressed latent trajectories relative to autoregressive models like **LLaMA** {% cite touvron2023llama %}, whose nDNA reveals richer curvature and layered semantic buildup—patterns associated with deeper compositional reasoning {% cite wei2022chain nye2021improving %} and robust alignment {% cite ouyang2022training ganguli2023reducing %}. These early results align with prior suggestions that diffusion LMs, while promising {% cite ge2023diffusionllm %}, are still in their *epistemic infancy*, lacking the semantic scaffold complexity seen in mature LLMs.
 
 {% include visualization-html.liquid 
-   image_path="glimpse/diffusion_lm_vs_llama.png"
+   image_path="glimpses/ndna_llama_vs_diffusion.gif"
    full_width=true
    image_height="600px"
    alt="nDNA Comparison: LLaMA vs Diffusion Language Models"
