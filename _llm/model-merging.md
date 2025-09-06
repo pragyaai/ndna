@@ -20,6 +20,10 @@ skip_title: true
 {% include inspiration-video.liquid 
    video_id="WIH68Ppnj_w" %}
 
+{% include inspiration-video.liquid
+   hide_header=true
+   video_id="Zf7H7P8QrGo" %}
+
 ### Biological Inspiration: Inheritance Beyond Interpolation
 
 In biology, offspring are not arithmetic averages of their parents. The inheritance process is governed by complex mechanisms including *genetic recombination*, *epistasis*, *genomic imprinting*, and *inactivation dynamics*, which can lead to non-linear, emergent traits. For instance, the phenomenon of *heterosis* (hybrid vigor) describes how interbreeding across genetic lineages may produce offspring that outperform either parent. Similarly, *genetic incompatibility* or *dominance effects* may suppress certain heritable pathways. These dynamics, encoded through chromosomal interactions and DNA expression, are central to evolutionary theory.

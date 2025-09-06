@@ -697,6 +697,7 @@ mjx-container[jax="CHTML"] {
     user-select: none;
     background-color: transparent;
     border: 1px solid transparent;
+    cursor: pointer;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -723,6 +724,22 @@ mjx-container[jax="CHTML"] {
     box-shadow: 0 0 0 .2rem rgba(96,132,170,.5)
 }
 
+.btn-success {
+    color: #fff;
+    background: #93c54b linear-gradient(180deg,#a3ce66,#93C54B)repeat-x;
+    border-color: #93c54b
+}
+
+.btn-success:hover {
+    color: #fff;
+    background: #80b139 linear-gradient(180deg,#93bd57,#80b139)repeat-x;
+    border-color: #79a736
+}
+
+.btn-success:focus,.btn-success.focus {
+    box-shadow: 0 0 0 .2rem rgba(163,206,102,.5)
+}
+
 .btn-secondary {
     color: #212529;
     background: #dee2e6 linear-gradient(180deg,#e3e6ea,#dee2e6)repeat-x;
@@ -737,4 +754,24 @@ mjx-container[jax="CHTML"] {
 
 .btn-secondary:focus,.btn-secondary.focus {
     box-shadow: 0 0 0 .2rem rgba(194,198,202,.5)
+}
+
+.btn.arxive {
+    background: #b31b1b;
+    height: 40px;
+    padding: 4px;
+}
+
+.btn.arxive:hover {
+    background: #931a1a;
+}
+
+.btn-clipboard {
+    padding: .375rem .75rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1.5rem 1rem;
 }
