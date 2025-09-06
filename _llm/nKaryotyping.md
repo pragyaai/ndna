@@ -13,6 +13,9 @@ mathjax: True
 
 As foundation models grow in complexity and cultural diversity, the need to understand semantic inheritance across neural layers becomes increasingly paramount. To this end, we introduce **nKaryotyping** – a conceptual and visual framework inspired by biological karyotyping, which charts chromosomal structures to detect inherited, rearranged, or mutated genetic material. Analogously, nKaryotyping visualizes the layerwise semantic banding patterns within transformer models, revealing how inherited semantic traits manifest, reorganize, or diverge across the model's depth.
 
+{% include inspiration-video.liquid 
+   video_id="ukwnTMHRJW8" %}
+
 Building on the metrics we have developed so far–including nHD, nGDI, nTDS, nDIV, and nEPI–which collectively quantify semantic divergence, representational dominance, inheritance directionality, and plasticity, nKaryotyping provides an orthogonal and highly interpretable lens into the structural organization of semantic features. By representing layerwise embeddings as semantic chromosomes composed of discrete semantic bands, nKaryotyping captures the spatial distribution and co-localization of cultural priors, epistemic traits, and alignment influences, analogous to cytogenetic banding patterns seen in biological chromosomes.
 
 This approach unveils nuanced inheritance patterns, such as the retention, amplification, deletion, or rearrangement of semantic segments across layers–phenomena that traditional scalar metrics may obscure. These patterns illuminate how foundation models maintain, modify, or discard cultural semantic content during processes such as fine-tuning, merging, or alignment adaptation, providing a powerful diagnostic for model evolution and robustness.

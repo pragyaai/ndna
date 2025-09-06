@@ -17,6 +17,9 @@ mathjax: True
 
 In biological genomics, the **Hamming Distance**{% cite Hamming_genetics %} is a key metric quantifying the number of differing nucleotides between two sequences, often used to measure **mutation load** and **evolutionary divergence**. IThis concept has been crucial in understanding genetic variation, tracing lineage, and assessing the impact of mutations on phenotypic expression ({% cite durbin1998biological %}; {% cite pevzner2000computational %}).
 
+{% include inspiration-video.liquid 
+   video_id="emmxDxqfAYI" %}
+
 Inspired by these genetic principles, the **Neural Hamming Distance (nHD)** is proposed as an analogous tool in the domain of foundation models and neural networks, designed to capture bit-level differences in the internal representations of models. Just as small genetic mutations accumulate to
 drive biological evolution and phenotypic divergence {% cite lynch2007origins %}, subtle binary alterations in neural weights oractivations can compound to generate significant **semantic** and **functional shifts** in model behavior.
 
