@@ -9,28 +9,6 @@ skip_title: true
 
 **Knowledge distillation** is a widely adopted technique for compressing large language models (LLMs) by training a smaller, more efficient *student model* to mimic the behavior of a larger *teacher model*. Introduced by {% cite hinton2015distilling %}, this method aims to preserve performance while reducing computational overhead, enabling deployment on resource-constrained devices. Over time, the field has evolved to include techniques like *intermediate representation alignment* {% cite romero2015fitnets %}, *feature transfer* {% cite gou2021knowledge %}, and *task-adaptive knowledge distillation* {% cite wang2023culturalbias %}.
 
-{% include inspiration-video.liquid 
-   header_title="Analogy"
-   video_id="G6bjtPRMdR0" 
-   caption="**Bottleneck effect** → the narrow pipe of distillation.  
-   In biology, a population crash leaves only a few survivors; most genetic variety is lost. Distillation does the same to a model’s “*ways of thinking*.” A big teacher holds many latent modes (styles of reasoning, cultural priors). The student learns through a narrow channel (one teacher’s logits, a fixed temperature, a limited prompt set), so only a subset of those modes get through. The result is homogenization: students become fluent, but they tend to think in the same few ways."
-%}
-
-{% include inspiration-video.liquid
-   hide_header=true
-   video_id="7S4WMwesMts"
-   caption="**Hardy–Weinberg language** → how we describe the loss.  
-   Hardy–Weinberg says that, without selection and with lots of mixing, allele frequencies stay stable and heterozygosity (mixing of different alleles) remains high. Distillation breaks those assumptions: it’s strong selection (match the teacher) plus tiny “*effective population size*” (narrow data/targets). So we expect Hardy–Weinberg disequilibrium: the student shows lower heterozygosity of latent modes (it reuses the same directions again and again) and lower between-group structure (students trained from different cultures look alike). In your terms: curvature shrinks, thermodynamic length shortens, and belief vectors point along a smaller cone—exactly what a post-bottleneck, post-sweep population looks like.
-"
-%}
-
-{% include inspiration-video.liquid
-   hide_header=true
-   video_id="AvB0q3mg4sQ" 
-   caption="**Epigenetic inheritance** → what gets passed beyond “genes.”  
-   Epigenetics is transmission of traits by regulatory marks (e.g., methylation) rather than DNA sequence changes. Distillation doesn’t copy the teacher’s weights one-for-one; it mostly passes regulatory information: which outputs to emphasize (soft labels/temperature), which intermediate signals to align (hints), which behaviors to suppress. That acts like epigenetic marks on the student: some reasoning pathways are silenced, others are kept open, even if the student’s “genome” (architecture/weights) is smaller or different. This explains “shallow fluency transfer”: the student talks like the teacher but has fewer active pathways underneath."
-%}
-
 However, traditional evaluations of distillation have focused largely on **surface-level metrics**—such as accuracy, loss, or perplexity—without interrogating its effects on the model's **internal epistemic geometry**. In this work, we reframe knowledge distillation through the lens of **neural genomics**, treating the teacher's latent structure as a form of *epistemic genome*, and the distillation process as a form of **latent genome compression**.
 
 Where **teacher models** exhibit rich semantic structures—captured by **spectral curvature** $\kappa_\ell$, **thermodynamic length** $\mathcal{L}_\ell$, and **belief vector strength** $$\| \mathbf{v}_\ell^{(c)} \|$$—the **student models** show *pronounced geometric collapse*. Empirically, we observe:
@@ -107,6 +85,46 @@ $$\frac{d}{d\ell} \left( \kappa_\ell \cdot \mathcal{L}_\ell \cdot \| \mathbf{v}_
 - **Use diverse and culturally rich teacher signals** to avoid epistemic homogenization.
 
 **A Biological Warning.** Nature warns us: systems that lose diversity cannot adapt. If we continue distilling models without care for their internal geometry, we risk building *syntactically fluent but semantically hollow* models—unable to reason, empathize, or adapt. The future of knowledge distillation is not just about *shrinking*; it is about **preserving what matters**.
+
+<div class="video-container">
+<div class="video-header">
+   <h2>Analogy</h2>
+</div>
+<div class="video-subtitle" markdown="1">
+
+**Knowledge distillation as population genetics in miniature.**
+Viewed through neural genomics (nDNA), distillation acts like three coupled forces:
+(**1) Bottleneck effect**) the teacher→student channel (one parent, fixed temperature, limited prompts) imposes a tiny **effective population size** \\(N_e\\), so only a narrow slice of the teacher's latent "alleles" (reasoning modes) survives; 
+(**2) Hardy--Weinberg disequilibrium**) the HW assumptions (large population, no selection, random mating) are violated by strong **directional selection** to match logits and by drift from small \\(N_e\\), yielding **heterozygosity loss** and between-student homogenization. A concrete summary is the expected heterozygosity
+\\[
+\\textbf{H} \\;=\\; 1 - \\sum_i p_i^2 \\quad\\text{(mode-share frequencies \\(p_i\\))},
+\\]
+which falls under KD, while population structure \\(\\textbf{F}_{\\textbf{ST}}\\) collapses toward 0 as students converge; 
+(**3) Epigenetic inheritance**) what actually transmits is not a full "genome" of weights but **regulatory marks**—**soft labels**, **temperatures**, and **hints**—that **silence** some pathways and **promote** others without copying the teacher's entire parameter sequence. 
+Phenotypically this yields **canalization**: in nDNA terms, the **thermodynamic length** \\(L\\) shortens (less epistemic work across depth), **spectral curvature** \\(\\kappa\\) flattens (fewer distinct modes), and \\(\\|\\textbf{v}\\|\\) (the **belief vector** magnitude) shrinks and aligns into a narrow cone, washing out cultural nuance.
+**Mitigation** follows the same genetics logic: widen \\(N_e\\) via **multi-teacher** and culturally diverse prompts, temper early **selection** (temperature schedules), and apply **epigenetic reactivation** (adapters/geometry-preserving losses) to restore latent-mode **heterozygosity** without sacrificing fluency.
+</div>
+{% include inspiration-video.liquid 
+   hide_header=true
+   video_id="G6bjtPRMdR0" 
+   caption="**Bottleneck effect** → the narrow pipe of distillation.  
+   In biology, a population crash leaves only a few survivors; most genetic variety is lost. Distillation does the same to a model’s “*ways of thinking*.” A big teacher holds many latent modes (styles of reasoning, cultural priors). The student learns through a narrow channel (one teacher’s logits, a fixed temperature, a limited prompt set), so only a subset of those modes get through. The result is homogenization: students become fluent, but they tend to think in the same few ways."
+%}
+
+{% include inspiration-video.liquid
+   hide_header=true
+   video_id="7S4WMwesMts"
+   caption="**Hardy–Weinberg language** → how we describe the loss.  
+   Hardy–Weinberg says that, without selection and with lots of mixing, allele frequencies stay stable and heterozygosity (mixing of different alleles) remains high. Distillation breaks those assumptions: it’s strong selection (match the teacher) plus tiny “*effective population size*” (narrow data/targets). So we expect Hardy–Weinberg disequilibrium: the student shows lower heterozygosity of latent modes (it reuses the same directions again and again) and lower between-group structure (students trained from different cultures look alike). In your terms: curvature shrinks, thermodynamic length shortens, and belief vectors point along a smaller cone—exactly what a post-bottleneck, post-sweep population looks like."
+%}
+
+{% include inspiration-video.liquid
+   hide_header=true
+   video_id="AvB0q3mg4sQ" 
+   caption="**Epigenetic inheritance** → what gets passed beyond “genes.”  
+   Epigenetics is transmission of traits by regulatory marks (e.g., methylation) rather than DNA sequence changes. Distillation doesn’t copy the teacher’s weights one-for-one; it mostly passes regulatory information: which outputs to emphasize (soft labels/temperature), which intermediate signals to align (hints), which behaviors to suppress. That acts like epigenetic marks on the student: some reasoning pathways are silenced, others are kept open, even if the student’s “genome” (architecture/weights) is smaller or different. This explains “shallow fluency transfer”: the student talks like the teacher but has fewer active pathways underneath."
+%}
+</div>
 
 ---
 

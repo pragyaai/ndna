@@ -18,15 +18,6 @@ By visualizing nDNA geometry *before and after* quantization or pruning, we aim 
 
 **Our goal is to characterize these effects not simply as degradations in performance, but as *geometric distortions in the latent epistemology* of the model**--illuminating what is truly lost when we squeeze too tightly.
 
-{% include inspiration-video.liquid 
-   video_id="1K1OKZv34VU" 
-   caption="**Pruning** a transformer is like a chromosomal segment deletion (large CNV loss) in a genome: you don’t just remove a single “*gene*,” you delete a contiguous block of co-adapted functions. When a whole layer or large block is pruned, the model suffers a dosage crash—many interacting “*genes*” (MLP channels, attention routes, normalization paths) disappear together—so upstream features lose their downstream consumers and downstream layers are starved of inputs. The phenotype matches your nDNA readouts: the model’s thermodynamic length (semantic work across depth) collapses, spectral curvature flattens or fragments as alternative routes vanish, and torsion/holonomy shows discontinuities where long-range coordination used to be. Just as CNV losses often break regulatory neighborhoods (TADs) and epistasis among genes, block pruning severs cross-layer couplings, so belief vectors lose directional coherence and drift. Severity depends on “*genetic background*”: in culturally specialized models the deleted segment carries niche programs with little redundancy, so the collapse is deeper; in more generalist models, parallel routes partly cushion the loss. In short, block/ layer pruning is a structural deletion—a large CNV—that reduces dosage, breaks coordination, and yields a systemic, geometry-level failure rather than a small, local tweak."
-%}
-
-{% include inspiration-video.liquid
-   hide_header=true
-   video_id="WrbY5gU8x0M" %}
-
 ## nDNA as a Lens: Quantization and Pruning as Thermodynamic Collapses
 
 **Quantization as Thermodynamic Collapse.** Quantization compresses weight precision (e.g., 4-bit or 2-bit representations {% cite frantar2023gptq %} {% cite dettmers2023qlora %}), but also contracts the latent geometry. Through nDNA lens, this manifests as:
@@ -271,6 +262,16 @@ nDNA analysis thus provides a principled diagnostic for what is lost during prun
 
 **Pruning-Induced Thermodynamic Collapse and Cultural Sensitivity.** Transformer layer pruning consistently produces the strongest thermodynamic collapse across cultures ($$\mathcal{L}_\ell \le 0.2$$, $$\kappa_\ell \le 0.2$$), with MLP channel pruning as the next most damaging. Attention head pruning causes mild to moderate collapse ($$\mathcal{L}_\ell \approx 0.4$$, $$\kappa_\ell \approx 0.3$$). 
 Culturally, **Africa**, **Asia**, and **China** suffer the deepest collapses, while **Australia** and **North America** exhibit comparatively resilient latent structures.
+
+{% include inspiration-video.liquid 
+   header_title="Analogy"
+   video_id="1K1OKZv34VU" 
+   caption="**Pruning** a transformer is like a chromosomal segment deletion (large CNV loss) in a genome: you don’t just remove a single “*gene*,” you delete a contiguous block of co-adapted functions. When a whole layer or large block is pruned, the model suffers a dosage crash—many interacting “*genes*” (MLP channels, attention routes, normalization paths) disappear together—so upstream features lose their downstream consumers and downstream layers are starved of inputs. The phenotype matches your nDNA readouts: the model’s thermodynamic length (semantic work across depth) collapses, spectral curvature flattens or fragments as alternative routes vanish, and torsion/holonomy shows discontinuities where long-range coordination used to be. Just as CNV losses often break regulatory neighborhoods (TADs) and epistasis among genes, block pruning severs cross-layer couplings, so belief vectors lose directional coherence and drift. Severity depends on “*genetic background*”: in culturally specialized models the deleted segment carries niche programs with little redundancy, so the collapse is deeper; in more generalist models, parallel routes partly cushion the loss. In short, block/ layer pruning is a structural deletion—a large CNV—that reduces dosage, breaks coordination, and yields a systemic, geometry-level failure rather than a small, local tweak."
+%}
+
+{% include inspiration-video.liquid
+   hide_header=true
+   video_id="WrbY5gU8x0M" %}
 
 ---
 
