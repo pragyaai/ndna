@@ -1,9 +1,9 @@
 <div style="text-align: center; margin: 2rem auto; max-width: 900px;">
-  {% unless include.hide_header %}
+  {% if include.show_header %}
   <h2 style="font-size: 2rem; font-weight: 700; color: #222; margin: 0 0 1.5rem; border-bottom: 3px solid #0077ff; display: inline-block; padding-bottom: 0.5rem;">
      {{ include.header_title | default: "Inspiration" }}
   </h2>
-  {% endunless %}
+  {% endif %}
   
   {% if include.embed_disabled %}
     <!-- YouTube-style preview with title -->

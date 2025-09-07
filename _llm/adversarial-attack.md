@@ -22,11 +22,16 @@ Each vaccine is designed to neutralize a specific infection vector via tailored 
 
 Together, these vaccines constitute a *semantic immune system*—capable of detecting adversarial motifs, clamping misaligned trajectories, and blocking recursive semantic drift, all within the model's nDNA. We evaluate VIRAL across 11 attack classes on LLaMA, Mistral, and GPT-J, demonstrating up to a **72% reduction in attack success** with negligible utility loss. Furthermore, we visualize attacks and countermeasures in a *neural genomic 3D space*, revealing geometric traces of infection and recovery.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    video_id="Oz7OLFTzr20"
    title="The Future of AI Research"
    duration="1:43"
    embed_disabled=true %}
+</div>
 
 **VIRAL bridges adversarial robustness with biological modeling**, offering a generalizable blueprint for building LLMs that are not only aligned—but *immune-aware*.
 

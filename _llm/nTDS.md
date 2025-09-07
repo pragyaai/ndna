@@ -15,8 +15,13 @@ mathjax: True
 
 While nHD and nGDI effectively quantify overall semantic divergence and global representational distance from parent models, they lack the resolution to reveal how specific semantic traits are differentially inherited across the depth of a foundation model. To fill this gap, we introduce the **Neural Trait Dominance Score (nTDS)**, a layer-wise metric designed to capture the relative influence each parent model exerts on the offspring's latent representations at every transformer layer.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    video_id="G-_fwABa2BU" %}
+</div>
 
 ## Genome-wide Quantitative Trait Loci (QTL) Mapping
 

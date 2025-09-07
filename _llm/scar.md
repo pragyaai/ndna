@@ -20,10 +20,15 @@ To operationalize this framework, we propose the **SCAR Score**, a quantitative 
 
 The SCAR framework draws deep conceptual motivation from *biological systems*, where genomic integrity and regulatory balance are crucial for healthy function. Just as the **overexpression of a single gene** can lead to *cancer or autoimmune disorders*, contamination in LLMs causes the **overactivation of memorized latent pathways**, bypassing robust reasoning. The model does not "understand"—it simply *remembers too well*. This shortcutting behavior resembles oncogenic triggers: minor local shifts in regulatory structure produce cascading effects on system-wide behavior. By treating layerwise activations as a form of **neural genomics**, SCAR enables the detection of such *epistemic mutations*, offering a path toward more trustworthy and biologically inspired interpretability in AI.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    video_id="7qgyBZFaIds"
    duration="3:48"
    embed_disabled=true %}
+</div>
 
 ## The Epistemic Wound: Why We Need SCAR
 

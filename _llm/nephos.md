@@ -26,8 +26,13 @@ Drawing inspiration from biology—where _silent genetic mutations_ catalyze mal
 
 Our experiments reveal that even **minimal semantic infiltration** during pretraining can lead to _profound alignment ruptures_ during inference—compromising safety, reliability, and generalization. This work not only surfaces a previously underexplored **threat model** for foundation models, but also lays the groundwork for next-generation defenses centered on **latent space auditing**, **conceptual immunization**, and **proactive epistemic hygiene**.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
-   youtube_url="https://www.youtube.com/embed/G_UxoSdvT_I" %}
+   video_id="G_UxoSdvT_I" %}
+</div>
 
 ## Stealth Pretraining Seeding (SPS) — Mechanism and Triggerable Vulnerabilities
 

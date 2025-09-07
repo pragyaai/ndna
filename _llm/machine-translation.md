@@ -20,10 +20,15 @@ We introduce the formal construct of *Total Epistemic Effort*, a unified metric 
 
 Comprehensive experiments spanning *typologically diverse* language pairs (e.g., **English–Hindi**, **English–Thai**, **English–Japanese**) and *heterogeneous model families* (e.g., **LLaMA**, **Mistral**) empirically validate the **predictive fidelity** of our framework. These findings establish **latent semantic geometry** as a *robust*, *interpretable*, and *deployment-ready* proxy for linguistic transfer complexity, **paving the way** for *pre-deployment diagnostics* and *principled resource allocation* in **multilingual NLP**.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    video_id="Xe-83tBcxhs" 
    caption="**Machine Translation** -- Think of each language as a genome with its own chromosomal layout; zero-shot translation is like trying to perform homologous recombination between two genomes without ever expressing a phenotype. When the genomes (languages) are syntenic—gene order largely collinear—alignment is easy: low semantic displacement is like small edit distance, and low semantic torsion means little topological strain, so the “*recombination machinery*” needs little energy (low Total Epistemic Effort) to splice meaning across. As languages drift, you see structural variants—inversions, translocations, duplications—so manifolds twist and cross (torsion rises) and segments no longer match positionally (distance rises). Now the system must pay extra “enzymatic work,” akin to topoisomerases resolving supercoils and repair complexes bridging broken ends—your epistemic force across layers. Romance pairs (En↔Fr/It/De) behave like closely related species with conserved blocks: low torsion, short paths, high BLEU. Typologically distant pairs (En↔Zh/Ja/Th) resemble genomes with major rearrangements: high torsion, long paths, and weaker recombination yield—BLEU drops—even though no decoding occurs. In this view, GENOME-MT measures the recombination load of meaning: semantic distance = how far the loci are, torsion = how much topological untwisting is required, and the layerwise sum (thermodynamic length + torsion penalty) is the free-energy bill for crossing from one language’s semantic genome to the other."
 %}
+</div>
 
 ## Editing the Semantic Genome: An nDNA Perspective on Machine Translation
 

@@ -263,6 +263,10 @@ nDNA analysis thus provides a principled diagnostic for what is lost during prun
 **Pruning-Induced Thermodynamic Collapse and Cultural Sensitivity.** Transformer layer pruning consistently produces the strongest thermodynamic collapse across cultures ($$\mathcal{L}_\ell \le 0.2$$, $$\kappa_\ell \le 0.2$$), with MLP channel pruning as the next most damaging. Attention head pruning causes mild to moderate collapse ($$\mathcal{L}_\ell \approx 0.4$$, $$\kappa_\ell \approx 0.3$$). 
 Culturally, **Africa**, **Asia**, and **China** suffer the deepest collapses, while **Australia** and **North America** exhibit comparatively resilient latent structures.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    header_title="Analogy"
    video_id="1K1OKZv34VU" 
@@ -272,6 +276,7 @@ Culturally, **Africa**, **Asia**, and **China** suffer the deepest collapses, wh
 {% include inspiration-video.liquid
    hide_header=true
    video_id="WrbY5gU8x0M" %}
+</div>
 
 ---
 

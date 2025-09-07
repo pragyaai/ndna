@@ -5,5 +5,5 @@ skip_title: true
 ---
 
 <script>
-  location.pathname = '/nDNA/llm/';
+  location.pathname = baseUrl + "/llm/";
 </script>

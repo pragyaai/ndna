@@ -9,8 +9,14 @@ mathjax: True
 
 While prior metrics such as **nHD**, **nGDI**, and **nTDS** quantify semantic divergence or *trait dominance* in foundation models, they fall short of capturing the nuanced phenomenon of *inheritance directionality* within latent semantic spaces. To fill this conceptual and analytical gap, we introduce the **Neural Directional Inheritance Vector (nDIV)**, a novel metric directly inspired by the well-studied biological principle of *directional inheritance* or *directional selection*. This metric is designed to precisely quantify how offspring semantic traits systematically gravitate toward one parent model or the other, revealing latent preferential biases and directional flows within high-dimensional embedding manifolds.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    video_id="MD3Fc0XOjWk" %}
+</div>
+
 
 {% capture figure_caption %}
 <div style="text-align: center; font-size: 0.9em; margin-top: 3em; font-style: italic; color: #666;">

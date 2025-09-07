@@ -11,8 +11,13 @@ As artificial intelligence continues to expand its reach across culturally diver
 
 The suite of metrics introduced so far–nHD, nGDI, nTDS, nKaryotyping, nDIV, and nEPI–have significantly enriched our capacity to characterize semantic divergence, trait dominance, inheritance patterns, and plasticity in these models. However, most of these metrics primarily address pointwise distances or directional shifts in latent space, while the broader phenomenon of population-level semantic drift–analogous to genetic drift in biological populations–remains less explored.
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    video_id="eGjIgz-1nqI" %}
+</div>
 
 To address this gap, we introduce the **Neural Genetic Dissimilarity Index (nGDI)**, a statistically rigorous metric that quantifies distributional divergence between embedding populations of foundation models. Inspired by classical population genetics measures such as Nei's genetic distance {% cite nei1972genetic %}, nGDI captures how semantically distinct two models have evolved, not merely by comparing individual embeddings, but by assessing shifts in entire latent embedding distributions across datasets and layers.
 

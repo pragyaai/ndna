@@ -47,8 +47,13 @@ mathjax: true
   </p>
 </section>
 
+<div class="video-container">
+<div class="video-header">
+   <h2>Inspiration</h2>
+</div>
 {% include inspiration-video.liquid 
    youtube_url="https://www.youtube.com/embed/yolC-HCFD-g" %}
+</div>
 
 <h2 id="strategic-typology">Strategic Typology of Model Collapse Mechanisms</h2>
 
