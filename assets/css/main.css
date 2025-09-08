@@ -815,6 +815,10 @@ mjx-container[jax="CHTML"] {
     color: #333;
 }
 
+.video-subtitle > *:first-child {
+    margin-top: 0;
+}
+
 .video-subtitle p {
     margin-bottom: 1rem;
 }

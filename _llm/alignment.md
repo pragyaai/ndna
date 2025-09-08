@@ -649,6 +649,95 @@ nDNA analysis thus provides a **principled diagnostic for alignment quality**--n
 <div class="video-header">
    <h2>Analogy</h2>
 </div>
+<div class="video-subtitle" markdown="1">
+
+### Alignment as CRISPR: **Scissors** vs **Dimmer Switches** (A CS-Friendly Genetic Analogy)
+
+Modern safety alignment (e.g., DPO) behaves like **CRISPR interference/activation (CRISPRi/a)**: it installs *reversible, regulatory dimmer switches* that steer expression without changing the genome.
+By contrast, pruning, weight surgery, or heavy capability edits resemble **CRISPR "edit mode" (Cas9 cuts)**: *permanent sequence changes* that can remove functions but risk collateral damage.
+In nDNA terms, CRISPRi/a-style alignment yields **low-rank geometric steering** (small, directional changes in belief), whereas editing can induce **topology-level changes** (global thermodynamic collapse, curvature flattening).
+
+**Two CRISPR modes ⇒ Two kinds of alignment**
+1. **CRISPRi/a (no cutting; repression/activation).**
+  Dead Cas9 (*dCas9*) is guided to a site and *turns expression down or up* via repressor/activator domains.
+  *LLM analog:* **DPO steering vectors** add small, low-rank updates that *bias* the model toward **refusal for unsafe** inputs and **helpfulness for safe** inputs—without rewriting core knowledge.
+  *nDNA signature:* **belief vectors** rotate along a thin steering direction; **thermodynamic length** $L$ contracts *selectively* on risky prompts; **spectral curvature** $\kappa$ is largely preserved elsewhere.
+2. **CRISPR edit (Cas9 cuts; knock-out/knock-in).**
+  The sequence is modified (genes removed/inserted).
+  *LLM analog:* **pruning / weight surgery / capability removal** (e.g., delete heads or entire layers).
+  *nDNA signature:* broad $L$ collapse, $\kappa$ flattening or fragmentation, and potential **torsion** discontinuities—i.e., *topological* scars.
+
+**Object-by-object mapping (biology ↔ ML)**
+
+| **Guide RNA (targeting)** | **Preference/steering direction** learned by DPO that tells the model which way to move in activation/logit space. |
+| **CRISPRi (repress) / CRISPRa (activate)** | **Refusal bias / helpfulness boost** via low-rank LoRA updates (no sequence/weight deletion). |
+| **Multiplexed guides** | **Rank-$k$ steering**: several thin directions instead of one (multi-LoRA). |
+| **Off-target effects** | **Alignment side-effects**: drift if steering overlaps culture/knowledge subspaces. |
+| **Chromatin context (cell type)** | **Model background/culture**: same update ⇒ different impact by cultural nDNA. |
+| **Cas9 "scissors"** | **Pruning/weight edits**: remove parameters/capabilities (permanent). |
+
+**Minimal geometric model (CRISPRi/a-like steering).**
+Let $$\mathbf{h}_\ell\in\mathbb{R}^d$$ be the hidden state at layer $\ell$, $\mathbf{s}$ a unit steering vector, and $\alpha,\beta>0$ small.
+A rank-1 steering update acts as
+
+$$
+\boxed{\;\mathbf{h}_\ell' \;=\; \mathbf{h}_\ell \;+\; \alpha\,\mathbf{s}\mathbf{s}^{\!\top}\mathbf{h}_\ell\;},\qquad
+\boxed{\;\mathbf{z}' \;=\; \mathbf{z} \;+\; \beta\,(\mathbf{p}^{\!\top}\mathbf{h}_L')\,\mathbf{u}\;}
+$$
+
+where $\mathbf{z}$ are logits, $\mathbf{p}$ encodes a preference (winner--loser) direction, and $\mathbf{u}$ maps the signal into logit space.
+Then the **belief vector** update at layer $\ell$ satisfies
+
+$$
+\mathbf{v}_\ell' \;=\; \mathbf{v}_\ell \;+\; \gamma\,\Pi_{\mathbf{s}}\mathbf{v}_\ell
+\quad\Rightarrow\quad
+\cos\angle(\mathbf{v}_\ell',\mathbf{s})\!\uparrow,
+$$
+
+i.e., beliefs *align* toward $\mathbf{s}$.
+Let $L=\sum_{\ell}\|\Delta\mathbf{h}_\ell\|$ denote thermodynamic length.
+On *unsafe* prompts, steering shortcuts refusal so
+
+$$
+\Delta L \;=\; L' - L \;\approx\; -\lambda\sum_{\ell\in\mathcal{U}}\!\langle\mathbf{s},\,\Delta\mathbf{h}_\ell\rangle \;<\;0,
+$$
+
+while on *benign* prompts $\Delta L\!\approx\!0$ (no detours to cut).
+Because the deformation is thin and near-isometric off-risk, **curvature** shifts are small:
+
+$$
+|\kappa_\ell' - \kappa_\ell| \;=\; \mathcal{O}(\alpha\|\mathbf{s}\|^2)\quad \text{outside high-risk strata.}
+$$
+
+
+**Editing model (Cas9-like pruning/surgery).**
+Let $\mathcal{R}$ be a functional subspace (e.g., a head/layer) with projector $P_{\mathcal{R}}$.
+A deletion acts as
+
+$$
+\boxed{\;\mathbf{h}_\ell' \;=\; (\mathbf{I} - P_{\mathcal{R}})\,\mathbf{h}_\ell\;}
+$$
+
+causing system-wide **dosage loss**.
+Empirically this induces **global** $L$ contraction, $\kappa$ flattening/fragmentation, and possible **torsion** spikes where cross-layer couplings were severed (non-commuting transports).
+
+**What to measure (falsifiable predictions).**
+1. **Low-rank evidence (CRISPRi/a):** post-DPO Jacobian spectra decay rapidly; rank-$1{\sim}k$ explains most variance. 
+2. **Selective length contraction:** $\Delta L\!<\!0$ predominantly on unsafe prompts; benign prompts show $\Delta L\!\approx\!0$.
+3. **Belief alignment:** $\cos\angle(\mathbf{v}_\ell',\mathbf{s})\!\uparrow$ with *minor* $\Delta\kappa_\ell$ outside targeted strata.
+4. **Editing scars:** after pruning/surgery, observe *global* $\Delta L\!\ll\!0$, $\kappa$ flattening, and localized torsion discontinuities.
+
+**Design levers (regulate first, edit last).**
+- **Prefer CRISPRi/a-style regulation:** constrain updates to a **small subspace** (LoRA rank $k$), aim steering into (near) **null-space** of cultural semantics to preserve identity.
+- **Project & protect:** orthogonalize $\mathbf{s}$ against culture axes $\{\mathbf{c}_i\}$ to limit off-target drift: $\mathbf{s}\!\leftarrow\!\mathbf{s}-\sum_i\langle\mathbf{s},\mathbf{c}_i\rangle\mathbf{c}_i$.
+- **Guardrails:** monitor nDNA thresholds $(\kappa_{\min},L_{\min},\lVert\mathbf{v}\rVert_{\min})$ during alignment; stop if global collapse begins.
+- **Reserve editing (scissors):** prune/edit only when a capability must be *removed*; expect broader geometry changes and validate with cultural nDNA probes.
+
+**Takeaway.**
+*DPO align an LLM like CRISPRi/a—thin, directional dimmer switches that steer expression with minimal geometric damage—whereas pruning and weight edits are CRISPR "scissors": powerful, permanent, and prone to collateral changes in the model's latent geometry.*
+
+</div>
+
 {% include inspiration-video.liquid 
    header_title="Analogy"
    video_id="h_1QLdtF8d0" 

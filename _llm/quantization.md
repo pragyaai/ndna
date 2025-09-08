@@ -265,7 +265,167 @@ Culturally, **Africa**, **Asia**, and **China** suffer the deepest collapses, wh
 
 <div class="video-container">
 <div class="video-header">
-   <h2>Inspiration</h2>
+   <h2>Analogy</h2>
+</div>
+<div class="video-subtitle" markdown="1">
+
+## Quantization as a Genome--Wide Hypomorph (nDNA View)
+
+**What we study.** How uniform low-bit quantization reshapes a transformer's *epistemic manifold* as read by the nDNA trio across depth: spectral curvature $\kappa_\ell$ (bending), thermodynamic length $L_\ell$ (epistemic work), and belief-field strength $\lVert\mathbf v^{(c)}_\ell\rVert$ (value/instruction steering).
+
+<div class="info-box">
+<strong>Plain-language summary</strong><br>
+Quantization does not cut out modules; it reduces resolution everywhere. The model often keeps the same answers, but the internal geometry that makes reasoning adaptable becomes <em>shorter, straighter, and less guided</em>.
+</div>
+
+### Operator (what quantization does)
+
+Let $W$ be a weight tensor (per layer/block groups). $b$-bit uniform quantization acts as
+
+$$
+\widehat W=Q_b(W)=s\,\mathrm{round}\!\big(W/s\big), \qquad s=\alpha/2^{\,b-1},
+$$
+
+so $\widehat W=W+\varepsilon$ with approximately zero-mean noise whose variance scales with $s^2$ (per-group scale $\alpha$).
+Second-order, GPTQ-like schemes choose $Q_b$ to minimize a local quadratic proxy of layer loss.
+
+### Information-geometry impact (why $L,\kappa,\lVert\mathbf v\rVert$ move)
+
+Write $J^{(\ell)}=\partial h_\ell/\partial h_{\ell-1}$ and $J=\prod_{\ell} J^{(\ell)}$. With Fisher metric
+
+$$
+F_\ell=\mathbb{E}\!\left[\nabla_{h_\ell}\log p_\theta(x)\,\nabla_{h_\ell}\log p_\theta(x)^\top\right],
+$$
+
+quantization perturbs the Jacobian chain so that *sensitivity along principal directions shrinks*. In practice:
+
+$$
+\widehat L_\ell \ \text{contracts}, \qquad \widehat\kappa_\ell \ \text{flattens (fine bends are damped)}, \qquad 
+\lVert\widehat{\mathbf v}^{(c)}_\ell\rVert\ \text{weakens and aligns into a narrower cone}.
+$$
+
+
+### Chromosome-level analogy (clear mapping)
+
+- **Weights → loci; layers/blocks → regulatory neighborhoods (TADs); scales/zero-points → chromatin accessibility.**
+- **Quantization ≡ genome-wide *hypomorph*.** Every locus persists but its *dynamic range* is clipped; small variations fall below the noise floor. This is not a deletion (no module is excised), but a *resolution squeeze*—akin to mild chromatin compaction.
+- **Intuition.** The melody (task behavior) remains recognizable; the musical dynamics—crescendo, rubato, micro-timing—are flattened. In nDNA: bends diminish ($\kappa_\ell\downarrow$), paths shorten ($L_\ell\downarrow$), and the steering cone tightens ($\lVert\mathbf v^{(c)}_\ell\rVert\downarrow$).
+
+### Control & robustness (intuition first, math beneath)
+
+Depth acts like a dynamical system transporting representations. The controllability Gramian $\Sigma_\ell$ indicates how many directions are reachable with finite "energy." Quantization *squeezes the singular spectrum* of the Jacobian product $J$, so $\mathrm{tr}(\widehat\Sigma_\ell)$ falls: sharp turns become harder, the traversable path shortens, and value/instruction alignment exerts weaker guidance. Off-distribution adaptation degrades in proportion to the loss of principal Fisher directions.
+
+### Design guardrails (actionable, geometry-aware)
+
+1. **Bit-width by Fisher budget.** Choose $b$ so the expected total drop in layerwise length $\sum_\ell (L_\ell-\widehat L_\ell)$ stays below a fixed fraction of $\sum_\ell L_\ell$.
+2. **Mixed precision for hotspots.** Allocate more bits to layers with high $\kappa_\ell$ or large $\lVert\mathbf v^{(c)}_\ell\rVert$ (often late decision layers and culturally salient layers).
+3. **Second-order, group-wise calibration.** Use GPTQ/LSQ-style grouping so the local quadratic error aligns with dominant singular directions; scale per-group step sizes to protect them.
+4. **Stochastic rounding & short post-quant tuning.** Preserve small updates' unbiasedness and briefly recalibrate on diverse prompts to restore belief-field alignment without overfitting.
+5. **Monitor a single scaffold score.** Track $S_\ell=\kappa_\ell\,L_\ell\,\lVert\mathbf v^{(c)}_\ell\rVert$ across depth; a steady late-layer decline signals over-compression of reasoning geometry.
+
+<div class="info-box">
+<strong>Key takeaways</strong><br>
+<ul>
+<li>Quantization is a <em>resolution transform</em>, not a surgical cut: it preserves phenotype while thinning morphology.</li>
+<li>nDNA reveals a manifold that becomes <em>shorter, straighter, and less guided</em> unless bits are allocated where reasoning needs them most.</li>
+<li>Simple guardrails—mixed precision on hotspots and a scaffold monitor—maintain adaptability with minimal footprint.</li>
+</ul>
+</div>
+
+
+## Pruning as Chromosomal Segment Deletion (nDNA View)
+
+**What we study.** How three pruning regimes reshape a transformer's *epistemic manifold* as read by nDNA across depth: spectral curvature $\kappa_\ell$ (bending), thermodynamic length $L_\ell$ (epistemic work), and belief-field strength $\lVert\mathbf v^{(c)}_\ell\rVert$ (value/instruction steering).
+
+<div class="info-box">
+<strong>Plain-language summary</strong><br>
+Pruning is not a tiny trim; it behaves like a <em>chromosomal segment deletion</em>. Entire co-adapted functions vanish together, breaking long-range coordination. 
+The manifold that supports reasoning becomes <em>shorter, kinked, and less steered</em>.
+</div>
+
+### Operator (what pruning does, abstractly)
+
+Let $f_\theta$ have per-layer representations $h_\ell$ and Jacobians $J^{(\ell)}=\partial h_\ell/\partial h_{\ell-1}$, with chain $J=\prod_\ell J^{(\ell)}$.
+Pruning composes $f_\theta$ with a projection $P$ that removes coordinates/routes:
+
+$$
+J^{(\ell)} \;\to\; J^{(\ell)} P \quad \text{(within a block)}, 
+\qquad 
+J \;\to\; \big(\prod_{k>\ell} J^{(k)}\big)\, \cancel{J^{(\ell)}} \,\big(\prod_{k<\ell} J^{(k)}\big) \quad \text{(block removal)}.
+$$
+
+This lowers rank and squeezes the singular-value spectrum of $J$, thus reducing Fisher information, controllability, and the nDNA trio $(\kappa_\ell,L_\ell,\lVert\mathbf v^{(c)}_\ell\rVert)$.
+
+### Chromosome-level analogy (clear mapping)
+
+- **Heads/channels/layers** → **genes/modules**; **blocks** → **regulatory neighborhoods (TADs)**; **skip/attn routes** → **enhancer–promoter links**.
+- **Pruning ≡ copy-number loss (CNV deletion).** A contiguous module is deleted; expression dosage and insulation collapse. Epistatic couplings vanish, so compensation routes fail.
+- **nDNA phenotype.** $L_\ell$ contracts (less work), $\kappa_\ell$ flattens or becomes piecewise (kinks), and $\lVert\mathbf v^{(c)}_\ell\rVert$ weakens or fans out (steering leakage).
+
+## Three pruning regimes
+
+**1) Attention-head pruning (route deletion).**
+*Criterion (gradient importance).* For head $A^{(i)}$,
+
+$$
+\mathcal I(A^{(i)}) \;=\; \mathbb E_{x}\,\big\|\nabla_{A^{(i)}} \mathcal L(x)\big\|, 
+\qquad \text{prune if } \mathcal I(A^{(i)}) < \delta .
+$$
+
+*Graph view.* Heads are edges in a routing multigraph. Deletions reduce algebraic connectivity (Laplacian $\lambda_2$), weakening global coordination.  
+*nDNA fingerprint.* Mid-layer $\kappa_\ell$ becomes spiky (non-$C^1$ turns), $\lVert\mathbf v^{(c)}_\ell\rVert$ dips where stabilizing heads were removed; $L_\ell$ shows local drops.
+
+**2) MLP-channel pruning (feature-palette deletion).**
+*Criterion (magnitude/LASSO).* For channel $j$ with weight vector $w^{(j)}$,
+
+$$
+\text{prune if } \ \lVert w^{(j)}\rVert_{1} < \epsilon 
+\quad \text{or}\quad \min_{S}\ \lVert W-W_S\rVert^2 \ \text{s.t.}\ |S|\leq K \ \text{(structured selection)}.
+$$
+
+*Linearization.* Multiplication by a projector $P$ drops singular values of $J^{(\ell)}$, shrinking $\mathrm{tr}\,F_\ell$ and thus $L_\ell$.  
+*nDNA fingerprint.* Steady $\kappa_\ell\!\downarrow$ and $L_\ell\!\downarrow$ across the pruned block; cultural separations blur (belief directions lose spread).
+
+**3) Transformer-layer pruning (block/segment deletion).**
+*Criterion (Fisher/gradient score).* For block $\ell$,
+
+$$
+\mathcal F^{(\ell)} \;=\; \mathbb E_x\!\left[\big\lVert\nabla_{\theta^{(\ell)}}\mathcal L(x)\big\rVert^2\right], 
+\qquad \text{prune if } \mathcal F^{(\ell)} < \tau .
+$$
+
+*Depth dynamics.* Removing a block discontinuously changes the depth connection; holonomy jumps, producing curvature/torsion discontinuities.  
+*nDNA fingerprint.* Global $L_\ell$ contraction across many layers, piecewise $\kappa_\ell$ (kinks), and broad weakening/divergence of $\mathbf v^{(c)}_\ell$ (steering leakage).
+
+### Information geometry & control (why robustness suffers)
+
+With Fisher metric $F_\ell$ and controllability Gramian $\Sigma_\ell$ for the linearized depth dynamics,
+pruning reduces the reachable subspace: small singular modes vanish and $\mathrm{tr}(\Sigma_\ell)$ falls.  
+**Intuition.** Fewer well-conditioned directions $\Rightarrow$ harder to turn (lower $\kappa_\ell$), shorter paths to think (lower $L_\ell$), weaker compass to stay value-aligned (lower $\lVert\mathbf v^{(c)}_\ell\rVert$). 
+Hence off-distribution adaptation degrades even if accuracy holds in-distribution.
+
+### Geometry fingerprints by scheme (at a glance)
+
+- **Heads:** local routing loss $\Rightarrow$ spiky $\kappa_\ell$, localized $L_\ell\downarrow$, steering dips near the removed heads.
+- **Channels:** palette narrowing $\Rightarrow$ smooth $\kappa_\ell\downarrow$, steady $L_\ell\downarrow$, cultural basins move closer (belief spread shrinks).
+- **Layers:** depth budget loss $\Rightarrow$ global $L_\ell\downarrow$, piecewise $\kappa_\ell$ (kinks), wide steering leakage (divergent belief flow).
+
+### Design guardrails (actionable, geometry-aware)
+
+1. **Head pruning with connectivity in mind.** Preserve routing connectivity: avoid deletions that collapse the graph's $\lambda_2$; re-inject tiny adapters where $\kappa_\ell$ becomes spiky.
+2. **Channel pruning with SV bounds.** Constrain the singular-value tail removed from $J^{(\ell)}$; keep a floor on $\mathrm{tr}\,F_\ell$; revive concept-critical subspaces via small adapters.
+3. **Layer pruning with continuity checks.** Require minimum Fisher and enforce $\kappa_\ell$ smoothness across surviving blocks; when depth is cut, budget extra $L_\ell$ via mild distillation on diverse prompts.
+4. **Monitor a single scaffold score.** Track $S_\ell=\kappa_\ell\,L_\ell\,\lVert\mathbf v^{(c)}_\ell\rVert$; sustained late-layer decline indicates structural damage rather than benign sparsity.
+
+<div class="info-box">
+   <strong>Key takeaways</strong><br>
+   <ul>
+   <li>Pruning behaves like a <em>CNV deletion</em>: dosage drops and long-range coordination breaks.</li>
+   <li>nDNA reveals a manifold that is <em>shorter (</em>$L_\ell$<em>)</em>, <em>kinked or flattened (</em>$\kappa_\ell$<em>)</em>, and <em>less steered (</em>$\lVert\mathbf v^{(c)}_\ell\rVert$<em>)</em>.</li>
+   <li>Geometry-aware criteria and a scaffold monitor help you keep speed-ups without destroying the model's internal ecology of reasoning.</li>
+   </ul>
+</div>
+
 </div>
 {% include inspiration-video.liquid 
    header_title="Analogy"

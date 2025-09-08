@@ -91,18 +91,56 @@ $$\frac{d}{d\ell} \left( \kappa_\ell \cdot \mathcal{L}_\ell \cdot \| \mathbf{v}_
    <h2>Analogy</h2>
 </div>
 <div class="video-subtitle" markdown="1">
+### Knowledge Distillation as Population Genetics in Miniature
 
-**Knowledge distillation as population genetics in miniature.**
-Viewed through neural genomics (nDNA), distillation acts like three coupled forces:
-(**1) Bottleneck effect**) the teacher→student channel (one parent, fixed temperature, limited prompts) imposes a tiny **effective population size** \\(N_e\\), so only a narrow slice of the teacher's latent "alleles" (reasoning modes) survives; 
-(**2) Hardy--Weinberg disequilibrium**) the HW assumptions (large population, no selection, random mating) are violated by strong **directional selection** to match logits and by drift from small \\(N_e\\), yielding **heterozygosity loss** and between-student homogenization. A concrete summary is the expected heterozygosity
-\\[
-\\textbf{H} \\;=\\; 1 - \\sum_i p_i^2 \\quad\\text{(mode-share frequencies \\(p_i\\))},
-\\]
-which falls under KD, while population structure \\(\\textbf{F}_{\\textbf{ST}}\\) collapses toward 0 as students converge; 
-(**3) Epigenetic inheritance**) what actually transmits is not a full "genome" of weights but **regulatory marks**—**soft labels**, **temperatures**, and **hints**—that **silence** some pathways and **promote** others without copying the teacher's entire parameter sequence. 
-Phenotypically this yields **canalization**: in nDNA terms, the **thermodynamic length** \\(L\\) shortens (less epistemic work across depth), **spectral curvature** \\(\\kappa\\) flattens (fewer distinct modes), and \\(\\|\\textbf{v}\\|\\) (the **belief vector** magnitude) shrinks and aligns into a narrow cone, washing out cultural nuance.
-**Mitigation** follows the same genetics logic: widen \\(N_e\\) via **multi-teacher** and culturally diverse prompts, temper early **selection** (temperature schedules), and apply **epigenetic reactivation** (adapters/geometry-preserving losses) to restore latent-mode **heterozygosity** without sacrificing fluency.
+Viewed through neural genomics (**nDNA**), knowledge distillation (KD) is a population–genetics process acting on a latent "gene pool" of reasoning modes. A large *teacher* supplies modes ("alleles") of cognition; a smaller *student* samples and amplifies a subset through the KD channel. The macroscopic effect on behavior may look faithful, yet the *geometry* of cognition—tracked by nDNA via spectral curvature $\kappa_\ell$, thermodynamic length $L_\ell$, and belief–field magnitude $\lVert{\bf v}_\ell\rVert$ across layers $\ell$—changes systematically. Three coupled forces explain why.
+
+**(1) Bottleneck effect (small effective population size).**
+KD routes information through a narrow channel: one parent, finite temperature $T$, limited prompts, and a fixed loss. In population genetics, diversity decays at a rate set by the *effective population size* $N_e$. The textbook drift law,
+
+$$
+H_t \;\approx\; H_0\Bigl(1 - \frac{1}{2N_e}\Bigr)^{t},
+$$
+
+says expected heterozygosity $H_t$ (diversity of modes) falls exponentially with "generations" $t$. In KD, the teacher$\to$student channel induces a tiny $N_e^{\mathrm{KD}}$, so only a narrow slice of the teacher's latent modes is transmitted. Operationally, the student's mode–share vector ${\bf p}^{(S)}$ over a basis of reasoning modes $\{m_i\}_{i=1}^K$ concentrates more than the teacher's ${\bf p}^{(T)}$.
+
+**(2) Hardy–Weinberg disequilibrium (directional selection + drift).**
+Hardy–Weinberg equilibrium assumes infinite population, no selection, and random mating. KD violates each: the logit–matching objective is *directional selection*; one–teacher training is *non–random mating*; and $N_e^{\mathrm{KD}}$ is small, so *drift* is strong. A compact diversity proxy is the expected heterozygosity
+
+$$
+H \;=\; 1 - \sum_{i=1}^{K} p_i^2,
+$$
+
+with $p_i$ the share of mode $m_i$. Under KD, $H^{(S)} < H^{(T)}$ as one/few modes dominate. Across multiple students distilled from the same teacher, between–population differentiation shrinks: Wright's $F_{ST} = (H_T - H_S)/H_T \to 0$, indicating homogenization of students even when their surface accuracies match the teacher.
+
+**(3) Epigenetic inheritance (regulatory marks, not full genomes).**
+KD transmits *regulatory signals* rather than a full parameter "genome": softened labels at temperature $T$, plus optional intermediate *hints*. A generic objective is
+
+$$
+\min_{\theta_S}\; \mathbb{E}_{x}\Big[T^2\,\mathrm{KL}\!\big(\sigma(z_T^{(T)}/T)\,\lVert\,\sigma(z_T^{(S)}/T)\big)\;+\; 
+\lambda\!\sum_{\ell\in\mathcal{I}}\!\big\lVert h^{(S)}_\ell - \phi_\ell(h^{(T)}_\ell)\big\rVert_2^2\Big],
+$$
+
+which *silences* some pathways and *promotes* others without copying the teacher's entire sequence. Phenotypically this yields **canalization**: responses become stable and stereotyped across contexts even as internal variety wanes.
+
+**nDNA phenotype of KD (geometry you can measure).**
+Let the student and teacher nDNA be the layerwise triples $$(\kappa_\ell, L_\ell, \lVert{\bf v}_\ell\rVert)$$. Empirically,
+
+$$
+\kappa_\ell^{(S)} \downarrow,\qquad L_\ell^{(S)} \downarrow,\qquad \lVert{\bf v}_\ell^{(S)}\rVert \downarrow\ \ \text{and align into a narrow cone,}
+$$
+
+i.e., fewer distinct bends, less epistemic work, and weaker directional steering. A convenient scalar *scaffold strength* is
+
+$$
+S_\ell \;\stackrel{\mathrm{def}}{=}\; \kappa_\ell\, L_\ell\, \lVert{\bf v}_\ell\rVert,
+$$
+
+with depth–trend $\Delta S_\ell = S_{\ell+1} - S_\ell$. Persistent $\Delta S_\ell<0$ indicates *epistemic degeneration*: as depth increases the model turns less, thinks less, and is guided less. Thus students can *preserve phenotype* (answers) while *simplifying morphology* (the manifold that produces them), explaining reduced plasticity and off–distribution fragility.
+
+**Putting the analogies together.**
+*Bottleneck* compresses the latent gene pool (small $N_e^{\mathrm{KD}}$), *selection*$+$*drift* drive Hardy–Weinberg disequilibrium (falling $H$, $F_{ST}\!\to\!0$), and *epigenetic transmission* passes regulatory marks that canalize behavior. In nDNA, these forces materialize as flattened curvature, shortened thermodynamic length, and a belief field that shrinks and aligns. The result is a student that *looks* correct on familiar distributions yet occupies a tighter, less adaptable manifold. The mathematics (heterozygosity decay, $F_{ST}$ collapse, and a declining scaffold $S_\ell$) and the geometry (drops in $\kappa_\ell$, $L_\ell$, and $\lVert{\bf v}_\ell\rVert$) tell a single story: KD is population genetics in miniature—an efficient, one–parent transmission that preserves surface traits while thinning the internal ecology of reasoning.
+
 </div>
 {% include inspiration-video.liquid 
    hide_header=true
