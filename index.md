@@ -5,5 +5,5 @@ skip_title: true
 ---
 
 <script>
-  location.pathname = baseUrl + "/llm/";
+  location.pathname = "{{'/llm/' | relative_url}}";
 </script>
