@@ -20,16 +20,6 @@ We introduce the formal construct of *Total Epistemic Effort*, a unified metric 
 
 Comprehensive experiments spanning *typologically diverse* language pairs (e.g., **English–Hindi**, **English–Thai**, **English–Japanese**) and *heterogeneous model families* (e.g., **LLaMA**, **Mistral**) empirically validate the **predictive fidelity** of our framework. These findings establish **latent semantic geometry** as a *robust*, *interpretable*, and *deployment-ready* proxy for linguistic transfer complexity, **paving the way** for *pre-deployment diagnostics* and *principled resource allocation* in **multilingual NLP**.
 
-<div class="video-container">
-<div class="video-header">
-   <h2>Inspiration</h2>
-</div>
-{% include inspiration-video.liquid 
-   video_id="Xe-83tBcxhs" 
-   caption="**Machine Translation** -- Think of each language as a genome with its own chromosomal layout; zero-shot translation is like trying to perform homologous recombination between two genomes without ever expressing a phenotype. When the genomes (languages) are syntenic—gene order largely collinear—alignment is easy: low semantic displacement is like small edit distance, and low semantic torsion means little topological strain, so the “*recombination machinery*” needs little energy (low Total Epistemic Effort) to splice meaning across. As languages drift, you see structural variants—inversions, translocations, duplications—so manifolds twist and cross (torsion rises) and segments no longer match positionally (distance rises). Now the system must pay extra “enzymatic work,” akin to topoisomerases resolving supercoils and repair complexes bridging broken ends—your epistemic force across layers. Romance pairs (En↔Fr/It/De) behave like closely related species with conserved blocks: low torsion, short paths, high BLEU. Typologically distant pairs (En↔Zh/Ja/Th) resemble genomes with major rearrangements: high torsion, long paths, and weaker recombination yield—BLEU drops—even though no decoding occurs. In this view, GENOME-MT measures the recombination load of meaning: semantic distance = how far the loci are, torsion = how much topological untwisting is required, and the layerwise sum (thermodynamic length + torsion penalty) is the free-energy bill for crossing from one language’s semantic genome to the other."
-%}
-</div>
-
 ## Editing the Semantic Genome: An nDNA Perspective on Machine Translation
 
 Just as genetic engineering seeks to alter the blueprint of life by manipulating the sequence and structure of DNA, cross-lingual transfer in machine translation can be viewed as the editing of a *semantic genome*—a structured code of meaning embedded within the latent spaces of multilingual models. In this view, each language possesses a unique neural DNA (*nDNA*) signature, expressed through its spectral curvature, thermodynamic length, and belief vector field. Translating between two languages thus becomes a problem of transforming one high-dimensional manifold into another, a process governed not only by the magnitude of semantic displacement but also by the torsional misalignment of their epistemic trajectories. By quantifying these geometric and directional forces, we treat translation as the precise splicing, realignment, and recombination of semantic sequences—an operation whose difficulty can be measured without ever generating a single word.
@@ -285,6 +275,101 @@ Future work can extend this framework in three key directions:
 3. **Generalization beyond MT**—applying the `Dist`+`Torsion` paradigm to other multilingual NLP tasks such as cross-lingual retrieval, summarization, and dialogue systems
 
 By bridging linguistic typology with geometric model diagnostics, this approach offers a principled pathway toward more equitable and effective multilingual AI.
+
+<div class="video-container">
+<div class="video-header">
+   <h2>Analogy</h2>
+</div>
+<div class="video-subtitle" markdown="1">
+
+## Machine Translation as Semantic Recombination (nDNA View)
+
+**What we study.** How a model performs *zero-shot translation* by aligning two *semantic genomes* (source and target languages) inside its latent space. We read this process through the nDNA trio across depth: spectral curvature $\kappa_\ell$ (manifold bending), thermodynamic length $L_\ell$ (epistemic work), and a belief-field direction $\mathbf{v}_\ell$ (semantic steering). Our goal is to quantify a *recombination load of meaning*—how hard it is to splice corresponding concepts across languages without decoding.
+
+>**Plain-language summary**
+>
+>Each language behaves like a *genome of meaning*. When two languages are *syntenic* (comparable order/structure), homologous loci align with little untwisting and the model pays a *small energy bill*. As typological distance grows (inversions, translocations, duplications), the latent chromosomes twist and cross; the model must spend more depth-wise "enzymatic work" to untangle and repair alignment—a larger *recombination load*.
+
+## Operator (what zero-shot MT does, abstractly)
+
+Let $\mathcal{X}_s, \mathcal{X}_t$ be source/target corpora; at layer $\ell$ collect mean-centered hidden states
+
+$$H_\ell^{(s)} \in \mathbb{R}^{n \times d}, \qquad H_\ell^{(t)} \in \mathbb{R}^{m \times d}.$$
+
+Define an *orthogonal alignment* (Procrustes) $Q_\ell^\star = \arg\min_{Q \in O(d)} \lVert H_\ell^{(s)} Q - H_\ell^{(t)} \rVert_F$. The *homology gap* at depth $\ell$ is
+
+$$D_\ell = \frac{1}{\sqrt{\min(n,m)}} \lVert H_\ell^{(s)} Q_\ell^\star - H_\ell^{(t)} \rVert_F,$$
+
+or, equivalently, via principal angles $\{\theta_i(H_\ell^{(s)}, H_\ell^{(t)})\}_{i=1}^r$:
+
+$$D_\ell^{\text{(PA)}} = \left(\sum_{i=1}^r \sin^2 \theta_i\right)^{1/2}.$$
+
+Let $$\mathbf{v}_\ell^{(s)}$$ and $$\mathbf{v}_\ell^{(t)}$$ be unit *belief directions* (e.g., average normalized task gradient or steering vector) in the two spaces. A depth-local *torsion cost* (untwisting) is the misalignment of transported directions:
+
+$$\tau_\ell = \arccos\left(\frac{\langle \mathbf{v}_\ell^{(s)}, Q_\ell^\star \mathbf{v}_\ell^{(t)} \rangle}{\lVert \mathbf{v}_\ell^{(s)} \rVert \lVert \mathbf{v}_\ell^{(t)} \rVert}\right),$$
+
+or, if one tracks inter-layer transports, $\tau_\ell \approx \lVert \operatorname{skew}(\log(Q_{\ell+1}^\star Q_\ell^{\star \top})) \rVert_F$.
+
+We read *curvature* from basis rotation across depth, e.g.
+
+$$\kappa_\ell \propto \lVert \operatorname{sym}(\log(Q_{\ell+1}^\star Q_\ell^{\star \top})) \rVert_F,$$
+
+and *thermodynamic length* as the cumulative epistemic step:
+
+$$L_\ell = \lVert H_\ell^{(s)} - H_{\ell-1}^{(s)} \rVert_{F, W_\ell} \quad \text{(Fisher-/whitened norm)}, \qquad L_{\mathcal{I}} = \sum_{\ell \in \mathcal{I}} L_\ell.$$
+
+The **recombination load of meaning** over a depth window $\mathcal{I}$ is
+
+$$E_{\text{total}} = \sum_{\ell \in \mathcal{I}} \left(\underbrace{D_\ell}_{\text{homology gap}} + \lambda \underbrace{\tau_\ell}_{\text{untwisting}} + \mu \underbrace{\kappa_\ell}_{\text{curvature penalty}}\right),$$
+
+optionally reweighted by $L_\ell$ to emphasize high-work regions.
+
+## Chromosome-level analogy (clear mapping)
+
+- **Synteny (conserved order)** $\leftrightarrow$ stable word order/constructions $\Rightarrow$ $D_\ell \downarrow$, $\tau_\ell \downarrow$.
+- **Structural variants** (inversions, translocations, duplications, deletions) $\leftrightarrow$ order flips, topic-comment, classifier systems, null elements $\Rightarrow$ $D_\ell \uparrow$, $\tau_\ell \uparrow$.
+- **Recombinases/strand exchange** $\leftrightarrow$ attention-mediated locus matching ($Q_\ell^\star$).
+- **Topoisomerases** $\leftrightarrow$ depth-wise untwisting (torsion $\tau_\ell$).
+- **Mismatch repair** $\leftrightarrow$ pruning implausible alignments via belief consistency.
+
+## Micro-mechanics (junctions, bias, asymmetry)
+
+**Ambiguity as Holliday junctions.** Competing alignments form *junctions* in latent space; resolution appears as sharp drops in $D_\ell$ with spikes in $\kappa_\ell$ or $\tau_\ell$.
+
+**Gene conversion (directional overwrite).** Dominant-language priors can overwrite rare target constructions $\Rightarrow$ asymmetric En→X vs. X→En difficulty mirrored in $\tau_\ell$ and $\mathbf{v}_\ell$ drift.
+
+**Polymerase slippage (repetitions).** Local alignment loops around high-gain $n$-grams produce repetition; detectable as oscillatory turns of $$\mathbf{v}_\ell$$ with small $$D_\ell$$ but elevated $$\kappa_\ell$$.
+
+## Toolbox: Diagnostics and Controls (actionable)
+
+**D1. Homology gap estimator.** Use orthogonal Procrustes or principal angles to compute $D_\ell$; report $D_{\mathcal{I}} = \sum_{\ell \in \mathcal{I}} D_\ell$ with bootstrap CIs.
+
+**D2. Torsion tracker.** Estimate $\tau_\ell$ via transported belief directions or $\lVert \operatorname{skew} \log(Q_{\ell+1}^\star Q_\ell^{\star \top}) \rVert_F$; flag depth-slices where $\tau_\ell$ concentrates.
+
+**D3. Curvature profile.** Track $\kappa_\ell$ to locate regions where alignment requires bending the manifold; penalize noisy, jagged profiles.
+
+**D4. Recombination load.** Aggregate $E_{\text{total}}$ over $\mathcal{I}$; use it as a generation-free predictor of MT difficulty and a *budget* to compare models.
+
+**C1. Reduce $D_\ell$ (tighten homology).** Shared subword/morphology adapters, lexicon priors, pronunciation/romanization bridges; encourage basis overlap to shrink $D_\ell$.
+
+**C2. Reduce $\tau_\ell$ (ease untwisting).** Syntax-aware adapters and reordering curricula that introduce non-isomorphic orders gradually; minimize late-depth torsion.
+
+**C3. Stabilize $\kappa_\ell$ (preserve flexibility).** Geometry-preserving distillation (match spectra/length) to avoid flattening curvature during compression.
+
+**C4. Seed hotspots (anchor exchange).** Inject high-MI anchors (phrase tables, named entities) to create reliable strand-exchange sites that lower both $D_\ell$ and $\tau_\ell$.
+
+>**Key takeaways**
+>
+>- **Distance** $D_\ell$ measures how far homologous loci must slide; **torsion** $\tau_\ell$ measures how much untwisting is required; **curvature** $\kappa_\ell$ penalizes bending the manifold to make the splice.
+>- The **recombination load** $E_{\text{total}}$ is a *generation-free* predictor of MT difficulty; low for syntenic pairs (e.g., En↔Fr/It/De), high for rearranged pairs (e.g., En↔Zh/Ja/Th).
+>- **Controls**: shrink $D_\ell$ (homology adapters), shrink $\tau_\ell$ (reordering priors), and stabilize $\kappa_\ell$ (geometry-preserving KD). Use $E_{\text{total}}$ as the budget to trade speed/size vs. translation quality.
+
+</div>
+{% include inspiration-video.liquid 
+   video_id="Xe-83tBcxhs" 
+   caption="**Machine Translation** -- Think of each language as a genome with its own chromosomal layout; zero-shot translation is like trying to perform homologous recombination between two genomes without ever expressing a phenotype. When the genomes (languages) are syntenic—gene order largely collinear—alignment is easy: low semantic displacement is like small edit distance, and low semantic torsion means little topological strain, so the “*recombination machinery*” needs little energy (low Total Epistemic Effort) to splice meaning across. As languages drift, you see structural variants—inversions, translocations, duplications—so manifolds twist and cross (torsion rises) and segments no longer match positionally (distance rises). Now the system must pay extra “enzymatic work,” akin to topoisomerases resolving supercoils and repair complexes bridging broken ends—your epistemic force across layers. Romance pairs (En↔Fr/It/De) behave like closely related species with conserved blocks: low torsion, short paths, high BLEU. Typologically distant pairs (En↔Zh/Ja/Th) resemble genomes with major rearrangements: high torsion, long paths, and weaker recombination yield—BLEU drops—even though no decoding occurs. In this view, GENOME-MT measures the recombination load of meaning: semantic distance = how far the loci are, torsion = how much topological untwisting is required, and the layerwise sum (thermodynamic length + torsion penalty) is the free-energy bill for crossing from one language’s semantic genome to the other."
+%}
+</div>
 
 ---
 
