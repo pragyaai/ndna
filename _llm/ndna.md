@@ -11,6 +11,9 @@ skip_title: true
 
 <img src="{{ '/assets/img/ndna_logo_v5.jpg' | relative_url }}" alt="nDNA" style="width: 100%">
 
+{% include inspiration-video.liquid 
+   video_id="rddewsgbuKw" %}
+
 {% capture ndna_quantify %}
 - **Layer Importance and Semantic Specialization**: Not all layers contribute equally to a model's epistemic structure. A growing body of evidence {% cite belrose2023mechanistic geva2022transformer dai2023knowledge liu2023hidden %} reveals that semantic representations, cultural memory, and alignment behavior disproportionately concentrate in the mid-to-upper transformer layers--particularly the final 10 layers in ~30-layer models. These layers encode more than surface patterns; they carry deep *semantic priors* and value shifts induced by alignment, fine-tuning, and cultural adaptation. For **nDNA** to serve as a meaningful genomic diagnostic, it must trace inheritance, drift, and trait transformation across these epistemically sensitive regions.
 
