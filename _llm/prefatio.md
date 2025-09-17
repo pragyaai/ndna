@@ -2,7 +2,7 @@
 layout: page
 title: "Prefatio"
 permalink: /llm/prefatio/
-skip_title: True
+skip_title: true
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/15_llms.css' | relative_url }}">
@@ -13,7 +13,12 @@ skip_title: True
        style="width: 100%; border-radius: 12px;"/>
 </div>
 
-{% include prefatio-title.liquid title="Prefatio" subtitle="" %}
+<div class="title-wrapper">
+  <div class="title-container">
+    {% include prefatio-title.liquid title="Prefatio" %}
+    {% include inspiration-video.liquid video_id="ooGWmkE9mUU" %}
+  </div>
+</div>
 
 <div class="card" markdown="1">
 

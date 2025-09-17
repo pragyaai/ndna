@@ -9,7 +9,7 @@ skip_title: True
 
 <!-- Video positioned on the right side to wrap around entire content -->
 <div style="float: right; margin: 0 0 1em 2em;">
-  <iframe width="420" height="236" src="https://www.youtube.com/embed/CP3pOE9eQm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
+  <iframe width="420" height="236" src="https://www.youtube.com/embed/RE0OTQbuCrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
 </div>
 
 <div class="infographics-container">

@@ -23,9 +23,9 @@ window.MathJax = {
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {% endraw %}
 
-
-
-{% include ndna-title.liquid title="The Ethnic nDNA - Cultural Fine-Tuning and Latent Geometry" %}
+{% include ndna-title.liquid 
+   title="The Ethnic nDNA - Cultural Fine-Tuning and Latent Geometry" 
+   video_id="hL2LZLfvI90" %}
 
 Modern foundation models, trained on globally aggregated corpora, inevitably encode a homogenized epistemic perspective—one that reflects dominant data distributions rather than the pluralism of human cultures. To systematically probe how language models internalize and express distinct cultural priors, we construct **seven culturally–aligned LLMs**, each fine-tuned on a corpus curated to reflect the textual traditions, values, and discourse patterns of a specific geopolitical-cultural region: *Europe*, *Asia*, *Africa*, *North America*, *Latin America*, *the Middle East*, and *Australia*.
 

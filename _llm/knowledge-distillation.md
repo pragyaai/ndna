@@ -5,7 +5,9 @@ permalink: /llm/knowledge-distillation/
 skip_title: true
 ---
 
-{% include ndna-title.liquid title="nDNA Lens - Knowledge Distillation as Latent Genome Compression" %}
+{% include ndna-title.liquid 
+   title="nDNA Lens - Knowledge Distillation as Latent Genome Compression" 
+   video_id="IhqpZaj_62A" %}
 
 **Knowledge distillation** is a widely adopted technique for compressing large language models (LLMs) by training a smaller, more efficient *student model* to mimic the behavior of a larger *teacher model*. Introduced by {% cite hinton2015distilling %}, this method aims to preserve performance while reducing computational overhead, enabling deployment on resource-constrained devices. Over time, the field has evolved to include techniques like *intermediate representation alignment* {% cite romero2015fitnets %}, *feature transfer* {% cite gou2021knowledge %}, and *task-adaptive knowledge distillation* {% cite wang2023culturalbias %}.
 

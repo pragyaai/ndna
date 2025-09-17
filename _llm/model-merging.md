@@ -6,12 +6,17 @@ permalink: /llm/model-merging/
 skip_title: true
 ---
 
-{% include title.liquid
-  title="What If Cross-Cultural LLMs Married?"
-  sub_title="The Latent Geometry of Inherited Culture in Their Neural Offspring"
-  title_image="assets/logos/aether.png"
-  logo_alt="ÆTHER"
-  logo_size="15rem" %}
+<div class="title-wrapper">
+  <div class="title-container">
+   {% include title.liquid
+      title="What If Cross-Cultural LLMs Married?"
+      sub_title="The Latent Geometry of Inherited Culture in Their Neural Offspring"
+      title_image="assets/logos/aether.png"
+      logo_alt="ÆTHER"
+      logo_size="15rem" %}
+   {% include inspiration-video.liquid video_id="o9HQu3Fy9GA" %}
+  </div>
+</div>
 
 ## The ÆTHERs: Neural Offsprings Born from the Marriages (Mergings) of Language Models
 
