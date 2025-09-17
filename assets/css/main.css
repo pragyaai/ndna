@@ -314,6 +314,19 @@ a.group-title {
   display: flex;
   gap: 40px;
 }
+
+.title-wrapper {
+  width: 1200px;
+  overflow: visible;
+}
+.title-container {
+  display: flex;
+  width: calc(100vw - 280px);
+}
+.title-container > * {
+  flex: 1;
+}
+
 .page-title, .page-title-ndna {
   display: flex;
   align-items: center;
