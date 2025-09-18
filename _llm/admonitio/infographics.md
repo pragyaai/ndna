@@ -7,11 +7,22 @@ skip_title: True
 
 <link rel="stylesheet" href="{{ '/assets/css/infographics.css' | relative_url }}">
 
-<!-- Video positioned on the right side to wrap around entire content -->
-
 <div class="title-wrapper">
   <div class="title-container">
-    <h2 class="section-title">Neural networks - The foundation for modern Artificial Intelligence (AI)</h2>
+    <div class="page-title-container" style="margin-bottom: 1.5em;">
+    <!-- Logo and title content will flow around the video -->
+    <div style="text-align: left;margin-bottom: 1em">
+        <div style="margin-bottom: 0.5em;">
+        <img src="{{ '/assets/img/Neural_genomics_img-1.png' | relative_url }}" alt="Neural Genomics" style="height: 12em; display: block; margin: 0 auto;">
+        </div>
+        <h1 class="page-title" style="margin: 0; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+        <span class="page-title-neural-genomics">Admonitio: On the Hidden Inheritance of Machine Thoughts</span>
+        </h1>
+    </div>
+    <p style="font-size: 1.1em; color: #666; margin-top: 0; margin-bottom: 1.5em; font-style: italic; text-align: left;">
+        A Rationale for Diagnosing the Latent Genome of AI
+    </p>
+    </div>
     {% include inspiration-video.liquid 
       video_id="RE0OTQbuCrc?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
   </div>

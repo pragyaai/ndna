@@ -4,8 +4,14 @@ title: "Neural Genomics"
 permalink: /llm/neural-genomics/prelude/
 skip_title: True
 ---
-{% include neural-genomics-title.liquid title="A Paradigm Shift in Understanding Artificial Cognition" %}
 
+<div class="title-wrapper">
+  <div class="title-container">
+    {% include neural-genomics-title.liquid title="A Paradigm Shift in Understanding Artificial Cognition" %}
+    {% include inspiration-video.liquid 
+      video_id="ikLpgIfTskk?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
+  </div>
+</div>
 In the unfolding saga of artificial intelligence, a consensus has quietly emerged: the simplistic formula of **"more data equals better AI"** no longer holds the promise it once did. As the quest for *Artificial General Intelligence (AGI)* intensifies, we face a perplexing paradox--researchers debate its very definition, yet none can offer a **universally accepted characterization** of what AGI truly entails. This conceptual ambiguity reflects a deeper truth: intelligence, in its fullest sense, *resists reduction* to sheer scale or data volume({% cite bengio2020towards %};{% cite lake2017building %}).
 
 Simultaneously, the empirical reality is stark and humbling. The world's digital corpus--once thought to be an ever-expanding ocean of knowledge--has approached a **plateau**. We no longer have vast new reservoirs of authentic human-generated data to feed into our models. Instead, projections foresee a future where **over 90% of web content** will be synthesized by AI systems themselves{% cite yu2023aiweb %}. This recursive feedback loop of AI learning from AI raises profound concerns about *semantic collapse* and **knowledge degradation**. This phenomenon, often called **AI cannibalism**, poses the unsettling question: *Could training predominantly on AI-generated content destabilize the very foundations of meaning and understanding within our models?*{% cite dean2023canibalism %}.

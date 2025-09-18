@@ -9,11 +9,9 @@ skip_title: true
 
 <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 20px;">
   <img src="{{ '/assets/img/banner-1.png' | relative_url }}" 
-       alt="Banner" 
-       style="width: 100%; border-radius: 12px;"/>
+       alt="Neural Genomics of AI Foundation Model" 
+       style="width: 100%; margin-bottom: 1.5rem;"/>
 </div>
-
-{% include prefatio-title.liquid title="Prefatio" %}
 
 <div class="card" markdown="1">
 

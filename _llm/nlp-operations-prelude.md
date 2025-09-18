@@ -5,7 +5,9 @@ permalink: /llm/nlp-operations/prelude/
 skip_title: true
 ---
 
-{% include ndna-title.liquid title="Neural Genomics — Rewriting the DNA of NLP" %}
+{% include ndna-title.liquid 
+    title="Neural Genomics — Rewriting the DNA of NLP"
+    video_id="JWE2GKTXmGk?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 Over the last two decades, **Natural Language Processing (NLP)** has undergone successive revolutions: from statistical n-gram models to deep neural networks, from recurrent architectures to transformers, from monolingual corpora to massively multilingual and multimodal ecosystems {% cite vaswani2017attention %}{% cite devlin2019bert %}{% cite raffel2020t5 %}{% cite brown2020language %}. Yet amidst these transformations, a quiet truth persists: while our models have grown in size and capability, our understanding of their **internal semantic organization** remains **rudimentary**. We have built linguistic titans, but we still squint at their blueprints.
 
