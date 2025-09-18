@@ -8,18 +8,19 @@ skip_title: True
 <link rel="stylesheet" href="{{ '/assets/css/infographics.css' | relative_url }}">
 
 <!-- Video positioned on the right side to wrap around entire content -->
-<div style="float: right; margin: 0 0 1em 2em;">
-  <iframe width="420" height="236" src="https://www.youtube.com/embed/RE0OTQbuCrc?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
+
+<div class="title-wrapper">
+  <div class="title-container">
+    <h2 class="section-title">Neural networks - The foundation for modern Artificial Intelligence (AI)</h2>
+    {% include inspiration-video.liquid 
+      video_id="RE0OTQbuCrc?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
+  </div>
 </div>
 
 <div class="infographics-container">
   
   <!-- Neural Networks Foundation Section -->
   <section class="section-block">
-    <div class="section-header">
-      <h2 class="section-title">Neural networks - The foundation for modern Artificial Intelligence (AI)</h2>
-    </div>
-    
     <div class="content-grid">
       <div class="content-main">
         <div class="text-content">

@@ -4,7 +4,27 @@ title: "Admonitio"
 permalink: /llm/admonitio/narrative/
 skip_title: True
 ---
-{% include admonitio-title.liquid title="Admonitio: On the Hidden Inheritance of Machine Thoughts" subtitle="A Rationale for Diagnosing the Latent Genome of AI" %}
+
+<div class="title-wrapper">
+  <div class="title-container">
+    <div class="page-title-container" style="margin-bottom: 1.5em;">
+    <!-- Logo and title content will flow around the video -->
+    <div style="text-align: left;margin-bottom: 1em">
+        <div style="margin-bottom: 0.5em;">
+        <img src="{{ '/assets/img/Neural_genomics_img-1.png' | relative_url }}" alt="Neural Genomics" style="height: 12em; display: block; margin: 0 auto;">
+        </div>
+        <h1 class="page-title" style="margin: 0; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.02em;">
+        <span class="page-title-neural-genomics">Admonitio: On the Hidden Inheritance of Machine Thoughts</span>
+        </h1>
+    </div>
+    <p style="font-size: 1.1em; color: #666; margin-top: 0; margin-bottom: 1.5em; font-style: italic; text-align: left;">
+        A Rationale for Diagnosing the Latent Genome of AI
+    </p>
+    </div>
+    {% include inspiration-video.liquid 
+      video_id="RE0OTQbuCrc?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
+  </div>
+</div>
 
 > *"Even the biggest chatbots only have about a trillion connections… yet they know far more than you do in your 100 trillion. Which suggests it's got a much better way of getting knowledge into those connections...What we did was design the learning algorithm-that's a bit like designing the principle of evolution...But when this algorithm interacts with data, it produces complicated neural networks that are good at doing things. We don't really understand exactly how they do those things."*
 >

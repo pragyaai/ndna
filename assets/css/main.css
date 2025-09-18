@@ -321,6 +321,7 @@ a.group-title {
 }
 .title-container {
   display: flex;
+  align-items: center;
   width: calc(100vw - 280px);
 }
 .title-container > * {
