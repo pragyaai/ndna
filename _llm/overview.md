@@ -9,6 +9,7 @@ skip_title: true
 .book-cover {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   width: 30%;
   max-width: 35rem;
   flex-grow: 1;
@@ -285,7 +286,7 @@ footer {
 <div class="overview-container">
   <div class="book-cover">
     <img src="{{ '/assets/img/cover_ndna.png' | relative_url }}" />
-    <iframe width="100%" height="405" src="https://www.youtube.com/embed/?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" frameborder="0" allowfullscreen style="margin: auto;"></iframe>
+    <iframe width="100%" height="405" src="https://www.youtube.com/embed/?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" frameborder="0" allowfullscreen></iframe>
   </div>
   <div class="ndna-hierarchy-ui">
     <!-- Top Level: Rationale, Semantic Fingerprint, Language & Culture -->
