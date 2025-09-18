@@ -13,12 +13,7 @@ skip_title: true
        style="width: 100%; border-radius: 12px;"/>
 </div>
 
-<div class="title-wrapper">
-  <div class="title-container">
-    {% include prefatio-title.liquid title="Prefatio" %}
-    {% include inspiration-video.liquid video_id="ooGWmkE9mUU" %}
-  </div>
-</div>
+{% include prefatio-title.liquid title="Prefatio" %}
 
 <div class="card" markdown="1">
 

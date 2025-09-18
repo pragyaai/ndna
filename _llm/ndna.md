@@ -7,7 +7,7 @@ skip_title: true
 
 {% include ndna-title.liquid 
    title="The nDNA Cartograph: Latent Semantic Genome of Foundation Models" 
-   video_id="rddewsgbuKw" %}
+   video_id="rddewsgbuKw?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 **Before we unveil *nDNA*, we must confront a foundational question:** *What qualifies as heritability in artificial cognition*? Conventional artifacts--*weights*, *activations*, or the output *behavior*--are mere **epiphenomena of training**. In contrast, **nDNA** seeks to capture a model's *semantic genome*: the *latent organizational structures* that govern how knowledge is internally *represented*, *adapted*, and *transmitted* across fine-tuning, distillation, pruning, and deployment. To chart the **semantic ancestry** of AI systems, we must move beyond output-level metrics and embrace a deeper epistemic foundation--one that traces not just what models *say*, but how they *reason*, *evolve*, and *remember*. We argue that **nDNA** constitutes this missing genomic trace: a **structured latent fingerprint** of artificial cognition. Just as molecular genetics enabled biology to transcend surface taxonomies and uncover causal mechanisms, we contend that a *genomic lens* is now essential for machine learning--one that can **quantify**:
 

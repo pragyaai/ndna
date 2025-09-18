@@ -7,7 +7,7 @@ mathjax: true
 ---
 {% include ndna-title.liquid 
    title="nDNA Lens - Model Collapse as Latent Manifold Flattening" 
-   video_id="K_nybYcohkc" %}
+   video_id="K_nybYcohkc?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 <!-- MathJax config FIRST, then loader -->
 <script>

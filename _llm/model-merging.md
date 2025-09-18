@@ -14,7 +14,8 @@ skip_title: true
       title_image="assets/logos/aether.png"
       logo_alt="ÆTHER"
       logo_size="15rem" %}
-   {% include inspiration-video.liquid video_id="o9HQu3Fy9GA" %}
+   {% include inspiration-video.liquid 
+      video_id="o9HQu3Fy9GA?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
   </div>
 </div>
 

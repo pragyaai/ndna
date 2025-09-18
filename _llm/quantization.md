@@ -7,7 +7,7 @@ skip_title: true
 
 {% include ndna-title.liquid 
    title="nDNA Lens - Quantization and Pruning as Thermodynamic Collapses" 
-   video_id="zGOOEgzC2WU" %}
+   video_id="zGOOEgzC2WU?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 **What do quantization and pruning *do* to a model's epistemic structure beyond reducing FLOPs and memory?** Can we understand them not merely as engineering shortcuts, but as **belief geometry** events that alter the latent semantics of a model's neural genome?
 

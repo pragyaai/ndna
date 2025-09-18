@@ -4,7 +4,9 @@ title: nDNA Lens - Model Operations
 permalink: /llm/model-operations/
 skip_title: true
 ---
-{% include ndna-title.liquid title="nDNA Lens - Model Operations" %}
+{% include ndna-title.liquid 
+   title="nDNA Lens - Model Operations" 
+   video_id="ooGWmkE9mUU?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 In the unfolding saga of artificial intelligence, a consensus has quietly emerged: the simplistic formula of **"more data equals better AI"** no longer holds the promise it once did. As the quest for *Artificial General Intelligence (AGI)* intensifies, we face a perplexing paradox--researchers debate its very definition, yet none can offer a **universally accepted characterization** of what AGI truly entails. This conceptual ambiguity reflects a deeper truth: intelligence, in its fullest sense, *resists reduction* to sheer scale or data volume {% cite bengio2020towards lake2017building %}.
 

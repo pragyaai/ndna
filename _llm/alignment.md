@@ -140,7 +140,7 @@ MathJax = {
 
 {% include ndna-title.liquid 
    title="nDNA Lens - Alignment Techniques Through Steering Vector Manifolds" 
-   video_id="JGAkma9cbdA" %}
+   video_id="JGAkma9cbdA?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 <div class="quote-box">
 "Not all alignment is visible on the surface. Some changes run deeper—written in the geometry of belief itself."
