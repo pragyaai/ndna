@@ -1,6 +1,6 @@
 ---
 layout: page
-title: LLM Overview
+title: nDNA - the Semantic Helix of Artificial Cognition
 permalink: /llm/
 skip_title: true
 ---
