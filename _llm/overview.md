@@ -275,6 +275,22 @@ footer {
   flex: 1;
 }
 
+.book-previews {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: calc(100vw - 232px);
+}
+
+.book-previews > * {
+  width: calc(25% - 1.5rem);
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #f0f4f8, #e2e8f0);
+  border: 2px solid;
+  border-radius: 1rem;
+}
+
 /* @media (max-width: 1680px) {
   .overview-container {
     flex-direction: column;
@@ -285,8 +301,8 @@ footer {
 
 <div class="overview-container">
   <div class="book-cover">
-    <img src="{{ '/assets/img/cover_ndna.png' | relative_url }}" />
     <iframe width="100%" height="405" src="https://www.youtube.com/embed/?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" frameborder="0" allowfullscreen></iframe>
+    <img src="{{ '/assets/img/cover_ndna.png' | relative_url }}" />
   </div>
   <div class="ndna-hierarchy-ui">
     <!-- Top Level: Rationale, Semantic Fingerprint, Language & Culture -->
@@ -388,5 +404,20 @@ footer {
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div>
+  <h2 style="
+    text-align: center;
+    font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 5rem;
+    font-size: 3.2rem;
+  ">It's a series - releasing <span style="color: #156082;">Volume 1</span> soon</h2>
+  <div class="book-previews">
+    <img src="{{ '/assets/img/cover_ndna.png' | relative_url }}" />
+    <img src="{{ '/assets/img/book_v2_cover.png' | relative_url }}" />
+    <img src="{{ '/assets/img/book_v3_cover.png' | relative_url }}" />
+    <img src="{{ '/assets/img/book_v4_cover.png' | relative_url }}" />
   </div>
 </div>
