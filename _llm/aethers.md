@@ -2,7 +2,16 @@
 layout: page
 title: "ÆTHERs: From Neuro-Inspired to Genome-Aware AI"
 permalink: /llm/aethers/
+skip_title: true
 ---
+
+<div class="title-wrapper">
+  <div class="title-container">
+    <h1 style="text-align: center; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">ÆTHERs: From Neuro-Inspired to Genome-Aware AI</h1>
+    {% include inspiration-video.liquid 
+      video_id="qrZFVbih63Q?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
+  </div>
+</div>
 
 <img
   style="width: 100%; height: 800px; padding: 2rem; object-fit: contain; background: #fff;"

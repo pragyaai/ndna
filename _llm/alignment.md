@@ -211,13 +211,11 @@ By visualizing nDNA geometry *before and after* alignment tuning, we reveal how 
         border-left: 3px solid #3498db;
     }
     .note-title {
-        font-size: 11px;
         font-weight: bold;
         color: #7f8c8d;
         margin-bottom: 5px;
     }
     .note-text {
-        font-size: 12px;
         color: #666;
         font-style: italic;
     }

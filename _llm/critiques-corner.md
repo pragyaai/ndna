@@ -2,7 +2,16 @@
 layout: page
 title: "Critique's Corner"
 permalink: /llm/critiques-corner/
+skip_title: true
 ---
+
+<div class="title-wrapper">
+  <div class="title-container">
+    <h1 style="text-align: center; font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Critique's Corner</h1>
+    {% include inspiration-video.liquid 
+      video_id="OFhJI21T_Sc?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
+  </div>
+</div>
 
 Science grows by disagreement. Every new conceptual leap sounds, at first, like an overreach: 
 *atoms* were once dismissed as "undetectable philosophy," 

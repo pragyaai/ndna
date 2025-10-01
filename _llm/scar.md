@@ -8,7 +8,8 @@ skip_title: true
 {% include nlp-ops-title.liquid
   title="Spectral Contamination and Alignment Rupture in Transformer Geometry"
   title_image="assets/logos/scar.png"
-  logo_alt="SCAR" %}
+  logo_alt="SCAR" 
+  video_id="WN3PiA-et-A?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 ## Abstract
 
