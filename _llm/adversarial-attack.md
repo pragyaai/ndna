@@ -8,7 +8,8 @@ skip_title: true
 {% include nlp-ops-title.liquid
   title="Adversarial Attacks as Semantic Infections in the Neural DNA of Language Models; Proposing 11 Vaccines: SPLICER, SENTRY, DORMIGUARD, CASCADEX, EMBERGENT, ROLESTOP, REPLICADE, PROMPTEX, DRIFTSHIELD, CHAINLOCK, and REFLEXIA"
   title_image="assets/logos/viral.png"
-  logo_alt="VIRAL" %}
+  logo_alt="VIRAL" 
+  video_id="X-zD8h3QCaw?listType=playlist&list=PLaE3N7Ax00P93HC0jxZ-b6c4tnLkldPOJ" %}
 
 ## Abstract
 
