@@ -42,6 +42,18 @@ permissions:
   contents: write
 
 jobs:
+  cleanup:
+    runs-on: self-hosted
+    steps:
+      - name: Clean up disk space
+        run: |
+          echo "Cleaning runner cache and logs..."
+          sudo rm -rf /home/runner/actions-runner/_diag/*
+          sudo rm -rf /home/runner/actions-runner/cached/_diag/*
+          sudo rm -rf /home/runner/actions-runner/_work/_tool
+          sudo rm -rf /home/runner/actions-runner/_work/* || true
+          docker system prune -af || true
+          docker volume prune -f || true
   deploy:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
