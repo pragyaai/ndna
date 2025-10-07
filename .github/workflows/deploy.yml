@@ -73,35 +73,36 @@ jobs:
           ruby-version: "3.3.5"
           bundler-cache: false
       
-      - name: Cache Bundler dependencies 📦
-        uses: actions/cache@v4
-        with:
-          path: |
-            vendor/bundle
-            ~/.bundle
-          key: ${{ runner.os }}-bundler-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bundler-
-        continue-on-error: true
-      
-      - name: Install dependencies 🔧
+      - name: Install system dependencies 📦
         run: |
-          bundle config path vendor/bundle
-          bundle config set --local deployment 'true'
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+      
+      - name: Install Ruby dependencies 🔧
+        run: |
+          gem install bundler
           bundle config set --local without 'development test'
-          bundle install --jobs 4 --retry 3
+          bundle install --retry 3 --verbose
+      
+      - name: Debug Jekyll environment �
+        run: |
+          echo "Ruby version: $(ruby --version)"
+          echo "Bundler version: $(bundle --version)"
+          echo "Jekyll version: $(bundle exec jekyll --version)"
+          echo "Gems installed:"
+          bundle list
+          echo "Current directory contents:"
+          ls -la
+          echo "Jekyll config check:"
+          bundle exec jekyll doctor || true
       
       - name: Build Jekyll site 🔧
         run: |
-          # Set Jekyll environment
           export JEKYLL_ENV=production
-          # Build with optimized settings
-          bundle exec jekyll build --verbose
-          # Clean up any temporary files after build
-          bundle exec jekyll clean
+          echo "Building Jekyll site..."
+          bundle exec jekyll build --verbose --trace
         env:
           JEKYLL_ENV: production
-          BUNDLE_DEPLOYMENT: true
       
       - name: Check disk space after build 📊
         run: |
