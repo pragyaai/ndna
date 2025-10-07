@@ -57,13 +57,13 @@ jobs:
           # Check initial disk space
           df -h
           # Remove unnecessary packages and clean apt cache
-          sudo apt-get clean
-          sudo apt-get autoremove -y
+          sudo apt-get clean || true
+          sudo apt-get autoremove -y || true
           # Remove large directories we don't need
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /opt/ghc
-          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo rm -rf /usr/share/dotnet || true
+          sudo rm -rf /usr/local/lib/android || true
+          sudo rm -rf /opt/ghc || true
+          sudo rm -rf /opt/hostedtoolcache/CodeQL || true
           # Check disk space after cleanup
           df -h
       
@@ -71,21 +71,37 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
-          bundler-cache: true
-          cache-version: 1
+          bundler-cache: false
       
-      - name: Install and Build 🔧
+      - name: Cache Bundler dependencies 📦
+        uses: actions/cache@v4
+        with:
+          path: |
+            vendor/bundle
+            ~/.bundle
+          key: ${{ runner.os }}-bundler-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bundler-
+        continue-on-error: true
+      
+      - name: Install dependencies 🔧
+        run: |
+          bundle config path vendor/bundle
+          bundle config set --local deployment 'true'
+          bundle config set --local without 'development test'
+          bundle install --jobs 4 --retry 3
+      
+      - name: Build Jekyll site 🔧
         run: |
           # Set Jekyll environment
           export JEKYLL_ENV=production
-          # Build with incremental and limited parallelism to save memory/disk
-          bundle exec jekyll build --incremental --limit_posts 1000
-          # Clean up any temporary files
+          # Build with optimized settings
+          bundle exec jekyll build --verbose
+          # Clean up any temporary files after build
           bundle exec jekyll clean
         env:
-          # Limit Jekyll's memory usage
           JEKYLL_ENV: production
-          BUNDLE_WITHOUT: development:test
+          BUNDLE_DEPLOYMENT: true
       
       - name: Check disk space after build 📊
         run: |
