@@ -42,35 +42,64 @@ permissions:
   contents: write
 
 jobs:
-  cleanup:
-    runs-on: self-hosted
-    steps:
-      - name: Clean up disk space
-        run: |
-          echo "Cleaning runner cache and logs..."
-          sudo rm -rf /home/runner/actions-runner/_diag/*
-          sudo rm -rf /home/runner/actions-runner/cached/_diag/*
-          sudo rm -rf /home/runner/actions-runner/_work/_tool
-          sudo rm -rf /home/runner/actions-runner/_work/* || true
-          docker system prune -af || true
-          docker volume prune -f || true
   deploy:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          # Shallow clone to save space
+          fetch-depth: 1
+      
+      - name: Free up disk space 🧹
+        run: |
+          # Check initial disk space
+          df -h
+          # Remove unnecessary packages and clean apt cache
+          sudo apt-get clean
+          sudo apt-get autoremove -y
+          # Remove large directories we don't need
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          # Check disk space after cleanup
+          df -h
+      
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
           bundler-cache: true
+          cache-version: 1
+      
       - name: Install and Build 🔧
         run: |
+          # Set Jekyll environment
           export JEKYLL_ENV=production
-          bundle exec jekyll build
+          # Build with incremental and limited parallelism to save memory/disk
+          bundle exec jekyll build --incremental --limit_posts 1000
+          # Clean up any temporary files
+          bundle exec jekyll clean
+        env:
+          # Limit Jekyll's memory usage
+          JEKYLL_ENV: production
+          BUNDLE_WITHOUT: development:test
+      
+      - name: Check disk space after build 📊
+        run: |
+          df -h
+          du -sh _site/
+      
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site
+          # Clean the target branch to avoid accumulating files
+          clean: true
+          # Only deploy necessary files
+          clean-exclude: |
+            .nojekyll
+            CNAME
