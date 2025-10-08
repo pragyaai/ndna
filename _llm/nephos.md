@@ -608,7 +608,8 @@ By aligning these perspectives, we reconstruct the *full causal chain* of an SPS
 This mirrors the integrative approach in *systems biology* and *molecular epidemiology*, where genomic, imaging, and temporal data are fused to trace and neutralize pathogenic cascades {% cite hanahan2011hallmarks %}, {% cite vogelstein2013cancer %}.
 
 
-
+{% include visualization.liquid
+   image_path="nephos/lenses.png" %}
 
 
 ### Lexical vs. Semantic Belief Wind Fields
@@ -3341,6 +3342,9 @@ The biological inspiration underlying NEPHOS suggests that **computational immun
 This work lays the foundation for a new paradigm of **proactive epistemic security**, where the health and integrity of AI systems are continuously monitored and maintained through biologically-inspired defensive mechanisms. The ultimate goal is to create AI systems that are not merely robust to known attacks, but **immune to entire classes of epistemic threats**—ensuring that artificial intelligence remains a beneficial force for humanity.
 
 
+{% include visualization.liquid
+   height="auto"
+   image_path="nephos/conclusion.png" %}
 
 ---
 
