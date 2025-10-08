@@ -8,7 +8,44 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=0.75" />
+
+  <style>
+  /* Chromium/Safari: supported */
+  html { zoom: 0.75; }
+
+  /* Firefox fallback (zoom not supported) */
+  @-moz-document url-prefix() {
+    html { zoom: 1; }
+    body {
+      transform: scale(0.75);
+      transform-origin: 0 0;
+      width: calc(100% / 0.75); /* prevent layout from shrinking */
+    }
+  }
+  </style>
+
+  <script>
+  // Extra safety: set at runtime (helps some SPA setups)
+  (function () {
+  const isFirefox = navigator.userAgent.includes('Firefox');
+  if (!isFirefox) {
+  document.documentElement.style.zoom = '0.75';
+  } else {
+  const applyFF = () => {
+  const b = document.body.style;
+  b.transform = 'scale(0.75)';
+  b.transformOrigin = '0 0';
+  b.width = (100/0.75) + '%';
+  };
+  if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', applyFF);
+  } else {
+  applyFF();
+  }
+  }
+  })();
+  </script>
   <title>Neural Cultural Conflict Loss (nCCL) - nDNA</title>
   <link rel="icon" type="image/png" href="/nDNA/assets/img/nDNA_logo.png">
   <link rel="stylesheet" href="/nDNA/assets/css/main.css">
@@ -82,11 +119,11 @@
 <meta property="og:url" content="https://pragyaai.github.io/nDNA/llm/neural-genomics/nCCL/" />
 <meta property="og:site_name" content="nDNA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-10-08T05:43:16+00:00" />
+<meta property="article:published_time" content="2025-10-08T07:00:02+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Neural Cultural Conflict Loss (nCCL)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-08T05:43:16+00:00","datePublished":"2025-10-08T05:43:16+00:00","description":"Lens - Neural Cultural Conflict Loss (nCCL): Quantifying Ideological Misalignment in Cross-Cultural Foundation Models","headline":"Neural Cultural Conflict Loss (nCCL)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nCCL/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nCCL/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-08T07:00:02+00:00","datePublished":"2025-10-08T07:00:02+00:00","description":"Lens - Neural Cultural Conflict Loss (nCCL): Quantifying Ideological Misalignment in Cross-Cultural Foundation Models","headline":"Neural Cultural Conflict Loss (nCCL)","mainEntityOfPage":{"@type":"WebPage","@id":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nCCL/"},"url":"https://pragyaai.github.io/nDNA/llm/neural-genomics/nCCL/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1640,7 +1677,7 @@
 <p>Collectively, this heatmap offers a macroscopic lens to pinpoint and prioritize layers and cultural dimensions that drive semantic dissonance, guiding targeted mitigation strategies. Such insights are foundational for designing culturally aware, semantically robust, and ethically aligned AI systems capable of equitable global deployment.</p>
 
 <figure id="fig:nccl_heatmap" style="text-align: center; margin: 2em 0;">
-  <img src="/nDNA/assets/gifs/neural_genomics/nccl_pairwise_heatmap.png" alt="nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="https://cdn.jsdelivr.net/gh/pragyaai/cdn-assets/assets/gifs/neural_genomics/nccl_pairwise_heatmap.png" alt="nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
     <b>Figure:</b> <b>nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap.</b>
     This visualization displays the normalized Euclidean distances
