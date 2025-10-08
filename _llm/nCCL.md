@@ -468,7 +468,7 @@ From this comprehensive overview, several deep insights emerge. First, semantic 
 Collectively, this heatmap offers a macroscopic lens to pinpoint and prioritize layers and cultural dimensions that drive semantic dissonance, guiding targeted mitigation strategies. Such insights are foundational for designing culturally aware, semantically robust, and ethically aligned AI systems capable of equitable global deployment.
 
 <figure id="fig:nccl_heatmap" style="text-align: center; margin: 2em 0;">
-  <img src="{{ '/assets/gifs/neural_genomics/nccl_pairwise_heatmap.png' | relative_url }}"
+  <img src="{{ site.cdn_url | append: '/assets/gifs/neural_genomics/nccl_pairwise_heatmap.png'  }}"
        alt="nCCL: Layer-wise Pairwise Cultural Semantic Conflict Heatmap"
        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <figcaption style="margin-top: 12px; font-size: 0.9em; color: #555; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
