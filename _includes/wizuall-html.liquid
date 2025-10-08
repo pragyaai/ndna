@@ -3,9 +3,9 @@
     {% if include.image_path %}
   <img
     class="vh-image {% if include.cover_image %}cover{% endif %}"
-    src="{{ '/assets/gifs/' | append: include.image_path | relative_url }}"
+    src="{{ site.cdn_url }}/assets/gifs/{{ include.image_path }}"
     alt="{{ include.alt_text | default: include.title }}"
-    onerror="this.onerror=null; this.src='{{ '/assets/gifs/' | append: include.image_path | relative_url }}';">
+    onerror="this.onerror=null; this.src='{{ site.fallback_cdn }}/assets/{{ include.image_path }}';">
     {% endif %}
     {% if include.interactive_html %}
     <div class="interactive-plot-container vh-html">

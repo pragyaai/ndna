@@ -2,7 +2,7 @@
 wizuall.liquid (stacked: GIF first, HTML below)
 {% endcomment %}
 
-{% assign gif_src = '/assets/gifs/' | append: include.image_path | relative_url %}
+{% assign gif_src = site.cdn_url | append: '/assets/gifs/' | append: include.image_path %}
 {% if include.interactive_html %}
   {% assign html_src = '/assets/html_plots/' | append: include.interactive_html | relative_url %}
 {% endif %}

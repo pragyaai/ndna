@@ -7,7 +7,8 @@ wizuall.liquid
 - Params used: image_path, interactive_html, title, caption, metrics
 {% endcomment %}
 
-{% assign gif_src = '/assets/gifs/' | append: include.image_path | relative_url %}
+{% assign gif_src = site.cdn_url | append: '/assets/gifs/' | append: include.image_path %}
+{% assign alt_gif_src = site.fallback_cdn | append: '/assets/gifs/' | append: include.image_path %}
 {% if include.interactive_html %}
   {% assign html_src = '/assets/html_plots/' | append: include.interactive_html | relative_url %}
 {% endif %}
@@ -27,6 +28,7 @@ wizuall.liquid
         <!-- Left: GIF -->
         <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" style="display:block; overflow:hidden; border-radius:8px;">
           <img src="{{ gif_src }}"
+               onerror="this.onerror=null; this.src='{{ alt_gif_src }}';"
                alt="{{ include.title }}"
                style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
         </a>
@@ -46,6 +48,7 @@ wizuall.liquid
       <!-- Only GIF (no interactive HTML provided) -->
       <a href="{{ gif_src }}" data-lightbox="gallery" data-title="{{ include.title }}" style="display:block; overflow:hidden; border-radius:8px;">
         <img src="{{ gif_src }}"
+             onerror="this.onerror=null; this.src='{{ alt_gif_src }}';"
              alt="{{ include.title }}"
              style="width:100%; height:600px; object-fit:contain; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08);" />
       </a>

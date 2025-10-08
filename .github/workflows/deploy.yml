@@ -48,75 +48,17 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-        with:
-          # Shallow clone to save space
-          fetch-depth: 1
-      
-      - name: Free up disk space 🧹
-        run: |
-          # Check initial disk space
-          df -h
-          # Remove unnecessary packages and clean apt cache
-          sudo apt-get clean || true
-          sudo apt-get autoremove -y || true
-          # Remove large directories we don't need
-          sudo rm -rf /usr/share/dotnet || true
-          sudo rm -rf /usr/local/lib/android || true
-          sudo rm -rf /opt/ghc || true
-          sudo rm -rf /opt/hostedtoolcache/CodeQL || true
-          # Check disk space after cleanup
-          df -h
-      
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
-          bundler-cache: false
-      
-      - name: Install system dependencies 📦
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential
-      
-      - name: Install Ruby dependencies 🔧
-        run: |
-          gem install bundler
-          bundle config set --local without 'development test'
-          bundle install --retry 3 --verbose
-      
-      - name: Debug Jekyll environment �
-        run: |
-          echo "Ruby version: $(ruby --version)"
-          echo "Bundler version: $(bundle --version)"
-          echo "Jekyll version: $(bundle exec jekyll --version)"
-          echo "Gems installed:"
-          bundle list
-          echo "Current directory contents:"
-          ls -la
-          echo "Jekyll config check:"
-          bundle exec jekyll doctor || true
-      
-      - name: Build Jekyll site 🔧
+          bundler-cache: true
+      - name: Install and Build 🔧
         run: |
           export JEKYLL_ENV=production
-          echo "Building Jekyll site..."
-          bundle exec jekyll build --verbose --trace
-        env:
-          JEKYLL_ENV: production
-      
-      - name: Check disk space after build 📊
-        run: |
-          df -h
-          du -sh _site/
-      
+          bundle exec jekyll build
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site
-          # Clean the target branch to avoid accumulating files
-          clean: true
-          # Only deploy necessary files
-          clean-exclude: |
-            .nojekyll
-            CNAME
