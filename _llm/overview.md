@@ -406,18 +406,3 @@ footer {
     </div>
   </div>
 </div>
-
-<div>
-  <h2 style="
-    text-align: center;
-    font-family: 'Montserrat', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    margin: 5rem;
-    font-size: 3.2rem;
-  ">It's a series - releasing <span style="color: #156082;">Volume 1</span> soon</h2>
-  <div class="book-previews">
-    <img src="{{ '/assets/img/cover_ndna.png' | relative_url }}" />
-    <img src="{{ '/assets/img/book_v2_cover.png' | relative_url }}" />
-    <img src="{{ '/assets/img/book_v3_cover.png' | relative_url }}" />
-    <img src="{{ '/assets/img/book_v4_cover.png' | relative_url }}" />
-  </div>
-</div>
