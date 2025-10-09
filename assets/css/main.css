@@ -771,13 +771,13 @@ mjx-container[jax="CHTML"] {
     box-shadow: 0 0 0 .2rem rgba(194,198,202,.5)
 }
 
-.btn.arxive {
+.btn.arxiv {
     background: #b31b1b;
     height: 40px;
     padding: 4px;
 }
 
-.btn.arxive:hover {
+.btn.arxiv:hover {
     background: #931a1a;
 }
 
