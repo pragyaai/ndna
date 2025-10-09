@@ -306,6 +306,10 @@ We propose that LLM adversaries should be treated as **_conditional semantic inf
 
 ## Triggering a Semantic Infection: _Susceptibility_, _Activation_, and _Inheritance_
 
+{% include visualization.liquid
+   height="auto"
+   image_path="viral/semantic_infection.png" %}
+
 Adversarial attacks in LLMs do not unfold through brute force alone—they require a confluence of *model vulnerabilities and prompt structure*. Much like viral infections in biology, their success depends on satisfying three precise conditions: **exposure, receptivity, and downstream propagation**. We formalize this analogy in the neural context:
 
 ### Susceptibility (*Semantic Tropism*)
@@ -338,6 +342,10 @@ nVI provides a high-fidelity lens to interpret adversarial behaviors—revealing
 <!-- XXXXX -->
 
 ## The Neural Virulence Index (nVI)
+
+{% include visualization.liquid
+   height="auto"
+   image_path="viral/nVI.png" %}
 
 We define the full *Neural Virulence Index* (**nVI**) as:
 
@@ -406,6 +414,10 @@ From this perspective, adversarial attacks are not mere _bugs to be patched_, bu
 
 ### The 12 Viral Archetypes of Adversarial Attacks
 
+{% include visualization.liquid
+   height="auto"
+   image_path="viral/archetypes.png" %}
+
 1. **Persuasion Attack** — **_Genome Insertion and Epigenetic Modulation_**. Analogous to the integration of viral DNA sequences or transposable elements that modulate gene expression subtly over time, persuasion attacks gradually reshape the model's response behavior by embedding adversarial instructions deep within the prompt, causing slow but persistent drift in output alignment. This mirrors **_epigenetic changes_** altering cellular phenotype without altering the underlying DNA sequence {% cite kazazian2004mobile feinberg2007phenotypic %}. In NLP, such attacks exploit the model's context window to insert persuasive content that influences subsequent generations without immediate detection {% cite wallace2019universal %}.
 
 2. **Pair Attack** — **_Genetic Recombination_**. Similar to the biological process where DNA segments from different sources recombine to create novel allelic combinations, pair attacks stitch together multiple benign-looking prompt fragments to construct harmful or policy-violating instructions {% cite muller2020meiosis %}. In LLMs, adversaries craft composite prompts by recombining safe instructions that, when interpreted jointly, trigger undesired behavior {% cite carlini2021extracting %}.
@@ -433,6 +445,10 @@ From this perspective, adversarial attacks are not mere _bugs to be patched_, bu
 In the following subsections, we analyze each attack type in depth—deriving its **_neurosemantic signature_**, computing its **nVI profile**, and visualizing its latent behavior in 3D geometry. In the Defense Architecture section, we introduce our proposed defense framework: a modular system of **_semantic vaccines_** that selectively detects and immunizes against these phenotypes without overcorrecting or degrading benign generalization.
 
 ## Persuasion Attack — _Genome Insertion and Epigenetic Modulation_
+
+{% include visualization.liquid
+   height="auto"
+   image_path="viral/persuation_attack_example.png" %}
 
 The **Persuasion Attack** represents a sophisticated, _gradual_, and deeply embedded adversarial strategy against Large Language Models (LLMs), where malicious instructions are covertly woven into the prompt context. Unlike abrupt adversarial triggers, persuasion induces a _slow but persistent_ semantic drift, continuously realigning the model's responses over multiple generations. This subtle attack manifests without overt syntactic anomalies or immediate detection, instead reshaping output alignment stealthily over time.
 
@@ -607,7 +623,7 @@ This trajectory captures the evolving internal geometry across layers $$\ell=20$
 **Biological analogy.** This resembles **_viral genome insertion and epigenetic modulation_**, where viral DNA or transposable elements subtly reprogram host gene expression over time without changing DNA sequence {% cite white2008structures harrison2008viral einav2015viral kozlov2010mechanisms schorn2010membrane %}. Similarly, persuasion attacks embed semantic payloads deep within the prompt, stealthily reshaping model behavior with persistent yet initially undetectable effects {% cite kazazian2004mobile feinberg2007phenotypic wallace2019universal %}.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Persuasion_nDNA_3D_finalaxes.png"
+   image_path="/viral/Persuasion_nDNA_3D_rotation.gif"
    interactive_html="viral/Persuasion_nDNA_interactive.html"
    full_width=true
    image_height="600px"
@@ -626,7 +642,7 @@ Bars show which flow—Base LLaMA or Persuasion Attack—dominates drift. From $
 **Biologically**, this matches **_endosomal escape_**, where viruses breach vesicle membranes with minimal energy to access cytoplasm {% cite lopez2011early matsubara2020viral martin2019endosomal %}. Persuasion attacks similarly apply subtle geometric perturbations, steering latent flows stealthily yet effectively {% cite brown2018passive paul2013vesicular %}.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Persuasion_nTDS_DominancePlot.png"
+   image_path="/viral/Persuasion_nTDS_DominancePlot_rotation.gif"
    interactive_html="viral/Persuasion_nTDS_Dominance_interactive.html"
    full_width=true
    image_height="600px"
@@ -645,7 +661,7 @@ Each red arrow encodes $$\vec{v}_\ell$$ with *length* as bias strength and *orie
 **Biologically**, this parallels **_viral transcriptional gradients_**, where viral genomes impose downstream gene expression bias {% cite schepeler2014lineage brandt2001gradient sharon2014transcriptional %}. The attack imprints directional semantic steering akin to mRNA hijacking ribosomes {% cite jackson2010mrna jan2011mrna kozak1981initiation kane2000mechanisms %}, yielding structurally intact yet semantically reprogrammed outputs.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Persuasion_nDIV_Inheritance_3D.png"
+   image_path="/viral/Persuasion_nDIV_Inheritance_3D_rotation.gif"
    interactive_html="viral/Persuasion_nDIV_interactive.html"
    full_width=true
    image_height="600px"
@@ -668,7 +684,7 @@ Each $$\vec{c}_\ell$$ lies on a 2D plane defined by *orthogonal priors* (e.g., t
 **Biologically**, this parallels *molecular mimicry*: pathogens mimic host proteins to evade detection but trigger autoimmunity {% cite oldstone1987molecular rose2016molecular %}. Persuasion implants *familiar activations* hijacking interpretation, causing **_semantic autoimmunity_**—deceptive resemblance, not anomaly. These fields show how the attack bypasses syntax to subtly corrupt value alignment, *mimicking rather than attacking*.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Persuasion_nCCL_vectorfield_3D.png"
+   image_path="/viral/Persuasion_nCCL_vectorfield_3D_rotation.gif"
    interactive_html="viral/Persuasion_nCCL_interactive.html"
    full_width=true
    image_height="600px"
@@ -694,7 +710,7 @@ This $$\ell_2$$ deviation from the semantic midpoint exposes pliable zones, with
 **Biologically**, this resembles **_stem-like semantic niches_**: layers analogous to *developmental progenitors*, highly plastic, weakly canalized, receptive to minor regulatory inputs {% cite zhang2021epigenetic frantz2015cell %}. These *cognitive pluripotency zones* provide low-friction entry points for behavioral grafting, enabling reprogramming without disrupting upstream encoding.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Persuasion_nEPI_3Dplot.png"
+   image_path="/viral/Persuasion_nEPI_3Dplot_rotation.gif"
    interactive_html="viral/Persuasion_nEPI_interactive.html"
    full_width=true
    image_height="600px"
@@ -963,6 +979,10 @@ Each directional vector encodes $$\vec{v}_\ell$$ with _length_ as bias strength 
 
 ## Pair Attack — _Genetic Recombination of Semantic Subroutines_
 
+{% include visualization.liquid
+   height="auto"
+   image_path="viral/pair_attack_example.png" %}
+
 The **Pair Attack** exemplifies a *composite* and *layer-dependent* adversarial mechanism targeting Large Language Models (LLMs), whereby multiple benign prompt fragments are *recombined* to synthesize harmful or policy-violating instructions. Unlike single-trigger attacks, pair attacks exploit the model's latent semantic algebra by stitching together innocuous instructions, which in concert activate undesired behavior through emergent compositionality. This leads to *complex semantic reprogramming* that manifests not through overt anomalies but via subtle interaction effects distributed across model layers.
 
 ### Biological Analogy
@@ -978,7 +998,7 @@ This trajectory captures the evolving internal geometry across layers $$\ell=20�
 **Biological analogy.** This resembles **_viral genome insertion and epigenetic modulation_**, where viral DNA or transposable elements subtly reprogram host gene expression without altering DNA sequence {% cite white2008structures harrison2008viral einav2015viral kozlov2010mechanisms schorn2010membrane %}. Likewise, pair attacks embed semantic payloads deeply within prompts, stealthily reshaping model behavior with persistent but initially undetectable effects {% cite kazazian2004mobile feinberg2007phenotypic wallace2019universal %}.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Pair_Attack_nDNA_3D_finalaxes.png"
+   image_path="/viral/Pair_Attack_nDNA_3D_rotation.gif"
    interactive_html="viral/Pair_Attack_nDNA_interactive.html"
    full_width=true
    image_height="600px"
@@ -997,7 +1017,7 @@ Bars show which flow—Base LLaMA or Pair Attack—dominates drift. From $$\ell=
 **Biologically**, this matches **_endosomal escape_**, where viruses breach vesicle membranes with minimal energy to access the cytoplasm {% cite lopez2011early matsubara2020viral martin2019endosomal %}. Pair attacks similarly apply subtle geometric perturbations, steering latent flows stealthily yet effectively {% cite brown2018passive paul2013vesicular %}.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Pair_Attack_nTDS_DominancePlot.png"
+   image_path="/viral/Pair_Attack_nTDS_DominancePlot_rotation.gif"
    interactive_html="viral/Pair_Attack_nTDS_Dominance_interactive.html"
    full_width=true
    image_height="600px"
@@ -1016,7 +1036,7 @@ Each red arrow encodes $$\vec{v}_\ell$$ with *length* as bias strength and *orie
 **Biologically**, this parallels **_viral transcriptional gradients_**, where viral genomes impose downstream gene expression bias {% cite schepeler2014lineage brandt2001gradient sharon2014transcriptional %}. The attack imprints directional semantic steering akin to mRNA hijacking ribosomes {% cite jackson2010mrna jan2011mrna kozak1981initiation kane2000mechanisms %}, yielding structurally intact yet semantically reprogrammed outputs.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Pair_Attack_nDIV_Inheritance_3D.png"
+   image_path="/viral/Pair_Attack_nDIV_Inheritance_3D_rotation.gif"
    interactive_html="viral/Pair_Attack_nDIV_interactive.html"
    full_width=true
    image_height="600px"
@@ -1039,7 +1059,7 @@ Each $$\vec{c}_\ell$$ lies on a 2D plane defined by *orthogonal priors* (e.g., t
 **Biologically**, this parallels *molecular mimicry*: pathogens mimic host proteins to evade detection but trigger autoimmunity {% cite oldstone1987molecular rose2016molecular %}. Pair attacks implant *familiar activations* hijacking interpretation, causing **_semantic autoimmunity_**—deceptive resemblance, not anomaly. These fields show how the attack bypasses syntax to subtly corrupt value alignment, *mimicking rather than attacking*.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Pair_Attack_nCCL_vectorfield_3D.png"
+   image_path="/viral/Pair_Attack_nCCL_vectorfield_3D_rotation.gif"
    interactive_html="viral/Pair_Attack_nCCL_interactive.html"
    full_width=true
    image_height="600px"
@@ -1065,7 +1085,7 @@ This $$\ell_2$$ deviation from the semantic midpoint exposes pliable zones, with
 **Biologically**, this resembles **_stem-like semantic niches_**: layers analogous to *developmental progenitors*, highly plastic, weakly canalized, receptive to minor regulatory inputs {% cite zhang2021epigenetic frantz2015cell %}. These *cognitive pluripotency zones* provide low-friction entry points for behavioral grafting, enabling reprogramming without disrupting upstream encoding.
 
 {% include visualization-html.liquid
-   image_path="viral/attacks/Pair_Attack_nEPI_3Dplot.png"
+   image_path="/viral/Pair_Attack_nEPI_3Dplot_rotation.gif"
    interactive_html="viral/Pair_Attack_nEPI_interactive.html"
    full_width=true
    image_height="600px"
