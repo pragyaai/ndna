@@ -35,6 +35,8 @@ Our experiments reveal that even **minimal semantic infiltration** during pretra
 </div>
 {% include inspiration-video.liquid 
    video_id="G_UxoSdvT_I" %}
+{% include inspiration-video.liquid 
+   video_id="v9emGNaGim0" %}
 </div>
 
 ## Stealth Pretraining Seeding (SPS) — Mechanism and Triggerable Vulnerabilities
@@ -3325,6 +3327,9 @@ Testing on models trained with naturally occurring poisoned data:
 
 - **Ethical guidelines** for responsible AI development
 
+{% include visualization.liquid
+   height="auto"
+   image_path="nephos/conclusion.png" %}
 
 
 ### Broader Impact
@@ -3342,9 +3347,6 @@ The biological inspiration underlying NEPHOS suggests that **computational immun
 This work lays the foundation for a new paradigm of **proactive epistemic security**, where the health and integrity of AI systems are continuously monitored and maintained through biologically-inspired defensive mechanisms. The ultimate goal is to create AI systems that are not merely robust to known attacks, but **immune to entire classes of epistemic threats**—ensuring that artificial intelligence remains a beneficial force for humanity.
 
 
-{% include visualization.liquid
-   height="auto"
-   image_path="nephos/conclusion.png" %}
 
 ---
 

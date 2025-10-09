@@ -32,6 +32,11 @@ Together, these vaccines constitute a *semantic immune system*—capable of dete
    title="The Future of AI Research"
    duration="1:43"
    embed_disabled=true %}
+{% include inspiration-video.liquid 
+   video_id="P8wCk8FU7_o"
+   title="What is a Vaccine?"
+   duration="7:23"
+   embed_disabled=true %}
 </div>
 
 **VIRAL bridges adversarial robustness with biological modeling**, offering a generalizable blueprint for building LLMs that are not only aligned—but *immune-aware*.

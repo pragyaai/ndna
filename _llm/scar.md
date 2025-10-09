@@ -29,6 +29,12 @@ The SCAR framework draws deep conceptual motivation from *biological systems*, w
    video_id="7qgyBZFaIds"
    duration="3:48"
    embed_disabled=true %}
+
+{% include inspiration-video.liquid 
+   video_id="BSkEhBRFiwY" %}
+
+{% include inspiration-video.liquid 
+   video_id="2pp17E4E-O8" %}
 </div>
 
 ## The Epistemic Wound: Why We Need SCAR
