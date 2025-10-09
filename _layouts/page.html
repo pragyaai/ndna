@@ -249,8 +249,9 @@
       <img src="{{ '/assets/img/cover_ndna.png' | relative_url }}" alt="nDNA Book Cover" class="ndna-cover-image">
     </a>
     <div class="paper-link">
-      <a class="btn btn-primary arxive" href="#" title="arXiv - nDNA"><img style="height: 100%;" src="{{ '/assets/img/arxiv-logo-white.svg' | relative_url }}" alt="arXiv"></a>
+      <a class="btn btn-primary arxiv" href="#" title="arXiv - nDNA"><img style="height: 100%;" src="{{ '/assets/img/arxiv-logo-white.svg' | relative_url }}" alt="arXiv"></a>
       <a class="btn btn-secondary" id="bib-open-btn" title="Open dialog for exporting citations" data-toggle="modal" data-target="#citeModal" href="#"><i class="fas fa-quote-left"></i><span style="padding-left: 0.5rem;">Cite</span></a>
+      <a class="btn btn-primary github" href="https://github.com/pragyaai/nDNA-v1" title="GitHub - nDNA" target="_blank"><i class="fab fa-github"></i><span style="padding-left: 0.5rem;">GitHub</span></a>
     </div>
     <!-- The Modal Popup (remains unchanged, but is now triggered by the image above) -->
     <div class="overlay" id="overlay">
@@ -282,12 +283,14 @@
         </div>
         <div class="modal-content" style="padding: 1rem;">
           <h4 style="margin-top: 0;">BibTex</h4>
-          <pre id="bibtex" style="padding: 1rem;background-color: #e9ecef;border: 1px solid #dee2e6;">@book{Das25,
- author = “Amitava Das,
- title = “nDNA - the Semantic Helix of Artificial Cognition“,
- year = “2025,
- journal = “arxiv,
- url=“https://pragyaai.github.io/ndna/llm”
+          <pre id="bibtex" style="padding: 1rem;background-color: #e9ecef;border: 1px solid #dee2e6;">@misc{das2025ndnasemantichelix,
+      title={nDNA -- the Semantic Helix of Artificial Cognition}, 
+      author={Amitava Das},
+      year={2025},
+      eprint={2509.18216},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2509.18216}, 
 }</pre>
         </div>
         <div class="modal-footer">
