@@ -1,7 +1,7 @@
 ---
 layout: page
 title: nDNA - the Semantic Helix of Artificial Cognition
-permalink: /llm/series
+permalink: /series
 skip_title: true
 ---
 
