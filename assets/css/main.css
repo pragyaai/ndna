@@ -776,9 +776,19 @@ mjx-container[jax="CHTML"] {
     height: 40px;
     padding: 4px;
 }
-
 .btn.arxiv:hover {
     background: #931a1a;
+}
+
+.btn.youtube {
+    background: #FF0000 !important;
+    border-color: #FF0000 !important;
+    color: white !important;
+}
+.btn.youtube:hover {
+    background: #CC0000 !important;
+    border-color: #CC0000 !important;
+    color: white !important;
 }
 
 .btn-clipboard {
