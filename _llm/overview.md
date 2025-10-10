@@ -6,6 +6,33 @@ skip_title: true
 ---
 
 <style>
+
+.overview-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.overview-container > * {
+  flex: 1;
+  margin: 0 auto;
+}
+
+.book-previews {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: calc(100vw - 232px);
+}
+
+.book-previews > * {
+  width: calc(25% - 1.5rem);
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #f0f4f8, #e2e8f0);
+  border: 2px solid;
+  border-radius: 1rem;
+}
+
 .book-cover {
   display: flex;
   flex-direction: column;
@@ -17,7 +44,7 @@ skip_title: true
 }
 .ndna-hierarchy-ui {
   width: 70%;
-  max-width: 56rem;
+  max-width: 74rem;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -264,31 +291,6 @@ skip_title: true
 
 footer {
   width: unset;
-}
-
-.overview-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.overview-container > * {
-  flex: 1;
-}
-
-.book-previews {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  max-width: calc(100vw - 232px);
-}
-
-.book-previews > * {
-  width: calc(25% - 1.5rem);
-  padding: 0.5rem;
-  box-sizing: border-box;
-  background: linear-gradient(145deg, #f0f4f8, #e2e8f0);
-  border: 2px solid;
-  border-radius: 1rem;
 }
 
 /* @media (max-width: 1680px) {

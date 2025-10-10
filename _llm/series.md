@@ -6,6 +6,9 @@ skip_title: true
 ---
 
 <style>
+.container {
+  max-width: unset !important;
+}
 .book-previews {
   display: flex;
   gap: 1.5rem;
